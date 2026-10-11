@@ -18,6 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 INDEX = ROOT / 'index.html'
 CONTENT = ROOT / 'content/study-enrichment.json'
 COVERAGE = ROOT / 'content/source-coverage.json'
+SAMPLES = ROOT / 'content/interview-samples.json'
 KINDS = {'圖譜', '影片', '期刊', '指南'}
 JS_START = '/* enrichment-ui:start */'
 JS_END = '/* enrichment-ui:end */'
@@ -167,6 +168,25 @@ def validate_integrated(tid, integrated, chapter, data, resource_ids):
             raise ValueError(f'{tid}: connection must resolve to a distinct other topic')
         targets.append(target)
         require_text(connection.get('reason'), f'{tid}.connections.reason')
+
+
+def validate_samples(samples, data):
+    versions = samples.get('versions')
+    if not isinstance(versions, list) or len(versions) != 3:
+        raise ValueError('interview samples need exactly 3 versions')
+    for v in versions:
+        require_text(v.get('label'), 'sample version label')
+        require_text(v.get('hint'), 'sample version hint')
+    require_text(samples.get('note'), 'sample note')
+    general = {i['id'] for i in data['interview'] if 'clinical' not in i}
+    answers = samples.get('answers')
+    if not isinstance(answers, dict) or set(answers) != general:
+        raise ValueError('interview samples must cover exactly the general interview questions')
+    for iid, texts in answers.items():
+        if not isinstance(texts, list) or len(texts) != 3:
+            raise ValueError(f'{iid}: need 3 sample answers')
+        for t in texts:
+            require_text(t, f'{iid} sample answer')
 
 
 def validate_coverage(coverage, enrichment, data):
@@ -388,6 +408,7 @@ function enrichmentOverview(){
 window.addEventListener('hashchange',coverageRestoreHash);
 window.addEventListener('load',coverageRestoreHash);
 document.addEventListener('error',e=>{const image=e.target;if(!image?.classList?.contains('enrichment-image'))return;image.hidden=true;const fallback=image.closest('figure')?.querySelector('.enrichment-image-fallback');if(fallback)fallback.hidden=false;},true);
+function interviewSamples(i){const s=D.interviewSamples,list=s?.answers?.[i.id];if(!list)return '';return `<section class="interview-samples" aria-label="三種示範回答"><div class="preview-heading"><span class="tag">示範回答</span><span class="small">3 種版本 · 虛構情境</span></div><h3>對照三種回答方式</h3><p class="small">${esc(s.note)}</p>${list.map((text,n)=>{const v=s.versions[n];return `<details class="interview-sample"><summary>${n+1}. ${esc(v.label)}<span class="small">${esc(v.hint)}</span></summary><div><p class="preline">${esc(text)}</p><div class="actions">${btn('帶入此版本改寫','use-sample',String(n),'small')}</div></div></details>`;}).join('')}</section>`;}
 /* enrichment-ui:end */
 '''
 
@@ -559,6 +580,8 @@ CSS = r'''
 .coverage-backlinks>a{display:flex;align-items:center;min-height:44px;font-size:14px}
 .coverage-related>.btn{min-height:44px;white-space:normal;text-align:left}
 }
+.interview-samples{margin-top:18px;padding:21px;border:1px solid var(--line);border-radius:10px;background:#f8fbfb}.interview-samples>h3{margin:10px 0 6px}.interview-samples>p.small{color:var(--muted);line-height:1.8}.interview-sample{border-bottom:1px solid var(--line)}.interview-sample:last-child{border-bottom:0}.interview-sample>summary{padding:14px 2px;font-weight:600;line-height:1.7;color:#245968;min-height:48px}.interview-sample>summary>.small{display:block;font-weight:400;color:var(--muted);font-size:13px}.interview-sample>div{padding:0 2px 16px;font-size:16px;line-height:1.95}.interview-sample>summary:focus-visible{outline:3px solid #258b99;outline-offset:3px}
+@media(max-width:760px){.interview-samples{padding:16px}}
 /* enrichment-styles:end */
 '''
 
@@ -576,7 +599,7 @@ def build():
     if not match:
         raise ValueError('Missing course-data JSON')
     data = json.loads(match.group(2))
-    preserved = json.loads(json.dumps({k:v for k,v in data.items() if k not in {'enrichment', 'coverage'}}))
+    preserved = json.loads(json.dumps({k:v for k,v in data.items() if k not in {'enrichment', 'coverage', 'interviewSamples'}}))
     enrichment = json.loads(CONTENT.read_text(encoding='utf-8'))
     enrichment.setdefault('reviewedDate', '2026-10-11')
     validate(enrichment, data)
@@ -587,6 +610,12 @@ def build():
         data['coverage'] = coverage
     elif 'coverage' in data:
         raise ValueError('The app has coverage data but content/source-coverage.json is missing')
+    if SAMPLES.is_file():
+        samples = json.loads(SAMPLES.read_text(encoding='utf-8'))
+        validate_samples(samples, data)
+        data['interviewSamples'] = samples
+    elif 'interviewSamples' in data:
+        raise ValueError('The app has interview samples but content/interview-samples.json is missing')
     data['notebook']['imageScope'] = '本版提供原創教學示意圖，非實際臨床影像；延伸資源連至來源網站的圖譜、影片或文獻。原始共筆 PDF 未公開。'
     preserved['notebook']['imageScope'] = data['notebook']['imageScope']
     js = re.search(r'<script>(.*?)</script>', html, re.S).group(1)
@@ -657,6 +686,18 @@ def build():
         if needle not in js:
             raise ValueError('Chapter action insertion point changed')
         js = js.replace(needle, "case'coverage-focus':e.preventDefault?.();coverageFocus(v);break;\n"+needle, 1)
+    m = function_line(js, 'personalInterviewTools')
+    old = m.group(0)
+    if '${interviewSamples(i)}' not in old:
+        if not old.endswith('</section>`;}'):
+            raise ValueError('personalInterviewTools insertion point changed')
+        new = old[:-len('</section>`;}')]+'</section>${interviewSamples(i)}`;}'
+        js = js[:m.start()] + new + js[m.end():]
+    if "case'use-sample':" not in js:
+        needle = "case'use-short':"
+        if needle not in js:
+            raise ValueError('Interview action insertion point changed')
+        js = js.replace(needle, "case'use-sample':appendToInterview(S.interview,D.interviewSamples?.answers?.[S.interview]?.[+v]||'','示範回答：'+(D.interviewSamples?.versions?.[+v]?.label||''));break;\n"+needle, 1)
     js=js.replace('function render(){',JS.strip()+'\nfunction render(){',1)
     if JS_START not in js:
         raise ValueError('Missing render function')
@@ -673,7 +714,7 @@ def build():
     css=CSS
     html=html.replace('</style>',css.strip()+'\n</style>',1)
     after=json.loads(re.search(r'<script type="application/json" id="course-data">(.*?)</script>',html,re.S).group(1))
-    if {k:v for k,v in after.items() if k not in {'enrichment', 'coverage'}} != preserved:
+    if {k:v for k,v in after.items() if k not in {'enrichment', 'coverage', 'interviewSamples'}} != preserved:
         raise ValueError('Existing app data changed')
     assert html.count(JS_START)==1 and html.count(CSS_START)==1
     return html, after
