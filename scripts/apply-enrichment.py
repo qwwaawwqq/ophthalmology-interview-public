@@ -17,6 +17,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 INDEX = ROOT / 'index.html'
 CONTENT = ROOT / 'content/study-enrichment.json'
+COVERAGE = ROOT / 'content/source-coverage.json'
 KINDS = {'圖譜', '影片', '期刊', '指南'}
 JS_START = '/* enrichment-ui:start */'
 JS_END = '/* enrichment-ui:end */'
@@ -168,19 +169,133 @@ def validate_integrated(tid, integrated, chapter, data, resource_ids):
         require_text(connection.get('reason'), f'{tid}.connections.reason')
 
 
+def validate_coverage(coverage, enrichment, data):
+    """Validate the source audit separately from the unchanged original course."""
+    for key in ['reviewedDate', 'scopeNote']:
+        require_text(coverage.get(key), f'coverage.{key}')
+    chapters = coverage.get('chapters')
+    if not isinstance(chapters, dict) or set(chapters) != set(enrichment['chapters']):
+        raise ValueError('Coverage must contain exactly the existing chapter IDs')
+    topics = {topic['id']: topic for topic in data['topics']}
+    for tid, chapter in chapters.items():
+        require_text(chapter.get('sourceFile'), f'{tid}.coverage.sourceFile')
+        page_count = chapter.get('pageCount')
+        if type(page_count) is not int or page_count < 1:
+            raise ValueError(f'{tid}: positive pageCount required')
+        reviewed = chapter.get('reviewedPages')
+        if not isinstance(reviewed, list) or not reviewed:
+            raise ValueError(f'{tid}: reviewedPages required')
+        seen_pages, teaching_pages = [], set()
+        for span in reviewed:
+            start, end = span.get('from'), span.get('to')
+            if type(start) is not int or type(end) is not int or not 1 <= start <= end <= page_count:
+                raise ValueError(f'{tid}: invalid reviewed page range')
+            if span.get('kind') not in {'teaching', 'exam', 'administrative'}:
+                raise ValueError(f'{tid}: invalid reviewed page kind')
+            require_text(span.get('note'), f'{tid}.reviewedPages.note')
+            seen_pages.extend(range(start, end + 1))
+            if span['kind'] in {'teaching', 'exam'}:
+                teaching_pages.update(range(start, end + 1))
+        if sorted(seen_pages) != list(range(1, page_count + 1)):
+            raise ValueError(f'{tid}: reviewedPages must partition every PDF page exactly once')
+        if chapter.get('unresolved') != []:
+            raise ValueError(f'{tid}: unresolved audit findings must be resolved before publishing')
+        limitations = chapter.get('sourceLimitations', [])
+        if not isinstance(limitations, list):
+            raise ValueError(f'{tid}: sourceLimitations must be a list')
+        for limitation in limitations:
+            pages = limitation.get('pages')
+            if not isinstance(pages, list) or not pages or not all(type(p) is int and 1 <= p <= page_count for p in pages) or len(set(pages)) != len(pages):
+                raise ValueError(f'{tid}: source limitations require unique in-range pages')
+            for key in ['reason', 'handling']:
+                require_text(limitation.get(key), f'{tid}.sourceLimitations.{key}')
+        entries = chapter.get('entries')
+        if not isinstance(entries, list) or not entries:
+            raise ValueError(f'{tid}: coverage entries required')
+        lesson = enrichment['chapters'][tid]
+        units = {unit['id'] for unit in lesson.get('integrated', {}).get('units', [])}
+        resource_ids = {resource['id'] for resource in lesson['resources']}
+        seen_ids, linked_pages = set(), set()
+        for entry in entries:
+            eid = entry.get('id')
+            if not isinstance(eid, str) or not re.fullmatch(r'[a-z][a-z0-9-]*', eid) or eid in seen_ids:
+                raise ValueError(f'{tid}: invalid or duplicate coverage entry ID {eid}')
+            seen_ids.add(eid)
+            for key in ['title', 'clinicalLink', 'pitfall']:
+                require_text(entry.get(key), f'{tid}.{eid}.{key}')
+            pages = entry.get('pages')
+            if not isinstance(pages, list) or not pages or not all(type(p) is int and 1 <= p <= page_count for p in pages) or len(set(pages)) != len(pages):
+                raise ValueError(f'{tid}.{eid}: unique in-range source pages required')
+            linked_pages.update(pages)
+            if entry.get('unitId') not in units:
+                raise ValueError(f'{tid}.{eid}: unresolved integrated unit')
+            sections = entry.get('sectionIndexes')
+            if not isinstance(sections, list) or not sections or not all(type(i) is int and 0 <= i < len(topics[tid]['sections']) for i in sections) or len(set(sections)) != len(sections):
+                raise ValueError(f'{tid}.{eid}: valid original sectionIndexes required')
+            for key in ['terms', 'keyPoints']:
+                values = entry.get(key)
+                if not isinstance(values, list) or not values or (key == 'keyPoints' and not 2 <= len(values) <= 4):
+                    raise ValueError(f'{tid}.{eid}: {key} requires ' + ('2–4 paragraphs' if key == 'keyPoints' else 'search terms'))
+                for value in values:
+                    require_text(value, f'{tid}.{eid}.{key}')
+            for key in ['question', 'answer']:
+                require_text(entry.get('recall', {}).get(key), f'{tid}.{eid}.recall.{key}')
+            related = entry.get('relatedTopics')
+            if not isinstance(related, list) or len(set(related)) != len(related) or not set(related) <= set(topics):
+                raise ValueError(f'{tid}.{eid}: unresolved relatedTopics')
+            refs = entry.get('sourceIds')
+            if not isinstance(refs, list) or not refs or not all(isinstance(ref, str) for ref in refs) or not set(refs) <= resource_ids:
+                raise ValueError(f'{tid}.{eid}: unresolved clinical sourceIds')
+        if teaching_pages - linked_pages:
+            raise ValueError(f'{tid}: teaching/exam pages without topic entries: {sorted(teaching_pages - linked_pages)}')
+
+
 JS = r'''
 /* enrichment-ui:start */
 function chapterEnrichment(t){return D.enrichment?.chapters?.[t.id]||null;}
+function chapterCoverage(t){return D.coverage?.chapters?.[t.id]||null;}
+function coveragePageLabel(pages){const sorted=[...new Set(pages)].sort((a,b)=>a-b),ranges=[];for(let i=0;i<sorted.length;i++){const first=sorted[i];let last=first;while(sorted[i+1]===last+1)last=sorted[++i];ranges.push(first===last?String(first):first+'–'+last);}return ranges.join('、');}
+function coverageLink(t,label,target,css=''){return `<a class="${esc(css)}" href="#${t.id}-${esc(target)}" data-action="coverage-focus" data-value="${t.id}|${esc(target)}">${esc(label)}</a>`;}
+function coverageTarget(t,target){const c=chapterCoverage(t);if(!c)return false;if(target==='coverage')return true;if(target.startsWith('coverage-'))return c.entries.some(entry=>target==='coverage-'+entry.id);if(/^section-\d+$/.test(target))return Number(target.slice(8))<t.sections.length;return chapterEnrichment(t)?.integrated?.units.some(unit=>unit.id===target)||false;}
+function coverageFocus(value,updateHash=true){
+  const [tid,target]=value.split('|'),t=D.topics.find(topic=>topic.id===tid);
+  if(!t||!coverageTarget(t,target))return false;
+  if(S.tab!=='learn'||S.learn!==tid){S.learn=tid;switchTab('learn');}
+  const anchor=tid+'-'+target,node=document.getElementById(anchor);
+  if(!node)return false;
+  for(let parent=node;parent;parent=parent.parentElement)if(parent.tagName==='DETAILS')parent.open=true;
+  const focus=node.tagName==='DETAILS'?node.querySelector('summary'):node;
+  if(focus){focus.setAttribute('tabindex','-1');focus.focus({preventScroll:true});}
+  node.scrollIntoView({block:'start'});
+  if(updateHash&&window.history?.replaceState)window.history.replaceState(null,'','#'+anchor);
+  return true;
+}
+function coverageRestoreHash(){const match=(window.location?.hash||'').match(/^#(notes-\d{2})-(coverage(?:-[a-z][a-z0-9-]*)?|section-\d+|u[1-3])$/);if(match)coverageFocus(match[1]+'|'+match[2],false);}
+function coverageEntry(t,entry,c){
+  const unit=c.integrated.units.find(unit=>unit.id===entry.unitId);
+  const teaching=`${entry.keyPoints.map(paragraph=>`<p>${esc(paragraph)}</p>`).join('')}<div class="coverage-clinical"><p><strong>放進臨床判斷</strong>${esc(entry.clinicalLink)}</p><p><strong>容易漏掉的差別</strong>${esc(entry.pitfall)}</p></div>`;
+  const answer=`<details class="coverage-answer"><summary>${S.recall?'回想後，查看解析與參考回答':'回答後，查看參考回答'}</summary><div>${S.recall?teaching:''}<p class="coverage-recall-answer">${esc(entry.recall.answer)}</p>${enrichmentSourceLinks(entry,c)}</div></details>`;
+  return `<details class="coverage-entry" id="${t.id}-coverage-${entry.id}"><summary><span>${esc(entry.title)}</span><span class="coverage-pages">PDF 頁 ${coveragePageLabel(entry.pages)}</span></summary><div class="coverage-entry-body"><p class="coverage-source">${esc(chapterCoverage(t).sourceFile)} · PDF 頁 ${coveragePageLabel(entry.pages)}</p><p class="coverage-terms">${entry.terms.map(esc).join(' · ')}</p>${S.recall?'':teaching}<p class="coverage-question"><strong>換你整合</strong>${esc(entry.recall.question)}</p>${answer}<nav class="coverage-backlinks" aria-label="${esc(entry.title)}的相關內容">${coverageLink(t,'回到單元：'+unit.title,entry.unitId)}${entry.sectionIndexes.map(i=>coverageLink(t,'基礎重點：'+t.sections[i].title,'section-'+i)).join('')}${coverageLink(t,'查看全章共筆對照','coverage')}</nav>${entry.relatedTopics.length?`<div class="coverage-related"><span>一起複習</span>${entry.relatedTopics.map(id=>btn(shortTitle(id),'learn-topic',id,'small')).join('')}</div>`:''}</div></details>`;
+}
+function coverageUnit(t,c,unit){const entries=(chapterCoverage(t)?.entries||[]).filter(entry=>entry.unitId===unit.id);return entries.length?`<section class="coverage-unit" aria-label="本單元共筆主題詳解"><div class="coverage-unit-heading"><h4>把共筆細節放回這個單元</h4><span>${entries.length} 個主題</span></div><p class="small">從原共筆頁面逐項整理，串連機轉、臨床意義與容易混淆的地方。</p>${entries.map(entry=>coverageEntry(t,entry,c)).join('')}</section>`:'';}
+function coverageAudit(chapter){const names={teaching:'教學內容',exam:'題目概念',administrative:'編務或重複頁'},limitations=chapter.sourceLimitations||[];return `${limitations.length?`<section class="coverage-limitations" aria-label="原共筆的內容限制"><h4>原檔限制與本版處理</h4>${limitations.map(item=>`<div><p><strong>PDF 頁 ${coveragePageLabel(item.pages)}</strong>${esc(item.reason)}</p><p>${esc(item.handling)}</p></div>`).join('')}</section>`:''}<details class="coverage-audit"><summary>頁面核對紀錄</summary><p class="small">頁碼採 PDF 檔案的頁面順序；每頁只歸入一類。題目以概念重述。</p><ul>${chapter.reviewedPages.map(span=>`<li><span>頁 ${span.from===span.to?span.from:span.from+'–'+span.to} · ${names[span.kind]}</span><p>${esc(span.note)}</p></li>`).join('')}</ul></details>`;}
+function coverageEntryOutline(t,chapter){const course=chapterEnrichment(t).integrated;return course.units.map(unit=>{const entries=chapter.entries.filter(entry=>entry.unitId===unit.id);return entries.length?`<div class="coverage-outline-unit"><h4>${coverageLink(t,'單元：'+unit.title,unit.id)}</h4><ul>${entries.map(entry=>`<li>${coverageLink(t,entry.title,'coverage-'+entry.id)}<span>頁 ${coveragePageLabel(entry.pages)}</span></li>`).join('')}</ul></div>`:'';}).join('');}
+function coverageOutline(t){const chapter=chapterCoverage(t);if(!chapter)return '';return `<details class="coverage-outline" id="${t.id}-coverage"><summary><span>本章共筆對照</span><span>${chapter.entries.length} 個主題 · 核對 ${chapter.pageCount} 頁</span></summary><div><p class="coverage-scope">逐頁核對主題；教學重述，非原文全文或官方考綱。</p><p class="small">${esc(chapter.sourceFile)} · 查核 ${esc(D.coverage.reviewedDate)}。點選主題可直接打開對應詳解。</p>${coverageEntryOutline(t,chapter)}${coverageAudit(chapter)}</div></details>`;}
+function coverageOverview(){
+  const chapters=D.topics.filter(t=>chapterCoverage(t));if(!chapters.length)return '';
+  const count=chapters.reduce((n,t)=>n+chapterCoverage(t).entries.length,0),pages=chapters.reduce((n,t)=>n+chapterCoverage(t).pageCount,0);
+  return `<section class="coverage-overview" aria-label="原共筆主題對照"><div class="coverage-overview-heading"><h2>從共筆找到每個主題的位置</h2><p>${chapters.length} 章 · 核對 ${pages} 頁 · ${count} 個主題詳解</p></div><p class="coverage-scope">${esc(D.coverage.scopeNote)}</p><details class="coverage-all"><summary>展開全冊共筆對照</summary><p class="small">依章節與學習單元排列。選擇主題，直接前往詳解；各章保留頁面核對紀錄。</p>${chapters.map(t=>{const chapter=chapterCoverage(t);return `<details class="coverage-all-chapter"><summary><span>${esc(t.title)}</span><span>${chapter.entries.length} 個主題 · ${chapter.pageCount} 頁</span></summary><div>${coverageEntryOutline(t,chapter)}<p>${coverageLink(t,'查看本章頁面核對紀錄','coverage')}</p></div></details>`;}).join('')}</details></section>`;
+}
 function enrichmentSourceLinks(item,chapter){const ids=new Set(item.sourceIds||[]),sources=(chapter.resources||[]).filter(r=>ids.has(r.id));return sources.length?`<div class="enrichment-citations"><span>依據</span>${sources.map(r=>`<a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.title)}</a>`).join('')}</div>`:'';}
 function enrichmentResourceItems(resources){return `<ul>${resources.map(r=>`<li><a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.title)}</a><span class="enrichment-provider">${esc(r.kind)} · ${esc(r.provider)}</span><p>${esc(r.note)}</p></li>`).join('')}</ul>`;}
 function enrichmentContextSources(item,c){const ids=new Set(item.sourceIds||[]),resources=c.resources.filter(r=>ids.has(r.id));return resources.length?`<details class="enrichment-context-sources"><summary>搭配圖譜、影片與文獻理解本單元</summary><div class="enrichment-resource-group">${enrichmentResourceItems(resources)}</div></details>`:'';}
-function enrichmentNav(t){const c=chapterEnrichment(t);if(!c)return '';if(c.integrated)return `<nav class="enrichment-nav" aria-label="本章學習路徑"><span>本章路徑</span>${c.integrated.units.map((u,n)=>`<a href="#${t.id}-${u.id}">${n+1}. ${esc(u.title)}</a>`).join('')}<a href="#${t.id}-case">整合病例</a><a href="#${t.id}-connections">跨章串連</a><a href="#${t.id}-resources">延伸資源</a></nav>`;return `<nav class="enrichment-nav" aria-label="本章延伸學習"><span>延伸學習</span><a href="#${t.id}-figure">圖解</a><a href="#${t.id}-deep">深入理解</a><a href="#${t.id}-challenge">口述挑戰</a><a href="#${t.id}-resources">延伸資源</a></nav>`;}
+function enrichmentNav(t){const c=chapterEnrichment(t);if(!c)return '';if(c.integrated)return `<nav class="enrichment-nav" aria-label="本章學習路徑"><span>本章路徑</span>${chapterCoverage(t)?coverageLink(t,'共筆對照（'+chapterCoverage(t).entries.length+' 主題）','coverage'):''}${c.integrated.units.map((u,n)=>`<a href="#${t.id}-${u.id}">${n+1}. ${esc(u.title)}</a>`).join('')}<a href="#${t.id}-case">整合病例</a><a href="#${t.id}-connections">跨章串連</a><a href="#${t.id}-resources">延伸資源</a></nav>`;return `<nav class="enrichment-nav" aria-label="本章延伸學習"><span>延伸學習</span><a href="#${t.id}-figure">圖解</a><a href="#${t.id}-deep">深入理解</a><a href="#${t.id}-challenge">口述挑戰</a><a href="#${t.id}-resources">延伸資源</a></nav>`;}
 function enrichmentFigure(t,c){const f=c.figure,src='assets/figures/'+t.id+'.svg';return `<figure class="enrichment-figure" id="${t.id}-figure"><img class="enrichment-image" src="${esc(src)}" alt="${esc(f.alt)}" width="960" height="560" loading="lazy" decoding="async"><p class="enrichment-image-fallback" hidden>圖解暫時無法顯示，請先閱讀下方圖說與延伸資料。</p><figcaption><div class="enrichment-figure-heading"><strong>${esc(f.title)}</strong><a href="${esc(src)}" target="_blank" rel="noopener noreferrer">放大圖解</a></div><p>${esc(f.caption)}</p><p class="small">概念示意圖，非實際臨床影像。</p>${enrichmentSourceLinks(f,c)}</figcaption></figure>`;}
 function enrichmentDeepDive(b,c){return `<details class="enrichment-detail"><summary>${esc(b.heading)}</summary><div>${b.paragraphs.map(p=>`<p>${esc(p)}</p>`).join('')}${enrichmentSourceLinks(b,c)}</div></details>`;}
 function enrichmentChallenge(t,c){return `<section class="enrichment-challenge" id="${t.id}-challenge"><h3>口述挑戰</h3><p>${esc(c.oralChallenge.question)}</p><details class="enrichment-detail"><summary>回答後，查看重點</summary><div><p class="preline">${esc(c.oralChallenge.answer)}</p>${enrichmentSourceLinks(c.oralChallenge,c)}</div></details></section>`;}
 function enrichmentResources(t,c){return `<section class="enrichment-resources" id="${t.id}-resources" aria-label="延伸學習資源"><h3>本章資源索引</h3><p class="small">依提示找出重點，再回到單元用自己的話解釋。最近查核 ${esc(D.enrichment.reviewedDate||'2026-10-11')}。</p>${['圖譜','影片','期刊','指南'].map(kind=>{const resources=c.resources.filter(r=>r.kind===kind);return resources.length?`<details class="enrichment-resource-group"><summary>${kind} <span class="small">${resources.length} 項</span></summary>${enrichmentResourceItems(resources)}</details>`:'';}).join('')}</section>`;}
 function renderEnrichment(t){const c=chapterEnrichment(t);if(!c)return '';return `<section class="enrichment-block" aria-label="本章練習與資源">${c.integrated?'':`${enrichmentFigure(t,c)}<section class="enrichment-deep" id="${t.id}-deep" aria-label="深入理解"><h3>深入理解</h3>${c.deepDive.map(b=>enrichmentDeepDive(b,c)).join('')}</section>`}${enrichmentChallenge(t,c)}${enrichmentResources(t,c)}</section>`;}
-function renderLessonSection(t,b,i,compact=false){const key=t.id+':'+i,shown=S.revealed.has(key),title=`<span class="step-number">${i+1}</span>${esc(b.title)}`,ref=b.ref?`<p class="small source-location">${esc(t.source)} · 頁 ${esc(b.ref)}</p>`:'';if(compact&&!S.recall)return `<details class="integrated-reference" id="${t.id}-section-${i}"><summary>${title}</summary><div>${ref}${medicalReviewNote(b.medicalReview)}${list(b.points)}</div></details>`;return `<section class="lesson-block"><h3>${title}</h3>${ref}${b.medicalReview&&!S.recall?medicalReviewNote(b.medicalReview):''}${S.recall?`<div class="recall-box"><p>${esc(b.recall||'先不看筆記：請說出「'+b.title+'」的核心重點，以及要留意的例外。')}</p><button class="btn small" data-action="reveal" data-value="${key}" aria-expanded="${shown}">${shown?'再次遮住':'查看重點'}</button>${shown?`<div class="recall-answer">${list(b.points)}${medicalReviewNote(b.medicalReview)}</div><div class="actions"><span class="small">剛才的回想：</span>${[[true,'說得出來'],[false,'還要再練']].map(([val,label])=>`<button class="chip" data-action="recall-rating" data-value="${key}|${val}" aria-pressed="${meta['recall:'+key]?.mastered===val}">${label}</button>`).join('')}</div>`:''}</div>`:list(b.points)}</section>`;}
+function renderLessonSection(t,b,i,compact=false){const key=t.id+':'+i,shown=S.revealed.has(key),title=`<span class="step-number">${i+1}</span>${esc(b.title)}`,ref=b.ref?`<p class="small source-location">${esc(t.source)} · 頁 ${esc(b.ref)}</p>`:'';if(compact&&!S.recall)return `<details class="integrated-reference" id="${t.id}-section-${i}"><summary>${title}</summary><div>${ref}${medicalReviewNote(b.medicalReview)}${list(b.points)}</div></details>`;return `<section class="lesson-block" id="${t.id}-section-${i}"><h3>${title}</h3>${ref}${b.medicalReview&&!S.recall?medicalReviewNote(b.medicalReview):''}${S.recall?`<div class="recall-box"><p>${esc(b.recall||'先不看筆記：請說出「'+b.title+'」的核心重點，以及要留意的例外。')}</p><button class="btn small" data-action="reveal" data-value="${key}" aria-expanded="${shown}">${shown?'再次遮住':'查看重點'}</button>${shown?`<div class="recall-answer">${list(b.points)}${medicalReviewNote(b.medicalReview)}</div><div class="actions"><span class="small">剛才的回想：</span>${[[true,'說得出來'],[false,'還要再練']].map(([val,label])=>`<button class="chip" data-action="recall-rating" data-value="${key}|${val}" aria-pressed="${meta['recall:'+key]?.mastered===val}">${label}</button>`).join('')}</div>`:''}</div>`:list(b.points)}</section>`;}
 function integratedDecisionRows(unit){
   let content;
   if(S.recall){
@@ -224,7 +339,7 @@ function integratedUnit(t,c,unit,n){
     ${integratedSynthesis(t,c,unit)}
     <div class="integrated-reference-group"><h4>${S.recall?'逐點回想':'回到檢查與知識細節'}</h4>${sections}</div>
     ${depth?`<section class="integrated-depth" aria-label="機轉與例外"><h4>往下追問：機轉與例外</h4>${depth}</section>`:''}
-    ${integratedDecisionRows(unit)}${enrichmentContextSources(unit,c)}
+    ${coverageUnit(t,c,unit)}${integratedDecisionRows(unit)}${enrichmentContextSources(unit,c)}
   </section>`;
 }
 function renderLessonContent(t){
@@ -232,7 +347,7 @@ function renderLessonContent(t){
   if(!c?.integrated)return t.sections.map((b,i)=>renderLessonSection(t,b,i)).join('');
   const course=c.integrated;
   const intro=`<section class="integrated-intro" aria-label="本章學習目標"><p class="integrated-framing">${esc(course.framing)}</p><h3>讀完這章，要能回答</h3><ul>${course.objectives.map(objective=>`<li>${esc(objective)}</li>`).join('')}</ul></section>`;
-  return intro+course.units.map((unit,n)=>integratedUnit(t,c,unit,n)).join('')+integratedCase(t,c)+integratedConnections(t,c);
+  return intro+coverageOutline(t)+course.units.map((unit,n)=>integratedUnit(t,c,unit,n)).join('')+integratedCase(t,c)+integratedConnections(t,c);
 }
 function enrichmentIndex(){
   const out=[];
@@ -240,6 +355,7 @@ function enrichmentIndex(){
     const c=chapterEnrichment(t);
     if(!c)continue;
     const common={topicId:t.id,chapter:t.chapter,action:'learn-topic',target:t.id};
+    for(const entry of chapterCoverage(t)?.entries||[])out.push({...common,type:'共筆主題詳解',title:entry.title,body:[...entry.terms,...entry.keyPoints,entry.clinicalLink,entry.pitfall,entry.recall.question,entry.recall.answer].join(' '),ref:coveragePageLabel(entry.pages),action:'coverage-focus',target:t.id+'|coverage-'+entry.id});
     out.push({...common,type:'圖解',title:c.figure.title,body:c.figure.caption+' '+c.figure.alt});
     for(const b of c.deepDive)out.push({...common,type:'深入理解',title:b.heading,body:b.paragraphs.join(' ')});
     out.push({...common,type:'口述挑戰',title:c.oralChallenge.question,body:c.oralChallenge.answer});
@@ -267,8 +383,10 @@ function enrichmentOverview(){
   const integrated=chapters.filter(t=>chapterEnrichment(t).integrated);
   const units=integrated.reduce((n,t)=>n+chapterEnrichment(t).integrated.units.length,0);
   const description=integrated.length?`${units} 個整合單元、${integrated.length} 個分階段病例，搭配 ${chapters.length} 張概念圖、${sections} 組深入解析及 ${resources} 筆延伸資源。每章先理解機轉，再用病例練判斷。`:`${chapters.length} 張概念圖、${sections} 組深入理解與 ${resources} 筆延伸資源，已加入各章。可直接搜尋概念、圖解或資源名稱。`;
-  return `<section class="enrichment-overview" aria-label="整合學習"><div><strong>${integrated.length?'把知識、圖解與臨床判斷串起來':'圖解與延伸學習'}</strong><p>${description}</p></div>${btn('開始第一章','learn-topic',chapters[0].id,'small')}</section>${enrichmentLearningPaths()}`;
+  return `<section class="enrichment-overview" aria-label="整合學習"><div><strong>${integrated.length?'把知識、圖解與臨床判斷串起來':'圖解與延伸學習'}</strong><p>${description}</p></div>${btn('開始第一章','learn-topic',chapters[0].id,'small')}</section>${enrichmentLearningPaths()}${coverageOverview()}`;
 }
+window.addEventListener('hashchange',coverageRestoreHash);
+window.addEventListener('load',coverageRestoreHash);
 document.addEventListener('error',e=>{const image=e.target;if(!image?.classList?.contains('enrichment-image'))return;image.hidden=true;const fallback=image.closest('figure')?.querySelector('.enrichment-image-fallback');if(fallback)fallback.hidden=false;},true);
 /* enrichment-ui:end */
 '''
@@ -371,6 +489,76 @@ CSS = r'''
 .integrated-paths .section-heading>.small{display:block;margin-top:6px}
 .integrated-path .actions>.btn{min-height:44px;text-align:left;white-space:normal}
 }
+.coverage-overview{margin:30px 0 34px;padding:25px 0;border-top:2px solid #adcdd1;border-bottom:1px solid var(--line)}
+.coverage-overview-heading h2{font-size:20px;line-height:1.6;color:var(--navy);margin:0 0 8px}
+.coverage-overview-heading>p{font-size:14px;color:#426b78;line-height:1.8}
+.coverage-scope{font-size:14px;line-height:1.9;color:var(--muted);margin:12px 0 18px;max-width:76ch}
+.coverage-outline{max-width:76ch;margin:0 auto 14px;border-bottom:1px solid var(--line);scroll-margin-top:90px}
+.coverage-outline>summary,.coverage-all>summary{padding:18px 0;font-size:16px;color:var(--navy);font-weight:600;line-height:1.8}
+.coverage-outline>summary>span+span{font-size:12px;color:var(--muted);font-weight:400;margin-left:15px;display:inline-block}
+.coverage-outline>div{padding:0 0 20px}
+.coverage-outline-unit{margin:23px 0 18px}
+.coverage-outline-unit h4{font-size:14px;line-height:1.8;margin-bottom:9px;color:#426b78}
+.coverage-outline-unit ul{list-style:none;margin:0;padding:0}
+.coverage-outline-unit li{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding:10px 0;border-bottom:1px solid #e3ecef;font-size:15px;line-height:1.8}
+.coverage-outline-unit li>a{flex:1;min-width:0;overflow-wrap:anywhere}
+.coverage-outline-unit li>span{flex-shrink:0;font-size:12px;color:var(--muted);text-align:right;max-width:30%;overflow-wrap:anywhere}
+.coverage-limitations{margin:20px 0;padding:16px;border-left:3px solid #b6a06c;background:#faf8f1;font-size:14px;line-height:1.9}.coverage-limitations h4{font-size:14px;color:var(--navy);margin:0 0 12px}.coverage-limitations>div+div{margin-top:16px}.coverage-limitations strong{display:block;color:var(--navy);font-size:12px;margin-bottom:4px}.coverage-limitations p+p{margin-top:8px}
+.coverage-audit{margin-top:24px;border-top:1px solid var(--line)}
+.coverage-audit>summary{font-size:14px;color:#426b78;line-height:1.8;padding:14px 0}
+.coverage-audit ul{list-style:none;margin:0;padding:0}
+.coverage-audit li{padding:12px 0;border-bottom:1px solid var(--line);font-size:14px;line-height:1.9}
+.coverage-audit li>span{color:var(--navy);font-weight:600}
+.coverage-audit li>p{margin-top:4px;color:var(--muted)}
+.coverage-all-chapter{border-top:1px solid var(--line)}
+.coverage-all-chapter>summary{padding:17px 0;font-size:16px;line-height:1.8;color:var(--navy);font-weight:600}
+.coverage-all-chapter>summary>span+span{display:block;padding-left:18px;font-weight:400;color:var(--muted);font-size:12px}
+.coverage-all-chapter>div{max-width:76ch;padding:0 0 18px 18px}
+.coverage-unit{margin-top:28px;padding-top:22px;border-top:2px solid #adcdd1}
+.coverage-unit-heading{display:flex;align-items:baseline;justify-content:space-between;gap:16px}
+.coverage-unit-heading h4{font-size:16px;color:var(--navy);margin-bottom:7px}
+.coverage-unit-heading>span{flex-shrink:0;color:var(--muted);font-size:12px}
+.coverage-unit>.small{line-height:1.9;margin:0 0 13px;color:var(--muted)}
+.coverage-entry{border-top:1px solid var(--line);scroll-margin-top:90px}
+.coverage-entry>summary{position:relative;padding:17px 25px 17px 0;list-style:none;color:#245968;font-size:16px;line-height:1.85;font-weight:600}
+.coverage-entry>summary::-webkit-details-marker{display:none}
+.coverage-entry>summary:after{content:'＋';position:absolute;right:1px;top:17px;font-size:16px;font-weight:400;color:var(--muted)}
+.coverage-entry[open]>summary:after{content:'−'}
+.coverage-pages{display:block;font-size:12px;line-height:1.8;color:var(--muted);font-weight:400;margin-top:3px}
+.coverage-entry-body{font-size:16px;line-height:1.95;padding:0 0 23px}
+.coverage-entry-body>p+p{margin-top:15px}
+.coverage-entry-body>.coverage-source{font-size:12px;color:var(--muted);margin:0}
+.coverage-entry-body>.coverage-terms{font-size:13px;color:#426b78;margin:4px 0 20px;overflow-wrap:anywhere}
+.coverage-clinical{margin:20px 0;padding-left:16px;border-left:3px solid #adcdd1}
+.coverage-clinical strong,.coverage-question>strong{display:block;font-size:13px;color:var(--muted);margin-bottom:4px}
+.coverage-clinical p+p{margin-top:15px}
+.coverage-entry-body>.coverage-question{color:var(--navy);margin-top:22px}
+.coverage-answer{border:1px solid var(--line);border-radius:5px;margin-top:13px;padding:0 15px;background:#f8fbfb}
+.coverage-answer>summary{font-size:14px;color:#245968;padding:14px 0;line-height:1.8;font-weight:600}
+.coverage-answer>div{padding:0 0 17px;line-height:1.95}
+.coverage-answer>div>p+p{margin-top:15px}
+.coverage-recall-answer{white-space:pre-line}
+.coverage-backlinks{display:flex;flex-direction:column;align-items:flex-start;gap:8px;margin-top:20px;font-size:13px;line-height:1.8}
+.coverage-related{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-top:17px}
+.coverage-related>span{font-size:12px;color:var(--muted);margin-right:4px}
+.coverage-entry>summary:focus-visible,.coverage-answer>summary:focus-visible,.coverage-outline>summary:focus-visible,.coverage-all>summary:focus-visible,.coverage-all-chapter>summary:focus-visible,.coverage-audit>summary:focus-visible,[data-action="coverage-focus"]:focus-visible{outline:3px solid #258b99;outline-offset:3px}
+@media(max-width:760px){
+.coverage-entry,.coverage-outline{scroll-margin-top:145px}
+.coverage-overview-heading h2{font-size:19px}
+.coverage-overview{margin:24px 0;padding:21px 0}
+.coverage-outline>summary>span+span{display:block;margin-left:18px}
+.coverage-outline-unit li{display:block;padding:11px 0;font-size:16px}
+.coverage-outline-unit li>span{display:block;text-align:left;max-width:100%;margin-top:3px}
+.coverage-all-chapter>div{padding-left:0}
+.coverage-unit-heading{display:block}
+.coverage-unit-heading>span{display:block;margin-bottom:9px}
+.coverage-entry>summary{min-height:60px}
+.coverage-entry-body{font-size:16px}
+.coverage-answer{padding-left:12px;padding-right:12px}
+.coverage-answer>summary,.coverage-all>summary,.coverage-all-chapter>summary,.coverage-audit>summary{min-height:48px}
+.coverage-backlinks>a{display:flex;align-items:center;min-height:44px;font-size:14px}
+.coverage-related>.btn{min-height:44px;white-space:normal;text-align:left}
+}
 /* enrichment-styles:end */
 '''
 
@@ -388,11 +576,17 @@ def build():
     if not match:
         raise ValueError('Missing course-data JSON')
     data = json.loads(match.group(2))
-    preserved = json.loads(json.dumps({k:v for k,v in data.items() if k != 'enrichment'}))
+    preserved = json.loads(json.dumps({k:v for k,v in data.items() if k not in {'enrichment', 'coverage'}}))
     enrichment = json.loads(CONTENT.read_text(encoding='utf-8'))
     enrichment.setdefault('reviewedDate', '2026-10-11')
     validate(enrichment, data)
     data['enrichment'] = enrichment
+    if COVERAGE.is_file():
+        coverage = json.loads(COVERAGE.read_text(encoding='utf-8'))
+        validate_coverage(coverage, enrichment, data)
+        data['coverage'] = coverage
+    elif 'coverage' in data:
+        raise ValueError('The app has coverage data but content/source-coverage.json is missing')
     data['notebook']['imageScope'] = '本版提供原創教學示意圖，非實際臨床影像；延伸資源連至來源網站的圖譜、影片或文獻。原始共筆 PDF 未公開。'
     preserved['notebook']['imageScope'] = data['notebook']['imageScope']
     js = re.search(r'<script>(.*?)</script>', html, re.S).group(1)
@@ -443,12 +637,26 @@ def build():
         js=js[:m.start()]+new+js[m.end():]
     m = function_line(js, 'notebook')
     old = m.group(0)
-    if '${enrichmentOverview()}' not in old:
+    if 'enrichmentOverview()' not in old:
         needle='${searching?`<section class="search-section">'
         if needle not in old:
             raise ValueError('notebook insertion point changed')
         new=old.replace(needle,'${enrichmentOverview()}'+needle,1)
         js=js[:m.start()]+new+js[m.end():]
+    m = function_line(js, 'notebook')
+    old = m.group(0)
+    new = old.replace("x.type==='臨床口試'?'進入口試':'閱讀本章'", "x.type==='臨床口試'?'進入口試':x.type==='共筆主題詳解'?'閱讀這個主題':'閱讀本章'")
+    new = new.replace('${enrichmentOverview()}', "${searching?'':enrichmentOverview()}")
+    new = new.replace('${nSections}</strong> 個知識重點', '${nSections}</strong> 個基礎重點')
+    meta = '${t.sections.length} 個重點<span>${qs.length} 題</span>'
+    if '${chapterCoverage(t)?.entries.length' not in new:
+        new = new.replace(meta, '${t.sections.length} 個基礎重點${chapterCoverage(t)?`<span>${chapterCoverage(t)?.entries.length} 個共筆詳解</span>`:\'\'}<span>${qs.length} 題</span>')
+    js=js[:m.start()]+new+js[m.end():]
+    if "case'coverage-focus':" not in js:
+        needle = "case'learn-topic':"
+        if needle not in js:
+            raise ValueError('Chapter action insertion point changed')
+        js = js.replace(needle, "case'coverage-focus':e.preventDefault?.();coverageFocus(v);break;\n"+needle, 1)
     js=js.replace('function render(){',JS.strip()+'\nfunction render(){',1)
     if JS_START not in js:
         raise ValueError('Missing render function')
@@ -465,7 +673,7 @@ def build():
     css=CSS
     html=html.replace('</style>',css.strip()+'\n</style>',1)
     after=json.loads(re.search(r'<script type="application/json" id="course-data">(.*?)</script>',html,re.S).group(1))
-    if {k:v for k,v in after.items() if k != 'enrichment'} != preserved:
+    if {k:v for k,v in after.items() if k not in {'enrichment', 'coverage'}} != preserved:
         raise ValueError('Existing app data changed')
     assert html.count(JS_START)==1 and html.count(CSS_START)==1
     return html, after
@@ -480,4 +688,5 @@ if __name__ == '__main__':
     if not args.check:
         INDEX.write_bytes(encoded)
     chapters=data['enrichment']['chapters']
-    print(json.dumps({'mode':'check' if args.check else 'write','index':str(INDEX),'bytes':len(encoded),'sha256':hashlib.sha256(encoded).hexdigest(),'chapters':len(chapters),'deep_dive_sections':sum(len(c['deepDive']) for c in chapters.values()),'integrated_units':sum(len(c.get('integrated',{}).get('units',[])) for c in chapters.values()),'integrated_cases':sum('integrated' in c for c in chapters.values()),'learning_paths':len(data['enrichment'].get('learningPaths',[])),'resources':sum(len(c['resources']) for c in chapters.values()),'existing_content_preserved':True,'updated_metadata':['notebook.imageScope']},ensure_ascii=False))
+    coverage_chapters = data.get('coverage', {}).get('chapters', {})
+    print(json.dumps({'mode':'check' if args.check else 'write','index':str(INDEX),'bytes':len(encoded),'sha256':hashlib.sha256(encoded).hexdigest(),'chapters':len(chapters),'deep_dive_sections':sum(len(c['deepDive']) for c in chapters.values()),'integrated_units':sum(len(c.get('integrated',{}).get('units',[])) for c in chapters.values()),'integrated_cases':sum('integrated' in c for c in chapters.values()),'learning_paths':len(data['enrichment'].get('learningPaths',[])),'resources':sum(len(c['resources']) for c in chapters.values()),'coverage_topics':sum(len(c['entries']) for c in coverage_chapters.values()),'reviewed_pdf_pages':sum(c['pageCount'] for c in coverage_chapters.values()),'existing_content_preserved':True,'updated_metadata':['notebook.imageScope']},ensure_ascii=False))

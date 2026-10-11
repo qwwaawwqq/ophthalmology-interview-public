@@ -84,6 +84,33 @@
           "provider": "University of Iowa · EyeRounds",
           "note": "大學病例撰寫指南；對照視力、矯正方式、眼壓、瞳孔與視野的紀錄要素。",
           "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov01-oct",
+          "title": "OCT：結構、用途與影像限制",
+          "url": "https://eyewiki.aao.org/Optical_Coherence_Tomography",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "對照前後節 OCT 的分層、介質混濁與量測限制；不是單張影像診斷工具。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov01-octa",
+          "title": "OCTA：分層血流與常見假象",
+          "url": "https://eyewiki.aao.org/Optical_Coherence_Tomography_Angiography",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "核對免染劑血流成像、無法顯示直接滲漏及投射／分層假象。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov01-fa",
+          "title": "FA：正常循環與螢光型態",
+          "url": "https://eyewiki.aao.org/Fluorescein_Angiography",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "以動態影像區分 leakage、staining、pooling、window defect 及低螢光原因。",
+          "verifiedDate": "2026-10-11"
         }
       ],
       "figure": {
@@ -351,6 +378,87 @@
           "provider": "AAO · EyeWiki",
           "note": "教學綜述；聚焦術前評估與高度近視原有眼底風險，勿把個別研究數值當成所有術式的固定風險。",
           "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov02-optics",
+          "title": "Clinical Optics：光線、透鏡、屈光與接觸鏡課程",
+          "url": "https://morancore.utah.edu/section-03-clinical-optics/",
+          "kind": "指南",
+          "provider": "University of Utah · Moran CORE",
+          "note": "大學光學教學索引，按幾何光學、光性質、屈光狀態與鏡片主題延伸。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov02-prism",
+          "title": "Prism：光偏折、影像方向與臨床使用",
+          "url": "https://morancore.utah.edu/section-03-clinical-optics/prism/",
+          "kind": "指南",
+          "provider": "University of Utah · Moran CORE",
+          "note": "以圖示核對基底／頂端方向及雙眼視覺用途。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov02-wavefront",
+          "title": "Wavefront Testing：低階與高階像差",
+          "url": "https://eyewiki.aao.org/Wavefront_Testing",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "對照 Zernike 模式、球柱鏡不足以描述的像差與量測限制。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov02-laser",
+          "title": "Lasers：光凝、光切削與光破裂",
+          "url": "https://eyewiki.aao.org/Lasers_%28surgery%29",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "雷射組織交互作用與眼科用途；依具體術式及條件判讀。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov02-aniseikonia",
+          "title": "Aniseikonia：光學與視網膜性影像大小差",
+          "url": "https://eyewiki.aao.org/Aniseikonia",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "核對 Knapp 模型限制及接觸鏡不能完全解決的情境。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov02-contacts",
+          "title": "Contact Lenses：材料、透氧與臨床配適",
+          "url": "https://eyewiki.aao.org/Contact_Lenses",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "對照 Dk／t、軟硬式材料、驗配與併發症；不以材料名稱保證安全。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov02-blue",
+          "title": "藍光與螢幕：證據與眼疲勞",
+          "url": "https://aao.org/eye-health/tips-prevention/should-you-be-worried-about-blue-light",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology",
+          "note": "AAO 官方說明：區分數位眼疲勞、藍光鏡片宣稱與戶外保護。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov02-smile",
+          "title": "SMILE／KLEx：透鏡取出、神經與術後乾眼",
+          "url": "https://eyewiki.aao.org/Small_Incision_Lenticule_Extraction_%28SMILE%29",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "核對手術機轉與仍可能存在的乾眼；個別核准範圍依所在地規範。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov02-fda",
+          "title": "LASIK 術前：哪些狀況需審慎評估",
+          "url": "https://www.fda.gov/medical-devices/lasik/when-lasik-not-me",
+          "kind": "指南",
+          "provider": "U.S. Food and Drug Administration",
+          "note": "FDA 官方資料，包含角膜、乾眼、瞳孔與既往手術的風險評估。",
+          "verifiedDate": "2026-10-11"
         }
       ],
       "figure": {
@@ -616,6 +724,96 @@
           "provider": "University of Iowa · EyeRounds",
           "note": "2020教學病例；對照明暗瞳孔、交感路徑與頸動脈影像，理解早期藥物試驗的限制。",
           "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n03-adie-coverage",
+          "title": "Adie 瞳孔：光近分離、藥物試驗與預後",
+          "url": "https://eyewiki.aao.org/Adie_Pupil",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "更正調節完全不受影響、一定短期自癒及稀釋試驗專一性的過度簡化。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n03-ton-coverage",
+          "title": "創傷性視神經病變：治療證據與限制",
+          "url": "https://eyewiki.aao.org/Traumatic_Optic_Neuropathy",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "區分需要立即處理的壓迫性急症與間接性 TON；不把高劑量類固醇當常規。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n03-on-coverage",
+          "title": "脫髓鞘視神經炎：典型表現與非典型鑑別",
+          "url": "https://eyewiki.aao.org/Demyelinating_Optic_Neuritis",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "視神經炎表型、MS、NMOSD 與 MOGAD 的鑑別架構。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n03-papilledema-coverage",
+          "title": "Papilledema 與假性視乳頭水腫",
+          "url": "https://eyewiki.aao.org/Papilledema",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "顱內壓相關視乳頭水腫的評估及替代診斷。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n03-neuroretinitis-coverage",
+          "title": "Neuroretinitis：視盤水腫與黃斑星芒",
+          "url": "https://eyewiki.org/Neuroretinitis",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "黃斑星芒可延後出現，依病史搜尋感染及其他病因。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n03-perineuritis-coverage",
+          "title": "Optic perineuritis：視神經鞘發炎",
+          "url": "https://eyewiki.aao.org/Optic_Perineuritis",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "影像定位與全身病因搜尋。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n03-naion-coverage",
+          "title": "NAION 與 PION：缺血位置和診斷",
+          "url": "https://eyewiki.aao.org/Non-Arteritic_Anterior_Ischemic_Optic_Neuropathy_%28NAION%29",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "視盤擁擠、前後部缺血與臨床處理限制。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n03-gca-coverage",
+          "title": "GCA：不能延誤的視力威脅",
+          "url": "https://eyewiki.aao.org/Giant_Cell_Arteritis",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "AAION 的全身線索、及時類固醇治療與確診安排。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n03-ino-coverage",
+          "title": "INO 與水平凝視迴路",
+          "url": "https://eyewiki.aao.org/Internuclear_Ophthalmoplegia",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "MLF、VI 核、PPRF 及 one-and-a-half 的動作定位。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n03-skew-coverage",
+          "title": "Skew deviation 的前庭眼動定位",
+          "url": "https://eyewiki.aao.org/Skew_Deviation",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "以中樞病變為主，亦有周邊前庭原因；與第四神經麻痺鑑別。",
+          "verifiedDate": "2026-10-11"
         }
       ],
       "figure": {
@@ -872,6 +1070,69 @@
           "kind": "指南",
           "provider": "AAPOS",
           "note": "理解遠視矯正、戴鏡殘餘內斜及為何手術後仍可能需要眼鏡。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n04-brown-coverage",
+          "title": "Brown syndrome 的限制型眼球運動",
+          "url": "https://www.aapos.org/glossary/brown-syndrome",
+          "kind": "指南",
+          "provider": "AAPOS",
+          "note": "圖解內轉位上轉受限，依第一眼位、頭位與雙眼視決定處理。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n04-duane-coverage",
+          "title": "Duane syndrome：後縮與共同收縮",
+          "url": "https://www.aapos.org/glossary/duane-syndrome",
+          "kind": "指南",
+          "provider": "AAPOS",
+          "note": "先天性外轉異常與眼球後縮的解釋。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n04-moebius-coverage",
+          "title": "Möbius syndrome：VI 與 VII 的先天異常",
+          "url": "https://eyewiki.aao.org/M%C3%B6bius_Syndrome",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "外轉障礙與顏面無力、閉合不全的跨系統關係。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n04-cfeom-coverage",
+          "title": "CFEOM：先天眼外肌纖維化概述",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK1348/",
+          "kind": "指南",
+          "provider": "GeneReviews · University of Washington",
+          "note": "先天顱神經支配異常與遺傳評估的專家綜述。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n04-oma-coverage",
+          "title": "Oculomotor apraxia：掃視啟動與頭部代償",
+          "url": "https://www.aapos.org/glossary/oculomotor-apraxia",
+          "kind": "指南",
+          "provider": "AAPOS",
+          "note": "2026 更新；眼動啟動障礙與發展追蹤。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n04-som-coverage",
+          "title": "Superior oblique myokymia：單眼影像晃動",
+          "url": "https://eyewiki.aao.org/Superior_Oblique_Myokymia",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "區分上斜肌微顫與一般眼皮跳。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n04-floor-coverage",
+          "title": "眶底骨折與夾困急症",
+          "url": "https://eyewiki.aao.org/Orbital_Floor_Fractures",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "運動受限、眼心反射與需緊急處理的夾困。",
           "verifiedDate": "2026-10-11"
         }
       ],
@@ -1145,6 +1406,150 @@
           "provider": "University of Iowa · EyeRounds",
           "note": "含真實外傷照片；本單元參考安全順序，歷史藥物處方不作現行用藥依據。",
           "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov05-dystrophy",
+          "title": "基質失養：三種外觀與遺傳層次",
+          "url": "https://eyewiki.org/Corneal_Stromal_Dystrophies",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "補充共筆圖片中 Granular、Lattice、Macular 三型。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov05-acanth",
+          "title": "棘阿米巴角膜炎：潰瘍與穿孔風險",
+          "url": "https://eyewiki.org/Acanthamoeba_Keratitis",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "校正原筆記「不會造成潰瘍」的錯誤概括。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov05-fungal",
+          "title": "真菌角膜炎及治療性移植",
+          "url": "https://eyewiki.org/Fungal_Keratitis",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "失控感染、穿孔時可需治療性移植；不是一概禁忌。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov05-chemical",
+          "title": "酸鹼眼化學傷：沖洗、角膜緣與預後",
+          "url": "https://eyewiki.org/Chemical_%28Alkali_and_Acid%29_Injury_of_the_Conjunctiva_and_Cornea",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "包括氫氟酸例外與角膜緣損傷分級。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov05-rejection",
+          "title": "角膜免疫豁免與移植排斥",
+          "url": "https://eyewiki.aao.org/Corneal_Allograft_Rejection_and_Failure",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "免疫豁免不等於不會發炎或排斥。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov05-dmek",
+          "title": "DMEK與DSAEK替換的層次",
+          "url": "https://eyewiki.aao.org/Descemet_Membrane_Endothelial_Keratoplasty",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "理解內皮移植解剖；不把舊教材成功率當個人預測。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov05-hsv",
+          "title": "HSV上皮性角膜炎",
+          "url": "https://eyewiki.aao.org/Herpes_Simplex_Virus_Keratitis",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "活動性上皮病灶的類固醇限制。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov05-hsvlayers",
+          "title": "HSV不同層次的治療差異",
+          "url": "https://eyewiki.aao.org/LASIK_in_Patients_With_Herpes_Simplex_Virus",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "參考分層治療段落，理解基質／內皮炎的抗病毒保護。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov05-kc",
+          "title": "圓錐角膜：形態、影像與臨床",
+          "url": "https://eyewiki.org/Keratoconus",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "包含進展性不規則散光及急性水腫。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov05-cxl",
+          "title": "角膜交聯的穩定作用",
+          "url": "https://eyewiki.org/Corneal_Collagen_Cross-Linking",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "交聯目標是減緩擴張進展，與眼鏡矯正目標不同。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov05-ossn",
+          "title": "眼表鱗狀腫瘤：上皮內與侵襲性病變",
+          "url": "https://eyewiki.aao.org/Ocular_Surface_Squamous_Neoplasia",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "對照上皮內病變、侵襲癌與治療選擇。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov05-hzo",
+          "title": "眼帶狀皰疹：皮膚與遲發眼部影響",
+          "url": "https://eyewiki.org/Herpes_Zoster_Ophthalmicus",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "Hutchinson徵、角膜及葡萄膜併發症。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov05-wilson",
+          "title": "Wilson病與Kayser–Fleischer環",
+          "url": "https://eyewiki.aao.org/Wilson%27s_Disease/Kayser_Fleischer_Ring",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "銅沉積位於Descemet膜；結合全身評估。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov05-verticillata",
+          "title": "角膜漩渦：藥物與Fabry病",
+          "url": "https://eyewiki.org/Cornea_Verticillata",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "上皮沉積的藥物和代謝性鑑別。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov05-myeloma",
+          "title": "角膜混濁作為骨髓瘤初始表現：病例研究",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5912009/",
+          "kind": "期刊",
+          "provider": "American Journal of Case Reports · PMC",
+          "note": "原始病例說明角膜沉積可引出全身單株蛋白疾病；不是篩檢盛行率依據。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov05-erlotinib",
+          "title": "Erlotinib處方標示：眼部損傷警示",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=2c4c7353-b81c-4651-8aac-6d15e88145af&type=display",
+          "kind": "指南",
+          "provider": "NLM · DailyMed",
+          "note": "參照5.8眼部警示與治療調整；由腫瘤及眼科團隊共同處理。",
+          "verifiedDate": "2026-10-11"
         }
       ],
       "figure": {
@@ -1412,6 +1817,123 @@
           "kind": "圖譜",
           "provider": "University of Iowa · EyeRounds",
           "note": "用實際瞳孔緣、晶狀體前囊及懸韌帶照片，理解術前檢查對手術規劃的影響。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov06-embryo",
+          "title": "眼胚胎學：晶狀體板、囊泡與纖維",
+          "url": "https://eyewiki.aao.org/Embryology_of_the_Eye_and_Ocular_Adnexa",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "核對表面外胚層來源與初級／次級纖維；避免將視杯當晶狀體直接來源。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov06-histology",
+          "title": "眼組織學：囊膜、上皮與晶狀體纖維",
+          "url": "https://eyewiki.aao.org/Basic_Histology_of_the_Eye_and_Accessory_Structures",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "對照晶狀體三大組成與成熟纖維去胞器的形態。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov06-remnants",
+          "title": "Epicapsular stars 與 persistent pupillary membrane",
+          "url": "https://www.eyerounds.org/atlas/pages/epicapsular-stars.htm",
+          "kind": "圖譜",
+          "provider": "University of Iowa · EyeRounds",
+          "note": "大學臨床圖譜，區分前囊星點與跨瞳孔細絲的所在位置。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov06-mittendorf",
+          "title": "Mittendorf dot：後囊的玻璃體動脈殘跡",
+          "url": "https://eyerounds.org/atlas/pages/mittendorf-dots.htm",
+          "kind": "圖譜",
+          "provider": "University of Iowa · EyeRounds",
+          "note": "圖譜對照後囊位置及與其他胎兒血管殘留的關係。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov06-pfv",
+          "title": "Persistent fetal vasculature：由殘跡到牽引病變",
+          "url": "https://eyerounds.org/atlas/pages/PFV/index.htm",
+          "kind": "圖譜",
+          "provider": "University of Iowa · EyeRounds",
+          "note": "真實眼底與病例圖譜；對照 PFV 與舊名 PHPV。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov06-child",
+          "title": "兒童白內障：先天形態、系統病與弱視",
+          "url": "https://eyewiki.aao.org/Cataracts_in_Children%2C_Congenital_and_Acquired",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "依單雙眼、發育異常與系統線索理解病因及視覺發育風險。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov06-alport",
+          "title": "Alport：前圓錐晶狀體與腎／聽覺線索",
+          "url": "https://eyewiki.aao.org/ALPORT_SYNDROME",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "核對第四型膠原、lenticonus 與系統表現的連結。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov06-micro",
+          "title": "Microspherophakia：形態、關聯與閉角機轉",
+          "url": "https://eyewiki.aao.org/Microspherophakia",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "對照小赤道直徑、厚晶狀體、近視與瞳孔阻滯；處置需個別專科評估。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov06-ectopia",
+          "title": "Ectopia lentis：懸韌帶與遺傳疾病",
+          "url": "https://eyewiki.aao.org/Ectopia_Lentis",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "核對外傷、Marfan、homocystinuria 及系統評估。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov06-aqp",
+          "title": "AQP0：晶狀體纖維的水通道與透明",
+          "url": "https://www.nei.nih.gov/research-and-training/research-news/researchers-get-close-view-water-pores-needed-eyes-lens",
+          "kind": "指南",
+          "provider": "NIH · National Eye Institute",
+          "note": "NEI 研究說明，連結膜蛋白、纖維排列與晶狀體透明；不當作現行藥物療效。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov06-oxidative",
+          "title": "晶狀體氧化壓力與抗氧化路徑",
+          "url": "https://eyewiki.aao.org/Oxidative_Stress_in_Ophthalmology",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "對照糖解、HMP、sorbitol 與 GSH 系統；生化角色不等於補充劑臨床療效。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov06-capsule",
+          "title": "Posterior capsular rent：囊膜構造與風險",
+          "url": "https://eyewiki.aao.org/Posterior_Capsular_Rent",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "核對中央後囊薄弱與手術步驟相關風險；內容供理解而非操作指引。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov06-hydro",
+          "title": "Hydro manoeuvres：分離的兩個平面",
+          "url": "https://eyewiki.aao.org/Hydro_Manoeuvres_in_Cataract_Surgery",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "對照 hydrodissection 與 hydrodelineation 的解剖差異。",
           "verifiedDate": "2026-10-11"
         }
       ],
@@ -1686,6 +2208,69 @@
           "kind": "圖譜",
           "provider": "University of Iowa · EyeRounds",
           "note": "2019年教學病例；對照雙眼近視位移、睫狀脈絡膜滲出及前房變淺，非個別處方模板。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov07-ohts",
+          "title": "OHTS原研究結果與風險差",
+          "url": "https://ohts.wustl.edu/results/",
+          "kind": "指南",
+          "provider": "Washington University · OHTS",
+          "note": "5年4.4%與9.5%應同時呈現相對及絕對風險，不能只說治療浪費。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov07-meds",
+          "title": "降眼壓滴劑：機轉及全身風險",
+          "url": "https://eyewiki.org/Review_of_Topical_Glaucoma_Medications",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "校正brimonidine促進的是葡萄膜鞏膜外流，及局部滴藥全身效應。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov07-pcg",
+          "title": "兒童與原發先天性青光眼",
+          "url": "https://eyewiki.org/Primary_Congenital_Glaucoma",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "三聯徵、Haab紋、發育異常分類及手術角色。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov07-xen",
+          "title": "XEN的結膜下引流路徑",
+          "url": "https://eyewiki.org/Xen_Glaucoma_Treatment_System",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "與導向Schlemm管的植入物區分。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov07-brimonidine-label",
+          "title": "Brimonidine標示：未滿2歲禁用",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=87c5a534-4321-46c7-9938-84dca34b6506",
+          "kind": "指南",
+          "provider": "NLM · DailyMed",
+          "note": "4.1列明未滿2歲禁用；8.4說明較大兒童的鎮靜與呼吸風險。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov07-migs",
+          "title": "微創青光眼手術的不同流出路徑",
+          "url": "https://eyewiki.org/Microinvasive_Glaucoma_Surgery_%28MIGS%29",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "比較iStent、Hydrus與結膜下流出概念。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov07-field",
+          "title": "Humphrey視野報表：MD、PSD與可靠度判讀",
+          "url": "https://eyerounds.org/tutorials/VF-testing/index.htm",
+          "kind": "圖譜",
+          "provider": "University of Iowa · EyeRounds",
+          "note": "Reading the Humphrey Visual Field Printout直接說明MD、PSD、TD／PD及GHT；PSD低值可見於正常或瀰漫性損失。",
           "verifiedDate": "2026-10-11"
         }
       ],
@@ -1964,6 +2549,132 @@
           "provider": "University of Iowa · EyeRounds",
           "note": "2010教學病例；觀察靜脈鬱血、突眼、運動障礙及上眼靜脈擴張，未將所有低流量病變視為無需治療。",
           "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov08-bone",
+          "title": "眼眶七骨與四壁圖譜",
+          "url": "https://eyewiki.org/Bony_Anatomy_of_the_Orbit",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "依壁重組骨名，理解與鼻竇和淚囊的關係。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov08-imaging",
+          "title": "眼眶與淚器影像定位",
+          "url": "https://eyewiki.org/Imaging_in_Orbit_and_Oculoplasty",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "比較CT、MRI、淚道造影與淚液核醫動態檢查。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov08-floor",
+          "title": "眼眶底骨折：臨床夾陷與手術時機",
+          "url": "https://eyewiki.org/Orbital_Floor_Fractures",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "影像疝出不等於肌肉夾陷，持續功能障礙需個別判斷。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov08-ocr",
+          "title": "眼心反射與緊急夾陷",
+          "url": "https://eyewiki.org/Oculocardiac_Reflex",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "兒童外觀輕微仍可能有危險性心率變化。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov08-ioi",
+          "title": "非特異性眼眶發炎：排除診斷與活檢",
+          "url": "https://eyewiki.org/Nonspecific_Orbital_Inflammation_%28Idiopathic_Orbital_Inflammation%2C_Orbital_Inflammatory_Syndrome%2C_Orbital_Pseudotumor%29",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "治療反應不能取代感染與腫瘤鑑別。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov08-ted2021",
+          "title": "EUGOGO：甲狀腺眼病活動度、嚴重度與緊急處理",
+          "url": "https://academic.oup.com/ejendo/article/185/4/G43/6654384",
+          "kind": "期刊",
+          "provider": "EUGOGO · European Journal of Endocrinology",
+          "note": "2021指南取代共筆2008流程；視神經或角膜威脅需立即處理。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov08-rms",
+          "title": "橫紋肌肉瘤：活檢、分期及綜合治療",
+          "url": "https://eyewiki.org/Rhabdomyosarcoma",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "校正「小腫瘤切掉就好」的概括，仍需兒癌團隊評估。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov08-lymph",
+          "title": "眼眶淋巴瘤：病理與全身分期",
+          "url": "https://eyewiki.org/Orbital_Lymphoma",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "局部表現不等於排除全身病。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov08-masses",
+          "title": "眼眶腫塊的定位鑑別",
+          "url": "https://eyewiki.org/Orbital_Masses",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "將形態、位置、年齡及病程一起理解。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov08-evis",
+          "title": "眼內容剜除與交感性眼炎風險",
+          "url": "https://eyewiki.aao.org/Evisceration",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "交感性眼炎屬罕見風險，不能寫成容易發生。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov08-nld",
+          "title": "兒童鼻淚管阻塞：觀察、按摩與介入",
+          "url": "https://www.aapos.org/glossary/nasolacrimal-duct-obstruction",
+          "kind": "指南",
+          "provider": "AAPOS",
+          "note": "抗生素只在顯著分泌物等情況短期使用；不能打開阻塞。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov08-dacryo",
+          "title": "急性淚囊炎：全身抗菌與阻塞處理",
+          "url": "https://eyewiki.aao.org/Dacryocystitis",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "通常需要全身抗菌；急性發炎不宜例行探通。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov08-canal",
+          "title": "淚小管炎與結石",
+          "url": "https://eyewiki.aao.org/Canaliculitis",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "辨認pouting punctum、膿液及深部結石。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov08-mucor",
+          "title": "鼻眶腦毛黴菌病：黑痂與眼球運動危機",
+          "url": "https://eyewiki.org/Rhino-Orbital-Cerebral_Mucormycosis",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "強調高風險宿主、壞死、眼肌麻痺與緊急多科處理。",
+          "verifiedDate": "2026-10-11"
         }
       ],
       "figure": {
@@ -2211,6 +2922,141 @@
           "kind": "指南",
           "provider": "AAO · EyeWiki",
           "note": "重點是高眼壓、虹膜萎縮與角膜線索；專家教學頁，非正式臨床指引。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "uve-classification",
+          "title": "SUN II：不同葡萄膜炎疾病的分類線索",
+          "url": "https://eyewiki.org/SUN_II_Classification_of_Uveitides",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "疾病分類的教學索引；研究分類標準不能直接取代個別臨床診斷。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "uve-intermediate",
+          "title": "中間型葡萄膜炎與 pars planitis",
+          "url": "https://eyewiki.org/Intermediate_Uveitis",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "釐清 snowbank、snowballs、病因與黃斑水腫。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "uve-treatment",
+          "title": "葡萄膜炎治療與類固醇節省策略",
+          "url": "https://eyewiki.org/Treatment_of_Uveitis",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "按感染、部位、活動度與風險選治療；非通用升階處方。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "uve-adalimumab",
+          "title": "Adalimumab 與免疫調節治療",
+          "url": "https://eyewiki.org/Adalimumab",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "理解 anti-TNF 的作用、適應疾病及感染篩查，不把同類藥視為可互換。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "uve-so",
+          "title": "交感性眼炎：創傷史與現代處理",
+          "url": "https://eyewiki.org/Sympathetic_Ophthalmia",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "預防性摘除有爭議；不能把所有嚴重創傷都等同眼球摘除。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "uve-masquerade",
+          "title": "Uveitis masquerade：腫瘤與非腫瘤模仿者",
+          "url": "https://eyewiki.aao.org/Uveitis_Masquerade_Syndromes",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "持續非典型玻璃體細胞或治療反應不合時，重新檢查病因。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "uve-arn",
+          "title": "急性視網膜壞死 ARN",
+          "url": "https://eyewiki.org/Acute_retinal_necrosis",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "周邊壞死、閉塞性血管炎與明顯炎症；疑似時不等檢測才啟動治療評估。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "uve-porn",
+          "title": "PORN：免疫抑制與快速壞死",
+          "url": "https://eyewiki.org/Progressive_Outer_Retinal_Necrosis",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "少量炎症不代表感染輕微；與 ARN 比較宿主及眼底進展。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "uve-hiv",
+          "title": "HIV 的眼部疾病與免疫恢復性葡萄膜炎",
+          "url": "https://eyewiki.org/Ocular_Involvement_in_HIV/AIDS",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "區分活動 CMV retinitis 與免疫重建後的炎症。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "uve-tb",
+          "title": "眼結核：檢驗證據與病因推論",
+          "url": "https://eyewiki.org/Tuberculosis_Uveitis",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "IGRA 陽性與眼內 PCR 陰性都需要配合表型解讀。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "uve-white-dots",
+          "title": "白點症候群：MEWDS 與鑑別索引",
+          "url": "https://eyewiki.org/Multiple_Evanescent_White_Dot_Syndrome",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "依側別、病灶層次、病程與影像區別各類白點病，而非統称病毒感染。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "uve-fuchs",
+          "title": "Fuchs 葡萄膜炎症候群",
+          "url": "https://eyewiki.org/Fuchs_Heterochromic_Iridocyclitis_and_Secondary_Glaucoma",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "慢性低度前炎、星狀 KP 與繼發青光眼的辨識。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "uve-toxo",
+          "title": "眼弓漿蟲：臨床表型、宿主與治療",
+          "url": "https://eyewiki.org/Toxoplasmosis",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "病灶位置與宿主決定治療；抗體陽性不能單獨診斷活動病。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "uve-injection",
+          "title": "眼內注射：無菌與消毒原則",
+          "url": "https://eyewiki.org/Intravitreal_Injections",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "專項核對眼表消毒、接觸與術後警訊；非自行操作指南。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "uve-icbd",
+          "title": "ICBD原始多國分類研究",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/23441863/",
+          "kind": "期刊",
+          "provider": "International Team for the Revision of the ICBD",
+          "note": "原始計分研究；分類框架仍需配合臨床排除模仿者。",
           "verifiedDate": "2026-10-11"
         }
       ],
@@ -2471,6 +3317,366 @@
           "kind": "指南",
           "provider": "NIH · National Eye Institute",
           "note": "搭配分段病例，確認新飛蚊、閃光與幕簾的緊急性；官方病人教育頁。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-oct",
+          "title": "OCT層次與液體定位圖譜",
+          "url": "https://eyewiki.org/Optical_Coherence_Tomography",
+          "kind": "圖譜",
+          "provider": "AAO · EyeWiki",
+          "note": "用原始切面確認分層與偽影；不能只看彩色厚度圖。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-erg",
+          "title": "ERG：不同波形與功能定位",
+          "url": "https://eyewiki.aao.org/Electroretinogram",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "區別全視野、多焦與pattern ERG的問題；正常全視野ERG不排除局限黃斑病。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-eog",
+          "title": "EOG：light rise與RPE功能",
+          "url": "https://eyewiki.aao.org/Electrooculogram",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "理解明暗適應與Arden ratio，不單憑結果判定非器質性視損。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-pdr-trial",
+          "title": "Protocol S：PDR的PRP與ranibizumab五年結果",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6233839/",
+          "kind": "期刊",
+          "provider": "DRCR.net · JAMA Ophthalmology",
+          "note": "原始隨機試驗，修正「anti-VEGF不能治PDR」的舊解答。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-rvo",
+          "title": "視網膜靜脈阻塞",
+          "url": "https://eyewiki.org/Retinal_Vein_Occlusion",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "比較分布、黃斑水腫與新生血管風險。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-ois",
+          "title": "眼缺血症候群",
+          "url": "https://eyewiki.org/Ocular_Ischemic_Syndrome",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "把眼部低灌流與頸動脈／心血管風險連起。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-pcv",
+          "title": "PCV的影像與治療證據",
+          "url": "https://eyewiki.aao.org/Polypoidal_Choroidal_Vasculopathy",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "ICGA、OCT與anti-VEGF／PDT的角色；非單一藥物專屬病。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-ga",
+          "title": "地圖狀萎縮：補體治療的進展與風險",
+          "url": "https://www.nei.nih.gov/research-and-training/research-news/story-discovery-nei-funded-research-paves-way-new-dry-amd-drugs",
+          "kind": "指南",
+          "provider": "NIH · National Eye Institute",
+          "note": "美國核准治療可減慢部分GA進展，不能恢復已萎縮組織；須另核對所在地適應症。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-csc",
+          "title": "CSC：液體與治療選擇",
+          "url": "https://eyewiki.aao.org/Central_Serous_Chorioretinopathy",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "檢查類固醇暴露；慢性CSC不把mineralocorticoid antagonists當已證實通用治療。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-myopia",
+          "title": "病理性近視：萎縮、牽引與新生血管",
+          "url": "https://eyewiki.org/Pathologic_Myopia_(Myopic_Degeneration)",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "依後段結構定義疾病，不單靠屈光度門檻。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-rop",
+          "title": "ROP：zone、stage與plus disease",
+          "url": "https://www.aapos.org/glossary/retinopathy-of-prematurity",
+          "kind": "指南",
+          "provider": "AAPOS",
+          "note": "從分期連到治療與出院後追蹤。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-rb",
+          "title": "視網膜母細胞瘤：遺傳與治療",
+          "url": "https://www.cancer.gov/types/retinoblastoma/patient/retinoblastoma-treatment-pdq",
+          "kind": "指南",
+          "provider": "NIH · National Cancer Institute",
+          "note": "白瞳、RB1評估與保命／保眼策略；不將眼球摘除當唯一選項。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-rp",
+          "title": "RP：視功能、併發症與照護",
+          "url": "https://www.nei.nih.gov/eye-health-information/eye-conditions-and-diseases/retinitis-pigmentosa",
+          "kind": "指南",
+          "provider": "NIH · National Eye Institute",
+          "note": "遺傳異質性、低視能與可處理併發症；營養補充另參照AAO證據評估。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-rp-supplement",
+          "title": "AAO：RP營養補充證據評估",
+          "url": "https://www.aaojournal.org/article/S0161-6420%2824%2900553-0/fulltext",
+          "kind": "期刊",
+          "provider": "American Academy of Ophthalmology · Ophthalmology",
+          "note": "未找到支持RP營養補充療效的高品質證據，不照抄舊高劑量維生素A處方。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-rpe65",
+          "title": "FDA：RPE65基因治療適應症",
+          "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/luxturna",
+          "kind": "指南",
+          "provider": "U.S. FDA",
+          "note": "僅適用確認雙等位RPE65變異的合適患者；需足夠存活視網膜細胞。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-choroideremia",
+          "title": "Choroideremia：遺傳與萎縮分布",
+          "url": "https://eyewiki.org/Choroideremia",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "與RP比較X連鎖遺傳及脈絡膜視網膜萎縮。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-coats",
+          "title": "Coats病：滲出、白瞳與鑑別",
+          "url": "https://eyewiki.org/Coats_Disease",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "異常毛細血管漏液與分期處理。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-terson",
+          "title": "Terson症候群",
+          "url": "https://eyewiki.org/Terson_Syndrome",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "顱內出血與眼內出血的連結，不等同兒童虐待性頭傷。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-cme",
+          "title": "術後囊狀黃斑水腫",
+          "url": "https://eyewiki.org/Pseudophakic_Cystoid_Macular_Edema_(Irvine-Gass_Syndrome)",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "Irvine–Gass是CME的病因之一；需排除感染與其他術後視損原因。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-mactel",
+          "title": "MacTel：血管與神經退化",
+          "url": "https://eyewiki.org/Macular_Telangiectasia",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "囊腔不一定等於血管性水腫；新生血管與神經退化需分別評估。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-car",
+          "title": "癌症相關視網膜病變",
+          "url": "https://eyewiki.org/Cancer_Associated_Retinopathy",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "副腫瘤性視損需整合功能、影像與腫瘤證據。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-fabry",
+          "title": "Fabry的眼部線索",
+          "url": "https://eyewiki.org/Fabry_Disease",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "角膜渦狀混濁與血管迂曲，連到遺傳代謝評估。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-vhl",
+          "title": "VHL與視網膜血管母細胞瘤",
+          "url": "https://eyewiki.org/Von_Hippel-Lindau_Syndrome",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "眼部病灶可提示全身腫瘤症候群，需跨科與遺傳照護。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-arn",
+          "title": "急性視網膜壞死 ARN",
+          "url": "https://eyewiki.org/Acute_retinal_necrosis",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "周邊壞死、閉塞性血管炎與明顯炎症；疑似時不等檢測才啟動治療評估。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-inflammation",
+          "title": "SUN II：不同葡萄膜炎疾病的分類線索",
+          "url": "https://eyewiki.org/SUN_II_Classification_of_Uveitides",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "疾病分類的教學索引；研究分類標準不能直接取代個別臨床診斷。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-masquerade",
+          "title": "Uveitis masquerade：腫瘤與非腫瘤模仿者",
+          "url": "https://eyewiki.aao.org/Uveitis_Masquerade_Syndromes",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "持續非典型玻璃體細胞或治療反應不合時，重新檢查病因。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-hcq",
+          "title": "AAO 2025修訂：HCQ視網膜毒性篩檢",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41232611/",
+          "kind": "期刊",
+          "provider": "American Academy of Ophthalmology · Ophthalmology",
+          "note": "2026正式刊出；核對OCT、廣域FAF與風險分層，勿等待bull’s-eye。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-drug-video",
+          "title": "獲得性黃斑疾病與藥物毒性",
+          "url": "https://morancore.utah.edu/section-12-retina-and-vitreous/acquired-macular-diseases/",
+          "kind": "影片",
+          "provider": "University of Utah · Moran CORE",
+          "note": "影像與鑑別教學；HCQ篩檢依AAO2025修訂。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-ethambutol",
+          "title": "Ethambutol視神經毒性",
+          "url": "https://eyewiki.org/Ethambutol_Optic_Neuropathy",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "EMB應先定位視神經，而非直接列為典型視網膜毒性。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-stargardt",
+          "title": "Stargardt：基因、表型與視覺照護",
+          "url": "https://www.nei.nih.gov/eye-health-information/eye-conditions-and-diseases/stargardt-disease",
+          "kind": "指南",
+          "provider": "NIH · National Eye Institute",
+          "note": "ABCA4相關表型與視力復健。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-amd",
+          "title": "AMD分期、生活功能與視覺復健",
+          "url": "https://www.nei.nih.gov/eye-health-information/eye-conditions-and-diseases/age-related-macular-degeneration",
+          "kind": "指南",
+          "provider": "NIH · National Eye Institute",
+          "note": "用於分期、症狀與照護；此2021頁的「晚期乾性無治療」已過時，GA藥物依較新NEI專文。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-fce",
+          "title": "FCE：影像、追蹤與併發症",
+          "url": "https://eyewiki.aao.org/Focal_Choroidal_Excavation_%28FCE%29",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "支持無症狀凹陷的觀察，以及合併新生血管或積液時的分層處理。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-macular-hole",
+          "title": "黃斑孔：分期與治療",
+          "url": "https://eyewiki.aao.org/Macular_Hole",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "支持依分期、功能與病程選擇觀察或玻璃體切除、填充及內界膜處理。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-vmt",
+          "title": "VMT：觀察與解除牽引",
+          "url": "https://eyewiki.aao.org/Vitreomacular_Traction_Syndrome",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "支持以黃斑形態與症狀判斷牽引，並依功能影響選擇觀察或解除牽引。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-erm",
+          "title": "ERM：功能影響與手術選擇",
+          "url": "https://eyewiki.org/Epiretinal_Membrane",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "支持症狀、視功能與病程導向的觀察或玻璃體切除合併膜剝除。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-uveal-melanoma",
+          "title": "葡萄膜黑色素瘤：局部放療與分期",
+          "url": "https://eyewiki.org/Management_of_Choroidal_Melanoma_and_Ciliary_Body_Melanoma",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "支持依腫瘤位置、大小及眼部條件評估局部放射治療與其他治療。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-endophthalmitis",
+          "title": "眼內炎：急性、慢性與內生性感染",
+          "url": "https://eyewiki.org/Endophthalmitis",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "支持術後及內生性感染鑑別、慢性低度發炎，以及無痛仍不能排除感染。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-suprachoroidal",
+          "title": "脈絡膜上腔出血：辨識與緊急處理",
+          "url": "https://eyewiki.org/Suprachoroidal_Hemorrhage",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "支持術中或術後早期辨識、B超追蹤與緊急專科處理。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-submacular-hemorrhage",
+          "title": "黃斑下出血：治療選項與證據",
+          "url": "https://eyewiki.org/Management_of_Submacular_Hemorrhage",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "補充出血範圍、病程、病因與治療選擇的綜合判斷。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-tpa",
+          "title": "tPA：眼科適應情境與限制",
+          "url": "https://eyewiki.aao.org/Tissue_Plasminogen_Activator",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "直接支持黃斑下出血的tPA應用與出血風險；並非所有黃斑出血皆適用。",
           "verifiedDate": "2026-10-11"
         }
       ],
@@ -2734,6 +3940,168 @@
           "kind": "指南",
           "provider": "American Academy of Ophthalmology · EyeWiki",
           "note": "整合疲勞性下垂、抗體及電生理；留意眼肌型可血清陰性，以及全身症狀需要升級評估。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n11-reconstruction-coverage",
+          "title": "眼瞼重建：前後層、皮瓣與移植物",
+          "url": "https://eyewiki.aao.org/Eyelid_Reconstruction",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "比較 Tenzel、Hughes、Cutler-Beard 等重建概念。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n11-hzo-coverage",
+          "title": "眼部帶狀皰疹：皮膚與眼內評估",
+          "url": "https://eyewiki.aao.org/Herpes_Zoster_Ophthalmicus",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "抗病毒藥名為 valacyclovir；皮疹時間不能單獨決定停止眼科評估。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n11-hemangioma-coverage",
+          "title": "嬰兒眼周血管瘤與視覺發育",
+          "url": "https://patients.aapos.org/glossary/capillary-hemangioma",
+          "kind": "指南",
+          "provider": "AAPOS",
+          "note": "需監測屈光與弱視；威脅視覺時 β 阻斷劑是重要治療。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n11-tepezza-coverage",
+          "title": "TEPEZZA 美國 FDA 仿單",
+          "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/761143s031lbl.pdf",
+          "kind": "指南",
+          "provider": "U.S. FDA",
+          "note": "適應症不受 TED 活性或病程限制；個別治療仍需評估風險與所在地可用性。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n11-scc-coverage",
+          "title": "眼瞼鱗狀細胞癌",
+          "url": "https://eyewiki.aao.org/Squamous_Carcinoma_of_the_Eyelid",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "癌前變化、周邊神經侵犯及組織診斷。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n11-filler-coverage",
+          "title": "皮膚填充物的血管與視力風險",
+          "url": "https://www.fda.gov/medical-devices/aesthetic-cosmetic-devices/dermal-fillers-soft-tissue-fillers",
+          "kind": "指南",
+          "provider": "U.S. FDA",
+          "note": "視力變化、皮膚缺血或神經症狀需要立即醫療處理。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n11-bcc-coverage",
+          "title": "基底細胞癌：結節與硬化型的邊界",
+          "url": "https://eyewiki.aao.org/Basal_Cell_Carcinoma",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "病理確診與切緣控制，注意內眥深部侵犯。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n11-melanoma-coverage",
+          "title": "眼瞼黑色素瘤：外觀與分期",
+          "url": "https://eyewiki.aao.org/Malignant_Melanoma_of_the_Eyelid",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "無色素型亦可能惡性，依病理與分期決定處理。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n11-entropion-coverage",
+          "title": "眼瞼內翻與倒睫的機轉",
+          "url": "https://eyewiki.aao.org/Entropion",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "內翻分型、眼表傷害與睫毛異常的區分。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n11-ectropion-coverage",
+          "title": "眼瞼外翻的四類原因",
+          "url": "https://eyewiki.aao.org/Ectropion",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "水平鬆弛、瘢痕、機械與麻痺型機轉。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n11-beb-coverage",
+          "title": "原發性眼瞼痙攣",
+          "url": "https://eyewiki.aao.org/Blepharospasm",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "雙側閉眼痙攣、局部肉毒毒素與手術的角色。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n11-hfs-coverage",
+          "title": "半面痙攣與神經血管壓迫",
+          "url": "https://eyewiki.aao.org/Hemifacial_Spasm",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "單側分布、繼發病因與減壓／症狀治療。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n11-botox-coverage",
+          "title": "BOTOX 美國處方標示",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=33d066a9-34ff-4a1a-b38b-d10983df3300",
+          "kind": "指南",
+          "provider": "DailyMed · U.S. National Library of Medicine",
+          "note": "SNAP-25 作用、產品單位不可互換及神經肌肉相關風險。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n11-myobloc-coverage",
+          "title": "MYOBLOC 美國處方標示",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=675cb354-9d13-482e-8ac2-22f709c58b4f",
+          "kind": "指南",
+          "provider": "DailyMed · U.S. National Library of Medicine",
+          "note": "B 型肉毒毒素切割 VAMP 的作用機轉。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n11-stye-coverage",
+          "title": "麥粒腫與感染擴散",
+          "url": "https://eyewiki.aao.org/Stye",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "外型／內型腺體來源及何時超出局部腺體感染。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n11-cellulitis-coverage",
+          "title": "眶蜂窩組織炎的視力警訊",
+          "url": "https://eyewiki.aao.org/Orbital_Cellulitis",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "眼瞼紅腫伴眼動痛、突眼或視力下降需評估深部感染。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n11-third-coverage",
+          "title": "新發第三神經麻痺的危險鑑別",
+          "url": "https://eyewiki.aao.org/Acquired_Oculomotor_Nerve_Palsy",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "瞳孔保留不應單獨用於排除壓迫性血管病因。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n11-horner-coverage",
+          "title": "Horner 與內頸動脈剝離",
+          "url": "https://www.eyerounds.org/cases/305-Horner_Syndrome.htm",
+          "kind": "指南",
+          "provider": "University of Iowa · EyeRounds",
+          "note": "急性痛性縮瞳下垂需及時血管評估。",
           "verifiedDate": "2026-10-11"
         }
       ],
@@ -2999,6 +4367,150 @@
           "kind": "期刊",
           "provider": "TFOS · American Journal of Ophthalmology",
           "note": "以原始報告核對症狀加恆定性異常的診斷框架，以及淚膜、眼瞼、眼表與全身驅動因素。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov12-conj",
+          "title": "結膜炎：形態、感染與過敏鑑別",
+          "url": "https://eyewiki.org/Conjunctivitis",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "核對鑑別與臨床限制；原共筆僅作主題及頁碼來源。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov12-phlyct",
+          "title": "皰性角結膜炎與抗原過敏反應",
+          "url": "https://eyewiki.aao.org/Phlyctenular_Keratoconjunctivitis",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "核對鑑別與臨床限制；原共筆僅作主題及頁碼來源。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov12-slk",
+          "title": "上輪部角結膜炎",
+          "url": "https://eyewiki.aao.org/Superior_limbic_keratoconjunctivitis",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "核對鑑別與臨床限制；原共筆僅作主題及頁碼來源。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov12-concret",
+          "title": "結膜結石的成分與處理",
+          "url": "https://eyewiki.org/Conjunctival_Concretions",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "核對鑑別與臨床限制；原共筆僅作主題及頁碼來源。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov12-sch",
+          "title": "結膜下出血的評估",
+          "url": "https://eyewiki.aao.org/Subconjunctival_Hemorrhage",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "核對鑑別與臨床限制；原共筆僅作主題及頁碼來源。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov12-melan",
+          "title": "結膜色素細胞病灶",
+          "url": "https://eyewiki.org/Conjunctival_Melanocytic_Tumors",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "核對鑑別與臨床限制；原共筆僅作主題及頁碼來源。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov12-papilloma",
+          "title": "結膜乳頭瘤",
+          "url": "https://eyewiki.org/Conjunctival_Papilloma",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "核對鑑別與臨床限制；原共筆僅作主題及頁碼來源。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov12-sjs",
+          "title": "SJS／TEN 的眼表侵犯",
+          "url": "https://eyewiki.aao.org/Stevens-Johnson_Syndrome",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "核對鑑別與臨床限制；原共筆僅作主題及頁碼來源。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov12-cdc-gono",
+          "title": "CDC：新生兒淋菌感染",
+          "url": "https://www.cdc.gov/std/treatment-guidelines/gonorrhea-neonates.htm",
+          "kind": "指南",
+          "provider": "CDC",
+          "note": "核對鑑別與臨床限制；原共筆僅作主題及頁碼來源。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov12-cdc-chlam",
+          "title": "CDC：披衣菌感染與新生兒結膜炎",
+          "url": "https://www.cdc.gov/std/treatment-guidelines/chlamydia.htm",
+          "kind": "指南",
+          "provider": "CDC",
+          "note": "核對鑑別與臨床限制；原共筆僅作主題及頁碼來源。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov12-management",
+          "title": "TFOS DEWS II：治療方式與限制",
+          "url": "https://www.tfosdewsreport.org/report-management_and_therapy/147_36/en/",
+          "kind": "期刊",
+          "provider": "TFOS",
+          "note": "治療原理與手術名詞；診斷框架請配合 DEWS III。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov12-omega",
+          "title": "NEI：DREAM 隨機試驗的 omega-3 結果",
+          "url": "https://www.nei.nih.gov/research-and-training/research-news/omega-3s-fish-oil-supplements-no-better-placebo-dry-eye",
+          "kind": "期刊",
+          "provider": "NIH · National Eye Institute",
+          "note": "核對鑑別與臨床限制；原共筆僅作主題及頁碼來源。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov12-drugs",
+          "title": "EAACI：藥物相關眼表疾病共識",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12590328/",
+          "kind": "期刊",
+          "provider": "European Academy of Allergy and Clinical Immunology",
+          "note": "核對鑑別與臨床限制；原共筆僅作主題及頁碼來源。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov12-ossn",
+          "title": "眼表鱗狀上皮腫瘤：CIN與侵襲性病變",
+          "url": "https://eyewiki.aao.org/Ocular_Surface_Squamous_Neoplasia",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "核對鑑別與臨床限制；原共筆僅作主題及頁碼來源。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov12-vitA",
+          "title": "維生素A缺乏的眼部表現",
+          "url": "https://eyewiki.org/Xerophthalmia",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "核對鑑別與臨床限制；原共筆僅作主題及頁碼來源。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov12-chemical",
+          "title": "化學眼傷：即刻沖洗與後續眼表處理",
+          "url": "https://eyewiki.org/Chemical_%28Alkali_and_Acid%29_Injury_of_the_Conjunctiva_and_Cornea",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "核對鑑別與臨床限制；原共筆僅作主題及頁碼來源。",
           "verifiedDate": "2026-10-11"
         }
       ],
@@ -3296,6 +4808,105 @@
           "provider": "US Food and Drug Administration",
           "note": "2025年標示第5.1節；核對睫狀脈絡膜滲出、結構前移及由治療醫師判斷儘速停致病藥的急症原則。",
           "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov13-cornea",
+          "title": "藥物相關角膜病變",
+          "url": "https://eyewiki.org/Drug-Induced_Corneal_Complications",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "核對鑑別與臨床限制；原共筆僅作主題及頁碼來源。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov13-uveitis",
+          "title": "藥物相關葡萄膜炎",
+          "url": "https://eyewiki.org/Drug_Induced_Uveitis",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "核對鑑別與臨床限制；原共筆僅作主題及頁碼來源。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov13-macula",
+          "title": "藥物黃斑病變與影像模式",
+          "url": "https://eyewiki.org/Drug_induced_maculopathy",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "核對鑑別與臨床限制；原共筆僅作主題及頁碼來源。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov13-toxic-optic",
+          "title": "毒性視神經病變的辨識",
+          "url": "https://eyewiki.org/Toxic_Optic_Neuropathy",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "核對鑑別與臨床限制；原共筆僅作主題及頁碼來源。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov13-sjs",
+          "title": "SJS／TEN 的急性與慢性眼表問題",
+          "url": "https://eyewiki.aao.org/Stevens-Johnson_Syndrome",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "核對鑑別與臨床限制；原共筆僅作主題及頁碼來源。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov13-vigabatrin",
+          "title": "FDA：Vigabatrin視功能監測警告",
+          "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/217684s002s004lbl.pdf",
+          "kind": "指南",
+          "provider": "US FDA",
+          "note": "核對基線、治療期間每三個月及停藥後監測；不是五年固定終點。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov13-linezolid",
+          "title": "FDA：Linezolid視神經風險",
+          "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/206473s010lbl.pdf",
+          "kind": "指南",
+          "provider": "US FDA",
+          "note": "核對鑑別與臨床限制；原共筆僅作主題及頁碼來源。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov13-adc",
+          "title": "Depatuxizumab mafodotin膠質母細胞瘤第三期試驗",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/35849035/",
+          "kind": "期刊",
+          "provider": "Neuro-Oncology · randomized trial",
+          "note": "歷史試驗案例，核對角膜上皮毒性與研究情境，不將共筆藥名當成現行核准適應症。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov13-surface",
+          "title": "EAACI：全身藥物與眼表疾病共識",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12590328/",
+          "kind": "期刊",
+          "provider": "European Academy of Allergy and Clinical Immunology",
+          "note": "核對鑑別與臨床限制；原共筆僅作主題及頁碼來源。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov13-ifis",
+          "title": "Tamsulosin官方藥標：術中虹膜鬆弛症候群",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f8302a6e-b8da-4931-a279-b49e37943816",
+          "kind": "指南",
+          "provider": "US FDA · DailyMed",
+          "note": "第5.5節涵蓋目前與過往用藥的IFIS風險，並說明術前停藥的效益尚未確立。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov13-crao",
+          "title": "急性中央視網膜動脈阻塞：中風急症處理重點",
+          "url": "https://professional.heart.org/en/science-news/management-of-central-retinal-artery-occlusion/top-things-to-know",
+          "kind": "指南",
+          "provider": "American Heart Association",
+          "note": "將急性CRAO視為需要迅速急診分流與血管病因評估的缺血性中風表現。",
+          "verifiedDate": "2026-10-11"
         }
       ],
       "figure": {
@@ -3565,6 +5176,186 @@
           "kind": "指南",
           "provider": "American College of Rheumatology / Vasculitis Foundation",
           "note": "正式指引；重點為視覺受威脅時的緊急全身治療及證據強度，圖譜仍用Iowa照片判讀。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov14-exam",
+          "title": "Basic Eye Exam：完整基本眼科檢查",
+          "url": "https://eyerounds.org/atlas-video/basic-eye-exam.htm",
+          "kind": "影片",
+          "provider": "University of Iowa · EyeRounds",
+          "note": "13 分 52 秒大學教學影片；練習視力、瞳孔及前後節檢查順序。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov14-field",
+          "title": "視野圖譜與判讀步驟",
+          "url": "https://eyerounds.org/tutorials/VF-testing/index.htm",
+          "kind": "圖譜",
+          "provider": "University of Iowa · EyeRounds",
+          "note": "對照神經纖維束、常見視野缺損與 Humphrey 報表；先看可靠度再定位。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov14-amblyopia",
+          "title": "弱視的成因、圖解與治療",
+          "url": "https://www.aapos.org/glossary/amblyopia",
+          "kind": "圖譜",
+          "provider": "AAPOS",
+          "note": "含視覺發育與遮眼圖示；適合練習向家長說明弱視。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov14-keratitis",
+          "title": "Bacterial Keratitis：臨床判斷與培養適應情境",
+          "url": "https://eyewiki.org/Bacterial_Keratitis",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "專業教學頁；聚焦感染危險因子、病灶描述與採檢，非本 App 的個別處方。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov14-angle",
+          "title": "原發與次發性關角：機轉與房角鏡判讀",
+          "url": "https://eyewiki.aao.org/Primary_vs._Secondary_Angle_Closure_Glaucoma",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "比較瞳孔阻滯、plateau iris 與次發性機轉；教學綜述。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov14-glaucoma",
+          "title": "青光眼：正常眼壓與急性症狀",
+          "url": "https://www.nei.nih.gov/eye-health-information/eye-conditions-and-diseases/glaucoma",
+          "kind": "指南",
+          "provider": "NIH · National Eye Institute",
+          "note": "複習眼壓與疾病的關係、治療目標及需立即就醫的症狀。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov14-orbital",
+          "title": "兒童眼眶蜂窩性組織炎：照片與 CT",
+          "url": "https://www.eyerounds.org/cases/103-Pediatric-Orbital-Cellulitis.htm",
+          "kind": "圖譜",
+          "provider": "University of Iowa · EyeRounds",
+          "note": "含眼位、突眼與鼻竇／眼眶 CT，練習辨認隔膜後病灶及危險徵象。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov14-dacryo",
+          "title": "淚囊膿瘍與眼眶感染圖譜",
+          "url": "https://eyerounds.org/atlas/pages/dacryocystitis-2.html",
+          "kind": "圖譜",
+          "provider": "University of Iowa · EyeRounds",
+          "note": "病例照片示範淚囊感染可合併更深部眼眶侵犯。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov14-ccf",
+          "title": "頸動脈海綿竇瘻：血流機轉、眼位與影像",
+          "url": "https://eyerounds.org/cases/111-Carotid-Cavernous-Fistula.htm",
+          "kind": "圖譜",
+          "provider": "University of Iowa · EyeRounds",
+          "note": "2010教學病例；觀察靜脈鬱血、突眼、運動障礙及上眼靜脈擴張，未將所有低流量病變視為無需治療。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov14-dr",
+          "title": "糖尿病視網膜病變：滲漏、新生血管與治療目的",
+          "url": "https://www.nei.nih.gov/eye-health-information/eye-conditions-and-diseases/diabetic-retinopathy",
+          "kind": "指南",
+          "provider": "NIH · National Eye Institute",
+          "note": "官方教育頁；練習用病人聽得懂的語言解釋黃斑水腫與增殖病變。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov14-exposure",
+          "title": "重症患者暴露性角膜病變",
+          "url": "https://www.eyerounds.org/cases/189-exposure-keratopathy.htm",
+          "kind": "圖譜",
+          "provider": "University of Iowa · EyeRounds",
+          "note": "臨床病例與眼表保護策略，連結眼瞼功能與 ICU 照護。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov14-dews",
+          "title": "TFOS DEWS III：2025 診斷方法重點摘要",
+          "url": "https://www.tearfilm.org/ckfinder/userfiles/files/15954-Alcon-Diagnostic-Summary-DIGITAL-GLOBAL.pdf",
+          "kind": "指南",
+          "provider": "TFOS · University of Waterloo CORE",
+          "note": "官方提供的 6 頁新版摘要；整理定義、OSDI-6、診斷與分型，內含診斷示意圖，非臨床照片。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov14-roth",
+          "title": "Roth spots：白心出血與全身鑑別",
+          "url": "https://eyewiki.org/Roth_Spots",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "核對鑑別與臨床限制；原共筆僅作主題及頁碼來源。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov14-conj",
+          "title": "結膜炎的紅眼鑑別",
+          "url": "https://eyewiki.org/Conjunctivitis",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "核對鑑別與臨床限制；原共筆僅作主題及頁碼來源。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov14-sch",
+          "title": "結膜下出血：外觀與風險",
+          "url": "https://eyewiki.aao.org/Subconjunctival_Hemorrhage",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "核對鑑別與臨床限制；原共筆僅作主題及頁碼來源。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov14-keratoconus",
+          "title": "圓錐角膜：屈光與角膜影像",
+          "url": "https://eyewiki.org/Keratoconus",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "核對鑑別與臨床限制；原共筆僅作主題及頁碼來源。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov14-cataract",
+          "title": "白內障與視覺功能",
+          "url": "https://www.nei.nih.gov/eye-health-information/eye-conditions-and-diseases/cataracts",
+          "kind": "指南",
+          "provider": "NIH · National Eye Institute",
+          "note": "核對鑑別與臨床限制；原共筆僅作主題及頁碼來源。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov14-hlab27",
+          "title": "HLA-B27 前葡萄膜炎：後黏連實例",
+          "url": "https://eyerounds.org/cases/334-HLA-B27-associated-Acute-Anterior-Uveitis.htm",
+          "kind": "圖譜",
+          "provider": "University of Iowa · EyeRounds",
+          "note": "先描述裂隙燈照片的後黏連，再對照問診與後續全身疾病線索。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov14-sebaceous",
+          "title": "皮脂腺癌：偽裝成眼瞼發炎的病例",
+          "url": "https://www.eyerounds.org/cases/62-Sebaceous-Cell-Carcinoma-Eyelid-Masquerade-Syndrome.htm",
+          "kind": "圖譜",
+          "provider": "University of Iowa · EyeRounds",
+          "note": "對照臨床及病理圖片，辨認反覆結節與難治性單側發炎的警訊。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "cov14-dacryo-care",
+          "title": "急性淚囊炎：抗感染治療與避免急性期探通",
+          "url": "https://eyewiki.aao.org/Dacryocystitis",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "急性期需全身抗感染治療；發炎時避免探通淚道，以減少組織損傷與感染擴散風險。",
           "verifiedDate": "2026-10-11"
         }
       ],
