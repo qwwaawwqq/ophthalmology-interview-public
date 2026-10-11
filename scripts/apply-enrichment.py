@@ -394,7 +394,7 @@ function enrichmentIndex(){
   }
   return out;
 }
-function enrichmentLearningPaths(){const paths=D.enrichment?.learningPaths||[];return paths.length?`<section class="integrated-paths" aria-label="依問題串連章節"><div class="section-heading"><h2>依問題串連章節</h2><span class="small">從症狀走回檢查、機轉與處置</span></div>${paths.map(path=>`<details class="integrated-path"><summary>${esc(path.title)}<span class="small">${path.topicIds.length} 章</span></summary><div><p>${esc(path.question)}</p><div class="actions">${path.topicIds.map((id,n)=>btn((n+1)+'. '+shortTitle(id),'learn-topic',id,'small')).join('')}</div></div></details>`).join('')}</section>`:'';}
+function enrichmentLearningPaths(){const paths=D.enrichment?.learningPaths||[];return paths.length?`<section class="integrated-paths" aria-labelledby="paths-title"><div class="section-heading"><h2 id="paths-title">從症狀出發</h2><span class="small">每條路線串連數章：症狀 → 檢查 → 機轉 → 處置</span></div><div class="path-grid">${paths.map(path=>`<article class="path-card"><span class="path-count">${path.topicIds.length} 章</span><h3>${esc(path.title)}</h3><p>${esc(path.question)}</p><div class="path-steps">${path.topicIds.map((id,n)=>btn((n+1)+'. '+shortTitle(id),'learn-topic',id,'small')).join('')}</div></article>`).join('')}</div></section>`:'';}
 function enrichmentOverview(){
   const chapters=D.topics.filter(t=>chapterEnrichment(t));
   if(!chapters.length)return '';
