@@ -177,11 +177,13 @@ def validate_samples(samples, data):
     for v in versions:
         require_text(v.get('label'), 'sample version label')
         require_text(v.get('hint'), 'sample version hint')
+        require_text(v.get('clinicalHint'), 'sample version clinical hint')
     require_text(samples.get('note'), 'sample note')
-    general = {i['id'] for i in data['interview'] if 'clinical' not in i}
+    require_text(samples.get('clinicalNote'), 'sample clinical note')
+    expected = {i['id'] for i in data['interview']}
     answers = samples.get('answers')
-    if not isinstance(answers, dict) or set(answers) != general:
-        raise ValueError('interview samples must cover exactly the general interview questions')
+    if not isinstance(answers, dict) or set(answers) != expected:
+        raise ValueError('interview samples must cover exactly the interview questions')
     for iid, texts in answers.items():
         if not isinstance(texts, list) or len(texts) != 3:
             raise ValueError(f'{iid}: need 3 sample answers')
@@ -408,7 +410,7 @@ function enrichmentOverview(){
 window.addEventListener('hashchange',coverageRestoreHash);
 window.addEventListener('load',coverageRestoreHash);
 document.addEventListener('error',e=>{const image=e.target;if(!image?.classList?.contains('enrichment-image'))return;image.hidden=true;const fallback=image.closest('figure')?.querySelector('.enrichment-image-fallback');if(fallback)fallback.hidden=false;},true);
-function interviewSamples(i){const s=D.interviewSamples,list=s?.answers?.[i.id];if(!list)return '';return `<section class="interview-samples" aria-label="三種示範回答"><div class="preview-heading"><span class="tag">示範回答</span><span class="small">3 種版本 · 虛構情境</span></div><h3>對照三種回答方式</h3><p class="small">${esc(s.note)}</p>${list.map((text,n)=>{const v=s.versions[n];return `<details class="interview-sample"><summary>${n+1}. ${esc(v.label)}<span class="small">${esc(v.hint)}</span></summary><div><p class="preline">${esc(text)}</p><div class="actions">${btn('帶入此版本改寫','use-sample',String(n),'small')}</div></div></details>`;}).join('')}</section>`;}
+function interviewSamples(i){const s=D.interviewSamples,list=s?.answers?.[i.id];if(!list)return '';return `<section class="interview-samples" aria-label="三位示範者的回答"><div class="preview-heading"><span class="tag">示範回答</span><span class="small">3 位虛構示範者</span></div><h3>聽聽三個人怎麼回答</h3><p class="small">${esc(i.clinical?s.clinicalNote:s.note)}</p>${list.map((text,n)=>{const v=s.versions[n];return `<details class="interview-sample"><summary>${esc(v.label)}<span class="small">${esc(i.clinical?v.clinicalHint:v.hint)}</span></summary><div><p class="preline">${esc(text)}</p><div class="actions">${btn('帶入此版本改寫','use-sample',String(n),'small')}</div></div></details>`;}).join('')}</section>`;}
 /* enrichment-ui:end */
 '''
 
@@ -688,11 +690,13 @@ def build():
         js = js.replace(needle, "case'coverage-focus':e.preventDefault?.();coverageFocus(v);break;\n"+needle, 1)
     m = function_line(js, 'personalInterviewTools')
     old = m.group(0)
-    if '${interviewSamples(i)}' not in old:
-        if not old.endswith('</section>`;}'):
-            raise ValueError('personalInterviewTools insertion point changed')
-        new = old[:-len('</section>`;}')]+'</section>${interviewSamples(i)}`;}'
-        js = js[:m.start()] + new + js[m.end():]
+    new = old.replace('</section>${interviewSamples(i)}`;}', '</section>`;}')
+    js = js[:m.start()] + new + js[m.end():]
+    if '${interviewSamples(i)}' not in js:
+        needle = '${i.clinical?clinicalSource(i):personalInterviewTools(i)}'
+        if js.count(needle) != 1:
+            raise ValueError('Interview samples insertion point changed')
+        js = js.replace(needle, needle+'${interviewSamples(i)}', 1)
     if "case'use-sample':" not in js:
         needle = "case'use-short':"
         if needle not in js:
