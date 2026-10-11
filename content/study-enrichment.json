@@ -1,0 +1,1324 @@
+{
+  "version": 1,
+  "reviewedDate": "2026-10-11",
+  "scope": "公開眼科學習教材：原創概念圖、深入判讀與外部教學資源；不包含私人資料。",
+  "chapters": {
+    "notes-01": {
+      "deepDive": [
+        {
+          "heading": "機轉｜把視覺系統拆成光學、感覺與運動三段",
+          "paragraphs": [
+            "視力表主要測量中央高對比解析能力；瞳孔、色覺、視野與眼球運動回答的是其他問題。病人即使能讀到小字，仍可能有周邊視野缺損或不對稱視神經損傷，因此『視力正常』不能代替完整定位。",
+            "RAPD 比較兩眼傳入訊號的相對強弱。把光由較健眼移到患眼時，雙側瞳孔收縮減弱或相對擴大，提示不對稱視網膜或視神經功能異常；它不是在測量兩側瞳孔的靜態大小差。"
+          ],
+          "sourceIds": [
+            "an01-exam",
+            "an01-rapd"
+          ]
+        },
+        {
+          "heading": "推理｜先量化功能，再用眼前節與眼底解釋",
+          "paragraphs": [
+            "模糊視力先分單眼或雙眼、突然或漸進、疼痛或無痛，再記錄每眼原有矯正下的視力及針孔結果。針孔改善支持存在光學因素，但不是排除黃斑或視神經病變的證明；仍須把症狀與瞳孔、視野、裂隙燈及眼底連起來。",
+            "檢查前先記錄瞳孔與 RAPD，以免散瞳後失去基準。裂隙燈依角膜、前房、虹膜、晶狀體循序觀察，眼壓則連同測量方式解讀；報告應包含側別、最佳可得視力、關鍵陽性與關鍵陰性，而不只寫『眼睛正常』。"
+          ],
+          "sourceIds": [
+            "an01-exam",
+            "an01-rapd",
+            "an01-record"
+          ]
+        },
+        {
+          "heading": "陷阱｜標準檢查流程有必須立即改道的情境",
+          "paragraphs": [
+            "眼外傷若出現尖峰狀瞳孔、明顯組織脫出、眼球形狀異常等開放性眼球傷疑慮，避免眼壓測量與對眼球加壓；先保護傷眼並緊急眼科評估。Seidel 陰性也不能排除已自行封閉的穿通傷。",
+            "RAPD 是相對檢查，雙眼對稱且嚴重的視神經病變可能沒有 RAPD。相反地，看到白內障也不能立刻用它解釋明顯 RAPD；必須繼續找更後端的病變。"
+          ],
+          "sourceIds": [
+            "an01-trauma",
+            "an01-rapd"
+          ]
+        }
+      ],
+      "oralChallenge": {
+        "question": "病人單眼視力下降，針孔沒有改善，前節只見輕度白內障，卻有明顯 RAPD。你如何整合？",
+        "answer": "輕度白內障不足以合理解釋明顯 RAPD。我會先確認測試與側別，再以色覺、視野及散瞳眼底評估視神經與廣泛視網膜病變；若為突然發作，依血管性或神經眼科急症處理時效安排評估。針孔不改善只能提示單純屈光問題的可能性降低，不能單獨完成定位。",
+        "sourceIds": [
+          "an01-exam",
+          "an01-rapd"
+        ]
+      },
+      "resources": [
+        {
+          "id": "an01-exam",
+          "title": "Basic Eye Exam：完整基本眼科檢查",
+          "url": "https://eyerounds.org/atlas-video/basic-eye-exam.htm",
+          "kind": "影片",
+          "provider": "University of Iowa · EyeRounds",
+          "note": "13 分 52 秒大學教學影片；練習視力、瞳孔及前後節檢查順序。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "an01-rapd",
+          "title": "Relative Afferent Pupillary Defect：判讀與限制",
+          "url": "https://eyewiki.aao.org/Relative_Afferent_Pupillary_Defect",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "專業教學頁，非獨立正式臨床指引；閱讀傳入路徑與雙眼比較的限制。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "an01-trauma",
+          "title": "眼外傷初步檢查與重要徵象圖譜",
+          "url": "https://www.eyerounds.org/tutorials/trauma.htm",
+          "kind": "圖譜",
+          "provider": "University of Iowa · EyeRounds",
+          "note": "含真實臨床照片與影像；重點觀察尖峰瞳孔、Seidel 與開放性眼球傷，年代較早的處方內容不作現行用藥依據。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "an01-record",
+          "title": "眼科病例記錄：檢查欄位與報告格式",
+          "url": "https://eyerounds.org/tutorials/contributing-to-eyerounds/case_submission_format.htm",
+          "kind": "指南",
+          "provider": "University of Iowa · EyeRounds",
+          "note": "大學病例撰寫指南；對照視力、矯正方式、眼壓、瞳孔與視野的紀錄要素。",
+          "verifiedDate": "2026-10-11"
+        }
+      ],
+      "figure": {
+        "type": "exam-pathway",
+        "title": "基本檢查：安全分流與功能定位",
+        "caption": "原創檢查流程示意，非臨床照片。先辨識外傷及急症，再記錄視力與瞳孔，依病情完成前後節評估；疑似眼球破裂時避免眼壓測量及加壓。",
+        "alt": "基本眼科檢查安全流程：先排急症與疑似眼球破裂，再做每眼視力、瞳孔與RAPD、裂隙燈及適當眼底檢查。",
+        "sourceIds": [
+          "an01-exam",
+          "an01-rapd",
+          "an01-trauma"
+        ]
+      }
+    },
+    "notes-02": {
+      "deepDive": [
+        {
+          "heading": "機轉｜用遠點理解近視、遠視與散光",
+          "paragraphs": [
+            "在調節放鬆時，近視眼把平行光聚焦在視網膜前，遠視眼的焦點則在視網膜後。負鏡片讓入射光先發散，正鏡片增加會聚；處方的正負號因此對應光學需求，不是『看遠或看近』的簡單分類。",
+            "規則散光的兩個主要子午線屈光力不同，因此不能只用單一球面度數完整校正。老花則是調節能力下降，與原本近視、遠視或散光可以同時存在；近視者摘眼鏡後能近讀，不表示調節恢復。"
+          ],
+          "sourceIds": [
+            "an02-retinoscopy",
+            "an02-nei"
+          ]
+        },
+        {
+          "heading": "推理｜驗光終點要同時符合視力與調節狀態",
+          "paragraphs": [
+            "客觀驗光提供起點，主觀驗光再確認球面、散光軸度與度數。年輕人可能以調節抵消過多負鏡片，看得一樣清楚卻被過度配成近視；因此驗光不是不斷加負鏡片直到病人說更黑。",
+            "檢影中和後必須扣除工作距離對應的屈光力：例如 67 公分約為 1.50 D，50 公分為 2.00 D。檢影反光不規則、剪刀狀或最佳矯正視力不合理地偏低時，要轉向角膜、晶狀體與其他病變評估。"
+          ],
+          "sourceIds": [
+            "an02-retinoscopy",
+            "an02-clinical",
+            "an02-techniques"
+          ]
+        },
+        {
+          "heading": "陷阱｜度數變動不一定只是眼鏡變舊",
+          "paragraphs": [
+            "兒童、疑似假性近視或潛伏性遠視者，散瞳睫狀肌麻痺驗光能協助釐清調節影響。一般自動驗光數字不是最終處方，還須結合年齡、雙眼功能、檢影與主觀反應。",
+            "短期內度數不穩或不規則散光增加時，應檢查眼表、角膜形態與晶狀體，而不是只反覆換鏡。高度近視即使矯正到良好視力，也仍需把屈光矯正與眼底結構評估分開思考。"
+          ],
+          "sourceIds": [
+            "an02-retinoscopy",
+            "an02-clinical",
+            "an02-nei"
+          ]
+        }
+      ],
+      "oralChallenge": {
+        "question": "67 公分檢影在 +2.50 D 球面鏡中和，先忽略散光，工作距離校正後是多少？為什麼？",
+        "answer": "約 +1.00 D。中和時找到的是包含檢查者工作距離的結果，所以要從 +2.50 D 扣掉約 +1.50 D。之後仍須確認調節放鬆與每眼視力，不能把這個計算直接當成所有病人的最終眼鏡處方。",
+        "sourceIds": [
+          "an02-retinoscopy"
+        ]
+      },
+      "resources": [
+        {
+          "id": "an02-retinoscopy",
+          "title": "Objective Refraction Techniques: Retinoscopy",
+          "url": "https://morancore.utah.edu/section-03-clinical-optics/objective-refraction-techniques-retinoscopy/",
+          "kind": "圖譜",
+          "provider": "University of Utah · Moran CORE",
+          "note": "含遠點與順逆動的光路示意圖及檢影影片連結；圖為光學示意，不是患者照片。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "an02-clinical",
+          "title": "Clinical Refraction：臨床驗光住院醫師課程",
+          "url": "https://morancore.utah.edu/section-03-clinical-optics/clinical-refraction-2017/",
+          "kind": "影片",
+          "provider": "University of Utah · Moran CORE",
+          "note": "David Meyer 主講，涵蓋檢影、主觀驗光、交叉圓柱鏡與調節。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "an02-techniques",
+          "title": "Optics and Refraction Techniques：分步操作影片",
+          "url": "https://www.eyerounds.org/video/Refraction/index.htm",
+          "kind": "影片",
+          "provider": "University of Iowa · EyeRounds",
+          "note": "可依需求開啟主觀驗光、檢影、視力與對比敏感度的個別教學。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "an02-nei",
+          "title": "Refractive Errors：屈光異常的基本概念",
+          "url": "https://www.nei.nih.gov/eye-health-information/eye-conditions-and-diseases/refractive-errors",
+          "kind": "指南",
+          "provider": "NIH · National Eye Institute",
+          "note": "官方衛教頁；適合練習把光學機轉轉成病人聽得懂的說明。",
+          "verifiedDate": "2026-10-11"
+        }
+      ],
+      "figure": {
+        "type": "refraction",
+        "title": "平行光的焦點落在哪裡？",
+        "caption": "原創光學概念示意，非依比例的眼球解剖圖。比較正視、近視與遠視；近視焦點在視網膜前，遠視在後，均假設調節放鬆。",
+        "alt": "三組入射平行光：正視聚焦於視網膜、近視聚焦在視網膜前、遠視聚焦在視網膜後。",
+        "sourceIds": [
+          "an02-retinoscopy",
+          "an02-nei"
+        ]
+      }
+    },
+    "notes-03": {
+      "deepDive": [
+        {
+          "heading": "先畫出視野，再定位病灶",
+          "paragraphs": [
+            "視野與視網膜的位置相反：顳側視野落在鼻側視網膜，鼻側視網膜纖維於視交叉交叉。單眼視野異常通常先找視交叉前病變；雙顳側缺損優先考慮視交叉；同向偏盲則定位至對側視交叉後路徑。",
+            "判讀前先看固視、假陽性、屈光矯正與眼瞼遮擋。缺損沿垂直中線分界支持視交叉或後方病變；沿水平中線分界較符合視網膜神經纖維束分布。圖形只提供定位線索，必須與病程、眼底及影像對照。"
+          ],
+          "sourceIds": [
+            "n03-field"
+          ]
+        },
+        {
+          "heading": "RAPD 是兩眼傳入訊號的比較",
+          "paragraphs": [
+            "擺動手電筒從較健側移到患側時，若雙側瞳孔反而相對擴大，表示患側傳入訊號較弱；常見於不對稱視神經病變，也可見於廣泛不對稱視網膜病變。這與單純瞳孔大小不等不同，不能把 RAPD 直接當成第三神經麻痺。",
+            "檢查時讓病人注視遠方、兩眼照光時間相近，避免近反射及不等照光造成誤判。雙側對稱視神經病變可能沒有 RAPD；視力仍達 20/20 也不能排除視神經炎。時間軸很重要：突然視力下降合併 RAPD 須緊急找血管或壓迫等原因。"
+          ],
+          "sourceIds": [
+            "n03-rapd",
+            "n03-rapd-video"
+          ]
+        },
+        {
+          "heading": "第三神經麻痺：先排除壓迫，再談微血管病變",
+          "paragraphs": [
+            "第三神經支配多條眼外肌、提上瞼肌與瞳孔副交感功能。完整麻痺可出現眼瞼下垂、眼球偏向外下方；但部分麻痺不一定具有完整典型表現，應逐一記錄各方向眼球運動與瞳孔反應。",
+            "新發麻痺合併瞳孔散大、頭痛或疼痛，是須緊急排除顱內動脈瘤的警訊，應即刻升級評估與血管影像。瞳孔保留或有糖尿病，不能單獨證明是良性微血管麻痺；需依完整檢查安排及時神經影像。"
+          ],
+          "sourceIds": [
+            "n03-third"
+          ]
+        }
+      ],
+      "oralChallenge": {
+        "question": "糖尿病患者突然出現單側眼瞼下垂與複視，瞳孔目前等大；可以直接當作微血管性第三神經麻痺追蹤嗎？",
+        "answer": "不可以只憑糖尿病與瞳孔保留就下結論。先確認是否為第三神經分布的眼球運動障礙、是否部分或完整麻痺，以及頭痛、疼痛與其他神經徵象，及時安排神經與血管影像評估。若合併瞳孔散大或疑似壓迫，立即急診處理以排除動脈瘤。",
+        "sourceIds": [
+          "n03-third"
+        ]
+      },
+      "resources": [
+        {
+          "id": "n03-field",
+          "title": "視野圖譜與判讀步驟",
+          "url": "https://eyerounds.org/tutorials/VF-testing/index.htm",
+          "kind": "圖譜",
+          "provider": "University of Iowa · EyeRounds",
+          "note": "對照神經纖維束、常見視野缺損與 Humphrey 報表；先看可靠度再定位。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n03-rapd",
+          "title": "RAPD：檢查原理與病因定位",
+          "url": "https://morancore.utah.edu/basic-ophthalmology-review/relative-afferent-pupillary-defect-rapd/",
+          "kind": "指南",
+          "provider": "University of Utah · Moran CORE",
+          "note": "教學文章附影片；釐清不對稱傳入訊號與臨床時間軸。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n03-rapd-video",
+          "title": "如何量測 RAPD",
+          "url": "https://morancore.utah.edu/section-05-neuro-ophthalmology/how-to-measure-the-rapd/",
+          "kind": "影片",
+          "provider": "University of Utah · Moran CORE",
+          "note": "Kathleen Digre 示範擺動手電筒與中性密度濾片量測。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n03-third",
+          "title": "後天性第三神經麻痺",
+          "url": "https://eyewiki.aao.org/Acquired_Oculomotor_Nerve_Palsy",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "鑑別壓迫與缺血病因，複習何時需要急診及血管影像。",
+          "verifiedDate": "2026-10-11"
+        }
+      ],
+      "figure": {
+        "type": "visual-field-patterns",
+        "title": "單眼、雙顳側與同向視野缺損",
+        "caption": "原創視野模式圖：單眼缺損先找視交叉前病變，雙顳側缺損考慮視交叉，單側視交叉後病變可造成對側同向缺損；圖形仍須配合病程與完整檢查。",
+        "alt": "三組左右眼視野圓形依序示範單眼缺損、雙顳側缺損、同向半側缺損，並列出相對應的病變定位。",
+        "sourceIds": [
+          "n03-field"
+        ]
+      }
+    },
+    "notes-04": {
+      "deepDive": [
+        {
+          "heading": "弱視的問題在視覺發育，斜視的問題在眼位",
+          "paragraphs": [
+            "弱視源自兒童期不良視覺輸入，使視覺發育受阻；屈光不正、兩眼屈光差異、斜視抑制與視軸遮蔽都可能造成。外觀端正的眼睛也可能弱視；遮蔽型如白內障或嚴重眼瞼下垂，尤其需要及早發現。",
+            "治療先處理造成模糊或遮蔽的原因，提供合適眼鏡，再依視力反應安排遮眼或藥物抑制較佳眼。眼肌手術主要改善眼位，不能保證已形成的弱視消失；評估成效要分開記錄單眼視力與雙眼排列。"
+          ],
+          "sourceIds": [
+            "n04-amblyopia",
+            "n04-info-video"
+          ]
+        },
+        {
+          "heading": "Cover test 的關鍵：你正在看哪一眼？",
+          "paragraphs": [
+            "單眼遮蓋時，觀察未被遮住的眼是否重新固視；若它向外移動才對準目標，原本是內斜，向內移動則原本是外斜。雙眼都要測，因為遮到非優勢眼時，優勢固視眼可能完全不動。",
+            "解除遮蓋時再看原本被遮住的眼，可找出融合中斷後的隱斜。交替遮蓋持續打斷融合，量到的是總偏斜，不能直接當作平常可見的顯斜角；因此先做單眼遮蓋，再做交替遮蓋，並註明遠近距離與眼鏡矯正狀態。"
+          ],
+          "sourceIds": [
+            "n04-cover"
+          ]
+        },
+        {
+          "heading": "超過七歲仍值得治療，但不能保證正常視力",
+          "paragraphs": [
+            "PEDIG 的 507 人隨機試驗顯示，7–12 歲兒童在最佳光學矯正外加主動治療，24 週改善至少兩行的比例為 53%，單純光學矯正為 25%。這支持不要因入學年齡就放棄弱視治療。",
+            "13–17 歲整體組間差異不顯著，過去未治療者的次群體較可能受益；多數改善者仍有殘餘視力差。因此回答療效時應交代年齡、既往治療及依從性，避免把『可能改善』說成一定恢復，也不要把試驗中的組合處方當成所有人的固定療程。"
+          ],
+          "sourceIds": [
+            "n04-pedig"
+          ]
+        }
+      ],
+      "oralChallenge": {
+        "question": "家長問：孩子七歲、左眼弱視又內斜，只要把眼位開正就會看清楚嗎？",
+        "answer": "眼位與單眼視力是兩個治療目標。先完成視力、屈光及眼部檢查，矯正模糊影像並依需要安排弱視治療；是否手術取決於矯正後眼位等因素。七歲仍有改善空間，但手術本身不能取代視覺發育治療，也不能保證視力完全恢復。",
+        "sourceIds": [
+          "n04-amblyopia",
+          "n04-pedig"
+        ]
+      },
+      "resources": [
+        {
+          "id": "n04-amblyopia",
+          "title": "弱視的成因、圖解與治療",
+          "url": "https://www.aapos.org/glossary/amblyopia",
+          "kind": "圖譜",
+          "provider": "AAPOS",
+          "note": "含視覺發育與遮眼圖示；適合練習向家長說明弱視。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n04-cover",
+          "title": "基本 Cover test 示範與逐字稿",
+          "url": "https://eyerounds.org/video/basic-cover-test.htm",
+          "kind": "影片",
+          "provider": "University of Iowa · EyeRounds",
+          "note": "逐步區分 tropia、phoria 及交替遮蓋，搭配稜鏡中和說明。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n04-pedig",
+          "title": "PEDIG：7–17 歲弱視治療隨機試驗",
+          "url": "https://jamanetwork.com/journals/jamaophthalmology/fullarticle/416964",
+          "kind": "期刊",
+          "provider": "Archives of Ophthalmology · PEDIG",
+          "note": "2005 原始 RCT；比較最佳光學矯正與加用主動治療。期刊全文可能需機構權限。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n04-info-video",
+          "title": "AAPOS 弱視與斜視衛教影片",
+          "url": "https://aapos.org/patient/patient-resources/info-videos",
+          "kind": "影片",
+          "provider": "AAPOS",
+          "note": "包含 Amblyopia、Strabismus 與 Strabismus Surgery，適合練習衛教語言。",
+          "verifiedDate": "2026-10-11"
+        }
+      ],
+      "figure": {
+        "type": "cover-test",
+        "title": "單眼遮蓋與交替遮蓋，看的是不同問題",
+        "caption": "原創檢查對照：遮蓋時觀察未遮眼重新固視，去遮時再觀察原遮眼；交替遮蓋中斷融合，顯示總偏斜。判讀應區分重固視的方向與原本偏斜方向。",
+        "alt": "兩組流程方塊比較 cover–uncover 與 alternate cover，說明各階段觀察哪一眼，以及顯斜、隱斜和總偏斜的關係。",
+        "sourceIds": [
+          "n04-cover"
+        ]
+      }
+    },
+    "notes-05": {
+      "deepDive": [
+        {
+          "heading": "機轉｜先區分上皮缺損、基質浸潤與組織變薄",
+          "paragraphs": [
+            "螢光染色顯示上皮屏障受損，白色基質浸潤則提示更深層的細胞反應；兩者相關但不是同一件事。角膜潰瘍也不等於細菌感染，仍須考慮真菌、棘阿米巴、病毒及非感染性免疫病變。",
+            "角膜中央病灶直接威脅視軸，深層浸潤或漸進變薄則增加結構風險。描述病灶時要分別記錄位置、浸潤大小、上皮缺損、深度、變薄與前房反應，才能判斷追蹤時究竟哪一項變好或惡化。"
+          ],
+          "sourceIds": [
+            "an05-bacterial",
+            "an05-culture"
+          ]
+        },
+        {
+          "heading": "推理｜用暴露史決定檢驗優先順序",
+          "paragraphs": [
+            "隱形眼鏡配戴者的疼痛紅眼，尤其合併畏光、視力下降或角膜浸潤，應及早由眼科評估。問診要追到過夜配戴、清潔液、游泳或接觸水、植物性外傷，以及先前點藥；這些資訊會改變病原的先驗機率。",
+            "中央、深層、大範圍、非典型或治療反應不佳的浸潤，更需要角膜採樣。刮片與培養的目的在縮小病原及抗藥性的不確定性，不是取代臨床判斷；若威脅視力，採檢流程也不能造成不合理的治療延誤。"
+          ],
+          "sourceIds": [
+            "an05-bacterial",
+            "an05-culture"
+          ]
+        },
+        {
+          "heading": "陷阱｜周邊潰瘍與深部眼痛可能指向全身疾病",
+          "paragraphs": [
+            "周邊角膜變薄、潰瘍若伴深部充血或鞏膜炎，要追問關節、呼吸道、皮膚及腎臟相關症狀，並評估感染與系統性免疫疾病。Mooren 潰瘍是排除性診斷，不能只憑周邊月牙狀外觀下結論。",
+            "鞏膜炎常有深沉疼痛、夜間或眼球轉動時加重，可伴角膜或葡萄膜病變；表層鞏膜炎通常較表淺。少數壞死型鞏膜病變可能不痛，因此『不痛』也不是安全保證。未釐清感染前，不宜把所有紅眼都當成免疫炎症自行加用類固醇。"
+          ],
+          "sourceIds": [
+            "an05-mooren",
+            "an05-scleritis",
+            "an05-bacterial"
+          ]
+        }
+      ],
+      "oralChallenge": {
+        "question": "隱形眼鏡使用者有疼痛紅眼、視力下降及中央白色浸潤。你會如何向上級報告並提出下一步？",
+        "answer": "我會先報側別、起病速度、視力、病灶位置與大小、上皮缺損、浸潤深度、是否變薄及前房反應，再補充過夜配戴和接觸水的病史。中央浸潤屬威脅視力的角膜感染疑慮，需緊急眼科處置並考慮採樣；病原判斷不只限於細菌，也不應在病因未明時自行加類固醇。",
+        "sourceIds": [
+          "an05-bacterial",
+          "an05-culture"
+        ]
+      },
+      "resources": [
+        {
+          "id": "an05-bacterial",
+          "title": "Bacterial Keratitis：臨床判斷與培養適應情境",
+          "url": "https://eyewiki.org/Bacterial_Keratitis",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "專業教學頁；聚焦感染危險因子、病灶描述與採檢，非本 App 的個別處方。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "an05-culture",
+          "title": "Culturing the Cornea：角膜採樣教學",
+          "url": "https://www.eyerounds.org/tutorials/Cornea-Culture/index.htm",
+          "kind": "影片",
+          "provider": "University of Iowa · EyeRounds",
+          "note": "含採樣、接種影片與器材照片；實際操作須依院內流程及上級督導。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "an05-mooren",
+          "title": "Mooren's Ulcer：周邊角膜潰瘍的排除診斷",
+          "url": "https://www.eyerounds.org/cases/316-moorens-ulcer.htm",
+          "kind": "圖譜",
+          "provider": "University of Iowa · EyeRounds",
+          "note": "真實裂隙燈照片與手術影片；觀察周邊變薄及懸垂邊緣，練習感染／免疫鑑別。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "an05-scleritis",
+          "title": "Scleritis：深部紅眼與系統性疾病",
+          "url": "https://eyewiki.org/Scleritis",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "專業教學頁；比較鞏膜炎與表層鞏膜炎，注意感染性與非感染性病因。",
+          "verifiedDate": "2026-10-11"
+        }
+      ],
+      "figure": {
+        "type": "cornea",
+        "title": "角膜分層：病灶位於哪個深度？",
+        "caption": "原創角膜分層示意，非病人裂隙燈照片、非按比例。上皮、Bowman層、基質、Descemet膜及內皮各有不同角色；臨床另須分別描述上皮缺損、浸潤與變薄。",
+        "alt": "角膜由外而內為上皮、Bowman層、基質、Descemet膜與內皮，協助定位上皮缺損與基質病灶。",
+        "sourceIds": [
+          "an05-bacterial",
+          "an05-culture"
+        ]
+      }
+    },
+    "notes-06": {
+      "deepDive": [
+        {
+          "heading": "機轉｜混濁的位置決定症狀，不只看白內障大小",
+          "paragraphs": [
+            "核性、皮質性與後囊下白內障的混濁分布不同，因此對屈光、眩光及日常功能的影響也不同。核性變化可伴近視化；後囊下混濁靠近視軸，病灶看似不大，卻可能對近距離閱讀與眩光造成明顯困擾。",
+            "後囊下白內障位於天然晶狀體後部、靠近後囊的區域，並非白內障術後才發生。用裂隙燈反向照明並對準正確焦平面，可以避免漏看這類病灶。"
+          ],
+          "sourceIds": [
+            "an06-cataract",
+            "an06-psc"
+          ]
+        },
+        {
+          "heading": "推理｜手術評估先建立『症狀由白內障造成』的證據",
+          "paragraphs": [
+            "手術決策要連結患者的實際困擾，例如閱讀、夜間駕駛或強光環境下的功能，而不是只用單一視力門檻。先確認最佳矯正視力與晶狀體混濁是否相符，同時評估角膜、黃斑、視神經與其他共病對術後視覺的限制。",
+            "術前測量提供人工水晶體選擇的重要依據，但光學測量正確不保證視網膜或視神經功能正常。討論預期視力時，應把移除混濁能改善的部分、其他病變限制的部分，以及術後仍可能需要眼鏡分開說明。"
+          ],
+          "sourceIds": [
+            "an06-cataract",
+            "an06-nei"
+          ]
+        },
+        {
+          "heading": "陷阱｜術後視力下降不能一律歸因於後囊混濁",
+          "paragraphs": [
+            "後囊混濁是保留下來的囊膜在術後變得混濁，與原有天然晶狀體白內障不同。雖然可造成再次模糊，也有雷射治療選項，但應先確認它確實解釋症狀。",
+            "術後若出現新發視力下降、明顯疼痛、嚴重紅眼或閃光飛蚊等症狀，需要及時評估感染、發炎、眼壓及視網膜問題。判斷優先級時，症狀組合與時間軸比『白內障手術很常見』更重要。"
+          ],
+          "sourceIds": [
+            "an06-nei"
+          ]
+        }
+      ],
+      "oralChallenge": {
+        "question": "視力表尚可，但患者白天眩光及閱讀非常困難，裂隙燈看到小範圍後囊下混濁。你會直接說不需要手術嗎？",
+        "answer": "不會只根據視力表下結論。後囊下病灶可造成與面積不成比例的眩光與近視力困擾；我會確認矯正視力、症狀與混濁位置的關聯，並排除角膜、黃斑與視神經等共同原因，再以日常功能、預期效益與手術風險進行共同決策。",
+        "sourceIds": [
+          "an06-psc",
+          "an06-nei",
+          "an06-cataract"
+        ]
+      },
+      "resources": [
+        {
+          "id": "an06-psc",
+          "title": "Posterior Subcapsular Cataract：後囊下白內障圖譜",
+          "url": "https://www.eyerounds.org/atlas/pages/posterior-subcapsular-cataract.html",
+          "kind": "圖譜",
+          "provider": "University of Iowa · EyeRounds",
+          "note": "真實裂隙燈照片；觀察後囊附近顆粒狀混濁，對照反向照明的判讀。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "an06-cataract",
+          "title": "Cataracts：從分類、檢查到手術評估",
+          "url": "https://www.eyerounds.org/tutorials/cataract-for-Med-Students/index.htm",
+          "kind": "指南",
+          "provider": "University of Iowa · EyeRounds",
+          "note": "大學教學頁，含影像與手術概念；著重症狀與評估，歷史統計不視為現況。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "an06-video",
+          "title": "Basic Cataract Surgery：完整基本手術示範",
+          "url": "https://eyerounds.org/atlas-video/Great-third-year-case.html",
+          "kind": "影片",
+          "provider": "University of Iowa · EyeRounds",
+          "note": "約 13 分鐘真實手術影像；先辨識撕囊、水分離、超音波乳化、皮質清除與人工水晶體植入。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "an06-nei",
+          "title": "Cataract Surgery：適應情境、預期與警訊",
+          "url": "https://www.nei.nih.gov/eye-health-information/eye-conditions-and-diseases/cataracts/cataract-surgery",
+          "kind": "指南",
+          "provider": "NIH · National Eye Institute",
+          "note": "官方衛教頁；適合練習功能導向的手術說明，以及術後需及時回診的症狀。",
+          "verifiedDate": "2026-10-11"
+        }
+      ],
+      "figure": {
+        "type": "lens",
+        "title": "核性、皮質性、後囊下混濁的位置",
+        "caption": "原創晶狀體剖面概念示意，非病人照片、非按比例。標示三種常見混濁的所在區域；真實外觀請對照圖譜。",
+        "alt": "晶狀體剖面並列三種位置：中央晶核、周邊皮質、後囊前方的後囊下區域。",
+        "sourceIds": [
+          "an06-cataract",
+          "an06-psc"
+        ]
+      }
+    },
+    "notes-07": {
+      "deepDive": [
+        {
+          "heading": "眼壓是風險因子，青光眼是視神經損傷",
+          "paragraphs": [
+            "眼壓來自房水生成與排出間的平衡；房水由睫狀體生成，經後房與瞳孔至前房，再經小樑網／Schlemm 管及葡萄膜鞏膜路徑排出。瞳孔阻滯可讓虹膜向前膨隆、遮住小樑網；反覆接觸可形成周邊前黏連。",
+            "高眼壓不等於已經青光眼，正常範圍眼壓也不能排除青光眼。診斷核心是視神經損傷與功能變化；降眼壓的目的是減緩進一步惡化，不能把已失去的視野直接恢復。"
+          ],
+          "sourceIds": [
+            "n07-angle",
+            "n07-nei",
+            "n07-anatomy"
+          ]
+        },
+        {
+          "heading": "Gonioscopy 回答的是房角為何關閉",
+          "paragraphs": [
+            "房角鏡是評估房角的關鍵檢查。暗環境、適當窄光束可減少照光造成的虹膜形態改變；壓陷房角鏡若能打開接觸處，較支持貼附性關閉，打不開則要考慮黏連，並結合可見結構判斷。",
+            "雷射周邊虹膜切開可解除瞳孔阻滯，但不代表所有關角機轉都消失。若虹膜切開孔通暢仍有窄角，需再找 plateau iris、晶體因素或其他次發原因；不能把所有關角都套用同一處置。"
+          ],
+          "sourceIds": [
+            "n07-angle",
+            "n07-gonio"
+          ]
+        },
+        {
+          "heading": "慢性無症狀與急性紅痛眼，分流不能相同",
+          "paragraphs": [
+            "慢性青光眼早期可能沒有自覺症狀；突然劇烈眼痛、紅眼、視力模糊與噁心，則須當作急性關角等眼科急症評估。不能因症狀包括噁心或頭痛，就先歸為腸胃疾病或偏頭痛。",
+            "確認房角關閉後還要找病因：詢問外傷、眼部手術、發炎、血管性眼病與近期藥物。原發瞳孔阻滯與次發性虹膜前推或牽拉，其治療機轉不同；只把眼壓降下來，並不代表已解決造成關角的原因。"
+          ],
+          "sourceIds": [
+            "n07-nei",
+            "n07-angle"
+          ]
+        }
+      ],
+      "oralChallenge": {
+        "question": "病人眼壓只有 17 mmHg，但有可重複的弓形視野缺損；能排除青光眼嗎？",
+        "answer": "不能。正常範圍眼壓仍可能有青光眼，需要完整視神經與視野評估，確認病變並排除其他原因。重點是視神經是否受損及後續有無惡化，而不是用一次眼壓決定有病或沒病。",
+        "sourceIds": [
+          "n07-nei"
+        ]
+      },
+      "resources": [
+        {
+          "id": "n07-angle",
+          "title": "原發與次發性關角：機轉與房角鏡判讀",
+          "url": "https://eyewiki.aao.org/Primary_vs._Secondary_Angle_Closure_Glaucoma",
+          "kind": "指南",
+          "provider": "American Academy of Ophthalmology · EyeWiki",
+          "note": "比較瞳孔阻滯、plateau iris 與次發性機轉；教學綜述。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n07-nei",
+          "title": "青光眼：正常眼壓與急性症狀",
+          "url": "https://www.nei.nih.gov/eye-health-information/eye-conditions-and-diseases/glaucoma",
+          "kind": "指南",
+          "provider": "NIH · National Eye Institute",
+          "note": "複習眼壓與疾病的關係、治療目標及需立即就醫的症狀。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n07-gonio",
+          "title": "Atlas of Gonioscopy 房角鏡影片圖譜",
+          "url": "https://gonioscopy.org/",
+          "kind": "影片",
+          "provider": "University of Iowa · Wallace Alward",
+          "note": "觀看正常房角、基本操作與壓陷技巧，再對照疾病範例。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n07-anatomy",
+          "title": "房角、房水排出與前房病理圖譜",
+          "url": "https://morancore.utah.edu/section-04-ophthalmic-pathology/glaucoma-anterior-chamber/",
+          "kind": "圖譜",
+          "provider": "University of Utah · Moran CORE",
+          "note": "對照小樑網、Schlemm 管及前房病理；辨認傳統與葡萄膜鞏膜排出路徑。",
+          "verifiedDate": "2026-10-11"
+        }
+      ],
+      "figure": {
+        "type": "aqueous-flow",
+        "title": "房水生成與兩條排出路徑",
+        "caption": "原創房水流程示意：睫狀體生成房水，經後房與瞳孔進入前房，再分為小樑網／Schlemm 管及葡萄膜鞏膜排出路徑；箭頭示意方向，不代表精確流量比例。",
+        "alt": "房水從睫狀體經後房、瞳孔到前房，分流至小樑網及 Schlemm 管，另一條經葡萄膜鞏膜路徑排出。",
+        "sourceIds": [
+          "n07-anatomy"
+        ]
+      }
+    },
+    "notes-08": {
+      "deepDive": [
+        {
+          "heading": "眼眶隔膜後感染：用眼球功能辨識危險",
+          "paragraphs": [
+            "眼眶蜂窩性組織炎位於眼眶隔膜後，常由鼻竇感染延伸；眼皮紅腫的外觀本身無法判斷深度。應主動檢查眼球運動與疼痛、突眼、複視、視力及 RAPD，而不是只看是否發燒。",
+            "視力下降、RAPD 或視野缺損提示視神經受威脅，應立即升級眼科、耳鼻喉與影像評估，依情況給予住院靜脈抗菌及引流處置。曾使用抗生素的患者，沒有發燒也不能排除眼眶感染。"
+          ],
+          "sourceIds": [
+            "n08-orbital"
+          ]
+        },
+        {
+          "heading": "流淚先定位：入口、通道還是鼻淚管？",
+          "paragraphs": [
+            "排淚依序經淚點、淚小管、淚囊、鼻淚管。流淚不等於鼻淚管阻塞；先看淚點是否存在與開放，再以染色消退、探通及灌洗等檢查定位，避免跳過淚點或淚小管病變。",
+            "教學影片示範探針沿淚小管由垂直轉水平，感受軟性阻力並評估通道。灌洗能否進入鼻咽有助判斷通暢，但要與症狀和眼瞼位置一起解讀；操作須由受訓人員進行，不能用力突破阻力。"
+          ],
+          "sourceIds": [
+            "n08-punctal",
+            "n08-lacrimal-video"
+          ]
+        },
+        {
+          "heading": "淚囊炎不是只有局部紅腫",
+          "paragraphs": [
+            "淚道阻塞合併感染可形成淚囊膿瘍，也可能與眼眶蜂窩性組織炎同時存在。遇到內眥附近紅腫流膿時，仍要檢查視力、瞳孔與眼球運動，不能因找到淚囊病灶就停止評估。",
+            "明顯膿瘍、病情惡化或伴隨眼眶徵象時，需眼整形及相關團隊評估抗菌治療與引流；急性期處理感染與後續重建排淚通路，是不同階段的目標。影像中的感染範圍可幫助決定是否需要更積極處理。"
+          ],
+          "sourceIds": [
+            "n08-dacryo",
+            "n08-orbital"
+          ]
+        }
+      ],
+      "oralChallenge": {
+        "question": "小孩眼皮紅腫但沒有發燒，向上看會痛且出現複視，你會先當作眼眶隔膜前感染開口服藥嗎？",
+        "answer": "不會只靠無發燒判斷輕症。運動疼痛與複視提示可能有眼眶內侵犯，應立即評估視力、RAPD、突眼及眼球運動，安排眼科與耳鼻喉評估及適當眼眶／鼻竇影像；若視功能受損更須緊急處理。",
+        "sourceIds": [
+          "n08-orbital"
+        ]
+      },
+      "resources": [
+        {
+          "id": "n08-orbital",
+          "title": "兒童眼眶蜂窩性組織炎：照片與 CT",
+          "url": "https://www.eyerounds.org/cases/103-Pediatric-Orbital-Cellulitis.htm",
+          "kind": "圖譜",
+          "provider": "University of Iowa · EyeRounds",
+          "note": "含眼位、突眼與鼻竇／眼眶 CT，練習辨認隔膜後病灶及危險徵象。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n08-punctal",
+          "title": "淚點閉鎖與流淚的解剖定位",
+          "url": "https://www.eyerounds.org/cases/373-punctal-atresia.htm",
+          "kind": "圖譜",
+          "provider": "University of Iowa · EyeRounds",
+          "note": "病例圖與染色消退檢查；比較淚點、淚小管及鼻淚管阻塞。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n08-lacrimal-video",
+          "title": "淚道檢查影片：探通與灌洗",
+          "url": "https://webeye.ophth.uiowa.edu/eyeforum/atlas-video/lacrimal-system-examination.htm",
+          "kind": "影片",
+          "provider": "University of Iowa · Richard Allen",
+          "note": "1 分 29 秒示範淚點擴張、淚小管探通及灌洗；供受訓臨床人員學習。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n08-dacryo",
+          "title": "淚囊膿瘍與眼眶感染圖譜",
+          "url": "https://eyerounds.org/atlas/pages/dacryocystitis-2.html",
+          "kind": "圖譜",
+          "provider": "University of Iowa · EyeRounds",
+          "note": "病例照片示範淚囊感染可合併更深部眼眶侵犯。",
+          "verifiedDate": "2026-10-11"
+        }
+      ],
+      "figure": {
+        "type": "orbit",
+        "title": "眼眶隔膜前後的感染與視神經警訊",
+        "caption": "原創眼眶位置概念示意：眼眶隔膜區分隔膜前與隔膜後空間。視力下降、RAPD 或視野異常提示視神經受威脅，須立即升級處理。",
+        "alt": "水平位置圖依序標示眼瞼／眶隔前、眶隔、眶內組織與視神經，另用三欄對照隔膜前病變、眶內與視神經受累警訊。",
+        "sourceIds": [
+          "n08-orbital"
+        ]
+      }
+    },
+    "notes-09": {
+      "deepDive": [
+        {
+          "heading": "解剖分類要回答「發炎主要在哪裡」",
+          "paragraphs": [
+            "先用前房、玻璃體、視網膜／脈絡膜定位主要發炎位置，再補上單雙眼、急慢性與復發型態。前房有少量 cells 不代表一定是前葡萄膜炎；若玻璃體才是主要病灶，分類仍偏中間型。",
+            "Panuveitis 的重點是前房、玻璃體及視網膜／脈絡膜均有炎症，且沒有單一主要位置。黃斑水腫是可能跨類型出現的併發症，不能只因有 CME 就改分類為後葡萄膜炎。這個區分直接影響檢查範圍與治療到達的位置。"
+          ],
+          "sourceIds": [
+            "uve-sun",
+            "uve-video"
+          ]
+        },
+        {
+          "heading": "從表型形成假說，再決定檢驗",
+          "paragraphs": [
+            "反覆、急性、單眼或交替發作的前葡萄膜炎，配合炎症性背痛、乾癬或腸道症狀，會提高 HLA-B27 相關疾病的可能性。問診不是只問「有沒有自體免疫病」，而是問晨僵、活動後是否改善、皮疹與血便等具體表現。",
+            "HLA 或其他自體抗體陽性是線索，不能單獨建立眼部病因。應先記錄 cells、KP、黏連、眼壓與後段是否受累，再依表型選檢驗。即使第一輪全身問診陰性，復發或新系統症狀仍可能改變診斷。"
+          ],
+          "sourceIds": [
+            "uve-hlab27"
+          ]
+        },
+        {
+          "heading": "高眼壓的前葡萄膜炎：別只加類固醇",
+          "paragraphs": [
+            "單眼發炎合併明顯高眼壓、局部虹膜萎縮或角膜感覺下降，要把病毒性前葡萄膜炎放進鑑別。眼壓升高可能來自小樑炎、炎症阻塞或既有黏連；不能一律歸因於類固醇反應。",
+            "感染性發炎不等於永遠不能用類固醇。以疱疹性前葡萄膜炎為例，專科可能同時處理病毒與炎症；危險的是未辨識感染、未處理病原就單純加強免疫抑制。角膜上皮病灶與眼壓需一起追蹤。"
+          ],
+          "sourceIds": [
+            "uve-hsv"
+          ]
+        }
+      ],
+      "oralChallenge": {
+        "question": "單眼反覆前葡萄膜炎，這次眼壓明顯升高且有局部虹膜萎縮。如何回答「是不是類固醇點太多」？",
+        "answer": "先釐清用藥前後時序，但不直接認定類固醇反應。高眼壓、虹膜萎縮與單眼復發也提示病毒性前葡萄膜炎；補查角膜感覺、上皮病灶、KP 與後段。由眼科依表型決定是否需房水檢測，並同時處理病原、炎症及眼壓。",
+        "sourceIds": [
+          "uve-hsv"
+        ]
+      },
+      "resources": [
+        {
+          "id": "uve-sun",
+          "title": "SUN：葡萄膜炎分類與發炎分級原始共識",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8935739/",
+          "kind": "期刊",
+          "provider": "SUN Working Group / American Journal of Ophthalmology",
+          "note": "看解剖分類表；分清主要炎症位置與黃斑水腫等併發症。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "uve-hlab27",
+          "title": "HLA-B27 前葡萄膜炎：後黏連實例",
+          "url": "https://eyerounds.org/cases/334-HLA-B27-associated-Acute-Anterior-Uveitis.htm",
+          "kind": "圖譜",
+          "provider": "University of Iowa · EyeRounds",
+          "note": "先描述裂隙燈照片的後黏連，再對照問診與後續全身疾病線索。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "uve-video",
+          "title": "Introduction to Uveitis（2025）",
+          "url": "https://morancore.utah.edu/section-09-intraocular-inflammation-and-uveitis/introduction-to-uveitis-2025/",
+          "kind": "影片",
+          "provider": "University of Utah · Moran CORE",
+          "note": "住院醫師課程；帶著「定位、病因、併發症」三個問題觀看。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "uve-hsv",
+          "title": "Herpes Simplex Uveitis：病毒性前炎判讀",
+          "url": "https://eyewiki.org/Herpes_Simplex_Uveitis",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "重點是高眼壓、虹膜萎縮與角膜線索；專家教學頁，非正式臨床指引。",
+          "verifiedDate": "2026-10-11"
+        }
+      ],
+      "figure": {
+        "type": "uveitis-anatomy",
+        "title": "依主要發炎位置分類",
+        "caption": "原創概念圖：前房 → anterior；玻璃體 → intermediate；視網膜／脈絡膜 → posterior。Panuveitis 需多區發炎且無主要位置；不以 CME 單獨分類。",
+        "alt": "表格對照前房、玻璃體與視網膜／脈絡膜三個發炎區域，列出前、中間型、後及全葡萄膜炎的主要或共同受累位置。",
+        "sourceIds": [
+          "uve-sun"
+        ]
+      }
+    },
+    "notes-10": {
+      "deepDive": [
+        {
+          "heading": "從牽引、裂孔到剝離：用機轉解釋閃光與幕簾",
+          "paragraphs": [
+            "玻璃體液化與後玻璃體分離本身不等於視網膜剝離；危險出現在仍黏附的部位產生牽引並形成裂孔，液體再經裂孔進入神經視網膜與 RPE 之間。這也解釋為何急性閃光、飛蚊與出血需要周邊視網膜評估。",
+            "看到剝離時先問三件事：有沒有裂孔、是否有牽拉膜、液體是否來自滲漏。再確認黃斑／中心凹是否仍貼附。中央視力好不能排除周邊剝離；OCT 可補充中心凹狀態，但不能取代完整周邊眼底檢查。"
+          ],
+          "sourceIds": [
+            "ret-rd-atlas",
+            "ret-rd-video"
+          ]
+        },
+        {
+          "heading": "糖尿病視網膜：滲漏與缺血是兩條問題軸",
+          "paragraphs": [
+            "微血管受損可造成滲漏與黃斑水腫，也可導致缺血並刺激脆弱的新生血管。前者主要影響黃斑結構與中央視力；後者可引起玻璃體出血、纖維化與牽引性剝離。不能把「黃斑有水」直接當作已進入增殖期。",
+            "說明治療時，把目標說清楚：控制漏液、降低新生血管活動，或處理出血與牽拉。眼底照片提供分布與分期線索，黃斑影像回答中央視力下降是否伴結構改變；全身代謝及血壓控制則與眼部治療並行。"
+          ],
+          "sourceIds": [
+            "ret-dr"
+          ]
+        },
+        {
+          "heading": "視網膜動脈阻塞：診斷之外，還要改變分流",
+          "paragraphs": [
+            "CRAO 是內層視網膜的急性缺血性事件。突然、無痛、嚴重單眼視力下降與 RAPD，需立即納入鑑別，不能因眼睛不紅而降低急迫性。",
+            "懷疑 CRAO 應迅速送急診／中風團隊；眼球按摩等未證實有效的措施不能延誤分流。後續要處理血管病因與再發預防，並非眼底病名確認就結束。"
+          ],
+          "sourceIds": [
+            "ret-crao"
+          ]
+        }
+      ],
+      "oralChallenge": {
+        "question": "病人新出現大量飛蚊與閃光，但視力仍為 1.0。你會如何解釋為何不能只觀察？",
+        "answer": "視力表主要反映中央視覺，不能排除周邊裂孔或尚未影響黃斑的剝離。需要及時完整散瞳眼底評估，留意出血與裂孔；若出現幕簾或視野缺損，更屬警訊。檢查後的追蹤由裂孔、出血與個別風險決定。",
+        "sourceIds": [
+          "ret-rd-atlas",
+          "ret-rd-video"
+        ]
+      },
+      "resources": [
+        {
+          "id": "ret-rd-atlas",
+          "title": "視網膜剝離：眼底、OCT 與 B-scan 對照",
+          "url": "https://www.eyerounds.org/tutorials/retinal-detachment-med-students/",
+          "kind": "圖譜",
+          "provider": "University of Iowa · EyeRounds",
+          "note": "依序辨認視網膜層次、剝離邊界與中心凹是否受累；舊教學中的手術時程須依現行個案評估。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-rd-video",
+          "title": "Retinal Detachment & Peripheral Abnormalities",
+          "url": "https://morancore.utah.edu/section-12-retina-and-vitreous/retinal-detachment/",
+          "kind": "影片",
+          "provider": "University of Utah · Moran CORE",
+          "note": "看周邊病灶與剝離的差異；觀看後用機轉解釋三種剝離。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-dr",
+          "title": "糖尿病視網膜病變：滲漏、新生血管與治療目的",
+          "url": "https://www.nei.nih.gov/eye-health-information/eye-conditions-and-diseases/diabetic-retinopathy",
+          "kind": "指南",
+          "provider": "NIH · National Eye Institute",
+          "note": "官方教育頁；練習用病人聽得懂的語言解釋黃斑水腫與增殖病變。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "ret-crao",
+          "title": "AHA：中央視網膜動脈阻塞急症要點",
+          "url": "https://professional.heart.org/en/science-news/management-of-central-retinal-artery-occlusion/top-things-to-know",
+          "kind": "指南",
+          "provider": "American Heart Association",
+          "note": "重點是立即急診分流與中風評估；不把眼球按摩當作有效替代方案。",
+          "verifiedDate": "2026-10-11"
+        }
+      ],
+      "figure": {
+        "type": "retina-layers",
+        "title": "視網膜層次與雙重血流",
+        "caption": "原創概念圖：內層視網膜主要由視網膜循環供血，感光細胞等外層主要依靠脈絡膜。由玻璃體側到 RPE／脈絡膜的層次，幫助區分病灶位置；圖中簡化排列，不是比例解剖圖。",
+        "alt": "由玻璃體到脈絡膜的視網膜層次圖，分別標示內層視網膜循環與外層脈絡膜循環。",
+        "sourceIds": [
+          "ret-rd-atlas"
+        ]
+      }
+    },
+    "notes-11": {
+      "deepDive": [
+        {
+          "heading": "眼瞼下垂的量測，必須先排除代償",
+          "paragraphs": [
+            "額肌抬眉與抬下巴會掩蓋真正下垂程度。先讓病人頭位端正、眉部放鬆，測量上眼瞼緣到角膜光反射的 MRD1；量提上瞼肌功能時固定眉毛，再測下視至上視的眼瞼位移。",
+            "眼瞼摺痕、提肌功能、發作時間與波動性共同提供病因線索。隨疲勞明顯波動要考慮神經肌肉接合問題；伴瞳孔或眼球運動異常時，不能只以老化性下垂規劃手術。"
+          ],
+          "sourceIds": [
+            "n11-ptosis",
+            "n11-exam-video"
+          ]
+        },
+        {
+          "heading": "功能性眼整形，先保護角膜",
+          "paragraphs": [
+            "閉眼不全與眨眼減少會使淚膜保護不足，造成暴露性角膜病變。鎮靜、插管或無法表達症狀的患者尤其容易被忽略；即使病人沒有喊痛，也要檢查眼瞼閉合與角膜染色。",
+            "處理重點是恢復眼表保護，例如規律潤滑及依情況協助閉合或保濕，並追蹤角膜上皮。已有上皮缺損、浸潤或視力變化，應由眼科評估感染等併發症；單純把眼皮貼住而未檢查角膜，不等於完成照護。"
+          ],
+          "sourceIds": [
+            "n11-exposure"
+          ]
+        },
+        {
+          "heading": "反覆『霰粒腫』要想偽裝成發炎的腫瘤",
+          "paragraphs": [
+            "皮脂腺癌可能表現為反覆眼瞼結節，或久治不癒的單側眼瞼結膜炎。較晚年齡新出現、反覆或治療反應不佳的『霰粒腫』，需要重新評估病史與整個眼瞼、結膜，而非無限重複同一治療。",
+            "診斷需依專科評估取得組織；外觀像良性發炎並不能排除惡性。口試回答應說明『為何懷疑、要檢查哪些範圍、如何取得確診』，不要只列出腫瘤名稱或直接承諾用局部處置就能治癒。"
+          ],
+          "sourceIds": [
+            "n11-sebaceous"
+          ]
+        }
+      ],
+      "oralChallenge": {
+        "question": "高齡患者同一上眼瞼的『霰粒腫』反覆復發，並有長期單側眼瞼結膜炎，下一步是什麼？",
+        "answer": "需提高對皮脂腺癌等偽裝病變的懷疑，重新檢查眼瞼與結膜、回顧以往治療及病理，轉眼整形評估適當組織取樣。重點是取得診斷，而非再把它當作一般發炎結節反覆治療。",
+        "sourceIds": [
+          "n11-sebaceous"
+        ]
+      },
+      "resources": [
+        {
+          "id": "n11-ptosis",
+          "title": "Ptosis 圖解：解剖、量測與鑑別",
+          "url": "https://eyerounds.org/tutorials/Ptosis/",
+          "kind": "圖譜",
+          "provider": "University of Iowa · EyeRounds",
+          "note": "觀察 MRD、提肌功能與不同病因的眼瞼外觀；教學綜述。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n11-exam-video",
+          "title": "眼瞼外觀與功能量測影片",
+          "url": "https://eyerounds.org/atlas-video/external-examination.htm",
+          "kind": "影片",
+          "provider": "University of Iowa · Richard Allen",
+          "note": "1 分 12 秒示範 MRD、眼裂、提肌功能、眼瞼鬆弛及眉位。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n11-exposure",
+          "title": "重症患者暴露性角膜病變",
+          "url": "https://www.eyerounds.org/cases/189-exposure-keratopathy.htm",
+          "kind": "圖譜",
+          "provider": "University of Iowa · EyeRounds",
+          "note": "臨床病例與眼表保護策略，連結眼瞼功能與 ICU 照護。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "n11-sebaceous",
+          "title": "皮脂腺癌：偽裝成眼瞼發炎的病例",
+          "url": "https://www.eyerounds.org/cases/62-Sebaceous-Cell-Carcinoma-Eyelid-Masquerade-Syndrome.htm",
+          "kind": "圖譜",
+          "provider": "University of Iowa · EyeRounds",
+          "note": "對照臨床及病理圖片，辨認反覆結節與難治性單側發炎的警訊。",
+          "verifiedDate": "2026-10-11"
+        }
+      ],
+      "figure": {
+        "type": "lid-measurement",
+        "title": "MRD1 與提上瞼肌功能是兩種量測",
+        "caption": "原創量測圖：MRD1 為角膜光反射至上眼瞼緣的距離；提肌功能為固定眉毛後，下視到上視的眼瞼位移。測量前須控制頭位與額肌代償。",
+        "alt": "眼睛正面圖標示角膜光反射與上眼瞼緣之間的 MRD1，旁圖用下視及上視位置差示意提上瞼肌功能。",
+        "sourceIds": [
+          "n11-ptosis",
+          "n11-exam-video"
+        ]
+      }
+    },
+    "notes-12": {
+      "deepDive": [
+        {
+          "heading": "機轉｜乾眼是眼表恆定性失衡，不只是淚水太少",
+          "paragraphs": [
+            "TFOS DEWS III 將乾眼描述為伴有症狀的多因素疾病，核心是淚膜及／或眼表恆定性喪失。淚膜不穩定、高滲透壓、發炎、損傷與神經感覺異常彼此影響，因此同樣說『乾』的病人可能有不同主因。",
+            "脂質、水液與黏蛋白／上皮界面共同維持穩定光學表面；這是連續互動的系統，不能只把它想成完全分離的三層。眨眼後短暫清楚、持續注視又模糊的時間關係，能提示淚膜對視覺品質的影響。"
+          ],
+          "sourceIds": [
+            "an12-dews3",
+            "an12-ocular"
+          ]
+        },
+        {
+          "heading": "推理｜以症狀、恆定性指標與病因分型相互確認",
+          "paragraphs": [
+            "問診先釐清異物感、灼熱、視覺波動、環境及用眼型態，再檢查眼瞼閉合、眨眼、瞼板腺、淚河與眼表染色。淚膜破裂時間、染色與分泌測試各反映不同面向，單一數字不能取代整體診斷。",
+            "診斷之後還要找主要驅動因素，例如水液不足、蒸發增加、眼瞼或眼表異常；混合型並不少見。若伴乾口、系統性症狀或明顯水液不足，需考慮全身疾病評估，而非只更換人工淚液品牌。"
+          ],
+          "sourceIds": [
+            "an12-dews3",
+            "an12-dews2",
+            "an12-ocular"
+          ]
+        },
+        {
+          "heading": "陷阱｜症狀與染色不一致，是重新鑑別的提示",
+          "paragraphs": [
+            "劇烈不適但染色輕微時，不代表患者沒有問題；需考慮神經感覺異常及其他造成眼痛的疾病。反之，角膜明顯受損卻少有不適時，應評估角膜感覺與神經營養性問題，而非把缺少症狀當成輕症。",
+            "單眼急性疼痛、視力下降、局部角膜浸潤或明顯畏光，不應直接套入日常乾眼照護。結膜炎與乾眼可以共存，但症狀、分泌物或充血的單一特徵，都不足以排除角膜感染及眼內發炎。"
+          ],
+          "sourceIds": [
+            "an12-dews3",
+            "an12-dews2"
+          ]
+        }
+      ],
+      "oralChallenge": {
+        "question": "病人長時間看螢幕後視覺波動，眨眼暫時改善；自覺一直流淚，因此認為不可能乾眼。你怎麼說明與驗證？",
+        "answer": "流淚不能排除淚膜功能失衡，刺激可誘發反射性流淚，卻未必恢復穩定眼表。我會檢查眨眼與閉合、瞼板腺、淚膜穩定性及染色，將症狀與客觀結果一起解讀；也確認沒有急性疼痛、視力下降或角膜浸潤等需要另行處理的徵象。",
+        "sourceIds": [
+          "an12-ocular",
+          "an12-dews2",
+          "an12-dews3"
+        ]
+      },
+      "resources": [
+        {
+          "id": "an12-dews3",
+          "title": "TFOS DEWS III：2025 診斷方法重點摘要",
+          "url": "https://www.tearfilm.org/ckfinder/userfiles/files/15954-Alcon-Diagnostic-Summary-DIGITAL-GLOBAL.pdf",
+          "kind": "指南",
+          "provider": "TFOS · University of Waterloo CORE",
+          "note": "官方提供的 6 頁新版摘要；整理定義、OSDI-6、診斷與分型，內含診斷示意圖，非臨床照片。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "an12-dews2",
+          "title": "TFOS DEWS II：完整診斷方法報告",
+          "url": "https://www.tfosdewsreport.org/report-diagnostic_methodology/131_36/en/",
+          "kind": "期刊",
+          "provider": "Tear Film & Ocular Surface Society",
+          "note": "2017 基礎報告的開放全文；用於理解檢查原理與鑑別，新版分類及建議請對照 DEWS III。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "an12-ocular",
+          "title": "The Ocular Surface：眼表與淚膜教學",
+          "url": "https://morancore.utah.edu/section-08-external-disease-and-cornea/the-ocular-surface/",
+          "kind": "影片",
+          "provider": "University of Utah · Moran CORE",
+          "note": "大學眼表課程影片；屬較早期教學，適合看基本機轉，治療與診斷更新請對照 DEWS III。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "an12-staining",
+          "title": "乾燥性角結膜炎的 Lissamine Green 染色",
+          "url": "https://eyerounds.org/atlas/pages/LG-staining/",
+          "kind": "圖譜",
+          "provider": "University of Iowa · EyeRounds",
+          "note": "三張真實眼表染色照片；觀察結膜受損分布，不以單張照片決定病因或嚴重度。",
+          "verifiedDate": "2026-10-11"
+        }
+      ],
+      "figure": {
+        "type": "tear-film",
+        "title": "淚膜的脂質與黏液水液介面",
+        "caption": "原創淚膜概念示意，非患者影像、非按比例。表面脂質層與下方黏液水液相、上皮界面共同維持穩定眼表；黏蛋白分布呈梯度，並非三層完全分離的液體。",
+        "alt": "淚膜剖面：空氣下方為表面脂質層，再往下是含水液與分泌型黏蛋白的黏液水液相，接近角膜上皮為膜結合黏蛋白界面。",
+        "sourceIds": [
+          "an12-dews3",
+          "an12-dews2"
+        ]
+      }
+    },
+    "notes-13": {
+      "deepDive": [
+        {
+          "heading": "HCQ：正常視力不等於沒有早期毒性",
+          "paragraphs": [
+            "HCQ 毒性可先出現在中心凹周圍或更外側的區域，早期仍可能看清視力表。Bull’s-eye 外觀代表較晚的結構損害，篩檢的目的正是提早找出變化，而不是等眼底出現典型環狀病灶。",
+            "判讀時要把用藥年限、劑量、腎功能、tamoxifen 與開始用藥年齡納入風險；單一風險因子或一次可疑檢查，都不等於已確診。疑似結果需結構與功能對照，並與原處方團隊共同決定後續。"
+          ],
+          "sourceIds": [
+            "drug-hcq-aao",
+            "drug-hcq-image"
+          ]
+        },
+        {
+          "heading": "AAO 2025 修訂：先做基線，再依風險安排追蹤",
+          "paragraphs": [
+            "AAO 最新修訂於 2025 年公布、2026 年正式刊出：開始 HCQ 後及早建立眼底、OCT 與 FAF 基線；使用期間建議年度 OCT 與廣範圍 FAF。只有沒有顯著風險因子者，才可考慮在最初五年暫緩年度篩檢。",
+            "視野與 mfERG 是確認工具。檢查範圍需同時涵蓋 parafoveal 與 pericentral，不能只靠中央 10-2 或只按族群固定一種型態。停止用藥後是否仍進展與原有嚴重程度有關，不能保證停藥即完全逆轉。"
+          ],
+          "sourceIds": [
+            "drug-hcq-aao"
+          ]
+        },
+        {
+          "heading": "Topiramate：閉角的機轉決定處置方向",
+          "paragraphs": [
+            "新用藥或加量後的雙眼急性模糊，若伴近視位移、淺前房及高眼壓，應想到睫狀脈絡膜滲出使晶狀體虹膜隔整體前移。這與瞳孔阻滯造成的 iris bombe 不同，也不要求病人原本就有狹窄隅角。",
+            "因此 LPI 不能處理這個滲出機轉，不能機械套用所有原發閉角處置。需立即眼科評估，由治療團隊儘速處理疑致病藥與替代方案；降壓、睫狀肌麻痺與抗發炎策略由專科依情境決定。"
+          ],
+          "sourceIds": [
+            "drug-topiramate"
+          ]
+        }
+      ],
+      "oralChallenge": {
+        "question": "服 HCQ 多年者說：「我視力還是 1.0，而且沒有 bull’s-eye，為何還要檢查？」請用病人能理解的話回答。",
+        "answer": "視力表主要測最中央的視覺，藥物影響可能先從旁邊的視網膜開始，所以還看得清楚不代表沒有變化。我們會用影像追蹤，必要時加功能檢查；若結果可疑，會再確認並和原處方醫師討論，不是只憑一張圖就自行停藥。",
+        "sourceIds": [
+          "drug-hcq-aao",
+          "drug-hcq-image"
+        ]
+      },
+      "resources": [
+        {
+          "id": "drug-hcq-aao",
+          "title": "AAO：HCQ 視網膜毒性篩檢 2025 修訂",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41232611/",
+          "kind": "期刊",
+          "provider": "American Academy of Ophthalmology · Ophthalmology",
+          "note": "2026 正式刊出；以此更新篩檢時程與工具，勿沿用舊影片中的篩檢規則。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "drug-hcq-image",
+          "title": "Bull’s-eye maculopathy：眼底、FAF、OCT 實例",
+          "url": "https://morancore.utah.edu/section-12-retina-and-vitreous/bilateral-bulls-eye-maculopathy/",
+          "kind": "圖譜",
+          "provider": "University of Utah · Moran CORE",
+          "note": "晚期毒性圖像；練習指出受損區域，並說明為何不能等到此時才篩檢。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "drug-macula-video",
+          "title": "Acquired Macular Diseases：含藥物性黃斑病變",
+          "url": "https://morancore.utah.edu/section-12-retina-and-vitreous/acquired-macular-diseases/",
+          "kind": "影片",
+          "provider": "University of Utah · Moran CORE",
+          "note": "2018 課程含 Plaquenil toxicity；適合學影像與鑑別，現行篩檢依 AAO 2025 修訂。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "drug-topiramate",
+          "title": "Topiramate 雙眼閉角：超音波與解剖對照",
+          "url": "https://eyerounds.org/cases/283-topiramate-induced-angle-closure.htm",
+          "kind": "圖譜",
+          "provider": "University of Iowa · EyeRounds",
+          "note": "看睫狀體水腫、晶狀體虹膜隔前移與治療後影像變化。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "drug-amiodarone-atlas",
+          "title": "Corneal verticillata - Amiodarone",
+          "url": "https://eyerounds.org/cases/case29.htm",
+          "kind": "圖譜",
+          "provider": "University of Iowa · EyeRounds",
+          "note": "角膜渦狀沉積的原始教學病例，通常不因沉積本身改變心臟用藥。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "drug-steroid-effects",
+          "title": "Ocular Side-Effects of Corticosteroids",
+          "url": "https://morancore.utah.edu/basic-ophthalmology-review/ocular-side-effects-of-corticosteroids/",
+          "kind": "指南",
+          "provider": "University of Utah · Moran CORE",
+          "note": "類固醇的眼壓與晶狀體風險；原始教學頁。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "drug-ethambutol",
+          "title": "Ethambutol Optic Neuropathy",
+          "url": "https://eyewiki.org/Ethambutol_Optic_Neuropathy",
+          "kind": "指南",
+          "provider": "AAO · EyeWiki",
+          "note": "視神經毒性、色覺與中央視野；專家教學頁，非正式臨床指引。",
+          "verifiedDate": "2026-10-11"
+        }
+      ],
+      "figure": {
+        "type": "drug-targets",
+        "title": "藥物副作用的眼部定位圖",
+        "caption": "原創概念圖：amiodarone 可出現角膜渦狀沉積；類固醇需注意白內障與眼壓；HCQ 需監測視網膜毒性；ethambutol 需警覺視神經病變。這是常考定位，不代表每種藥只影響單一部位，也不是自行停藥的依據。",
+        "alt": "五列定位表：角膜與 amiodarone、晶狀體與類固醇、眼壓與類固醇、視網膜與 HCQ、視神經與 ethambutol，並提醒此表不是完整副作用清單。",
+        "sourceIds": [
+          "drug-hcq-aao",
+          "drug-amiodarone-atlas",
+          "drug-steroid-effects",
+          "drug-ethambutol"
+        ]
+      }
+    },
+    "notes-14": {
+      "deepDive": [
+        {
+          "heading": "口試先完成分流，再展開鑑別",
+          "paragraphs": [
+            "急性視力下降的第一句應交代起始時間、單雙眼、疼痛及嚴重程度。之後用視力、瞳孔／RAPD、視野、前節與眼底，說明目前比較支持視網膜還是視神經病灶。即使尚未確診，也可以清楚說出不能延誤的下一步。",
+            "新飛蚊、閃光與幕簾提示視網膜裂孔／剝離風險；突然嚴重且無痛的單眼下降則須立即考慮動脈阻塞。不能用「沒有痛」或「中央視力還好」作為安心依據。"
+          ],
+          "sourceIds": [
+            "triage-video",
+            "triage-rd",
+            "triage-crao"
+          ]
+        },
+        {
+          "heading": "眼底病名不夠：辨認全身急症",
+          "paragraphs": [
+            "CRAO 的口試答案必須包含急診／中風分流，而非只說散瞳確認。記錄最後正常時間與血管危險因子，能讓後續團隊迅速判斷；是否適合急性介入需由團隊依個案決定。",
+            "高齡者急性視覺症狀，若合併新頭痛、咀嚼疼痛或蒼白腫脹的視神經盤，要警覺 GCA。沒有典型全身症狀也不能完全排除；合理懷疑時需要緊急處理，不能只排一般門診等待檢查。"
+          ],
+          "sourceIds": [
+            "triage-crao",
+            "triage-gca"
+          ]
+        },
+        {
+          "heading": "把影像描述轉成可檢驗的推論",
+          "paragraphs": [
+            "看圖時先描述位置、顏色、邊界與伴隨血管變化，再提出診斷。例如蒼白水腫的視神經盤應連結缺血性視神經病變的鑑別；隆起皺摺的視網膜則需釐清剝離範圍與中央區是否受累。不要只報一個病名便停止。",
+            "接著說出哪項證據最會改變決策：是血管急症的發病時間、GCA 的臨床線索，還是視網膜是否有裂孔及黃斑受累。把答案組成「目前最擔心什麼、還需確認什麼、現在先做什麼」，比羅列十個疾病更能呈現臨床判斷。"
+          ],
+          "sourceIds": [
+            "triage-gca",
+            "triage-rd",
+            "triage-video"
+          ]
+        }
+      ],
+      "oralChallenge": {
+        "question": "一位高齡病人 45 分鐘前突然單眼無痛視力大幅下降。你尚未看清眼底，第一分鐘如何回報？",
+        "answer": "先報告最後正常時間、側別、實測視力與 RAPD，提出視網膜動脈阻塞等缺血性急症疑慮，立即啟動急診／中風評估並聯絡眼科。同時詢問新頭痛與咀嚼疼痛等 GCA 線索；不因等待完整眼底影像而延誤分流。",
+        "sourceIds": [
+          "triage-crao",
+          "triage-gca"
+        ]
+      },
+      "resources": [
+        {
+          "id": "triage-crao",
+          "title": "AHA：CRAO 是需要急診分流的視網膜中風",
+          "url": "https://professional.heart.org/en/science-news/management-of-central-retinal-artery-occlusion/top-things-to-know",
+          "kind": "指南",
+          "provider": "American Heart Association",
+          "note": "口試務必說出急診、中風評估與再發預防，不停留在眼底辨識。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "triage-video",
+          "title": "急性持續性視力下降：視網膜或視神經？",
+          "url": "https://morancore.utah.edu/section-05-neuro-ophthalmology/differentiating-retinopathy-from-optic-neuropathy-in-acute-persistent-vision-loss/",
+          "kind": "影片",
+          "provider": "University of Utah · Moran CORE",
+          "note": "以病例練定位；暫停影片後先說自己的前三項鑑別與下一步。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "triage-gca",
+          "title": "GCA：蒼白視神經盤與缺血影像",
+          "url": "https://eyerounds.org/article/GCA/index.htm",
+          "kind": "圖譜",
+          "provider": "University of Iowa · EyeRounds",
+          "note": "臨床圖像與原始研究教學；聚焦辨識急症，不把舊文完整治療方案當現行處方。",
+          "verifiedDate": "2026-10-11"
+        },
+        {
+          "id": "triage-rd",
+          "title": "NEI：新飛蚊、閃光與幕簾的急症警訊",
+          "url": "https://www.nei.nih.gov/eye-health-information/eye-conditions-and-diseases/retinal-detachment",
+          "kind": "指南",
+          "provider": "NIH · National Eye Institute",
+          "note": "用官方教育頁練習回診警訊說明，以及為何症狀出現就需及時就醫。",
+          "verifiedDate": "2026-10-11"
+        }
+      ],
+      "figure": {
+        "type": "triage",
+        "title": "急性視力下降：疼痛與側別矩陣",
+        "caption": "原創概念圖：以疼痛／無痛與單眼／雙眼形成四格，作為病史與定位的起點。側別需實際分眼確認；無痛或雙眼都不能自動排除急症，格內病因是鑑別方向而非確診。",
+        "alt": "二乘二矩陣以疼痛與無痛為一軸、單眼與雙眼為另一軸，提示結合發病時間、視力、瞳孔、前節與眼底做進一步分流。",
+        "sourceIds": [
+          "triage-crao",
+          "triage-rd",
+          "triage-gca"
+        ]
+      }
+    }
+  }
+}
