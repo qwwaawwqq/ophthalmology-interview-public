@@ -229,6 +229,21 @@ test('all 46 existing interviews render and clinical rehearsal completion persis
   action('interview', 'notes-05-case-1'); action('iv-done');
   assert(qa.entries['interview:notes-05-case-1'].practiced);
 });
+test('general interviews show three sample answers that can be appended to the draft', () => {
+  const general = qa.D.interview.filter(i => !i.clinical);
+  assert.equal(general.length, 18);
+  for (const interview of general) {
+    action('interview', interview.id);
+    const html = decode(main());
+    const samples = qa.D.interviewSamples.answers[interview.id];
+    assert.equal(samples.length, 3);
+    for (const text of samples) assert(html.includes(text), interview.id + ': sample answer missing');
+  }
+  action('interview', 'notes-05-case-1');
+  assert(!main().includes('interview-samples'));
+  action('interview', 'why-oph'); action('use-sample', '1');
+  assert(qa.entries['interview:why-oph'].draft.includes(qa.D.interviewSamples.answers['why-oph'][1]));
+});
 test('all main views and workshop templates render', () => {
   for (const view of ['notebook', 'originals', 'quiz', 'learn', 'interview', 'workshop', 'plan', 'progress']) {
     action('tab', view); assert(main().length > 0); uniqueIds(parse(main()), view);
