@@ -375,8 +375,8 @@ test('four symptom-based routes display their question and working ordered chapt
   assert.equal(new Set(paths.map(route => route.id)).size, paths.length, 'Route IDs repeat');
   for (const route of paths) {
     assert(hasText(tree, route.title)); assert(hasText(tree, route.question));
-    const container = all(tree, node => node.tag === 'details' && node.children.some(child => child.tag === 'summary' && hasText(child, route.title)));
-    assert.equal(container.length, 1, 'Route should have one expandable entry: ' + route.id);
+    const container = all(tree, node => node.tag === 'article' && node.children.some(child => child.tag === 'h3' && hasText(child, route.title)));
+    assert.equal(container.length, 1, 'Route should have one card: ' + route.id);
     const buttons = all(container[0], node => node.tag === 'button' && node.attrs['data-action'] === 'learn-topic');
     assert.deepEqual(buttons.map(node => node.attrs['data-value']), Array.from(route.topicIds), route.id + ': route chapter order changed');
     for (const button of buttons) {
