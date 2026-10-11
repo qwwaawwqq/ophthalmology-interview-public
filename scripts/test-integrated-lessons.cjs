@@ -229,20 +229,18 @@ test('all 46 existing interviews render and clinical rehearsal completion persis
   action('interview', 'notes-05-case-1'); action('iv-done');
   assert(qa.entries['interview:notes-05-case-1'].practiced);
 });
-test('general interviews show three sample answers that can be appended to the draft', () => {
-  const general = qa.D.interview.filter(i => !i.clinical);
-  assert.equal(general.length, 18);
-  for (const interview of general) {
+test('every interview shows three persona sample answers that can be appended to the draft', () => {
+  assert.equal(qa.D.interviewSamples.versions.length, 3);
+  for (const interview of qa.D.interview) {
     action('interview', interview.id);
     const html = decode(main());
     const samples = qa.D.interviewSamples.answers[interview.id];
-    assert.equal(samples.length, 3);
+    assert.equal(samples.length, 3, interview.id);
     for (const text of samples) assert(html.includes(text), interview.id + ': sample answer missing');
+    assert(html.includes(interview.clinical ? qa.D.interviewSamples.clinicalNote : qa.D.interviewSamples.note), interview.id + ': note missing');
   }
-  action('interview', 'notes-05-case-1');
-  assert(!main().includes('interview-samples'));
-  action('interview', 'why-oph'); action('use-sample', '1');
-  assert(qa.entries['interview:why-oph'].draft.includes(qa.D.interviewSamples.answers['why-oph'][1]));
+  action('interview', 'notes-05-case-1'); action('use-sample', '2');
+  assert(qa.entries['interview:notes-05-case-1'].draft.includes(qa.D.interviewSamples.answers['notes-05-case-1'][2]));
 });
 test('all main views and workshop templates render', () => {
   for (const view of ['notebook', 'originals', 'quiz', 'learn', 'interview', 'workshop', 'plan', 'progress']) {
