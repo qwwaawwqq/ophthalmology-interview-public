@@ -19,6 +19,7 @@ INDEX = ROOT / 'index.html'
 CONTENT = ROOT / 'content/study-enrichment.json'
 COVERAGE = ROOT / 'content/source-coverage.json'
 SAMPLES = ROOT / 'content/interview-samples.json'
+KAOGU = ROOT / 'content/past-exam-questions.json'
 KINDS = {'圖譜', '影片', '期刊', '指南'}
 JS_START = '/* enrichment-ui:start */'
 JS_END = '/* enrichment-ui:end */'
@@ -588,6 +589,27 @@ CSS = r'''
 '''
 
 
+def validate_kaogu(questions, base, data):
+    topics = {t['id'] for t in data['topics']}
+    seen = {q['id'] for q in base}
+    for q in questions:
+        label = 'past-exam question ' + str(q.get('id'))
+        if not re.fullmatch(r'notes-\d\d-k\d\d', str(q.get('id'))) or q['id'] in seen:
+            raise ValueError(label + ': malformed or duplicate id')
+        seen.add(q['id'])
+        if q.get('topicId') not in topics or q.get('pastExam') is not True:
+            raise ValueError(label + ': unknown topic or missing pastExam flag')
+        for key in ('stem', 'explanation', 'sourceType', 'sourceId', 'source', 'sourceRef'):
+            require_text(q.get(key), label + ' ' + key)
+        options = q.get('options')
+        if not isinstance(options, list) or len(options) != 4 or len(set(options)) != 4:
+            raise ValueError(label + ': exactly four distinct options required')
+        for option in options:
+            require_text(option, label + ' option')
+        if type(q.get('correctIndex')) is not int or not 0 <= q['correctIndex'] < 4:
+            raise ValueError(label + ': correctIndex must be 0-3')
+
+
 def function_line(js, name):
     match = re.search(r'^function '+re.escape(name)+r'\([^\n]+$', js, re.M)
     if not match:
@@ -601,6 +623,15 @@ def build():
     if not match:
         raise ValueError('Missing course-data JSON')
     data = json.loads(match.group(2))
+    if KAOGU.is_file():
+        # Re-merged on every build so a re-imported base index.html gets the past-exam set back.
+        kaogu = json.loads(KAOGU.read_text(encoding='utf-8'))
+        base = [q for q in data['questions'] if not q.get('pastExam')]
+        validate_kaogu(kaogu, base, data)
+        data['questions'] = base + kaogu
+        data['notes']['questionDisclaimer'] = f'共 {len(base) + len(kaogu)} 題單選練習：{len(base)} 題自編、{len(kaogu)} 題依共筆考古題考點改寫，皆非歷屆試題原文。'
+    elif any(q.get('pastExam') for q in data['questions']):
+        raise ValueError('The app has past-exam questions but content/past-exam-questions.json is missing')
     preserved = json.loads(json.dumps({k:v for k,v in data.items() if k not in {'enrichment', 'coverage', 'interviewSamples'}}))
     enrichment = json.loads(CONTENT.read_text(encoding='utf-8'))
     enrichment.setdefault('reviewedDate', '2026-10-11')
@@ -702,6 +733,14 @@ def build():
         if needle not in js:
             raise ValueError('Interview action insertion point changed')
         js = js.replace(needle, "case'use-sample':appendToInterview(S.interview,D.interviewSamples?.answers?.[S.interview]?.[+v]||'','示範回答：'+(D.interviewSamples?.versions?.[+v]?.label||''));break;\n"+needle, 1)
+    if "mode==='kaogu'" not in js:
+        for needle, extra in (
+            ("(mode==='reserve'&&q.reserve)||", "(mode==='kaogu'&&q.pastExam)||"),
+            ('''<option value="reserve" ${S.mode==='reserve'?'selected':''}>進階保留題</option>''', '''<option value="kaogu" ${S.mode==='kaogu'?'selected':''}>考古題考點</option>'''),
+        ):
+            if js.count(needle) != 1:
+                raise ValueError('Quiz mode insertion point changed')
+            js = js.replace(needle, needle + extra)
     js=js.replace('function render(){',JS.strip()+'\nfunction render(){',1)
     if JS_START not in js:
         raise ValueError('Missing render function')

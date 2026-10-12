@@ -147,11 +147,23 @@ test('original course, question, interview, workshop, and study-plan payloads st
     plan: '64ca7c5bede8966a3f8ab9f049486a40c75523e841070ae82bf468e3919d7f06',
   };
   for (const [key, hash] of Object.entries(expected)) {
-    assert.equal(crypto.createHash('sha256').update(JSON.stringify(qa.D[key])).digest('hex'), hash, key + ' content changed');
+    const value = key === 'questions' ? qa.D.questions.filter(q => !q.pastExam) : qa.D[key];
+    assert.equal(crypto.createHash('sha256').update(JSON.stringify(value)).digest('hex'), hash, key + ' content changed');
   }
   assert.equal(qa.D.topics.length, 26);
-  assert.equal(qa.D.questions.length, 294);
+  assert.equal(qa.D.questions.filter(q => !q.pastExam).length, 294);
   assert.equal(qa.D.interview.length, 46);
+});
+test('past-exam concept questions are complete and reachable through their own practice filter', () => {
+  const pastExam = qa.D.questions.filter(q => q.pastExam);
+  assert.equal(pastExam.length, 245);
+  for (const q of pastExam) assert(q.options.length === 4 && q.options[q.correctIndex] && q.explanation.startsWith('考點：'), q.id + ': malformed');
+  for (let n = 1; n <= 14; n++) assert(pastExam.some(q => q.topicId === 'notes-' + String(n).padStart(2, '0')), 'chapter ' + n + ' has no past-exam question');
+  qa.startQuiz('all', 'kaogu');
+  assert.deepEqual(qa.S.ids, pastExam.map(q => q.id));
+  qa.startQuiz('notes-07', 'kaogu');
+  assert(qa.S.ids.length && qa.S.ids.every(id => id.startsWith('notes-07-k')));
+  qa.startQuiz();
 });
 test('all 26 topics render with each original heading and paragraph exactly once', () => {
   for (const topic of qa.D.topics) {
@@ -189,7 +201,7 @@ test('existing active recall remains hidden until revealed and preserves origina
 });
 test('chapter quiz filters questions and records correct and wrong answers', () => {
   qa.startQuiz('notes-07');
-  assert.equal(qa.S.ids.length, 20);
+  assert.equal(qa.S.ids.length, 56);
   assert(qa.S.ids.every(id => id.startsWith('notes-07-')));
   let question = qa.question();
   change({name: 'answer', value: String(question.correctIndex)});
