@@ -2,7 +2,7 @@
 
 [開啟免登入網站](https://qwwaawwqq.github.io/ophthalmology-interview-public/)
 
-提供 26 個眼科主題、539 題選擇題（294 題自編＋245 題考古題考點改寫）、28 組臨床口試與 18 組通用面試架構。包含搜尋、答題解析、口試計時與進度匯入／匯出。
+提供 26 個眼科主題、539 題選擇題（294 題自編＋245 題考古題考點改寫）、28 組臨床口試與 18 組通用面試架構，另有 8 個 PBL 三幕情境與 16 個臨床處置流程。包含搜尋、答題解析、口試計時、排序練習、連結收藏與進度匯入／匯出。
 
 ## 整合式章節教材
 
@@ -52,6 +52,20 @@
 
 在「面試演練」選題後展開對照；按「帶入此版本改寫」會把該回答附加到草稿。通用題示範為虛構經歷，請改寫成自己的真實經驗；臨床示範依共筆參考答法改寫，處置以參考答法、指引與督導為準。內容存於 `content/interview-samples.json`。
 
+## PBL 情境討論
+
+8 個虛構三幕病例，主題涵蓋糖尿病黃斑水腫、巨細胞動脈炎、早產兒視網膜病變、視網膜母細胞瘤、術後眼內炎、兒童近視控制、特發性顱內高壓與青光眼用藥順從。每一幕先寫下事實、假說與還需要的資訊，再展開導師參考；三幕結束後列出學習議題（基礎科學、臨床決策、溝通與制度）、考官追問與一句帶走重點。討論筆記會隨進度匯出。內容存於 `content/pbl-cases.json`。
+
+## 臨床流程
+
+16 個口試常考的處置流程，分為急症（化學傷、開放性眼球傷、CRAO、急性隅角閉鎖、眼內炎、眼眶腔室症候群、GCA）、當日處理（視網膜剝離、視乳頭水腫、接觸鏡角膜炎）、操作安全（散瞳、玻璃體內注射）與篩檢照會（糖尿病視網膜病變、ROP、HCQ、住院會診）。每個流程含步驟與理由、不可省略的步驟、紅旗、常見錯誤、考官提問與 SBAR 回報範例，可切換「遮住細節」或「排序練習」。內容存於 `content/clinical-workflows.json`。
+
+PBL 與流程內容於 2026-10-13 由獨立審稿依 AAO／EyeWiki、AAP、ACR／EULAR、NANOS 與主要試驗（EVS、ETROP、LAMP、LiGHT、IIHTT、Protocol V）核對並修正；處置仍以最新指引、院內規範與督導為準。
+
+## 我的連結
+
+可收藏 App 內位置（章節基礎重點、共筆主題詳解、學習單元、PBL、流程，例如 `#notes-02-section-2`、`#pbl-dr`、`#wf-chemical`）或任何 http(s) 外部網址並加註、分類。各段落的「☆ 收藏連結」與頂端「☆ 收藏此頁」可一鍵收藏。連結與其他進度一樣只存在目前分頁，隨「匯出進度」保存；刪除會留下紀錄，避免匯入舊檔時復原。每個畫面都有可分享的網址，例如 `#topic-notes-02`、`#interview-notes-01-case-1`、`#links`。
+
 ## 使用與內容範圍
 
 公開版未包含私人申請資料、個人研究結果、私人文件連結或原始共筆全文。個人面試模板與故事、證據卡需自行填寫。
@@ -67,6 +81,8 @@
 - `assets/figures/notes-01.svg` 至 `notes-14.svg`：本地教學圖解。
 - `content/interview-samples.json`：46 題面試演練的 3 位示範者回答。
 - `content/past-exam-questions.json`：245 題考古題考點改寫題；每次建置都會重新併入題庫（`pastExam: true`），原 294 題不變。
+- `content/pbl-cases.json`、`content/clinical-workflows.json`：PBL 情境與臨床流程；來源 ID 必須是章節資源中已有的連結。
+- `scripts/practice-ui.js`、`scripts/practice-ui.css`：PBL、流程、我的連結與網址路由的介面，由建置腳本嵌入。
 - `scripts/apply-enrichment.py`：驗證並將深入教材嵌入 `index.html`，同時保留題庫與進度資料格式。
 
 更新內容後執行：
@@ -76,6 +92,7 @@ python3 scripts/apply-enrichment.py --check
 python3 scripts/apply-enrichment.py
 node scripts/test-integrated-lessons.cjs
 node scripts/test-source-coverage.cjs
+node scripts/test-practice-sections.cjs
 ```
 
 建置會檢查原章節與深入解析的完整分配、來源 ID、圖解、跨章目標，以及頁面分區、教學與題目頁對應、主題單元和原檔限制。回歸測試涵蓋資料保留、搜尋與定位、回想、病例收合與進度匯入／匯出；這些為模擬 DOM 測試，不能取代實際瀏覽器版面檢查。
