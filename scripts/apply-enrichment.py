@@ -34,7 +34,8 @@ PRACTICE_JS_END = '/* practice-ui:end */'
 PRACTICE_CSS_START = '/* practice-styles:start */'
 PRACTICE_CSS_END = '/* practice-styles:end */'
 # Course-data keys rebuilt from content/ on every run; everything else must survive unchanged.
-GENERATED_KEYS = {'enrichment', 'coverage', 'interviewSamples', 'pbl', 'workflows'}
+GENERATED_KEYS = {'enrichment', 'coverage', 'interviewSamples', 'pbl', 'workflows', 'interviewDetailed'}
+DETAILED = ROOT / 'content/interview-detailed.json'
 WORKFLOW_CATEGORIES = ['emergency', 'urgent', 'procedure', 'screening']
 
 
@@ -305,6 +306,29 @@ def validate_pbl(pbl, enrichment, data, workflow_ids):
             require_text(f.get('a'), label + ' follow-up answer')
 
 
+def validate_detailed(detailed, data):
+    for key in ('note', 'clinicalNote', 'reviewedDate'):
+        require_text(detailed.get(key), 'detailed answers ' + key)
+    items = {i['id']: i for i in data['interview']}
+    answers = detailed.get('answers')
+    if not isinstance(answers, dict) or set(answers) != set(items):
+        raise ValueError('detailed answers must cover exactly the interview questions')
+    for iid, a in answers.items():
+        label = 'detailed answer ' + iid
+        for key in ('summary', 'answer'):
+            require_text(a.get(key), label + ' ' + key)
+        require_list(a.get('outline'), label + ' outline', 3, 6)
+        if len(require_list(a.get('followupAnswers'), label + ' followupAnswers', 1, 6)) != len(items[iid]['followups']):
+            raise ValueError(label + ': one follow-up answer per follow-up question')
+        for f in require_list(a.get('moreFollowups', []), label + ' moreFollowups', 0, 4, dict):
+            require_text(f.get('q'), label + ' extra follow-up question')
+            require_text(f.get('a'), label + ' extra follow-up answer')
+        require_list(a.get('examinerFocus'), label + ' examinerFocus', 2, 5)
+        require_list(a.get('pitfalls'), label + ' pitfalls', 2, 5)
+        if not items[iid].get('clinical'):
+            require_list(a.get('personalize'), label + ' personalize', 1, 5)
+
+
 def replace_once(text, needle, replacement, label):
     if text.count(needle) != 1:
         raise ValueError(label + ' insertion point changed')
@@ -335,6 +359,9 @@ def apply_practice(js):
         ("...practiceIndex()", "return [...out,...enrichmentIndex()];}", "return [...out,...enrichmentIndex(),...practiceIndex()];}", 'search index'),
         ("x.type==='PBL 情境'?'開啟情境'", "x.type==='共筆主題詳解'?'閱讀這個主題'", "x.type==='PBL 情境'?'開啟情境':x.type==='臨床流程'?'開啟流程':x.type==='共筆主題詳解'?'閱讀這個主題'", 'search result labels'),
         ("practiceOverview()", "${searching?'':enrichmentOverview()}", "${searching?'':practiceOverview()+enrichmentOverview()}", 'home overview'),
+        ("x.type==='面試詳解'", "x.type==='PBL 情境'?'開啟情境'", "x.type==='面試詳解'?'進入演練':x.type==='PBL 情境'?'開啟情境'", 'search detailed label'),
+        ("${interviewDetailed(i)}", '<p class="small">${esc(i.personalizationRequired)}</p></div></details>', '<p class="small">${esc(i.personalizationRequired)}</p></div></details>${interviewDetailed(i)}', 'interview detailed answer'),
+        ("${followupReference(i)}", "${i.followupAnswers?.[S.followup]?`<details class=\"followup-model\"><summary>回答後，查看追問回應參考</summary><p class=\"preline\">${esc(i.followupAnswers[S.followup])}</p></details>`:''}", "${followupReference(i)}", 'interview follow-up reference'),
     )
     for marker, needle, replacement, label in patches:
         if marker not in js:
@@ -813,6 +840,11 @@ def build():
     validate_pbl(pbl, enrichment, data, workflow_ids)
     data['workflows'] = workflows
     data['pbl'] = pbl
+    if not DETAILED.is_file():
+        raise ValueError('content/interview-detailed.json is required')
+    detailed = json.loads(DETAILED.read_text(encoding='utf-8'))
+    validate_detailed(detailed, data)
+    data['interviewDetailed'] = detailed
     data['notebook']['imageScope'] = '本版提供原創教學示意圖，非實際臨床影像；延伸資源連至來源網站的圖譜、影片或文獻。原始共筆 PDF 未公開。'
     preserved['notebook']['imageScope'] = data['notebook']['imageScope']
     js = re.search(r'<script>(.*?)</script>', html, re.S).group(1)
@@ -942,4 +974,4 @@ if __name__ == '__main__':
         INDEX.write_bytes(encoded)
     chapters=data['enrichment']['chapters']
     coverage_chapters = data.get('coverage', {}).get('chapters', {})
-    print(json.dumps({'mode':'check' if args.check else 'write','index':str(INDEX),'bytes':len(encoded),'sha256':hashlib.sha256(encoded).hexdigest(),'chapters':len(chapters),'deep_dive_sections':sum(len(c['deepDive']) for c in chapters.values()),'integrated_units':sum(len(c.get('integrated',{}).get('units',[])) for c in chapters.values()),'integrated_cases':sum('integrated' in c for c in chapters.values()),'learning_paths':len(data['enrichment'].get('learningPaths',[])),'resources':sum(len(c['resources']) for c in chapters.values()),'coverage_topics':sum(len(c['entries']) for c in coverage_chapters.values()),'reviewed_pdf_pages':sum(c['pageCount'] for c in coverage_chapters.values()),'pbl_cases':len(data['pbl']['cases']),'workflows':len(data['workflows']['workflows']),'existing_content_preserved':True,'updated_metadata':['notebook.imageScope']},ensure_ascii=False))
+    print(json.dumps({'mode':'check' if args.check else 'write','index':str(INDEX),'bytes':len(encoded),'sha256':hashlib.sha256(encoded).hexdigest(),'chapters':len(chapters),'deep_dive_sections':sum(len(c['deepDive']) for c in chapters.values()),'integrated_units':sum(len(c.get('integrated',{}).get('units',[])) for c in chapters.values()),'integrated_cases':sum('integrated' in c for c in chapters.values()),'learning_paths':len(data['enrichment'].get('learningPaths',[])),'resources':sum(len(c['resources']) for c in chapters.values()),'coverage_topics':sum(len(c['entries']) for c in coverage_chapters.values()),'reviewed_pdf_pages':sum(c['pageCount'] for c in coverage_chapters.values()),'pbl_cases':len(data['pbl']['cases']),'workflows':len(data['workflows']['workflows']),'detailed_interview_answers':len(data['interviewDetailed']['answers']),'existing_content_preserved':True,'updated_metadata':['notebook.imageScope']},ensure_ascii=False))

@@ -273,6 +273,28 @@ test('PBL and workflow cross-links point at existing items', () => {
   assert(main().includes('data-action="pbl-open" data-value="pbl-gca"'));
 });
 
+test('all 46 interview items show a detailed answer pack, follow-up references and can seed the draft', () => {
+  const detailed = D.interviewDetailed.answers;
+  assert.equal(Object.keys(detailed).length, D.interview.length);
+  for (const i of D.interview) {
+    action('interview', i.id);
+    assert.equal(qa.S.interview, i.id);
+    const page = main();
+    assert(page.includes('iv-detailed') && page.includes(i.clinical ? '臨床口試完整答法' : '完整示範說法'), i.id + ': detailed section missing');
+    assert(decode(page).includes(detailed[i.id].summary), i.id + ': summary missing');
+    assert(decode(page).includes(detailed[i.id].followupAnswers[0]), i.id + ': follow-up reference should use the detailed answer');
+    assert.equal(detailed[i.id].followupAnswers.length, i.followups.length);
+    if (!i.clinical) assert(page.includes('換成自己的版本'), i.id + ': personalisation tips missing');
+    wellFormed(page);
+  }
+  action('interview', 'notes-03-case-1');
+  action('use-detailed');
+  assert(qa.entries['interview:notes-03-case-1'].draft.includes(detailed['notes-03-case-1'].answer));
+  const hits = qa.notebookIndex().filter(x => x.type === '面試詳解');
+  assert.equal(hits.length, D.interview.length);
+  assert(!JSON.stringify(D.interview).includes('项'), 'simplified characters fixed in interview data');
+});
+
 (async () => {
   // Await async checks registered through returned promises.
   for (const r of results) if (r.pending) { await r.pending; delete r.pending; }

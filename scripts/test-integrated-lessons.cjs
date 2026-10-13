@@ -141,7 +141,8 @@ test('original course, question, interview, workshop, and study-plan payloads st
   const expected = {
     topics: '8bb67cf1ecef50889eff81a7a7ca5f12ee1c451316dcba0893ade78af0b7a0ee',
     questions: 'f5da0c4a369964ddbdb01da2c4c3879069deac19721c20c23cedc66f263af917',
-    interview: '0b38cc72dacab62fa2b6289dfa6277fb6d6290a473610ca828a7cf9ab376d05e',
+    // 2026-10-14: only change is the simplified 项 → 項 typo fix in 29 interview strings.
+    interview: 'd0d19b39244cf68e0d82393e5edea81ba0ffdcc34389a5e76aa4caecc79c7b78',
     storySeeds: '52c68a1ef5578a6ebbd66e945a15a168e0b93a0a7a6cccfc6e2593e62cd0b9e5',
     evidenceSeeds: 'a7b8b10d16a2608a638b8449214533371698079e454e871fe3d35b6b5757f111',
     plan: '64ca7c5bede8966a3f8ab9f049486a40c75523e841070ae82bf468e3919d7f06',

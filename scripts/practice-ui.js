@@ -260,6 +260,21 @@ function linksPage(){
   <section class="link-list-wrap" aria-label="已收藏的連結"><div class="section-heading"><h2>已收藏</h2><label class="vh" for="link-filter">篩選連結</label><input class="select link-filter" id="link-filter" type="search" value="${esc(S.linkFilter)}" placeholder="篩選標題、網址或備註" autocomplete="off"></div><div id="link-list">${linkListMarkup()}</div></section>`;
 }
 
+/* Detailed interview answers */
+function detailedAnswer(i){return D.interviewDetailed?.answers?.[i.id]||null;}
+function followupReference(i){const d=detailedAnswer(i),text=d?.followupAnswers?.[S.followup%i.followups.length]||i.followupAnswers?.[S.followup];return text?`<details class="followup-model"><summary>回答後，查看追問回應參考</summary><p class="preline">${esc(text)}</p></details>`:'';}
+function interviewDetailed(i){
+  const d=detailedAnswer(i);
+  if(!d)return '';
+  const followups=i.followups.map((q,n)=>({q,a:d.followupAnswers[n]})).concat(d.moreFollowups||[]);
+  return `<section class="iv-detailed" aria-labelledby="iv-detailed-title"><div class="preview-heading"><span class="tag">詳細參考答案</span><span class="small">先用自己的話回答，再展開比對</span></div><h3 id="iv-detailed-title">${i.clinical?'臨床口試完整答法':'完整示範說法'}</h3><p class="small">${esc(i.clinical?D.interviewDetailed.clinicalNote:D.interviewDetailed.note)}</p>
+  <details class="model"><summary>30 秒版與答題骨架</summary><div><p class="iv-summary">${esc(d.summary)}</p><ol class="iv-outline">${d.outline.map(x=>`<li>${esc(x)}</li>`).join('')}</ol></div></details>
+  <details class="model"><summary>完整口述參考答案（約 ${d.answer.replace(/\s/g,'').length} 字）</summary><div><p class="preline">${esc(d.answer)}</p><div class="actions">${btn('帶入完整答案改寫','use-detailed','','small')}</div></div></details>
+  <details class="model"><summary>追問與參考回答（${followups.length} 題）</summary><div class="iv-followups">${followups.map((f,n)=>`<div class="iv-followup"><p class="iv-followup-q"><span>${n+1}</span>${esc(f.q)}</p><p>${esc(f.a)}</p></div>`).join('')}</div></details>
+  <div class="iv-focus-grid"><section><h4>考官在聽什麼</h4>${list(d.examinerFocus)}</section><section><h4>常見失分</h4>${list(d.pitfalls)}</section></div>
+  ${d.personalize?.length?`<details class="fact-sheet"><summary>換成自己的版本</summary>${list(d.personalize)}</details>`:''}</section>`;
+}
+
 /* Home overview and search */
 function practiceOverview(){
   const cases=pblCases().length,flows=wfList().length;
@@ -273,6 +288,7 @@ function practiceIndex(){
   const out=[];
   for(const c of pblCases()){const topic=D.topics.find(t=>t.id===c.topicIds[0]);out.push({topicId:c.topicIds[0],chapter:topic?.chapter||0,type:'PBL 情境',title:c.title,body:[c.theme,c.trigger,...c.stages.flatMap(s=>[s.title,s.info,...s.prompts,...s.facts,...s.hypotheses,...s.needToKnow,s.discussion]),...c.learningIssues.flatMap(x=>[x.issue,x.why]),...c.humanities.points,...c.examinerFollowups.flatMap(f=>[f.q,f.a]),c.takeaway].join(' '),action:'pbl-open',target:c.id});}
   for(const w of wfList()){const topic=D.topics.find(t=>t.id===w.topicIds[0]);out.push({topicId:w.topicIds[0],chapter:topic?.chapter||0,type:'臨床流程',title:w.title,body:[w.urgency,w.trigger,...w.steps.flatMap(s=>[s.title,s.detail,s.why]),...w.redFlags,...w.pitfalls,...w.examQuestions.flatMap(q=>[q.q,q.a]),w.handoff].join(' '),action:'workflow-open',target:w.id});}
+  for(const i of D.interview){const d=detailedAnswer(i);if(!d)continue;const topic=D.topics.find(t=>t.id===i.topicId);out.push({topicId:i.topicId||'',chapter:topic?.chapter||0,type:'面試詳解',title:i.title+'：'+i.question,body:[d.summary,d.answer,...d.followupAnswers,...(d.moreFollowups||[]).flatMap(f=>[f.q,f.a]),...d.examinerFocus,...d.pitfalls].join(' '),action:'interview',target:i.id});}
   return out;
 }
 
@@ -308,6 +324,7 @@ function practiceAction(a,v,b){
   case'link-edit':{const item=linkItems().find(x=>x.id===v);if(item){S.linkEdit=v;S.linkDraft={title:item.title,url:item.url,note:item.note||'',topicId:item.topicId||''};render();$('#link-url')?.focus?.();}break;}
   case'link-cancel':S.linkEdit=null;S.linkDraft={title:'',url:'',note:'',topicId:''};render();break;
   case'link-delete':{const item=linkItems().find(x=>x.id===v);if(item&&window.confirm('刪除「'+item.title+'」？')){deleteLink(v);if(S.linkEdit===v){S.linkEdit=null;S.linkDraft={title:'',url:'',note:'',topicId:''};}render();toast('已刪除連結。');}break;}
+  case'use-detailed':{const i=D.interview.find(x=>x.id===S.interview),d=i&&detailedAnswer(i);if(d)appendToInterview(i.id,d.answer,'詳細參考答案（請改寫成自己的版本）');break;}
   case'link-open':{const item=linkItems().find(x=>x.id===v);if(item&&item.url.startsWith('#')&&!openRoute(item.url,true))toast('這個 App 內位置已不存在，請編輯或刪除。');break;}
   }
 }

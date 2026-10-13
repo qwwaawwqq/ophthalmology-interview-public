@@ -52,6 +52,10 @@
 
 在「面試演練」選題後展開對照；按「帶入此版本改寫」會把該回答附加到草稿。通用題示範為虛構經歷，請改寫成自己的真實經驗；臨床示範依共筆參考答法改寫，處置以參考答法、指引與督導為準。內容存於 `content/interview-samples.json`。
 
+## 46 題詳細參考答案
+
+「面試演練」每一題（18 組通用面試、28 組臨床口試）都新增「詳細參考答案」：30 秒版與答題骨架、完整口述答案、該題兩個追問的具體回答與 2–3 個延伸追問、考官在聽什麼與常見失分；可「帶入完整答案改寫」到草稿。通用題為示範說法，個人經歷一律以【】標示，請換成自己的真實內容，沒有就刪去；臨床題依共筆、各章教材與現行指引整理。內容存於 `content/interview-detailed.json`，2026-10-14 經獨立審稿修正（如 CN III 疼痛與 GCA 年齡門檻、topiramate 隅角閉鎖用藥、淋菌結膜炎 CDC 治療、研究與病人安全用語）。
+
 ## PBL 情境討論
 
 8 個虛構三幕病例，主題涵蓋糖尿病黃斑水腫、巨細胞動脈炎、早產兒視網膜病變、視網膜母細胞瘤、術後眼內炎、兒童近視控制、特發性顱內高壓與青光眼用藥順從。每一幕先寫下事實、假說與還需要的資訊，再展開導師參考；三幕結束後列出學習議題（基礎科學、臨床決策、溝通與制度）、考官追問與一句帶走重點。討論筆記會隨進度匯出。內容存於 `content/pbl-cases.json`。
@@ -81,6 +85,7 @@ PBL 與流程內容於 2026-10-13 由獨立審稿依 AAO／EyeWiki、AAP、ACR�
 - `assets/figures/notes-01.svg` 至 `notes-14.svg`：本地教學圖解。
 - `content/interview-samples.json`：46 題面試演練的 3 位示範者回答。
 - `content/past-exam-questions.json`：245 題考古題考點改寫題；每次建置都會重新併入題庫（`pastExam: true`），原 294 題不變。
+- `content/interview-detailed.json`：46 題面試演練的詳細參考答案與追問回答。
 - `content/pbl-cases.json`、`content/clinical-workflows.json`：PBL 情境與臨床流程；來源 ID 必須是章節資源中已有的連結。
 - `scripts/practice-ui.js`、`scripts/practice-ui.css`：PBL、流程、我的連結與網址路由的介面，由建置腳本嵌入。
 - `scripts/apply-enrichment.py`：驗證並將深入教材嵌入 `index.html`，同時保留題庫與進度資料格式。
