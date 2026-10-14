@@ -20,11 +20,23 @@ CONTENT = ROOT / 'content/study-enrichment.json'
 COVERAGE = ROOT / 'content/source-coverage.json'
 SAMPLES = ROOT / 'content/interview-samples.json'
 KAOGU = ROOT / 'content/past-exam-questions.json'
+PBL = ROOT / 'content/pbl-cases.json'
+WORKFLOWS = ROOT / 'content/clinical-workflows.json'
+PRACTICE_JS = ROOT / 'scripts/practice-ui.js'
+PRACTICE_CSS = ROOT / 'scripts/practice-ui.css'
 KINDS = {'圖譜', '影片', '期刊', '指南'}
 JS_START = '/* enrichment-ui:start */'
 JS_END = '/* enrichment-ui:end */'
 CSS_START = '/* enrichment-styles:start */'
 CSS_END = '/* enrichment-styles:end */'
+PRACTICE_JS_START = '/* practice-ui:start */'
+PRACTICE_JS_END = '/* practice-ui:end */'
+PRACTICE_CSS_START = '/* practice-styles:start */'
+PRACTICE_CSS_END = '/* practice-styles:end */'
+# Course-data keys rebuilt from content/ on every run; everything else must survive unchanged.
+GENERATED_KEYS = {'enrichment', 'coverage', 'interviewSamples', 'pbl', 'workflows', 'interviewDetailed'}
+DETAILED = ROOT / 'content/interview-detailed.json'
+WORKFLOW_CATEGORIES = ['emergency', 'urgent', 'procedure', 'screening']
 
 
 def require_text(value, label):
@@ -190,6 +202,177 @@ def validate_samples(samples, data):
             raise ValueError(f'{iid}: need 3 sample answers')
         for t in texts:
             require_text(t, f'{iid} sample answer')
+
+
+def require_list(value, label, low, high, kind=str):
+    if not isinstance(value, list) or not low <= len(value) <= high:
+        raise ValueError(f'{label}: expected {low}-{high} items')
+    for item in value:
+        if kind is str:
+            require_text(item, label + ' item')
+        elif not isinstance(item, kind):
+            raise ValueError(f'{label}: unexpected item type')
+    return value
+
+
+def resource_ids(enrichment):
+    return {r['id'] for chapter in enrichment['chapters'].values() for r in chapter['resources']}
+
+
+def check_refs(item, label, topics, resources):
+    ids = require_list(item.get('topicIds'), label + ' topicIds', 1, 3)
+    if not set(ids) <= topics or len(set(ids)) != len(ids):
+        raise ValueError(label + ': unknown or repeated topicIds')
+    ids = require_list(item.get('sourceIds'), label + ' sourceIds', 1, 4)
+    if not set(ids) <= resources or len(set(ids)) != len(ids):
+        raise ValueError(label + ': sourceIds must name existing chapter resources')
+
+
+def validate_workflows(workflows, enrichment, data):
+    for key in ('intro', 'disclaimer', 'reviewedDate'):
+        require_text(workflows.get(key), 'workflows ' + key)
+    categories = workflows.get('categories')
+    if not isinstance(categories, list) or [c.get('id') for c in categories] != WORKFLOW_CATEGORIES:
+        raise ValueError('workflow categories must be ' + ', '.join(WORKFLOW_CATEGORIES))
+    for c in categories:
+        require_text(c.get('label'), 'workflow category label')
+    topics, resources, seen = {t['id'] for t in data['topics']}, resource_ids(enrichment), set()
+    items = require_list(workflows.get('workflows'), 'workflows', 1, 60, dict)
+    for w in items:
+        label = 'workflow ' + str(w.get('id'))
+        if not re.fullmatch(r'wf-[a-z0-9-]+', str(w.get('id'))) or w['id'] in seen:
+            raise ValueError(label + ': malformed or duplicate id')
+        seen.add(w['id'])
+        if w.get('category') not in WORKFLOW_CATEGORIES:
+            raise ValueError(label + ': unknown category')
+        for key in ('title', 'urgency', 'trigger', 'handoff'):
+            require_text(w.get(key), label + ' ' + key)
+        check_refs(w, label, topics, resources)
+        steps = require_list(w.get('steps'), label + ' steps', 6, 8, dict)
+        for s in steps:
+            for key in ('title', 'detail', 'why'):
+                require_text(s.get(key), label + ' step ' + key)
+            if not isinstance(s.get('critical'), bool):
+                raise ValueError(label + ': step critical flag must be boolean')
+        if len({s['title'] for s in steps}) != len(steps):
+            raise ValueError(label + ': step titles must be distinct for the ordering exercise')
+        if not 2 <= sum(s['critical'] for s in steps) <= 4:
+            raise ValueError(label + ': 2-4 critical steps required')
+        require_list(w.get('redFlags'), label + ' redFlags', 3, 4)
+        require_list(w.get('pitfalls'), label + ' pitfalls', 2, 4)
+        for q in require_list(w.get('examQuestions'), label + ' examQuestions', 3, 3, dict):
+            require_text(q.get('q'), label + ' exam question')
+            require_text(q.get('a'), label + ' exam answer')
+        if not re.match(r'^S：.+；B：.+；A：.+；R：.+', w['handoff']):
+            raise ValueError(label + ': handoff must follow S：…；B：…；A：…；R：…')
+    return seen
+
+
+def validate_pbl(pbl, enrichment, data, workflow_ids):
+    for key in ('intro', 'disclaimer', 'reviewedDate'):
+        require_text(pbl.get(key), 'PBL ' + key)
+    for m in require_list(pbl.get('method'), 'PBL method', 3, 6, dict):
+        require_text(m.get('step'), 'PBL method step')
+        require_text(m.get('hint'), 'PBL method hint')
+    topics, resources, seen = {t['id'] for t in data['topics']}, resource_ids(enrichment), set()
+    for c in require_list(pbl.get('cases'), 'PBL cases', 1, 40, dict):
+        label = 'PBL case ' + str(c.get('id'))
+        if not re.fullmatch(r'pbl-[a-z0-9-]+', str(c.get('id'))) or c['id'] in seen:
+            raise ValueError(label + ': malformed or duplicate id')
+        seen.add(c['id'])
+        for key in ('title', 'theme', 'trigger', 'takeaway'):
+            require_text(c.get(key), label + ' ' + key)
+        check_refs(c, label, topics, resources)
+        flows = c.get('workflowIds')
+        if not isinstance(flows, list) or not set(flows) <= workflow_ids:
+            raise ValueError(label + ': workflowIds must name existing workflows')
+        for s in require_list(c.get('stages'), label + ' stages', 3, 3, dict):
+            for key in ('title', 'info', 'discussion'):
+                require_text(s.get(key), label + ' stage ' + key)
+            if not re.match(r'^第[一二三]幕 · ', s['title']):
+                raise ValueError(label + ': stage titles start with 第一幕 · / 第二幕 · / 第三幕 · ')
+            require_list(s.get('prompts'), label + ' prompts', 2, 3)
+            require_list(s.get('facts'), label + ' facts', 3, 5)
+            require_list(s.get('hypotheses'), label + ' hypotheses', 2, 4)
+            require_list(s.get('needToKnow'), label + ' needToKnow', 2, 4)
+        for x in require_list(c.get('learningIssues'), label + ' learningIssues', 4, 5, dict):
+            require_text(x.get('issue'), label + ' learning issue')
+            require_text(x.get('why'), label + ' learning issue why')
+        h = c.get('humanities') or {}
+        require_text(h.get('title'), label + ' humanities title')
+        require_list(h.get('points'), label + ' humanities points', 3, 4)
+        for f in require_list(c.get('examinerFollowups'), label + ' examinerFollowups', 3, 3, dict):
+            require_text(f.get('q'), label + ' follow-up question')
+            require_text(f.get('a'), label + ' follow-up answer')
+
+
+def validate_detailed(detailed, data):
+    for key in ('note', 'clinicalNote', 'reviewedDate'):
+        require_text(detailed.get(key), 'detailed answers ' + key)
+    items = {i['id']: i for i in data['interview']}
+    answers = detailed.get('answers')
+    if not isinstance(answers, dict) or set(answers) != set(items):
+        raise ValueError('detailed answers must cover exactly the interview questions')
+    for iid, a in answers.items():
+        label = 'detailed answer ' + iid
+        for key in ('summary', 'answer'):
+            require_text(a.get(key), label + ' ' + key)
+        require_list(a.get('outline'), label + ' outline', 3, 6)
+        if len(require_list(a.get('followupAnswers'), label + ' followupAnswers', 1, 6)) != len(items[iid]['followups']):
+            raise ValueError(label + ': one follow-up answer per follow-up question')
+        for f in require_list(a.get('moreFollowups', []), label + ' moreFollowups', 0, 4, dict):
+            require_text(f.get('q'), label + ' extra follow-up question')
+            require_text(f.get('a'), label + ' extra follow-up answer')
+        require_list(a.get('examinerFocus'), label + ' examinerFocus', 2, 5)
+        require_list(a.get('pitfalls'), label + ' pitfalls', 2, 5)
+        if not items[iid].get('clinical'):
+            require_list(a.get('personalize'), label + ' personalize', 1, 5)
+
+
+def replace_once(text, needle, replacement, label):
+    if text.count(needle) != 1:
+        raise ValueError(label + ' insertion point changed')
+    return text.replace(needle, replacement, 1)
+
+
+def apply_practice_html(html):
+    if 'data-action="link-save-current"' in html:
+        return html
+    return replace_once(html, '<div class="top-actions"><button class="btn subtle" data-action="import">', '<div class="top-actions"><button class="btn subtle bookmark-current" data-action="link-save-current" aria-label="收藏目前位置到我的連結">☆<span class="bookmark-label"> 收藏此頁</span></button><button class="btn subtle" data-action="import">', 'topbar bookmark')
+
+
+def apply_practice(js):
+    """Wire PBL, workflows and saved links into the base app. Each patch is skipped once present."""
+    js = re.sub(re.escape(PRACTICE_JS_START)+r'.*?'+re.escape(PRACTICE_JS_END)+r'\n?', '', js, flags=re.S)
+    patches = (
+        ("['pbl','◈','PBL 情境']", "['workshop','◇','故事與證據']", "['pbl','◈','PBL 情境'],['workflow','▥','臨床流程'],['workshop','◇','故事與證據']", 'nav list'),
+        ("['links','☆','我的連結']", "['progress','◴','學習進度']]", "['progress','◴','學習進度'],['links','☆','我的連結']]", 'nav list end'),
+        ("['notebook','learn','links']", "['閱讀',['notebook','learn']]", "['閱讀',['notebook','learn','links']]", 'nav reading group'),
+        ("'interview','pbl','workflow'", "['演練',['quiz','interview','workshop']]", "['演練',['quiz','interview','pbl','workflow','workshop']]", 'nav practice group'),
+        ("pbl:pblPage", "({notebook,originals,quiz,learn,interview,workshop,plan,progress})[S.tab]();}", "({notebook,originals,quiz,learn,interview,workshop,plan,progress,pbl:pblPage,workflow:workflowPage,links:linksPage})[S.tab]();syncPracticeHash();}", 'render views'),
+        ("id==='pbl'?`<span class=\"nav-count\"", "id==='interview'?`<span class=\"nav-count\" aria-hidden=\"true\">${D.interview.length}</span>`:''", "id==='interview'?`<span class=\"nav-count\" aria-hidden=\"true\">${D.interview.length}</span>`:id==='pbl'?`<span class=\"nav-count\" aria-hidden=\"true\">${D.pbl?.cases?.length||0}</span>`:id==='workflow'?`<span class=\"nav-count\" aria-hidden=\"true\">${D.workflows?.workflows?.length||0}</span>`:''", 'nav counts'),
+        ("default:practiceAction(a,v,b)", "case'import':$('#import-file').click();break;\n}});", "case'import':$('#import-file').click();break;\ndefault:practiceAction(a,v,b);break;\n}});", 'click fallthrough'),
+        ("if(practiceInput(el))return;", "document.addEventListener('input',e=>{const el=e.target;", "document.addEventListener('input',e=>{const el=e.target;if(practiceInput(el))return;", 'input handler'),
+        ("if(practiceChange(el))return;", "document.addEventListener('change',e=>{const el=e.target;", "document.addEventListener('change',e=>{const el=e.target;if(practiceChange(el))return;", 'change handler'),
+        ("practiceEntry(key,v)", "function validateEntry(key,v){", "function validateEntry(key,v){const extra=practiceEntry(key,v);if(extra!==undefined)return extra;", 'entry import'),
+        ("practiceMeta(key,v)", "function validateMeta(key,v){", "function validateMeta(key,v){const extra=practiceMeta(key,v);if(extra!==undefined)return extra;", 'meta import'),
+        ("...practiceIndex()", "return [...out,...enrichmentIndex()];}", "return [...out,...enrichmentIndex(),...practiceIndex()];}", 'search index'),
+        ("x.type==='PBL 情境'?'開啟情境'", "x.type==='共筆主題詳解'?'閱讀這個主題'", "x.type==='PBL 情境'?'開啟情境':x.type==='臨床流程'?'開啟流程':x.type==='共筆主題詳解'?'閱讀這個主題'", 'search result labels'),
+        ("practiceOverview()", "${searching?'':enrichmentOverview()}", "${searching?'':practiceOverview()+enrichmentOverview()}", 'home overview'),
+        ("x.type==='面試詳解'", "x.type==='PBL 情境'?'開啟情境'", "x.type==='面試詳解'?'進入演練':x.type==='PBL 情境'?'開啟情境'", 'search detailed label'),
+        ("${interviewDetailed(i)}", '<p class="small">${esc(i.personalizationRequired)}</p></div></details>', '<p class="small">${esc(i.personalizationRequired)}</p></div></details>${interviewDetailed(i)}', 'interview detailed answer'),
+        ("${followupReference(i)}", "${i.followupAnswers?.[S.followup]?`<details class=\"followup-model\"><summary>回答後，查看追問回應參考</summary><p class=\"preline\">${esc(i.followupAnswers[S.followup])}</p></details>`:''}", "${followupReference(i)}", 'interview follow-up reference'),
+    )
+    for marker, needle, replacement, label in patches:
+        if marker not in js:
+            js = replace_once(js, needle, replacement, label)
+    # Enrichment code is regenerated each run, so these patches always apply to fresh text.
+    js = replace_once(js, "window.addEventListener('hashchange',coverageRestoreHash);\nwindow.addEventListener('load',coverageRestoreHash);\n", '', 'coverage hash listeners')
+    js = replace_once(js, "${list(b.points)}</div></details>`;", "${list(b.points)}${linkSaveButton('#'+t.id+'-section-'+i)}</div></details>`;", 'compact lesson bookmark')
+    js = replace_once(js, ":list(b.points)}</section>`;}", ":list(b.points)}${linkSaveButton('#'+t.id+'-section-'+i)}</section>`;}", 'lesson bookmark')
+    js = replace_once(js, "${coverageLink(t,'查看全章共筆對照','coverage')}</nav>", "${coverageLink(t,'查看全章共筆對照','coverage')}</nav>${linkSaveButton('#'+t.id+'-coverage-'+entry.id)}", 'coverage bookmark')
+    js = replace_once(js, '<h3 id="${t.id}-${unit.id}-title">${esc(unit.title)}</h3></div>', '<h3 id="${t.id}-${unit.id}-title">${esc(unit.title)}</h3>${linkSaveButton(\'#\'+t.id+\'-\'+unit.id)}</div>', 'unit bookmark')
+    return js.replace('function render(){', PRACTICE_JS.read_text(encoding='utf-8').strip()+'\nfunction render(){', 1)
 
 
 def validate_coverage(coverage, enrichment, data):
@@ -632,7 +815,7 @@ def build():
         data['notes']['questionDisclaimer'] = f'共 {len(base) + len(kaogu)} 題單選練習：{len(base)} 題自編、{len(kaogu)} 題依共筆考古題考點改寫，皆非歷屆試題原文。'
     elif any(q.get('pastExam') for q in data['questions']):
         raise ValueError('The app has past-exam questions but content/past-exam-questions.json is missing')
-    preserved = json.loads(json.dumps({k:v for k,v in data.items() if k not in {'enrichment', 'coverage', 'interviewSamples'}}))
+    preserved = json.loads(json.dumps({k:v for k,v in data.items() if k not in GENERATED_KEYS}))
     enrichment = json.loads(CONTENT.read_text(encoding='utf-8'))
     enrichment.setdefault('reviewedDate', '2026-10-11')
     validate(enrichment, data)
@@ -649,6 +832,19 @@ def build():
         data['interviewSamples'] = samples
     elif 'interviewSamples' in data:
         raise ValueError('The app has interview samples but content/interview-samples.json is missing')
+    if not (PBL.is_file() and WORKFLOWS.is_file()):
+        raise ValueError('content/pbl-cases.json and content/clinical-workflows.json are required')
+    workflows = json.loads(WORKFLOWS.read_text(encoding='utf-8'))
+    workflow_ids = validate_workflows(workflows, enrichment, data)
+    pbl = json.loads(PBL.read_text(encoding='utf-8'))
+    validate_pbl(pbl, enrichment, data, workflow_ids)
+    data['workflows'] = workflows
+    data['pbl'] = pbl
+    if not DETAILED.is_file():
+        raise ValueError('content/interview-detailed.json is required')
+    detailed = json.loads(DETAILED.read_text(encoding='utf-8'))
+    validate_detailed(detailed, data)
+    data['interviewDetailed'] = detailed
     data['notebook']['imageScope'] = '本版提供原創教學示意圖，非實際臨床影像；延伸資源連至來源網站的圖譜、影片或文獻。原始共筆 PDF 未公開。'
     preserved['notebook']['imageScope'] = data['notebook']['imageScope']
     js = re.search(r'<script>(.*?)</script>', html, re.S).group(1)
@@ -744,6 +940,7 @@ def build():
     js=js.replace('function render(){',JS.strip()+'\nfunction render(){',1)
     if JS_START not in js:
         raise ValueError('Missing render function')
+    js=apply_practice(js)
     if shutil.which('node'):
         checked=subprocess.run(['node','--check'],input=js,text=True,capture_output=True)
         if checked.returncode:
@@ -756,10 +953,14 @@ def build():
     html=re.sub(re.escape(CSS_START)+r'.*?'+re.escape(CSS_END)+r'\n?', '', html, flags=re.S)
     css=CSS
     html=html.replace('</style>',css.strip()+'\n</style>',1)
+    html=re.sub(re.escape(PRACTICE_CSS_START)+r'.*?'+re.escape(PRACTICE_CSS_END)+r'\n?', '', html, flags=re.S)
+    html=html.replace('</style>',PRACTICE_CSS.read_text(encoding='utf-8').strip()+'\n</style>',1)
+    html=apply_practice_html(html)
     after=json.loads(re.search(r'<script type="application/json" id="course-data">(.*?)</script>',html,re.S).group(1))
-    if {k:v for k,v in after.items() if k not in {'enrichment', 'coverage', 'interviewSamples'}} != preserved:
+    if {k:v for k,v in after.items() if k not in GENERATED_KEYS} != preserved:
         raise ValueError('Existing app data changed')
     assert html.count(JS_START)==1 and html.count(CSS_START)==1
+    assert html.count(PRACTICE_JS_START)==1 and html.count(PRACTICE_CSS_START)==1
     return html, after
 
 
@@ -773,4 +974,4 @@ if __name__ == '__main__':
         INDEX.write_bytes(encoded)
     chapters=data['enrichment']['chapters']
     coverage_chapters = data.get('coverage', {}).get('chapters', {})
-    print(json.dumps({'mode':'check' if args.check else 'write','index':str(INDEX),'bytes':len(encoded),'sha256':hashlib.sha256(encoded).hexdigest(),'chapters':len(chapters),'deep_dive_sections':sum(len(c['deepDive']) for c in chapters.values()),'integrated_units':sum(len(c.get('integrated',{}).get('units',[])) for c in chapters.values()),'integrated_cases':sum('integrated' in c for c in chapters.values()),'learning_paths':len(data['enrichment'].get('learningPaths',[])),'resources':sum(len(c['resources']) for c in chapters.values()),'coverage_topics':sum(len(c['entries']) for c in coverage_chapters.values()),'reviewed_pdf_pages':sum(c['pageCount'] for c in coverage_chapters.values()),'existing_content_preserved':True,'updated_metadata':['notebook.imageScope']},ensure_ascii=False))
+    print(json.dumps({'mode':'check' if args.check else 'write','index':str(INDEX),'bytes':len(encoded),'sha256':hashlib.sha256(encoded).hexdigest(),'chapters':len(chapters),'deep_dive_sections':sum(len(c['deepDive']) for c in chapters.values()),'integrated_units':sum(len(c.get('integrated',{}).get('units',[])) for c in chapters.values()),'integrated_cases':sum('integrated' in c for c in chapters.values()),'learning_paths':len(data['enrichment'].get('learningPaths',[])),'resources':sum(len(c['resources']) for c in chapters.values()),'coverage_topics':sum(len(c['entries']) for c in coverage_chapters.values()),'reviewed_pdf_pages':sum(c['pageCount'] for c in coverage_chapters.values()),'pbl_cases':len(data['pbl']['cases']),'workflows':len(data['workflows']['workflows']),'detailed_interview_answers':len(data['interviewDetailed']['answers']),'existing_content_preserved':True,'updated_metadata':['notebook.imageScope']},ensure_ascii=False))
