@@ -357,8 +357,12 @@ footer{padding:21px 40px;background:transparent;font-size:.67rem;color:#8b9da7;b
 .sync-facts dt{color:var(--muted);font-weight:600}
 .sync-facts dd{margin:0;word-break:break-all}
 .sync-error-text{color:var(--danger)}
+.sync-share{display:grid;grid-template-columns:200px minmax(0,1fr);gap:18px;align-items:start;margin:16px 0 4px;padding:16px;border:1px solid var(--line);border-radius:8px;background:#fbfdfd}
+.sync-qr{background:#fff;border-radius:6px;padding:6px;min-height:120px;display:flex;align-items:center;justify-content:center}
+.sync-qr svg{width:100%;height:auto;display:block}
+.sync-from-link strong{display:block}
 @media(max-width:1000px){.pbl-method ol{grid-template-columns:repeat(3,minmax(0,1fr))}.practice-cards{grid-template-columns:1fr}}
-@media(max-width:760px){.pbl-method ol{display:flex;overflow-x:auto;gap:8px;padding-bottom:4px;scrollbar-width:thin}.pbl-method li{flex:0 0 auto;flex-direction:row;align-items:baseline;gap:6px;padding:8px 12px}.pbl-method li small{display:none}.top-actions .btn{white-space:nowrap}.top-actions .bookmark-current{padding:8px 6px;min-width:32px}.pbl-reference-grid,.wf-order-grid,.link-form,.iv-focus-grid,.sync-form{grid-template-columns:1fr}.sync-card{padding:18px 16px}.sync-facts div{grid-template-columns:1fr;gap:0}.iv-detailed{padding:16px}.menu-category{display:none}.link-item{flex-direction:column}.link-filter{max-width:none;width:100%}.link-form{padding:18px 16px}.bookmark-current .bookmark-label{display:none}}
+@media(max-width:760px){.pbl-method ol{display:flex;overflow-x:auto;gap:8px;padding-bottom:4px;scrollbar-width:thin}.pbl-method li{flex:0 0 auto;flex-direction:row;align-items:baseline;gap:6px;padding:8px 12px}.pbl-method li small{display:none}.top-actions .btn{white-space:nowrap}.top-actions .bookmark-current{padding:8px 6px;min-width:32px}.pbl-reference-grid,.wf-order-grid,.link-form,.iv-focus-grid,.sync-form{grid-template-columns:1fr}.sync-card{padding:18px 16px}.sync-facts div{grid-template-columns:1fr;gap:0}.sync-share{grid-template-columns:1fr}.sync-qr{max-width:240px;margin:0 auto}.iv-detailed{padding:16px}.menu-category{display:none}.link-item{flex-direction:column}.link-filter{max-width:none;width:100%}.link-form{padding:18px 16px}.bookmark-current .bookmark-label{display:none}}
 /* practice-styles:end */
 </style>
 <style id="redesign-styles">
@@ -775,6 +779,7 @@ function routeMatchesView(route){
 function currentViewHash(){return S.tab==='learn'?'#topic-'+S.learn:S.tab==='pbl'?'#'+S.pbl:S.tab==='workflow'?'#'+S.workflow:S.tab==='interview'?'#interview-'+S.interview:S.tab==='links'?'#links':S.tab==='notebook'?'':'#tab-'+S.tab;}
 function currentLocationHash(){const route=parseRoute(window.location?.hash||'');return route&&routeMatchesView(route)?route.hash:(currentViewHash()||'#tab-notebook');}
 function syncPracticeHash(){
+  rememberWorkspace();
   if(!practiceHashReady||!window.history?.replaceState||!window.location)return;
   const route=parseRoute(window.location.hash||'');
   if(route&&routeMatchesView(route))return;
@@ -1100,11 +1105,12 @@ function progressChanged(){
   syncStatus();
 }
 function clearDevice(){
-  removeKey(STORE.state);removeKey(STORE.token);removeKey(STORE.cloud);
+  removeKey(STORE.state);removeKey(STORE.token);removeKey(STORE.cloud);removeKey(WORKSPACE_KEY);removeKey(CRAM_KEY);
+  clearTimeout(workspaceTimer);workspaceTimer=null;
   clearTimeout(localTimer);clearTimeout(cloudTimer);localTimer=cloudTimer=null;
   entries=Object.create(null);meta=Object.create(null);dirty=false;
   Object.assign(syncState,{restored:false,lastLocal:null,pending:false,verified:false,lastSync:null,error:'',authError:false});
-  S.round=Object.create(null);S.selected=null;S.confidence=0;
+  S.round=Object.create(null);S.selected=null;S.confidence=0;S.ids=D.questions.map(q=>q.id);S.qi=0;S.topic='all';S.mode='all';
 }
 
 /* GitHub private repo */
@@ -1200,13 +1206,78 @@ async function connectCloud(){
   if(!s||!target){syncState.error='這個瀏覽器不允許保存設定，無法啟用雲端同步。';syncStatus();render();return;}
   writeJSON(s,STORE.cloud,{owner,repo,connectedAt:now()});
   try{target.setItem(STORE.token,token);}catch{}
-  S.syncDraft={...d,owner,repo,token:''};
+  S.syncDraft={...d,owner,repo,token:'',fromLink:false};
   Object.assign(syncState,{verified:true,pending:true,authError:false,error:''});
   const ok=await syncNow('connect');
   render();
   toast(ok?'已連線，進度已同步到你的私人 repo。':'已連線，但這次同步沒有完成：'+syncState.error);
 }
-function disconnectCloud(){removeKey(STORE.token);removeKey(STORE.cloud);clearTimeout(cloudTimer);cloudTimer=null;Object.assign(syncState,{verified:false,pending:false,lastSync:null,error:'',authError:false});}
+function disconnectCloud(){S.syncShare=false;clearTimeout(shareTimer);removeKey(STORE.token);removeKey(STORE.cloud);clearTimeout(cloudTimer);cloudTimer=null;Object.assign(syncState,{verified:false,pending:false,lastSync:null,error:'',authError:false});}
+
+/* Connecting another device. The connected device shows a QR code / link whose #fragment carries owner, repo and token
+   (fragments never reach a server). Opening it only pre-fills the form; the learner still confirms, so a link from
+   someone else cannot silently redirect their progress to a foreign repo. */
+const JOIN_PREFIX='#sync-join=',JOIN_RE=/^([A-Za-z0-9](?:[A-Za-z0-9-]{0,38}))\/([A-Za-z0-9._-]{1,100})\/([A-Za-z0-9_]{20,255})$/;
+let shareTimer=null;
+function joinLink(cfg){const base=typeof window.location?.href==='string'&&/^https?:/.test(window.location.href)?window.location.origin+window.location.pathname:'https://qwwaawwqq.github.io/ophthalmology-interview-public/';return base+JOIN_PREFIX+cfg.owner+'/'+cfg.repo+'/'+cfg.token;}
+function readJoinLink(){
+  const hash=String(window.location?.hash||'');
+  if(!hash.startsWith(JOIN_PREFIX))return false;
+  window.history?.replaceState?.(null,'','#tab-sync');
+  const m=decodeURIComponent(hash.slice(JOIN_PREFIX.length)).match(JOIN_RE);
+  if(!m||!validRepo(m[1],m[2]))return false;
+  Object.assign(S.syncDraft,{owner:m[1],repo:m[2],token:m[3],remember:true,fromLink:true});
+  return true;
+}
+function loadQrLibrary(){
+  if(window.qrcode)return Promise.resolve();
+  if(!loadQrLibrary.pending)loadQrLibrary.pending=new Promise((resolve,reject)=>{const s=document.createElement('script');s.src='scripts/vendor/qrcode.js?v=2.0.4';s.onload=resolve;s.onerror=()=>{loadQrLibrary.pending=null;reject(Error('qr'));};document.head.appendChild(s);});
+  return loadQrLibrary.pending;
+}
+function qrMarkup(text){try{const qr=window.qrcode(0,'M');qr.addData(text);qr.make();return qr.createSvgTag({cellSize:4,margin:4,scalable:true,alt:'在另一台裝置連線雲端同步的 QR code'});}catch{return '';}}
+function sharePanel(cfg){
+  if(!S.syncShare)return '';
+  const link=joinLink(cfg),svg=window.qrcode?qrMarkup(link):'';
+  return `<div class="sync-share" role="region" aria-label="連線另一台裝置"><div class="sync-qr">${svg||'<p class="small">正在產生 QR code…</p>'}</div><div><p><strong>用手機相機掃描</strong>，會開啟本網站並帶入同步設定；確認 repo 名稱後按「連線並同步」即可。也可以按下方按鈕複製連結，在其他電腦的瀏覽器貼上開啟。</p><p class="small sync-error-text">這個 QR code 與連結含有你的 token：只給自己的裝置掃描，不要截圖或傳給別人。2 分鐘後自動隱藏。</p><div class="actions">${btn('複製設定連結','sync-copy-link','','small')}${btn('隱藏','sync-share-hide','','small subtle')}</div></div></div>`;
+}
+
+/* Where you left off on this device: current screen, quiz round and position, open PBL stages.
+   Kept beside the progress (not exported or synced), so reopening the app looks exactly as you left it. */
+const WORKSPACE_KEY='oph-prep:workspace-v1',CRAM_KEY='oph-prep:cram-review-v1',QUIZ_MODES=['all','new','safety','reserve','kaogu','wrong','uncertain'];
+let workspaceTimer=null;
+function workspaceSnapshot(){return {v:1,at:now(),hash:currentLocationHash(),quiz:{topic:S.topic,mode:S.mode,ids:S.ids,qi:S.qi,round:S.round},learn:S.learn,interview:S.interview,pbl:S.pbl,pblStage:S.pblStage,workflow:S.workflow,wfMode:S.wfMode,recall:S.recall,workshop:S.workshop,story:S.story,evidence:S.evidence};}
+function saveWorkspace(){clearTimeout(workspaceTimer);workspaceTimer=null;const s=storage();if(s&&deviceSettings().autosave)writeJSON(s,WORKSPACE_KEY,workspaceSnapshot());}
+// Called after every render; waits until the opening screen has been restored so it never overwrites it.
+function rememberWorkspace(){if(!practiceHashReady||!syncState.storage)return;clearTimeout(workspaceTimer);workspaceTimer=setTimeout(saveWorkspace,300);}
+function flushWorkspace(){if(workspaceTimer)saveWorkspace();}
+function restoreWorkspace(){
+  const s=storage();
+  if(!s||!deviceSettings().autosave)return null;
+  const w=readJSON(s,WORKSPACE_KEY);
+  if(!w||w.v!==1||typeof w!=='object')return null;
+  if(D.topics.some(t=>t.id===w.learn))S.learn=w.learn;
+  const iv=D.interview.find(i=>i.id===w.interview);if(iv){S.interview=iv.id;S.seconds=iv.durationSeconds;}
+  if(pblCases().some(c=>c.id===w.pbl))S.pbl=w.pbl;
+  if(w.pblStage&&typeof w.pblStage==='object')for(const c of pblCases()){const n=w.pblStage[c.id];if(Number.isInteger(n)&&n>=1&&n<=c.stages.length)S.pblStage[c.id]=n;}
+  if(wfList().some(x=>x.id===w.workflow))S.workflow=w.workflow;
+  if(['read','recall','order'].includes(w.wfMode))S.wfMode=w.wfMode;
+  if(typeof w.recall==='boolean')S.recall=w.recall;
+  if(['stories','evidence','sources'].includes(w.workshop))S.workshop=w.workshop;
+  if(D.storySeeds.some(x=>x.id===w.story))S.story=w.story;
+  if(D.evidenceSeeds.some(x=>x.id===w.evidence))S.evidence=w.evidence;
+  const q=w.quiz,byId=new Map(D.questions.map(x=>[x.id,x]));
+  if(q&&Array.isArray(q.ids)){
+    const ids=[...new Set(q.ids.filter(id=>byId.has(id)))];
+    if(ids.length){
+      S.ids=ids;S.topic=q.topic==='all'||D.topics.some(t=>t.id===q.topic)?q.topic:'all';S.mode=QUIZ_MODES.includes(q.mode)?q.mode:'all';
+      S.qi=Number.isInteger(q.qi)?Math.max(0,Math.min(ids.length-1,q.qi)):0;
+      const round=Object.create(null),inRound=new Set(ids);
+      if(q.round&&typeof q.round==='object')for(const [id,r] of Object.entries(q.round)){const item=byId.get(id);if(item&&inRound.has(id)&&r&&Number.isInteger(r.choice)&&r.choice>=0&&r.choice<item.options.length)round[id]={choice:r.choice,correct:r.choice===item.correctIndex,confidence:[0,1,2,3].includes(r.confidence)?r.confidence:0,at:validDate(r.at)};}
+      S.round=round;
+    }
+  }
+  return typeof w.hash==='string'&&parseRoute(w.hash)?w.hash:null;
+}
 
 /* Status line and settings page */
 function syncStatus(){
@@ -1240,17 +1311,18 @@ function syncPage(){
   const saved=syncState.storage&&settings.autosave;
   return heading('','保存與同步','進度會自動保存在這個瀏覽器；連上你自己的 GitHub 私人 repo 後，也會自動同步到雲端，手機和電腦可以接著練，不必再匯出或匯入。',`<div class="heading-stat"><strong>${cfg?'雲端':saved?'本機':'—'}</strong><span>${cfg?'已啟用同步':saved?'自動保存中':'尚未保存'}</span></div>`)
   +`<section class="card sync-card" aria-labelledby="sync-device-title"><h2 id="sync-device-title">這個裝置</h2>
-  ${syncState.storage?`<p>${saved?`每次作答、勾選或輸入文字後，幾秒內就自動保存在這個瀏覽器${syncState.lastLocal?'（最近一次：'+esc(syncTime(syncState.lastLocal))+'）':''}。重新整理或關閉分頁都不會遺失。`:'自動保存已關閉：離開前請連上雲端或匯出備份。'}</p>
+  ${syncState.storage?`<p>${saved?`每次作答、勾選或輸入文字後，幾秒內就自動保存在這個瀏覽器${syncState.lastLocal?'（最近一次：'+esc(syncTime(syncState.lastLocal))+'）':''}。重新整理或關閉分頁都不會遺失，再次開啟會回到上次的畫面與題目。`:'自動保存已關閉：離開前請連上雲端或匯出備份。'}</p>
   <label class="check-label"><input type="checkbox" id="sync-autosave" ${settings.autosave?'checked':''}><span>自動保存在這個瀏覽器</span></label>
   <p class="small">共用或公用電腦請關閉自動保存，用完按下方「清除此裝置資料」。</p>
   <div class="actions">${btn('清除此裝置資料','sync-clear','','small subtle')}</div>`:`<p class="sync-error-text">這個瀏覽器（例如部分無痕模式）不允許網站保存資料，只能在離開前匯出備份。</p>`}</section>
   <section class="card sync-card" aria-labelledby="sync-cloud-title"><h2 id="sync-cloud-title">雲端同步（你的 GitHub 私人 repo）</h2>
   ${cfg?`<div id="sync-cloud-status">${cloudStatusMarkup()}</div>
   <label class="check-label"><input type="checkbox" id="sync-auto" ${settings.autoSync?'checked':''}><span>自動同步（變更後約 30 秒、切換分頁或重新開啟時）</span></label>
-  <div class="actions">${btn(syncState.busy?'同步中…':'立即同步','sync-now','','small primary')}${btn('中斷連線','sync-disconnect','','small subtle')}</div>
+  <div class="actions">${btn(syncState.busy?'同步中…':'立即同步','sync-now','','small primary')}${btn(S.syncShare?'隱藏 QR code':'連線另一台裝置','sync-share','','small')}${btn('中斷連線','sync-disconnect','','small subtle')}</div>
+  ${sharePanel(cfg)}
   ${syncState.authError?`<p class="small">若 token 已過期或權限不足，先按「中斷連線」，再用新的 token 重新連線。</p>`:''}
   <p class="small">每次同步都會在 repo 留下一筆 commit，可在 GitHub 查看或還原較早的版本。其他裝置用同一個 repo 與各自的 token 連線即可接著練。</p>`
-  :`<ol class="sync-steps">
+  :`${d.fromLink?`<div class="notice sync-from-link" role="status"><strong>已從設定連結帶入同步設定</strong>將同步到 <b>${esc(d.owner)}/${esc(d.repo)}</b>。請確認這是你自己的私人 repo，再按下方「連線並同步」。若不是你建立的連結，請勿連線。</div>`:''}<ol class="sync-steps">
     <li><strong>建立私人 repo</strong>開啟 <a href="https://github.com/new" target="_blank" rel="noopener noreferrer">github.com/new</a>，名稱例如 <code>ophthalmology-progress</code>，一定要選 <b>Private</b>，並勾選 Add a README file。</li>
     <li><strong>建立只能用在這個 repo 的 token</strong>開啟 <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener noreferrer">Fine-grained token</a>：Repository access 選 <b>Only select repositories</b> → 剛建立的 repo；Permissions → Repository permissions → <b>Contents</b> 設為 <b>Read and write</b>；設定到期日後產生並複製 token。</li>
     <li><strong>貼到下方並連線</strong>每台裝置第一次使用時輸入一次；之後會自動同步。</li></ol>
@@ -1273,7 +1345,7 @@ function syncInput(el){
 function syncChange(el){
   const id=el?.id;
   if(id==='sync-remember'){S.syncDraft.remember=el.checked;return true;}
-  if(id==='sync-autosave'){setDeviceSetting('autosave',el.checked);if(el.checked)saveLocal();else{clearTimeout(localTimer);localTimer=null;removeKey(STORE.state);syncState.lastLocal=null;dirty=true;}render();syncStatus();return true;}
+  if(id==='sync-autosave'){setDeviceSetting('autosave',el.checked);if(el.checked)saveLocal();else{clearTimeout(localTimer);localTimer=null;clearTimeout(workspaceTimer);workspaceTimer=null;removeKey(STORE.state);removeKey(WORKSPACE_KEY);syncState.lastLocal=null;dirty=true;}render();syncStatus();return true;}
   if(id==='sync-auto'){setDeviceSetting('autoSync',el.checked);if(el.checked&&syncState.pending)scheduleSync(2000);return true;}
   return false;
 }
@@ -1281,6 +1353,12 @@ function syncAction(a){
   switch(a){
   case'sync-connect':if(!syncState.busy)connectCloud();return true;
   case'sync-now':if(!syncState.busy){syncState.verified=false;syncNow('manual').then(ok=>{render();toast(ok?'已同步。':syncState.error);});}return true;
+  case'sync-share':{
+    S.syncShare=!S.syncShare;clearTimeout(shareTimer);
+    if(S.syncShare){shareTimer=setTimeout(()=>{S.syncShare=false;if(S.tab==='sync')render();},120000);loadQrLibrary().then(()=>{if(S.tab==='sync'&&S.syncShare)render();},()=>toast('無法載入 QR code，請改用「複製設定連結」。'));}
+    render();return true;}
+  case'sync-share-hide':S.syncShare=false;clearTimeout(shareTimer);render();return true;
+  case'sync-copy-link':{const cfg=cloudConfig();if(!cfg)return true;const link=joinLink(cfg);Promise.resolve(globalThis.navigator?.clipboard?.writeText?.(link)).then(()=>toast('已複製設定連結。只在自己的裝置開啟。'),()=>toast('無法自動複製，請改用 QR code。'));return true;}
   case'sync-disconnect':if(window.confirm('中斷這個瀏覽器的雲端同步並刪除保存的 token？雲端 repo 中的資料不受影響。')){disconnectCloud();render();toast('已中斷連線。雲端的進度仍在你的 repo。');}return true;
   case'sync-clear':if(window.confirm('清除這個瀏覽器保存的全部進度、草稿與 GitHub token？雲端 repo 中的資料不受影響。')){clearDevice();render();toast('已清除此裝置的資料。');}return true;
   }
@@ -1291,9 +1369,12 @@ function syncAction(a){
 syncState.storage=!!storage();
 if(syncState.storage&&deviceSettings().autosave){const saved=readJSON(storage(),STORE.state);if(saved)try{absorbProgress(saved);syncState.restored=true;syncState.lastLocal=Date.parse(saved.exportedAt)||null;}catch{}}
 {const cfg=readJSON(storage(),STORE.cloud);if(cfg?.lastSync)syncState.lastSync=cfg.lastSync;}
-window.addEventListener('beforeunload',flushLocal);
-window.addEventListener('pagehide',flushLocal);
-document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'){flushLocal();if(syncState.pending&&deviceSettings().autoSync)syncNow('hidden');}else if(cloudConfig()&&deviceSettings().autoSync&&(!syncState.lastSync||Date.now()-syncState.lastSync>60000))syncNow('visible');});
+readJoinLink();
+// Reopening the app without a link in the address bar continues on the last screen used on this device.
+{const resume=restoreWorkspace();if(resume&&!window.location?.hash&&resume!=='#tab-notebook')window.history?.replaceState?.(null,'',resume);}
+window.addEventListener('beforeunload',()=>{flushLocal();flushWorkspace();});
+window.addEventListener('pagehide',()=>{flushLocal();flushWorkspace();});
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'){flushLocal();flushWorkspace();if(syncState.pending&&deviceSettings().autoSync)syncNow('hidden');}else if(cloudConfig()&&deviceSettings().autoSync&&(!syncState.lastSync||Date.now()-syncState.lastSync>60000))syncNow('visible');});
 window.addEventListener('online',()=>{if(cloudConfig()&&(syncState.pending||syncState.error))syncNow('online');});
 setTimeout(()=>{syncStatus();if(cloudConfig()&&deviceSettings().autoSync)syncNow('load');},0);
 /* progress-sync:end */

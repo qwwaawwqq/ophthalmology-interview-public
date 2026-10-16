@@ -332,6 +332,17 @@ def validate_detailed(detailed, data):
             require_list(a.get('personalize'), label + ' personalize', 1, 5)
 
 
+def strip_block(js, start, end, slot):
+    """Remove a generated block but remember where it was, so a rebuild puts it back in place."""
+    return re.sub(re.escape(start)+r'.*?'+re.escape(end)+r'\n?', lambda _: slot, js, count=1, flags=re.S)
+
+
+def fill_block(js, slot, block):
+    if slot in js:
+        return js.replace(slot, block.strip()+'\n', 1)
+    return js.replace('function render(){', block.strip()+'\nfunction render(){', 1)
+
+
 def replace_once(text, needle, replacement, label):
     if text.count(needle) != 1:
         raise ValueError(label + ' insertion point changed')
@@ -350,11 +361,11 @@ def apply_practice_html(html):
 
 def apply_practice(js):
     """Wire PBL, workflows and saved links into the base app. Each patch is skipped once present."""
-    js = re.sub(re.escape(PRACTICE_JS_START)+r'.*?'+re.escape(PRACTICE_JS_END)+r'\n?', '', js, flags=re.S)
+    js = strip_block(js, PRACTICE_JS_START, PRACTICE_JS_END, '\x00PRACTICE\x00')
     patches = (
         ("['pbl','◈','PBL 情境']", "['workshop','◇','故事與證據']", "['pbl','◈','PBL 情境'],['workflow','▥','臨床流程'],['workshop','◇','故事與證據']", 'nav list'),
         ("['links','☆','我的連結']", "['progress','◴','學習進度']]", "['progress','◴','學習進度'],['links','☆','我的連結']]", 'nav list end'),
-        ("['notebook','learn','links']", "['閱讀',['notebook','learn']]", "['閱讀',['notebook','learn','links']]", 'nav reading group'),
+        ("'learn','links']", "['閱讀',['notebook','learn']]", "['閱讀',['notebook','learn','links']]", 'nav reading group'),
         ("'interview','pbl','workflow'", "['演練',['quiz','interview','workshop']]", "['演練',['quiz','interview','pbl','workflow','workshop']]", 'nav practice group'),
         ("pbl:pblPage", "({notebook,originals,quiz,learn,interview,workshop,plan,progress})[S.tab]();}", "({notebook,originals,quiz,learn,interview,workshop,plan,progress,pbl:pblPage,workflow:workflowPage,links:linksPage})[S.tab]();syncPracticeHash();}", 'render views'),
         ("id==='pbl'?`<span class=\"nav-count\"", "id==='interview'?`<span class=\"nav-count\" aria-hidden=\"true\">${D.interview.length}</span>`:''", "id==='interview'?`<span class=\"nav-count\" aria-hidden=\"true\">${D.interview.length}</span>`:id==='pbl'?`<span class=\"nav-count\" aria-hidden=\"true\">${D.pbl?.cases?.length||0}</span>`:id==='workflow'?`<span class=\"nav-count\" aria-hidden=\"true\">${D.workflows?.workflows?.length||0}</span>`:''", 'nav counts'),
@@ -386,8 +397,9 @@ def apply_practice(js):
     js = replace_once(js, ":list(b.points)}</section>`;}", ":list(b.points)}${linkSaveButton('#'+t.id+'-section-'+i)}</section>`;}", 'lesson bookmark')
     js = replace_once(js, "${coverageLink(t,'查看全章共筆對照','coverage')}</nav>", "${coverageLink(t,'查看全章共筆對照','coverage')}</nav>${linkSaveButton('#'+t.id+'-coverage-'+entry.id)}", 'coverage bookmark')
     js = replace_once(js, '<h3 id="${t.id}-${unit.id}-title">${esc(unit.title)}</h3></div>', '<h3 id="${t.id}-${unit.id}-title">${esc(unit.title)}</h3>${linkSaveButton(\'#\'+t.id+\'-\'+unit.id)}</div>', 'unit bookmark')
-    js = re.sub(re.escape(SYNC_JS_START)+r'.*?'+re.escape(SYNC_JS_END)+r'\n?', '', js, flags=re.S)
-    return js.replace('function render(){', PRACTICE_JS.read_text(encoding='utf-8').strip()+'\n'+SYNC_JS.read_text(encoding='utf-8').strip()+'\nfunction render(){', 1)
+    js = strip_block(js, SYNC_JS_START, SYNC_JS_END, '\x00SYNC\x00')
+    js = fill_block(js, '\x00PRACTICE\x00', PRACTICE_JS.read_text(encoding='utf-8'))
+    return fill_block(js, '\x00SYNC\x00', SYNC_JS.read_text(encoding='utf-8'))
 
 
 def validate_coverage(coverage, enrichment, data):
@@ -863,7 +875,7 @@ def build():
     data['notebook']['imageScope'] = '本版提供原創教學示意圖，非實際臨床影像；延伸資源連至來源網站的圖譜、影片或文獻。原始共筆 PDF 未公開。'
     preserved['notebook']['imageScope'] = data['notebook']['imageScope']
     js = re.search(r'<script>(.*?)</script>', html, re.S).group(1)
-    js = re.sub(re.escape(JS_START)+r'.*?'+re.escape(JS_END)+r'\n?', '', js, flags=re.S)
+    js = strip_block(js, JS_START, JS_END, '\x00ENRICH\x00')
 
     # These markers are placed once; repeated runs only refresh data/functions.
     m = function_line(js, 'chapterExtras')
@@ -952,7 +964,7 @@ def build():
             if js.count(needle) != 1:
                 raise ValueError('Quiz mode insertion point changed')
             js = js.replace(needle, needle + extra)
-    js=js.replace('function render(){',JS.strip()+'\nfunction render(){',1)
+    js=fill_block(js,'\x00ENRICH\x00',JS)
     if JS_START not in js:
         raise ValueError('Missing render function')
     js=apply_practice(js)

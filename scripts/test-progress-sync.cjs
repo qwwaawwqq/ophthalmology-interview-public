@@ -88,6 +88,7 @@ function boot({local, session, github, hash = ''}) {
     addEventListener(name, fn) { handlers.set(name, fn); },
   };
   const blobs = [];
+  const clipboard = [];
   class MockURL extends URL {}
   MockURL.createObjectURL = b => { blobs.push(b); return 'blob:qa'; };
   MockURL.revokeObjectURL = () => {};
@@ -100,7 +101,7 @@ function boot({local, session, github, hash = ''}) {
       location: {hash, href: 'https://qwwaawwqq.github.io/ophthalmology-interview-public/' + hash, origin: 'https://qwwaawwqq.github.io', pathname: '/ophthalmology-interview-public/', search: '', hostname: 'qwwaawwqq.github.io'},
       history: {replaceState(_s, _t, url) { const i = String(url).indexOf('#'); context.window.location.hash = i < 0 ? '' : String(url).slice(i); }},
     },
-    navigator: {userAgent: 'Mozilla/5.0 (iPhone)'},
+    navigator: {userAgent: 'Mozilla/5.0 (iPhone)', clipboard: {writeText: async text => { clipboard.push(text); }}},
     fetch: github.fetch, Blob, URL: MockURL, Intl, Date, Set, Map, Object, Array, String, Number, JSON, Math, Error, SyntaxError, TypeError, Promise,
     TextEncoder, TextDecoder, Uint8Array, atob, btoa,
     setInterval() {}, setTimeout(fn, ms) { timers.push({fn, ms}); return timers.length; }, clearTimeout(id) { if (timers[id - 1]) timers[id - 1].fn = null; },
@@ -110,7 +111,7 @@ function boot({local, session, github, hash = ''}) {
   vm.runInContext(hooked, context, {timeout: 10000});
   const qa = context.__qa;
   return {
-    qa, toasts, blobs, document, windowHandlers, handlers,
+    qa, toasts, blobs, clipboard, document, windowHandlers, handlers,
     main: () => element('#main').innerHTML,
     nav: () => element('#nav').innerHTML,
     status: () => element('#save-status').textContent,
@@ -325,6 +326,105 @@ const Q = JSON.parse(payload).questions;
     assert(a.nav().includes('data-value="sync"') && a.nav().includes('保存與同步'));
     assert(/<button class="status-link" data-action="tab" data-value="sync"/.test(html));
     assert(!/離開前請(記得)?匯出。/.test(html), 'old export reminders replaced');
+  });
+
+  await test('reopening the app continues the same quiz round, question and screen on this device', async () => {
+    const local = new MemoryStorage(), github = fakeGitHub();
+    const a = boot({local, session: new MemoryStorage(), github});
+    a.windowHandlers.get('load')();
+    a.action('practice-topic', 'notes-02');
+    const ids = [...a.qa.S.ids];
+    assert(ids.length > 3);
+    for (let i = 0; i < 3; i++) {
+      a.change('', {name: 'answer', value: '1'});
+      a.action('submit');
+      a.action('next');
+    }
+    assert.equal(a.qa.S.qi, 3);
+    await a.runTimers();
+    assert.equal(a.qa.S.tab, 'quiz');
+    // Fresh open from a bookmark: no hash in the address bar.
+    const b = boot({local, session: new MemoryStorage(), github});
+    assert.equal(b.qa.S.topic, 'notes-02');
+    assert.deepEqual([...b.qa.S.ids], ids);
+    assert.equal(b.qa.S.qi, 3, 'same question as before');
+    assert.equal(Object.keys(b.qa.S.round).length, 3, 'answers of this round are shown again');
+    b.windowHandlers.get('load')();
+    assert.equal(b.qa.S.tab, 'quiz', 'opens on the last screen');
+    assert(b.main().includes('3 / ' + ids.length + ' 本輪已答'));
+  });
+
+  await test('PBL stages, the last chapter and the interview item are remembered; a shared link still wins', async () => {
+    const local = new MemoryStorage(), github = fakeGitHub();
+    const a = boot({local, session: new MemoryStorage(), github});
+    a.windowHandlers.get('load')();
+    a.action('pbl-open', 'pbl-gca'); a.action('pbl-stage'); a.action('pbl-stage');
+    a.action('learn-topic', 'notes-09');
+    a.action('interview', 'notes-05-case-1');
+    a.action('pbl-open', 'pbl-gca');
+    await a.runTimers();
+    const b = boot({local, session: new MemoryStorage(), github});
+    b.windowHandlers.get('load')();
+    assert.equal(b.qa.S.tab, 'pbl');
+    assert(b.main().includes('pbl-stage-3') && b.main().includes('id="pbl-wrap"'), 'all three stages still open');
+    assert.equal(b.qa.S.learn, 'notes-09');
+    assert.equal(b.qa.S.interview, 'notes-05-case-1');
+    const c = boot({local, session: new MemoryStorage(), github, hash: '#wf-chemical'});
+    c.windowHandlers.get('load')();
+    assert.equal(c.qa.S.tab, 'workflow', 'a link in the address bar is opened instead of the last screen');
+    assert.equal(c.qa.S.workflow, 'wf-chemical');
+  });
+
+  await test('clearing this device also forgets the last screen and quiz round', async () => {
+    const local = new MemoryStorage(), github = fakeGitHub();
+    const a = boot({local, session: new MemoryStorage(), github});
+    a.windowHandlers.get('load')();
+    a.action('practice-topic', 'notes-03');
+    a.change('', {name: 'answer', value: '0'}); a.action('submit');
+    await a.runTimers();
+    assert(local.getItem('oph-prep:workspace-v1'));
+    local.setItem('oph-prep:cram-review-v1', '{"x":{"status":"known"}}');
+    a.action('sync-clear');
+    assert.equal(local.getItem('oph-prep:workspace-v1'), null);
+    assert.equal(local.getItem('oph-prep:cram-review-v1'), null);
+    assert.equal(a.qa.S.topic, 'all');
+    const b = boot({local, session: new MemoryStorage(), github});
+    b.windowHandlers.get('load')();
+    assert.equal(Object.keys(b.qa.S.round).length, 0);
+  });
+
+  await test('a device-setup link only pre-fills the form, removes the token from the address bar and waits for confirmation', async () => {
+    const github = fakeGitHub();
+    github.add('me/p', 'github_pat_SETUPTOKEN1234567890');
+    const local = new MemoryStorage();
+    const a = boot({local, session: new MemoryStorage(), github, hash: '#sync-join=me/p/github_pat_SETUPTOKEN1234567890'});
+    a.windowHandlers.get('load')();
+    assert.equal(a.qa.S.tab, 'sync');
+    assert.equal(a.qa.cloudConfig(), null, 'not connected until confirmed');
+    assert.equal(github.calls.length, 0, 'no request before confirmation');
+    assert(a.main().includes('已從設定連結帶入同步設定') && a.main().includes('me/p'));
+    a.action('sync-connect'); await a.settle();
+    assert(a.qa.cloudConfig(), 'connected after the learner confirms');
+    assert.equal(local.getItem('oph-prep:cloud-token'), 'github_pat_SETUPTOKEN1234567890');
+    assert(!a.main().includes('已從設定連結帶入'));
+    const bad = boot({local: new MemoryStorage(), session: new MemoryStorage(), github, hash: '#sync-join=me/p/<script>'});
+    assert.equal(bad.qa.S.syncDraft.fromLink, undefined, 'malformed links are ignored');
+  });
+
+  await test('a connected device can show a setup QR panel and copy the setup link', async () => {
+    const github = fakeGitHub();
+    github.add('me/p', 'github_pat_SHARETOKEN1234567890');
+    const a = boot({local: new MemoryStorage(), session: new MemoryStorage(), github});
+    a.action('tab', 'sync'); a.type('sync-owner', 'me'); a.type('sync-repo', 'p'); a.type('sync-token', 'github_pat_SHARETOKEN1234567890'); a.action('sync-connect'); await a.settle();
+    a.action('sync-share');
+    assert(a.main().includes('aria-label="連線另一台裝置"') && a.main().includes('不要截圖'));
+    a.action('sync-copy-link'); await a.settle();
+    assert.equal(a.clipboard.at(-1), 'https://qwwaawwqq.github.io/ophthalmology-interview-public/#sync-join=me/p/github_pat_SHARETOKEN1234567890');
+    a.action('sync-share-hide');
+    assert(!a.main().includes('aria-label="連線另一台裝置"'));
+    a.action('sync-share');
+    a.action('sync-disconnect');
+    assert.equal(a.qa.S.syncShare, false, 'disconnecting hides the panel');
   });
 
   const failed = results.filter(r => !r.pass);
