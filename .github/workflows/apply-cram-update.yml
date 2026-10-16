@@ -1,0 +1,53 @@
+name: Apply reviewed cram tab and rebuild Pages
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/apply-cram-update.yml'
+      - 'tools/apply_cram_update.py'
+      - 'scripts/cram-review.js'
+      - 'scripts/cram-review.css'
+      - 'content/cram-review.json'
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: apply-cram-update-main
+  cancel-in-progress: false
+
+jobs:
+  apply-reviewed-update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out latest main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+      - name: Apply exact reviewed hooks
+        run: python3 tools/apply_cram_update.py --apply
+      - name: Publish only the generated index
+        shell: bash
+        run: |
+          set -euo pipefail
+          repo_root="$(git rev-parse --show-toplevel)"
+          test "$repo_root" = "$GITHUB_WORKSPACE"
+          test "$repo_root" != "/Users/wangtingwei"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- index.html
+          if git diff --cached --quiet -- index.html; then
+            echo 'Reviewed index is already present; no commit needed.'
+          else
+            git commit -m 'Add shared-notes review tab'
+            git push origin HEAD:main
+          fi
+      - name: Request a build with the existing Pages configuration
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST "repos/${GITHUB_REPOSITORY}/pages/builds" --jq '{status, url}'

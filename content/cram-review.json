@@ -1,0 +1,728 @@
+{
+  "version": 1,
+  "title": "考前共筆快取：先回想，再看答案",
+  "updated": "2026-10-16",
+  "disclaimer": "這是今晚的複習排序與診斷對照，不是明日命題預測，也不代表北榮歷年出題頻率。先口答，再展開答案；不熟就回原章與圖。",
+  "sourceNotice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。",
+  "groups": [
+    {
+      "id": "red-eye",
+      "title": "紅眼、角膜與急症",
+      "priority": 1,
+      "summary": "先找視力、角膜透明度與前房反應；再用病史分流。",
+      "chapterIds": [
+        "notes-05",
+        "notes-09",
+        "notes-12",
+        "notes-14"
+      ],
+      "points": [
+        {
+          "question": "化學物噴眼先做什麼？",
+          "answer": "立即大量沖洗；不要為辨認酸鹼而延誤。一般鹼傷穿透更深，limbal ischemia 與 corneal opacity 提示預後不佳。",
+          "trap": "不是先等完整病史或等眼科到場才沖洗。",
+          "source": {
+            "chapter": "No.05",
+            "pages": "p.45–46、49–50",
+            "kind": "existing-notes",
+            "notice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+          }
+        },
+        {
+          "question": "乾眼的兩種機轉怎麼分？",
+          "answer": "水液缺乏偏 Schirmer 下降、Sjögren、淚河減少；蒸發型偏 MGD、混濁或牙膏狀 meibum。兩者 TBUT 都可縮短。",
+          "trap": "短 TBUT 本身不能區分兩型。",
+          "source": {
+            "chapter": "No.14",
+            "pages": "p.10–12",
+            "kind": "existing-notes",
+            "notice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "glaucoma",
+      "title": "青光眼",
+      "priority": 2,
+      "summary": "先判斷急慢、隅角、結構與功能；不把眼壓單獨當診斷。",
+      "chapterIds": [
+        "notes-07"
+      ],
+      "points": [
+        {
+          "question": "POAG 和 PACG 的題幹風險如何對照？",
+          "answer": "近視偏 POAG；遠視、短眼軸、淺前房偏 PACG。分類需隅角鏡，不由近視或遠視單獨診斷。",
+          "trap": "風險因子不是診斷條件。",
+          "source": {
+            "chapter": "No.07",
+            "pages": "p.30–36、48",
+            "kind": "existing-notes",
+            "notice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+          }
+        },
+        {
+          "question": "降壓藥先記哪兩組機轉？",
+          "answer": "Beta blocker 與 carbonic anhydrase inhibitor 減少房水製造；prostaglandin analog 增加 uveoscleral outflow。",
+          "trap": "藥物選擇還要看全身與眼部禁忌，不能只背降壓效果。",
+          "source": {
+            "chapter": "No.07",
+            "pages": "p.41–44",
+            "kind": "existing-notes",
+            "notice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "retina",
+      "title": "視網膜與玻璃體",
+      "priority": 3,
+      "summary": "先看出血、蒼白、裂孔／牽引、黃斑；把分期與併發症分開。",
+      "chapterIds": [
+        "notes-10"
+      ],
+      "points": [
+        {
+          "question": "中心視力與周邊視野受損，如何抓定位？",
+          "answer": "變形視、中心視力變差優先看黃斑；夜盲、周邊視野逐漸縮小與 bone-spicule 支持 RP。",
+          "trap": "不要把所有慢性視力下降都歸為白內障或青光眼。",
+          "source": {
+            "chapter": "No.10",
+            "pages": "p.41–45、52–54",
+            "kind": "existing-notes",
+            "notice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+          }
+        },
+        {
+          "question": "Dry AMD 與 wet AMD 的題幹主軸？",
+          "answer": "Dry 以 drusen／atrophy 為主；wet 重點是新生血管及滲出、出血。用眼底與 OCT 對照，不背舊稿過時的藥物絕對化說法。",
+          "trap": "出現 drusen 不代表已經是新生血管型。",
+          "source": {
+            "chapter": "No.10",
+            "pages": "p.41–46",
+            "kind": "existing-notes",
+            "notice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "neuro",
+      "title": "神經眼科",
+      "priority": 4,
+      "summary": "先分傳入、傳出與眼位；瞳孔、色覺、視野要能對應。",
+      "chapterIds": [
+        "notes-03",
+        "notes-13",
+        "notes-14"
+      ],
+      "points": [
+        {
+          "question": "傳入和傳出先抓哪個差別？",
+          "answer": "視網膜／視神經傳入不對稱可形成 RAPD；單側動眼神經或虹膜問題影響該側瞳孔的傳出反應。",
+          "trap": "Anisocoria 和 RAPD 不能互相代換。",
+          "source": {
+            "chapter": "No.03",
+            "pages": "p.4–5、37–43",
+            "kind": "existing-notes",
+            "notice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+          }
+        },
+        {
+          "question": "雙眼對稱的藥物視神經病變會一定有 RAPD 嗎？",
+          "answer": "不一定。對稱傳入損傷可能沒有明顯 RAPD，因此仍要看色覺與中心視野。",
+          "trap": "沒有 RAPD 不等於沒有雙眼視神經疾病。",
+          "source": {
+            "chapter": "No.13",
+            "pages": "p.18–22",
+            "kind": "existing-notes",
+            "notice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "refraction",
+      "title": "屈光與檢查",
+      "priority": 5,
+      "summary": "把視力、屈光度、檢查目的分開；計算時先核對正負號。",
+      "chapterIds": [
+        "notes-01",
+        "notes-02",
+        "notes-14"
+      ],
+      "points": [
+        {
+          "question": "雷射三種作用如何配對？",
+          "answer": "Photodisruption：Nd:YAG／femtosecond；photoablation：excimer；photocoagulation：argon。",
+          "trap": "不要把角膜切削的 excimer 和後囊切開的 Nd:YAG 互換。",
+          "source": {
+            "chapter": "No.02",
+            "pages": "p.5–6",
+            "kind": "existing-notes",
+            "notice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+          }
+        },
+        {
+          "question": "Fluorescein 與 OCT 各回答什麼？",
+          "answer": "Fluorescein 染色找角膜上皮缺損；OCT 需先分前節或眼底，再對應組織分層與積液。",
+          "trap": "看到 OCT 三個字還不能知道正在測前節、RNFL 或黃斑。",
+          "source": {
+            "chapter": "No.01",
+            "pages": "p.18–20、24–32",
+            "kind": "existing-notes",
+            "notice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mixed",
+      "title": "斜弱視、白內障與藥物",
+      "priority": 6,
+      "summary": "用病因、眼位工具、混濁位置及藥物受損組織做對照。",
+      "chapterIds": [
+        "notes-04",
+        "notes-06",
+        "notes-13"
+      ],
+      "points": [
+        {
+          "question": "眼位工具怎麼配？",
+          "answer": "Hirschberg 看角膜反光；Krimsky 用稜鏡中和反光偏移；prism cover test 量偏斜；double Maddox rod 看旋轉。",
+          "trap": "外觀像內斜不等於檢查證實內斜。",
+          "source": {
+            "chapter": "No.04",
+            "pages": "p.24–25、28",
+            "kind": "existing-notes",
+            "notice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+          }
+        },
+        {
+          "question": "Anticholinergic 與 topiramate 閉角機轉相同嗎？",
+          "answer": "抗膽鹼藥可藉散瞳誘發原窄角發作；topiramate 可造成 ciliochoroidal effusion，讓虹膜水晶體隔前移，常伴近視 shift。",
+          "trap": "不要把 topiramate 一律當成單純瞳孔阻滯。",
+          "source": {
+            "chapter": "No.13",
+            "pages": "p.47–51",
+            "kind": "existing-notes",
+            "notice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+          }
+        }
+      ]
+    }
+  ],
+  "chapters": [
+    {
+      "id": "notes-01",
+      "number": 1,
+      "title": "眼科基本檢查",
+      "focus": [
+        "視力與驗光",
+        "檢查用途"
+      ],
+      "notePath": "共筆-Vault/Notes/No01 - 眼科基本檢查.md",
+      "pdfName": "眼科學No.01.pdf",
+      "sourceNotice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+    },
+    {
+      "id": "notes-02",
+      "number": 2,
+      "title": "臨床屈光",
+      "focus": [
+        "屈光矯正",
+        "雷射作用"
+      ],
+      "notePath": "共筆-Vault/Notes/No02 - 臨床屈光.md",
+      "pdfName": "眼科學No.02.pdf",
+      "sourceNotice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+    },
+    {
+      "id": "notes-03",
+      "number": 3,
+      "title": "神經眼科與瞳孔眼球運動",
+      "focus": [
+        "瞳孔與傳入傳出",
+        "眼外肌與視路"
+      ],
+      "notePath": "共筆-Vault/Notes/No03 - 神經眼科與瞳孔眼球運動.md",
+      "pdfName": "眼科學No.03.pdf",
+      "sourceNotice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+    },
+    {
+      "id": "notes-04",
+      "number": 4,
+      "title": "弱視與斜視",
+      "focus": [
+        "弱視成因",
+        "眼位評估"
+      ],
+      "notePath": "共筆-Vault/Notes/No04 - 弱視與斜視.md",
+      "pdfName": "眼科學No.04.pdf",
+      "sourceNotice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+    },
+    {
+      "id": "notes-05",
+      "number": 5,
+      "title": "角膜與鞏膜",
+      "focus": [
+        "感染性角膜炎",
+        "化學傷害"
+      ],
+      "notePath": "共筆-Vault/Notes/No05 - 角膜與鞏膜.md",
+      "pdfName": "眼科學No.05.pdf",
+      "sourceNotice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+    },
+    {
+      "id": "notes-06",
+      "number": 6,
+      "title": "水晶體與白內障",
+      "focus": [
+        "混濁位置",
+        "手術與後囊"
+      ],
+      "notePath": "共筆-Vault/Notes/No06 - 水晶體與白內障.md",
+      "pdfName": "眼科學No.06.pdf",
+      "sourceNotice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+    },
+    {
+      "id": "notes-07",
+      "number": 7,
+      "title": "青光眼",
+      "focus": [
+        "隅角與眼壓",
+        "結構及視野"
+      ],
+      "notePath": "共筆-Vault/Notes/No07 - 青光眼.md",
+      "pdfName": "眼科學No.07.pdf",
+      "sourceNotice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+    },
+    {
+      "id": "notes-08",
+      "number": 8,
+      "title": "眼窩與淚器",
+      "focus": [
+        "眼窩徵象",
+        "淚器與甲狀腺眼病"
+      ],
+      "notePath": "共筆-Vault/Notes/No08 - 眼窩與淚器.md",
+      "pdfName": "眼科學No.08.pdf",
+      "sourceNotice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+    },
+    {
+      "id": "notes-09",
+      "number": 9,
+      "title": "葡萄膜",
+      "focus": [
+        "發炎位置",
+        "前房與後節徵象"
+      ],
+      "notePath": "共筆-Vault/Notes/No09 - 葡萄膜.md",
+      "pdfName": "眼科學No.09.pdf",
+      "sourceNotice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+    },
+    {
+      "id": "notes-10",
+      "number": 10,
+      "title": "視網膜與玻璃體",
+      "focus": [
+        "視網膜血管病",
+        "剝離與黃斑"
+      ],
+      "notePath": "共筆-Vault/Notes/No10 - 視網膜與玻璃體.md",
+      "pdfName": "Retina.pdf",
+      "sourceNotice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+    },
+    {
+      "id": "notes-11",
+      "number": 11,
+      "title": "眼瞼與眼整形",
+      "focus": [
+        "眼瞼功能",
+        "眼瞼病灶"
+      ],
+      "notePath": "共筆-Vault/Notes/No11 - 眼瞼與眼整形.md",
+      "pdfName": "眼科學No.11.pdf",
+      "sourceNotice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+    },
+    {
+      "id": "notes-12",
+      "number": 12,
+      "title": "結膜與乾眼",
+      "focus": [
+        "結膜炎",
+        "乾眼機轉"
+      ],
+      "notePath": "共筆-Vault/Notes/No12 - 結膜與乾眼.md",
+      "pdfName": "眼科學No.12.pdf",
+      "sourceNotice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+    },
+    {
+      "id": "notes-13",
+      "number": 13,
+      "title": "藥物之眼科副作用",
+      "focus": [
+        "藥物與受損組織",
+        "閉角機轉"
+      ],
+      "notePath": "共筆-Vault/Notes/No13 - 藥物之眼科副作用.md",
+      "pdfName": "眼科學No.13.pdf",
+      "sourceNotice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+    },
+    {
+      "id": "notes-14",
+      "number": 14,
+      "title": "常見眼疾鑑別診斷",
+      "focus": [
+        "紅眼分流",
+        "視力模糊定位"
+      ],
+      "notePath": "共筆-Vault/Notes/No14 - 常見眼疾鑑別診斷.md",
+      "pdfName": "眼科學No.14.pdf",
+      "sourceNotice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+    }
+  ],
+  "cards": [
+    {
+      "id": "cram-01",
+      "groupId": "red-eye",
+      "chapterId": "notes-14",
+      "question": "紅眼合併哪些題幹線索，應從單純結膜炎轉向角膜或前房病灶？",
+      "answer": "角膜浸潤合併上皮缺損、明顯疼痛及視力下降，支持角膜潰瘍；cells／flare、hypopyon 支持前房發炎。URI、follicles 與耳前淋巴結腫大較支持病毒性結膜炎。",
+      "trap": "不能只看到「紅眼」就作答結膜炎；先找角膜是否透明、視力是否受影響及有無前房反應。",
+      "source": {
+        "chapter": "No.14",
+        "pages": "p.7–14",
+        "kind": "existing-notes",
+        "notice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+      }
+    },
+    {
+      "id": "cram-02",
+      "groupId": "red-eye",
+      "chapterId": "notes-05",
+      "question": "樹枝狀 HSV epithelial keratitis，與 stromal keratitis 的類固醇原則有何不同？",
+      "answer": "活動性 epithelial HSV 不使用 topical steroid，以抗病毒治療為主。Stromal inflammation 可在眼科監測及適當抗病毒保護下使用 topical steroid；不是單獨給類固醇。",
+      "trap": "「HSV 全部禁 steroid」和「stromal 直接給 steroid、不需 antiviral」都過度簡化。",
+      "source": {
+        "chapter": "No.05",
+        "pages": "p.12–14",
+        "kind": "existing-notes",
+        "notice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+      },
+      "links": [
+        {
+          "label": "AAO：活動性上皮 HSV 與類固醇",
+          "url": "https://eyewiki.aao.org/Herpes_Simplex_Virus_Keratitis"
+        },
+        {
+          "label": "AAO：stromal keratitis 的抗病毒與類固醇",
+          "url": "https://eyewiki.aao.org/LASIK_in_Patients_With_Herpes_Simplex_Virus"
+        }
+      ]
+    },
+    {
+      "id": "cram-03",
+      "groupId": "red-eye",
+      "chapterId": "notes-05",
+      "question": "隱形眼鏡相關角膜炎：Pseudomonas 與 Acanthamoeba 各有何病史線索？",
+      "answer": "隱形眼鏡是細菌性角膜炎的重要風險，Pseudomonas 是共筆強調的病原。若出現自來水洗鏡片或其他不潔水暴露，要把 Acanthamoeba 放入鑑別；仍須依檢查與檢體判斷。",
+      "trap": "接觸鏡加水暴露只是鑑別線索，不能直接等同已確診某一病原。",
+      "source": {
+        "chapter": "No.05",
+        "pages": "p.10–11",
+        "kind": "existing-notes",
+        "notice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+      }
+    },
+    {
+      "id": "cram-04",
+      "groupId": "glaucoma",
+      "chapterId": "notes-07",
+      "question": "眼壓高就等於青光眼嗎？正常眼壓能否排除？",
+      "answer": "兩者都不行。青光眼要整合視神經／RNFL 結構損害、視野與病程；早期視野可能尚未明顯異常，正常眼壓也不能排除。單純高眼壓而未見青光眼性損害，稱 ocular hypertension。",
+      "trap": "把單一 IOP 讀值當成診斷或排除工具，會漏掉正常眼壓型，也會把高眼壓症都判成青光眼。",
+      "source": {
+        "chapter": "No.07",
+        "pages": "p.9–12、19–22",
+        "kind": "existing-notes",
+        "notice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+      }
+    },
+    {
+      "id": "cram-05",
+      "groupId": "glaucoma",
+      "chapterId": "notes-07",
+      "question": "青光眼典型視野缺損，與尊重垂直中線的缺損如何區別？",
+      "answer": "青光眼常呈鼻側、上下不對稱、尊重水平中線的缺損，例如 nasal step 或 arcuate defect。尊重垂直中線的缺損應思考視交叉或後視路等神經性病灶，依分布定位。",
+      "trap": "不要把所有半側視野缺損都叫青光眼，也不要只靠一張視野圖而不比對視神經。",
+      "source": {
+        "chapter": "No.07",
+        "pages": "p.9–14、32",
+        "kind": "existing-notes",
+        "notice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+      }
+    },
+    {
+      "id": "cram-06",
+      "groupId": "glaucoma",
+      "chapterId": "notes-07",
+      "question": "紅痛、視力霧、頭痛噁心，合併淺前房、角膜水腫及固定中度散大瞳孔：診斷與處置順序？",
+      "answer": "先考慮急性隅角閉鎖。先降低眼壓並改善角膜水腫，待安全可行時儘速處理瞳孔阻滯，通常為 LPI。極高眼壓時括約肌缺血，pilocarpine 可能不響應，不能只背「先縮瞳」。",
+      "trap": "深前房不是典型表現；也不能把所有閉角機轉都當成瞳孔阻滯。",
+      "source": {
+        "chapter": "No.07",
+        "pages": "p.33–36、41–48",
+        "kind": "existing-notes",
+        "notice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+      },
+      "links": [
+        {
+          "label": "AAO BCSC：急性閉角的初始處置",
+          "url": "https://store.aao.org/media/resources/02850103U/02850103U-rf2.pdf"
+        }
+      ]
+    },
+    {
+      "id": "cram-07",
+      "groupId": "retina",
+      "chapterId": "notes-10",
+      "question": "突發無痛視力下降：CRAO 和 CRVO 的眼底線索？",
+      "answer": "CRAO：視網膜蒼白、fovea 相對呈 cherry-red spot。CRVO：廣泛視網膜出血、靜脈異常，可合併 disc 與 macular edema。疑似 CRAO 應立即急症評估及血管／中風流程處理。",
+      "trap": "不要把共筆的固定「不可逆時間」當作可等待時間，也不要以眼球按摩取代緊急轉診。",
+      "source": {
+        "chapter": "No.10",
+        "pages": "p.38–40",
+        "kind": "existing-notes",
+        "notice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+      },
+      "links": [
+        {
+          "label": "AHA：CRAO 是醫療急症",
+          "url": "https://professional.heart.org/en/science-news/management-of-central-retinal-artery-occlusion/top-things-to-know"
+        }
+      ]
+    },
+    {
+      "id": "cram-08",
+      "groupId": "retina",
+      "chapterId": "notes-10",
+      "question": "RRD、TRD、ERD 的核心差別與黃斑狀態的意義？",
+      "answer": "RRD 有裂孔，液體經裂孔進入視網膜下；TRD 由纖維組織牽引；ERD 由滲出積液、沒有必要的裂孔或牽引。評估是否波及黃斑；仍貼附而受到威脅的黃斑需要優先保護，皆須及時眼科評估。",
+      "trap": "不是所有剝離都有裂孔；也不能因為黃斑已剝離，就推論不需要急症轉診。",
+      "source": {
+        "chapter": "No.10",
+        "pages": "p.34–37",
+        "kind": "existing-notes",
+        "notice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+      }
+    },
+    {
+      "id": "cram-09",
+      "groupId": "retina",
+      "chapterId": "notes-10",
+      "question": "PDR 與 DME 是同一個分期嗎？anti-VEGF 只用於 DME 嗎？",
+      "answer": "不是。新生血管是 PDR 的關鍵；DME 是黃斑積液，可跨不同 DR 分期。PRP 與合適個案的 anti-VEGF 都可治療 PDR；牽引性剝離等情況另外評估手術。",
+      "trap": "「PDR 不能用 anti-VEGF」是舊稿過度絕對化；也不要把有 DME 直接等同 PDR。",
+      "source": {
+        "chapter": "No.10",
+        "pages": "p.19–25、59–63",
+        "kind": "existing-notes",
+        "notice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+      },
+      "links": [
+        {
+          "label": "NEI／DRCR：anti-VEGF 可治療 PDR",
+          "url": "https://www.nei.nih.gov/research-and-training/research-news/lucentis-effective-proliferative-diabetic-retinopathy"
+        }
+      ]
+    },
+    {
+      "id": "cram-10",
+      "groupId": "neuro",
+      "chapterId": "notes-03",
+      "question": "眼外肌支配如何用一句話記？",
+      "answer": "LR6、SO4，其餘四條眼外肌為 CN III：外直肌由第六對、上斜肌由第四對，其餘由第三對腦神經支配。",
+      "trap": "不要把上斜肌和下斜肌的神經支配互換；口訣指六條眼外肌。",
+      "source": {
+        "chapter": "No.03",
+        "pages": "p.29、46；另見 No.04 p.12–13",
+        "kind": "existing-notes",
+        "notice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+      }
+    },
+    {
+      "id": "cram-11",
+      "groupId": "neuro",
+      "chapterId": "notes-03",
+      "question": "RAPD 是瞳孔大小不等嗎？swinging flashlight 應看什麼？",
+      "answer": "不是。RAPD 表示兩眼傳入光訊號不對稱；光由相對健眼移到患眼時，兩側瞳孔會相對放大。Anisocoria 是瞳孔大小不等，屬不同觀察。",
+      "trap": "單看靜止時瞳孔大小，不能判定 RAPD；對稱的雙眼傳入病變也可能沒有明顯 RAPD。",
+      "source": {
+        "chapter": "No.03",
+        "pages": "p.4–5；另見 No.13 p.18–22",
+        "kind": "existing-notes",
+        "notice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+      }
+    },
+    {
+      "id": "cram-12",
+      "groupId": "neuro",
+      "chapterId": "notes-14",
+      "question": "視力模糊合併眼球轉動痛與色覺異常，應先把病灶往哪裡定位？",
+      "answer": "往視神經病變思考，包含 optic neuritis，再結合瞳孔、視野、眼底及必要檢查判斷。相較之下，變形視較提示黃斑問題。",
+      "trap": "轉動痛是線索而非單獨確診條件；不能只靠「痛／不痛」排除重要疾病。",
+      "source": {
+        "chapter": "No.14",
+        "pages": "p.4–6、25–27；另見 No.13 p.18–22",
+        "kind": "existing-notes",
+        "notice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+      }
+    },
+    {
+      "id": "cram-13",
+      "groupId": "refraction",
+      "chapterId": "notes-01",
+      "question": "驗光處方的 S、C、axis 與 spherical equivalent 如何連起來？",
+      "answer": "S 是 sphere，C 是 cylinder；spherical equivalent（SE）＝S＋C/2。保留 S、C 的正負號；axis 不進入 SE 公式。",
+      "trap": "SE 不是 S＋C，也不能把負柱鏡的 C 先取絕對值再計算。",
+      "source": {
+        "chapter": "No.01",
+        "pages": "p.3–6、16–17",
+        "kind": "existing-notes",
+        "notice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+      }
+    },
+    {
+      "id": "cram-14",
+      "groupId": "refraction",
+      "chapterId": "notes-14",
+      "question": "pinhole 改善視力，與最佳矯正視力仍不佳，各自提示什麼？",
+      "answer": "Pinhole 改善支持屈光因素參與。若適當矯正後視力仍差，要檢查角膜、水晶體、視網膜、視神經等其他原因；再依病史與檢查定位。",
+      "trap": "Pinhole 改善不是排除所有眼病的保證；視力值和屈光度也不是同一種量。",
+      "source": {
+        "chapter": "No.14",
+        "pages": "p.4–6",
+        "kind": "existing-notes",
+        "notice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+      }
+    },
+    {
+      "id": "cram-15",
+      "groupId": "refraction",
+      "chapterId": "notes-14",
+      "question": "為什麼小孩的屈光評估常需 cycloplegic refraction？",
+      "answer": "小孩調節能力強，可能造成量測偏差或假性近視。麻痺調節後再驗光，可更可靠地評估屈光狀態。",
+      "trap": "一般散瞳與完整麻痺調節不是完全同義；不要直接把未麻痺調節的結果當最終處方。",
+      "source": {
+        "chapter": "No.14",
+        "pages": "p.25–27",
+        "kind": "existing-notes",
+        "notice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+      }
+    },
+    {
+      "id": "cram-16",
+      "groupId": "mixed",
+      "chapterId": "notes-04",
+      "question": "弱視的四組主要原因？外觀看似內斜就能診斷嗎？",
+      "answer": "弱視成因包含斜視、屈光參差、雙眼高度屈光異常與視覺剝奪。外觀看似內斜也可能是假性內斜，需角膜反光及 cover 等檢查確認眼位。",
+      "trap": "不要把外觀當成真性斜視；成人新出現的視力下降也不能直接歸因於從小的弱視。",
+      "source": {
+        "chapter": "No.04",
+        "pages": "p.7–11、24–25、28",
+        "kind": "existing-notes",
+        "notice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+      }
+    },
+    {
+      "id": "cram-17",
+      "groupId": "mixed",
+      "chapterId": "notes-06",
+      "question": "PSC 和 PCO 是同一件事嗎？哪一個連到 Nd:YAG posterior capsulotomy？",
+      "answer": "PSC 是原有水晶體的 posterior subcapsular cataract。PCO 是白內障手術後 posterior capsule opacification；影響視力時可評估 Nd:YAG posterior capsulotomy。",
+      "trap": "PCO 不是水晶體重新長出來；PSC 也不是術後後囊混濁。",
+      "source": {
+        "chapter": "No.06",
+        "pages": "p.25–26、28–31；另見 No.02 p.5–6、No.13 p.15",
+        "kind": "existing-notes",
+        "notice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+      }
+    },
+    {
+      "id": "cram-18",
+      "groupId": "mixed",
+      "chapterId": "notes-13",
+      "question": "steroid、ethambutol、hydroxychloroquine 各先聯想到哪個眼部問題？",
+      "answer": "Steroid：PSC 與眼壓升高；ethambutol：optic neuropathy；hydroxychloroquine：retinopathy。先把藥物對到受損組織，再看色覺、視野、眼底或 OCT 線索。",
+      "trap": "不要把 ethambutol 的視神經毒性和 hydroxychloroquine 的視網膜毒性混為一談；色覺與中心視野異常要連回受損部位。",
+      "source": {
+        "chapter": "No.13",
+        "pages": "p.7–12、15、18–22、34–39",
+        "kind": "existing-notes",
+        "notice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+      }
+    }
+  ],
+  "corrections": [
+    {
+      "id": "correction-crao",
+      "title": "CRAO：立即走急症評估，不以按摩代替轉診",
+      "sourceWording": "舊稿列固定不可逆時間，並把眼球按摩、前房放水等列為治療。",
+      "correction": "疑似 CRAO 是醫療急症，須迅速急症及中風／血管評估。AHA 指出眼球按摩、前房穿刺等保守方法未證有效且可能有害；不可把某個固定時間點解讀成仍可等待。",
+      "source": {
+        "chapter": "No.10",
+        "pages": "p.39、59–60",
+        "kind": "existing-notes",
+        "notice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+      },
+      "links": [
+        {
+          "label": "AHA：CRAO 是醫療急症",
+          "url": "https://professional.heart.org/en/science-news/management-of-central-retinal-artery-occlusion/top-things-to-know"
+        }
+      ]
+    },
+    {
+      "id": "correction-hsv",
+      "title": "HSV：分清 epithelial 與 stromal，steroid 需抗病毒保護",
+      "sourceWording": "舊稿將 dendritic ulcer 禁用類固醇，與 stromal keratitis 需類固醇並列，未充分寫出抗病毒保護。",
+      "correction": "活動性 epithelial HSV 禁用 topical steroid；stromal inflammation 可在適當抗病毒治療及眼科監測下使用 topical steroid。不能把 HSV 全部禁 steroid，也不能將 stromal keratitis 當成單獨給 steroid。",
+      "source": {
+        "chapter": "No.05",
+        "pages": "p.12–14",
+        "kind": "existing-notes",
+        "notice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+      },
+      "links": [
+        {
+          "label": "AAO：活動性上皮 HSV 與類固醇",
+          "url": "https://eyewiki.aao.org/Herpes_Simplex_Virus_Keratitis"
+        },
+        {
+          "label": "AAO：stromal keratitis 的抗病毒與類固醇",
+          "url": "https://eyewiki.aao.org/LASIK_in_Patients_With_Herpes_Simplex_Virus"
+        }
+      ]
+    },
+    {
+      "id": "correction-pdr",
+      "title": "PDR：anti-VEGF 是有證據的治療選項",
+      "sourceWording": "舊稿的歸納把 anti-VEGF 寫成不能治療 PDR。",
+      "correction": "NEI／DRCR 試驗支持 anti-VEGF 治療 PDR。PRP 與合適個案的 anti-VEGF 都是選項；必須考量追蹤能力、併發症與手術需求。DME 與 PDR 仍須分開辨認。",
+      "source": {
+        "chapter": "No.10",
+        "pages": "p.19–25、59–63；整理稿「易錯與陷阱」",
+        "kind": "existing-notes",
+        "notice": "出處為既有共筆 Notes 整理稿；本次未逐頁重核原 PDF。頁碼沿用整理稿標示；官方更新另列連結。"
+      },
+      "links": [
+        {
+          "label": "NEI／DRCR：anti-VEGF 可治療 PDR",
+          "url": "https://www.nei.nih.gov/research-and-training/research-news/lucentis-effective-proliferative-diabetic-retinopathy"
+        }
+      ]
+    }
+  ]
+}
