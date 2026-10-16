@@ -2,7 +2,7 @@
 
 [開啟免登入網站](https://qwwaawwqq.github.io/ophthalmology-interview-public/)
 
-提供 26 個眼科主題、539 題選擇題（294 題自編＋245 題考古題考點改寫）、28 組臨床口試與 18 組通用面試架構，另有 8 個 PBL 三幕情境與 16 個臨床處置流程。包含搜尋、答題解析、口試計時、排序練習、連結收藏與進度匯入／匯出。
+提供 26 個眼科主題、539 題選擇題（294 題自編＋245 題考古題考點改寫）、28 組臨床口試與 18 組通用面試架構，另有 8 個 PBL 三幕情境與 16 個臨床處置流程。包含搜尋、答題解析、口試計時、排序練習、連結收藏、進度自動保存與雲端同步。
 
 ## 整合式章節教材
 
@@ -58,7 +58,7 @@
 
 ## PBL 情境討論
 
-8 個虛構三幕病例，主題涵蓋糖尿病黃斑水腫、巨細胞動脈炎、早產兒視網膜病變、視網膜母細胞瘤、術後眼內炎、兒童近視控制、特發性顱內高壓與青光眼用藥順從。每一幕先寫下事實、假說與還需要的資訊，再展開導師參考；三幕結束後列出學習議題（基礎科學、臨床決策、溝通與制度）、考官追問與一句帶走重點。討論筆記會隨進度匯出。內容存於 `content/pbl-cases.json`。
+8 個虛構三幕病例，主題涵蓋糖尿病黃斑水腫、巨細胞動脈炎、早產兒視網膜病變、視網膜母細胞瘤、術後眼內炎、兒童近視控制、特發性顱內高壓與青光眼用藥順從。每一幕先寫下事實、假說與還需要的資訊，再展開導師參考；三幕結束後列出學習議題（基礎科學、臨床決策、溝通與制度）、考官追問與一句帶走重點。討論筆記會自動保存。內容存於 `content/pbl-cases.json`。
 
 ## 臨床流程
 
@@ -68,13 +68,25 @@ PBL 與流程內容於 2026-10-13 由獨立審稿依 AAO／EyeWiki、AAP、ACR�
 
 ## 我的連結
 
-可收藏 App 內位置（章節基礎重點、共筆主題詳解、學習單元、PBL、流程，例如 `#notes-02-section-2`、`#pbl-dr`、`#wf-chemical`）或任何 http(s) 外部網址並加註、分類。各段落的「☆ 收藏連結」與頂端「☆ 收藏此頁」可一鍵收藏。連結與其他進度一樣只存在目前分頁，隨「匯出進度」保存；刪除會留下紀錄，避免匯入舊檔時復原。每個畫面都有可分享的網址，例如 `#topic-notes-02`、`#interview-notes-01-case-1`、`#links`。
+可收藏 App 內位置（章節基礎重點、共筆主題詳解、學習單元、PBL、流程，例如 `#notes-02-section-2`、`#pbl-dr`、`#wf-chemical`）或任何 http(s) 外部網址並加註、分類。各段落的「☆ 收藏連結」與頂端「☆ 收藏此頁」可一鍵收藏。連結與其他進度一樣會自動保存並可同步；刪除會留下紀錄，避免其他裝置或舊備份把它復原。每個畫面都有可分享的網址，例如 `#topic-notes-02`、`#interview-notes-01-case-1`、`#links`。
 
 ## 使用與內容範圍
 
 公開版未包含私人申請資料、個人研究結果、私人文件連結或原始共筆全文。個人面試模板與故事、證據卡需自行填寫。
 
-離開或重新整理前請按「匯出進度」；下次使用時按「匯入進度」。網站不會自動接收你的草稿或學習紀錄。
+進度（作答、草稿、筆記、連結、勾選）會自動保存在目前瀏覽器，重新整理或關閉分頁都不會遺失，不必再匯出。網站本身不會收到你的草稿或學習紀錄。
+
+### 保存與同步
+
+左側選單「保存與同步」（或點頂端的保存狀態）可設定：
+
+- **此裝置**：預設自動保存在瀏覽器（localStorage）；共用電腦可關閉，並用「清除此裝置資料」刪除進度與 token。若瀏覽器不允許保存（部分無痕模式），會改提示匯出。
+- **雲端同步**：連上自己的 GitHub 私人 repo 後，進度會寫入該 repo 的 `progress.json`，手機與電腦自動合併（每個項目保留較新的紀錄）。變更後約 30 秒、切換分頁或重新開啟時同步；每次同步是一筆 commit，可在 GitHub 查看或還原舊版本。
+  1. 在 GitHub 建立 **Private** repo（例如 `ophthalmology-progress`，勾選 Add a README file）。
+  2. 建立 [fine-grained token](https://github.com/settings/personal-access-tokens/new)：Repository access 只選這個 repo；Repository permissions → Contents 設為 Read and write。
+  3. 在「保存與同步」填入帳號、repo 名稱與 token，按「連線並同步」。每台裝置輸入一次。
+  公開 repo 會被拒絕。Token 只用於 api.github.com，保存在該瀏覽器（可選擇不記住），不會進入匯出檔；可隨時在 GitHub 撤銷。注意：同一個 `*.github.io` 網域下的其他 Pages 網站與本站共用瀏覽器儲存空間。
+- **手動備份（選用）**：「匯出進度」仍會下載 v1–v3 相容的 JSON；「匯入進度」會合併，較新的紀錄保留。
 
 教材供學習複習，不屬於官方考綱或歷屆試題。臨床處置依實際評估、督導與院內規範。
 
@@ -87,6 +99,7 @@ PBL 與流程內容於 2026-10-13 由獨立審稿依 AAO／EyeWiki、AAP、ACR�
 - `content/past-exam-questions.json`：245 題考古題考點改寫題；每次建置都會重新併入題庫（`pastExam: true`），原 294 題不變。
 - `content/interview-detailed.json`：46 題面試演練的詳細參考答案與追問回答。
 - `content/pbl-cases.json`、`content/clinical-workflows.json`：PBL 情境與臨床流程；來源 ID 必須是章節資源中已有的連結。
+- `scripts/progress-sync.js`：自動保存與 GitHub 私人 repo 同步，由建置腳本嵌入。
 - `scripts/practice-ui.js`、`scripts/practice-ui.css`：PBL、流程、我的連結與網址路由的介面，由建置腳本嵌入。
 - `scripts/apply-enrichment.py`：驗證並將深入教材嵌入 `index.html`，同時保留題庫與進度資料格式。
 
@@ -98,9 +111,10 @@ python3 scripts/apply-enrichment.py
 node scripts/test-integrated-lessons.cjs
 node scripts/test-source-coverage.cjs
 node scripts/test-practice-sections.cjs
+node scripts/test-progress-sync.cjs
 ```
 
-建置會檢查原章節與深入解析的完整分配、來源 ID、圖解、跨章目標，以及頁面分區、教學與題目頁對應、主題單元和原檔限制。回歸測試涵蓋資料保留、搜尋與定位、回想、病例收合與進度匯入／匯出；這些為模擬 DOM 測試，不能取代實際瀏覽器版面檢查。
+建置會檢查原章節與深入解析的完整分配、來源 ID、圖解、跨章目標，以及頁面分區、教學與題目頁對應、主題單元和原檔限制。回歸測試涵蓋資料保留、搜尋與定位、回想、病例收合、進度匯入／匯出，以及自動保存與模擬 GitHub 的雙裝置同步、衝突重試、token 錯誤與公開 repo 拒絕；這些為模擬 DOM 測試，不能取代實際瀏覽器版面檢查。
 
 若重新匯入已清理的基礎 `index.html`，必須保留本儲存庫的 `content/`、`assets/` 和腳本，並再次執行上述步驟，避免移除深入教材。不得匯入含私人資料的完整 App。
 

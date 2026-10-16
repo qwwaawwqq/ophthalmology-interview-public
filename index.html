@@ -334,8 +334,31 @@ footer{padding:21px 40px;background:transparent;font-size:.67rem;color:#8b9da7;b
 .iv-focus-grid h4{font-size:.85rem;margin:0 0 4px;color:var(--navy)}
 .iv-focus-grid ul{margin:0;padding-left:1.2em;font-size:.88rem}
 .iv-focus-grid section:last-child h4{color:var(--danger)}
+.status-link{display:inline-flex;align-items:center;gap:inherit;min-width:0;background:none;border:0;padding:4px 6px;margin:-4px -6px;font:inherit;color:inherit;text-align:left;cursor:pointer;border-radius:6px;line-height:inherit}
+.status-link:hover #save-status{text-decoration:underline;text-underline-offset:3px}
+.status-link:focus-visible{outline:3px solid #8fc3c9;outline-offset:2px}
+.topbar.is-synced .status-dot{background:var(--success)}
+.topbar.is-sync-error .status-dot{background:var(--danger)}
+.topbar.is-sync-error #save-status{color:var(--danger)}
+.sync-card{padding:22px 24px;margin:0 0 18px}
+.sync-card h2{font-size:1.05rem;margin:0 0 10px}
+.sync-card p{font-size:.92rem;margin:8px 0}
+.sync-card .actions{margin-top:12px}
+.sync-steps{margin:6px 0 16px;padding-left:1.4em;font-size:.9rem}
+.sync-steps li{margin:10px 0;line-height:1.8}
+.sync-steps strong{display:block;color:var(--navy)}
+.sync-steps code{font-size:.85em;background:var(--bg);padding:1px 6px;border-radius:4px}
+.sync-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 18px;margin:6px 0 10px}
+.sync-form .full{grid-column:1/-1}
+.sync-form .select{width:100%}
+.sync-form .check-label{margin-top:10px}
+.sync-facts{display:grid;gap:8px;margin:0 0 12px;font-size:.92rem}
+.sync-facts div{display:grid;grid-template-columns:6.5em minmax(0,1fr);gap:10px}
+.sync-facts dt{color:var(--muted);font-weight:600}
+.sync-facts dd{margin:0;word-break:break-all}
+.sync-error-text{color:var(--danger)}
 @media(max-width:1000px){.pbl-method ol{grid-template-columns:repeat(3,minmax(0,1fr))}.practice-cards{grid-template-columns:1fr}}
-@media(max-width:760px){.pbl-method ol{display:flex;overflow-x:auto;gap:8px;padding-bottom:4px;scrollbar-width:thin}.pbl-method li{flex:0 0 auto;flex-direction:row;align-items:baseline;gap:6px;padding:8px 12px}.pbl-method li small{display:none}.top-actions .btn{white-space:nowrap}.top-actions .bookmark-current{padding:8px 6px;min-width:32px}.pbl-reference-grid,.wf-order-grid,.link-form,.iv-focus-grid{grid-template-columns:1fr}.iv-detailed{padding:16px}.menu-category{display:none}.link-item{flex-direction:column}.link-filter{max-width:none;width:100%}.link-form{padding:18px 16px}.bookmark-current .bookmark-label{display:none}}
+@media(max-width:760px){.pbl-method ol{display:flex;overflow-x:auto;gap:8px;padding-bottom:4px;scrollbar-width:thin}.pbl-method li{flex:0 0 auto;flex-direction:row;align-items:baseline;gap:6px;padding:8px 12px}.pbl-method li small{display:none}.top-actions .btn{white-space:nowrap}.top-actions .bookmark-current{padding:8px 6px;min-width:32px}.pbl-reference-grid,.wf-order-grid,.link-form,.iv-focus-grid,.sync-form{grid-template-columns:1fr}.sync-card{padding:18px 16px}.sync-facts div{grid-template-columns:1fr;gap:0}.iv-detailed{padding:16px}.menu-category{display:none}.link-item{flex-direction:column}.link-filter{max-width:none;width:100%}.link-form{padding:18px 16px}.bookmark-current .bookmark-label{display:none}}
 /* practice-styles:end */
 </style>
 <style id="redesign-styles">
@@ -463,7 +486,7 @@ footer span:first-child{max-width:70ch}
 <div class="brand-row"><div class="brand"><svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true"><path d="M4 24c5-9 12-13 20-13s15 4 20 13c-5 9-12 13-20 13S9 33 4 24Z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="24" cy="24" r="8" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="24" cy="24" r="3" fill="currentColor"/><path d="M24 3v5m0 32v5M3 24h5m32 0h5" stroke="currentColor" stroke-width="1.4"/></svg><div><strong>眼科甄選練習室</strong><span class="brand-note">公開練習版</span></div></div><button id="nav-toggle" class="btn nav-toggle" data-action="nav-toggle" aria-controls="nav" aria-expanded="false">選單<span aria-hidden="true">☰</span></button></div>
 <nav id="nav" aria-label="主要功能"></nav>
 </aside>
-<div class="stage"><header class="topbar"><div class="top-status"><strong id="section-label" class="vh">筆試練習</strong><span class="status-dot" aria-hidden="true"></span><span id="save-status" role="status">進度只存在這個分頁 · 離開前請匯出</span></div><div class="top-actions"><button class="btn subtle bookmark-current" data-action="link-save-current" aria-label="收藏目前位置到我的連結">☆<span class="bookmark-label"> 收藏此頁</span></button><button class="btn subtle" data-action="import">匯入進度</button><button class="btn export" data-action="export">匯出進度</button></div></header>
+<div class="stage"><header class="topbar"><div class="top-status"><strong id="section-label" class="vh">筆試練習</strong><button class="status-link" data-action="tab" data-value="sync" title="保存與同步設定"><span class="status-dot" aria-hidden="true"></span><span id="save-status" role="status">正在讀取保存的進度…</span></button></div><div class="top-actions"><button class="btn subtle bookmark-current" data-action="link-save-current" aria-label="收藏目前位置到我的連結">☆<span class="bookmark-label"> 收藏此頁</span></button><button class="btn subtle" data-action="import">匯入進度</button><button class="btn subtle" data-action="export" title="下載一份進度備份（選用）">匯出進度</button></div></header>
 <main id="main" tabindex="-1"></main>
 <footer><span>眼科甄選練習室 · 公開練習版：個人經歷與研究結果請自行填寫；本版不包含原始共筆全文或私人附件。</span><span>教學複習用途 · 臨床處置依實際評估與院內規範</span></footer></div>
 </div><input id="import-file" type="file" accept="application/json,.json" hidden><div id="toast" class="toast" role="status" hidden></div>
@@ -475,12 +498,12 @@ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const now=()=>new Date().toISOString();
 const day=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Taipei',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
 const shortTitle=id=>D.topics.find(t=>t.id===id)?.title.split('：')[0]||id;
-const navs=[['notebook','▧','章節教材'],['quiz','▦','筆試練習'],['learn','▤','主動複習'],['interview','◷','面試演練'],['pbl','◈','PBL 情境'],['workflow','▥','臨床流程'],['workshop','◇','故事與證據'],['plan','▣','每日計畫'],['progress','◴','學習進度'],['links','☆','我的連結']];
+const navs=[['notebook','▧','章節教材'],['quiz','▦','筆試練習'],['learn','▤','主動複習'],['interview','◷','面試演練'],['pbl','◈','PBL 情境'],['workflow','▥','臨床流程'],['workshop','◇','故事與證據'],['plan','▣','每日計畫'],['progress','◴','學習進度'],['links','☆','我的連結'],['sync','⇅','保存與同步']];
 let entries=Object.create(null),meta=Object.create(null),dirty=false,toastTimer;
 let S={workshop:'stories',story:D.storySeeds[0].id,evidence:D.evidenceSeeds[0].id,storyTarget:null,tab:'notebook',original:1,originalQuery:'',originalScope:'all',originalPage:0,originalResultPage:0,originalFocus:0,search:'',searchChapter:'all',topic:'all',mode:'all',ids:D.questions.map(q=>q.id),qi:0,selected:null,confidence:0,round:Object.create(null),learn:D.topics[0].id,recall:false,revealed:new Set(),interview:D.interview[0].id,followup:0,seconds:D.interview[0].durationSeconds,deadline:null,onCall:false};
 const put=(key,value)=>{entries[key]={...value,at:now()};changed();};
 const putMeta=(key,value)=>{meta[key]={...seedMeta(key),...(meta[key]||{}),...value,at:now()};changed();};
-function changed(){dirty=true;$('#save-status').textContent='本次進度已更新 · 離開前請匯出';$('.topbar').classList.add('is-dirty');}
+function changed(){dirty=true;$('#save-status').textContent='本次進度已更新 · 離開前請匯出';$('.topbar').classList.add('is-dirty');progressChanged();}
 function toast(message){$('#toast').textContent=message;$('#toast').hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('#toast').hidden=true,3500);}
 function refs(urls){const safe=[...new Set(urls||[])].filter(u=>/^https:\/\//.test(u));return safe.length?`<details class="refs"><summary>查看公開參考來源</summary><ul>${safe.map((u,i)=>`<li><a href="${esc(u)}" target="_blank" rel="noopener noreferrer">${esc(new URL(u).hostname)} · 來源 ${i+1}</a></li>`).join('')}</ul></details>`:'';}
 
@@ -502,7 +525,7 @@ function ivEntry(){return entries['interview:'+S.interview]||{draft:'',ratings:[
 function updateIv(patch){put('interview:'+S.interview,{...ivEntry(),...patch});}
 function formatTime(n){return `${String(Math.floor(n/60)).padStart(2,'0')}:${String(n%60).padStart(2,'0')}`;}
 function ivGroups(i){const groups=[['通用面試',D.interview.filter(x=>!x.clinical)],['臨床口試',D.interview.filter(x=>x.clinical)]].filter(g=>g[1].length);return groups.length<2?'':`<div class="iv-groups" role="group" aria-label="題組">${groups.map(([label,list])=>{const on=!list[0].clinical===!i.clinical;return `<button class="iv-group" data-action="interview" data-value="${esc(on?i.id:list[0].id)}" aria-pressed="${on}">${label}<span>${list.length}</span></button>`;}).join('')}</div>`;}
-function interview(){const i=currentInterview(),v=ivEntry(),rating=v.ratings.filter(Boolean).length;return heading('03 / INTERVIEW STUDIO','面試演練','先用自己的話回答，再看參考口稿。這裡不錄音，也不自動評分。',`<div class="heading-stat"><strong>${stats().interviews}<i> / ${D.interview.length}</i></strong><span>組已演練</span></div>`)+`${ivGroups(i)}<div class="two-col"><aside class="card topic-menu" aria-label="面試題目">${D.interview.filter(x=>!x.clinical===!i.clinical).map((x,n)=>`<button class="topic-button ${x.id===i.id?'active':''}" data-action="interview" data-value="${x.id}" ${x.id===i.id?'aria-current="true"':''}><span class="index">${String(n+1).padStart(2,'0')}</span><span>${esc(x.title)}</span>${entries['interview:'+x.id]?.practiced?'<span class="done">✓</span>':''}</button>`).join('')}</aside><article class="card reading-card"><div class="interview-stage"><div class="interview-top"><div><p class="eyebrow">考官提問</p><h2>${esc(i.question)}</h2><p class="subtitle">${esc(i.title)}</p></div><div class="timer-ring ${S.seconds===0?'finished':''}" id="timer-ring" style="--ratio:${S.seconds/i.durationSeconds*100}%"><div class="timer-core"><span id="timer" class="timer-value" role="timer" aria-label="剩餘 ${S.seconds} 秒">${formatTime(S.seconds)}</span><span class="small">練習倒數</span></div></div></div><div class="timer-controls"><button id="timer-toggle" class="btn primary" data-action="timer">${S.deadline?'暫停計時':S.seconds===0?'再練一次':S.seconds===i.durationSeconds?'開始計時':'繼續計時'}</button>${btn('重設','timer-reset','','subtle')}<span class="small">目標 ${i.durationSeconds} 秒 · 非官方時間限制</span></div><p id="timer-notice" class="small" role="status">${S.seconds===0?'時間到。先收好最後一句，再檢查是否直接回答問題。':''}</p></div><section class="framework"><h3>用三段，搭出你的回答</h3><div class="framework-grid"><div><strong><b>01</b> 先回答</strong>第一句直接說你的主張。</div><div><strong><b>02</b> 給證據</strong>${i.clinical?'用病史、檢查和定位支持判斷。':'用真實例子說明你的角色與行動。'}</div><div><strong><b>03</b> 收回主題</strong>${i.clinical?'交代紅旗、求援與下一步。':'說明學到什麼、限制或下一步。'}</div></div></section>${i.clinical?clinicalSource(i):personalInterviewTools(i)}${interviewSamples(i)}<label class="field-label" for="iv-draft">我的回答草稿</label><textarea class="input draft" id="iv-draft" maxlength="12000" placeholder="我想回答的是…&#10;&#10;一個真實的例子：當時的情境、我的角色、我做了什麼…&#10;&#10;這讓我學到…；下一步我會…">${esc(v.draft)}</textarea><div class="draft-meta"><span class="small">文字會更新到本次進度；離開前請匯出。</span><span class="small" id="draft-count">${v.draft.length} 字</span></div><details class="model"><summary>${i.clinical?'查看臨床參考回答':'查看通用回答架構'}</summary><div><p class="preline">${esc(i.answer)}</p><p class="small">${esc(i.personalizationRequired)}</p></div></details>${interviewDetailed(i)}<section class="followup"><p class="eyebrow">FOLLOW-UP ${S.followup+1} / ${i.followups.length}</p><p>${esc(i.followups[S.followup%i.followups.length])}</p>${btn('換一個追問','followup','','small')}<label class="field-label" for="iv-followup">追問回答筆記</label><textarea class="input" id="iv-followup" maxlength="3000" placeholder="先直接回答這個追問，再補一個具體例子。">${esc(meta['followup:'+i.id+':'+S.followup]?.note||'')}</textarea>${followupReference(i)}</section><h3>回看這一輪：哪裡已經做到？</h3><div class="rubric">${i.rubric.map((r,n)=>`<label class="check-label"><input type="checkbox" class="rating" data-index="${n}" ${v.ratings[n]?'checked':''}><span>${esc(r)}</span></label>`).join('')}</div><div class="rating-feedback" id="rating-feedback">${ratingText(i,v.ratings)}</div><label class="field-label" for="iv-improve">下一輪只改進一件事</label><textarea id="iv-improve" class="input" maxlength="2000" placeholder="例如：第一句縮短；補清楚自己的角色；把結尾拉回臨床學習。">${esc(meta['interview:'+i.id]?.note||'')}</textarea><div class="reading-actions">${btn(v.practiced?'✓ 更新這輪演練':'完成這輪演練','iv-done','','primary')}${btn('下一個題目','iv-next')}</div></article></div>`;}
+function interview(){const i=currentInterview(),v=ivEntry(),rating=v.ratings.filter(Boolean).length;return heading('03 / INTERVIEW STUDIO','面試演練','先用自己的話回答，再看參考口稿。這裡不錄音，也不自動評分。',`<div class="heading-stat"><strong>${stats().interviews}<i> / ${D.interview.length}</i></strong><span>組已演練</span></div>`)+`${ivGroups(i)}<div class="two-col"><aside class="card topic-menu" aria-label="面試題目">${D.interview.filter(x=>!x.clinical===!i.clinical).map((x,n)=>`<button class="topic-button ${x.id===i.id?'active':''}" data-action="interview" data-value="${x.id}" ${x.id===i.id?'aria-current="true"':''}><span class="index">${String(n+1).padStart(2,'0')}</span><span>${esc(x.title)}</span>${entries['interview:'+x.id]?.practiced?'<span class="done">✓</span>':''}</button>`).join('')}</aside><article class="card reading-card"><div class="interview-stage"><div class="interview-top"><div><p class="eyebrow">考官提問</p><h2>${esc(i.question)}</h2><p class="subtitle">${esc(i.title)}</p></div><div class="timer-ring ${S.seconds===0?'finished':''}" id="timer-ring" style="--ratio:${S.seconds/i.durationSeconds*100}%"><div class="timer-core"><span id="timer" class="timer-value" role="timer" aria-label="剩餘 ${S.seconds} 秒">${formatTime(S.seconds)}</span><span class="small">練習倒數</span></div></div></div><div class="timer-controls"><button id="timer-toggle" class="btn primary" data-action="timer">${S.deadline?'暫停計時':S.seconds===0?'再練一次':S.seconds===i.durationSeconds?'開始計時':'繼續計時'}</button>${btn('重設','timer-reset','','subtle')}<span class="small">目標 ${i.durationSeconds} 秒 · 非官方時間限制</span></div><p id="timer-notice" class="small" role="status">${S.seconds===0?'時間到。先收好最後一句，再檢查是否直接回答問題。':''}</p></div><section class="framework"><h3>用三段，搭出你的回答</h3><div class="framework-grid"><div><strong><b>01</b> 先回答</strong>第一句直接說你的主張。</div><div><strong><b>02</b> 給證據</strong>${i.clinical?'用病史、檢查和定位支持判斷。':'用真實例子說明你的角色與行動。'}</div><div><strong><b>03</b> 收回主題</strong>${i.clinical?'交代紅旗、求援與下一步。':'說明學到什麼、限制或下一步。'}</div></div></section>${i.clinical?clinicalSource(i):personalInterviewTools(i)}${interviewSamples(i)}<label class="field-label" for="iv-draft">我的回答草稿</label><textarea class="input draft" id="iv-draft" maxlength="12000" placeholder="我想回答的是…&#10;&#10;一個真實的例子：當時的情境、我的角色、我做了什麼…&#10;&#10;這讓我學到…；下一步我會…">${esc(v.draft)}</textarea><div class="draft-meta"><span class="small">文字會自動保存；連上雲端後也會同步到其他裝置。</span><span class="small" id="draft-count">${v.draft.length} 字</span></div><details class="model"><summary>${i.clinical?'查看臨床參考回答':'查看通用回答架構'}</summary><div><p class="preline">${esc(i.answer)}</p><p class="small">${esc(i.personalizationRequired)}</p></div></details>${interviewDetailed(i)}<section class="followup"><p class="eyebrow">FOLLOW-UP ${S.followup+1} / ${i.followups.length}</p><p>${esc(i.followups[S.followup%i.followups.length])}</p>${btn('換一個追問','followup','','small')}<label class="field-label" for="iv-followup">追問回答筆記</label><textarea class="input" id="iv-followup" maxlength="3000" placeholder="先直接回答這個追問，再補一個具體例子。">${esc(meta['followup:'+i.id+':'+S.followup]?.note||'')}</textarea>${followupReference(i)}</section><h3>回看這一輪：哪裡已經做到？</h3><div class="rubric">${i.rubric.map((r,n)=>`<label class="check-label"><input type="checkbox" class="rating" data-index="${n}" ${v.ratings[n]?'checked':''}><span>${esc(r)}</span></label>`).join('')}</div><div class="rating-feedback" id="rating-feedback">${ratingText(i,v.ratings)}</div><label class="field-label" for="iv-improve">下一輪只改進一件事</label><textarea id="iv-improve" class="input" maxlength="2000" placeholder="例如：第一句縮短；補清楚自己的角色；把結尾拉回臨床學習。">${esc(meta['interview:'+i.id]?.note||'')}</textarea><div class="reading-actions">${btn(v.practiced?'✓ 更新這輪演練':'完成這輪演練','iv-done','','primary')}${btn('下一個題目','iv-next')}</div></article></div>`;}
 function personalInterviewTools(i){return `<section class="personal-answer"><div class="preview-heading"><span class="tag">${esc(i.basis||'演練草稿')}</span><span class="small">公開版空白架構 · 請自行填寫</span></div><h3>從通用架構開始練</h3><p class="preline">${esc(i.shortAnswer||'')}</p><div class="actions">${btn('帶入完整架構','use-model','','small primary')}${btn('帶入短版架構','use-short','','small')}</div><p class="small">架構會附加到下方草稿，請以自己的真實資料填寫。</p><details class="fact-sheet"><summary>填寫與核對提醒</summary><h3>待自行填寫</h3>${list(i.keyFacts||[])}<h3>表達時留意</h3>${list(i.pitfalls||[])}<p class="small">${esc(i.personalizationRequired||'')}</p></details></section>`;}
 function personalSourceList(){return `<section class="card reading-card"><h2>自行填寫與核對</h2><p class="lead">公開版不提供個人履歷或私人附件；請依自己的真實資料完成模板。</p></section>`;}
 
@@ -521,7 +544,7 @@ function evidenceOutline(v){return evidenceFields.filter(([k])=>v[k]?.trim()).ma
 function workshop(){const started=D.storySeeds.filter(s=>filled({...seedMeta('story:'+s.id),...(meta['story:'+s.id]||{})},storyFields)>0).length;return heading('04 / PERSONAL WORKSHOP','故事與證據','把真實經歷整理成可核對、能說出口的回答。',`<div class="heading-stat"><strong>${started}<i> / 5</i></strong><span>故事已開始</span></div>`)+`<div class="personal-strip"><span class="personal-monogram">筆</span><div><strong>公開練習版 · 自行填寫</strong><p>練習主軸：可靠的臨床工作、清楚的研究判斷、能接受回饋。</p></div></div><div class="study-switch workshop-tabs" role="group" aria-label="工作坊內容">${[['stories','故事工作坊'],['evidence','履歷證據卡'],['sources','資料來源']].map(([id,label])=>`<button class="btn ${S.workshop===id?'active':''}" data-action="workshop-mode" data-value="${id}" aria-pressed="${S.workshop===id}">${label}</button>`).join('')}</div>${S.workshop==='stories'?storyWorkshop():S.workshop==='evidence'?evidenceWorkshop():courseSources()}`;}
 function storyWorkshop(){const seed=D.storySeeds.find(x=>x.id===S.story),v=storyValue();return `<div class="two-col"><aside class="card topic-menu" aria-label="故事類型">${D.storySeeds.map((s,i)=>`<button class="topic-button ${s.id===S.story?'active':''}" data-action="story-select" data-value="${s.id}" ${s.id===S.story?'aria-current="true"':''}><span class="index">0${i+1}</span><span>${esc(s.title)}<small class="menu-note">${filled({...seedMeta('story:'+s.id),...(meta['story:'+s.id]||{})},storyFields.slice(1))} / 6 段已填</small></span></button>`).join('')}</aside><article class="card reading-card"><p class="eyebrow">STORY ${D.storySeeds.indexOf(seed)+1} / 5</p><h2>${esc(seed.title)}</h2><p class="lead">${esc(seed.cue)}</p><p class="learning-note">模板保持空白。請填入自己的真實情境、角色、行動與結果；不要將提示文字當作已發生的經歷。</p>${formFields(storyFields,v,'story')}<section class="quality-panel"><h3>挑選值得多練的故事</h3><p class="small">1 分表示還不清楚，5 分表示具體且能核對。這是自評提示，並非錄取分數。</p><div class="quality-grid">${qualityLabels.map((label,i)=>`<label>${esc(label)}<select class="select story-quality" data-index="${i}" aria-label="${esc(label)}自評">${[0,1,2,3,4,5].map(n=>`<option value="${n}" ${(v.quality?.[i]||0)===n?'selected':''}>${n?n+' 分':'尚未自評'}</option>`).join('')}</select></label>`).join('')}</div><p class="small">優先選擇細節明確、較近期、和職務有關、時間內說得完，且能清楚交代倫理與角色的故事。你可以重用同一經歷，調整回答重點。</p></section><div class="work-preview"><div class="preview-heading"><h3>我的口述提綱</h3><span class="small" id="story-count">${filled(v,storyFields.slice(1))} / 6 段已填</span></div><p class="small">依你填寫的內容組合，不會自動補寫經歷。</p><p class="preline" id="story-preview">${esc(storyOutline(v)||'填入上方欄位，這裡會整理成口述提綱。')}</p></div><label class="field-label" for="story-target">帶到哪一題練習？</label><select class="select" id="story-target">${D.interview.map(i=>`<option value="${i.id}" ${i.id===(S.storyTarget||seed.interviewIds[0])?'selected':''}>${esc(i.title)}</option>`).join('')}</select><div class="reading-actions">${btn('加入該題草稿並演練','send-story','','primary')}</div><p class="small" style="margin-top:12px">會附加到該題原有草稿後方。練習前，刪去與問題無關的細節。</p><div class="suggested-topics"><span class="small">這類經歷也適合練：</span>${seed.interviewIds.map(id=>btn(esc(D.interview.find(i=>i.id===id).title),'interview',id,'small subtle')).join('')}</div><details class="refs"><summary>練習依據</summary><p>使用自己的真實經歷，說清楚本人角色、督導與團隊貢獻。</p></details></article></div>`;}
 function evidenceWorkshop(){const seed=D.evidenceSeeds.find(x=>x.id===S.evidence),v=evidenceValue();return `<div class="two-col"><aside class="card topic-menu" aria-label="證據卡類型">${D.evidenceSeeds.map((s,i)=>`<button class="topic-button ${s.id===S.evidence?'active':''}" data-action="evidence-select" data-value="${s.id}" ${s.id===S.evidence?'aria-current="true"':''}><span class="index">0${i+1}</span><span>${esc(s.title)}<small class="menu-note">${meta['evidence:'+s.id]?.confirmed?'已自行核對':'待填寫與核對'}</small></span></button>`).join('')}</aside><article class="card reading-card"><p class="eyebrow">EVIDENCE ${D.evidenceSeeds.indexOf(seed)+1} / ${D.evidenceSeeds.length}</p><h2>${esc(seed.title)}</h2><p class="lead">${esc(seed.cue)}</p><div class="notice"><strong>數字、狀態與角色先核對</strong>用正式稿或通知支持每項主張。草稿不預填論文接受狀態，也不將附件中的範例數字套到你的研究。</div>${formFields(evidenceFields,v,'evidence')}<label class="check-label verify-evidence"><input type="checkbox" id="evidence-confirmed" ${v.confirmed?'checked':''}><span>我已依所填的版本與日期，核對角色、結果與狀態。</span></label><p class="small" id="evidence-status">${v.confirmed?'這張卡已由你自行核對；修改文字後會回到待核對。':'尚未核對，送入演練時會標示「待核對」。'}</p><div class="work-preview"><h3>我的證據提綱</h3><p class="preline" id="evidence-preview">${esc(evidenceOutline(v)||'填入上方欄位後，這裡會整理你的研究或經歷證據。')}</p></div><div class="reading-actions">${btn('加入面試草稿並演練','send-evidence',seed.interviewId,'primary')}</div><p class="small" style="margin-top:12px">附加到「${esc(D.interview.find(i=>i.id===seed.interviewId).title)}」原有草稿；狀態以你的證據為準。</p></article></div>`;}
-function courseSources(){return `<section class="card reading-card"><h2>公開版練習說明</h2><p class="lead">本版提供通用面試架構與空白故事、證據卡，未預填任何人的個人資料。</p><p>個人內容只留在目前頁面，離開前請匯出進度。公開網站不會自動接收你的草稿。</p><div class="reading-actions">${btn('練習反問老師','interview','ask-back','primary')}${btn('查看練習安排','tab','plan')}</div></section>`;}
+function courseSources(){return `<section class="card reading-card"><h2>公開版練習說明</h2><p class="lead">本版提供通用面試架構與空白故事、證據卡，未預填任何人的個人資料。</p><p>個人內容自動保存在你的瀏覽器；在「保存與同步」連上自己的 GitHub 私人 repo 後也會同步到雲端。公開網站本身不會收到你的草稿。</p><div class="reading-actions">${btn('練習反問老師','interview','ask-back','primary')}${btn('查看練習安排','tab','plan')}</div></section>`;}
 
 function updateWorkshopInput(el){const kind=el.dataset?.workKind,key=el.dataset?.workField,fields=kind==='story'?storyFields:kind==='evidence'?evidenceFields:null;if(!fields||!fields.some(([k])=>k===key))return false;const id=kind==='story'?S.story:S.evidence;putMeta(kind+':'+id,{[key]:el.value,...(kind==='evidence'?{confirmed:false}:{})});if(kind==='story'){$('#story-preview').textContent=storyOutline(storyValue())||'填入上方欄位，這裡會整理成口述提綱。';$('#story-count').textContent=filled(storyValue(),storyFields.slice(1))+' / 6 段已填';}else{$('#evidence-preview').textContent=evidenceOutline(evidenceValue())||'填入上方欄位後，這裡會整理你的研究或經歷證據。';$('#evidence-confirmed').checked=false;$('#evidence-status').textContent='內容已更新，請重新核對角色、結果與狀態。';}return true;}
 function appendToInterview(id,text,label){if(!text.trim()){toast('請先填入一段真實內容，再加入演練。');return;}const prior=entries['interview:'+id]||{draft:'',ratings:[false,false,false,false,false],practiced:false};const draft=[prior.draft,`【${label}】\n${text}`].filter(Boolean).join('\n\n');if(draft.length>12000){toast('合併後超過 12,000 字，請先縮短提綱或原有草稿。');return;}put('interview:'+id,{...prior,draft,ratings:[false,false,false,false,false],practiced:false});chooseInterview(id);toast('已附加到草稿。回答前先挑選與這題有關的內容。');}
@@ -551,7 +574,7 @@ function originals(){return heading('','原始共筆未公開','公開版提供�
 document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.id==='original-search'){e.preventDefault();S.originalQuery=e.target.value;S.originalScope=$('#original-scope').value;S.originalResultPage=0;render();}});
 
 
-function navMarkup(){const groups=[['閱讀',['notebook','learn','links']],['演練',['quiz','interview','pbl','workflow','workshop']],['安排與回顧',['plan','progress']]];return groups.map(([label,ids])=>`<section class="nav-group" aria-label="${label}"><p class="nav-group-label">${label}</p>${ids.map(key=>{const [id,icon,name]=navs.find(n=>n[0]===key);return `<button class="nav-button" data-action="tab" data-value="${id}" ${id===S.tab?'aria-current="page"':''}><span class="nav-symbol" aria-hidden="true">${icon}</span><span>${name}</span>${id==='quiz'?`<span class="nav-count" aria-hidden="true">${D.questions.length}</span>`:id==='interview'?`<span class="nav-count" aria-hidden="true">${D.interview.length}</span>`:id==='pbl'?`<span class="nav-count" aria-hidden="true">${D.pbl?.cases?.length||0}</span>`:id==='workflow'?`<span class="nav-count" aria-hidden="true">${D.workflows?.workflows?.length||0}</span>`:''}</button>`;}).join('')}</section>`).join('');}
+function navMarkup(){const groups=[['閱讀',['notebook','learn','links']],['演練',['quiz','interview','pbl','workflow','workshop']],['安排與回顧',['plan','progress','sync']]];return groups.map(([label,ids])=>`<section class="nav-group" aria-label="${label}"><p class="nav-group-label">${label}</p>${ids.map(key=>{const [id,icon,name]=navs.find(n=>n[0]===key);return `<button class="nav-button" data-action="tab" data-value="${id}" ${id===S.tab?'aria-current="page"':''}><span class="nav-symbol" aria-hidden="true">${icon}</span><span>${name}</span>${id==='quiz'?`<span class="nav-count" aria-hidden="true">${D.questions.length}</span>`:id==='interview'?`<span class="nav-count" aria-hidden="true">${D.interview.length}</span>`:id==='pbl'?`<span class="nav-count" aria-hidden="true">${D.pbl?.cases?.length||0}</span>`:id==='workflow'?`<span class="nav-count" aria-hidden="true">${D.workflows?.workflows?.length||0}</span>`:''}</button>`;}).join('')}</section>`).join('');}
 
 /* enrichment-ui:start */
 function chapterEnrichment(t){return D.enrichment?.chapters?.[t.id]||null;}
@@ -941,7 +964,7 @@ function linkListMarkup(){
 }
 function linksPage(){
   const d=S.linkDraft,count=linkItems().length,editing=S.linkEdit&&meta['link:'+S.linkEdit]&&!meta['link:'+S.linkEdit].deleted;
-  return heading('','我的連結','收藏 App 內的章節段落、PBL、流程，或任何外部網址並加上備註。連結和其他進度一樣，只存在這個分頁；請用「匯出進度」保存，下次「匯入進度」即可帶回。',`<div class="heading-stat"><strong>${count}</strong><span>個連結</span></div>`)
+  return heading('','我的連結','收藏 App 內的章節段落、PBL、流程，或任何外部網址並加上備註。連結和其他進度一樣會自動保存；連上雲端後也會同步到你的其他裝置。',`<div class="heading-stat"><strong>${count}</strong><span>個連結</span></div>`)
   +`<section class="card link-form" aria-label="${editing?'編輯連結':'新增連結'}"><h2 class="full">${editing?'編輯連結':'新增連結'}</h2>
   <div class="full"><label class="field-label" for="link-url">網址</label><input class="select" id="link-url" type="text" inputmode="url" autocomplete="off" maxlength="2000" value="${esc(d.url)}" placeholder="https://… 或 App 內位置，例如 #notes-02-section-2"></div>
   <div><label class="field-label" for="link-title">標題</label><input class="select" id="link-title" type="text" maxlength="120" value="${esc(d.title)}" placeholder="留空時自動使用頁面名稱或網域"></div>
@@ -974,7 +997,7 @@ function practiceOverview(){
   return `<section class="practice-overview" aria-labelledby="practice-title"><div class="section-heading"><h2 id="practice-title">情境與流程演練</h2><span class="small">口試常問：「接下來你會怎麼做？」</span></div><div class="practice-cards">
   <article class="practice-card"><span class="practice-count">${cases} 個三幕情境</span><h3>PBL 情境討論</h3><p>逐幕揭露病例：整理事實、提出假說、列出還需要的資訊，再延伸到溝通、倫理與制度。</p>${btn('開始討論','tab','pbl','small')}</article>
   <article class="practice-card"><span class="practice-count">${flows} 個流程</span><h3>臨床流程</h3><p>急症、當日轉介、操作安全與篩檢照會；可遮住細節，或把打亂的步驟排回正確順序。</p>${btn('開始練習','tab','workflow','small')}</article>
-  <article class="practice-card"><span class="practice-count">${linkItems().length} 個收藏</span><h3>我的連結</h3><p>收藏章節段落、流程或外部網址並加註；隨「匯出進度」一起保存。</p>${btn('管理連結','tab','links','small')}</article></div></section>`;
+  <article class="practice-card"><span class="practice-count">${linkItems().length} 個收藏</span><h3>我的連結</h3><p>收藏章節段落、流程或外部網址並加註；與其他進度一起自動保存。</p>${btn('管理連結','tab','links','small')}</article></div></section>`;
 }
 function practiceIndex(){
   const out=[];
@@ -986,6 +1009,7 @@ function practiceIndex(){
 
 /* Events routed from the app's existing handlers. */
 function practiceInput(el){
+  if(syncInput(el))return true;
   const id=el?.id||'';
   if(id==='link-url'||id==='link-title'||id==='link-note'){S.linkDraft[id.slice(5)]=el.value;return true;}
   if(id==='link-filter'){S.linkFilter=el.value;const box=$('#link-list');if(box)box.innerHTML=linkListMarkup();return true;}
@@ -993,8 +1017,9 @@ function practiceInput(el){
   if(id==='pbl-issues'){const c=pblCase(),v=pblNotes(c.id);putMeta('pbl:'+c.id,{notes:v.notes,issues:el.value});return true;}
   return false;
 }
-function practiceChange(el){if(el?.id==='link-topic'){S.linkDraft.topicId=el.value;return true;}return false;}
+function practiceChange(el){if(syncChange(el))return true;if(el?.id==='link-topic'){S.linkDraft.topicId=el.value;return true;}return false;}
 function practiceAction(a,v,b){
+  if(syncAction(a))return;
   switch(a){
   case'pbl-open':if(pblCases().some(c=>c.id===v)){S.pbl=v;switchTab('pbl');}break;
   case'pbl-stage':{const c=pblCase(),next=Math.min(c.stages.length,(S.pblStage[c.id]||1)+1);S.pblStage[c.id]=next;render();document.getElementById('pbl-stage-'+next)?.scrollIntoView?.({block:'start'});break;}
@@ -1024,7 +1049,253 @@ function practiceAction(a,v,b){
 window.addEventListener('hashchange',appRestoreHash);
 window.addEventListener('load',appRestoreHash);
 /* practice-ui:end */
-function render(){const active=navs.find(n=>n[0]===S.tab);$('#nav').innerHTML=navMarkup();$('#section-label').textContent=active[2];$('#main').setAttribute('data-view',S.tab);$('#main').innerHTML=({notebook,originals,quiz,learn,interview,workshop,plan,progress,pbl:pblPage,workflow:workflowPage,links:linksPage})[S.tab]();syncPracticeHash();}
+/* progress-sync:start */
+// Automatic saving. Every change is kept in this browser, and when the learner connects their own
+// private GitHub repo, progress.json in that repo is merged and updated automatically.
+// Injected by scripts/apply-enrichment.py; the export/import file format is unchanged (v3).
+const STORE={state:'oph-prep:progress-v3',cloud:'oph-prep:cloud',token:'oph-prep:cloud-token',settings:'oph-prep:settings'};
+const SYNC_FILE='progress.json',SYNC_DELAY=30000,PROGRESS_FORMATS=['ophthalmology-prep-progress-v1','ophthalmology-prep-progress-v2','ophthalmology-prep-progress-v3'];
+const syncState={storage:false,restored:false,lastLocal:null,localError:false,busy:false,again:false,pending:false,verified:false,lastSync:null,error:'',authError:false,remoteUpdate:false};
+let localTimer=null,cloudTimer=null;
+S.syncDraft={owner:'',repo:'ophthalmology-progress',token:'',remember:true};
+{const c=(()=>{try{return JSON.parse(window.localStorage?.getItem('oph-prep:cloud')||'null');}catch{return null;}})();if(c?.owner)S.syncDraft.owner=c.owner;if(c?.repo)S.syncDraft.repo=c.repo;}
+
+function storage(kind){try{const s=kind==='session'?window.sessionStorage:window.localStorage;if(!s)return null;s.setItem('oph-prep:probe','1');s.removeItem('oph-prep:probe');return s;}catch{return null;}}
+function readJSON(s,key){try{const v=s?.getItem(key);return v?JSON.parse(v):null;}catch{return null;}}
+function writeJSON(s,key,value){try{s.setItem(key,JSON.stringify(value));return true;}catch{return false;}}
+function removeKey(key){for(const s of [storage(),storage('session')])try{s?.removeItem(key);}catch{}}
+function deviceSettings(){return {autosave:true,autoSync:true,...(readJSON(storage(),STORE.settings)||{})};}
+function setDeviceSetting(key,value){const s=storage();if(s)writeJSON(s,STORE.settings,{...deviceSettings(),[key]:value});}
+function progressPayload(){return {format:'ophthalmology-prep-progress-v3',exportedAt:now(),entries,meta:exportMeta()};}
+function canonical(value){return JSON.stringify(value,(k,v)=>v&&typeof v==='object'&&!Array.isArray(v)?Object.keys(v).sort().reduce((o,key)=>(o[key]=v[key],o),{}):v);}
+// Compare the validated form of both copies, so stored defaults and older field layouts do not cause needless writes.
+function normalizedProgress(p){const out={entries:{},meta:{}};for(const [k,v] of Object.entries(p?.entries||{})){const x=validateEntry(k,v);if(x)out.entries[k]=x;}for(const [k,v] of Object.entries(p?.meta||{})){const x=validateMeta(k,v);if(x)out.meta[k]=x;}return out;}
+function sameProgress(a,b){return canonical(normalizedProgress(a))===canonical(normalizedProgress(b));}
+// Merge another copy of progress without re-rendering or resetting the quiz round; the newer record per key wins.
+function absorbProgress(payload){
+  if(!payload||!PROGRESS_FORMATS.includes(payload.format)||!payload.entries||typeof payload.entries!=='object'||Array.isArray(payload.entries))throw syncError('保存的進度格式不符。');
+  let count=0;
+  for(const [key,v] of Object.entries(payload.entries)){const value=validateEntry(key,v);if(value&&(!entries[key]||Date.parse(value.at)>Date.parse(entries[key].at))){entries[key]=value;count++;}}
+  if(payload.meta&&typeof payload.meta==='object'&&!Array.isArray(payload.meta))for(const [key,v] of Object.entries(payload.meta)){const value=validateMeta(key,v);if(value&&(!meta[key]||Date.parse(value.at)>Date.parse(meta[key].at))){meta[key]=value;count++;}}
+  return count;
+}
+
+/* This device */
+function saveLocal(){
+  clearTimeout(localTimer);localTimer=null;
+  const s=storage();
+  if(!s||!deviceSettings().autosave){syncStatus();return false;}
+  const ok=writeJSON(s,STORE.state,progressPayload());
+  syncState.localError=!ok;
+  if(ok){syncState.lastLocal=Date.now();dirty=false;$('.topbar').classList.remove('is-dirty');}
+  syncStatus();
+  return ok;
+}
+function flushLocal(){if(localTimer)saveLocal();}
+function progressChanged(){
+  clearTimeout(localTimer);localTimer=setTimeout(saveLocal,400);
+  if(cloudConfig()){syncState.pending=true;if(deviceSettings().autoSync)scheduleSync(SYNC_DELAY);}
+  syncStatus();
+}
+function clearDevice(){
+  removeKey(STORE.state);removeKey(STORE.token);removeKey(STORE.cloud);
+  clearTimeout(localTimer);clearTimeout(cloudTimer);localTimer=cloudTimer=null;
+  entries=Object.create(null);meta=Object.create(null);dirty=false;
+  Object.assign(syncState,{restored:false,lastLocal:null,pending:false,verified:false,lastSync:null,error:'',authError:false});
+  S.round=Object.create(null);S.selected=null;S.confidence=0;
+}
+
+/* GitHub private repo */
+const OWNER_RE=/^[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})$/,REPO_RE=/^[A-Za-z0-9._-]{1,100}$/;
+function validRepo(owner,repo){return OWNER_RE.test(owner||'')&&REPO_RE.test(repo||'')&&repo!=='.'&&repo!=='..';}
+function cloudConfig(){const c=readJSON(storage(),STORE.cloud);let token='';try{token=storage()?.getItem(STORE.token)||storage('session')?.getItem(STORE.token)||'';}catch{}return c&&token&&validRepo(c.owner,c.repo)?{owner:c.owner,repo:c.repo,token,lastSync:c.lastSync||null}:null;}
+function syncError(message,extra={}){return Object.assign(new Error(message),extra);}
+function gh(cfg,method,path,body,accept){
+  return fetch('https://api.github.com/repos/'+encodeURIComponent(cfg.owner)+'/'+encodeURIComponent(cfg.repo)+path,{method,cache:'no-store',headers:{Authorization:'Bearer '+cfg.token,Accept:accept||'application/vnd.github+json',...(body?{'Content-Type':'application/json'}:{})},body:body?JSON.stringify(body):undefined});
+}
+async function ghError(res,context){
+  let detail='';try{detail=String((await res.json()).message||'').slice(0,120);}catch{}
+  if(res.status===401)return syncError('GitHub token 無效或已過期。請建立新的 token 後重新連線。',{auth:true});
+  if(res.status===403&&res.headers?.get?.('x-ratelimit-remaining')==='0')return syncError('已達 GitHub 每小時的請求上限，稍後會自動重試。',{retry:true});
+  if(res.status===403)return syncError('這個 token 不能寫入：請確認 token 的 Repository access 選到這個 repo，且 Contents 設為 Read and write。',{auth:true});
+  if(res.status===404&&context==='repo')return syncError('找不到這個 repo，或 token 沒有授權存取它。請檢查帳號、repo 名稱與 token 的 Repository access。',{auth:true});
+  if(res.status>=500)return syncError('GitHub 暫時無法回應，稍後會自動重試。',{retry:true});
+  return syncError('同步失敗（GitHub '+res.status+(detail?'：'+detail:'')+'）。');
+}
+function encodeBase64(text){const bytes=new TextEncoder().encode(text);let bin='';for(let i=0;i<bytes.length;i+=0x8000)bin+=String.fromCharCode.apply(null,bytes.subarray(i,i+0x8000));return btoa(bin);}
+function decodeBase64(b64){const bin=atob(String(b64).replace(/\s/g,''));const bytes=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)bytes[i]=bin.charCodeAt(i);return new TextDecoder().decode(bytes);}
+async function verifyRepo(cfg){
+  const res=await gh(cfg,'GET','');
+  if(!res.ok)throw await ghError(res,'repo');
+  const info=await res.json();
+  if(info.private!==true)throw syncError('這個 repo 是公開的。進度含有你的草稿與筆記，請改用 Private repo。',{auth:true});
+  return info;
+}
+async function pullRemote(cfg){
+  const res=await gh(cfg,'GET','/contents/'+SYNC_FILE);
+  if(res.status===404)return {sha:null,payload:null};
+  if(!res.ok)throw await ghError(res,'file');
+  const info=await res.json();
+  let text;
+  if(info.encoding==='base64'&&info.content)text=decodeBase64(info.content);
+  else{const raw=await gh(cfg,'GET','/contents/'+SYNC_FILE,null,'application/vnd.github.raw+json');if(!raw.ok)throw await ghError(raw,'file');text=await raw.text();}
+  try{return {sha:info.sha,payload:JSON.parse(text)};}catch{throw syncError('雲端的 '+SYNC_FILE+' 無法讀取，請到 GitHub 檢查這個檔案。');}
+}
+function deviceName(){const ua=String(globalThis.navigator?.userAgent||'');return /iPhone/.test(ua)?'iPhone':/iPad/.test(ua)?'iPad':/Android/.test(ua)?'Android':/Macintosh/.test(ua)?'Mac':/Windows/.test(ua)?'Windows':'瀏覽器';}
+function syncTime(t){return t?new Intl.DateTimeFormat('zh-TW',{timeZone:'Asia/Taipei',month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(t)):'';}
+function scheduleSync(ms){clearTimeout(cloudTimer);cloudTimer=setTimeout(()=>{cloudTimer=null;syncNow('auto');},ms);}
+function afterRemoteMerge(){
+  syncState.remoteUpdate=true;
+  const active=document.activeElement,typing=active&&/^(INPUT|TEXTAREA|SELECT)$/.test(active.tagName||'');
+  if(!typing){render();syncState.remoteUpdate=false;}
+}
+async function syncNow(reason='manual'){
+  const cfg=cloudConfig();
+  if(!cfg)return false;
+  if(syncState.busy){syncState.again=true;return false;}
+  clearTimeout(cloudTimer);cloudTimer=null;
+  flushLocal();
+  syncState.busy=true;syncState.error='';syncStatus();
+  try{
+    if(!syncState.verified){await verifyRepo(cfg);syncState.verified=true;}
+    for(let attempt=0;attempt<3;attempt++){
+      const remote=await pullRemote(cfg);
+      if(remote.payload&&absorbProgress(remote.payload)){saveLocal();afterRemoteMerge();}
+      const local={...progressPayload(),...normalizedProgress(progressPayload())};
+      if(!remote.payload||!sameProgress(remote.payload,local)){
+        const res=await gh(cfg,'PUT','/contents/'+SYNC_FILE,{message:'同步進度 · '+deviceName()+' · '+syncTime(Date.now()),content:encodeBase64(JSON.stringify(local,null,1)),...(remote.sha?{sha:remote.sha}:{})});
+        if(res.status===409||res.status===422)continue;
+        if(!res.ok)throw await ghError(res,'file');
+      }
+      syncState.pending=false;syncState.authError=false;syncState.lastSync=Date.now();
+      const saved=readJSON(storage(),STORE.cloud);if(saved)writeJSON(storage(),STORE.cloud,{...saved,lastSync:syncState.lastSync});
+      if(!deviceSettings().autosave){dirty=false;$('.topbar').classList.remove('is-dirty');}
+      return true;
+    }
+    throw syncError('雲端檔案剛被其他裝置更新，稍後會自動再試。',{retry:true});
+  }catch(error){
+    const offline=error instanceof TypeError||!('message' in Object(error));
+    syncState.error=offline?'目前無法連到 GitHub，恢復連線後會自動同步。':error.message||'同步失敗。';
+    syncState.authError=!!error.auth;
+    if(offline||error.retry)scheduleSync(60000);
+    return false;
+  }finally{
+    syncState.busy=false;syncStatus();
+    if(S.tab==='sync'&&cloudConfig())render();
+    if(syncState.again){syncState.again=false;scheduleSync(1500);}
+  }
+}
+async function connectCloud(){
+  const d=S.syncDraft,owner=d.owner.trim(),repo=d.repo.trim().replace(/\.git$/,''),token=d.token.trim();
+  if(!validRepo(owner,repo)){toast('請填入正確的 GitHub 帳號與 repo 名稱。');return;}
+  if(!token||/\s/.test(token)){toast('請貼上 GitHub token。');return;}
+  syncState.busy=true;syncState.error='';syncStatus();render();
+  try{await verifyRepo({owner,repo,token});}
+  catch(error){syncState.busy=false;syncState.error=error instanceof TypeError?'目前無法連到 GitHub，請確認網路後再試。':error.message;syncStatus();render();return;}
+  syncState.busy=false;
+  removeKey(STORE.token);
+  const s=storage(),target=d.remember?s:storage('session');
+  if(!s||!target){syncState.error='這個瀏覽器不允許保存設定，無法啟用雲端同步。';syncStatus();render();return;}
+  writeJSON(s,STORE.cloud,{owner,repo,connectedAt:now()});
+  try{target.setItem(STORE.token,token);}catch{}
+  S.syncDraft={...d,owner,repo,token:''};
+  Object.assign(syncState,{verified:true,pending:true,authError:false,error:''});
+  const ok=await syncNow('connect');
+  render();
+  toast(ok?'已連線，進度已同步到你的私人 repo。':'已連線，但這次同步沒有完成：'+syncState.error);
+}
+function disconnectCloud(){removeKey(STORE.token);removeKey(STORE.cloud);clearTimeout(cloudTimer);cloudTimer=null;Object.assign(syncState,{verified:false,pending:false,lastSync:null,error:'',authError:false});}
+
+/* Status line and settings page */
+function syncStatus(){
+  const el=$('#save-status'),bar=$('.topbar');
+  if(!el||!bar)return;
+  const cfg=cloudConfig(),autosave=syncState.storage&&deviceSettings().autosave;
+  let text,state;
+  if(syncState.busy){text='同步中…';state='busy';}
+  else if(cfg&&syncState.error){text='雲端同步暫停'+(autosave?' · 已保存在此裝置':'');state='error';}
+  else if(dirty&&autosave){text='正在保存…';state='dirty';}
+  else if(syncState.localError){text='此裝置無法保存 · 請到「保存與同步」查看';state='error';}
+  else if(cfg&&syncState.pending){text=(autosave?'已保存在此裝置':'尚未保存')+' · 稍後同步到雲端';state=autosave?'saved':'dirty';}
+  else if(cfg&&syncState.lastSync){text='已同步到雲端 · '+syncTime(syncState.lastSync);state='synced';}
+  else if(cfg){text='已連上雲端 · 等待同步';state='saved';}
+  else if(autosave){text='已自動保存在此裝置';state='saved';}
+  else{text=syncState.storage?'未自動保存 · 離開前請匯出或連上雲端':'此瀏覽器無法自動保存 · 離開前請匯出';state='dirty';}
+  el.textContent=text;
+  bar.classList.toggle('is-dirty',state==='dirty');
+  bar.classList.toggle('is-sync-error',state==='error');
+  bar.classList.toggle('is-synced',state==='synced'||state==='saved');
+}
+function cloudStatusMarkup(){
+  const cfg=cloudConfig();
+  if(!cfg)return '';
+  const history='https://github.com/'+encodeURIComponent(cfg.owner)+'/'+encodeURIComponent(cfg.repo)+'/commits/HEAD/'+SYNC_FILE;
+  return `<dl class="sync-facts"><div><dt>同步位置</dt><dd><a href="${esc(history)}" target="_blank" rel="noopener noreferrer">${esc(cfg.owner)}/${esc(cfg.repo)} · ${SYNC_FILE}</a></dd></div><div><dt>狀態</dt><dd>${syncState.busy?'同步中…':syncState.error?'<span class="sync-error-text">'+esc(syncState.error)+'</span>':syncState.pending?'有新的變更，稍後自動同步':syncState.lastSync?'已同步 · '+esc(syncTime(syncState.lastSync)):'等待第一次同步'}</dd></div></dl>`;
+}
+function syncPage(){
+  const cfg=cloudConfig(),settings=deviceSettings(),d=S.syncDraft,host=String(window.location?.hostname||'');
+  if(!d.owner&&/\.github\.io$/.test(host))d.owner=host.split('.')[0];
+  const saved=syncState.storage&&settings.autosave;
+  return heading('','保存與同步','進度會自動保存在這個瀏覽器；連上你自己的 GitHub 私人 repo 後，也會自動同步到雲端，手機和電腦可以接著練，不必再匯出或匯入。',`<div class="heading-stat"><strong>${cfg?'雲端':saved?'本機':'—'}</strong><span>${cfg?'已啟用同步':saved?'自動保存中':'尚未保存'}</span></div>`)
+  +`<section class="card sync-card" aria-labelledby="sync-device-title"><h2 id="sync-device-title">這個裝置</h2>
+  ${syncState.storage?`<p>${saved?`每次作答、勾選或輸入文字後，幾秒內就自動保存在這個瀏覽器${syncState.lastLocal?'（最近一次：'+esc(syncTime(syncState.lastLocal))+'）':''}。重新整理或關閉分頁都不會遺失。`:'自動保存已關閉：離開前請連上雲端或匯出備份。'}</p>
+  <label class="check-label"><input type="checkbox" id="sync-autosave" ${settings.autosave?'checked':''}><span>自動保存在這個瀏覽器</span></label>
+  <p class="small">共用或公用電腦請關閉自動保存，用完按下方「清除此裝置資料」。</p>
+  <div class="actions">${btn('清除此裝置資料','sync-clear','','small subtle')}</div>`:`<p class="sync-error-text">這個瀏覽器（例如部分無痕模式）不允許網站保存資料，只能在離開前匯出備份。</p>`}</section>
+  <section class="card sync-card" aria-labelledby="sync-cloud-title"><h2 id="sync-cloud-title">雲端同步（你的 GitHub 私人 repo）</h2>
+  ${cfg?`<div id="sync-cloud-status">${cloudStatusMarkup()}</div>
+  <label class="check-label"><input type="checkbox" id="sync-auto" ${settings.autoSync?'checked':''}><span>自動同步（變更後約 30 秒、切換分頁或重新開啟時）</span></label>
+  <div class="actions">${btn(syncState.busy?'同步中…':'立即同步','sync-now','','small primary')}${btn('中斷連線','sync-disconnect','','small subtle')}</div>
+  ${syncState.authError?`<p class="small">若 token 已過期或權限不足，先按「中斷連線」，再用新的 token 重新連線。</p>`:''}
+  <p class="small">每次同步都會在 repo 留下一筆 commit，可在 GitHub 查看或還原較早的版本。其他裝置用同一個 repo 與各自的 token 連線即可接著練。</p>`
+  :`<ol class="sync-steps">
+    <li><strong>建立私人 repo</strong>開啟 <a href="https://github.com/new" target="_blank" rel="noopener noreferrer">github.com/new</a>，名稱例如 <code>ophthalmology-progress</code>，一定要選 <b>Private</b>，並勾選 Add a README file。</li>
+    <li><strong>建立只能用在這個 repo 的 token</strong>開啟 <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener noreferrer">Fine-grained token</a>：Repository access 選 <b>Only select repositories</b> → 剛建立的 repo；Permissions → Repository permissions → <b>Contents</b> 設為 <b>Read and write</b>；設定到期日後產生並複製 token。</li>
+    <li><strong>貼到下方並連線</strong>每台裝置第一次使用時輸入一次；之後會自動同步。</li></ol>
+  <div class="sync-form"><div><label class="field-label" for="sync-owner">GitHub 帳號</label><input class="select" id="sync-owner" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="39" value="${esc(d.owner)}" placeholder="例如 your-name"></div>
+  <div><label class="field-label" for="sync-repo">私人 repo 名稱</label><input class="select" id="sync-repo" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="100" value="${esc(d.repo)}"></div>
+  <div class="full"><label class="field-label" for="sync-token">Token</label><input class="select" id="sync-token" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="300" value="${esc(d.token)}" placeholder="github_pat_…"></div>
+  <label class="check-label full"><input type="checkbox" id="sync-remember" ${d.remember?'checked':''}><span>在這個瀏覽器記住 token（共用電腦請取消勾選，關閉分頁後就會忘記）</span></label>
+  <div class="full actions">${btn(syncState.busy?'連線中…':'連線並同步','sync-connect','','primary')}</div>
+  ${syncState.error?`<p class="full sync-error-text" role="alert">${esc(syncState.error)}</p>`:''}</div>
+  <p class="small">進度包含你的草稿與筆記，只會寫入你自己的私人 repo，公開 repo 會被拒絕。Token 只用來連線 api.github.com，保存在這個瀏覽器，不會放進匯出檔；可隨時在 GitHub 撤銷。</p>`}</section>
+  <section class="card sync-card" aria-labelledby="sync-backup-title"><h2 id="sync-backup-title">手動備份（選用）</h2><p>需要另存一份時，仍可下載進度檔；在其他瀏覽器按「匯入進度」即可合併，較新的紀錄會保留。</p><div class="actions">${btn('匯出進度','export','','small')}${btn('匯入進度','import','','small subtle')}</div></section>`;
+}
+
+/* Events, delegated from the practice handlers */
+function syncInput(el){
+  const map={'sync-owner':'owner','sync-repo':'repo','sync-token':'token'},key=map[el?.id];
+  if(!key)return false;
+  S.syncDraft[key]=el.value;return true;
+}
+function syncChange(el){
+  const id=el?.id;
+  if(id==='sync-remember'){S.syncDraft.remember=el.checked;return true;}
+  if(id==='sync-autosave'){setDeviceSetting('autosave',el.checked);if(el.checked)saveLocal();else{clearTimeout(localTimer);localTimer=null;removeKey(STORE.state);syncState.lastLocal=null;dirty=true;}render();syncStatus();return true;}
+  if(id==='sync-auto'){setDeviceSetting('autoSync',el.checked);if(el.checked&&syncState.pending)scheduleSync(2000);return true;}
+  return false;
+}
+function syncAction(a){
+  switch(a){
+  case'sync-connect':if(!syncState.busy)connectCloud();return true;
+  case'sync-now':if(!syncState.busy){syncState.verified=false;syncNow('manual').then(ok=>{render();toast(ok?'已同步。':syncState.error);});}return true;
+  case'sync-disconnect':if(window.confirm('中斷這個瀏覽器的雲端同步並刪除保存的 token？雲端 repo 中的資料不受影響。')){disconnectCloud();render();toast('已中斷連線。雲端的進度仍在你的 repo。');}return true;
+  case'sync-clear':if(window.confirm('清除這個瀏覽器保存的全部進度、草稿與 GitHub token？雲端 repo 中的資料不受影響。')){clearDevice();render();toast('已清除此裝置的資料。');}return true;
+  }
+  return false;
+}
+
+/* Boot: restore this device's copy before the first render, then pull from the cloud. */
+syncState.storage=!!storage();
+if(syncState.storage&&deviceSettings().autosave){const saved=readJSON(storage(),STORE.state);if(saved)try{absorbProgress(saved);syncState.restored=true;syncState.lastLocal=Date.parse(saved.exportedAt)||null;}catch{}}
+{const cfg=readJSON(storage(),STORE.cloud);if(cfg?.lastSync)syncState.lastSync=cfg.lastSync;}
+window.addEventListener('beforeunload',flushLocal);
+window.addEventListener('pagehide',flushLocal);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'){flushLocal();if(syncState.pending&&deviceSettings().autoSync)syncNow('hidden');}else if(cloudConfig()&&deviceSettings().autoSync&&(!syncState.lastSync||Date.now()-syncState.lastSync>60000))syncNow('visible');});
+window.addEventListener('online',()=>{if(cloudConfig()&&(syncState.pending||syncState.error))syncNow('online');});
+setTimeout(()=>{syncStatus();if(cloudConfig()&&deviceSettings().autoSync)syncNow('load');},0);
+/* progress-sync:end */
+function render(){const active=navs.find(n=>n[0]===S.tab);$('#nav').innerHTML=navMarkup();$('#section-label').textContent=active[2];$('#main').setAttribute('data-view',S.tab);$('#main').innerHTML=({notebook,originals,quiz,learn,interview,workshop,plan,progress,pbl:pblPage,workflow:workflowPage,links:linksPage,sync:syncPage})[S.tab]();syncPracticeHash();}
 function pauseTimer(){if(S.deadline)S.seconds=Math.max(0,Math.ceil((S.deadline-Date.now())/1000));S.deadline=null;}
 function chooseInterview(id){if(!D.interview.some(i=>i.id===id))return;S.deadline=null;S.interview=id;S.seconds=currentInterview().durationSeconds;S.followup=0;switchTab('interview');}
 document.addEventListener('click',e=>{const b=e.target.closest('[data-action]');if(!b||b.disabled)return;const a=b.dataset.action,v=b.dataset.value;switch(a){
@@ -1068,7 +1339,7 @@ case'interview':chooseInterview(v);break;
 case'timer':if(S.deadline)pauseTimer();else{if(!S.seconds)S.seconds=currentInterview().durationSeconds;S.deadline=Date.now()+S.seconds*1000;}render();break;
 case'timer-reset':S.deadline=null;S.seconds=currentInterview().durationSeconds;render();break;
 case'followup':S.followup=(S.followup+1)%currentInterview().followups.length;render();break;
-case'iv-done':updateIv({practiced:true});render();toast('已更新這輪演練。離開前請記得匯出。');break;
+case'iv-done':updateIv({practiced:true});render();toast('已更新這輪演練。');break;
 case'iv-next':chooseInterview(D.interview[(D.interview.findIndex(i=>i.id===S.interview)+1)%D.interview.length].id);break;
 case'export':exportProgress();break;
 case'import':$('#import-file').click();break;
