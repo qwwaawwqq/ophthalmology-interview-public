@@ -74,7 +74,7 @@ PBL 與流程內容於 2026-10-13 由獨立審稿依 AAO／EyeWiki、AAP、ACR�
 
 公開版未包含私人申請資料、個人研究結果、私人文件連結或原始共筆全文。個人面試模板與故事、證據卡需自行填寫。
 
-進度（作答、草稿、筆記、連結、勾選）會自動保存在目前瀏覽器，重新整理或關閉分頁都不會遺失，不必再匯出。網站本身不會收到你的草稿或學習紀錄。
+進度（作答、草稿、筆記、連結、勾選）會自動保存在目前瀏覽器，重新整理或關閉分頁都不會遺失，不必再匯出。再次開啟（沒有指定網址時）會回到上次的畫面，筆試練習接續同一輪、同一題並顯示本輪已答，PBL 已展開的幕次、最近的章節與面試題也會保留；這部分只存在各自的裝置，不同步、不匯出。網站本身不會收到你的草稿或學習紀錄。
 
 ### 保存與同步
 
@@ -84,7 +84,7 @@ PBL 與流程內容於 2026-10-13 由獨立審稿依 AAO／EyeWiki、AAP、ACR�
 - **雲端同步**：連上自己的 GitHub 私人 repo 後，進度會寫入該 repo 的 `progress.json`，手機與電腦自動合併（每個項目保留較新的紀錄）。變更後約 30 秒、切換分頁或重新開啟時同步；每次同步是一筆 commit，可在 GitHub 查看或還原舊版本。
   1. 在 GitHub 建立 **Private** repo（例如 `ophthalmology-progress`，勾選 Add a README file）。
   2. 建立 [fine-grained token](https://github.com/settings/personal-access-tokens/new)：Repository access 只選這個 repo；Repository permissions → Contents 設為 Read and write。
-  3. 在「保存與同步」填入帳號、repo 名稱與 token，按「連線並同步」。每台裝置輸入一次。
+  3. 在「保存與同步」填入帳號、repo 名稱與 token，按「連線並同步」。其他裝置：在已連線的裝置按「連線另一台裝置」，用手機掃 QR code 或在其他電腦開啟「複製設定連結」，確認 repo 後按「連線並同步」。設定連結把 token 放在網址 # 之後（不會送到伺服器），開啟後立即從網址移除，且只預填、需本人確認，避免他人的連結把進度導向別的 repo；QR 面板 2 分鐘後自動隱藏。
   公開 repo 會被拒絕。Token 只用於 api.github.com，保存在該瀏覽器（可選擇不記住），不會進入匯出檔；可隨時在 GitHub 撤銷。注意：同一個 `*.github.io` 網域下的其他 Pages 網站與本站共用瀏覽器儲存空間。
 - **手動備份（選用）**：「匯出進度」仍會下載 v1–v3 相容的 JSON；「匯入進度」會合併，較新的紀錄保留。
 
@@ -99,7 +99,9 @@ PBL 與流程內容於 2026-10-13 由獨立審稿依 AAO／EyeWiki、AAP、ACR�
 - `content/past-exam-questions.json`：245 題考古題考點改寫題；每次建置都會重新併入題庫（`pastExam: true`），原 294 題不變。
 - `content/interview-detailed.json`：46 題面試演練的詳細參考答案與追問回答。
 - `content/pbl-cases.json`、`content/clinical-workflows.json`：PBL 情境與臨床流程；來源 ID 必須是章節資源中已有的連結。
-- `scripts/progress-sync.js`：自動保存與 GitHub 私人 repo 同步，由建置腳本嵌入。
+- `scripts/progress-sync.js`：自動保存、回到上次畫面、GitHub 私人 repo 同步與裝置設定 QR，由建置腳本嵌入。
+- `scripts/vendor/qrcode.js`：[qrcode-generator](https://github.com/kazuhikoarase/qrcode-generator) 2.0.4（MIT，授權見 `scripts/vendor/qrcode-generator.LICENSE`），僅在顯示設定 QR code 時載入。
+- 建置會把產生的程式區塊放回原位，不移動其他工具（例如共筆考前衝刺）加入的程式。
 - `scripts/practice-ui.js`、`scripts/practice-ui.css`：PBL、流程、我的連結與網址路由的介面，由建置腳本嵌入。
 - `scripts/apply-enrichment.py`：驗證並將深入教材嵌入 `index.html`，同時保留題庫與進度資料格式。
 

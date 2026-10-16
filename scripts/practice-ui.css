@@ -134,6 +134,10 @@
 .sync-facts dt{color:var(--muted);font-weight:600}
 .sync-facts dd{margin:0;word-break:break-all}
 .sync-error-text{color:var(--danger)}
+.sync-share{display:grid;grid-template-columns:200px minmax(0,1fr);gap:18px;align-items:start;margin:16px 0 4px;padding:16px;border:1px solid var(--line);border-radius:8px;background:#fbfdfd}
+.sync-qr{background:#fff;border-radius:6px;padding:6px;min-height:120px;display:flex;align-items:center;justify-content:center}
+.sync-qr svg{width:100%;height:auto;display:block}
+.sync-from-link strong{display:block}
 @media(max-width:1000px){.pbl-method ol{grid-template-columns:repeat(3,minmax(0,1fr))}.practice-cards{grid-template-columns:1fr}}
-@media(max-width:760px){.pbl-method ol{display:flex;overflow-x:auto;gap:8px;padding-bottom:4px;scrollbar-width:thin}.pbl-method li{flex:0 0 auto;flex-direction:row;align-items:baseline;gap:6px;padding:8px 12px}.pbl-method li small{display:none}.top-actions .btn{white-space:nowrap}.top-actions .bookmark-current{padding:8px 6px;min-width:32px}.pbl-reference-grid,.wf-order-grid,.link-form,.iv-focus-grid,.sync-form{grid-template-columns:1fr}.sync-card{padding:18px 16px}.sync-facts div{grid-template-columns:1fr;gap:0}.iv-detailed{padding:16px}.menu-category{display:none}.link-item{flex-direction:column}.link-filter{max-width:none;width:100%}.link-form{padding:18px 16px}.bookmark-current .bookmark-label{display:none}}
+@media(max-width:760px){.pbl-method ol{display:flex;overflow-x:auto;gap:8px;padding-bottom:4px;scrollbar-width:thin}.pbl-method li{flex:0 0 auto;flex-direction:row;align-items:baseline;gap:6px;padding:8px 12px}.pbl-method li small{display:none}.top-actions .btn{white-space:nowrap}.top-actions .bookmark-current{padding:8px 6px;min-width:32px}.pbl-reference-grid,.wf-order-grid,.link-form,.iv-focus-grid,.sync-form{grid-template-columns:1fr}.sync-card{padding:18px 16px}.sync-facts div{grid-template-columns:1fr;gap:0}.sync-share{grid-template-columns:1fr}.sync-qr{max-width:240px;margin:0 auto}.iv-detailed{padding:16px}.menu-category{display:none}.link-item{flex-direction:column}.link-filter{max-width:none;width:100%}.link-form{padding:18px 16px}.bookmark-current .bookmark-label{display:none}}
 /* practice-styles:end */

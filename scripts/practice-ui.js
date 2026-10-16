@@ -58,6 +58,7 @@ function routeMatchesView(route){
 function currentViewHash(){return S.tab==='learn'?'#topic-'+S.learn:S.tab==='pbl'?'#'+S.pbl:S.tab==='workflow'?'#'+S.workflow:S.tab==='interview'?'#interview-'+S.interview:S.tab==='links'?'#links':S.tab==='notebook'?'':'#tab-'+S.tab;}
 function currentLocationHash(){const route=parseRoute(window.location?.hash||'');return route&&routeMatchesView(route)?route.hash:(currentViewHash()||'#tab-notebook');}
 function syncPracticeHash(){
+  rememberWorkspace();
   if(!practiceHashReady||!window.history?.replaceState||!window.location)return;
   const route=parseRoute(window.location.hash||'');
   if(route&&routeMatchesView(route))return;
