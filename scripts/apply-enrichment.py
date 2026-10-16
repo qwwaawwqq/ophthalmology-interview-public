@@ -24,6 +24,7 @@ PBL = ROOT / 'content/pbl-cases.json'
 WORKFLOWS = ROOT / 'content/clinical-workflows.json'
 PRACTICE_JS = ROOT / 'scripts/practice-ui.js'
 PRACTICE_CSS = ROOT / 'scripts/practice-ui.css'
+SYNC_JS = ROOT / 'scripts/progress-sync.js'
 KINDS = {'圖譜', '影片', '期刊', '指南'}
 JS_START = '/* enrichment-ui:start */'
 JS_END = '/* enrichment-ui:end */'
@@ -31,6 +32,8 @@ CSS_START = '/* enrichment-styles:start */'
 CSS_END = '/* enrichment-styles:end */'
 PRACTICE_JS_START = '/* practice-ui:start */'
 PRACTICE_JS_END = '/* practice-ui:end */'
+SYNC_JS_START = '/* progress-sync:start */'
+SYNC_JS_END = '/* progress-sync:end */'
 PRACTICE_CSS_START = '/* practice-styles:start */'
 PRACTICE_CSS_END = '/* practice-styles:end */'
 # Course-data keys rebuilt from content/ on every run; everything else must survive unchanged.
@@ -336,6 +339,10 @@ def replace_once(text, needle, replacement, label):
 
 
 def apply_practice_html(html):
+    if 'data-action="export" title=' not in html:
+        html = replace_once(html, '<button class="btn export" data-action="export">匯出進度</button>', '<button class="btn subtle" data-action="export" title="下載一份進度備份（選用）">匯出進度</button>', 'topbar export button')
+    if 'class="status-link"' not in html:
+        html = replace_once(html, '<span class="status-dot" aria-hidden="true"></span><span id="save-status" role="status">進度只存在這個分頁 · 離開前請匯出</span>', '<button class="status-link" data-action="tab" data-value="sync" title="保存與同步設定"><span class="status-dot" aria-hidden="true"></span><span id="save-status" role="status">正在讀取保存的進度…</span></button>', 'topbar status link')
     if 'data-action="link-save-current"' in html:
         return html
     return replace_once(html, '<div class="top-actions"><button class="btn subtle" data-action="import">', '<div class="top-actions"><button class="btn subtle bookmark-current" data-action="link-save-current" aria-label="收藏目前位置到我的連結">☆<span class="bookmark-label"> 收藏此頁</span></button><button class="btn subtle" data-action="import">', 'topbar bookmark')
@@ -361,6 +368,13 @@ def apply_practice(js):
         ("practiceOverview()", "${searching?'':enrichmentOverview()}", "${searching?'':practiceOverview()+enrichmentOverview()}", 'home overview'),
         ("x.type==='面試詳解'", "x.type==='PBL 情境'?'開啟情境'", "x.type==='面試詳解'?'進入演練':x.type==='PBL 情境'?'開啟情境'", 'search detailed label'),
         ("${interviewDetailed(i)}", '<p class="small">${esc(i.personalizationRequired)}</p></div></details>', '<p class="small">${esc(i.personalizationRequired)}</p></div></details>${interviewDetailed(i)}', 'interview detailed answer'),
+        ("['sync','⇅','保存與同步']", "['links','☆','我的連結']];", "['links','☆','我的連結'],['sync','⇅','保存與同步']];", 'nav sync item'),
+        ("['plan','progress','sync']", "['安排與回顧',['plan','progress']]", "['安排與回顧',['plan','progress','sync']]", 'nav sync group'),
+        ("sync:syncPage", "links:linksPage})[S.tab]();", "links:linksPage,sync:syncPage})[S.tab]();", 'render sync view'),
+        ("progressChanged();}", "$('.topbar').classList.add('is-dirty');}", "$('.topbar').classList.add('is-dirty');progressChanged();}", 'autosave hook'),
+        ("文字會自動保存；連上雲端後也會同步到其他裝置。", "文字會更新到本次進度；離開前請匯出。", "文字會自動保存；連上雲端後也會同步到其他裝置。", 'draft note'),
+        ("個人內容自動保存在你的瀏覽器", "個人內容只留在目前頁面，離開前請匯出進度。公開網站不會自動接收你的草稿。", "個人內容自動保存在你的瀏覽器；在「保存與同步」連上自己的 GitHub 私人 repo 後也會同步到雲端。公開網站本身不會收到你的草稿。", 'workshop note'),
+        ("toast('已更新這輪演練。');", "toast('已更新這輪演練。離開前請記得匯出。');", "toast('已更新這輪演練。');", 'interview toast'),
         ("${followupReference(i)}", "${i.followupAnswers?.[S.followup]?`<details class=\"followup-model\"><summary>回答後，查看追問回應參考</summary><p class=\"preline\">${esc(i.followupAnswers[S.followup])}</p></details>`:''}", "${followupReference(i)}", 'interview follow-up reference'),
     )
     for marker, needle, replacement, label in patches:
@@ -372,7 +386,8 @@ def apply_practice(js):
     js = replace_once(js, ":list(b.points)}</section>`;}", ":list(b.points)}${linkSaveButton('#'+t.id+'-section-'+i)}</section>`;}", 'lesson bookmark')
     js = replace_once(js, "${coverageLink(t,'查看全章共筆對照','coverage')}</nav>", "${coverageLink(t,'查看全章共筆對照','coverage')}</nav>${linkSaveButton('#'+t.id+'-coverage-'+entry.id)}", 'coverage bookmark')
     js = replace_once(js, '<h3 id="${t.id}-${unit.id}-title">${esc(unit.title)}</h3></div>', '<h3 id="${t.id}-${unit.id}-title">${esc(unit.title)}</h3>${linkSaveButton(\'#\'+t.id+\'-\'+unit.id)}</div>', 'unit bookmark')
-    return js.replace('function render(){', PRACTICE_JS.read_text(encoding='utf-8').strip()+'\nfunction render(){', 1)
+    js = re.sub(re.escape(SYNC_JS_START)+r'.*?'+re.escape(SYNC_JS_END)+r'\n?', '', js, flags=re.S)
+    return js.replace('function render(){', PRACTICE_JS.read_text(encoding='utf-8').strip()+'\n'+SYNC_JS.read_text(encoding='utf-8').strip()+'\nfunction render(){', 1)
 
 
 def validate_coverage(coverage, enrichment, data):
@@ -960,7 +975,7 @@ def build():
     if {k:v for k,v in after.items() if k not in GENERATED_KEYS} != preserved:
         raise ValueError('Existing app data changed')
     assert html.count(JS_START)==1 and html.count(CSS_START)==1
-    assert html.count(PRACTICE_JS_START)==1 and html.count(PRACTICE_CSS_START)==1
+    assert html.count(PRACTICE_JS_START)==1 and html.count(PRACTICE_CSS_START)==1 and html.count(SYNC_JS_START)==1
     return html, after
 
 

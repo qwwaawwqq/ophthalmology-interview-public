@@ -249,7 +249,7 @@ function linkListMarkup(){
 }
 function linksPage(){
   const d=S.linkDraft,count=linkItems().length,editing=S.linkEdit&&meta['link:'+S.linkEdit]&&!meta['link:'+S.linkEdit].deleted;
-  return heading('','我的連結','收藏 App 內的章節段落、PBL、流程，或任何外部網址並加上備註。連結和其他進度一樣，只存在這個分頁；請用「匯出進度」保存，下次「匯入進度」即可帶回。',`<div class="heading-stat"><strong>${count}</strong><span>個連結</span></div>`)
+  return heading('','我的連結','收藏 App 內的章節段落、PBL、流程，或任何外部網址並加上備註。連結和其他進度一樣會自動保存；連上雲端後也會同步到你的其他裝置。',`<div class="heading-stat"><strong>${count}</strong><span>個連結</span></div>`)
   +`<section class="card link-form" aria-label="${editing?'編輯連結':'新增連結'}"><h2 class="full">${editing?'編輯連結':'新增連結'}</h2>
   <div class="full"><label class="field-label" for="link-url">網址</label><input class="select" id="link-url" type="text" inputmode="url" autocomplete="off" maxlength="2000" value="${esc(d.url)}" placeholder="https://… 或 App 內位置，例如 #notes-02-section-2"></div>
   <div><label class="field-label" for="link-title">標題</label><input class="select" id="link-title" type="text" maxlength="120" value="${esc(d.title)}" placeholder="留空時自動使用頁面名稱或網域"></div>
@@ -282,7 +282,7 @@ function practiceOverview(){
   return `<section class="practice-overview" aria-labelledby="practice-title"><div class="section-heading"><h2 id="practice-title">情境與流程演練</h2><span class="small">口試常問：「接下來你會怎麼做？」</span></div><div class="practice-cards">
   <article class="practice-card"><span class="practice-count">${cases} 個三幕情境</span><h3>PBL 情境討論</h3><p>逐幕揭露病例：整理事實、提出假說、列出還需要的資訊，再延伸到溝通、倫理與制度。</p>${btn('開始討論','tab','pbl','small')}</article>
   <article class="practice-card"><span class="practice-count">${flows} 個流程</span><h3>臨床流程</h3><p>急症、當日轉介、操作安全與篩檢照會；可遮住細節，或把打亂的步驟排回正確順序。</p>${btn('開始練習','tab','workflow','small')}</article>
-  <article class="practice-card"><span class="practice-count">${linkItems().length} 個收藏</span><h3>我的連結</h3><p>收藏章節段落、流程或外部網址並加註；隨「匯出進度」一起保存。</p>${btn('管理連結','tab','links','small')}</article></div></section>`;
+  <article class="practice-card"><span class="practice-count">${linkItems().length} 個收藏</span><h3>我的連結</h3><p>收藏章節段落、流程或外部網址並加註；與其他進度一起自動保存。</p>${btn('管理連結','tab','links','small')}</article></div></section>`;
 }
 function practiceIndex(){
   const out=[];
@@ -294,6 +294,7 @@ function practiceIndex(){
 
 /* Events routed from the app's existing handlers. */
 function practiceInput(el){
+  if(syncInput(el))return true;
   const id=el?.id||'';
   if(id==='link-url'||id==='link-title'||id==='link-note'){S.linkDraft[id.slice(5)]=el.value;return true;}
   if(id==='link-filter'){S.linkFilter=el.value;const box=$('#link-list');if(box)box.innerHTML=linkListMarkup();return true;}
@@ -301,8 +302,9 @@ function practiceInput(el){
   if(id==='pbl-issues'){const c=pblCase(),v=pblNotes(c.id);putMeta('pbl:'+c.id,{notes:v.notes,issues:el.value});return true;}
   return false;
 }
-function practiceChange(el){if(el?.id==='link-topic'){S.linkDraft.topicId=el.value;return true;}return false;}
+function practiceChange(el){if(syncChange(el))return true;if(el?.id==='link-topic'){S.linkDraft.topicId=el.value;return true;}return false;}
 function practiceAction(a,v,b){
+  if(syncAction(a))return;
   switch(a){
   case'pbl-open':if(pblCases().some(c=>c.id===v)){S.pbl=v;switchTab('pbl');}break;
   case'pbl-stage':{const c=pblCase(),next=Math.min(c.stages.length,(S.pblStage[c.id]||1)+1);S.pblStage[c.id]=next;render();document.getElementById('pbl-stage-'+next)?.scrollIntoView?.({block:'start'});break;}
