@@ -484,6 +484,8 @@ footer span:first-child{max-width:70ch}
 </style>
 <link rel="stylesheet" href="scripts/cram-review.css?v=20261016">
 <script defer src="scripts/cram-review.js?v=20261016"></script>
+<link rel="stylesheet" href="scripts/textbook-depth.css">
+<script src="scripts/textbook-depth.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">跳至練習內容</a>
@@ -504,7 +506,7 @@ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const now=()=>new Date().toISOString();
 const day=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Taipei',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
 const shortTitle=id=>D.topics.find(t=>t.id===id)?.title.split('：')[0]||id;
-const navs=[['cram','✦','共筆考前衝刺'],['notebook','▧','章節教材'],['quiz','▦','筆試練習'],['learn','▤','主動複習'],['interview','◷','面試演練'],['pbl','◈','PBL 情境'],['workflow','▥','臨床流程'],['workshop','◇','故事與證據'],['plan','▣','每日計畫'],['progress','◴','學習進度'],['links','☆','我的連結'],['sync','⇅','保存與同步']];
+const navs=[['textbook','▥','原文書進階'],['cram','✦','共筆考前衝刺'],['notebook','▧','章節教材'],['quiz','▦','筆試練習'],['learn','▤','主動複習'],['interview','◷','面試演練'],['pbl','◈','PBL 情境'],['workflow','▥','臨床流程'],['workshop','◇','故事與證據'],['plan','▣','每日計畫'],['progress','◴','學習進度'],['links','☆','我的連結'],['sync','⇅','保存與同步']];
 let entries=Object.create(null),meta=Object.create(null),dirty=false,toastTimer;
 let S={workshop:'stories',story:D.storySeeds[0].id,evidence:D.evidenceSeeds[0].id,storyTarget:null,tab:'notebook',original:1,originalQuery:'',originalScope:'all',originalPage:0,originalResultPage:0,originalFocus:0,search:'',searchChapter:'all',topic:'all',mode:'all',ids:D.questions.map(q=>q.id),qi:0,selected:null,confidence:0,round:Object.create(null),learn:D.topics[0].id,recall:false,revealed:new Set(),interview:D.interview[0].id,followup:0,seconds:D.interview[0].durationSeconds,deadline:null,onCall:false};
 const put=(key,value)=>{entries[key]={...value,at:now()};changed();};
@@ -580,7 +582,7 @@ function originals(){return heading('','原始共筆未公開','公開版提供�
 document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.id==='original-search'){e.preventDefault();S.originalQuery=e.target.value;S.originalScope=$('#original-scope').value;S.originalResultPage=0;render();}});
 
 
-function navMarkup(){const groups=[['閱讀',['cram','notebook','learn','links']],['演練',['quiz','interview','pbl','workflow','workshop']],['安排與回顧',['plan','progress','sync']]];return groups.map(([label,ids])=>`<section class="nav-group" aria-label="${label}"><p class="nav-group-label">${label}</p>${ids.map(key=>{const [id,icon,name]=navs.find(n=>n[0]===key);return `<button class="nav-button" data-action="tab" data-value="${id}" ${id===S.tab?'aria-current="page"':''}><span class="nav-symbol" aria-hidden="true">${icon}</span><span>${name}</span>${id==='quiz'?`<span class="nav-count" aria-hidden="true">${D.questions.length}</span>`:id==='interview'?`<span class="nav-count" aria-hidden="true">${D.interview.length}</span>`:id==='pbl'?`<span class="nav-count" aria-hidden="true">${D.pbl?.cases?.length||0}</span>`:id==='workflow'?`<span class="nav-count" aria-hidden="true">${D.workflows?.workflows?.length||0}</span>`:''}</button>`;}).join('')}</section>`).join('');}
+function navMarkup(){const groups=[['閱讀',['textbook','cram','notebook','learn','links']],['演練',['quiz','interview','pbl','workflow','workshop']],['安排與回顧',['plan','progress','sync']]];return groups.map(([label,ids])=>`<section class="nav-group" aria-label="${label}"><p class="nav-group-label">${label}</p>${ids.map(key=>{const [id,icon,name]=navs.find(n=>n[0]===key);return `<button class="nav-button" data-action="tab" data-value="${id}" ${id===S.tab?'aria-current="page"':''}><span class="nav-symbol" aria-hidden="true">${icon}</span><span>${name}</span>${id==='quiz'?`<span class="nav-count" aria-hidden="true">${D.questions.length}</span>`:id==='interview'?`<span class="nav-count" aria-hidden="true">${D.interview.length}</span>`:id==='pbl'?`<span class="nav-count" aria-hidden="true">${D.pbl?.cases?.length||0}</span>`:id==='workflow'?`<span class="nav-count" aria-hidden="true">${D.workflows?.workflows?.length||0}</span>`:''}</button>`;}).join('')}</section>`).join('');}
 
 /* enrichment-ui:start */
 function chapterEnrichment(t){return D.enrichment?.chapters?.[t.id]||null;}
@@ -740,6 +742,7 @@ function anchorValid(t,target){if(t.chapter&&typeof coverageTarget==='function'&
 function parseRoute(hash){
   if(typeof hash!=='string')return null;
   const h=hash.trim();let m;
+  if(/^#textbook(?:-bcsc-s(?:0[1-9]|1[0-3])(?:-(?:ch\d{3}(?:-iq\d{3})?|rq\d{3}))?)?$/.test(h))return {kind:'tab',tab:'textbook',hash:h};
   if((m=h.match(/^#([a-z0-9-]+?)-(section-\d+|coverage(?:-[a-z][a-z0-9-]*)?|u[1-3])$/))){const t=D.topics.find(x=>x.id===m[1]);if(t&&anchorValid(t,m[2]))return {kind:'anchor',topicId:t.id,target:m[2],hash:h};}
   if((m=h.match(/^#topic-([a-z0-9-]+)$/))&&D.topics.some(t=>t.id===m[1]))return {kind:'topic',id:m[1],hash:h};
   if(h==='#pbl')return {kind:'pbl',id:null,hash:h};
@@ -1379,7 +1382,31 @@ window.addEventListener('online',()=>{if(cloudConfig()&&(syncState.pending||sync
 setTimeout(()=>{syncStatus();if(cloudConfig()&&deviceSettings().autoSync)syncNow('load');},0);
 /* progress-sync:end */
 function cramPage(){return '<section id="cram-root" aria-label="共筆考前衝刺"><p role="status">正在載入共筆考前衝刺…</p></section>'; }
-function render(){const active=navs.find(n=>n[0]===S.tab);$('#nav').innerHTML=navMarkup();$('#section-label').textContent=active[2];$('#main').setAttribute('data-view',S.tab);$('#main').innerHTML=({notebook,originals,quiz,learn,interview,workshop,plan,progress,pbl:pblPage,workflow:workflowPage,links:linksPage,sync:syncPage,cram:cramPage})[S.tab]();syncPracticeHash();if(S.tab==='cram'&&window.OphCram)window.OphCram.mount(document.getElementById('cram-root'));}
+/* textbook-bridge:start */
+// Shape validation deliberately does not depend on a lazily loaded book.
+function textbookEntry(key,v){
+  if(!key.startsWith('textbook:'))return undefined;
+  if(!/^textbook:(unit|question):bcsc-s(?:0[1-9]|1[0-3])-(?:ch\d{3}-u\d{2}|rq\d{3}|ch\d{3}-iq\d{3})$/.test(key)||!v||typeof v!=='object'||Array.isArray(v))return null;
+  if(key.startsWith('textbook:unit:')&&!/-ch\d{3}-u\d{2}$/.test(key))return null;
+  if(key.startsWith('textbook:question:')&&/-u\d{2}$/.test(key))return null;
+  const at=validDate(v.at),edition=typeof v.edition==='string'?v.edition.slice(0,40):'';
+  if(key.startsWith('textbook:unit:')){
+    if(!['review','known'].includes(v.rating))return null;
+    return {version:1,rating:v.rating,edition,at};
+  }
+  if(!Number.isInteger(v.choice)||v.choice<0||v.choice>3)return null;
+  return {version:1,choice:v.choice,revealed:v.revealed===true,confidence:[0,1,2,3].includes(v.confidence)?v.confidence:0,edition,at};
+}
+function textbookPage(){return '<p class="tb-small">原創教材與題目涵蓋原書主要主題與章節重點；可選取本機 PDF 查看原書全文與圖表。</p><section id="textbook-root" aria-label="原文書進階"><p role="status">正在開啟原文書書架…</p></section>';}
+window.OphTextbookBridge={
+  read(kind,id){const key='textbook:'+kind+':'+id;return textbookEntry(key,entries[key])||null;},
+  all(){return Object.fromEntries(Object.entries(entries).filter(([key])=>key.startsWith('textbook:')));},
+  write(kind,id,value){const key='textbook:'+kind+':'+id,valid=textbookEntry(key,{...value,at:now()});if(!valid)throw Error('原文書進度格式無效');put(key,valid);},
+  rememberLocation(){rememberWorkspace();},
+  saveStatus(){return document.getElementById('save-status')?.textContent||'';}
+};
+/* textbook-bridge:end */
+function render(){const active=navs.find(n=>n[0]===S.tab);$('#nav').innerHTML=navMarkup();$('#section-label').textContent=active[2];$('#main').setAttribute('data-view',S.tab);$('#main').innerHTML=({notebook,originals,quiz,learn,interview,workshop,plan,progress,pbl:pblPage,workflow:workflowPage,links:linksPage,sync:syncPage,cram:cramPage,textbook:textbookPage})[S.tab]();syncPracticeHash();if(S.tab==='cram'&&window.OphCram)window.OphCram.mount(document.getElementById('cram-root'));if(S.tab==='textbook'&&window.OphTextbook)window.OphTextbook.mount(document.getElementById('textbook-root'));}
 function pauseTimer(){if(S.deadline)S.seconds=Math.max(0,Math.ceil((S.deadline-Date.now())/1000));S.deadline=null;}
 function chooseInterview(id){if(!D.interview.some(i=>i.id===id))return;S.deadline=null;S.interview=id;S.seconds=currentInterview().durationSeconds;S.followup=0;switchTab('interview');}
 document.addEventListener('click',e=>{const b=e.target.closest('[data-action]');if(!b||b.disabled)return;const a=b.dataset.action,v=b.dataset.value;switch(a){
@@ -1435,7 +1462,7 @@ setInterval(()=>{if(!S.deadline)return;S.seconds=Math.max(0,Math.ceil((S.deadlin
 window.addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue='';}});
 function exportProgress(){const payload={format:'ophthalmology-prep-progress-v3',exportedAt:now(),entries,meta:exportMeta()};const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='Ophthalmology_Progress_'+day+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),2000);dirty=false;$('.topbar').classList.remove('is-dirty');$('#save-status').textContent='已啟動下載。請確認進度檔已保存；下次開啟 App 時匯入即可。';toast('已匯出進度與文字草稿。');}
 function validDate(v){return typeof v==='string'&&Number.isFinite(Date.parse(v))?v:'1970-01-01T00:00:00.000Z';}
-function validateEntry(key,v){const extra=practiceEntry(key,v);if(extra!==undefined)return extra;if(!v||typeof v!=='object'||Array.isArray(v))return null;const at=validDate(v.at);if(key.startsWith('q:')){const q=D.questions.find(q=>q.id===key.slice(2));return q&&Number.isInteger(v.choice)&&v.choice>=0&&v.choice<q.options.length?{choice:v.choice,correct:v.choice===q.correctIndex,at}:null;}if((key.startsWith('topic:')&&D.topics.some(t=>t.id===key.slice(6)))||(key.startsWith('day:')&&D.plan.some(p=>p.date===key.slice(4))))return typeof v.done==='boolean'?{done:v.done,at}:null;if(key.startsWith('interview:')&&D.interview.some(i=>i.id===key.slice(10))&&typeof v.draft==='string'&&v.draft.length<=12000&&Array.isArray(v.ratings)&&v.ratings.length===5&&v.ratings.every(x=>typeof x==='boolean')&&typeof v.practiced==='boolean')return {draft:v.draft,ratings:v.ratings,practiced:v.practiced,at};return null;}
+function validateEntry(key,v){const textbook=textbookEntry(key,v);if(textbook!==undefined)return textbook;const extra=practiceEntry(key,v);if(extra!==undefined)return extra;if(!v||typeof v!=='object'||Array.isArray(v))return null;const at=validDate(v.at);if(key.startsWith('q:')){const q=D.questions.find(q=>q.id===key.slice(2));return q&&Number.isInteger(v.choice)&&v.choice>=0&&v.choice<q.options.length?{choice:v.choice,correct:v.choice===q.correctIndex,at}:null;}if((key.startsWith('topic:')&&D.topics.some(t=>t.id===key.slice(6)))||(key.startsWith('day:')&&D.plan.some(p=>p.date===key.slice(4))))return typeof v.done==='boolean'?{done:v.done,at}:null;if(key.startsWith('interview:')&&D.interview.some(i=>i.id===key.slice(10))&&typeof v.draft==='string'&&v.draft.length<=12000&&Array.isArray(v.ratings)&&v.ratings.length===5&&v.ratings.every(x=>typeof x==='boolean')&&typeof v.practiced==='boolean')return {draft:v.draft,ratings:v.ratings,practiced:v.practiced,at};return null;}
 function validateMeta(key,v){const extra=practiceMeta(key,v);if(extra!==undefined)return extra;if(!v||typeof v!=='object'||Array.isArray(v))return null;const work=validateWorkshop(key,v,validDate(v.at));if(work)return work;const at=validDate(v.at),text=(s,max)=>typeof s==='string'?s.slice(0,max):'';if(key.startsWith('q:')&&D.questions.some(q=>q.id===key.slice(2)))return {at,confidence:[0,1,2,3].includes(v.confidence)?v.confidence:0,note:text(v.note,2000),reason:text(v.reason,60)};if(key.startsWith('interview:')&&D.interview.some(i=>i.id===key.slice(10)))return {at,note:text(v.note,2000)};if(key.startsWith('followup:')&&D.interview.some(i=>i.followups.some((_,n)=>key==='followup:'+i.id+':'+n)))return {at,note:text(v.note,3000)};if(key.startsWith('recall:')&&D.topics.some(t=>t.sections.some((_,n)=>key==='recall:'+t.id+':'+n))&&typeof v.mastered==='boolean')return {at,mastered:v.mastered};if(key.startsWith('checklist:')&&[['before',D.dayBeforeChecklist],['exam',D.examDayChecklist]].some(([name,items])=>items.some((_,n)=>key==='checklist:'+name+':'+n))&&typeof v.done==='boolean')return {at,done:v.done};return null;}
 function mergeProgress(payload){if(!payload||!['ophthalmology-prep-progress-v1','ophthalmology-prep-progress-v2','ophthalmology-prep-progress-v3'].includes(payload.format)||!payload.entries||typeof payload.entries!=='object'||Array.isArray(payload.entries))throw Error('請選擇本 App 匯出的進度 JSON 檔。');let count=0,skipped=0;for(const [key,v] of Object.entries(payload.entries)){const value=validateEntry(key,v);if(value){if(!entries[key]||Date.parse(value.at)>=Date.parse(entries[key].at)){entries[key]=value;count++;}}else skipped++;}if(payload.meta&&typeof payload.meta==='object'&&!Array.isArray(payload.meta))for(const [key,v] of Object.entries(payload.meta)){const value=validateMeta(key,v);if(value){if(!meta[key]||Date.parse(value.at)>=Date.parse(meta[key].at)){meta[key]=value;count++;}}else skipped++;}S.round=Object.create(null);S.selected=null;S.confidence=0;changed();render();return {count,skipped};}
 $('#import-file').addEventListener('change',async e=>{const file=e.target.files[0];if(!file)return;try{if(file.size>2000000)throw Error('檔案過大，請使用本 App 匯出的進度檔。');const payload=JSON.parse(await file.text());if((Object.keys(entries).length||Object.keys(meta).length)&&!window.confirm('將合併進度；同一項目保留時間較新的版本。繼續？'))return;const result=mergeProgress(payload);toast(`已合併 ${result.count} 筆記錄${result.skipped?'，略過 '+result.skipped+' 筆無效資料':''}。`);}catch(e){toast(e instanceof SyntaxError?'無法讀取 JSON，請確認選擇的是進度檔。':e.message);}finally{e.target.value='';}});
