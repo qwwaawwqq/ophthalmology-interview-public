@@ -8,10 +8,12 @@ on:
         type: boolean
         default: false
   push:
-    branches: [content/bcsc-depth-issue-8]
+    branches: [content/additional-study-issue-10]
     paths:
       - content/textbook-manifest.json
       - content/textbook-depth/**
+      - scripts/study-*.js
+      - scripts/test-study-srs.cjs
       - scripts/textbook-*.js
       - scripts/textbook-*.css
       - scripts/validate-textbook.py
@@ -24,18 +26,18 @@ permissions:
   contents: write
 
 concurrency:
-  group: textbook-feature-issue-8
+  group: additional-study-issue-10
   cancel-in-progress: false
 
 jobs:
   build:
-    if: github.ref == 'refs/heads/content/bcsc-depth-issue-8'
+    if: github.ref == 'refs/heads/content/additional-study-issue-10'
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: content/bcsc-depth-issue-8
+          ref: content/additional-study-issue-10
       - name: Refuse default-branch or unexpected workspace writes
         shell: bash
         run: |
@@ -43,11 +45,11 @@ jobs:
           repo_root="$(git rev-parse --show-toplevel)"
           test "$repo_root" = "$GITHUB_WORKSPACE"
           test "$repo_root" != /Users/wangtingwei
-          test "$GITHUB_REF_NAME" = content/bcsc-depth-issue-8
+          test "$GITHUB_REF_NAME" = content/additional-study-issue-10
           test "$GITHUB_REF_NAME" != main
       - name: Validate authored scope and build only from small source files
         run: |
-          if [ '${{ inputs.require_complete }}' = true ]; then
+          if [ '${{ github.event_name }}' = push ] || [ '${{ inputs.require_complete }}' = true ]; then
             python3 scripts/validate-textbook.py --require-complete
           else
             python3 scripts/validate-textbook.py
@@ -60,13 +62,14 @@ jobs:
           node scripts/test-practice-sections.cjs
           node scripts/test-progress-sync.cjs
           node scripts/test-textbook-depth.cjs
+          node scripts/test-study-srs.cjs
       - name: Commit generated index to this feature branch only
         shell: bash
         run: |
           set -euo pipefail
           repo_root="$(git rev-parse --show-toplevel)"
           test "$repo_root" = "$GITHUB_WORKSPACE"
-          test "$GITHUB_REF_NAME" = content/bcsc-depth-issue-8
+          test "$GITHUB_REF_NAME" = content/additional-study-issue-10
           test "$GITHUB_REF_NAME" != main
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
@@ -75,5 +78,5 @@ jobs:
             echo 'Generated index already current.'
           else
             git commit -m 'Build textbook advanced study view'
-            git push origin HEAD:content/bcsc-depth-issue-8
+            git push origin HEAD:content/additional-study-issue-10
           fi

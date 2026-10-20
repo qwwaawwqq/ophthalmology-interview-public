@@ -19,7 +19,7 @@ function anchorValid(t,target){if(t.chapter&&typeof coverageTarget==='function'&
 function parseRoute(hash){
   if(typeof hash!=='string')return null;
   const h=hash.trim();let m;
-  if(/^#textbook(?:-bcsc-s(?:0[1-9]|1[0-3])(?:-(?:ch\d{3}(?:-iq\d{3})?|rq\d{3}))?)?$/.test(h))return {kind:'tab',tab:'textbook',hash:h};
+  if(/^#textbook(?:-extra(?:-extra-\d{8}-q\d{3})?|-bcsc-s(?:0[1-9]|1[0-3])(?:-(?:ch\d{3}(?:-iq\d{3}|-u\d{2})?|rq\d{3}))?)?$/.test(h))return {kind:'tab',tab:'textbook',hash:h};
   if((m=h.match(/^#([a-z0-9-]+?)-(section-\d+|coverage(?:-[a-z][a-z0-9-]*)?|u[1-3])$/))){const t=D.topics.find(x=>x.id===m[1]);if(t&&anchorValid(t,m[2]))return {kind:'anchor',topicId:t.id,target:m[2],hash:h};}
   if((m=h.match(/^#topic-([a-z0-9-]+)$/))&&D.topics.some(t=>t.id===m[1]))return {kind:'topic',id:m[1],hash:h};
   if(h==='#pbl')return {kind:'pbl',id:null,hash:h};

@@ -251,6 +251,55 @@ def validate_book(book, expected, complete=False):
     return summary
 
 
+def validate_extra(pack, books, complete=False):
+    require(pack.get('schemaVersion') == 1 and pack.get('packId') == 'additional-20261020' and pack.get('origin') == 'original-extra-practice', 'extra: separate original-practice identity required')
+    text(pack.get('title'), 'extra title');text(pack.get('notice'), 'extra notice')
+    questions = pack.get('questions');require(isinstance(questions, list) and 0 < len(questions) <= 120, 'extra: 1–120 authored questions required')
+    require(all(isinstance(q, dict) for q in questions), 'extra: question objects required')
+    ids = [q.get('id') for q in questions];require(all(isinstance(qid, str) and re.fullmatch(r'extra-20261020-q\d{3}', qid) for qid in ids) and len(ids) == len(set(ids)), 'extra: stable unique question IDs required')
+    for q in questions:text(q.get('stem'), str(q.get('id')) + ': stem')
+    require(len({q.get('stem') for q in questions}) == len(questions), 'extra: duplicate stems')
+    evidence = pack.get('review', {})
+    checked = [q['id'] for q in questions if q.get('status') == 'source-checked']
+    if checked:
+        require(re.fullmatch(r'[a-f0-9]{64}', evidence.get('authorSha256', '')) is not None, 'extra: independent author SHA evidence required')
+        approved = evidence.get('questionIds', [])
+        require(len(approved) == len(set(approved)) and set(approved) == set(checked), 'extra: explicit approved question IDs required')
+        require(set(evidence.get('questionContentHashes', {})) == set(checked), 'extra: review hash keys differ from checked question IDs')
+    for q in questions:
+        name = q['id'];book = books.get(q.get('bookId'))
+        require(book is not None and q.get('questionScope') == 'original-practice' and 'sourceQuestionKey' not in q and 'sourceNumber' not in q, name + ': do not impersonate an official source question')
+        units = {u['id']: (c['id'], u) for source_book in books.values() for c in source_book['chapters'] for u in c['units']}
+        links = q.get('unitIds', []);chapters = q.get('chapterIds', [])
+        require(isinstance(links, list) and links and len(links) == len(set(links)) and all(uid in units for uid in links), name + ': linked teaching unit not in the source catalog')
+        require(isinstance(chapters, list) and len(chapters) == len(set(chapters)) and set(chapters) == {units[uid][0] for uid in links}, name + ': chapter/unit mapping drift')
+        for field in ('stem', 'explanation', 'testConcept', 'difficulty', 'questionType'):text(q.get(field), name + ': ' + field)
+        options = q.get('options');require(isinstance(options, list) and len(options) == 4 and all(isinstance(o, dict) for o in options), name + ': four options required')
+        require(len({o.get('text') for o in options}) == 4, name + ': duplicate option text')
+        for o in options:
+            for field in ('text', 'rationale', 'whenTrue'):text(o.get(field), name + ': option ' + field)
+        require(type(q.get('correctIndex')) is int and 0 <= q['correctIndex'] < 4, name + ': correct source option index required')
+        require(isinstance(q.get('sourceRefs'), list) and q['sourceRefs'], name + ': sourceRefs required')
+        referenced_books = set()
+        for ref in q['sourceRefs']:
+            bid = ref.get('bookId', q['bookId']);require(isinstance(bid, str) and bid in books, name + ': unknown reference book')
+            refs([ref], books[bid]['source']['pdfPageCount'], name)
+            require(all(type(n) is int for n in ref['pdfPages']), name + ': PDF pages must be integers')
+            referenced_books.add(bid)
+        require({uid[:8] for uid in links} <= referenced_books, name + ': every linked volume needs its own explicit reference book')
+        clinical_updates(q, name)
+        require(q.get('requiresImage') is False and q.get('imageStatus') == 'not-applicable', name + ': original text-only practice must not claim source image verification')
+        require(q.get('status') in ('draft', 'source-checked'), name + ': explicit draft or source-checked status required')
+        if q['status'] == 'source-checked':require(evidence['questionContentHashes'].get(name) == reviewed_item_hash(q), name + ': content changed after independent review')
+        q['readiness'] = 'ready' if q['status'] == 'source-checked' else 'draft'
+    if complete:
+        require(set(ids) == {'extra-20261020-q%03d' % n for n in range(1, 121)}, 'extra: final acceptance requires the exact 120 original IDs')
+        require(len(checked) == 120, 'extra: final acceptance requires independent approval for every question')
+    raw = json.dumps(pack, ensure_ascii=False)
+    require(not re.search(r'/Users/|private-text/|PGY2|question_english|answer_english|data:application/pdf|gh[pousr]_[A-Za-z0-9]{20}', raw), 'extra: private source or secret candidate in public pack')
+    return {'origin': 'original-extra-practice', 'authoredQuestions': len(questions), 'readyQuestions': len(checked), 'officialSourceConceptsAdded': 0}
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--root', type=Path, default=ROOT)
@@ -262,12 +311,12 @@ def main():
     manifest = json.loads(manifest_path.read_text())
     require(manifest.get('schemaVersion') == 1 and len(manifest['books']) == 13, 'verified thirteen-volume manifest required')
     audit = {'scope': 'Every numeric-bearing teaching/question/clinical-update text leaf; broad Arabic and Chinese numeral candidates, including nonactionable numbers; IDs, source page metadata and edition metadata excluded', 'claims': [], 'calculationChecks': []}
-    summaries = []
+    summaries = [];book_lookup = {}
     for expected in manifest['books']:
         path = args.root / expected['file']
         require(path.exists(), expected['bookId'] + ': per-volume content missing')
         book = json.loads(path.read_text())
-        original = copy.deepcopy(book)
+        original = copy.deepcopy(book);book_lookup[book['bookId']] = book
         summary = validate_book(book, expected, args.require_complete)
         summaries.append({'bookId': expected['bookId'], **summary})
         claims, calculations = numeric_claims(book)
@@ -275,9 +324,18 @@ def main():
         if args.write: save(path, book)
         else: require(book == original, expected['bookId'] + ': derived coverage/readiness stale; run with --write')
         expected['coverage'] = summary
+    extra_summary = None
+    extra_path = args.root / 'content/textbook-depth/additional-practice.json'
+    if extra_path.exists():
+        extra = json.loads(extra_path.read_text());original_extra = copy.deepcopy(extra)
+        extra_summary = validate_extra(extra, book_lookup, args.require_complete)
+        claims, calculations = numeric_claims({'bookId': extra['packId'], 'chapters': [], 'questions': extra['questions']})
+        audit['claims'].extend(claims);audit['calculationChecks'].extend(calculations)
+        if args.write: save(extra_path, extra)
+        else: require(extra == original_extra, 'extra: generated readiness stale; run with --write')
     if args.write: save(manifest_path, manifest)
     if args.numeric_audit: save(args.numeric_audit, audit)
-    print(json.dumps({'books': summaries, 'numericClaimsRequiringIndependentReview': len(audit['claims']), 'calculationsRecomputed': len(audit['calculationChecks'])}, ensure_ascii=False))
+    print(json.dumps({'books': summaries, 'additionalPractice': extra_summary, 'numericClaimsRequiringIndependentReview': len(audit['claims']), 'calculationsRecomputed': len(audit['calculationChecks'])}, ensure_ascii=False))
 
 
 if __name__ == '__main__':
