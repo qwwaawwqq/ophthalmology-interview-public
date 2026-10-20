@@ -16,15 +16,132 @@
         {
           "pdfPages": [
             28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
             35
           ],
           "printedPages": [
-            "11"
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18"
           ],
           "chapterHeading": "Epidemiology of Cataract"
         }
       ],
-      "units": []
+      "units": [
+        {
+          "id": "bcsc-s11-ch001-u01",
+          "title": "白內障風險與手術可近性",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                28,
+                31,
+                32
+              ],
+              "printedPages": [
+                "11",
+                "14",
+                "15"
+              ],
+              "chapterHeading": "Epidemiology of Cataract"
+            },
+            {
+              "pdfPages": [
+                278,
+                285
+              ],
+              "printedPages": [
+                "261",
+                "268"
+              ],
+              "chapterHeading": "Study Questions / Answers"
+            }
+          ],
+          "mechanism": [
+            "老化、菸草、糖尿病及UV-B與白內障風險有關；糖尿病可由sorbitol、glycation及氧化壓力加速lens變化。人口失明負擔還受醫療可近性影響，不只由疾病生物學決定。",
+            "長期大量飲酒是本卷支持的nuclear cataract風險之一；詢問生活史時應分清這種暴露，不能把一般電腦或近距離工作直接當作同等來源風險。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "糖尿病且較早/較快lens混濁",
+              "meaning": "可有代謝與滲透機轉"
+            },
+            {
+              "finding": "視功能受損而無法取得手術",
+              "meaning": "疾病負擔不只由混濁程度解釋"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "風險關聯",
+              "for": "群體較多發",
+              "against": "不等每個有風險者一定患病",
+              "discriminator": "綜合年齡和暴露"
+            },
+            {
+              "diagnosis": "營養補充預防",
+              "for": "效果未一致證明",
+              "against": "不能當手術替代",
+              "discriminator": "辨原始證據與產品宣稱"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "病史及lens評估",
+              "purpose": "找可改變風險與其他視覺病",
+              "interpretation": "看功能而非只看年齡",
+              "limitation": "不以單一risk factor決定手術"
+            }
+          ],
+          "management": [
+            {
+              "condition": "風險管理",
+              "stage": "可改變暴露",
+              "action": "戒菸、避免過量酒及適當UV防護，控制糖尿病",
+              "rationale": "有全身及眼部利益",
+              "caution": "不承諾營養品可逆轉已形成白內障"
+            },
+            {
+              "condition": "影響生活的白內障",
+              "stage": "適當手術評估",
+              "action": "依功能及可得照護選方案",
+              "rationale": "可逆致盲但需可近性",
+              "caution": "先評後節潛力與個人需求"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "lens外觀",
+              "clue": "核/皮質/PSC不同分布",
+              "interpretation": "風險需和真正視覺來源對上",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 28
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "維生素可保證不長白內障",
+              "correction": "目前不能以一致證據作此承諾"
+            }
+          ],
+          "recall": {
+            "prompt": "哪個系統病有明確白內障風險？",
+            "answer": "糖尿病，可由多條代謝和氧化機轉促進混濁。"
+          },
+          "status": "source-checked"
+        }
+      ]
     },
     {
       "id": "bcsc-s11-ch002",
@@ -34,15 +151,196 @@
         {
           "pdfPages": [
             36,
+            37,
+            38,
+            39,
+            40,
             41
           ],
           "printedPages": [
-            "19"
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24"
           ],
           "chapterHeading": "Anatomy"
         }
       ],
-      "units": []
+      "units": [
+        {
+          "id": "bcsc-s11-ch002-u01",
+          "title": "Lens分層、capsule與zonule",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                36,
+                38,
+                40
+              ],
+              "printedPages": [
+                "19",
+                "21",
+                "23"
+              ],
+              "chapterHeading": "Anatomy"
+            }
+          ],
+          "mechanism": [
+            "赤道上皮分化形成新lens fibers，較舊纖維被包到中央endonucleus，外周cortex較新。Capsule是上皮產生的基底膜，中央後囊很薄且後方無上皮層；zonule將lens懸吊於睫狀體。",
+            "調節時ciliary muscle收縮使zonular tension下降，lens中央前表面較彎、屈光力增加；老化lens較硬而調節減少。年齡同時改變曲率與折射率，不能以曲率增加就推每人等量近視。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "震顫或phacodonesis",
+              "meaning": "提示zonular不穩"
+            },
+            {
+              "finding": "posterior polar病灶",
+              "meaning": "可能與後囊脆弱/缺損相關"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "Cortex",
+              "for": "較新外周纖維",
+              "against": "與中央舊核不同",
+              "discriminator": "層次定位"
+            },
+            {
+              "diagnosis": "Nucleus",
+              "for": "較舊中央纖維",
+              "against": "手術硬度也受老化影響",
+              "discriminator": "光學切面"
+            },
+            {
+              "diagnosis": "Capsule weakness",
+              "for": "屏障失效可能使玻璃體前移",
+              "against": "不只lens混濁本身",
+              "discriminator": "病史與形態"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "裂隙燈與散瞳",
+              "purpose": "看核、皮質、囊與懸韌帶",
+              "interpretation": "視軸混濁可遮後節",
+              "limitation": "需用其他評估視覺潛力"
+            }
+          ],
+          "management": [
+            {
+              "condition": "疑zonular病",
+              "stage": "術前準備",
+              "action": "備capsular hooks/CTR等支撐並計畫IOL固定",
+              "rationale": "避免無支持操作擴大裂離",
+              "caution": "並非所有破囊都可用同樣CTR"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "解剖圖",
+              "clue": "外cortex與中央endonucleus、薄後囊",
+              "interpretation": "手術分層要認清",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 36
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "最老纖維在外側cortex",
+              "correction": "新的外周層不斷包住較舊中央纖維"
+            }
+          ],
+          "recall": {
+            "prompt": "最老lens fibers位在哪？",
+            "answer": "中央endonucleus。"
+          },
+          "status": "source-checked"
+        },
+        {
+          "id": "bcsc-s11-ch002-u02",
+          "title": "無血管lens依賴房水交換",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                36,
+                37,
+                38
+              ],
+              "printedPages": [
+                "19",
+                "20",
+                "21"
+              ],
+              "chapterHeading": "Anatomy"
+            }
+          ],
+          "mechanism": [
+            "成熟lens沒有血管，養分和代謝物主要經房水交換。成熟纖維失去細胞核/多數胞器以利透明；前方上皮細胞仍有代謝與胞器，不能把整個lens說成完全無胞器。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "lens混濁的代謝問題",
+              "meaning": "可源於蛋白/離子/氧化穩態而非自身靜脈堵塞"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "前方LEC",
+              "for": "維持運輸並在赤道分化",
+              "against": "不同於無核成熟纖維",
+              "discriminator": "解剖區位"
+            },
+            {
+              "diagnosis": "成熟lens fiber",
+              "for": "透明需規則排列及胞器消退",
+              "against": "不代表所有lens細胞皆無代謝",
+              "discriminator": "區分cell類型"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "解剖與代謝模型",
+              "purpose": "辨交換來源",
+              "interpretation": "廢物主要經房水而非lens自身靜脈",
+              "limitation": "不能直接由血中濃度推lens內即時濃度"
+            }
+          ],
+          "management": [
+            {
+              "condition": "代謝或毒性背景",
+              "stage": "處理全身及視覺",
+              "action": "控制原因並評lens混濁功能影響",
+              "rationale": "改善系統病不保證成熟混濁可逆",
+              "caution": "仍依視功能決定手術"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "解剖示意",
+              "clue": "前上皮與無核纖維、房水接觸",
+              "interpretation": "交換與透明性各有細胞基礎",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 36
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "lens沒有血管所以廢物不排出",
+              "correction": "主要經房水交換；不會全留在內部"
+            }
+          ],
+          "recall": {
+            "prompt": "Lens代謝廢物的主要離開媒介？",
+            "answer": "房水。"
+          },
+          "status": "source-checked"
+        }
+      ]
     },
     {
       "id": "bcsc-s11-ch003",
@@ -52,15 +350,213 @@
         {
           "pdfPages": [
             42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
             53
           ],
           "printedPages": [
-            "25"
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36"
           ],
           "chapterHeading": "Biochemistry and Physiology"
         }
       ],
-      "units": []
+      "units": [
+        {
+          "id": "bcsc-s11-ch003-u01",
+          "title": "Crystallin、氧化防禦與透明",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                42,
+                43,
+                44,
+                49
+              ],
+              "printedPages": [
+                "25",
+                "26",
+                "27",
+                "32"
+              ],
+              "chapterHeading": "Biochemistry and Physiology"
+            }
+          ],
+          "mechanism": [
+            "規則高濃度crystallin及含水穩態讓lens透明；老化聚集、不溶性蛋白增加可散光。SOD、catalase和glutathione peroxidase共同對抗氧化/自由基傷害，glutathione是重要抗氧化環節。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "核變黃棕與硬化",
+              "meaning": "與蛋白變化及聚集有關"
+            },
+            {
+              "finding": "自由基防禦不足",
+              "meaning": "可能累積蛋白及膜損傷"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "氧化防禦酵素",
+              "for": "清除活性氧",
+              "against": "不是主要調pH或將蛋白變不溶",
+              "discriminator": "功能辨識"
+            },
+            {
+              "diagnosis": "蛋白聚集",
+              "for": "改變局部折射率而散射",
+              "against": "非單純度數不足",
+              "discriminator": "混濁定位"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "lens形態及風險背景",
+              "purpose": "辨混濁來源",
+              "interpretation": "不能由一次血液抗氧化值確定lens病程",
+              "limitation": "需臨床功能評估"
+            }
+          ],
+          "management": [
+            {
+              "condition": "預防宣稱",
+              "stage": "證據管理",
+              "action": "不因抗氧化機轉合理就保證補充劑有效預防/逆轉",
+              "rationale": "生物機轉不等臨床療效",
+              "caution": "避免延誤有功能障礙的手術評估"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "lens切面",
+              "clue": "核硬化與散射",
+              "interpretation": "蛋白狀態改變不等於可用驗光完全解決",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 42
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "SOD/catalase是糖解主酵素",
+              "correction": "它們主要是氧化防禦"
+            }
+          ],
+          "recall": {
+            "prompt": "SOD、catalase、glutathione peroxidase共同功能？",
+            "answer": "保護lens免受氧化與自由基傷害。"
+          },
+          "status": "source-checked"
+        },
+        {
+          "id": "bcsc-s11-ch003-u02",
+          "title": "Glucose、sorbitol與離子泵：白內障和屈光波動",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                42,
+                45,
+                46,
+                50,
+                51
+              ],
+              "printedPages": [
+                "25",
+                "28",
+                "29",
+                "33",
+                "34"
+              ],
+              "chapterHeading": "Biochemistry and Physiology"
+            }
+          ],
+          "mechanism": [
+            "Anaerobic glycolysis提供lens主要ATP，Na/K ATPase等維持較高內K和較低Na/Ca。高glucose增加aldose reductase/sorbitol pathway通量，sorbitol代謝慢且難外流，可造成滲透性水分改變與混濁。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "血糖快速改變伴屈光波動",
+              "meaning": "lens含水與折射率可變，不能只當永久軸長變化"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "Sorbitol pathway",
+              "for": "aldose reductase將glucose還原",
+              "against": "不是未磷酸化glucose直接進Krebs",
+              "discriminator": "代謝路徑"
+            },
+            {
+              "diagnosis": "Hexose monophosphate shunt",
+              "for": "提供還原防禦相關NADPH",
+              "against": "不代表高glucose必將它關掉",
+              "discriminator": "功能分工"
+            },
+            {
+              "diagnosis": "Ion gradient",
+              "for": "lens K較周液高",
+              "against": "不是Ca/Na都更高",
+              "discriminator": "運輸穩態"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "血糖背景、驗光與lens",
+              "purpose": "分可變屈光與固定混濁",
+              "interpretation": "劇烈代謝不穩時biometry/驗光需慎",
+              "limitation": "不能只因血糖回穩推已形成cataract可逆"
+            }
+          ],
+          "management": [
+            {
+              "condition": "血糖不穩",
+              "stage": "系統協調",
+              "action": "控制代謝並待屈光/眼表量測較穩再訂精細屈光目標",
+              "rationale": "減少不準確預測",
+              "caution": "不要自行只改鏡片而忽略全身病"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "路徑示意",
+              "clue": "glucose→sorbitol及K/Na梯度",
+              "interpretation": "代謝與透明性相連",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 42
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "Sorbitol能很快自由擴散離lens",
+              "correction": "它可累積，造成滲透負荷"
+            }
+          ],
+          "recall": {
+            "prompt": "Lens哪個常見離子比周圍房水/玻璃體濃？",
+            "answer": "K+。"
+          },
+          "status": "source-checked"
+        }
+      ]
     },
     {
       "id": "bcsc-s11-ch004",
@@ -70,15 +566,299 @@
         {
           "pdfPages": [
             54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
             75
           ],
           "printedPages": [
-            "37"
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58"
           ],
           "chapterHeading": "Embryology and Developmental Anomalies"
         }
       ],
-      "units": []
+      "units": [
+        {
+          "id": "bcsc-s11-ch004-u01",
+          "title": "Lens發育與先天白內障的視覺時效",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                54,
+                55,
+                59,
+                60,
+                61,
+                63,
+                64,
+                65,
+                66,
+                67,
+                68,
+                69,
+                70
+              ],
+              "printedPages": [
+                "37",
+                "38",
+                "42",
+                "43",
+                "44",
+                "46",
+                "47",
+                "48",
+                "49",
+                "50",
+                "51",
+                "52",
+                "53"
+              ],
+              "chapterHeading": "Embryology and Developmental Anomalies"
+            }
+          ],
+          "mechanism": [
+            "Lens由surface ectoderm形成placode和vesicle，後壁初級纖維向前填充，之後赤道續生次級纖維。先天白內障可為遺傳、系統症候群、感染或不明，視軸阻擋會影響視覺發育。",
+            "先天anterior polar小opacity可主要造成anisometropia/astigmatism風險，lamellar密度與中央範圍不一，posterior polar可合後囊脆弱。是否遮視軸、可用清晰區及單雙眼/年齡比只背先天名稱更能決定急迫性。",
+            "Anterior lenticonus常提示Alport腎/聽力背景；posterior lentiglobus是後方球狀局部突出，較常局部發育問題。兩者的突出面與系統關聯不同。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "嬰兒白瞳",
+              "meaning": "先完整兒童評估，不能只把外觀當lens病"
+            },
+            {
+              "finding": "雙側家族cataract",
+              "meaning": "常見AD但非所有基因都同遺傳"
+            },
+            {
+              "finding": "前面lens cone合血尿/聽損",
+              "meaning": "查Alport及相應腎/耳/遺傳，不只處理光學。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "孤立遺傳cataract",
+              "for": "雙側/家族可能支持",
+              "against": "仍需看系統",
+              "discriminator": "家族史與適當檢驗"
+            },
+            {
+              "diagnosis": "系統/感染性",
+              "for": "其他發育代謝表現",
+              "against": "不是所有先天cataract同一面板",
+              "discriminator": "定向兒科評估"
+            },
+            {
+              "diagnosis": "其他白瞳",
+              "for": "retinoblastoma/PFV/retinal病等",
+              "against": "不能先假設cataract",
+              "discriminator": "後節及影像"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "散瞳、後節及必要超音波",
+              "purpose": "找白瞳來源和視覺潛力",
+              "interpretation": "小兒不能只以成人視力表判嚴重",
+              "limitation": "視覺發育時程重要"
+            }
+          ],
+          "management": [
+            {
+              "condition": "視軸受威脅嬰幼兒",
+              "stage": "及時專科介入",
+              "action": "病因與手術/屈光/弱視同步規劃",
+              "rationale": "手術透明後仍需建立視覺",
+              "caution": "單眼與雙眼策略及時機不同，不給一個通用等待年齡"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "胚胎示意",
+              "clue": "surface ectoderm至lens vesicle",
+              "interpretation": "區分lens與神經外胚層來源",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 54
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "先天cataract切掉就完成治療",
+              "correction": "後續屈光和弱視同樣重要"
+            }
+          ],
+          "recall": {
+            "prompt": "Lens胚胎來源？",
+            "answer": "Surface ectoderm。"
+          },
+          "status": "source-checked"
+        },
+        {
+          "id": "bcsc-s11-ch004-u02",
+          "title": "Microspherophakia、lenticonus與ectopia",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                59,
+                60,
+                63,
+                64,
+                65,
+                66,
+                67,
+                68,
+                69,
+                70,
+                71,
+                72,
+                73
+              ],
+              "printedPages": [
+                "42",
+                "43",
+                "46",
+                "47",
+                "48",
+                "49",
+                "50",
+                "51",
+                "52",
+                "53",
+                "54",
+                "55",
+                "56"
+              ],
+              "chapterHeading": "Embryology and Developmental Anomalies"
+            }
+          ],
+          "mechanism": [
+            "Microspherophakia是較小直徑且球形lens，可造成高度近視及瞳阻，典型關聯Weill–Marchesani。Ectopia可因zonule遺傳或外傷；獲得性位移最常由外傷。Lenticonus則為局部囊/lens形態凸出，需系統背景。",
+            "Marfan常FBN1、AD相關，需評aortic root/心血管；CBS-related homocystinuria常AR、可類Marfanoid但有thromboembolism/代謝風險，會改麻醉和手術計畫。經典lens位移方向只作傾向，不足單獨定病。",
+            "Microspherophakia的較厚小球晶體易在pupil卡住而block；miotics可增加ciliary contraction/晶體前移而惡化，cycloplegia可拉緊zonules/使lens後移而改善部分block。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "球形小lens合併短身材/短指等",
+              "meaning": "考慮Weill–Marchesani"
+            },
+            {
+              "finding": "lens偏位伴高長體型、血管或代謝線索",
+              "meaning": "區分Marfan/homocystinuria等"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "Microspherophakia",
+              "for": "小而球、近視與pupilblock風險",
+              "against": "不同於單純大lens",
+              "discriminator": "散瞳與房角"
+            },
+            {
+              "diagnosis": "Ectopia lentis",
+              "for": "半脫位尚在瞳區，完全dislocation離瞳區",
+              "against": "方向不是唯一病因判斷",
+              "discriminator": "全身與外傷史"
+            },
+            {
+              "diagnosis": "Lenticonus",
+              "for": "局部lens凸起",
+              "against": "不是整個lens球形",
+              "discriminator": "層次與系統"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "lens位置、房角及必要系統評估",
+              "purpose": "辨瞳阻與視覺問題",
+              "interpretation": "不能只用偏位方向斷遺傳病",
+              "limitation": "手術前看zonule和capsule"
+            }
+          ],
+          "management": [
+            {
+              "condition": "位移/球形lens",
+              "stage": "按視覺與壓力",
+              "action": "矯正屈光和弱視，瞳阻/高壓或視覺不良時評lens手術及合適固定",
+              "rationale": "不穩zonule增加風險",
+              "caution": "避免只用常規囊袋IOL思路"
+            },
+            {
+              "condition": "Microspherophakia急性pupil block",
+              "stage": "先辨機轉",
+              "action": "用合適降壓與cycloplegia，視block與視覺/晶體狀況評LPI或lens手術",
+              "rationale": "不同於一般用miotic的pupillary-block假設",
+              "caution": "避免機械套pilocarpine；晶體移位與angle狀況需專科確認"
+            },
+            {
+              "condition": "兒童/年輕ectopia lentis有syndrome線索",
+              "stage": "術前全身規劃",
+              "action": "Marfan作心血管評估，homocystinuria轉代謝/麻醉團隊處理血栓等風險並治屈光弱視",
+              "rationale": "眼部可能先揭全身致命風險",
+              "caution": "不僅按位移方向診斷，亦不能只摘lens就結案"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "前節",
+              "clue": "球形、偏位或局部conus",
+              "interpretation": "幾何不同有不同治療",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 59
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "所有ectopia都是Marfan",
+              "correction": "外傷是最常見獲得性原因，遺傳病仍需系統評估"
+            }
+          ],
+          "recall": {
+            "prompt": "Microspherophakia最典型系統關聯？",
+            "answer": "Weill–Marchesani syndrome。"
+          },
+          "status": "source-checked"
+        }
+      ]
     },
     {
       "id": "bcsc-s11-ch005",
@@ -88,15 +868,405 @@
         {
           "pdfPages": [
             76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
             101
           ],
           "printedPages": [
-            "59"
+            "59",
+            "60",
+            "61",
+            "62",
+            "63",
+            "64",
+            "65",
+            "66",
+            "67",
+            "68",
+            "69",
+            "70",
+            "71",
+            "72",
+            "73",
+            "74",
+            "75",
+            "76",
+            "77",
+            "78",
+            "79",
+            "80",
+            "81",
+            "82",
+            "83",
+            "84"
           ],
           "chapterHeading": "Pathology"
         }
       ],
-      "units": []
+      "units": [
+        {
+          "id": "bcsc-s11-ch005-u01",
+          "title": "Nuclear、cortical、PSC與atopic前囊下病",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                76,
+                77,
+                78,
+                79,
+                96
+              ],
+              "printedPages": [
+                "59",
+                "60",
+                "61",
+                "62",
+                "79"
+              ],
+              "chapterHeading": "Pathology"
+            }
+          ],
+          "mechanism": [
+            "核硬化增黃棕及硬度，可有近視轉移；cortical裂隙/輻射狀混濁和PSC靠視軸的散射對功能影響不同。PSC常與激素、糖尿病等背景相關；atopic dermatitis可有前或後囊下shield-like混濁。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "強光/近距離或眩光困難且混濁在後囊下",
+              "meaning": "可為PSC"
+            },
+            {
+              "finding": "年輕atopic患者前囊下盾形斑",
+              "meaning": "不能只當成人核白內障"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "Nuclear",
+              "for": "核密度黃棕與myopic shift",
+              "against": "不代表所有近視皆核性",
+              "discriminator": "lens切面"
+            },
+            {
+              "diagnosis": "Cortical",
+              "for": "輪輻樣與不規則散射",
+              "against": "症狀受瞳孔影響",
+              "discriminator": "retroillumination"
+            },
+            {
+              "diagnosis": "PSC",
+              "for": "後囊前的lens混濁",
+              "against": "不是術後後囊增生",
+              "discriminator": "手術史與層次"
+            },
+            {
+              "diagnosis": "Atopic cataract",
+              "for": "前/後囊下盾形",
+              "against": "也可有其他眼表病，不能全部排除",
+              "discriminator": "完整眼檢"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "散瞳裂隙燈及功能",
+              "purpose": "定位透明度與眩光",
+              "interpretation": "視力表可低估夜間/對比障礙",
+              "limitation": "需問生活需求"
+            }
+          ],
+          "management": [
+            {
+              "condition": "功能受損",
+              "stage": "適當處理",
+              "action": "驗光可先改善可矯正部分，仍妨礙生活則手術評估",
+              "rationale": "以實際效益為目標",
+              "caution": "不能單由lens分級或年齡決定"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "lens retroillumination",
+              "clue": "核、輻射與囊下斑",
+              "interpretation": "分清PSC與PCO",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 76
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "PSC與PCO只差一字所以同義",
+              "correction": "PSC是原lens後囊下白內障，PCO是術後後囊混濁"
+            }
+          ],
+          "recall": {
+            "prompt": "Atopic dermatitis年輕人典型可有哪種lens斑？",
+            "answer": "前囊下或後囊下shield-like cataract。"
+          },
+          "status": "source-checked"
+        },
+        {
+          "id": "bcsc-s11-ch005-u02",
+          "title": "外傷、代謝、藥物與glaukomflecken",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                76,
+                83,
+                84,
+                98
+              ],
+              "printedPages": [
+                "59",
+                "66",
+                "67",
+                "81"
+              ],
+              "chapterHeading": "Pathology"
+            }
+          ],
+          "mechanism": [
+            "外傷可造成rosette、破囊或zonule病；激素及多種系統/毒性背景有不同lens反應。Glaukomflecken是持續高IOP後前上皮及其下皮質缺血壞死，不是PXF物質。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "前囊下小灰白斑且曾急閉角",
+              "meaning": "考慮glaukomflecken"
+            },
+            {
+              "finding": "外傷後lens形態/位置改變",
+              "meaning": "同時評後囊及zonule"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "Glaukomflecken",
+              "for": "前上皮壞死/下方皮質變性",
+              "against": "非內皮ICE或PXF屑",
+              "discriminator": "高壓史"
+            },
+            {
+              "diagnosis": "PXF",
+              "for": "fibrillar material在前囊/瞳緣",
+              "against": "增加zonule風險",
+              "discriminator": "散瞳前後"
+            },
+            {
+              "diagnosis": "Phacolytic",
+              "for": "過熟蛋白外漏與開角高壓",
+              "against": "不是單純壞死白斑",
+              "discriminator": "房角及炎症"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "完整暴露史、lens與前後段",
+              "purpose": "確定手術風險",
+              "interpretation": "有混濁仍可能同時retinal/optic nerve傷",
+              "limitation": "不要只歸lens"
+            }
+          ],
+          "management": [
+            {
+              "condition": "外傷/高壓後cataract",
+              "stage": "先處理共存風險",
+              "action": "控制眼壓、評capsule/zonule及後節後選手術",
+              "rationale": "混濁可能只是事件一環",
+              "caution": "不以切除lens保證恢復神經損傷"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "裂隙燈",
+              "clue": "前上皮小斑、rosette或capsular defect",
+              "interpretation": "依位置及事件判讀",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 76
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "Glaukomflecken是蛋白被巨噬吞的phacolytic",
+              "correction": "兩者機轉不同"
+            }
+          ],
+          "recall": {
+            "prompt": "Glaukomflecken的組織與事件？",
+            "answer": "壞死lens epithelium和下方cortex，常在長時間高IOP/急閉角後。"
+          },
+          "status": "source-checked"
+        },
+        {
+          "id": "bcsc-s11-ch005-u03",
+          "title": "特殊代謝與藥物形態：眼徵連回系統",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                84,
+                93,
+                94,
+                95,
+                96,
+                98,
+                99,
+                100,
+                101
+              ],
+              "printedPages": [
+                "67",
+                "76",
+                "77",
+                "78",
+                "79",
+                "81",
+                "82",
+                "83",
+                "84"
+              ],
+              "chapterHeading": "Pathology"
+            }
+          ],
+          "mechanism": [
+            "Galactosemia使galactitol累積而有滲透性lens混濁，可能是嬰兒重大代謝病線索。Myotonic dystrophy可有皮質多色晶體及後續PSC；Wilson可有sunflower lens沉積。激素、phenothiazines等也有不同形態，不能只見年輕cataract就叫老化。",
+            "Lens-induced病須分機轉：phacolytic是成熟/過熟lens蛋白穿過仍完整但可滲囊後，引起TM阻塞和開角高壓；lens-particle是術後/外傷破囊的cortical顆粒阻TM；phacoantigenic是破囊後對lens protein的肉芽腫性免疫反應；phacomorphic則厚lens/pupil block或前推iris造成閉角。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "嬰兒lens混濁伴黃疸肝大或餵養問題",
+              "meaning": "急評代謝病"
+            },
+            {
+              "finding": "多色皮質晶體加肌肉放鬆延遲/傳導風險",
+              "meaning": "考慮myotonic dystrophy"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "Galactosemia",
+              "for": "嬰兒系統病與galactitol機轉",
+              "against": "非所有先天cataract同病因",
+              "discriminator": "兒科代謝確認"
+            },
+            {
+              "diagnosis": "Myotonic dystrophy",
+              "for": "肌肉/心臟背景及晶體",
+              "against": "眼病可先發現",
+              "discriminator": "全身與遺傳評估"
+            },
+            {
+              "diagnosis": "藥物沉積",
+              "for": "長期特定藥物史",
+              "against": "沉積不必然視覺顯著",
+              "discriminator": "藥名、療程與功能"
+            },
+            {
+              "diagnosis": "Phacolytic",
+              "for": "過熟lens、高壓、open angle、蛋白/細胞",
+              "against": "不必有明顯破囊",
+              "discriminator": "囊狀態與angle"
+            },
+            {
+              "diagnosis": "Lens-particle",
+              "for": "破囊後可見顆粒、open angle高壓",
+              "against": "來源為殘皮質而非完整lens漏蛋白",
+              "discriminator": "術史/外傷與cortex"
+            },
+            {
+              "diagnosis": "Phacoantigenic",
+              "for": "破囊後肉芽腫免疫反應",
+              "against": "仍須與infectious endophthalmitis分",
+              "discriminator": "病史、病灶與必要採樣"
+            },
+            {
+              "diagnosis": "Phacomorphic",
+              "for": "膨厚lens、淺房與closed angle",
+              "against": "與前述open-angle不同",
+              "discriminator": "gonio/前節結構"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "定向代謝/系統評估",
+              "purpose": "由表型選測試",
+              "interpretation": "不以尿糖單項完成所有代謝診斷",
+              "limitation": "眼徵需與全身證據配對"
+            }
+          ],
+          "management": [
+            {
+              "condition": "疑危險嬰兒代謝病",
+              "stage": "先系統處理",
+              "action": "迅速兒科/代謝轉介並同步視覺規劃",
+              "rationale": "病因可危及生命",
+              "caution": "不能只排例行白內障手術"
+            },
+            {
+              "condition": "疑藥物相關",
+              "stage": "協調原處方",
+              "action": "衡量視功能與系統用藥必要",
+              "rationale": "不因沉積外觀自行停重要藥",
+              "caution": "成熟混濁仍按功能處理"
+            },
+            {
+              "condition": "Phacolytic或phacomorphic視威脅",
+              "stage": "橋接後根治來源",
+              "action": "先安全降壓並處理炎症；phacomorphic依block可LPI橋接，definitive為lens extraction",
+              "rationale": "阻力/擁擠來源持續時藥物通常不根治",
+              "caution": "急期角膜/炎症與手術風險需準備，不把LPI當去掉厚lens"
+            },
+            {
+              "condition": "Lens-particle或phacoantigenic",
+              "stage": "按來源與反應",
+              "action": "少量顆粒可藥物控壓/炎密追，持續高壓或炎症需去除retained lens material，免疫反應亦處理lens source",
+              "rationale": "清除持續刺激比只無限加激素有效",
+              "caution": "先排感染，不能因稱phacoantigenic便省培養/病因查核"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "lens切面",
+              "clue": "多色晶體、sunflower或囊下沉積",
+              "interpretation": "形態提供系統辨識線索",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 84
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "每種藥物沉積都必須立即手術",
+              "correction": "先查功能與系統利益，沉積和視威脅不同"
+            }
+          ],
+          "recall": {
+            "prompt": "年輕多色cataract加myotonia要注意什麼？",
+            "answer": "Myotonic dystrophy及其心臟傳導等系統風險。"
+          },
+          "status": "source-checked"
+        }
+      ]
     },
     {
       "id": "bcsc-s11-ch006",
@@ -106,15 +1276,248 @@
         {
           "pdfPages": [
             102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            111,
+            112,
+            113,
+            114,
+            115,
+            116,
             117
           ],
           "printedPages": [
-            "85"
+            "85",
+            "86",
+            "87",
+            "88",
+            "89",
+            "90",
+            "91",
+            "92",
+            "93",
+            "94",
+            "95",
+            "96",
+            "97",
+            "98",
+            "99",
+            "100"
           ],
           "chapterHeading": "Evaluation and Management of Cataract"
         }
       ],
-      "units": []
+      "units": [
+        {
+          "id": "bcsc-s11-ch006-u01",
+          "title": "是否手術：功能、病因與可獲益視覺",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                102,
+                104,
+                105,
+                106,
+                107
+              ],
+              "printedPages": [
+                "85",
+                "87",
+                "88",
+                "89",
+                "90"
+              ],
+              "chapterHeading": "Evaluation and Management of Cataract"
+            }
+          ],
+          "mechanism": [
+            "多數cataract手術是選擇性，需確認lens是主要視覺限制且患者願意承擔風險。眩光、對比、駕駛/工作與雙眼差異比單一視力門檻更貼近功能；有lens-induced病等可改急迫性。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "視力表尚好但夜駕嚴重眩光",
+              "meaning": "可有實質功能限制"
+            },
+            {
+              "finding": "混濁不重但BCVA很差",
+              "meaning": "查黃斑、視神經或角膜"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "可由lens改善",
+              "for": "混濁與功能相符",
+              "against": "仍可能共病限制",
+              "discriminator": "眼底/OCT"
+            },
+            {
+              "diagnosis": "非lens主因",
+              "for": "視覺損失不相稱",
+              "against": "手術不能解決全部",
+              "discriminator": "定位視覺途徑"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "病史、裂隙燈、IOP及後節/必要OCT",
+              "purpose": "預測效益與共病",
+              "interpretation": "media很差時超音波可排部分後段問題",
+              "limitation": "potential vision工具也有限制"
+            }
+          ],
+          "management": [
+            {
+              "condition": "有功能困難且預期獲益",
+              "stage": "手術共同決策",
+              "action": "討論替代、IOL目標、風險及術後照護",
+              "rationale": "讓手術結果對應患者需求",
+              "caution": "不承諾完全無眼鏡或全部視力恢復"
+            },
+            {
+              "condition": "Lens-induced高壓/炎症，或lens opacity妨礙必要retina診治",
+              "stage": "Medical indication",
+              "action": "可即使主觀日常視力抱怨不多也評lens surgery",
+              "rationale": "手術可為解除病因或取得必要後段視野",
+              "caution": "與一般elective功能/生活需求決策不同，需確定能達目的"
+            },
+            {
+              "condition": "考慮immediate sequential bilateral cataract surgery",
+              "stage": "雙眼獨立決策",
+              "action": "衡量重複麻醉/anisometropia與就醫負擔對雙眼感染/屈光不可先校正的交換；每眼完全獨立無菌流程",
+              "rationale": "可近性效益不能犧牲每眼手術隔離",
+              "caution": "第一眼出併發即重評是否繼續；手套、布單、器械與管路等不當作同一眼延伸"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "前後節",
+              "clue": "cataract與黃斑/optic nerve同看",
+              "interpretation": "建立主要失能來源",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 102
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "lens有混濁就一定要開",
+              "correction": "取決功能、其他治療需求與患者選擇"
+            }
+          ],
+          "recall": {
+            "prompt": "白內障手術最先要確認的效益問題？",
+            "answer": "目前功能困難有多少可由移除lens混濁改善。"
+          },
+          "status": "source-checked"
+        },
+        {
+          "id": "bcsc-s11-ch006-u02",
+          "title": "安全、麻醉與術後照護可行性",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                102,
+                104,
+                138,
+                139,
+                285
+              ],
+              "printedPages": [
+                "85",
+                "87",
+                "121",
+                "122",
+                "268"
+              ],
+              "chapterHeading": "Evaluation and Management of Cataract"
+            }
+          ],
+          "mechanism": [
+            "常規低風險手術不一定由無差別routine medical tests增加安全，應依病史和麻醉需要選檢。Topical/intracameral主要止痛而不使眼球不動；retrobulbar等regional block可提供akinesia但有針刺和神經血管風險。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "Nystagmus或難合作",
+              "meaning": "需要更強眼位控制；單點麻藥不夠"
+            },
+            {
+              "finding": "不能平躺、焦慮或明顯全身病",
+              "meaning": "會改麻醉和環境計畫"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "Topical/intracameral",
+              "for": "減痛但不提供完整akinesia",
+              "against": "患者需配合",
+              "discriminator": "術式/合作"
+            },
+            {
+              "diagnosis": "Retrobulbar",
+              "for": "原書較完整akinesia",
+              "against": "針刺穿孔/出血等風險",
+              "discriminator": "眼軸、解剖及麻醉團隊"
+            },
+            {
+              "diagnosis": "Sub-Tenon/peribulbar",
+              "for": "也可akinesia且不同安全取捨",
+              "against": "不是每例效果同等",
+              "discriminator": "依個別風險"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "個別系統與麻醉評估",
+              "purpose": "只作有指向檢查",
+              "interpretation": "依既有疾病和手術條件",
+              "limitation": "不以例行抽血替代病史"
+            }
+          ],
+          "management": [
+            {
+              "condition": "需akinesia但不願GA",
+              "stage": "麻醉選擇",
+              "action": "可按解剖和風險選regional block，原書nystagmus案例偏retrobulbar",
+              "rationale": "止痛與不動是兩目標",
+              "caution": "高近視等針刺風險時需另權衡，非一律首選"
+            },
+            {
+              "condition": "照護不足",
+              "stage": "術前安排",
+              "action": "確認點藥、回診及協助",
+              "rationale": "降低術後執行失敗",
+              "caution": "選擇性手術前可先建立支持"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "麻醉解剖",
+              "clue": "針或鈍管路徑與眼球",
+              "interpretation": "效果必須和風險一起比較",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 102
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "Intracameral麻醉能讓nystagmus完全停止",
+              "correction": "它主要止痛，不提供完整akinesia"
+            }
+          ],
+          "recall": {
+            "prompt": "原書四種非GA方法哪個akinesia最完整？",
+            "answer": "Retrobulbar，但需個別考慮其穿刺風險。"
+          },
+          "status": "source-checked"
+        }
+      ]
     },
     {
       "id": "bcsc-s11-ch007",
@@ -124,15 +1527,427 @@
         {
           "pdfPages": [
             118,
+            119,
+            120,
+            121,
+            122,
+            123,
+            124,
+            125,
+            126,
+            127,
+            128,
+            129,
+            130,
+            131,
+            132,
+            133,
+            134,
+            135,
+            136,
+            137,
+            138,
+            139,
+            140,
+            141,
+            142,
+            143,
+            144,
+            145,
+            146,
             147
           ],
           "printedPages": [
-            "101"
+            "101",
+            "102",
+            "103",
+            "104",
+            "105",
+            "106",
+            "107",
+            "108",
+            "109",
+            "110",
+            "111",
+            "112",
+            "113",
+            "114",
+            "115",
+            "116",
+            "117",
+            "118",
+            "119",
+            "120",
+            "121",
+            "122",
+            "123",
+            "124",
+            "125",
+            "126",
+            "127",
+            "128",
+            "129",
+            "130"
           ],
           "chapterHeading": "Preoperative Considerations for Cataract Surgery and Improving Refractive Outcomes"
         }
       ],
-      "units": []
+      "units": [
+        {
+          "id": "bcsc-s11-ch007-u01",
+          "title": "Biometry：AL、K與ELP誤差從哪來",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                118,
+                119,
+                120,
+                121,
+                123,
+                125,
+                126,
+                128,
+                129,
+                130,
+                131,
+                132,
+                133,
+                134,
+                135,
+                136,
+                137
+              ],
+              "printedPages": [
+                "101",
+                "102",
+                "103",
+                "104",
+                "106",
+                "108",
+                "109",
+                "111",
+                "112",
+                "113",
+                "114",
+                "115",
+                "116",
+                "117",
+                "118",
+                "119",
+                "120"
+              ],
+              "chapterHeading": "Preoperative Considerations for Cataract Surgery and Improving Refractive Outcomes"
+            }
+          ],
+          "mechanism": [
+            "IOL計算依眼軸、角膜屈光與預估有效lens位置等；量測不準、模型不適用或ELP預估誤差都可造成屈光落差。眼表不穩會讓K值波動，密cataract可限制光學生物測量。",
+            "具名formula如Barrett Universal II、Haigis、Hoffer Q、Hill-RBF採不同輸入與理論/資料模型預測IOL power及ELP；合適公式不能補救錯AL/K或不穩眼表。Post-myopic LVC後前後角膜曲率比改變，傳統K/index可過估總角膜power，造成IOL underpower/hyperopic surprise；某些公式的ELP估計亦受K耦合。RK另有角膜不規則與日間/長期變化。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "不同次K值不一致",
+              "meaning": "先治眼表再精算"
+            },
+            {
+              "finding": "短眼/長眼或postrefractive",
+              "meaning": "公式和量測假設需特別評估"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "AL誤差",
+              "for": "直接影響IOL power",
+              "against": "需確認fixation/後段",
+              "discriminator": "交叉量測"
+            },
+            {
+              "diagnosis": "K誤差",
+              "for": "乾眼、角膜疤或舊屈光手術",
+              "against": "不能只反覆套公式",
+              "discriminator": "治眼表與tomography"
+            },
+            {
+              "diagnosis": "ELP誤差",
+              "for": "模型對lens位置預測不準",
+              "against": "不等於術後IOL一定脫位",
+              "discriminator": "現代公式與優化常數"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "光學biometry、keratometry/tomography，必要ultrasound",
+              "purpose": "核一致與極端值",
+              "interpretation": "contact超音波可壓短角膜",
+              "limitation": "密cataract不能用低品質數字硬算"
+            }
+          ],
+          "management": [
+            {
+              "condition": "不穩K或量測異常",
+              "stage": "術前優化",
+              "action": "治乾眼/眼表並重測，採適合眼形與手術史的現代公式",
+              "rationale": "準確輸入先於選最流行公式",
+              "caution": "向患者說明postrefractive等殘餘不確定"
+            },
+            {
+              "condition": "Post-LVC/RK或極端眼",
+              "stage": "降低refractive surprise",
+              "action": "用適合術後角膜的formula/total corneal資訊及多來源比對，重做不可信量測並說明不確定",
+              "rationale": "需修正角膜power與ELP假設，而非任換普通公式",
+              "caution": "不能保證某一formula每例最好；先穩眼表，歷史資料可用但不等於絕對真值"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "biometry/地圖",
+              "clue": "AL、角膜前後表面與ELP",
+              "interpretation": "誤差來源不同需分開處理",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 118
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "換新公式就能補所有錯量測",
+              "correction": "輸入和眼表不穩仍會造成失準"
+            }
+          ],
+          "recall": {
+            "prompt": "屈光結果不符，先拆哪三項？",
+            "answer": "AL、角膜屈光/K與預估ELP。"
+          },
+          "status": "source-checked"
+        },
+        {
+          "id": "bcsc-s11-ch007-u02",
+          "title": "Toric IOL與後角膜：算對還要放穩",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                118,
+                121,
+                126,
+                127,
+                129
+              ],
+              "printedPages": [
+                "101",
+                "104",
+                "109",
+                "110",
+                "112"
+              ],
+              "chapterHeading": "Preoperative Considerations for Cataract Surgery and Improving Refractive Outcomes"
+            }
+          ],
+          "mechanism": [
+            "後角膜通常帶against-the-rule分量，只看前表面可錯估總散光。Toric效果取決總角膜散光、手術誘發散光與軸位；長眼/大capsular bag及低power薄optic增加旋轉風險。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "術後早期未矯正視力佳、後來散光回來",
+              "meaning": "查toric軸位而非只責怪看螢幕"
+            },
+            {
+              "finding": "高axial myopia",
+              "meaning": "較大囊袋與較薄低poweroptic影響穩定"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "殘餘角膜散光",
+              "for": "軸與後角膜估計不準",
+              "against": "不一定IOL旋轉",
+              "discriminator": "角膜地圖"
+            },
+            {
+              "diagnosis": "Toric rotation",
+              "for": "實際軸偏離計畫",
+              "against": "應查原因與屈光效果",
+              "discriminator": "散瞳看軸標及影像"
+            },
+            {
+              "diagnosis": "Lens tilt/decentration",
+              "for": "也可引散光/光學問題",
+              "against": "與單純軸轉不同",
+              "discriminator": "前節影像"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "總角膜與軸標",
+              "purpose": "配對屈光和實際位置",
+              "interpretation": "體位可cyclotorsion影響標記",
+              "limitation": "不以主觀霧視直接重轉"
+            }
+          ],
+          "management": [
+            {
+              "condition": "術前散光計畫",
+              "stage": "完整估計",
+              "action": "納後角膜與切口誘發散光並適當標軸",
+              "rationale": "降低預測誤差",
+              "caution": "角膜不規則者toric未必可解全部"
+            },
+            {
+              "condition": "顯著rotation影響視覺",
+              "stage": "重定位評估",
+              "action": "依偏軸及時間、囊袋狀態決定是否reposition",
+              "rationale": "恢復預期散光矯正",
+              "caution": "先確認量測與其他病因"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "toric軸/角膜地圖",
+              "clue": "總散光與實際軸位",
+              "interpretation": "長眼風險不等於走路或用電腦造成",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 118
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "術後看螢幕或一般步行就是rotation主因",
+              "correction": "高眼軸/囊袋等有更直接證據，活動需依術後指示"
+            }
+          ],
+          "recall": {
+            "prompt": "高近視toric旋轉的解剖原因？",
+            "answer": "較大囊袋與低power較薄optic，並需看OVD與囊邊覆蓋。"
+          },
+          "status": "source-checked"
+        },
+        {
+          "id": "bcsc-s11-ch007-u03",
+          "title": "IOL選擇：視距、對比與組織支撐",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                118,
+                119,
+                120,
+                121,
+                140,
+                141,
+                142,
+                196,
+                197,
+                198
+              ],
+              "printedPages": [
+                "101",
+                "102",
+                "103",
+                "104",
+                "123",
+                "124",
+                "125",
+                "179",
+                "180",
+                "181"
+              ],
+              "chapterHeading": "Preoperative Considerations for Cataract Surgery and Improving Refractive Outcomes"
+            }
+          ],
+          "mechanism": [
+            "Monofocal提供較單一焦點；multifocal/EDOF用不同光學策略擴視距，可能交換對比、halos或某些光學品質。Square-edge optic減PCO但可有positive dysphotopsia。材料和haptic設計也決定是否適合sulcus或特殊手術。",
+            "IOL材料需看未來治療：silicone IOL可與silicone oil黏附而影響視覺；hydrophilic acrylic遇特定air/gas手術背景可calcification。One-piece acrylic放sulcus可iris chafing/UGH，不能把bag用設計不分支撐直接搬到sulcus；3-piece和optic capture仍需足夠capsular support。",
+            "感染預防是一串措施：先治lid/ocular surface感染，以povidone-iodine作結膜消毒、隔離睫毛並確保watertight wound。Intracameral cefuroxime或moxifloxacin有研究支持，但配方、濃度與無菌製備安全重要；不能直接把任一topical bottle眼內注射。Vancomycin作prophylaxis有HORV風險，與治感染的個別用途需分。常規topical prophylaxis對降低endophthalmitis的確證有限，尤其已用intracameral者。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "黃斑/視神經病或不規則角膜",
+              "meaning": "需審慎presbyopia-correcting IOL期待"
+            },
+            {
+              "finding": "capsule不完整",
+              "meaning": "IOL固定位置與設計需改"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "Monovision",
+              "for": "兩眼目標不同",
+              "against": "可能影響立體與適應",
+              "discriminator": "術前需求/試用"
+            },
+            {
+              "diagnosis": "Multifocal/EDOF",
+              "for": "擴視距但光學取捨不同",
+              "against": "不保證全距離無眼鏡",
+              "discriminator": "神經角膜/後節條件"
+            },
+            {
+              "diagnosis": "Bag vs sulcus",
+              "for": "不同支撐與IOL設計",
+              "against": "single-piece acrylic不適合隨意放sulcus",
+              "discriminator": "capsular support"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "生活視距、夜駕、角膜/後節與支撐",
+              "purpose": "IOL共同決策",
+              "interpretation": "量測精準不能消除所有dysphotopsia",
+              "limitation": "需真實期待與備案"
+            }
+          ],
+          "management": [
+            {
+              "condition": "選屈光目標",
+              "stage": "個別化",
+              "action": "按視距、對比需求與共病選monofocal/toric/EDOF/multifocal或monovision",
+              "rationale": "光學利益與副作用並存",
+              "caution": "不以價格或技術名詞代替適合性"
+            },
+            {
+              "condition": "囊袋支撐不足",
+              "stage": "改固定方案",
+              "action": "用設計合適的3-piece sulcus/optic capture或其他fixation視支撐",
+              "rationale": "減少虹膜摩擦與不穩",
+              "caution": "不把所有IOL通用放任何位置"
+            },
+            {
+              "condition": "可能silicone oil或EK/air-gas手術",
+              "stage": "選材/支持",
+              "action": "依預計VR/角膜療程選合適IOL材料，弱囊/破囊時改相應sulcus/capture或其他固定方案",
+              "rationale": "預防oil黏附、calcification及虹膜摩擦等",
+              "caution": "不把任何IOL放在任何位置皆視同安全"
+            },
+            {
+              "condition": "Cataract手術感染預防",
+              "stage": "多層防護",
+              "action": "依實際protocol作眼表/睫毛隔離、povidone-iodine、密閉傷口並評合適intracameral cefuroxime/moxifloxacin",
+              "rationale": "減少接種與術後入侵，不靠單一滴藥抵消差無菌",
+              "caution": "濃度/配製錯誤可TASS/retinal toxicity；本段不宣稱2026各國核准/所有配方狀態"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "IOL/光學示意",
+              "clue": "邊緣、haptics及焦點策略",
+              "interpretation": "設計和組織位置相互作用",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 118
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "Premium IOL代表每位患者都較好",
+              "correction": "需看對比、夜間現象、共病和需求"
+            }
+          ],
+          "recall": {
+            "prompt": "Round edge為何可能較多PCO？",
+            "answer": "缺少square-edge對LEC遷移的機械阻隔優勢。"
+          },
+          "status": "source-checked"
+        }
+      ]
     },
     {
       "id": "bcsc-s11-ch008",
@@ -142,15 +1957,415 @@
         {
           "pdfPages": [
             148,
+            149,
+            150,
+            151,
+            152,
+            153,
+            154,
+            155,
+            156,
+            157,
+            158,
+            159,
+            160,
+            161,
+            162,
+            163,
+            164,
+            165,
+            166,
+            167,
+            168,
+            169,
+            170,
+            171,
+            172,
+            173,
+            174,
             175
           ],
           "printedPages": [
-            "131"
+            "131",
+            "132",
+            "133",
+            "134",
+            "135",
+            "136",
+            "137",
+            "138",
+            "139",
+            "140",
+            "141",
+            "142",
+            "143",
+            "144",
+            "145",
+            "146",
+            "147",
+            "148",
+            "149",
+            "150",
+            "151",
+            "152",
+            "153",
+            "154",
+            "155",
+            "156",
+            "157",
+            "158"
           ],
           "chapterHeading": "Phacoemulsification for Cataract Extraction"
         }
       ],
-      "units": []
+      "units": [
+        {
+          "id": "bcsc-s11-ch008-u01",
+          "title": "Phaco fluidics：flow、vacuum與occlusion break",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                148,
+                149,
+                153,
+                156,
+                157,
+                158,
+                159
+              ],
+              "printedPages": [
+                "131",
+                "132",
+                "136",
+                "139",
+                "140",
+                "141",
+                "142"
+              ],
+              "chapterHeading": "Phacoemulsification for Cataract Extraction"
+            }
+          ],
+          "mechanism": [
+            "Peristaltic roller直接產生aspiration flow，vacuum隨阻塞及流阻間接建立並可設上限；Venturi直接產生vacuum而間接帶flow。阻塞解除後管內低壓可使液體快速外流成surge，前房變淺會危及後囊。",
+            "傷口的tunnel幾何可提高自封，但大小/位置/進入角與過度器械操作影響leak和astigmatism；小切口不自動等於watertight。最後需確認傷口，持續不穩時應縫合而非只寄望hydration。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "吸口occlusion突然解除且前房塌",
+              "meaning": "查surge及inflow/outflow平衡"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "Peristaltic",
+              "for": "direct AFR、indirect vacuum",
+              "against": "不同於直接vacuum控制",
+              "discriminator": "泵設定"
+            },
+            {
+              "diagnosis": "Venturi",
+              "for": "direct vacuum、indirect flow",
+              "against": "無阻塞也可有吸引",
+              "discriminator": "機械設計"
+            },
+            {
+              "diagnosis": "Surge",
+              "for": "壓力/流體儲能釋放",
+              "against": "不是所有淺房都surge",
+              "discriminator": "同時排漏或後壓"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "機器參數與前房",
+              "purpose": "看inflow、aspiration及port occlusion",
+              "interpretation": "不以一個vacuum值概括所有泵反應",
+              "limitation": "管路順應性和設定影響"
+            }
+          ],
+          "management": [
+            {
+              "condition": "前房不穩",
+              "stage": "調流體",
+              "action": "按情況減vacuum/flow、確保inflow與切口密閉",
+              "rationale": "降低surge與囊吸入風險",
+              "caution": "不能用盲增灌流處理所有原因"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "機器/前房",
+              "clue": "occlusion前後深度與流量",
+              "interpretation": "分泵直接控制的變項",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 148
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "Peristaltic直接產生vacuum而不控flow",
+              "correction": "它先直接產生flow，vacuum間接形成"
+            }
+          ],
+          "recall": {
+            "prompt": "Peristaltic控制AFR和vacuum分別直接或間接？",
+            "answer": "Direct AFR，indirect vacuum。"
+          },
+          "status": "source-checked"
+        },
+        {
+          "id": "bcsc-s11-ch008-u02",
+          "title": "CCC、hydrodissection與hydrodelineation",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                156,
+                157,
+                158,
+                159,
+                160,
+                161,
+                162,
+                163,
+                164,
+                165,
+                166,
+                167,
+                168,
+                169,
+                170
+              ],
+              "printedPages": [
+                "139",
+                "140",
+                "141",
+                "142",
+                "143",
+                "144",
+                "145",
+                "146",
+                "147",
+                "148",
+                "149",
+                "150",
+                "151",
+                "152",
+                "153"
+              ],
+              "chapterHeading": "Phacoemulsification for Cataract Extraction"
+            }
+          ],
+          "mechanism": [
+            "連續CCC使邊緣較抗放射撕裂並穩定lens/IOL。Hydrodissection將cortex-lens complex與capsule分開；hydrodelineation將較硬endonucleus與較軟epinucleus分開，留下epinuclear保護層。",
+            "Divide-and-conquer先以sculpting建立裂解溝再分核；chop以機械力分核減少部分sculpting能量。軟核可能難抓握/不適合相同chop力，dense核能量/內皮負擔較大，不能對所有核用同一設定。",
+            "核後epinucleus和cortex以I/A移除時需避免過度zonular traction及後囊吸入；subincisional cortex可改bimanual access或選定viscodissection。植IOL後確認haptics/optic在預定位置、清除合適OVD並再次查傷口與房深。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "golden ring可支持delineation界面",
+              "meaning": "並非與capsule分離的同義"
+            },
+            {
+              "finding": "CCC向外跑",
+              "meaning": "需穩前房和改拉力而非硬往外拉"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "Hydrodissection",
+              "for": "cortex與capsule間",
+              "against": "posterior polar可危險",
+              "discriminator": "lens病型"
+            },
+            {
+              "diagnosis": "Hydrodelineation",
+              "for": "endonucleus與epinucleus間",
+              "against": "不等同capsule水波",
+              "discriminator": "保留epinuclear bowl"
+            },
+            {
+              "diagnosis": "Viscodissection",
+              "for": "用OVD分離",
+              "against": "特定capsule風險可替代部分操作",
+              "discriminator": "機轉與壓力"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "術中CCC及lens界面",
+              "purpose": "確認液體層與後囊風險",
+              "interpretation": "看不到水波不應不斷加壓",
+              "limitation": "注意capsular block"
+            }
+          ],
+          "management": [
+            {
+              "condition": "常規完整capsule",
+              "stage": "安全分離",
+              "action": "適當小量hydro操作並確認lens活動與減壓",
+              "rationale": "方便核移除/皮質清除",
+              "caution": "避免把液體困在囊袋"
+            },
+            {
+              "condition": "Posterior polar或疑後囊弱",
+              "stage": "改路徑",
+              "action": "避免常規hydrodissection，可gentle hydrodelineation及後續OVD分離",
+              "rationale": "降低hydraulic後囊破裂",
+              "caution": "隨時備PCR/vitrectomy計畫"
+            },
+            {
+              "condition": "核分解與cortex清除",
+              "stage": "控制力與流體",
+              "action": "按硬度選sculpt/chop，維持房穩定及適當保護；I/A時追清皮質但不以暴力拉扯換取零殘留",
+              "rationale": "降低energy/後囊與zonule傷害",
+              "caution": "若發現PCR立即轉既有穩房/玻璃體處理分支；不繼續原流程追吸"
+            },
+            {
+              "condition": "IOL植入/結束",
+              "stage": "完整收尾",
+              "action": "確認囊/支持、IOL位置、清OVD、IOP/房深與watertight wound，必要縫合",
+              "rationale": "成功不只核取完；殘OVD/不穩切口可致術後問題",
+              "caution": "不能忽略後方OVD/位置異常，但清除時亦防傷囊/虹膜"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "術中示意",
+              "clue": "cortex-capsule水波與epi-endo ring",
+              "interpretation": "分清兩個界面",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 158
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "Hydrodelineation就是把cortex從capsule剝離",
+              "correction": "那是hydrodissection；delineation分epi/endo nucleus"
+            }
+          ],
+          "recall": {
+            "prompt": "Delineation留下哪個保護層？",
+            "answer": "較軟epinuclear bowl。"
+          },
+          "status": "source-checked"
+        },
+        {
+          "id": "bcsc-s11-ch008-u03",
+          "title": "Ultrasound能量、OVD與femto的取捨",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                148,
+                149,
+                150,
+                156
+              ],
+              "printedPages": [
+                "131",
+                "132",
+                "133",
+                "139"
+              ],
+              "chapterHeading": "Phacoemulsification for Cataract Extraction"
+            },
+            {
+              "pdfPages": [
+                143,
+                144,
+                145,
+                146
+              ],
+              "printedPages": [
+                "126",
+                "127",
+                "128",
+                "129"
+              ],
+              "chapterHeading": "Preoperative Considerations for Cataract Surgery and Improving Refractive Outcomes"
+            }
+          ],
+          "mechanism": [
+            "超音波使核乳化，pulse/burst等間歇方式可降低總能量與熱負擔。OVD維持空間、保護內皮或分隔組織；cohesive較利空間與移除，dispersive較黏附保護但較難完全移除。Femto可協助切口/囊切/預切核，不能取代所有後續處理。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "硬核、長時間能量或灌流不佳",
+              "meaning": "增加內皮及wound burn風險"
+            },
+            {
+              "finding": "殘OVD",
+              "meaning": "可致術後早期IOP升"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "能量負擔",
+              "for": "機械/熱傷害",
+              "against": "與無灌流的堵tip不同",
+              "discriminator": "核密度與機器"
+            },
+            {
+              "diagnosis": "OVD retention",
+              "for": "短期流出阻塞",
+              "against": "不是所有高壓都炎症",
+              "discriminator": "時程和前房"
+            },
+            {
+              "diagnosis": "Femto",
+              "for": "可精準部分步驟",
+              "against": "不是自動無併發症",
+              "discriminator": "患者解剖與capsule風險"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "前房、內皮和機器能量",
+              "purpose": "監看熱與組織",
+              "interpretation": "不能只用總能量評全部風險",
+              "limitation": "流體和操作同等重要"
+            }
+          ],
+          "management": [
+            {
+              "condition": "硬核",
+              "stage": "減損傷",
+              "action": "適當核分解、間歇能量及OVD內皮保護，保持灌流",
+              "rationale": "減少能量與熱",
+              "caution": "不得在灌流受阻時持續能量"
+            },
+            {
+              "condition": "完成IOL",
+              "stage": "清除OVD",
+              "action": "含optic後方按風險清除並核位置",
+              "rationale": "減高IOP和toric不穩",
+              "caution": "避免過度牽拉不穩囊袋"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "術中",
+              "clue": "核裂解、內皮保護層及切口熱變化",
+              "interpretation": "組織保護不只看切口小",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 148
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "Femto輔助就保證比所有phaco安全",
+              "correction": "效益與限制需對應病例，後續fluidics與capsule照護仍重要"
+            }
+          ],
+          "recall": {
+            "prompt": "為何使用pulse/burst？",
+            "answer": "間歇能量可降低總能量與熱負擔。"
+          },
+          "status": "source-checked"
+        }
+      ]
     },
     {
       "id": "bcsc-s11-ch009",
@@ -160,15 +2375,115 @@
         {
           "pdfPages": [
             176,
+            177,
+            178,
+            179,
+            180,
             181
           ],
           "printedPages": [
-            "159"
+            "159",
+            "160",
+            "161",
+            "162",
+            "163",
+            "164"
           ],
           "chapterHeading": "Nonphacoemulsification Cataract Surgery Techniques"
         }
       ],
-      "units": []
+      "units": [
+        {
+          "id": "bcsc-s11-ch009-u01",
+          "title": "ECCE、MSICS與ICCE：保囊、切口與資源",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                176,
+                177,
+                180
+              ],
+              "printedPages": [
+                "159",
+                "160",
+                "163"
+              ],
+              "chapterHeading": "Nonphacoemulsification Cataract Surgery Techniques"
+            }
+          ],
+          "mechanism": [
+            "ECCE移出較完整核並保留後囊，MSICS以自封tunnel達成manual extraction；外側scleral入口比內側corneal出口窄，梯形構造讓核可出而外口較能閉合。ICCE整個lens-capsule複合移除，屬較少使用的歷史/特殊選擇。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "極硬核或資源條件",
+              "meaning": "manual方法可能適合，非phaco必勝"
+            },
+            {
+              "finding": "囊袋/zonule重大問題",
+              "meaning": "手術與IOL支撐需重新計畫"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "Phaco",
+              "for": "小切口超音波移除",
+              "against": "需設備及核/內皮條件",
+              "discriminator": "個別風險"
+            },
+            {
+              "diagnosis": "MSICS",
+              "for": "較低資源且可良好結果",
+              "against": "需合適tunnel和manual技術",
+              "discriminator": "刀口/核輸送"
+            },
+            {
+              "diagnosis": "ICCE",
+              "for": "整體lens-capsule移除",
+              "against": "玻璃體等風險較高",
+              "discriminator": "特殊/歷史脈絡"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "核密度、capsule/zonule與資源",
+              "purpose": "選合理程序",
+              "interpretation": "不只看技術世代",
+              "limitation": "術者技術和後續照護影響"
+            }
+          ],
+          "management": [
+            {
+              "condition": "不適合常規phaco",
+              "stage": "選替代",
+              "action": "依核、支持和資源選ECCE/MSICS等",
+              "rationale": "可達安全有效移除",
+              "caution": "需plan IOL與較大切口散光/傷口照護"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "切口示意",
+              "clue": "MSICS內口較寬外口較窄",
+              "interpretation": "核輸送與自封並存",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 176
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "MSICS外口一定比內口寬才能出核",
+              "correction": "內口較寬的tunnel設計支援輸送並保留自封"
+            }
+          ],
+          "recall": {
+            "prompt": "MSICS外scleral切口對內corneal切口寬度？",
+            "answer": "外較窄、內較寬。"
+          },
+          "status": "source-checked"
+        }
+      ]
     },
     {
       "id": "bcsc-s11-ch010",
@@ -178,15 +2493,369 @@
         {
           "pdfPages": [
             182,
+            183,
+            184,
+            185,
+            186,
+            187,
+            188,
+            189,
+            190,
+            191,
+            192,
+            193,
+            194,
+            195,
+            196,
+            197,
+            198,
+            199,
+            200,
             201
           ],
           "printedPages": [
-            "165"
+            "165",
+            "166",
+            "167",
+            "168",
+            "169",
+            "170",
+            "171",
+            "172",
+            "173",
+            "174",
+            "175",
+            "176",
+            "177",
+            "178",
+            "179",
+            "180",
+            "181",
+            "182",
+            "183",
+            "184"
           ],
           "chapterHeading": "Intraoperative Challenges in Cataract Surgery"
         }
       ],
-      "units": []
+      "units": [
+        {
+          "id": "bcsc-s11-ch010-u01",
+          "title": "小瞳孔、IFIS與CCC失控",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                182,
+                184,
+                185,
+                187
+              ],
+              "printedPages": [
+                "165",
+                "167",
+                "168",
+                "170"
+              ],
+              "chapterHeading": "Intraoperative Challenges in Cataract Surgery"
+            }
+          ],
+          "mechanism": [
+            "IFIS有iris波動、進行性縮瞳與切口脫出，α1 blocker尤其tamsulosin史是關鍵。停藥不保證風險消失。CCC不連續或向外延伸可增加後續capsule tear和IOL不穩。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "α1 blocker病史即使已停",
+              "meaning": "仍應備小瞳孔方案"
+            },
+            {
+              "finding": "CCC邊緣向周邊跑",
+              "meaning": "先恢復前房和改拉向而非追出去"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "IFIS",
+              "for": "動態波動/縮瞳/脫出",
+              "against": "不同於單純固定小瞳孔",
+              "discriminator": "用藥史與術中反應"
+            },
+            {
+              "diagnosis": "Posterior synechiae",
+              "for": "機械黏連",
+              "against": "與IFIS可共存",
+              "discriminator": "術前翻查uveitis"
+            },
+            {
+              "diagnosis": "CCC radialization",
+              "for": "囊邊應力失控",
+              "against": "非每例需立即放棄手術",
+              "discriminator": "完整性與延伸位置"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "用藥、散瞳及capsule觀察",
+              "purpose": "預測支援需求",
+              "interpretation": "術前瞳孔看似可散也可能IFIS",
+              "limitation": "不可只憑當天外觀"
+            }
+          ],
+          "management": [
+            {
+              "condition": "高IFIS風險",
+              "stage": "預先支持",
+              "action": "備iris hooks/pupil ring、適當OVD與低flow，選定intracameral phenylephrine/epinephrine等",
+              "rationale": "維持視野及減虹膜擾動",
+              "caution": "藥物和器械需依全身/局部條件使用"
+            },
+            {
+              "condition": "CCC向外延伸",
+              "stage": "救援",
+              "action": "先OVD穩前房，重新握flap並向中央控制tear，必要改程序",
+              "rationale": "降低應力向外延伸",
+              "caution": "不能硬拉造成穿向後囊"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "術中",
+              "clue": "iris波動、進行縮瞳及tear方向",
+              "interpretation": "把先兆連到降低fluidics/提供支撐",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 182
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "停tamsulosin就可保證無IFIS",
+              "correction": "藥史仍影響準備，停藥需與原醫師協調"
+            }
+          ],
+          "recall": {
+            "prompt": "IFIS的準備不能只靠什麼？",
+            "answer": "只靠停藥或當天瞳孔大小；需機械/藥物及fluidic備案。"
+          },
+          "status": "source-checked"
+        },
+        {
+          "id": "bcsc-s11-ch010-u02",
+          "title": "PCR先穩前房，再處理玻璃體與IOL位置",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                182,
+                183,
+                184,
+                185,
+                194,
+                195,
+                196,
+                197,
+                198
+              ],
+              "printedPages": [
+                "165",
+                "166",
+                "167",
+                "168",
+                "177",
+                "178",
+                "179",
+                "180",
+                "181"
+              ],
+              "chapterHeading": "Intraoperative Challenges in Cataract Surgery"
+            }
+          ],
+          "mechanism": [
+            "後囊破裂時壓力梯度可把玻璃體拉向切口；立刻抽走器械或高流量沖洗可能擴大問題。先減flow/vacuum並在器械仍維持穩定時經側口加OVD，之後用可控切除而非拉扯玻璃體。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "核片突然後掉、前房/紅光改變",
+              "meaning": "疑PCR；不要用tip追核到玻璃體"
+            },
+            {
+              "finding": "peaked pupil或傷口牽絲",
+              "meaning": "查玻璃體嵌頓"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "PCR",
+              "for": "後囊破裂及vitreous前移",
+              "against": "不是單純zonular缺損",
+              "discriminator": "定位屏障；兩者可共存"
+            },
+            {
+              "diagnosis": "Zonular dialysis",
+              "for": "囊袋周邊支撐失效",
+              "against": "後囊可能完整",
+              "discriminator": "capsule完整性"
+            },
+            {
+              "diagnosis": "Dropped nucleus",
+              "for": "後段硬核負荷",
+              "against": "不能以phaco尖追取",
+              "discriminator": "VR評估"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "視野、capsule與必要玻璃體顯示",
+              "purpose": "決定殘核和支撐",
+              "interpretation": "IOL放置須看anterior rim和zonule",
+              "limitation": "不能只因做完核就照常囊袋IOL"
+            }
+          ],
+          "management": [
+            {
+              "condition": "PCR發生",
+              "stage": "第一步",
+              "action": "減flow/vacuum、經側口OVD穩前房後再控制撤器械",
+              "rationale": "避免outward梯度拉更多vitreous",
+              "caution": "不猛抽tip/大沖洗/用tip lollipop懸核"
+            },
+            {
+              "condition": "需anterior vitrectomy",
+              "stage": "減牽引",
+              "action": "採雙手分離infusion與cut/aspiration，經新limbal或合適pars plana入口",
+              "rationale": "減少玻璃體向前遷及視網膜牽引",
+              "caution": "不要徒手拉出再剪；保留適當infusion控制"
+            },
+            {
+              "condition": "選IOL位置",
+              "stage": "按支撐",
+              "action": "有足夠前囊rim可評合適3-piece sulcus/optic capture，支撐不足改其他fixation/分期",
+              "rationale": "安全固定比完成常規植入重要",
+              "caution": "不把single-piece acrylic隨意放sulcus致iris chafing"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "術中",
+              "clue": "後囊缺口、懸核與玻璃體",
+              "interpretation": "先恢復可控壓力/視野才繼續",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 182
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "PCR第一反應立刻抽走所有器械",
+              "correction": "先穩房可減玻璃體脫出與tear擴大"
+            }
+          ],
+          "recall": {
+            "prompt": "PCR時最先的有序動作？",
+            "answer": "降低flow/vacuum、加OVD穩房，之後受控撤器械及處理vitreous。"
+          },
+          "status": "source-checked"
+        },
+        {
+          "id": "bcsc-s11-ch010-u03",
+          "title": "突然淺硬痛眼與深痛眼：出血對retropulsion",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                182,
+                184,
+                189,
+                199,
+                200
+              ],
+              "printedPages": [
+                "165",
+                "167",
+                "172",
+                "182",
+                "183"
+              ],
+              "chapterHeading": "Intraoperative Challenges in Cataract Surgery"
+            }
+          ],
+          "mechanism": [
+            "Suprachoroidal hemorrhage可使眼球突然硬、前房變淺並痛；極長眼可有reverse pupillary block造成lens-iris diaphragm retropulsion，前房反而很深。深度方向和後段檢查決定處置。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "眼硬、前房喪失且新痛",
+              "meaning": "先警覺suprachoroidal出血"
+            },
+            {
+              "finding": "高axial myopia、突然過深前房且痛",
+              "meaning": "考慮LIDRS"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "Suprachoroidal hemorrhage",
+              "for": "後方壓力上升推前",
+              "against": "不能只加鎮痛",
+              "discriminator": "關傷口及後段"
+            },
+            {
+              "diagnosis": "LIDRS",
+              "for": "reverse pupilblock與後退",
+              "against": "不是高壓出血那種淺房",
+              "discriminator": "iris與lens關係"
+            },
+            {
+              "diagnosis": "Occlusion surge",
+              "for": "常隨tip occlusion解除塌房",
+              "against": "未必硬眼與持續痛",
+              "discriminator": "fluidics時序"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "前房、眼硬度及fundus/必要B-scan",
+              "purpose": "快速分後壓來源",
+              "interpretation": "不以患者鎮痛不足解釋全部",
+              "limitation": "需即時停危險操作"
+            }
+          ],
+          "management": [
+            {
+              "condition": "疑suprachoroidal hemorrhage",
+              "stage": "即刻封閉",
+              "action": "迅速關閉縫合傷口並查眼底，若顯著則中止並後續計畫",
+              "rationale": "避免內容物流失與擴大出血",
+              "caution": "不要先加aspiration使房更不穩"
+            },
+            {
+              "condition": "LIDRS",
+              "stage": "解除反向block",
+              "action": "用第二器械輕抬iris離capsule並降低infusion壓力",
+              "rationale": "讓壓差平衡",
+              "caution": "需確認非其他眼內問題"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "前節/後節",
+              "clue": "淺硬與過深兩種相反形態",
+              "interpretation": "疼痛同樣但機轉相反",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 182
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "術中任何痛都只加麻醉",
+              "correction": "深度及硬度改變可能是嚴重結構警訊"
+            }
+          ],
+          "recall": {
+            "prompt": "高近視phaco突然前房過深的典型機轉？",
+            "answer": "LIDRS/reverse pupillary block。"
+          },
+          "status": "source-checked"
+        }
+      ]
     },
     {
       "id": "bcsc-s11-ch011",
@@ -196,15 +2865,605 @@
         {
           "pdfPages": [
             202,
+            203,
+            204,
+            205,
+            206,
+            207,
+            208,
+            209,
+            210,
+            211,
+            212,
+            213,
+            214,
+            215,
+            216,
+            217,
+            218,
+            219,
+            220,
+            221,
+            222,
+            223,
+            224,
+            225,
+            226,
+            227,
+            228,
+            229,
+            230,
+            231,
+            232,
+            233,
+            234,
+            235,
+            236,
+            237,
+            238,
+            239,
+            240,
+            241,
+            242,
             243
           ],
           "printedPages": [
-            "185"
+            "185",
+            "186",
+            "187",
+            "188",
+            "189",
+            "190",
+            "191",
+            "192",
+            "193",
+            "194",
+            "195",
+            "196",
+            "197",
+            "198",
+            "199",
+            "200",
+            "201",
+            "202",
+            "203",
+            "204",
+            "205",
+            "206",
+            "207",
+            "208",
+            "209",
+            "210",
+            "211",
+            "212",
+            "213",
+            "214",
+            "215",
+            "216",
+            "217",
+            "218",
+            "219",
+            "220",
+            "221",
+            "222",
+            "223",
+            "224",
+            "225",
+            "226"
           ],
           "chapterHeading": "Postoperative Surgical Course and Complications"
         }
       ],
-      "units": []
+      "units": [
+        {
+          "id": "bcsc-s11-ch011-u01",
+          "title": "早期IOP、角膜水腫與retained fragments",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                202,
+                203,
+                204,
+                205,
+                207,
+                209,
+                219,
+                220,
+                234,
+                235,
+                236,
+                241
+              ],
+              "printedPages": [
+                "185",
+                "186",
+                "187",
+                "188",
+                "190",
+                "192",
+                "202",
+                "203",
+                "217",
+                "218",
+                "219",
+                "224"
+              ],
+              "chapterHeading": "Postoperative Surgical Course and Complications"
+            }
+          ],
+          "mechanism": [
+            "術後高壓可能來自OVD、瞳阻、capsular block或misdirection；角膜水腫可由內皮損傷、DM脫離、炎症及壓力。殘留lens fragments需看位置、硬度、炎症與IOP，而非每片都一律等待或立刻同術式。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "囊袋在IOL後有液體空間及IOL前移",
+              "meaning": "可為capsular block"
+            },
+            {
+              "finding": "PI通且中央周邊均淺、無IOL-PC空間",
+              "meaning": "更疑misdirection"
+            },
+            {
+              "finding": "局灶持續水腫",
+              "meaning": "查DM脫離或隱藏fragment"
+            },
+            {
+              "finding": "Wound leak合低壓/淺房",
+              "meaning": "查Seidel、iris incarceration、choroidal等，不只當正常術後模糊。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "Retained cortex",
+              "for": "少量soft material有時可吸收",
+              "against": "持續炎症/高壓則需移除",
+              "discriminator": "量與反應"
+            },
+            {
+              "diagnosis": "Dropped nuclear fragment",
+              "for": "硬核後段負荷",
+              "against": "可能需PPV",
+              "discriminator": "VR團隊評估"
+            },
+            {
+              "diagnosis": "DM detachment",
+              "for": "局部水腫與分離界面",
+              "against": "不是一律內皮永久衰竭",
+              "discriminator": "AS-OCT"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "IOP、前房、gonio/AS-OCT及後段",
+              "purpose": "逐項找來源",
+              "interpretation": "media差可需超音波",
+              "limitation": "不因手術無紀錄併發症就排殘片"
+            },
+            {
+              "test": "Seidel與AC/IOP/眼底或必要B-scan",
+              "purpose": "分漏/過低壓與其他房淺",
+              "interpretation": "陰性仍須配傷口與臨床，間歇漏可不易見",
+              "limitation": "疑open wound避免不當壓迫"
+            }
+          ],
+          "management": [
+            {
+              "condition": "早期OVD相關高壓",
+              "stage": "降壓與追蹤",
+              "action": "適合aqueous suppressants，必要排出OVD等按嚴重度",
+              "rationale": "及時減壓避免神經角膜傷",
+              "caution": "須排其他機轉"
+            },
+            {
+              "condition": "重要殘片",
+              "stage": "來源控制",
+              "action": "前段可適當手術取出，後段硬核與嚴重反應評PPV",
+              "rationale": "不能用點藥無限壓住組織刺激",
+              "caution": "小soft cortex則可在監測下保守"
+            },
+            {
+              "condition": "DM脫離",
+              "stage": "貼附處置",
+              "action": "小周邊可觀察，視軸/大/持續者評air-gas等",
+              "rationale": "促DM復貼",
+              "caution": "氣體pupillaryblock與IOP需監控"
+            },
+            {
+              "condition": "小而穩定leak、AC維持且無嚴重伴病",
+              "stage": "密追保守可選",
+              "action": "按傷口/眼表用表面支持等並密追壓力與感染",
+              "rationale": "部分可自行封閉",
+              "caution": "持續低壓/淺房、iris prolapse或choroidal等不宜只等"
+            },
+            {
+              "condition": "持續不穩leak或合嚴重淺房/低壓",
+              "stage": "修補來源",
+              "action": "及時repair/suture等重建密閉傷口並處理感染/脈絡膜風險",
+              "rationale": "只用降壓/激素不修出口無法解機轉",
+              "caution": "須同時排其他低壓或出血原因"
+            },
+            {
+              "condition": "Capsular block：IOL與後囊間積液/前移及近視變化",
+              "stage": "解除囊內滯留",
+              "action": "確認診斷後可用Nd:YAG解除capsular block等",
+              "rationale": "不同於pupil block或misdirection",
+              "caution": "處置前確認IOL/後囊與炎症，不能對所有淺房同一雷射"
+            },
+            {
+              "condition": "Aqueous misdirection、PI通暢而整體房淺",
+              "stage": "按機轉階梯",
+              "action": "先cycloplegia加aqueous suppressants，仍不改善時評anterior hyaloidotomy/PPV等",
+              "rationale": "需處理後方水流錯向/阻力而非再做無效PI",
+              "caution": "先排漏、pupil block、choroidal/SCH，不用miotic加重"
+            },
+            {
+              "condition": "Delayed SCH且眼痛/房淺或高壓",
+              "stage": "選觀察或手術",
+              "action": "Limited穩定可密追支持；flat AC、uncontrolledIOP、kissing等需專科手術/引流時機評估",
+              "rationale": "程度與相鄰結構威脅決定介入",
+              "caution": "不把所有術後痛霧都當TASS或CME"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "AS-OCT/裂隙燈",
+              "clue": "DM分離、囊袋膨脹或殘片",
+              "interpretation": "影像定位可改變處置",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 202
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "術後水腫都等同需角膜移植",
+              "correction": "先排IOP、DM脫離、殘片與炎症"
+            }
+          ],
+          "recall": {
+            "prompt": "決定殘片是否取出要看什麼？",
+            "answer": "位置/硬度、大小、角膜水腫、炎症與IOP及後段風險。"
+          },
+          "status": "source-checked"
+        },
+        {
+          "id": "bcsc-s11-ch011-u02",
+          "title": "TASS與endophthalmitis：先排感染，EVS看初診VA",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                202,
+                203,
+                209,
+                237
+              ],
+              "printedPages": [
+                "185",
+                "186",
+                "192",
+                "220"
+              ],
+              "chapterHeading": "Postoperative Surgical Course and Complications"
+            },
+            {
+              "pdfPages": [
+                140,
+                141,
+                142
+              ],
+              "printedPages": [
+                "123",
+                "124",
+                "125"
+              ],
+              "chapterHeading": "Preoperative Considerations for Cataract Surgery and Improving Refractive Outcomes"
+            }
+          ],
+          "mechanism": [
+            "TASS為毒性無菌前節炎，可早發、角膜廣泛水腫與前房反應；感染性眼內炎可有vitritis、痛和視力下降，但症狀/時程重疊。EVS提供急性術後眼內炎依初診視力分tapping或immediate PPV的原始證據。",
+            "本卷第7章「IOL策略」單元已實教lid/ocular surface處理、povidone-iodine、睫毛隔離、watertight wound與intracameral cefuroxime/moxifloxacin及vancomycin-HORV風險；術後感染評估需把預防紀錄與真實症狀一起看，預防用藥不保證不會感染。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "術後紅痛或顯著視力降、hypopyon及vitritis",
+              "meaning": "緊急排感染"
+            },
+            {
+              "finding": "很早廣泛limbus-to-limbus edema且主要前段",
+              "meaning": "支持TASS但不可只憑此保證無感染"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "TASS",
+              "for": "可能器械殘留/藥液毒性且前段為主",
+              "against": "感染也可能早發",
+              "discriminator": "全眼與同批手術資訊"
+            },
+            {
+              "diagnosis": "Infectious endophthalmitis",
+              "for": "眼內病原及後段炎症",
+              "against": "可少痛或不典型",
+              "discriminator": "採樣與即時治療"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "前房/玻璃體取樣及後段評估",
+              "purpose": "必要時B-scan",
+              "interpretation": "取樣不能延誤眼內抗生素",
+              "limitation": "不能只用culture陰性排感染"
+            }
+          ],
+          "management": [
+            {
+              "condition": "疑急性感染",
+              "stage": "急病原處置",
+              "action": "迅速tap/biopsy並intravitreal broad antibiotics如vancomycin加ceftazidime等按專科",
+              "rationale": "控制眼內細菌",
+              "caution": "EVS初診LP眼需immediate PPV+抗生素，HM以上原試驗多先tap/inject；當代嚴重度仍需個別評估"
+            },
+            {
+              "condition": "支持TASS且已妥善評感染",
+              "stage": "抗炎",
+              "action": "密集局部類固醇並追IOP/內皮，調查毒源",
+              "rationale": "防止持續組織損傷和群聚",
+              "caution": "未能排感染時不可只走TASS激素路徑"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "眼底/B-scan",
+              "clue": "vitreous echoes與前後段反應",
+              "interpretation": "比只看hypopyon更能區分範圍",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 202
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "不痛或第一天就紅一定無菌",
+              "correction": "感染可不典型，不能用單一時程/症狀排除"
+            }
+          ],
+          "recall": {
+            "prompt": "EVS用哪項初診資料決定PPV與tap/inject分支？",
+            "answer": "視力：LP與HM以上的原試驗分層。"
+          },
+          "status": "source-checked"
+        },
+        {
+          "id": "bcsc-s11-ch011-u03",
+          "title": "CME與RD：同樣視力下降，時間和影像不同",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                202,
+                203,
+                205,
+                231,
+                238,
+                239,
+                240
+              ],
+              "printedPages": [
+                "185",
+                "186",
+                "188",
+                "214",
+                "221",
+                "222",
+                "223"
+              ],
+              "chapterHeading": "Postoperative Surgical Course and Complications"
+            }
+          ],
+          "mechanism": [
+            "術後炎症使perifoveal capillaries通透增加，液體聚於視網膜層形成CME；RD則是結構性剝離，常需更急處理。Lens手術後的視力下降不全由PCO。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "數週後中心視力差而OCT有囊樣水腫",
+              "meaning": "CME"
+            },
+            {
+              "finding": "新閃光、飛蚊或幕影",
+              "meaning": "警覺retinal tear/RD"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "Pseudophakic CME",
+              "for": "OCT囊樣、FA漏液",
+              "against": "可和diabetic/uveitic等水腫重疊",
+              "discriminator": "系統病與影像"
+            },
+            {
+              "diagnosis": "RD",
+              "for": "剝離/裂孔及視野幕",
+              "against": "不可等同CME慢性支持",
+              "discriminator": "散瞳後段"
+            },
+            {
+              "diagnosis": "Retinal vascular/optic disease",
+              "for": "其他致盲原因",
+              "against": "不由PCO一概解釋",
+              "discriminator": "完整評估"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "OCT與散瞳眼底，必要FA",
+              "purpose": "分水腫與剝離/血管",
+              "interpretation": "初期角膜/眼壓也需看",
+              "limitation": "不直接按時間猜病"
+            }
+          ],
+          "management": [
+            {
+              "condition": "單純術後CME",
+              "stage": "初階抗炎",
+              "action": "topical NSAID和/或corticosteroid並追OCT/IOP",
+              "rationale": "多能改善但需時間",
+              "caution": "頑固者才評眼周/眼內激素等，先查其他原因"
+            },
+            {
+              "condition": "疑裂孔/RD",
+              "stage": "緊急後段",
+              "action": "迅速VR評估及適當雷射/手術",
+              "rationale": "避免延誤結構保全",
+              "caution": "不可只排下次白內障門診"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "OCT/眼底",
+              "clue": "囊樣液體與神經視網膜剝離",
+              "interpretation": "藥物抗炎不能取代RD修復",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 202
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "所有術後視力模糊先打YAG",
+              "correction": "需先排CME、RD、感染和其他可處置原因"
+            }
+          ],
+          "recall": {
+            "prompt": "術後1月CME常見第一階治療？",
+            "answer": "局部NSAID和/或類固醇，難治再分層升級。"
+          },
+          "status": "source-checked"
+        },
+        {
+          "id": "bcsc-s11-ch011-u04",
+          "title": "PCO、dysphotopsia與IOL摩擦：別急著YAG",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                202,
+                203,
+                207,
+                222,
+                223,
+                227,
+                228,
+                229
+              ],
+              "printedPages": [
+                "185",
+                "186",
+                "190",
+                "205",
+                "206",
+                "210",
+                "211",
+                "212"
+              ],
+              "chapterHeading": "Postoperative Surgical Course and Complications"
+            }
+          ],
+          "mechanism": [
+            "PCO由殘留LEC增生/遷移形成後囊fibrosis或pearls，square posterior edge可降低風險。Negative dysphotopsia多為顳側暗弧且後段正常，早期常改善；positive現象則可光暈或反射。UGH由不適合位置/設計的IOL摩擦。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "術後月年漸霧且PCO對應視軸",
+              "meaning": "可YAG"
+            },
+            {
+              "finding": "無PCO且顳暗弧",
+              "meaning": "先考慮negative dysphotopsia"
+            },
+            {
+              "finding": "反覆前炎、高壓及hyphema",
+              "meaning": "查IOL chafing"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "PCO",
+              "for": "capsule opacity與視覺相符",
+              "against": "不是PSC",
+              "discriminator": "手術史及裂隙燈"
+            },
+            {
+              "diagnosis": "Negative dysphotopsia",
+              "for": "早期暗弧，眼底/視野排其他病",
+              "against": "不是所有幕影可這樣安心",
+              "discriminator": "先排RD等"
+            },
+            {
+              "diagnosis": "UGH",
+              "for": "機械摩擦與反覆反應",
+              "against": "點藥不去原因",
+              "discriminator": "UBM及IOL位置"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "散瞳capsule/IOL、後段及必要UBM",
+              "purpose": "確認真正光學或機械來源",
+              "interpretation": "YAG後會改變未來IOL交換難度",
+              "limitation": "先確認是否需換IOL"
+            }
+          ],
+          "management": [
+            {
+              "condition": "影響視覺PCO",
+              "stage": "Nd:YAG",
+              "action": "適當capsulotomy並監測IOP/炎症/後段症狀",
+              "rationale": "清除視軸混濁",
+              "caution": "不拿YAG治沒有PCO的negative dysphotopsia"
+            },
+            {
+              "condition": "早期negative dysphotopsia且已排病",
+              "stage": "先觀察衛教",
+              "action": "給適應時間；持續嚴重再評reverse optic capture、sulcus等",
+              "rationale": "多數會改善",
+              "caution": "手術前需確認診斷與風險"
+            },
+            {
+              "condition": "持續IOL chafing",
+              "stage": "改來源",
+              "action": "評reposition/exchange或其他固定",
+              "rationale": "去機械刺激",
+              "caution": "需兼顧capsule支持與感染等鑑別"
+            },
+            {
+              "condition": "PCO確實造成症狀或妨礙必要眼底診療",
+              "stage": "YAG選擇",
+              "action": "查後囊可視性、IOP、炎症/CME與RD風險後作適當capsulotomy，術後追IOP及retinal症狀",
+              "rationale": "改善視軸但有壓力、IOL pitting和後段交換",
+              "caution": "Active inflammation/uncontrolledIOP/CME或高RD風險屬先評的相對禁忌；若可能IOL exchange先決策，開囊會使後續手術更難"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "裂隙燈/UBM",
+              "clue": "後囊pearls與IOL-iris接觸",
+              "interpretation": "同樣霧視可有不同可逆原因",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 202
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "後囊YAG能解所有術後光影問題",
+              "correction": "Negative dysphotopsia通常不以posterior capsulotomy處理"
+            }
+          ],
+          "recall": {
+            "prompt": "哪個optic邊緣較易PCO？",
+            "answer": "Round edge；square edge較能阻LEC遷移但有光學取捨。"
+          },
+          "status": "source-checked"
+        }
+      ]
     },
     {
       "id": "bcsc-s11-ch012",
@@ -214,138 +3473,2276 @@
         {
           "pdfPages": [
             244,
+            245,
+            246,
+            247,
+            248,
+            249,
+            250,
+            251,
+            252,
+            253,
+            254,
+            255,
+            256,
+            257,
+            258,
+            259,
+            260,
+            261,
+            262,
+            263,
+            264,
+            265,
+            266,
+            267,
+            268,
+            269,
+            270,
+            271,
+            272,
+            273,
+            274,
             275
           ],
           "printedPages": [
-            "227"
+            "227",
+            "228",
+            "229",
+            "230",
+            "231",
+            "232",
+            "233",
+            "234",
+            "235",
+            "236",
+            "237",
+            "238",
+            "239",
+            "240",
+            "241",
+            "242",
+            "243",
+            "244",
+            "245",
+            "246",
+            "247",
+            "248",
+            "249",
+            "250",
+            "251",
+            "252",
+            "253",
+            "254",
+            "255",
+            "256",
+            "257",
+            "258"
           ],
           "chapterHeading": "Preparing for Cataract Surgery in Special Situations"
         }
       ],
-      "units": []
+      "units": [
+        {
+          "id": "bcsc-s11-ch012-u01",
+          "title": "Cornea、uveitis與glaucoma共病：分期或合併",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                244,
+                246,
+                247,
+                248,
+                249,
+                250,
+                251,
+                252,
+                253,
+                254,
+                255,
+                256,
+                257,
+                258,
+                259,
+                263,
+                264,
+                265,
+                266,
+                267,
+                268,
+                288
+              ],
+              "printedPages": [
+                "227",
+                "229",
+                "230",
+                "231",
+                "232",
+                "233",
+                "234",
+                "235",
+                "236",
+                "237",
+                "238",
+                "239",
+                "240",
+                "241",
+                "242",
+                "246",
+                "247",
+                "248",
+                "249",
+                "250",
+                "251",
+                "271"
+              ],
+              "chapterHeading": "Preparing for Cataract Surgery in Special Situations"
+            }
+          ],
+          "mechanism": [
+            "角膜內皮儲備、視神經與黃斑決定cataract手術真正效益。Uveitis需要術前安靜與周術期維持/加強抗炎；glaucoma則需看target而非假定單做phaco足夠。Fuchs/角膜病可能需聯合或分期EK。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "既往uveitis/CME",
+              "meaning": "先OCT並確認控制"
+            },
+            {
+              "finding": "mild glaucoma有cataract",
+              "meaning": "單phaco可有降壓但晚期未必足夠"
+            },
+            {
+              "finding": "內皮失代償",
+              "meaning": "術後水腫風險需先談"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "Lens主因",
+              "for": "移除可改善",
+              "against": "共病仍限視覺",
+              "discriminator": "全眼評估"
+            },
+            {
+              "diagnosis": "Active uveitis",
+              "for": "炎症需先控制",
+              "against": "不能為追手術排程自行停維持藥",
+              "discriminator": "疾病與藥物史"
+            },
+            {
+              "diagnosis": "Advanced glaucoma",
+              "for": "需較低target",
+              "against": "不以平均phaco降幅保證",
+              "discriminator": "進展和剩餘功能"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "OCT、disc/視野、內皮/角膜及眼表",
+              "purpose": "計畫效益與風險",
+              "interpretation": "不能只完成biometry就忽略共病",
+              "limitation": "必要專科合作"
+            }
+          ],
+          "management": [
+            {
+              "condition": "非緊急uveitic cataract",
+              "stage": "控制及周術期",
+              "action": "通常目標至少數月安靜，原題理想3月；按病型維持/加強局部或全身抗炎/IMT",
+              "rationale": "減少術後CME及黏連",
+              "caution": "quiet不等於所有人停維持藥；急症與特殊病型另議"
+            },
+            {
+              "condition": "Mild/moderate glaucoma+cataract",
+              "stage": "比較手術",
+              "action": "可單phaco或按需要合MIGS，晚期評filtration/tube分期或合併",
+              "rationale": "本卷平均IOP降10%–34%會隨時間減弱",
+              "caution": "不是個案保證且依baseline/角度而異"
+            },
+            {
+              "condition": "Fuchs等內皮病",
+              "stage": "共同規劃",
+              "action": "依水腫、疤痕及視覺需求選cataract單做或EK分期/合併",
+              "rationale": "避免意外持續角膜失代償",
+              "caution": "需充分說明恢復和屈光不確定"
+            },
+            {
+              "condition": "使用antiplatelet/anticoagulant擬手術",
+              "stage": "平衡眼與全身",
+              "action": "常規小切口cataract、sharp-needle block或合併MIGS的出血風險不同，與原處方醫師/麻醉協調個別計畫",
+              "rationale": "不必要停藥可能增加全身thromboembolism",
+              "caution": "不一律自行停或聲稱一律無風險；此處不提供通用停藥日數"
+            },
+            {
+              "condition": "Severe dry eye或MMP等眼表/免疫病",
+              "stage": "先穩眼表",
+              "action": "控制表面與系統炎症、優化潤滑/量測後再作elective cataract；防epithelial breakdown與melt",
+              "rationale": "表面不穩影響biometry與傷口安全",
+              "caution": "局部NSAID等常規配方不宜不分病型套用，術後密追"
+            },
+            {
+              "condition": "白/膨脹cataract或差red reflex",
+              "stage": "防CCC radialization",
+              "action": "按形態用capsular dye、適當OVD維持與受控減壓等，預備pupil/zonular支持",
+              "rationale": "壓力與可視性改變tear行為",
+              "caution": "PXF小瞳/弱zonule另須支持及晚期bag-IOL不穩監測，不能只換強超音波設定"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "OCT/內皮與disc",
+              "clue": "多器官限制一眼視覺",
+              "interpretation": "按主要病因安排手術次序",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 244
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "滿3月安靜就要停全部抗炎才能開",
+              "correction": "安靜與適當維持/周術期加強並非矛盾，須由原病計畫"
+            }
+          ],
+          "recall": {
+            "prompt": "Uveitic cataract的核心準備？",
+            "answer": "先控制炎症、查CME並制定維持/加強抗炎，不自行停藥追等待時間。"
+          },
+          "status": "source-checked",
+          "clinicalUpdates": [
+            {
+              "statement": "原始隨機研究Meacock等的uveitic phaco方法對既用systemic immunosuppressive therapy者按炎症程度繼續，支持「安靜不等於停所有維持治療」。這不以該研究舊入組條件覆寫本卷末題3月來源數值；術前與周術期按病型規劃。",
+              "source": {
+                "title": "Meacock et al. Steroid prophylaxis in eyes with uveitis undergoing phacoemulsification. Br J Ophthalmol.2004.",
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1772319/",
+                "checkedAt": "2026-10-20"
+              }
+            }
+          ]
+        },
+        {
+          "id": "bcsc-s11-ch012-u02",
+          "title": "Posterior polar與90°zonular dialysis：穩支撐再移核",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                245,
+                253,
+                257,
+                258,
+                259,
+                260
+              ],
+              "printedPages": [
+                "228",
+                "236",
+                "240",
+                "241",
+                "242",
+                "243"
+              ],
+              "chapterHeading": "Preparing for Cataract Surgery in Special Situations"
+            }
+          ],
+          "mechanism": [
+            "Posterior polar下方後囊可能脆弱或缺失，hydrodissection的液壓可使破裂。局限zonular缺損可用capsular hooks/CTR幫忙；早放CTR較穩但會使cortex清除較難，晚放需先確保足夠支持。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "Posterior polar明顯中央後方斑",
+              "meaning": "備PCR方案，不以普通PSC相同操作"
+            },
+            {
+              "finding": "90°/3clock-hours裂離",
+              "meaning": "原書例可支撐後繼續phaco，不必自動放棄囊袋"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "Posterior polar",
+              "for": "有特定後囊風險",
+              "against": "不同於一般PSC",
+              "discriminator": "低壓分層"
+            },
+            {
+              "diagnosis": "局限zonular dialysis",
+              "for": "保有capsule但缺周邊支撐",
+              "against": "CTR不能代替所有嚴重zonule/capsule缺損",
+              "discriminator": "範圍與質量"
+            },
+            {
+              "diagnosis": "廣泛不穩",
+              "for": "可能需固定ring/segment或改IOL/分期",
+              "against": "不以單一CTR解全部",
+              "discriminator": "支撐評估"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "術前形態/術中capsular movement",
+              "purpose": "確認風險和擴大",
+              "interpretation": "強fluidics可拉vitreous進裂離",
+              "limitation": "必要OVD tamponade"
+            }
+          ],
+          "management": [
+            {
+              "condition": "Posterior polar",
+              "stage": "避免hydrodissection",
+              "action": "gentle hydrodelineation保留epi bowl，核移後可OVD viscodissection",
+              "rationale": "減液壓衝破後囊",
+              "caution": "備vitrectomy和IOL替代計畫"
+            },
+            {
+              "condition": "局限約90°裂離",
+              "stage": "支撐後繼續",
+              "action": "CTR或capsular hooks依時機穩囊，低flow完成phaco並適當PCIOL",
+              "rationale": "保有足夠支持可避免不必要轉ECCE/ACIOL",
+              "caution": "不得盲增bottle height/flow；支持不足需升級方案"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "術中",
+              "clue": "後極斑、zonular缺口與囊袋震動",
+              "interpretation": "把位置和範圍對到手術步驟",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 245
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "90°裂離就一律立即ACIOL",
+              "correction": "原例可CTR/hooks支撐後保留PCIOL，仍看capsule質量"
+            }
+          ],
+          "recall": {
+            "prompt": "Posterior polar最要避免的常規步驟？",
+            "answer": "Hydrodissection；可用gentle delineation/OVD等替代。"
+          },
+          "status": "source-checked"
+        },
+        {
+          "id": "bcsc-s11-ch012-u03",
+          "title": "極端AL、postrefractive與後段：避免一套流程",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                254,
+                255,
+                256,
+                257,
+                258,
+                261,
+                262,
+                267,
+                268
+              ],
+              "printedPages": [
+                "237",
+                "238",
+                "239",
+                "240",
+                "241",
+                "244",
+                "245",
+                "250",
+                "251"
+              ],
+              "chapterHeading": "Preparing for Cataract Surgery in Special Situations"
+            }
+          ],
+          "mechanism": [
+            "Nanophthalmos短眼、厚鞏膜與lens/eye比例高，易擁擠及uveal effusion；極長眼則有深房/LIDRS、toric旋轉及後節風險。舊RK/LASIK/PRK改變角膜模型與傷口條件，常規K/ELP假設可失準。",
+            "Post-vitrectomy缺乏原玻璃體cushion，可有後囊動態/前房深度波動，需調fluidics並查zonule。Silicone-oil眼需考慮較低flow/避免過壓，IOL材質及biometry/折射介面假設不同；本卷第7章已列silicone材料黏oil的選材問題。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "短眼、窄房角及厚鞏膜",
+              "meaning": "防effusion；術後低壓亦可促發"
+            },
+            {
+              "finding": "RK切口",
+              "meaning": "需避免新切口跨舊切口；LASIK flap亦需保護"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "Nanophthalmos",
+              "for": "小眼空間與鞏膜/脈絡膜風險",
+              "against": "不是所有hyperopia都如此",
+              "discriminator": "AL與前後段"
+            },
+            {
+              "diagnosis": "High axial myopia",
+              "for": "長眼囊袋與後段病",
+              "against": "視力潛力不只lens",
+              "discriminator": "retina及AL"
+            },
+            {
+              "diagnosis": "Postrefractive",
+              "for": "角膜前後比/曲率模型改",
+              "against": "不以一般K套公式",
+              "discriminator": "適合公式與多模式量測"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "biometry、tomography、後段及必要超音波",
+              "purpose": "量極端眼與視覺潛力",
+              "interpretation": "需告屈光預測較不確定",
+              "limitation": "不要追單一最順眼的數字"
+            }
+          ],
+          "management": [
+            {
+              "condition": "Nanophthalmos",
+              "stage": "防後壓/低壓",
+              "action": "維持可控正前房壓、縮短不必要操作並可靠密閉傷口，選定高危可評scleral windows",
+              "rationale": "減uveal effusion風險",
+              "caution": "非每個短眼常規做同一預防術"
+            },
+            {
+              "condition": "Postrefractive",
+              "stage": "個別計算與切口",
+              "action": "用適合術史公式/量測並避免RK切口或LASIK flap干擾",
+              "rationale": "降低屈光與傷口失準",
+              "caution": "可能仍需術後屈光修正"
+            },
+            {
+              "condition": "Retina病或高近視",
+              "stage": "並行後段",
+              "action": "術前判黃斑/裂孔風險、說明視覺限制並術後警訊追蹤",
+              "rationale": "不能因lens清就忽略RD等",
+              "caution": "新閃飛/幕影需緊急評估"
+            },
+            {
+              "condition": "Post-PPV或silicone oil眼",
+              "stage": "調整手術/計算",
+              "action": "核實油狀態與biometry設定，調flow/壓力並防不穩後囊/弱zonule，依未來oil/retina方案選IOL材質",
+              "rationale": "避免把vitrectomized眼當相同支撐與折射介面",
+              "caution": "視力潛能受retina病影響，不能只承諾屈光精準即有好視力"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "眼部地圖/超音波",
+              "clue": "短眼厚鞏膜、長眼或舊切口",
+              "interpretation": "極端眼的風險方向相反",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 258
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "所有短/長眼只換IOL power就行",
+              "correction": "解剖、fluidics、傷口及後節照護也要改"
+            }
+          ],
+          "recall": {
+            "prompt": "Nanophthalmos特別要防哪個術中/術後事件？",
+            "answer": "Uveal effusion，注意正壓與避免低壓及個別預防策略。"
+          },
+          "status": "source-checked"
+        }
+      ]
     }
   ],
-  "questions": [],
+  "questions": [
+    {
+      "id": "bcsc-s11-rq001",
+      "sourceQuestionKey": "bcsc-s11-rq001",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 1,
+      "chapterIds": [
+        "bcsc-s11-ch001"
+      ],
+      "unitIds": [
+        "bcsc-s11-ch001-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            276,
+            284
+          ],
+          "printedPages": [
+            "259",
+            "267"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "患者較同齡人提早出現多種lens混濁，系統病會透過sorbitol、glycation和氧化壓力促進。哪個最符合？",
+      "options": [
+        {
+          "text": "Multiple sclerosis",
+          "rationale": "本身不是此特定代謝機轉",
+          "whenTrue": "治療用激素可能另有lens風險"
+        },
+        {
+          "text": "Hypercholesterolemia",
+          "rationale": "非本題直接polyol機轉",
+          "whenTrue": "仍有其他系統健康意義"
+        },
+        {
+          "text": "缺血性心血管病",
+          "rationale": "不是此特定lens代謝答案",
+          "whenTrue": "視覺預後仍需系統風險評估"
+        },
+        {
+          "text": "Diabetes mellitus",
+          "rationale": "多條lens代謝機轉提高風險",
+          "whenTrue": "相符糖尿病背景"
+        }
+      ],
+      "correctIndex": 3,
+      "explanation": "本題測糖尿病與lens變化，不把所有系統疾病都歸同一路徑。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "bcsc-s11-rq002",
+      "sourceQuestionKey": "bcsc-s11-rq002",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 2,
+      "chapterIds": [
+        "bcsc-s11-ch002"
+      ],
+      "unitIds": [
+        "bcsc-s11-ch002-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            276,
+            284
+          ],
+          "printedPages": [
+            "259",
+            "267"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "Lens不斷由赤道加入新纖維，最早形成的層最後位於哪裡？",
+      "options": [
+        {
+          "text": "Epinucleus",
+          "rationale": "較外的核層",
+          "whenTrue": "與hard endonucleus不同"
+        },
+        {
+          "text": "Capsule",
+          "rationale": "是基底膜而非最老fiber聚集區",
+          "whenTrue": "維持囊袋屏障"
+        },
+        {
+          "text": "Endonucleus中央",
+          "rationale": "外周新層包住舊層",
+          "whenTrue": "最老lens fibers"
+        },
+        {
+          "text": "Cortex",
+          "rationale": "較新外周纖維",
+          "whenTrue": "手術較軟部分"
+        }
+      ],
+      "correctIndex": 2,
+      "explanation": "手術分層名稱與纖維新舊有關，不能把最外側當最老。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "bcsc-s11-rq003",
+      "sourceQuestionKey": "bcsc-s11-rq003",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 3,
+      "chapterIds": [
+        "bcsc-s11-ch002"
+      ],
+      "unitIds": [
+        "bcsc-s11-ch002-u02"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            276,
+            284
+          ],
+          "printedPages": [
+            "259",
+            "267"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "Lens內部有gap-junction等交換與代謝處理，但其廢物離開無血管晶體的主要周圍交換媒介是什麼？",
+      "options": [
+        {
+          "text": "Glutathione redox recycling",
+          "rationale": "支持抗氧化而非主要代謝廢物外排媒介",
+          "whenTrue": "lens還原防禦"
+        },
+        {
+          "text": "Aqueous humor",
+          "rationale": "是原書lens主要代謝交換/廢物出口媒介",
+          "whenTrue": "無血管lens與周圍房水交換"
+        },
+        {
+          "text": "Lens fiber gap-junction網絡本身",
+          "rationale": "可運送lens內部小分子，但不是最終離開lens的周圍媒介",
+          "whenTrue": "lens內部代謝耦合"
+        },
+        {
+          "text": "Lysosomal breakdown於細胞內",
+          "rationale": "可處理細胞物質，不是原題主要外部清除媒介",
+          "whenTrue": "有胞器LEC的細胞內代謝"
+        }
+      ],
+      "correctIndex": 1,
+      "explanation": "成熟fiber失核/多數胞器，但前方LEC仍有胞器；不要把原書簡化句教成全部lens細胞無胞器。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "bcsc-s11-rq004",
+      "sourceQuestionKey": "bcsc-s11-rq004",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 4,
+      "chapterIds": [
+        "bcsc-s11-ch003"
+      ],
+      "unitIds": [
+        "bcsc-s11-ch003-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            276,
+            284
+          ],
+          "printedPages": [
+            "259",
+            "267"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "Lens內SOD、catalase和glutathione peroxidase共同維持的主要功能是？",
+      "options": [
+        {
+          "text": "對抗氧化/自由基傷害",
+          "rationale": "保護蛋白與膜",
+          "whenTrue": "lens透明防禦"
+        },
+        {
+          "text": "直接驅動Na/K梯度",
+          "rationale": "主要是ATPase相關",
+          "whenTrue": "離子運輸機轉"
+        },
+        {
+          "text": "把glucose轉sorbitol",
+          "rationale": "主要aldose reductase路徑",
+          "whenTrue": "糖尿病polyol負荷"
+        },
+        {
+          "text": "把水溶蛋白固定轉不溶",
+          "rationale": "非這些防禦酵素目的",
+          "whenTrue": "老化蛋白變化為不同過程"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "生物抗氧化機轉合理，不等於營養補充可保證預防白內障。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "bcsc-s11-rq005",
+      "sourceQuestionKey": "bcsc-s11-rq005",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 5,
+      "chapterIds": [
+        "bcsc-s11-ch003"
+      ],
+      "unitIds": [
+        "bcsc-s11-ch003-u02"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            277,
+            284
+          ],
+          "printedPages": [
+            "260",
+            "267"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "高glucose暴露使lens sorbitol累積、滲透負荷升高。哪個代謝變化最直接對應本卷polyol機轉？",
+      "options": [
+        {
+          "text": "Hexokinase將glucose轉G6P進一般代謝",
+          "rationale": "不是直接形成sorbitol的分支",
+          "whenTrue": "糖解/其他G6P代謝入口"
+        },
+        {
+          "text": "G6PD產NADPH支持還原代謝",
+          "rationale": "不是將glucose直接還原成sorbitol的酵素",
+          "whenTrue": "HMP shunt與抗氧化需求"
+        },
+        {
+          "text": "Na/K ATPase耗能維持離子梯度",
+          "rationale": "是泵而非polyol酵素反應",
+          "whenTrue": "lens正常離子平衡"
+        },
+        {
+          "text": "Aldose reductase相關活性/通量增加，glucose更多轉向sorbitol",
+          "rationale": "保留高glucose促polyol增加的實際受測target",
+          "whenTrue": "糖負荷超出一般代謝處理時"
+        }
+      ],
+      "correctIndex": 3,
+      "explanation": "高glucose增加aldose-reductase/polyol路徑負荷；sorbitol進一步代謝/外流較慢，可造成滲透負荷。本題不只問enzyme名稱，也測高糖時此分支增加。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "bcsc-s11-rq006",
+      "sourceQuestionKey": "bcsc-s11-rq006",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 6,
+      "chapterIds": [
+        "bcsc-s11-ch003"
+      ],
+      "unitIds": [
+        "bcsc-s11-ch003-u02"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            277,
+            284
+          ],
+          "printedPages": [
+            "260",
+            "267"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "正常lens相較周圍房水/玻璃體，哪種離子濃度較高？",
+      "options": [
+        {
+          "text": "Ca2+",
+          "rationale": "正常lens相對低",
+          "whenTrue": "失衡可參與混濁病理"
+        },
+        {
+          "text": "Cl−",
+          "rationale": "相對周液較低",
+          "whenTrue": "不能把所有離子都視同方向"
+        },
+        {
+          "text": "K+",
+          "rationale": "由運輸系統維持較高intralenticular濃度",
+          "whenTrue": "正常離子穩態"
+        },
+        {
+          "text": "Na+",
+          "rationale": "lens相對較低",
+          "whenTrue": "周液與病理pump失常不同"
+        }
+      ],
+      "correctIndex": 2,
+      "explanation": "Na/K ATPase位於上皮相關膜系統，需區分capsule基底膜與活細胞運輸。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "bcsc-s11-rq007",
+      "sourceQuestionKey": "bcsc-s11-rq007",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 7,
+      "chapterIds": [
+        "bcsc-s11-ch004"
+      ],
+      "unitIds": [
+        "bcsc-s11-ch004-u02"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            277,
+            284
+          ],
+          "printedPages": [
+            "260",
+            "267"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "小直徑、較球形lens造成近視與瞳阻風險。下列哪個是本卷最典型的系統關聯？",
+      "options": [
+        {
+          "text": "Alport syndrome",
+          "rationale": "較熟悉lenticonus等lens表型",
+          "whenTrue": "腎與聽力背景"
+        },
+        {
+          "text": "Weill–Marchesani",
+          "rationale": "與microspherophakia最典型相關",
+          "whenTrue": "結合短身材/短指等可再支持"
+        },
+        {
+          "text": "Marfan",
+          "rationale": "可有lens位移或其他lens異常",
+          "whenTrue": "需看體型、血管與家族"
+        },
+        {
+          "text": "Lowe syndrome",
+          "rationale": "可有先天lens與系統病",
+          "whenTrue": "腎/神經等背景"
+        }
+      ],
+      "correctIndex": 1,
+      "explanation": "問最典型不是宣稱其他病絕不相關；需辨球形小lens與其他形態。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "bcsc-s11-rq008",
+      "sourceQuestionKey": "bcsc-s11-rq008",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 8,
+      "chapterIds": [
+        "bcsc-s11-ch004"
+      ],
+      "unitIds": [
+        "bcsc-s11-ch004-u02"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            277,
+            284
+          ],
+          "printedPages": [
+            "260",
+            "267"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "成人新出現ectopia lentis，要先追問哪個最常見的獲得性原因？",
+      "options": [
+        {
+          "text": "Trauma",
+          "rationale": "最常見獲得性lens位移原因",
+          "whenTrue": "含較久以前的鈍傷"
+        },
+        {
+          "text": "Marfan syndrome",
+          "rationale": "可致ectopia但屬遺傳背景",
+          "whenTrue": "相符系統與家族"
+        },
+        {
+          "text": "Homocystinuria",
+          "rationale": "也有遺傳代謝背景",
+          "whenTrue": "需全身風險評估"
+        },
+        {
+          "text": "Aniridia",
+          "rationale": "全眼發育病可有zonule問題",
+          "whenTrue": "不是最常見獲得性原因"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "不能由偏位方向單獨定病因；外傷、遺傳與代謝風險都要依背景排。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "bcsc-s11-rq009",
+      "sourceQuestionKey": "bcsc-s11-rq009",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 9,
+      "chapterIds": [
+        "bcsc-s11-ch005"
+      ],
+      "unitIds": [
+        "bcsc-s11-ch005-u02"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            277,
+            285
+          ],
+          "printedPages": [
+            "260",
+            "268"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "患者曾有長時間急閉角高IOP，之後前囊下出現小白斑。若稱glaukomflecken，其組織最符合？",
+      "options": [
+        {
+          "text": "PXF fibrillar material",
+          "rationale": "不同的細胞外沉積",
+          "whenTrue": "前囊/瞳緣屑狀物"
+        },
+        {
+          "text": "吞噬lens蛋白的macrophages",
+          "rationale": "較對phacolytic炎症",
+          "whenTrue": "過熟lens蛋白外漏"
+        },
+        {
+          "text": "異常ICE endothelial cells",
+          "rationale": "是角膜內皮膜病",
+          "whenTrue": "單側內皮/虹膜房角牽拉"
+        },
+        {
+          "text": "壞死LEC及變性的前囊下cortex",
+          "rationale": "與持續高IOP缺血相符",
+          "whenTrue": "高壓事件後"
+        }
+      ],
+      "correctIndex": 3,
+      "explanation": "Glaukomflecken是lens缺血損傷痕跡，不是PXF或ICE的名稱。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "bcsc-s11-rq010",
+      "sourceQuestionKey": "bcsc-s11-rq010",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 10,
+      "chapterIds": [
+        "bcsc-s11-ch005"
+      ],
+      "unitIds": [
+        "bcsc-s11-ch005-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            278,
+            285
+          ],
+          "printedPages": [
+            "261",
+            "268"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "青春期atopic dermatitis患者雙眼視力下降，lens有盾形囊下白斑，角膜及後段未解釋視力。最典型的lens診斷是？",
+      "options": [
+        {
+          "text": "Posterior polar cataract",
+          "rationale": "有特定後極/後囊風險",
+          "whenTrue": "先天或家族病型線索"
+        },
+        {
+          "text": "Lens subluxation",
+          "rationale": "主要位置不穩/屈光而非盾形白斑",
+          "whenTrue": "zonule異常與震顫"
+        },
+        {
+          "text": "Anterior subcapsular cataract",
+          "rationale": "符合atopic盾形病灶考點",
+          "whenTrue": "亦可有後囊下型但本卷典型原答前型"
+        },
+        {
+          "text": "Nuclear sclerosis",
+          "rationale": "多見年長核黃棕硬化",
+          "whenTrue": "不是此年輕盾形表型"
+        }
+      ],
+      "correctIndex": 2,
+      "explanation": "Atopy也可能有其他眼表病，不能沿用「完全不相關」的錯誤排除；本例已定位lens白斑。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "bcsc-s11-rq011",
+      "sourceQuestionKey": "bcsc-s11-rq011",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 11,
+      "chapterIds": [
+        "bcsc-s11-ch001"
+      ],
+      "unitIds": [
+        "bcsc-s11-ch001-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            278,
+            285
+          ],
+          "printedPages": [
+            "261",
+            "268"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "患者提早出現nuclear cataract，生活史包括長時間電腦、植物性飲食、Vitamin C補充及長期大量飲酒。哪項是本卷支持的風險？",
+      "options": [
+        {
+          "text": "Vitamin C補充",
+          "rationale": "不能由本例歸作致病因素",
+          "whenTrue": "亦不代表可保證預防"
+        },
+        {
+          "text": "過量酒精",
+          "rationale": "與核白內障風險相關",
+          "whenTrue": "需避免將病例暴露變成通用安全飲酒量"
+        },
+        {
+          "text": "電腦使用時間長",
+          "rationale": "未支持它作本題cataract直接原因",
+          "whenTrue": "可影響眼表/疲勞但不同病理"
+        },
+        {
+          "text": "植物性飲食",
+          "rationale": "本題不支持為cataract危險因子",
+          "whenTrue": "營養需看實際不足而非標籤"
+        }
+      ],
+      "correctIndex": 1,
+      "explanation": "風險關聯與個案因果不同，仍需其他代謝、藥物及暴露評估。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "bcsc-s11-rq012",
+      "sourceQuestionKey": "bcsc-s11-rq012",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 12,
+      "chapterIds": [
+        "bcsc-s11-ch012"
+      ],
+      "unitIds": [
+        "bcsc-s11-ch012-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            278,
+            285
+          ],
+          "printedPages": [
+            "261",
+            "268"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "來源記憶題：本卷末題設定uveitis後理想上在無局部steroid下安靜一段時間再做選擇性cataract surgery，所列最短時間為何？",
+      "options": [
+        {
+          "text": "3個月",
+          "rationale": "是該版題答理想值",
+          "whenTrue": "不能為達條件自行停維持治療"
+        },
+        {
+          "text": "1週",
+          "rationale": "短於該題理想等待",
+          "whenTrue": "急症另有必要治療優先，但非本題"
+        },
+        {
+          "text": "1個月",
+          "rationale": "不是來源所列最短理想值",
+          "whenTrue": "疾病/急迫性不同由專科個別評估"
+        },
+        {
+          "text": "2個月",
+          "rationale": "仍非該版末題答案",
+          "whenTrue": "不同研究入組不覆寫此source-recall"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "臨床通則是充分控制炎症及制定周術期治療，不要求每種慢性uveitis都停全部維持藥。原書自有例外，見同單元維持治療說明。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "source-checked",
+      "clinicalUpdates": [
+        {
+          "statement": "原始隨機研究Meacock等的uveitic phaco方法對既用systemic immunosuppressive therapy者按炎症程度繼續，支持「安靜不等於停所有維持治療」。這不以該研究舊入組條件覆寫本卷末題3月來源數值；術前與周術期按病型規劃。",
+          "source": {
+            "title": "Meacock et al. Steroid prophylaxis in eyes with uveitis undergoing phacoemulsification. Br J Ophthalmol.2004.",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1772319/",
+            "checkedAt": "2026-10-20"
+          }
+        }
+      ],
+      "readiness": "ready"
+    },
+    {
+      "id": "bcsc-s11-rq013",
+      "sourceQuestionKey": "bcsc-s11-rq013",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 13,
+      "chapterIds": [
+        "bcsc-s11-ch006"
+      ],
+      "unitIds": [
+        "bcsc-s11-ch006-u02"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            278,
+            285
+          ],
+          "printedPages": [
+            "261",
+            "268"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "Nystagmus患者能平躺、不選GA，需要除止痛外較完整akinesia。依本卷比較，哪個非GA方法效果最強？",
+      "options": [
+        {
+          "text": "Peribulbar anesthesia",
+          "rationale": "也能akinesia但原書不如retrobulbar完整",
+          "whenTrue": "按解剖與團隊選擇"
+        },
+        {
+          "text": "Sub-Tenon anesthesia",
+          "rationale": "可止痛並有不同程度akinesia",
+          "whenTrue": "有其風險/優點；非每例同效果"
+        },
+        {
+          "text": "Intracameral anesthesia",
+          "rationale": "主要止痛不提供完整不動",
+          "whenTrue": "合作良好手術情境"
+        },
+        {
+          "text": "Retrobulbar anesthesia",
+          "rationale": "原書比較akinesia較完整",
+          "whenTrue": "須個別評針刺/出血等風險"
+        }
+      ],
+      "correctIndex": 3,
+      "explanation": "這是效果比較而非一律處方；高近視等可能使sharp-needle block風險需改選。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "bcsc-s11-rq014",
+      "sourceQuestionKey": "bcsc-s11-rq014",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 14,
+      "chapterIds": [
+        "bcsc-s11-ch007"
+      ],
+      "unitIds": [
+        "bcsc-s11-ch007-u02"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            279,
+            285
+          ],
+          "printedPages": [
+            "262",
+            "268"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "Toric IOL早期偏軸，術前為高axial myopia及against-the-rule角膜散光；患者只有一般步行與近距離工作。哪個最能解釋rotation風險？",
+      "options": [
+        {
+          "text": "一般近距離工作",
+          "rationale": "本卷不支持為主要原因",
+          "whenTrue": "需按術後指示但不直接歸罪用眼"
+        },
+        {
+          "text": "一般步行",
+          "rationale": "不同於劇烈活動",
+          "whenTrue": "不由此取代解剖原因評估"
+        },
+        {
+          "text": "高axial myopia的大囊袋與低power薄optic",
+          "rationale": "有直接解剖風險",
+          "whenTrue": "還需查OVD/囊邊覆蓋"
+        },
+        {
+          "text": "Against-the-rule本身",
+          "rationale": "本卷列的是WTR而非ATR作相應風險",
+          "whenTrue": "不可把任一散光方向都同樣歸因"
+        }
+      ],
+      "correctIndex": 2,
+      "explanation": "確定實際軸位及殘餘散光，必要reposition而不只換眼鏡或責怪日常活動。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "bcsc-s11-rq015",
+      "sourceQuestionKey": "bcsc-s11-rq015",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 15,
+      "chapterIds": [
+        "bcsc-s11-ch008"
+      ],
+      "unitIds": [
+        "bcsc-s11-ch008-u02"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            279,
+            285
+          ],
+          "printedPages": [
+            "262",
+            "268"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "外科醫師希望保留較軟epinuclear bowl保護後囊。Hydrodelineation主要分開哪兩層？",
+      "options": [
+        {
+          "text": "Posterior polar plaque與後囊黏連面",
+          "rationale": "不是可任意注液剝離的安全delineation平面",
+          "whenTrue": "需特別保護後囊、選定清理或留後續處置"
+        },
+        {
+          "text": "Endonucleus與epinucleus",
+          "rationale": "Hydrodelineation用液體分出內外核",
+          "whenTrue": "保留epinuclear bowl時"
+        },
+        {
+          "text": "Cortex與capsule",
+          "rationale": "偏hydrodissection界面而非內外核",
+          "whenTrue": "適合且完整後囊的常規cortico-capsular分離"
+        },
+        {
+          "text": "核內預定的機械裂解面",
+          "rationale": "偏sculpt/chop fracture，不是液體內外核分層",
+          "whenTrue": "核分解步驟"
+        }
+      ],
+      "correctIndex": 1,
+      "explanation": "Posterior polar更要避免把delineation和高液壓hydrodissection混用。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "bcsc-s11-rq016",
+      "sourceQuestionKey": "bcsc-s11-rq016",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 16,
+      "chapterIds": [
+        "bcsc-s11-ch008"
+      ],
+      "unitIds": [
+        "bcsc-s11-ch008-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            279,
+            285
+          ],
+          "printedPages": [
+            "262",
+            "268"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "Peristaltic泵的roller在管路推流。對AFR與vacuum的控制關係哪項正確？",
+      "options": [
+        {
+          "text": "Direct AFR、indirect vacuum",
+          "rationale": "flow先產生，壓差/阻塞建立vacuum",
+          "whenTrue": "可另設vacuum上限"
+        },
+        {
+          "text": "Direct vacuum、indirect AFR",
+          "rationale": "這比較像Venturi泵",
+          "whenTrue": "無阻塞可由vacuum拉流"
+        },
+        {
+          "text": "兩者皆直接",
+          "rationale": "混淆可設定上限與直接產生",
+          "whenTrue": "應分機械控制變項"
+        },
+        {
+          "text": "兩者皆間接",
+          "rationale": "忽略roller直接推flow",
+          "whenTrue": "不符peristaltic機構"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "吸口阻塞和解除會改流體反應，設定值相同不代表兩種泵行為相同。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "bcsc-s11-rq017",
+      "sourceQuestionKey": "bcsc-s11-rq017",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 17,
+      "chapterIds": [
+        "bcsc-s11-ch009"
+      ],
+      "unitIds": [
+        "bcsc-s11-ch009-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            279,
+            286
+          ],
+          "printedPages": [
+            "262",
+            "269"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "MSICS的tunnel要容許核輸出又維持外口自封，典型內外寬度關係為？",
+      "options": [
+        {
+          "text": "外口較寬、內口較窄",
+          "rationale": "不是本卷典型設計",
+          "whenTrue": "不能由出核直覺反轉"
+        },
+        {
+          "text": "內外等寬",
+          "rationale": "未保留梯形重點",
+          "whenTrue": "不同切口設計需明名，非此MSICS原答"
+        },
+        {
+          "text": "由核硬度決定兩者哪個較寬",
+          "rationale": "核可影響尺寸但不改此相對設計",
+          "whenTrue": "要分絕對尺寸與形狀"
+        },
+        {
+          "text": "外scleral口較窄、內corneal口較寬",
+          "rationale": "梯形設計",
+          "whenTrue": "提供核通路與外口密閉"
+        }
+      ],
+      "correctIndex": 3,
+      "explanation": "問相對切口幾何，不需要硬背所有毫米尺寸。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "bcsc-s11-rq018",
+      "sourceQuestionKey": "bcsc-s11-rq018",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 18,
+      "chapterIds": [
+        "bcsc-s11-ch010"
+      ],
+      "unitIds": [
+        "bcsc-s11-ch010-u02"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            280,
+            286
+          ],
+          "printedPages": [
+            "263",
+            "269"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "Phaco中後囊破，半核落到anterior vitreous face上。器械尚在眼內，最適合的第一動作是？",
+      "options": [
+        {
+          "text": "用phaco tip impale/lollipop懸核",
+          "rationale": "可能推更後或吸入vitreous",
+          "whenTrue": "不作無控制後段追核"
+        },
+        {
+          "text": "加大沖洗把核衝前",
+          "rationale": "可能使核後掉並擾動vitreous",
+          "whenTrue": "完整屏障下的常規灌流不同情境"
+        },
+        {
+          "text": "降低flow/vacuum並注OVD穩前房再控制撤器械",
+          "rationale": "減outward壓差和vitreous前移",
+          "whenTrue": "PCR急期"
+        },
+        {
+          "text": "立刻拔出tip及第二器械",
+          "rationale": "可令房塌並拉更多vitreous",
+          "whenTrue": "應先穩前房，非此時立即全撤"
+        }
+      ],
+      "correctIndex": 2,
+      "explanation": "保留原題OVD-first次序，不把「取出核」放在穩壓力前。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "bcsc-s11-rq019",
+      "sourceQuestionKey": "bcsc-s11-rq019",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 19,
+      "chapterIds": [
+        "bcsc-s11-ch010"
+      ],
+      "unitIds": [
+        "bcsc-s11-ch010-u03"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            280,
+            286
+          ],
+          "printedPages": [
+            "263",
+            "269"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "術中前房突然變淺、眼球硬且患者新出現痛，懷疑suprachoroidal hemorrhage。下一步最適當？",
+      "options": [
+        {
+          "text": "立即以PPV追核",
+          "rationale": "尚未穩定眼球和確認原因",
+          "whenTrue": "後續手術由診斷/時機決定"
+        },
+        {
+          "text": "立即封閉/縫合傷口並檢眼底",
+          "rationale": "先保眼球完整性及確認後段",
+          "whenTrue": "顯著出血可需中止手術"
+        },
+        {
+          "text": "只加IV鎮痛",
+          "rationale": "不能處理後壓和出血",
+          "whenTrue": "單純鎮痛不足才另評麻醉"
+        },
+        {
+          "text": "減infusion再增aspiration",
+          "rationale": "可能加重房不穩",
+          "whenTrue": "其他fluidic問題需分型，非此反應"
+        }
+      ],
+      "correctIndex": 1,
+      "explanation": "疼痛加淺硬眼是結構警訊，不能只當患者不合作。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "bcsc-s11-rq020",
+      "sourceQuestionKey": "bcsc-s11-rq020",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 20,
+      "chapterIds": [
+        "bcsc-s11-ch010"
+      ],
+      "unitIds": [
+        "bcsc-s11-ch010-u03"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            280,
+            286
+          ],
+          "printedPages": [
+            "263",
+            "269"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "極長眼軸患者phaco時前房異常深且痛，iris被壓在lens方向形成reverse pupil block。最符合？",
+      "options": [
+        {
+          "text": "LIDRS",
+          "rationale": "lens-iris diaphragm向後退縮",
+          "whenTrue": "高AL/lax zonule較易"
+        },
+        {
+          "text": "Iris prolapse",
+          "rationale": "虹膜向切口脫出",
+          "whenTrue": "較淺小眼或流體/切口因素"
+        },
+        {
+          "text": "Wound burn",
+          "rationale": "熱傷切口",
+          "whenTrue": "硬核、高能量及灌流不足等"
+        },
+        {
+          "text": "Endothelial trauma",
+          "rationale": "不是此深房壓差表型",
+          "whenTrue": "空間窄/能量等風險"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "可輕抬iris解除壓差並降低infusion，先確認不是其他急症。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "bcsc-s11-rq021",
+      "sourceQuestionKey": "bcsc-s11-rq021",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 21,
+      "chapterIds": [
+        "bcsc-s11-ch010"
+      ],
+      "unitIds": [
+        "bcsc-s11-ch010-u02"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            280,
+            286
+          ],
+          "printedPages": [
+            "263",
+            "269"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "PCR後可見玻璃體前移到前房，需在保留前節可控性的同時減少vitreoretinal traction。哪種處理方法最符合本卷建議？",
+      "options": [
+        {
+          "text": "以main wound作coaxial vitrectomy",
+          "rationale": "可能維持向前玻璃體流與傷口牽引，非本卷偏好",
+          "whenTrue": "須按情境/器械安全評估但不能當最優同義詞"
+        },
+        {
+          "text": "僅以OVD穩房後繼續I/A而不處理前移玻璃體",
+          "rationale": "OVD不能取代本題已發生的玻璃體處理",
+          "whenTrue": "尚無vitreous prolapse且需暫穩房時OVD有角色"
+        },
+        {
+          "text": "直接完整後段PPV/lensectomy",
+          "rationale": "本題未必需如此範圍",
+          "whenTrue": "有掉核或其他後段適應症時需VR介入"
+        },
+        {
+          "text": "Two-port bimanual anterior vitrectomy",
+          "rationale": "灌流與cut/aspirate分開，可較獨立控制壓力與移除玻璃體",
+          "whenTrue": "依技術可limbal或合適pars plana路徑"
+        }
+      ],
+      "correctIndex": 3,
+      "explanation": "不要把vitreous像線一樣拉出剪掉；先穩壓力，以可控cutting移除。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "bcsc-s11-rq022",
+      "sourceQuestionKey": "bcsc-s11-rq022",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 22,
+      "chapterIds": [
+        "bcsc-s11-ch011"
+      ],
+      "unitIds": [
+        "bcsc-s11-ch011-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            280,
+            286
+          ],
+          "printedPages": [
+            "263",
+            "269"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "術後淺房高IOP，IOL在bag且其後無液體空間，PI通仍不改善。疑aqueous misdirection，先試何組？",
+      "options": [
+        {
+          "text": "直接vitrectomy",
+          "rationale": "可為醫療失敗後解除屏障",
+          "whenTrue": "不是所有病人初步第一步"
+        },
+        {
+          "text": "Miotic加重做LPI",
+          "rationale": "可加重前移，既有PI通也不解根因",
+          "whenTrue": "瞳阻有不同LPI適應症"
+        },
+        {
+          "text": "Cycloplegia加aqueous suppression",
+          "rationale": "使lens-iris後移並減房水",
+          "whenTrue": "先排其他淺房來源"
+        },
+        {
+          "text": "立即CPC",
+          "rationale": "不先解剖機轉，非此首步",
+          "whenTrue": "選定難治控壓/痛眼另有角色"
+        }
+      ],
+      "correctIndex": 2,
+      "explanation": "Capsular block需有bag/IOL-PC空間等不同線索；不把所有術後閉角重做PI。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "bcsc-s11-rq023",
+      "sourceQuestionKey": "bcsc-s11-rq023",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 23,
+      "chapterIds": [
+        "bcsc-s11-ch011"
+      ],
+      "unitIds": [
+        "bcsc-s11-ch011-u04"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            281,
+            287
+          ],
+          "printedPages": [
+            "264",
+            "270"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "比較常規cataract術後PCO的影響因子，哪一項相對增加LEC遷移而非建立較有效後囊屏障？",
+      "options": [
+        {
+          "text": "充分安全清除cortical material",
+          "rationale": "減少殘留來源，不是本題高風險因子",
+          "whenTrue": "不能為追零殘留傷後囊/zonule"
+        },
+        {
+          "text": "Round posterior optic edge",
+          "rationale": "較缺square-edge抑制LEC遷移的屏障",
+          "whenTrue": "與square edge設計比較"
+        },
+        {
+          "text": "Truncated square posterior edge",
+          "rationale": "相對降低PCO而非本題增風險",
+          "whenTrue": "合適edge設計但非保證零PCO"
+        },
+        {
+          "text": "CCC約360°覆蓋optic edge",
+          "rationale": "可有較有效capsular bend/屏障",
+          "whenTrue": "在合適大小/中心與支持下"
+        }
+      ],
+      "correctIndex": 1,
+      "explanation": "原target為round-edge，而不是單因術後類固醇用久或高齡。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "bcsc-s11-rq024",
+      "sourceQuestionKey": "bcsc-s11-rq024",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 24,
+      "chapterIds": [
+        "bcsc-s11-ch011"
+      ],
+      "unitIds": [
+        "bcsc-s11-ch011-u04"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            281,
+            287
+          ],
+          "printedPages": [
+            "264",
+            "270"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "術後1月顳側暗弧，對照視野及散瞳後段正常，沒有PCO解釋，判為negative dysphotopsia。第一步多為？",
+      "options": [
+        {
+          "text": "觀察與衛教",
+          "rationale": "早期多可隨適應改善",
+          "whenTrue": "先確定無retinal等病變"
+        },
+        {
+          "text": "Nd:YAG posterior capsulotomy",
+          "rationale": "不是negative dysphotopsia常規治療",
+          "whenTrue": "有視軸PCO才評估"
+        },
+        {
+          "text": "立刻reverse optic capture",
+          "rationale": "持續嚴重才可評的程序",
+          "whenTrue": "經觀察且診斷明確仍困擾"
+        },
+        {
+          "text": "立即換3-piece sulcus IOL",
+          "rationale": "屬選定持續病例的手術策略",
+          "whenTrue": "需評capsule和整體風險"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "暗弧先排重要後段病；若真negative dysphotopsia，早期不急著作不可逆手術。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "bcsc-s11-rq025",
+      "sourceQuestionKey": "bcsc-s11-rq025",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 25,
+      "chapterIds": [
+        "bcsc-s11-ch011"
+      ],
+      "unitIds": [
+        "bcsc-s11-ch011-u02"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            281,
+            287
+          ],
+          "printedPages": [
+            "264",
+            "270"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "依EVS原始研究，急性術後眼內炎決定immediate PPV與tap/inject分支的初診關鍵是？",
+      "options": [
+        {
+          "text": "距手術時間",
+          "rationale": "有助診斷但非EVS此分支主準則",
+          "whenTrue": "急慢性感染鑑別"
+        },
+        {
+          "text": "玻璃體炎程度",
+          "rationale": "臨床重要但非原研究此分層答案",
+          "whenTrue": "當代評估仍需看"
+        },
+        {
+          "text": "後囊是否完整",
+          "rationale": "可影響風險但不是EVS分層準則",
+          "whenTrue": "術式與感染源評估"
+        },
+        {
+          "text": "視力；LP眼偏immediate PPV，HM以上原研究多tap/inject",
+          "rationale": "保留原研究判斷軸",
+          "whenTrue": "當代個別嚴重度仍可改計畫"
+        }
+      ],
+      "correctIndex": 3,
+      "explanation": "不是所有現代眼內炎都機械照EVS唯一門檻；但原概念需準確記。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "bcsc-s11-rq026",
+      "sourceQuestionKey": "bcsc-s11-rq026",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 26,
+      "chapterIds": [
+        "bcsc-s11-ch011"
+      ],
+      "unitIds": [
+        "bcsc-s11-ch011-u03"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            281,
+            287
+          ],
+          "printedPages": [
+            "264",
+            "270"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "術後1月OCT確認單純pseudophakic CME，沒有retinal tear或其他病原證據。常用第一階治療是？",
+      "options": [
+        {
+          "text": "直接眼內anti-VEGF",
+          "rationale": "可有其他適應或選定難治水腫角色",
+          "whenTrue": "不是此單純CME一般首步"
+        },
+        {
+          "text": "只觀察所有症狀者",
+          "rationale": "部分可自限但此功能受損常先局部治療",
+          "whenTrue": "輕微/個別風險可另判"
+        },
+        {
+          "text": "局部corticosteroid和/或NSAID",
+          "rationale": "典型初步抗炎",
+          "whenTrue": "需IOP/OCT追蹤"
+        },
+        {
+          "text": "直接眼內類固醇",
+          "rationale": "多保留難治/選定病例",
+          "whenTrue": "局部治療不足後按風險升級"
+        }
+      ],
+      "correctIndex": 2,
+      "explanation": "處理CME要辨炎症、牽引及其他血管病，不能只因時間相符就忽略鑑別。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "bcsc-s11-rq027",
+      "sourceQuestionKey": "bcsc-s11-rq027",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 27,
+      "chapterIds": [
+        "bcsc-s11-ch012"
+      ],
+      "unitIds": [
+        "bcsc-s11-ch012-u02"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            282,
+            287
+          ],
+          "printedPages": [
+            "265",
+            "270"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "術中發現約90°zonular dialysis，capsule其餘可用。較合理策略是？",
+      "options": [
+        {
+          "text": "直接ACIOL而不評bag支持",
+          "rationale": "未保留可用capsule",
+          "whenTrue": "bag不可用時另評其他位置"
+        },
+        {
+          "text": "Capsular hooks/CTR支撐後受控完成phaco並適當PCIOL",
+          "rationale": "保留原書此局限缺損策略",
+          "whenTrue": "需足夠capsule及全程穩定"
+        },
+        {
+          "text": "大幅提高bottle/flow",
+          "rationale": "可把vitreous帶過缺損並擴大",
+          "whenTrue": "不把深前房當唯一目標"
+        },
+        {
+          "text": "立刻轉ECCE作每例標準",
+          "rationale": "局限可支撐未必需轉",
+          "whenTrue": "情況惡化或無安全支撐可改程序"
+        }
+      ],
+      "correctIndex": 1,
+      "explanation": "CTR早放較穩但使cortex較難吸，晚放需其他支撐避免擴大；不是只背一個放置時機。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "bcsc-s11-rq028",
+      "sourceQuestionKey": "bcsc-s11-rq028",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 28,
+      "chapterIds": [
+        "bcsc-s11-ch012"
+      ],
+      "unitIds": [
+        "bcsc-s11-ch012-u02"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            282,
+            288
+          ],
+          "printedPages": [
+            "265",
+            "271"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "Posterior polar cataract可能伴後囊弱點。哪個常規步驟最應避免？",
+      "options": [
+        {
+          "text": "Hydrodissection",
+          "rationale": "液壓可衝破脆弱後囊",
+          "whenTrue": "改gentle delineation/OVD等"
+        },
+        {
+          "text": "Hydrodelineation",
+          "rationale": "可保留epinuclear bowl",
+          "whenTrue": "仍需溫和受控"
+        },
+        {
+          "text": "OVD viscodissection",
+          "rationale": "可在選定階段協助分離",
+          "whenTrue": "控制壓力並看capsule"
+        },
+        {
+          "text": "CCC tear rescue",
+          "rationale": "不是此型本身禁忌",
+          "whenTrue": "有radialization時需救援"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "原考點是避hydrodissection，並非所有液體/OVD操作一律禁止。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "bcsc-s11-rq029",
+      "sourceQuestionKey": "bcsc-s11-rq029",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 29,
+      "chapterIds": [
+        "bcsc-s11-ch012"
+      ],
+      "unitIds": [
+        "bcsc-s11-ch012-u03"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            282,
+            288
+          ],
+          "printedPages": [
+            "265",
+            "271"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "Nanophthalmos患者白內障手術，短AL、厚鞏膜及擁擠前節使哪項特別需防？",
+      "options": [
+        {
+          "text": "Endophthalmitis",
+          "rationale": "任何手術都有但不是本題小眼特有重點",
+          "whenTrue": "仍需標準感染預防"
+        },
+        {
+          "text": "Irregular astigmatism",
+          "rationale": "可由角膜/傷口等造成",
+          "whenTrue": "不是厚鞏膜小眼機轉核心"
+        },
+        {
+          "text": "Rhegmatogenous RD",
+          "rationale": "重要後段病，常另看長眼等風險",
+          "whenTrue": "不能視本題最具代表小眼併發症"
+        },
+        {
+          "text": "Uveal effusion",
+          "rationale": "此小眼解剖有特別風險",
+          "whenTrue": "注意可控前房正壓及傷口密閉"
+        }
+      ],
+      "correctIndex": 3,
+      "explanation": "選定高危可評scleral windows等，但不把所有短眼同一例行侵入策略。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "bcsc-s11-rq030",
+      "sourceQuestionKey": "bcsc-s11-rq030",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 30,
+      "chapterIds": [
+        "bcsc-s11-ch012"
+      ],
+      "unitIds": [
+        "bcsc-s11-ch012-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            282,
+            288
+          ],
+          "printedPages": [
+            "265",
+            "271"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "本卷描述mild/moderate glaucoma合併cataract，單phaco/IOL的平均IOP降幅區間為？",
+      "options": [
+        {
+          "text": "35%–49%",
+          "rationale": "高於該版平均區間",
+          "whenTrue": "不應拿來保證單phaco足夠"
+        },
+        {
+          "text": ">50%",
+          "rationale": "明顯超出該版概括",
+          "whenTrue": "晚期若需大降幅要另評glaucoma程序"
+        },
+        {
+          "text": "10%–34%",
+          "rationale": "符合該版概括，且效果隨時間可減弱",
+          "whenTrue": "不是每眼保證，需看baseline和機轉"
+        },
+        {
+          "text": "<10%",
+          "rationale": "不是本卷所列平均區間",
+          "whenTrue": "個別反應仍可能較低"
+        }
+      ],
+      "correctIndex": 2,
+      "explanation": "保留原數值概念但不外推為個案承諾；target很低或病程晚時可需合併/分期濾過或其他手術。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "source-checked",
+      "readiness": "ready"
+    }
+  ],
   "coverage": {
     "chapterRows": [
       {
         "chapterId": "bcsc-s11-ch001",
-        "unitIds": [],
-        "teachingStatus": "unreviewed",
-        "coverageStatus": "partial",
+        "unitIds": [
+          "bcsc-s11-ch001-u01"
+        ],
+        "teachingStatus": "source-checked",
+        "coverageStatus": "independently-reviewed",
         "originalImageStatus": "not-reviewed",
         "gaps": [
-          "教材尚未補入"
+          "原書各圖尚未逐圖視覺核對；主要文字範圍已依獨立報告核對，非逐段全文/全圖覆蓋。"
         ]
       },
       {
         "chapterId": "bcsc-s11-ch002",
-        "unitIds": [],
-        "teachingStatus": "unreviewed",
-        "coverageStatus": "partial",
+        "unitIds": [
+          "bcsc-s11-ch002-u01",
+          "bcsc-s11-ch002-u02"
+        ],
+        "teachingStatus": "source-checked",
+        "coverageStatus": "independently-reviewed",
         "originalImageStatus": "not-reviewed",
         "gaps": [
-          "教材尚未補入"
+          "原書各圖尚未逐圖視覺核對；主要文字範圍已依獨立報告核對，非逐段全文/全圖覆蓋。"
         ]
       },
       {
         "chapterId": "bcsc-s11-ch003",
-        "unitIds": [],
-        "teachingStatus": "unreviewed",
-        "coverageStatus": "partial",
+        "unitIds": [
+          "bcsc-s11-ch003-u01",
+          "bcsc-s11-ch003-u02"
+        ],
+        "teachingStatus": "source-checked",
+        "coverageStatus": "independently-reviewed",
         "originalImageStatus": "not-reviewed",
         "gaps": [
-          "教材尚未補入"
+          "原書各圖尚未逐圖視覺核對；主要文字範圍已依獨立報告核對，非逐段全文/全圖覆蓋。"
         ]
       },
       {
         "chapterId": "bcsc-s11-ch004",
-        "unitIds": [],
-        "teachingStatus": "unreviewed",
-        "coverageStatus": "partial",
+        "unitIds": [
+          "bcsc-s11-ch004-u01",
+          "bcsc-s11-ch004-u02"
+        ],
+        "teachingStatus": "source-checked",
+        "coverageStatus": "independently-reviewed",
         "originalImageStatus": "not-reviewed",
         "gaps": [
-          "教材尚未補入"
+          "原書各圖尚未逐圖視覺核對；主要文字範圍已依獨立報告核對，非逐段全文/全圖覆蓋。"
         ]
       },
       {
         "chapterId": "bcsc-s11-ch005",
-        "unitIds": [],
-        "teachingStatus": "unreviewed",
-        "coverageStatus": "partial",
+        "unitIds": [
+          "bcsc-s11-ch005-u01",
+          "bcsc-s11-ch005-u02",
+          "bcsc-s11-ch005-u03"
+        ],
+        "teachingStatus": "source-checked",
+        "coverageStatus": "independently-reviewed",
         "originalImageStatus": "not-reviewed",
         "gaps": [
-          "教材尚未補入"
+          "原書各圖尚未逐圖視覺核對；主要文字範圍已依獨立報告核對，非逐段全文/全圖覆蓋。"
         ]
       },
       {
         "chapterId": "bcsc-s11-ch006",
-        "unitIds": [],
-        "teachingStatus": "unreviewed",
-        "coverageStatus": "partial",
+        "unitIds": [
+          "bcsc-s11-ch006-u01",
+          "bcsc-s11-ch006-u02"
+        ],
+        "teachingStatus": "source-checked",
+        "coverageStatus": "independently-reviewed",
         "originalImageStatus": "not-reviewed",
         "gaps": [
-          "教材尚未補入"
+          "原書各圖尚未逐圖視覺核對；主要文字範圍已依獨立報告核對，非逐段全文/全圖覆蓋。"
         ]
       },
       {
         "chapterId": "bcsc-s11-ch007",
-        "unitIds": [],
-        "teachingStatus": "unreviewed",
-        "coverageStatus": "partial",
+        "unitIds": [
+          "bcsc-s11-ch007-u01",
+          "bcsc-s11-ch007-u02",
+          "bcsc-s11-ch007-u03"
+        ],
+        "teachingStatus": "source-checked",
+        "coverageStatus": "independently-reviewed",
         "originalImageStatus": "not-reviewed",
         "gaps": [
-          "教材尚未補入"
+          "原書各圖尚未逐圖視覺核對；主要文字範圍已依獨立報告核對，非逐段全文/全圖覆蓋。"
         ]
       },
       {
         "chapterId": "bcsc-s11-ch008",
-        "unitIds": [],
-        "teachingStatus": "unreviewed",
-        "coverageStatus": "partial",
+        "unitIds": [
+          "bcsc-s11-ch008-u01",
+          "bcsc-s11-ch008-u02",
+          "bcsc-s11-ch008-u03"
+        ],
+        "teachingStatus": "source-checked",
+        "coverageStatus": "independently-reviewed",
         "originalImageStatus": "not-reviewed",
         "gaps": [
-          "教材尚未補入"
+          "原書各圖尚未逐圖視覺核對；主要文字範圍已依獨立報告核對，非逐段全文/全圖覆蓋。"
         ]
       },
       {
         "chapterId": "bcsc-s11-ch009",
-        "unitIds": [],
-        "teachingStatus": "unreviewed",
-        "coverageStatus": "partial",
+        "unitIds": [
+          "bcsc-s11-ch009-u01"
+        ],
+        "teachingStatus": "source-checked",
+        "coverageStatus": "independently-reviewed",
         "originalImageStatus": "not-reviewed",
         "gaps": [
-          "教材尚未補入"
+          "原書各圖尚未逐圖視覺核對；主要文字範圍已依獨立報告核對，非逐段全文/全圖覆蓋。"
         ]
       },
       {
         "chapterId": "bcsc-s11-ch010",
-        "unitIds": [],
-        "teachingStatus": "unreviewed",
-        "coverageStatus": "partial",
+        "unitIds": [
+          "bcsc-s11-ch010-u01",
+          "bcsc-s11-ch010-u02",
+          "bcsc-s11-ch010-u03"
+        ],
+        "teachingStatus": "source-checked",
+        "coverageStatus": "independently-reviewed",
         "originalImageStatus": "not-reviewed",
         "gaps": [
-          "教材尚未補入"
+          "原書各圖尚未逐圖視覺核對；主要文字範圍已依獨立報告核對，非逐段全文/全圖覆蓋。"
         ]
       },
       {
         "chapterId": "bcsc-s11-ch011",
-        "unitIds": [],
-        "teachingStatus": "unreviewed",
-        "coverageStatus": "partial",
+        "unitIds": [
+          "bcsc-s11-ch011-u01",
+          "bcsc-s11-ch011-u02",
+          "bcsc-s11-ch011-u03",
+          "bcsc-s11-ch011-u04"
+        ],
+        "teachingStatus": "source-checked",
+        "coverageStatus": "independently-reviewed",
         "originalImageStatus": "not-reviewed",
         "gaps": [
-          "教材尚未補入"
+          "原書各圖尚未逐圖視覺核對；主要文字範圍已依獨立報告核對，非逐段全文/全圖覆蓋。"
         ]
       },
       {
         "chapterId": "bcsc-s11-ch012",
-        "unitIds": [],
-        "teachingStatus": "unreviewed",
-        "coverageStatus": "partial",
+        "unitIds": [
+          "bcsc-s11-ch012-u01",
+          "bcsc-s11-ch012-u02",
+          "bcsc-s11-ch012-u03"
+        ],
+        "teachingStatus": "source-checked",
+        "coverageStatus": "independently-reviewed",
         "originalImageStatus": "not-reviewed",
         "gaps": [
-          "教材尚未補入"
+          "原書各圖尚未逐圖視覺核對；主要文字範圍已依獨立報告核對，非逐段全文/全圖覆蓋。"
         ]
       }
     ],
@@ -354,399 +5751,482 @@
         "sourceQuestionKey": "bcsc-s11-rq001",
         "questionScope": "end-of-volume",
         "sourceNumber": 1,
-        "questionId": null,
-        "unitIds": [],
-        "conceptStatus": "unmapped",
-        "sourceAnswerStatus": "unverified",
+        "questionId": "bcsc-s11-rq001",
+        "unitIds": [
+          "bcsc-s11-ch001-u01"
+        ],
+        "conceptStatus": "source-checked",
+        "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
-        "gaps": [
-          "概念重述尚未補入"
-        ]
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s11-rq002",
         "questionScope": "end-of-volume",
         "sourceNumber": 2,
-        "questionId": null,
-        "unitIds": [],
-        "conceptStatus": "unmapped",
-        "sourceAnswerStatus": "unverified",
+        "questionId": "bcsc-s11-rq002",
+        "unitIds": [
+          "bcsc-s11-ch002-u01"
+        ],
+        "conceptStatus": "source-checked",
+        "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
-        "gaps": [
-          "概念重述尚未補入"
-        ]
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s11-rq003",
         "questionScope": "end-of-volume",
         "sourceNumber": 3,
-        "questionId": null,
-        "unitIds": [],
-        "conceptStatus": "unmapped",
-        "sourceAnswerStatus": "unverified",
+        "questionId": "bcsc-s11-rq003",
+        "unitIds": [
+          "bcsc-s11-ch002-u02"
+        ],
+        "conceptStatus": "source-checked",
+        "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
-        "gaps": [
-          "概念重述尚未補入"
-        ]
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s11-rq004",
         "questionScope": "end-of-volume",
         "sourceNumber": 4,
-        "questionId": null,
-        "unitIds": [],
-        "conceptStatus": "unmapped",
-        "sourceAnswerStatus": "unverified",
+        "questionId": "bcsc-s11-rq004",
+        "unitIds": [
+          "bcsc-s11-ch003-u01"
+        ],
+        "conceptStatus": "source-checked",
+        "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
-        "gaps": [
-          "概念重述尚未補入"
-        ]
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s11-rq005",
         "questionScope": "end-of-volume",
         "sourceNumber": 5,
-        "questionId": null,
-        "unitIds": [],
-        "conceptStatus": "unmapped",
-        "sourceAnswerStatus": "unverified",
+        "questionId": "bcsc-s11-rq005",
+        "unitIds": [
+          "bcsc-s11-ch003-u02"
+        ],
+        "conceptStatus": "source-checked",
+        "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
-        "gaps": [
-          "概念重述尚未補入"
-        ]
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s11-rq006",
         "questionScope": "end-of-volume",
         "sourceNumber": 6,
-        "questionId": null,
-        "unitIds": [],
-        "conceptStatus": "unmapped",
-        "sourceAnswerStatus": "unverified",
+        "questionId": "bcsc-s11-rq006",
+        "unitIds": [
+          "bcsc-s11-ch003-u02"
+        ],
+        "conceptStatus": "source-checked",
+        "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
-        "gaps": [
-          "概念重述尚未補入"
-        ]
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s11-rq007",
         "questionScope": "end-of-volume",
         "sourceNumber": 7,
-        "questionId": null,
-        "unitIds": [],
-        "conceptStatus": "unmapped",
-        "sourceAnswerStatus": "unverified",
+        "questionId": "bcsc-s11-rq007",
+        "unitIds": [
+          "bcsc-s11-ch004-u02"
+        ],
+        "conceptStatus": "source-checked",
+        "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
-        "gaps": [
-          "概念重述尚未補入"
-        ]
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s11-rq008",
         "questionScope": "end-of-volume",
         "sourceNumber": 8,
-        "questionId": null,
-        "unitIds": [],
-        "conceptStatus": "unmapped",
-        "sourceAnswerStatus": "unverified",
+        "questionId": "bcsc-s11-rq008",
+        "unitIds": [
+          "bcsc-s11-ch004-u02"
+        ],
+        "conceptStatus": "source-checked",
+        "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
-        "gaps": [
-          "概念重述尚未補入"
-        ]
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s11-rq009",
         "questionScope": "end-of-volume",
         "sourceNumber": 9,
-        "questionId": null,
-        "unitIds": [],
-        "conceptStatus": "unmapped",
-        "sourceAnswerStatus": "unverified",
+        "questionId": "bcsc-s11-rq009",
+        "unitIds": [
+          "bcsc-s11-ch005-u02"
+        ],
+        "conceptStatus": "source-checked",
+        "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
-        "gaps": [
-          "概念重述尚未補入"
-        ]
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s11-rq010",
         "questionScope": "end-of-volume",
         "sourceNumber": 10,
-        "questionId": null,
-        "unitIds": [],
-        "conceptStatus": "unmapped",
-        "sourceAnswerStatus": "unverified",
+        "questionId": "bcsc-s11-rq010",
+        "unitIds": [
+          "bcsc-s11-ch005-u01"
+        ],
+        "conceptStatus": "source-checked",
+        "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
-        "gaps": [
-          "概念重述尚未補入"
-        ]
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s11-rq011",
         "questionScope": "end-of-volume",
         "sourceNumber": 11,
-        "questionId": null,
-        "unitIds": [],
-        "conceptStatus": "unmapped",
-        "sourceAnswerStatus": "unverified",
+        "questionId": "bcsc-s11-rq011",
+        "unitIds": [
+          "bcsc-s11-ch001-u01"
+        ],
+        "conceptStatus": "source-checked",
+        "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
-        "gaps": [
-          "概念重述尚未補入"
-        ]
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s11-rq012",
         "questionScope": "end-of-volume",
         "sourceNumber": 12,
-        "questionId": null,
-        "unitIds": [],
-        "conceptStatus": "unmapped",
-        "sourceAnswerStatus": "unverified",
+        "questionId": "bcsc-s11-rq012",
+        "unitIds": [
+          "bcsc-s11-ch012-u01"
+        ],
+        "conceptStatus": "source-checked",
+        "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
-        "gaps": [
-          "概念重述尚未補入"
-        ]
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s11-rq013",
         "questionScope": "end-of-volume",
         "sourceNumber": 13,
-        "questionId": null,
-        "unitIds": [],
-        "conceptStatus": "unmapped",
-        "sourceAnswerStatus": "unverified",
+        "questionId": "bcsc-s11-rq013",
+        "unitIds": [
+          "bcsc-s11-ch006-u02"
+        ],
+        "conceptStatus": "source-checked",
+        "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
-        "gaps": [
-          "概念重述尚未補入"
-        ]
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s11-rq014",
         "questionScope": "end-of-volume",
         "sourceNumber": 14,
-        "questionId": null,
-        "unitIds": [],
-        "conceptStatus": "unmapped",
-        "sourceAnswerStatus": "unverified",
+        "questionId": "bcsc-s11-rq014",
+        "unitIds": [
+          "bcsc-s11-ch007-u02"
+        ],
+        "conceptStatus": "source-checked",
+        "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
-        "gaps": [
-          "概念重述尚未補入"
-        ]
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s11-rq015",
         "questionScope": "end-of-volume",
         "sourceNumber": 15,
-        "questionId": null,
-        "unitIds": [],
-        "conceptStatus": "unmapped",
-        "sourceAnswerStatus": "unverified",
+        "questionId": "bcsc-s11-rq015",
+        "unitIds": [
+          "bcsc-s11-ch008-u02"
+        ],
+        "conceptStatus": "source-checked",
+        "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
-        "gaps": [
-          "概念重述尚未補入"
-        ]
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s11-rq016",
         "questionScope": "end-of-volume",
         "sourceNumber": 16,
-        "questionId": null,
-        "unitIds": [],
-        "conceptStatus": "unmapped",
-        "sourceAnswerStatus": "unverified",
+        "questionId": "bcsc-s11-rq016",
+        "unitIds": [
+          "bcsc-s11-ch008-u01"
+        ],
+        "conceptStatus": "source-checked",
+        "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
-        "gaps": [
-          "概念重述尚未補入"
-        ]
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s11-rq017",
         "questionScope": "end-of-volume",
         "sourceNumber": 17,
-        "questionId": null,
-        "unitIds": [],
-        "conceptStatus": "unmapped",
-        "sourceAnswerStatus": "unverified",
+        "questionId": "bcsc-s11-rq017",
+        "unitIds": [
+          "bcsc-s11-ch009-u01"
+        ],
+        "conceptStatus": "source-checked",
+        "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
-        "gaps": [
-          "概念重述尚未補入"
-        ]
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s11-rq018",
         "questionScope": "end-of-volume",
         "sourceNumber": 18,
-        "questionId": null,
-        "unitIds": [],
-        "conceptStatus": "unmapped",
-        "sourceAnswerStatus": "unverified",
+        "questionId": "bcsc-s11-rq018",
+        "unitIds": [
+          "bcsc-s11-ch010-u02"
+        ],
+        "conceptStatus": "source-checked",
+        "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
-        "gaps": [
-          "概念重述尚未補入"
-        ]
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s11-rq019",
         "questionScope": "end-of-volume",
         "sourceNumber": 19,
-        "questionId": null,
-        "unitIds": [],
-        "conceptStatus": "unmapped",
-        "sourceAnswerStatus": "unverified",
+        "questionId": "bcsc-s11-rq019",
+        "unitIds": [
+          "bcsc-s11-ch010-u03"
+        ],
+        "conceptStatus": "source-checked",
+        "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
-        "gaps": [
-          "概念重述尚未補入"
-        ]
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s11-rq020",
         "questionScope": "end-of-volume",
         "sourceNumber": 20,
-        "questionId": null,
-        "unitIds": [],
-        "conceptStatus": "unmapped",
-        "sourceAnswerStatus": "unverified",
+        "questionId": "bcsc-s11-rq020",
+        "unitIds": [
+          "bcsc-s11-ch010-u03"
+        ],
+        "conceptStatus": "source-checked",
+        "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
-        "gaps": [
-          "概念重述尚未補入"
-        ]
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s11-rq021",
         "questionScope": "end-of-volume",
         "sourceNumber": 21,
-        "questionId": null,
-        "unitIds": [],
-        "conceptStatus": "unmapped",
-        "sourceAnswerStatus": "unverified",
+        "questionId": "bcsc-s11-rq021",
+        "unitIds": [
+          "bcsc-s11-ch010-u02"
+        ],
+        "conceptStatus": "source-checked",
+        "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
-        "gaps": [
-          "概念重述尚未補入"
-        ]
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s11-rq022",
         "questionScope": "end-of-volume",
         "sourceNumber": 22,
-        "questionId": null,
-        "unitIds": [],
-        "conceptStatus": "unmapped",
-        "sourceAnswerStatus": "unverified",
+        "questionId": "bcsc-s11-rq022",
+        "unitIds": [
+          "bcsc-s11-ch011-u01"
+        ],
+        "conceptStatus": "source-checked",
+        "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
-        "gaps": [
-          "概念重述尚未補入"
-        ]
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s11-rq023",
         "questionScope": "end-of-volume",
         "sourceNumber": 23,
-        "questionId": null,
-        "unitIds": [],
-        "conceptStatus": "unmapped",
-        "sourceAnswerStatus": "unverified",
+        "questionId": "bcsc-s11-rq023",
+        "unitIds": [
+          "bcsc-s11-ch011-u04"
+        ],
+        "conceptStatus": "source-checked",
+        "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
-        "gaps": [
-          "概念重述尚未補入"
-        ]
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s11-rq024",
         "questionScope": "end-of-volume",
         "sourceNumber": 24,
-        "questionId": null,
-        "unitIds": [],
-        "conceptStatus": "unmapped",
-        "sourceAnswerStatus": "unverified",
+        "questionId": "bcsc-s11-rq024",
+        "unitIds": [
+          "bcsc-s11-ch011-u04"
+        ],
+        "conceptStatus": "source-checked",
+        "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
-        "gaps": [
-          "概念重述尚未補入"
-        ]
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s11-rq025",
         "questionScope": "end-of-volume",
         "sourceNumber": 25,
-        "questionId": null,
-        "unitIds": [],
-        "conceptStatus": "unmapped",
-        "sourceAnswerStatus": "unverified",
+        "questionId": "bcsc-s11-rq025",
+        "unitIds": [
+          "bcsc-s11-ch011-u02"
+        ],
+        "conceptStatus": "source-checked",
+        "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
-        "gaps": [
-          "概念重述尚未補入"
-        ]
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s11-rq026",
         "questionScope": "end-of-volume",
         "sourceNumber": 26,
-        "questionId": null,
-        "unitIds": [],
-        "conceptStatus": "unmapped",
-        "sourceAnswerStatus": "unverified",
+        "questionId": "bcsc-s11-rq026",
+        "unitIds": [
+          "bcsc-s11-ch011-u03"
+        ],
+        "conceptStatus": "source-checked",
+        "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
-        "gaps": [
-          "概念重述尚未補入"
-        ]
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s11-rq027",
         "questionScope": "end-of-volume",
         "sourceNumber": 27,
-        "questionId": null,
-        "unitIds": [],
-        "conceptStatus": "unmapped",
-        "sourceAnswerStatus": "unverified",
+        "questionId": "bcsc-s11-rq027",
+        "unitIds": [
+          "bcsc-s11-ch012-u02"
+        ],
+        "conceptStatus": "source-checked",
+        "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
-        "gaps": [
-          "概念重述尚未補入"
-        ]
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s11-rq028",
         "questionScope": "end-of-volume",
         "sourceNumber": 28,
-        "questionId": null,
-        "unitIds": [],
-        "conceptStatus": "unmapped",
-        "sourceAnswerStatus": "unverified",
+        "questionId": "bcsc-s11-rq028",
+        "unitIds": [
+          "bcsc-s11-ch012-u02"
+        ],
+        "conceptStatus": "source-checked",
+        "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
-        "gaps": [
-          "概念重述尚未補入"
-        ]
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s11-rq029",
         "questionScope": "end-of-volume",
         "sourceNumber": 29,
-        "questionId": null,
-        "unitIds": [],
-        "conceptStatus": "unmapped",
-        "sourceAnswerStatus": "unverified",
+        "questionId": "bcsc-s11-rq029",
+        "unitIds": [
+          "bcsc-s11-ch012-u03"
+        ],
+        "conceptStatus": "source-checked",
+        "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
-        "gaps": [
-          "概念重述尚未補入"
-        ]
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s11-rq030",
         "questionScope": "end-of-volume",
         "sourceNumber": 30,
-        "questionId": null,
-        "unitIds": [],
-        "conceptStatus": "unmapped",
-        "sourceAnswerStatus": "unverified",
+        "questionId": "bcsc-s11-rq030",
+        "unitIds": [
+          "bcsc-s11-ch012-u01"
+        ],
+        "conceptStatus": "source-checked",
+        "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
-        "gaps": [
-          "概念重述尚未補入"
-        ]
+        "gaps": []
       }
     ],
     "summary": {
-      "taughtChapters": 0,
-      "authoredChapters": 0,
-      "readyQuestions": 0,
-      "authoredQuestions": 0,
+      "taughtChapters": 12,
+      "authoredChapters": 12,
+      "readyQuestions": 30,
+      "authoredQuestions": 30,
       "verifiedImages": 0
     }
+  },
+  "review": {
+    "schemaVersion": 1,
+    "authorSha256": "d79cff1465b97c9bd0bf9d0b1524860104d07f162317a4b2a584538ecba1387a",
+    "reviewedAt": "2026-10-20",
+    "scope": "Independent source/clinical review of authored units, mapped question concepts and bounded major chapter topics; original chapter figures remain separately unreviewed.",
+    "unitContentHashes": {
+      "bcsc-s11-ch001-u01": "666a50fd94461ebbaf1d39bf533f4cac464d193423d2d8761e433bdb831826dd",
+      "bcsc-s11-ch002-u01": "1f85cede5a268d2241a5a9f187683ac974c669ae51cd7f0258a7f2f08ccd43a2",
+      "bcsc-s11-ch002-u02": "2c72bc8238e9d37a68a054e7fdb03ce3507e08835e384e9b63c99094d74355db",
+      "bcsc-s11-ch003-u01": "221bfad1ca6ff531ef8a8a0351cd096645fc788d8efc16acec4c850eb152fa0e",
+      "bcsc-s11-ch003-u02": "c0d2cd8a84339d9f94ecfbe3446fbd8ad32821389dae2f4e057c0cff030c20c6",
+      "bcsc-s11-ch004-u01": "3ae735da4200423d5f1910dd27c01b4d676f1100aa478028ff01404c87f59693",
+      "bcsc-s11-ch004-u02": "9cc9e1a136729751d7bcd2f9821a7c2f6ce82531b03f7ed529d89d85877f4f86",
+      "bcsc-s11-ch005-u01": "654798986a56da61aded0a74e0a9ef7c9112f70389cb4de73b926aa885048f01",
+      "bcsc-s11-ch005-u02": "c1e0058fd4a58c90f31756561bb3269ea19cf67ccfc08a59ef6e6bc1c703e6b7",
+      "bcsc-s11-ch005-u03": "e4fb1d71f02869e74daf46969b59c45b82ae9dcff1ee3dc5fe69ff4b29b8910a",
+      "bcsc-s11-ch006-u01": "d159c98ef4b3be193549d6dcd20d859eb787842918f2f952e47d1add1d753d01",
+      "bcsc-s11-ch006-u02": "565804d88811b219951ddafabfc6de6613091aa60633cb630354def652ab4c84",
+      "bcsc-s11-ch007-u01": "9725e36f40b406a2630e025c5628ca3878544c74937b9f684d310d82916eeba8",
+      "bcsc-s11-ch007-u02": "26dbbfeabb7b4a0902421682d1ae65597697319b559b41951d2950bc8c6c1cc7",
+      "bcsc-s11-ch007-u03": "b346fe71a2f692d448a8497eeb1585c1349d7589894f675bbec7266645a1fa5f",
+      "bcsc-s11-ch008-u01": "8f283f134283204250d2f06ab2d4833a7bbe776be23b90b8b888fe9c856e7a6b",
+      "bcsc-s11-ch008-u02": "339a5761133930d2c53207f49230456995846d0af018ffa91bff0ad67c7bf9a6",
+      "bcsc-s11-ch008-u03": "feed5b9cc01b23a1a6959c35d6f6f91ab0be25d84f1a394962d5a4ef3a3b19ef",
+      "bcsc-s11-ch009-u01": "fe649f240302e044b549ce180381c1e6f287a4e4877ad93acefb8aa610bb8aeb",
+      "bcsc-s11-ch010-u01": "03dcbe69e04ea6f5cc25d8554bab1b25deea219e535e3367487340627ebd47d0",
+      "bcsc-s11-ch010-u02": "d73262e8e72a79a964adb9108a69caeff94bdffa1df170ba0925a0f865fb5f06",
+      "bcsc-s11-ch010-u03": "40c80c8b76294e94216d785342bcb7b24014fe98c97376f9ed1e1ca9172af3e9",
+      "bcsc-s11-ch011-u01": "747d3efe5aa302e40bc63e5817bfb62ad483256dadafb3dc694f947fcef7756f",
+      "bcsc-s11-ch011-u02": "e137c073c0e4d1f87b0e456e65ba7b190177fe12981995c04c5a2bb292cd90d7",
+      "bcsc-s11-ch011-u03": "430f6243fd0a12ca327796826549c76dd9a743af3e29e086b4c6645bfa72cdcf",
+      "bcsc-s11-ch011-u04": "f006e6de403efc3b301d80a3e641c6167ded8f4c322e3b445c21c1289afd78ac",
+      "bcsc-s11-ch012-u01": "46dc6fd26ebb43b7bf1777ebc839de0621f348655e635df0fc3fd29844064b4d",
+      "bcsc-s11-ch012-u02": "c9201f9c1268c48490df086066f622f4dc5bfa50db3dcf8b6c579a5e9cd28d79",
+      "bcsc-s11-ch012-u03": "cd656cc6f8f63955eb465fece4f0b41cbd0c95c716c4f57914dd25d9a6bb1ea7"
+    },
+    "questionContentHashes": {
+      "bcsc-s11-rq001": "b8d6942bb2a0386db05cfed013b23a32b075c57ef5dc428bff32173e8c902da3",
+      "bcsc-s11-rq002": "ddd96fd2d9acf8f2c3f9021d4dc548cc388ebdcbec1935d69a7cd44fc340a907",
+      "bcsc-s11-rq003": "90aa1d5c1cfc33a61410df1263386029ae143dcec3a9c813bc2619277e1356fb",
+      "bcsc-s11-rq004": "9059688bef5b102c7a2d0ba591891af10b28f1796fd372f4b09d1cc27b69a57d",
+      "bcsc-s11-rq005": "086d424bfed20d3b5b6298f6d7a67bc6a77f502892f376e08bae7ed2f70b86b0",
+      "bcsc-s11-rq006": "a413d02bcd44d3acda243a9cd08dae66b68540ad1c553128cc7b4b005d1e47cc",
+      "bcsc-s11-rq007": "9e002ce7416e5e961b62a6b39115a0419f66ee757e9160dcd0249779685c9b6a",
+      "bcsc-s11-rq008": "c500bed474bb670f30f4fef94ffb5417bb04d3d3f63eaea0db126431307e4461",
+      "bcsc-s11-rq009": "962c36114aa1e6ee4b468148f4879cd2b289aba460c2187e43bcd7457a5730bf",
+      "bcsc-s11-rq010": "77ea5cb95b504a6dd53f3a8c2a8ac66f6863b5c1aff970f772a8a7e26c5e1606",
+      "bcsc-s11-rq011": "b5a1587e3282ca481d62a75e8e6b7a13725dc47da79820ff9758f7fbe53fcc07",
+      "bcsc-s11-rq012": "7352f5c7f117de7d69ae44045a58c384538a26f4ca65d6f5a66cd1d5fc2f56a7",
+      "bcsc-s11-rq013": "392cc7385e43e36de134e91c8715b1670f9a2a2fed8b16507df316eaa0d86ffc",
+      "bcsc-s11-rq014": "1c35e4da03587e219c055e1269f3361ec8d0c8a5346b123ab9971c2b79adfa2b",
+      "bcsc-s11-rq015": "0184d2b4570010d0c21311cbde7dd73df598a8c003dd0c3be51c1108c6a80c39",
+      "bcsc-s11-rq016": "a882e5a120e61f115daf5f44fab2f37d5339a0247e6488d4ef9f011b2dafca21",
+      "bcsc-s11-rq017": "66618f389e563d4a38798dfe3592255a1ee12322e63644507f87260e080be5d9",
+      "bcsc-s11-rq018": "e3a9a8bcccae9d5079beda0145a039ec98e5b66ab8dfc2792cdca02d559a6e50",
+      "bcsc-s11-rq019": "1333274bd4e8c8807a3d1e33fea64267ffd68e37af8b4becc31217eeea2691fc",
+      "bcsc-s11-rq020": "dfad9087bc998f063553ce7b20651aaecd99ac2432f96595aaf6e8491b96244f",
+      "bcsc-s11-rq021": "7a971a2669769357076f26b36e281ec1865425a070cad29a3312297c3ee667d5",
+      "bcsc-s11-rq022": "124a03f2ba491b31e8643a3150f4dfd85e91f82ff79da3036d030d0273c7fb06",
+      "bcsc-s11-rq023": "e277dd08d1ef9635b9189dc01e414853be0e0a32d591d60d7ed0ceb7aff8034e",
+      "bcsc-s11-rq024": "241afc88582481e99e83d3c8e94ea8bdca992a47de1b2987538130eb2934bad0",
+      "bcsc-s11-rq025": "c5639a81a10a84cae0ef24be75437848c9cfff7cb08298e1e3cbf09a43677115",
+      "bcsc-s11-rq026": "5391149da8b19bd0d27974911bb076c3f64737fd48a3ed77b4dad1cf3c0c1347",
+      "bcsc-s11-rq027": "0a80a313a22ec29f23aeee2159d75fad9ef7b815a2e2b826743247a2a1f9379c",
+      "bcsc-s11-rq028": "42c4d44de80e3407242e3e0725c5bc22c87c9a2c9ca0270085baa893a6db88ca",
+      "bcsc-s11-rq029": "60cf380e94d43167538767c6f73babbfc61db06a09fe586b75225f9ecd302b19",
+      "bcsc-s11-rq030": "715b9ab7fd6bde40a8ad463cc0c4db143286b2589c1feeb2c80d25fd4c8862fc"
+    },
+    "chapterCoverageIds": [
+      "bcsc-s11-ch001",
+      "bcsc-s11-ch002",
+      "bcsc-s11-ch003",
+      "bcsc-s11-ch004",
+      "bcsc-s11-ch005",
+      "bcsc-s11-ch006",
+      "bcsc-s11-ch007",
+      "bcsc-s11-ch008",
+      "bcsc-s11-ch009",
+      "bcsc-s11-ch010",
+      "bcsc-s11-ch011",
+      "bcsc-s11-ch012"
+    ]
   }
 }

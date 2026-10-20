@@ -5,14 +5,17 @@ const source=fs.readFileSync(path.join(__dirname,'textbook-depth.js'),'utf8');
 const manifest=JSON.parse(fs.readFileSync(path.join(__dirname,'../content/textbook-manifest.json'),'utf8'));
 const fixture=JSON.parse(fs.readFileSync(path.join(__dirname,'../content/textbook-depth/bcsc-s07.json'),'utf8'));
 assert(fixture.questions.length,'The module tests require one real authored volume, not an invented empty book.');
+for(const c of fixture.chapters)for(const u of c.units)u.status='draft';
+for(const row of fixture.coverage.chapterRows){row.teachingStatus='draft';row.coverageStatus='partial';}
+fixture.coverage.summary.taughtChapters=0;
 fixture.questions=fixture.questions.slice(0,4).map(q=>({...q,readiness:'ready'}));
-function moduleBoot(progress=new Map(),hash='#textbook',volume=fixture){
- const calls=[],handlers=new Map(),root={isConnected:true,dataset:{},innerHTML:'',querySelector(){return null;},addEventListener(n,fn){handlers.set(n,fn);}};
- const window={location:{hash},history:{replaceState(_a,_b,value){window.location.hash=value;}},addEventListener(){},OphTextbookBridge:{read(k,id){return progress.get(k+':'+id)||null;},write(k,id,v){progress.set(k+':'+id,{...v,at:new Date().toISOString()});},rememberLocation(){}}};
- const context={window,document:{currentScript:{src:'https://example.test/scripts/textbook-depth.js'},getElementById(){return null;}},URL,Map,Promise,console,fetch:async url=>{calls.push(String(url));const data=String(url).endsWith('textbook-manifest.json')?manifest:volume;return {ok:true,json:async()=>JSON.parse(JSON.stringify(data))};}};
+function moduleBoot(progress=new Map(),hash='#textbook',volume=fixture,env={}){
+ const calls=[],handlers=new Map(),windowHandlers=new Map(),root={isConnected:true,dataset:{},innerHTML:'',querySelector(){return null;},addEventListener(n,fn){handlers.set(n,fn);}};
+ const window={location:{hash},history:{replaceState(_a,_b,value){window.location.hash=value;}},addEventListener(name,fn){windowHandlers.set(name,fn);},OphTextbookBridge:{read(k,id){return progress.get(k+':'+id)||null;},write(k,id,v){progress.set(k+':'+id,{...v,at:new Date().toISOString()});},rememberLocation(){}}};
+ const context={window,document:{currentScript:{src:'https://example.test/scripts/textbook-depth.js'},getElementById(){return null;}},URL:env.URL||URL,Blob,Map,Promise,console,fetch:async url=>{calls.push(String(url));const data=String(url).endsWith('textbook-manifest.json')?manifest:volume;return {ok:true,json:async()=>JSON.parse(JSON.stringify(data))};}};
  vm.createContext(context);
- vm.runInContext(source.replace('window.OphTextbook={mount};','window.OphTextbook={mount,__test:{optionOrder,route}};'),context);
- return {api:window.OphTextbook,root,calls,progress,window,async mount(){await window.OphTextbook.mount(root);},async action(kind,value=''){handlers.get('click')({target:{closest:()=>({dataset:{tbAction:kind,value},disabled:false})}});for(let i=0;i<6;i++)await new Promise(r=>setImmediate(r));}};
+ vm.runInContext(source.replace('window.OphTextbook={mount};','window.OphTextbook={mount,__test:{optionOrder,route,choosePdf,localPdfs}};'),context);
+ return {api:window.OphTextbook,root,calls,progress,window,windowHandlers,async mount(){await window.OphTextbook.mount(root);},async action(kind,value=''){handlers.get('click')({target:{closest:()=>({dataset:{tbAction:kind,value},disabled:false})}});for(let i=0;i<6;i++)await new Promise(r=>setImmediate(r));}};
 }
 (async()=>{
  await test('no book payload is fetched until the textbook view and a volume are opened',async()=>{
@@ -33,9 +36,11 @@ function moduleBoot(progress=new Map(),hash='#textbook',volume=fixture){
  await test('real section 1 clinical updates appear on each linked chapter and question',async()=>{
   const b1=JSON.parse(fs.readFileSync(path.join(__dirname,'../content/textbook-depth/bcsc-s01.json'),'utf8'));
   assert(b1.clinicalUpdates?.length>=3,'real authored clinical update fixture required');
+  const visible=x=>String(x).replace(/[&<>\"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[c]));
   for(const update of b1.clinicalUpdates){
-   const q=moduleBoot(new Map(),'#textbook-'+update.questionIds[0],b1);await q.mount();assert(q.root.innerHTML.includes(update.statement));assert(q.root.innerHTML.includes(update.source.url.replace(/&/g,'&amp;')));
-   const ch=moduleBoot(new Map(),'#textbook-'+update.chapterIds[0],b1);await ch.mount();assert(ch.root.innerHTML.includes(update.statement));
+   assert(update.questionIds?.length||update.chapterIds?.length,'every primary note must have a visible linked target');
+   for(const id of update.questionIds||[]){const q=moduleBoot(new Map(),'#textbook-'+id,b1);await q.mount();assert(q.root.innerHTML.includes(visible(update.statement)),id);assert(q.root.innerHTML.includes(visible(update.source.url)),id);}
+   for(const id of update.chapterIds||[]){const ch=moduleBoot(new Map(),'#textbook-'+id,b1);await ch.mount();assert(ch.root.innerHTML.includes(visible(update.statement)),id);}
   }
  });
  await test('checked units do not certify the rest of a chapter with unreviewed source gaps',async()=>{
@@ -46,10 +51,83 @@ p=Path('scripts/validate-textbook.py');sp=importlib.util.spec_from_file_location
 m=json.loads(Path('content/textbook-manifest.json').read_text());b=json.loads(Path('content/textbook-depth/bcsc-s07.json').read_text())
 for c in b['chapters']:
  for u in c['units']:u['status']='independently-reviewed'
+for r in b['coverage']['chapterRows']:r['coverageStatus']='partial'
 s=v.validate_book(b,m['books'][6]);assert s['taughtChapters']==0
 assert all(r['teachingStatus']=='partial' for r in b['coverage']['chapterRows'])
 `;
   execFileSync('python3',['-c',check],{cwd:path.join(__dirname,'..')});
+ });
+ await test('strict acceptance rejects real complete-shaped drafts, partial chapters, unmatched answers and missing required figures',async()=>{
+  const {execFileSync}=require('node:child_process');
+  const check=`import importlib.util,json,copy
+from pathlib import Path
+p=Path('scripts/validate-textbook.py');sp=importlib.util.spec_from_file_location('v',p);v=importlib.util.module_from_spec(sp);sp.loader.exec_module(v)
+m=json.loads(Path('content/textbook-manifest.json').read_text());original=json.loads(Path('content/textbook-depth/bcsc-s13.json').read_text());ex=m['books'][12]
+def fails(b):
+ try:v.validate_book(b,ex,True)
+ except ValueError:return
+ raise AssertionError('strict acceptance incorrectly passed')
+draft=copy.deepcopy(original)
+for c in draft['chapters']:
+ for u in c['units']:u['status']='draft'
+for q in draft['questions']:q['status']='draft'
+for r in draft['coverage']['chapterRows']:r['coverageStatus']='partial'
+fails(draft)
+b=copy.deepcopy(original)
+for c in b['chapters']:
+ for u in c['units']:u['status']='source-checked'
+for q in b['questions']:q.update(status='source-checked',imageStatus='not-applicable',requiresImage=False)
+for r in b['coverage']['chapterRows']:r.update(coverageStatus='independently-reviewed',originalImageStatus='not-reviewed')
+for r in b['coverage']['questionRows']:r.update(sourceAnswerStatus='matched',originalImageStatus='not-applicable')
+assert v.validate_book(copy.deepcopy(b),ex,True)['readyQuestions']==40
+# Real complete fixture remains source-reviewed while only duplicated coverage links drift.
+for axis in ['chapter','question']:
+ for kind in ['missing','extra','duplicate']:
+  bad=copy.deepcopy(b);rows=bad['coverage'][axis+'Rows'];ids=rows[0]['unitIds'];extra=bad['chapters'][-1]['units'][-1]['id']
+  rows[0]['unitIds']=(ids[1:] if kind=='missing' else ids+[extra] if kind=='extra' else ids+[ids[0]])
+  try:v.validate_book(bad,ex,True)
+  except ValueError as err:assert axis+' coverage unitIds drift' in str(err)
+  else:raise AssertionError(axis+' '+kind+' coverage drift was silently normalized')
+for mutation in ['unit','question','chapter','answer','figure','changedfact','noevidence']:
+ bad=copy.deepcopy(b)
+ if mutation=='unit':bad['chapters'][0]['units'][0]['status']='draft'
+ if mutation=='question':bad['questions'][0]['status']='draft'
+ if mutation=='chapter':bad['coverage']['chapterRows'][0]['coverageStatus']='partial'
+ if mutation=='answer':bad['coverage']['questionRows'][0]['sourceAnswerStatus']='unverified'
+ if mutation=='figure':bad['questions'][0]['requiresImage']=True
+ if mutation=='changedfact':bad['chapters'][0]['units'][0]['mechanism'][0]+=' altered after approval'
+ if mutation=='noevidence':bad.pop('review',None)
+ fails(bad)
+b['questions'][0].update(requiresImage=True,imageStatus='verified');b['coverage']['questionRows'][0]['originalImageStatus']='verified'
+b['review']['questionContentHashes'][b['questions'][0]['id']]=v.reviewed_item_hash(b['questions'][0])
+assert v.validate_book(b,ex,True)['readyQuestions']==40
+claims,_=v.numeric_claims(original);words=[c['statement'] for c in claims]
+for expected in ['193 nm','81.7','1–2','6–12','數週','數月']:
+ assert any(expected in x for x in words),expected+' was missed'
+assert all(not x['field'].startswith('source') for x in claims)
+`;
+  execFileSync('python3',['-c',check],{cwd:path.join(__dirname,'..')});
+ });
+ await test('local PDF selection validates MIME/header, isolates books, links safe pages and never persists/uploads',async()=>{
+  const created=[],revoked=[];
+  class PdfURL extends URL{static createObjectURL(blob){assert.equal(blob.type,'application/pdf');const url='blob:https://example.test/local-'+(created.length+1);created.push({url,blob});return url;}static revokeObjectURL(url){revoked.push(url);}}
+  const make=(text,type='application/pdf',name='own.pdf')=>{const blob=new Blob([text],{type});Object.defineProperty(blob,'name',{value:name});return blob;};
+  const input=(id,file)=>({dataset:{book:id},files:[file],value:'fake-input-value'});
+  const pdfFixture=JSON.parse(JSON.stringify(fixture));pdfFixture.chapters[0].sourceRefs[0].pdfPages.push(0,999999,1.5,'<invalid>');
+  const b=moduleBoot(new Map(),'#textbook',pdfFixture,{URL:PdfURL});await b.mount();await b.action('book','bcsc-s07');const networkBefore=b.calls.length;
+  assert(b.root.innerHTML.includes('版次與頁序尚未比對'));
+  await b.api.__test.choosePdf(input('bcsc-s07',make('<html>unsafe</html>','text/html','pretend.pdf')));assert.equal(created.length,0);
+  await b.api.__test.choosePdf(input('bcsc-s07',make('<html>unsafe</html>')));assert.equal(created.length,0);
+  await b.api.__test.choosePdf(input('bcsc-s07',make('%PDF-1.7\nlocal fixture')));assert.equal(created.length,1);assert(b.root.innerHTML.includes('blob:https://example.test/local-1#page='));assert(b.root.innerHTML.includes('target="_blank" rel="noopener noreferrer"'));
+  const previous=b.api.__test.localPdfs.get('bcsc-s07').url;
+  await b.api.__test.choosePdf(input('bcsc-s07',make('%PDF-HTML','text/html')));assert.equal(created.length,1);assert.equal(b.api.__test.localPdfs.get('bcsc-s07').url,previous);assert.equal(revoked.length,0);
+  await b.api.__test.choosePdf(input('bcsc-s08',make('%PDF-1.7\nsecond book')));assert.equal(created.length,2);assert.equal(b.api.__test.localPdfs.get('bcsc-s07').url,previous);assert(!b.root.innerHTML.includes('local-2#page='));
+  await b.api.__test.choosePdf(input('bcsc-s07',make('%PDF-1.7\nreplacement','application/pdf','<private>.pdf')));assert.equal(created.length,3);assert.deepEqual(revoked,[previous]);assert(b.root.innerHTML.includes('&lt;private&gt;.pdf'));
+  assert.equal(b.calls.length,networkBefore);assert.equal(b.progress.size,0);
+  assert(!b.root.innerHTML.includes('#page=999999'));assert(!b.root.innerHTML.includes('#page=1.5'));assert(b.root.innerHTML.includes('&lt;invalid&gt;'));
+  let resolve;const waiting={type:'application/pdf',name:'late.pdf',slice(){return {arrayBuffer:()=>new Promise(r=>{resolve=r;})};}};
+  const pending=b.api.__test.choosePdf(input('bcsc-s07',waiting));b.windowHandlers.get('pagehide')();resolve(new TextEncoder().encode('%PDF-').buffer);await pending;assert.equal(created.length,3,'unload must invalidate pending file reads');assert.equal(b.api.__test.localPdfs.size,0);assert.deepEqual(revoked,[previous,'blob:https://example.test/local-3','blob:https://example.test/local-2']);b.windowHandlers.get('beforeunload')();assert.equal(revoked.length,3);
+  const reload=moduleBoot(new Map(),'#textbook',fixture,{URL:PdfURL});await reload.mount();await reload.action('book','bcsc-s07');assert(reload.root.innerHTML.includes('尚未選擇原書'));assert(!reload.root.innerHTML.includes('blob:https://example.test/'));
  });
  // Reuse the existing app harness to exercise real restore/import/cloud validation before any textbook JSON is fetched.
  const helper=fs.readFileSync(path.join(__dirname,'test-progress-sync.cjs'),'utf8');

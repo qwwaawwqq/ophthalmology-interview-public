@@ -515,9 +515,9 @@
         }
       ],
       "coverage": {
-        "taughtChapters": 0,
+        "taughtChapters": 17,
         "authoredChapters": 17,
-        "readyQuestions": 0,
+        "readyQuestions": 38,
         "authoredQuestions": 38,
         "verifiedImages": 0
       }
@@ -1062,10 +1062,10 @@
         }
       ],
       "coverage": {
-        "taughtChapters": 0,
-        "authoredChapters": 0,
-        "readyQuestions": 0,
-        "authoredQuestions": 0,
+        "taughtChapters": 18,
+        "authoredChapters": 18,
+        "readyQuestions": 40,
+        "authoredQuestions": 40,
         "verifiedImages": 0
       }
     },
@@ -1167,7 +1167,7 @@
         {
           "id": "bcsc-s03-ch008",
           "number": 8,
-          "title": "Optical Considerations in Keratorefractive Surgery . . 285 Highlights",
+          "title": "Optical Considerations in Keratorefractive Surgery",
           "pdfPages": [
             304,
             319
@@ -1952,11 +1952,11 @@
         }
       ],
       "coverage": {
-        "taughtChapters": 0,
-        "authoredChapters": 0,
-        "readyQuestions": 0,
-        "authoredQuestions": 0,
-        "verifiedImages": 0
+        "taughtChapters": 10,
+        "authoredChapters": 10,
+        "readyQuestions": 87,
+        "authoredQuestions": 87,
+        "verifiedImages": 6
       }
     },
     {
@@ -2478,10 +2478,10 @@
         }
       ],
       "coverage": {
-        "taughtChapters": 0,
-        "authoredChapters": 0,
-        "readyQuestions": 0,
-        "authoredQuestions": 0,
+        "taughtChapters": 19,
+        "authoredChapters": 19,
+        "readyQuestions": 36,
+        "authoredQuestions": 36,
         "verifiedImages": 0
       }
     },
@@ -2992,10 +2992,10 @@
         }
       ],
       "coverage": {
-        "taughtChapters": 0,
-        "authoredChapters": 0,
-        "readyQuestions": 0,
-        "authoredQuestions": 0,
+        "taughtChapters": 15,
+        "authoredChapters": 15,
+        "readyQuestions": 40,
+        "authoredQuestions": 40,
         "verifiedImages": 0
       }
     },
@@ -3681,10 +3681,10 @@
         }
       ],
       "coverage": {
-        "taughtChapters": 0,
-        "authoredChapters": 0,
-        "readyQuestions": 0,
-        "authoredQuestions": 0,
+        "taughtChapters": 28,
+        "authoredChapters": 28,
+        "readyQuestions": 44,
+        "authoredQuestions": 44,
         "verifiedImages": 0
       }
     },
@@ -4115,9 +4115,9 @@
         }
       ],
       "coverage": {
-        "taughtChapters": 0,
+        "taughtChapters": 15,
         "authoredChapters": 15,
-        "readyQuestions": 0,
+        "readyQuestions": 30,
         "authoredQuestions": 30,
         "verifiedImages": 0
       }
@@ -4648,10 +4648,10 @@
         }
       ],
       "coverage": {
-        "taughtChapters": 0,
-        "authoredChapters": 0,
-        "readyQuestions": 0,
-        "authoredQuestions": 0,
+        "taughtChapters": 16,
+        "authoredChapters": 16,
+        "readyQuestions": 41,
+        "authoredQuestions": 41,
         "verifiedImages": 0
       }
     },
@@ -5141,10 +5141,10 @@
         }
       ],
       "coverage": {
-        "taughtChapters": 0,
-        "authoredChapters": 0,
-        "readyQuestions": 0,
-        "authoredQuestions": 0,
+        "taughtChapters": 16,
+        "authoredChapters": 16,
+        "readyQuestions": 36,
+        "authoredQuestions": 36,
         "verifiedImages": 0
       }
     },
@@ -5569,10 +5569,10 @@
         }
       ],
       "coverage": {
-        "taughtChapters": 0,
-        "authoredChapters": 0,
-        "readyQuestions": 0,
-        "authoredQuestions": 0,
+        "taughtChapters": 13,
+        "authoredChapters": 13,
+        "readyQuestions": 32,
+        "authoredQuestions": 32,
         "verifiedImages": 0
       }
     },
@@ -5970,10 +5970,10 @@
         }
       ],
       "coverage": {
-        "taughtChapters": 0,
-        "authoredChapters": 0,
-        "readyQuestions": 0,
-        "authoredQuestions": 0,
+        "taughtChapters": 12,
+        "authoredChapters": 12,
+        "readyQuestions": 30,
+        "authoredQuestions": 30,
         "verifiedImages": 0
       }
     },
@@ -6587,10 +6587,10 @@
         }
       ],
       "coverage": {
-        "taughtChapters": 0,
-        "authoredChapters": 0,
-        "readyQuestions": 0,
-        "authoredQuestions": 0,
+        "taughtChapters": 20,
+        "authoredChapters": 20,
+        "readyQuestions": 46,
+        "authoredQuestions": 46,
         "verifiedImages": 0
       }
     },
@@ -7046,9 +7046,9 @@
         }
       ],
       "coverage": {
-        "taughtChapters": 0,
+        "taughtChapters": 10,
         "authoredChapters": 10,
-        "readyQuestions": 0,
+        "readyQuestions": 40,
         "authoredQuestions": 40,
         "verifiedImages": 0
       }

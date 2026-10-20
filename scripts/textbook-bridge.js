@@ -13,7 +13,7 @@ function textbookEntry(key,v){
   if(!Number.isInteger(v.choice)||v.choice<0||v.choice>3)return null;
   return {version:1,choice:v.choice,revealed:v.revealed===true,confidence:[0,1,2,3].includes(v.confidence)?v.confidence:0,edition,at};
 }
-function textbookPage(){return '<section id="textbook-root" aria-label="原文書進階"><p role="status">正在開啟原文書書架…</p></section>';}
+function textbookPage(){return '<p class="tb-small">原創教材與題目涵蓋原書主要主題與章節重點；可選取本機 PDF 查看原書全文與圖表。</p><section id="textbook-root" aria-label="原文書進階"><p role="status">正在開啟原文書書架…</p></section>';}
 window.OphTextbookBridge={
   read(kind,id){const key='textbook:'+kind+':'+id;return textbookEntry(key,entries[key])||null;},
   all(){return Object.fromEntries(Object.entries(entries).filter(([key])=>key.startsWith('textbook:')));},

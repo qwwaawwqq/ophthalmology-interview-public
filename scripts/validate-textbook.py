@@ -6,6 +6,7 @@ import collections
 import copy
 import datetime as dt
 import json
+import hashlib
 import math
 import operator
 from pathlib import Path
@@ -99,11 +100,13 @@ def numeric_claims(book):
 
 
 def collect_numeric(item, kind, identity, output, calculations):
-    fields = ['mechanism', 'clinicalClues', 'differential', 'investigations', 'management', 'imageClues', 'pitfalls', 'recall', 'clinicalUpdates'] if kind == 'unit' else ['clinicalUpdates'] if kind == 'book' else ['stem', 'options', 'explanation', 'clinicalUpdates']
+    fields = ['title', 'mechanism', 'clinicalClues', 'differential', 'investigations', 'management', 'imageClues', 'pitfalls', 'recall', 'clinicalUpdates'] if kind == 'unit' else ['clinicalUpdates'] if kind == 'book' else ['stem', 'options', 'explanation', 'clinicalUpdates']
     for field in fields:
         for path, value in walk_strings(item.get(field), field):
-            if path.endswith(('.url', '.checkedAt', '.title', '.figureId', '.status')): continue
+            if path.endswith(('.url', '.checkedAt', '.figureId', '.status')) or '.source.title' in path: continue
+            if not re.search(r'\d|[零〇一二兩三四五六七八九十百千萬億兆壹貳參肆伍陸柒捌玖拾佰仟]|數(?:天|週|周|月|年|小時|分鐘)', value): continue
             types = []
+            if re.search(r'數(?:天|週|周|月|年|小時|分鐘)', value): types.append('relative-time-candidate')
             if re.search(r'\d(?:[\d.,–—~−+-]*\d)?\s*(?:mg|mcg|µg|μg|g/kg|mL|IU|單位|毫克|微克)\b', value, re.I): types.append('dose')
             if re.search(r'\d\s*[%％]', value): types.append('percentage')
             if re.search(r'百分之[零〇一二兩三四五六七八九十百千萬點\d]+', value): types.append('chinese-percentage-candidate')
@@ -111,11 +114,20 @@ def collect_numeric(item, kind, identity, output, calculations):
             if re.search(r'[<>≤≥≦≧]|(?:至少|低於|高於|超過|不超過|門檻|上限|下限).{0,12}\d', value) and re.search(r'\d', value): types.append('threshold')
             if re.search(r'[=＝]|\b(?:SE|AL|IOP)\s*\+|\d\s*[×÷*/^]', value): types.append('formula')
             if re.search(r'\d\s*(?:歲|mmHg|mmol/L|mg/dL|cm|mm\b|D\b|小時|分鐘)', value) and not types: types.append('scenario-or-measurement')
-            if types: output.append({'id': identity, 'kind': kind, 'field': path, 'types': types, 'statement': value, 'sourceRefs': item.get('sourceRefs', []), 'verification': 'requires independent source review'})
+            types.append('number-candidate')
+            match = re.match(r'clinicalUpdates\[(\d+)\]', path)
+            primary = [item['clinicalUpdates'][int(match.group(1))]['source']] if match else []
+            output.append({'id': identity, 'kind': kind, 'field': path, 'types': list(dict.fromkeys(types)), 'statement': value, 'statementSha256': hashlib.sha256(value.encode()).hexdigest(), 'candidateRole': 'scenario-or-worked-example' if re.search(r'合成|例如|算例', value) else 'fact-or-explanatory-number; human classification required', 'sourceRefs': item.get('sourceRefs', []), 'primarySources': primary, 'verification': 'requires independent source review; broad candidates include nonactionable numbers'})
     for check in item.get('calculationChecks', []):
         value = eval_arithmetic(check['expression'])
         require(math.isclose(value, check['expected'], rel_tol=1e-8, abs_tol=1e-8), identity + ': arithmetic verification failed')
         calculations.append({'id': identity, 'expression': check['expression'], 'expected': check['expected'], 'recomputed': value, 'pass': True})
+
+
+def reviewed_item_hash(item):
+    # Editorial status and generated learner-readiness are not teaching content.
+    content = {k: v for k, v in item.items() if k not in {'status', 'readiness'}}
+    return hashlib.sha256(json.dumps(content, ensure_ascii=False, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
 
 
 def validate_book(book, expected, complete=False):
@@ -175,6 +187,7 @@ def validate_book(book, expected, complete=False):
         require(qid == key, bid + ': stable concept ID must match verified source identity')
         require(q.get('questionScope') == src['questionScope'] and str(q.get('sourceNumber')) == str(src['sourceNumber']), qid + ': original numbering changed')
         require(q.get('status') in STATUSES and q.get('imageStatus') in IMAGES, qid + ': status invalid')
+        require(type(q.get('requiresImage')) is bool, qid + ': requiresImage must be boolean')
         text(q.get('stem'), qid + ': stem');text(q.get('explanation'), qid + ': explanation')
         require(isinstance(q.get('correctIndex'), int) and 0 <= q['correctIndex'] <= 3, qid + ': correctIndex invalid')
         require(len(q.get('options', [])) == 4, qid + ': four options required')
@@ -191,11 +204,15 @@ def validate_book(book, expected, complete=False):
     old = book.get('coverage', {})
     old_ch = {r['chapterId']: r for r in old.get('chapterRows', [])}
     old_q = {r['sourceQuestionKey']: r for r in old.get('questionRows', [])}
+    require(len(old_ch) == len(old.get('chapterRows', [])) and set(old_ch) <= set(expected_ch), bid + ': duplicate or unknown chapter coverage rows')
+    require(len(old_q) == len(old.get('questionRows', [])) and set(old_q) <= set(expected_q), bid + ': duplicate or unknown question coverage rows')
     chrows, qrows = [], []
     for cid, source in expected_ch.items():
         ch = actual_ch.get(cid)
         prior = old_ch.get(cid, {})
         ids = [u['id'] for u in (ch or {}).get('units', [])]
+        prior_ids = prior.get('unitIds', [])
+        require(isinstance(prior_ids, list) and all(isinstance(x, str) for x in prior_ids) and len(prior_ids) == len(set(prior_ids)) and set(prior_ids) == set(ids), cid + ': chapter coverage unitIds drift from actual units')
         coverage_status = prior.get('coverageStatus', 'partial')
         require(coverage_status in {'partial', 'independently-reviewed'}, cid + ': chapter coverage status invalid')
         status = 'unreviewed' if not ids else ('source-checked' if coverage_status == 'independently-reviewed' and all(units[uid]['status'] != 'draft' for uid in ids) else 'partial' if all(units[uid]['status'] != 'draft' for uid in ids) else 'draft')
@@ -204,12 +221,31 @@ def validate_book(book, expected, complete=False):
         chrows.append({'chapterId': cid, 'unitIds': ids, 'teachingStatus': status, 'coverageStatus': coverage_status, 'originalImageStatus': image, 'gaps': prior.get('gaps', [] if ids else ['教材尚未補入'])})
     for key, source in expected_q.items():
         q, prior = actual_q.get(key), old_q.get(key, {})
+        question_ids, prior_ids = (q.get('unitIds', []) if q else []), prior.get('unitIds', [])
+        require(isinstance(prior_ids, list) and all(isinstance(x, str) for x in prior_ids) and len(prior_ids) == len(set(prior_ids)) and len(question_ids) == len(set(question_ids)) and set(prior_ids) == set(question_ids), key + ': question coverage unitIds drift from question links')
         answer = prior.get('sourceAnswerStatus', 'unverified')
         image = prior.get('originalImageStatus', source.get('originalImageStatus', 'not-reviewed'))
         require(answer in {'unverified', 'matched', 'missing'} and image in IMAGES, key + ': source answer/image audit invalid')
-        ready = bool(q and q['status'] != 'draft' and answer == 'matched' and (not q.get('requiresImage', False) or q['imageStatus'] == 'verified'))
+        image_ready = bool(q and (q['imageStatus'] == image == 'verified' if q.get('requiresImage') else q['imageStatus'] in {'not-applicable', 'verified'} and image in {'not-applicable', 'verified'}))
+        ready = bool(q and q['status'] != 'draft' and answer == 'matched' and image_ready)
         if q: q['readiness'] = 'ready' if ready else 'draft'
         qrows.append({'sourceQuestionKey': key, 'questionScope': source['questionScope'], 'sourceNumber': source['sourceNumber'], 'questionId': q['id'] if q else None, 'unitIds': q.get('unitIds', []) if q else [], 'conceptStatus': 'source-checked' if ready else 'draft' if q else 'unmapped', 'sourceAnswerStatus': answer, 'originalImageStatus': image, 'gaps': prior.get('gaps', [] if q else ['概念重述尚未補入'])})
+    checked_units = {uid: u for uid, u in units.items() if u['status'] != 'draft'}
+    checked_questions = {qid: q for qid, q in actual_q.items() if q['status'] != 'draft'}
+    approved_chapters = [r['chapterId'] for r in chrows if r['coverageStatus'] == 'independently-reviewed']
+    if checked_units or checked_questions or approved_chapters:
+        evidence = book.get('review', {})
+        require(evidence.get('schemaVersion') == 1 and re.fullmatch(r'[0-9a-f]{64}', evidence.get('authorSha256', '')), bid + ': reviewed content requires exact-version review evidence')
+        for uid, u in checked_units.items():
+            require(evidence.get('unitContentHashes', {}).get(uid) == reviewed_item_hash(u), uid + ': teaching changed after independent review')
+        for qid, q in checked_questions.items():
+            require(evidence.get('questionContentHashes', {}).get(qid) == reviewed_item_hash(q), qid + ': question changed after independent review')
+        require(set(approved_chapters) <= set(evidence.get('chapterCoverageIds', [])), bid + ': chapter coverage lacks explicit review authorization')
+    if complete:
+        require(all(u['status'] != 'draft' for u in units.values()), bid + ': final acceptance requires reviewed units, not draft teaching')
+        require(all(r['coverageStatus'] == 'independently-reviewed' and r['teachingStatus'] == 'source-checked' for r in chrows), bid + ': final acceptance requires explicit independent chapter-scope coverage; partial is not complete')
+        require(all(r['sourceAnswerStatus'] == 'matched' and r['conceptStatus'] == 'source-checked' for r in qrows), bid + ': final acceptance requires reviewed source concepts, matched answers and appropriate image evidence')
+        require(all(q['status'] != 'draft' and q['readiness'] == 'ready' for q in actual_q.values()), bid + ': final acceptance requires ready, reviewed questions')
     summary = {'taughtChapters': sum(r['teachingStatus'] == 'source-checked' for r in chrows), 'authoredChapters': sum(bool(r['unitIds']) for r in chrows), 'readyQuestions': sum(r['conceptStatus'] == 'source-checked' for r in qrows), 'authoredQuestions': len(actual_q), 'verifiedImages': sum(r['originalImageStatus'] == 'verified' for r in chrows + qrows)}
     book['coverage'] = {'chapterRows': chrows, 'questionRows': qrows, 'summary': summary}
     return summary
@@ -225,7 +261,7 @@ def main():
     manifest_path = args.root / 'content/textbook-manifest.json'
     manifest = json.loads(manifest_path.read_text())
     require(manifest.get('schemaVersion') == 1 and len(manifest['books']) == 13, 'verified thirteen-volume manifest required')
-    audit = {'scope': 'Teaching and question content only; IDs, metadata pages and edition years excluded', 'claims': [], 'calculationChecks': []}
+    audit = {'scope': 'Every numeric-bearing teaching/question/clinical-update text leaf; broad Arabic and Chinese numeral candidates, including nonactionable numbers; IDs, source page metadata and edition metadata excluded', 'claims': [], 'calculationChecks': []}
     summaries = []
     for expected in manifest['books']:
         path = args.root / expected['file']

@@ -136,7 +136,7 @@
             "prompt": "鼻竇病變為何能造成眼動與視力問題？",
             "answer": "先跨薄骨壁或既有通路進入眶內，再影響肌肉、血流或眶尖。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch001-u02",
@@ -214,7 +214,7 @@
             "prompt": "眼動障礙加視神經受損，比單純上眶裂症候多了哪個定位？",
             "answer": "眶尖／視神經管受累，需依完整影像釐清。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch001-u03",
@@ -292,7 +292,7 @@
             "prompt": "為何顏面病變能牽連海綿竇或眼循環？",
             "answer": "眼眶與顏面具有動脈吻合及靜脈交通，不是獨立循環。"
           },
-          "status": "draft"
+          "status": "source-checked"
         }
       ]
     },
@@ -422,7 +422,7 @@
             "prompt": "小腫塊與大腫塊何者更急？",
             "answer": "取決於位置、速度與視神經／角膜受威脅，不只體積。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch002-u02",
@@ -508,7 +508,7 @@
             "prompt": "為何眶病追蹤不能只抄一個突出度？",
             "answer": "需記基準、相同條件、眼位與視功能，否則數值變化可能是量測差。"
           },
-          "status": "draft"
+          "status": "source-checked"
         }
       ]
     },
@@ -622,7 +622,7 @@
             "prompt": "小眼合併眶囊腫的胚胎機轉？",
             "answer": "胚裂閉合失敗可使相關神經外胚層形成囊腫。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch003-u02",
@@ -700,7 +700,7 @@
             "prompt": "皮樣囊腫切除為何重視囊壁？",
             "answer": "殘壁可持續分泌，內容物外漏可引發炎症。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch003-u03",
@@ -786,7 +786,7 @@
             "prompt": "顱縫早閉眼科追蹤的兩個急迫終點？",
             "answer": "角膜暴露與視神經／顱內壓相關視功能威脅。"
           },
-          "status": "draft"
+          "status": "source-checked"
         }
       ]
     },
@@ -951,7 +951,7 @@
             "prompt": "眶隔前與眶內感染最重要的功能差異？",
             "answer": "後者可有眼動痛／受限、突眼及視神經功能異常。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch004-u02",
@@ -1048,7 +1048,7 @@
             "prompt": "為何未確診眶炎不應只用steroid反應結案？",
             "answer": "感染和腫瘤可能被暫時遮蔽，且感染會因免疫抑制惡化。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch004-u03",
@@ -1141,7 +1141,7 @@
             "prompt": "為何TED評估至少要活動與嚴重度兩欄？",
             "answer": "炎症可治性與功能威脅不完全同步，會改變治療目標。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch004-u04",
@@ -1226,7 +1226,7 @@
             "prompt": "眶感染哪項變化會使原本觀察計畫失效？",
             "answer": "視神經功能惡化、病灶進展或顱內／壞死性併發症。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch004-u05",
@@ -1324,7 +1324,7 @@
             "prompt": "TED選藥至少要同時問哪三件事？",
             "answer": "活動性、視功能威脅／治療目標，以及患者特定藥物風險。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch004-u06",
@@ -1402,7 +1402,7 @@
             "prompt": "為何通常減壓先於斜視？",
             "answer": "減壓可產生或改變複視，先固定眶與眼球位置才較能規畫眼位。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch004-u07",
@@ -1499,7 +1499,7 @@
             "prompt": "NSOI與IgG4/GPA/sarcoid最大的診斷差別？",
             "answer": "前者是排除性名稱，後者是需具體證據支持的特定病因。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch004-u08",
@@ -1575,7 +1575,237 @@
             "prompt": "GCA確證與治療應依序還是並行？",
             "answer": "視力受威脅時應並行，不能為確證延誤挽救。"
           },
-          "status": "draft"
+          "status": "source-checked"
+        },
+        {
+          "id": "bcsc-s07-ch004-u09",
+          "title": "侵襲性眶黴菌：Mucorales與Aspergillus不可互換用藥",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                73,
+                74,
+                75
+              ],
+              "printedPages": [
+                "54",
+                "55",
+                "56"
+              ],
+              "chapterHeading": "Orbital Inflammatory and Infectious Disorders"
+            }
+          ],
+          "mechanism": [
+            "兩者都可從鼻竇延伸入眶並危及眶尖或顱內。毛黴菌侵血管造成栓塞壞死，應迅速取病理與培養、清除感染並糾正宿主因素。Aspergillus的侵襲性疾病與非侵襲fungal ball、過敏性鼻竇病則是不同處置分支。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "糖尿病酮酸中毒、壞死與眶尖症候群",
+              "meaning": "高度警覺毛黴菌病，即使眼睛不紅也可能缺血"
+            },
+            {
+              "finding": "免疫低下且鼻竇病快速侵犯眼眶",
+              "meaning": "需警覺侵襲性Aspergillus或其他黴菌，病理決定病原"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "毛黴菌病",
+              "for": "寬大、少或無隔菌絲與血管侵襲線索",
+              "against": "菌絲外觀可重疊且不能代替專業鑑定",
+              "discriminator": "病理培養與宿主背景"
+            },
+            {
+              "diagnosis": "侵襲性Aspergillus",
+              "for": "有隔、較均一菌絲與組織侵犯",
+              "against": "單一鼻竇fungal ball不等於侵襲",
+              "discriminator": "是否真正侵入組織"
+            },
+            {
+              "diagnosis": "過敏性真菌鼻竇炎",
+              "for": "嗜酸性黏液及過敏背景",
+              "against": "骨重塑本身不證明菌絲侵襲",
+              "discriminator": "鼻竇病理與影像"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "鼻竇或受累組織活檢及培養",
+              "purpose": "區分病原與侵襲",
+              "interpretation": "結果會改變抗黴菌選藥與手術",
+              "limitation": "不能只依鼻腔表面菌培養判侵襲"
+            }
+          ],
+          "management": [
+            {
+              "condition": "疑侵襲毛黴菌病",
+              "stage": "急症",
+              "action": "多專科及時抗黴菌並清創，通常以lipid/liposomal amphotericin B為重要第一線，依情境用posaconazole或isavuconazole；同時糾正DKA等",
+              "rationale": "同時處理菌、壞死負荷與宿主",
+              "caution": "Voriconazole不能作Mucorales有效替代藥"
+            },
+            {
+              "condition": "侵襲性Aspergillus鼻竇眶病",
+              "stage": "病原導向",
+              "action": "手術加全身voriconazole或lipid amphotericin B等合適方案",
+              "rationale": "侵襲病需要來源控制及全身藥",
+              "caution": "不同病原抗藥譜不可互套"
+            },
+            {
+              "condition": "非侵襲性fungal ball",
+              "stage": "鼻竇處置",
+              "action": "可由適當手術清除與引流處理",
+              "rationale": "與侵犯組織的病程不同",
+              "caution": "若有黏膜侵襲或眶顱延伸需重新分層"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "鼻竇/眶影像及組織",
+              "clue": "眶尖侵犯、壞死與菌絲",
+              "interpretation": "影像定範圍，組織定侵犯與病原",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 67
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "所有azole對所有黴菌都有效",
+              "correction": "Mucorales與Aspergillus抗藥譜不同，尤其不能用voriconazole涵蓋毛黴菌"
+            }
+          ],
+          "recall": {
+            "prompt": "毛黴與Aspergillus共同處置和關鍵差別？",
+            "answer": "侵襲型都需快取樣、來源控制及宿主處理，但抗黴菌選擇須依病原；voriconazole不涵蓋Mucorales。"
+          },
+          "status": "source-checked",
+          "clinicalUpdates": [
+            {
+              "statement": "原書PDF74在毛黴菌段列voriconazole為替代藥；此處依CDC更正：該藥對Mucorales無活性。Amphotericin B、posaconazole和isavuconazole才有相應活性，並常需清創及宿主因素處理。",
+              "source": {
+                "title": "CDC Clinical Overview of Mucormycosis",
+                "url": "https://www.cdc.gov/mucormycosis/hcp/clinical-overview/index.html",
+                "checkedAt": "2026-10-20"
+              }
+            },
+            {
+              "statement": "IDSA侵襲性Aspergillus鼻竇病建議手術合併全身voriconazole或lipid amphotericin B；無侵犯的fungal ball可採手術清除。這項Aspergillus建議不能移用為毛黴菌藥效。",
+              "source": {
+                "title": "IDSA Aspergillosis guideline, recommendation 52",
+                "url": "https://www.idsociety.org/practice-guideline/aspergillosis/",
+                "checkedAt": "2026-10-20"
+              }
+            }
+          ]
+        },
+        {
+          "id": "bcsc-s07-ch004-u10",
+          "title": "慢性分枝桿菌與寄生蟲：別都當非特異眶炎",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                73,
+                75,
+                76
+              ],
+              "printedPages": [
+                "54",
+                "56",
+                "57"
+              ],
+              "chapterHeading": "Orbital Inflammatory and Infectious Disorders"
+            }
+          ],
+          "mechanism": [
+            "眶TB可血行或由鼻竇擴散，造成慢性腫塊、骨破壞或瘻管；NTM常與外傷、淚道或眼瞼手術後延遲感染相關。寄生蟲則可造成肌炎或囊性病灶，處置風險與菌絲感染不同。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "慢性突出、骨破壞或引流瘻管",
+              "meaning": "需考慮TB及其他慢性感染或腫瘤"
+            },
+            {
+              "finding": "眼瞼/淚道術後延遲局部感染",
+              "meaning": "需考慮NTM並主動告知微生物實驗室"
+            },
+            {
+              "finding": "眼外肌炎或囊性病灶加相關暴露",
+              "meaning": "考慮寄生蟲而非直接給免疫抑制"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "TB",
+              "for": "暴露與乾酪性肉芽腫可支持",
+              "against": "組織AFB陰性不能排除",
+              "discriminator": "病理培養與系統評估"
+            },
+            {
+              "diagnosis": "NTM",
+              "for": "術後延遲病灶，常見快速生長分枝桿菌",
+              "against": "不能自動套TB四藥",
+              "discriminator": "菌種及藥敏"
+            },
+            {
+              "diagnosis": "寄生蟲",
+              "for": "Trichinella可致眼瞼/EOM炎、Echinococcus形成hydatid cyst、Taenia solium可成眶內cysticercosis",
+              "against": "不同寄生蟲不是相同囊腫處理",
+              "discriminator": "暴露史、影像與專科鑑定"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "足量組織病理及培養",
+              "purpose": "辨感染與腫瘤並鑑種",
+              "interpretation": "特殊病原需合適處理與培養條件",
+              "limitation": "單次AFB陰性不能結案"
+            }
+          ],
+          "management": [
+            {
+              "condition": "確認TB眶病",
+              "stage": "系統抗感染",
+              "action": "依TB專科方案處理並評估其他部位",
+              "rationale": "眼眶可能只是全身感染一環",
+              "caution": "需注意眼毒性與治療監測"
+            },
+            {
+              "condition": "疑NTM術後感染",
+              "stage": "鑑種及來源控制",
+              "action": "按菌種/藥敏選全身抗微生物並視情況清創",
+              "rationale": "NTM藥敏與TB不同",
+              "caution": "不要把所有分枝桿菌一律當同一療程"
+            },
+            {
+              "condition": "疑hydatid cyst",
+              "stage": "避免破裂",
+              "action": "規劃專科取樣/手術與抗寄生蟲策略",
+              "rationale": "破裂可能引起嚴重炎症或免疫反應",
+              "caution": "不可盲目穿刺囊腫"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "CT/MRI",
+              "clue": "囊性肌肉病灶、骨破壞或慢性眶腫塊",
+              "interpretation": "先評範圍及取樣風險，不由外觀直接給病原答案",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 67
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "慢性、培養陰性就一定是免疫眶炎",
+              "correction": "特殊培養不足或深層病原仍可能存在；取樣和鑑種很重要"
+            }
+          ],
+          "recall": {
+            "prompt": "術後數週才出現慢性眼瞼感染，為何不能直接套TB藥？",
+            "answer": "可能是NTM，需菌種和藥敏導向治療及必要清創。"
+          },
+          "status": "source-checked"
         }
       ]
     },
@@ -1766,7 +1996,7 @@
             "prompt": "無症狀與視神經受壓的CVM為何處置不同？",
             "answer": "治療取決於功能威脅和位置，不只是病灶名。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch005-u02",
@@ -1854,7 +2084,7 @@
             "prompt": "有tram-track時為何仍要看骨與顱內？",
             "answer": "需分神經鞘病灶、鄰近腦膜瘤及其他模仿者。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch005-u03",
@@ -1948,7 +2178,7 @@
             "prompt": "為何眶腫塊切片前要先想病理類型？",
             "answer": "檢體需求與切片路徑可能影響分類、擴散與後續治療。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch005-u04",
@@ -2031,7 +2261,7 @@
             "prompt": "血管瘤治療後縮小，為何還需持續驗光？",
             "answer": "屈光與弱視不必與病灶大小同步恢復。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch005-u05",
@@ -2118,7 +2348,7 @@
             "prompt": "哪個床邊線索較支持可擴張靜脈而非純淋巴畸形？",
             "answer": "可重現的姿勢或Valsalva引起突眼變化。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch005-u06",
@@ -2196,7 +2426,7 @@
             "prompt": "CCF為何可同時紅眼、突眼與眼壓升高？",
             "answer": "高壓動脈流進靜脈系統，影響眶與房水的靜脈回流。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch005-u07",
@@ -2283,7 +2513,7 @@
             "prompt": "同樣是慢性突眼，為何glioma與ONSM不能用同一處置？",
             "answer": "組織起源、年齡及保護殘存視功能的治療代價不同。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch005-u08",
@@ -2370,7 +2600,7 @@
             "prompt": "眶淋巴病活檢的重點為何不只是有沒有癌細胞？",
             "answer": "還需足夠檢體作分型，因為不同淋巴疾病治療不同。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch005-u09",
@@ -2463,7 +2693,7 @@
             "prompt": "為何慢性無痛淚腺混合瘤與痛性侵犯病灶的取樣策略不同？",
             "answer": "前者重視完整囊切除，後者需惡性病因與侵犯範圍的規畫性診斷。"
           },
-          "status": "draft"
+          "status": "source-checked"
         }
       ]
     },
@@ -2531,10 +2761,22 @@
                 "124"
               ],
               "chapterHeading": "Orbital Trauma"
+            },
+            {
+              "pdfPages": [
+                365,
+                371
+              ],
+              "printedPages": [
+                "346",
+                "352"
+              ],
+              "chapterHeading": "Study Questions / Answers"
             }
           ],
           "mechanism": [
-            "鈍力可經液壓與骨性傳導造成眶壁骨折；骨折內容物夾陷可導致限制性眼動。小兒骨彈性與顱顏比例，使外觀及骨折分布不同於成人。"
+            "鈍力可經液壓與骨性傳導造成眶壁骨折；骨折內容物夾陷可導致限制性眼動。小兒骨彈性與顱顏比例，使外觀及骨折分布不同於成人。",
+            "幼兒的顱部相對較大，額竇氣化尚未成熟；額部受力時，這組發育解剖可解釋眶頂骨折相對成人更值得警覺。"
           ],
           "clinicalClues": [
             {
@@ -2598,7 +2840,7 @@
             "prompt": "小兒為何可能骨折嚴重卻外觀不明顯？",
             "answer": "彈性骨trapdoor可夾住組織而少有廣泛位移與瘀腫。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch006-u02",
@@ -2689,7 +2931,7 @@
             "prompt": "為何眶腔症候群不能只加滴眼降壓？",
             "answer": "病因是眶內壓力與灌流受損，需解除眶空間壓迫。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch006-u03",
@@ -2782,7 +3024,7 @@
             "prompt": "有機與惰性深眶異物管理最大差異？",
             "answer": "前者感染殘留風險較高；後者可能需避免高代價取出。"
           },
-          "status": "draft"
+          "status": "source-checked"
         }
       ]
     },
@@ -2911,7 +3153,7 @@
             "prompt": "視神經外側病灶為何通常不先從內側繞入？",
             "answer": "跨過視神經會增加不必要操弄與風險。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch007-u02",
@@ -2998,7 +3240,7 @@
             "prompt": "為何減壓前要記錄眼位？",
             "answer": "減壓可改變眼球與肌肉平衡，需辨新發或既有複視。"
           },
-          "status": "draft"
+          "status": "source-checked"
         }
       ]
     },
@@ -3126,7 +3368,7 @@
             "prompt": "為何移除術也要規畫fornix與眼瞼？",
             "answer": "義眼需足夠囊深、容量、眼瞼支撐與可傳遞的運動。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch008-u02",
@@ -3215,7 +3457,7 @@
             "prompt": "義眼窩無痛黏液先檢查哪裡？",
             "answer": "取下義眼檢查囊面並翻上瞼看乳突，同時排除暴露。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch008-u03",
@@ -3309,7 +3551,7 @@
             "prompt": "義眼變大卻更留不住，應重看什麼？",
             "answer": "容量、植入物位置、fornix攣縮與眼瞼支持，而非無限加大義眼。"
           },
-          "status": "draft"
+          "status": "source-checked"
         }
       ]
     },
@@ -3447,7 +3689,7 @@
             "prompt": "為何ptosis術前必看閉眼能力？",
             "answer": "提升瞼緣可增加角膜暴露，需確認保護機制。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch009-u02",
@@ -3529,7 +3771,7 @@
             "prompt": "下瞼內側與中央脂肪間應特別保護什麼？",
             "answer": "下斜肌；其損傷可能造成垂直／旋轉性複視。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch009-u03",
@@ -3620,7 +3862,7 @@
             "prompt": "顳區題目至少要明確區分哪兩層？",
             "answer": "顳頂／淺顳筋膜與深顳筋膜，不把內部深淺命名差異硬當唯一答案。"
           },
-          "status": "draft",
+          "status": "source-checked",
           "clinicalUpdates": [
             {
               "statement": "原始屍體解剖研究將顳支描述為沿顳頂筋膜深面，並與位於更深處的深顳筋膜區分。此為命名與局部解剖的補充，並非主張所有位置都有同一深度。",
@@ -3762,10 +4004,22 @@
                 "194"
               ],
               "chapterHeading": "Eyelid Disorders and Neoplasms"
+            },
+            {
+              "pdfPages": [
+                367,
+                372
+              ],
+              "printedPages": [
+                "348",
+                "353"
+              ],
+              "chapterHeading": "Study Questions / Answers"
             }
           ],
           "mechanism": [
-            "先天問題可分組織缺損、瞼位／提瞼功能及睫毛來源異常；外觀睫毛碰角膜，不必然是同一種trichiasis。"
+            "先天問題可分組織缺損、瞼位／提瞼功能及睫毛來源異常；外觀睫毛碰角膜，不必然是同一種trichiasis。",
+            "BPES的典型遺傳模式為體染色體顯性，不能把多代的複合眼瞼發育徵象當成單一散發性ptosis；遺傳諮詢仍須結合個別家族與基因評估。"
           ],
           "clinicalClues": [
             {
@@ -3832,7 +4086,7 @@
             "prompt": "distichiasis和trichiasis最直接的分辨方法？",
             "answer": "前者是多一排來源偏後的睫毛；後者是原排方向錯誤。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch010-u02",
@@ -3927,7 +4181,7 @@
             "prompt": "慢性單側眼瞼炎最需要警覺哪種偽裝？",
             "answer": "包括皮脂腺癌等病灶，應檢查瞼板與結膜並按疑慮取樣。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch010-u03",
@@ -3949,10 +4203,22 @@
                 "206"
               ],
               "chapterHeading": "Eyelid Disorders and Neoplasms"
+            },
+            {
+              "pdfPages": [
+                367,
+                373
+              ],
+              "printedPages": [
+                "348",
+                "354"
+              ],
+              "chapterHeading": "Study Questions / Answers"
             }
           ],
           "mechanism": [
-            "BCC多為局部侵犯；SCC可沿感覺神經隱匿擴散；皮脂腺癌可有結膜上皮內擴展。治療不只切掉可見皮膚腫塊。"
+            "BCC多為局部侵犯；SCC可沿感覺神經隱匿擴散；皮脂腺癌可有結膜上皮內擴展。治療不只切掉可見皮膚腫塊。",
+            "眼瞼BCC以結節型最常見，珍珠樣結節合併表面微血管及小潰瘍是相符線索；外觀典型仍需病理與邊界評估。"
           ],
           "clinicalClues": [
             {
@@ -4020,7 +4286,7 @@
             "prompt": "舊上眼瞼SCC後V1痛加眼動障礙，為何不只看局部皮膚？",
             "answer": "病灶可能沿感覺神經到眶尖或海綿竇區域。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch010-u04",
@@ -4139,7 +4405,96 @@
             "prompt": "眼瞼病灶何時不能繼續當慢性眼瞼炎反覆治？",
             "answer": "持續單側、同位復發或有結構破壞及非典型變化時應考慮病理。"
           },
-          "status": "draft"
+          "status": "source-checked"
+        },
+        {
+          "id": "bcsc-s07-ch010-u05",
+          "title": "皮脂腺癌：取樣深度、結膜map與Muir–Torre",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                242,
+                243
+              ],
+              "printedPages": [
+                "223",
+                "224"
+              ],
+              "chapterHeading": "Eyelid Disorders and Neoplasms"
+            }
+          ],
+          "mechanism": [
+            "皮脂腺癌可源於瞼板或睫毛邊緣並沿上皮pagetoid擴散，病灶可多中心或有skip lesions。表面刮取可能只見炎症而漏掉深層腫瘤；取樣和範圍評估須超出最明顯的結節。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "反覆同處霰粒腫、睫毛缺失或瞼板增厚",
+              "meaning": "需要足夠深度病理"
+            },
+            {
+              "finding": "單側慢性結膜炎或細小結膜乳突",
+              "meaning": "可能為pagetoid spread，不能以沒有大腫塊排除"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "反覆良性chalazion",
+              "for": "可有局部腫塊",
+              "against": "睫毛或腺口破壞及反覆復發是警訊",
+              "discriminator": "病理與臨床一致性"
+            },
+            {
+              "diagnosis": "皮脂腺癌",
+              "for": "黃色/厚化病灶及pagetoid風險",
+              "against": "superficial shave陰性不一定可信",
+              "discriminator": "適當深度取樣與結膜map"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "全層或足夠深度瞼板活檢、結膜map biopsies",
+              "purpose": "診斷來源腫瘤並查跳躍性表面擴散",
+              "interpretation": "標記位置便於後續治療",
+              "limitation": "需和病理溝通，臨床高度疑慮時重評不一致結果"
+            }
+          ],
+          "management": [
+            {
+              "condition": "確認皮脂腺癌",
+              "stage": "局部及分期處置",
+              "action": "完整邊界控制並依結膜擴散評估輔助治療及區域淋巴",
+              "rationale": "可見結節不是全病範圍",
+              "caution": "不能只切掉反覆霰粒腫外觀病灶"
+            },
+            {
+              "condition": "皮脂腺腫瘤",
+              "stage": "全身風險辨識",
+              "action": "詢問個人家族GI、子宮內膜及泌尿系統癌史，評估Muir–Torre並協調適當全身/遺傳轉介",
+              "rationale": "可能有遺傳癌症背景",
+              "caution": "不自行套一個通用篩癌時程"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "瞼板結膜及病理",
+              "clue": "深部來源與表面pagetoid/skip病灶",
+              "interpretation": "病理取樣需回答來源及擴散兩個問題",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 220
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "shave只見炎症就完全排除皮脂腺癌",
+              "correction": "深部腫瘤可能未被取到；需與臨床所見比對"
+            }
+          ],
+          "recall": {
+            "prompt": "皮脂腺癌map biopsy與深部活檢分別回答什麼？",
+            "answer": "深部取樣確認來源腫瘤；結膜map找pagetoid及跳躍性擴散。"
+          },
+          "status": "source-checked"
         }
       ]
     },
@@ -4288,7 +4643,7 @@
             "prompt": "眼瞼傷口看到脂肪，為何需提升檢查層級？",
             "answer": "表示可能穿越眶隔，需排提瞼、眼眶與更深部損傷。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch011-u02",
@@ -4379,7 +4734,7 @@
             "prompt": "Hughes flap對小兒的核心疑慮？",
             "answer": "暫時遮擋視軸可能造成弱視，不是組織本身長得不夠。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch011-u03",
@@ -4471,7 +4826,7 @@
             "prompt": "Hughes和Cutler-Beard為何不能只看都是跨瞼瓣？",
             "answer": "受贈的上下瞼、所提供組織與支撐及遮擋風險不同。"
           },
-          "status": "draft"
+          "status": "source-checked"
         }
       ]
     },
@@ -4587,6 +4942,17 @@
                 "254"
               ],
               "chapterHeading": "Periocular Malpositions and Involutional Changes"
+            },
+            {
+              "pdfPages": [
+                368,
+                373
+              ],
+              "printedPages": [
+                "349",
+                "354"
+              ],
+              "chapterHeading": "Study Questions / Answers"
             }
           ],
           "mechanism": [
@@ -4632,7 +4998,7 @@
             {
               "condition": "老化鬆弛為主",
               "stage": "結構修復",
-              "action": "評估水平緊縮及需要的縮肌重接",
+              "action": "評估水平緊縮及需要的縮肌重接 若主要是淚點外翻而非口徑狹窄，Medial spindle型內轉修復可針對內側貼附失常；單純擴大淚點不會修正其朝向。",
               "rationale": "恢復支持與動力",
               "caution": "需依機轉決定組合"
             },
@@ -4664,7 +5030,7 @@
             "prompt": "瘢痕內翻和外翻最需分辨哪個短缺？",
             "answer": "前者常是後層；後者常是前層垂直長度。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch012-u02",
@@ -4757,7 +5123,7 @@
             "prompt": "為何單側ptosis術前要抬起病眼看對眼？",
             "answer": "共同提瞼驅動下降後，對側隱性下垂可能出現。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch012-u03",
@@ -4852,7 +5218,7 @@
             "prompt": "面癱病人流淚為何不一定是排淚管堵住？",
             "answer": "閉眼與淚泵失效、淚點位置異常和暴露反射性流淚均可參與。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch012-u04",
@@ -4951,7 +5317,134 @@
             "prompt": "為何量levator function時固定眉部？",
             "answer": "避免額肌代償使提瞼肌功能被高估。"
           },
-          "status": "draft"
+          "status": "source-checked"
+        },
+        {
+          "id": "bcsc-s07-ch012-u05",
+          "title": "Brow、皮膚過多與真ptosis：選手術先分層",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                300,
+                301,
+                302,
+                303,
+                304,
+                312,
+                313,
+                314,
+                315
+              ],
+              "printedPages": [
+                "281",
+                "282",
+                "283",
+                "284",
+                "285",
+                "293",
+                "294",
+                "295",
+                "296"
+              ],
+              "chapterHeading": "Periocular Malpositions and Involutional Changes"
+            }
+          ],
+          "mechanism": [
+            "眉下垂會把皮膚推向上瞼，額肌代償可掩蓋它；dermatochalasis是皮膚冗餘，真ptosis是瞼緣下降。單純多切皮膚不能修復所有層次，還可能造成閉合不全和眼表暴露。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "放鬆額肌後眉位低、手動提眉使皮膚冗餘減少",
+              "meaning": "眉下垂是重要來源"
+            },
+            {
+              "finding": "提走多餘皮膚後瞼緣仍低",
+              "meaning": "另有真ptosis"
+            },
+            {
+              "finding": "下瞼脂肪突出合併水平鬆弛",
+              "meaning": "術式須兼顧支持，不能只抽脂"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "Brow ptosis",
+              "for": "眉位置下降及額肌代償",
+              "against": "只看患者睜大眼時會漏診",
+              "discriminator": "放鬆額肌與模擬提眉"
+            },
+            {
+              "diagnosis": "Dermatochalasis",
+              "for": "皮膚冗餘但瞼緣可正常",
+              "against": "不能以皮膚遮擋直接算levator問題",
+              "discriminator": "分開皮膚與MRD/LF"
+            },
+            {
+              "diagnosis": "True blepharoptosis",
+              "for": "瞼緣及提瞼功能異常",
+              "against": "需另外找病因與修復方式",
+              "discriminator": "不由blepharoplasty替代"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "眼表、閉合、眉位及視野",
+              "purpose": "評功能與手術可切除範圍",
+              "interpretation": "照片及手動提眉/提瞼可分來源",
+              "limitation": "有乾眼或既存lagophthalmos時尤其慎重"
+            }
+          ],
+          "management": [
+            {
+              "condition": "輕度眉下垂",
+              "stage": "有限支持",
+              "action": "可考慮經upper bleph切口browpexy",
+              "rationale": "提供有限提升與穩定",
+              "caution": "提升幅度較有限"
+            },
+            {
+              "condition": "較明顯或外側眉下垂",
+              "stage": "提升選擇",
+              "action": "可考慮direct brow，或依整體前額條件選內視鏡/開放式提升",
+              "rationale": "不同路徑平衡提升與疤痕",
+              "caution": "direct brow有可見疤痕/感覺異常，前額路徑有神經及頭皮風險"
+            },
+            {
+              "condition": "上瞼皮膚冗餘",
+              "stage": "保守blepharoplasty",
+              "action": "先處理或模擬眉提升，再保留足夠閉合能力",
+              "rationale": "避免過度切皮後暴露",
+              "caution": "術前乾眼、眼瞼閉合及視覺期待需確認"
+            },
+            {
+              "condition": "下瞼脂肪與皮膚問題",
+              "stage": "分層重塑",
+              "action": "脂肪為主可評估transconjunctival，皮膚或其他組織需處理者選合適前方路徑並按鬆弛加支持",
+              "rationale": "路徑應對應要處理的層",
+              "caution": "避免下瞼牽縮、外翻與肌肉傷害"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "臨床照片",
+              "clue": "放鬆眉位、皮膚冗餘與瞼緣高度",
+              "interpretation": "把三種下降分開才能正確選手術",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 268
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "上瞼看起來重就多切皮",
+              "correction": "可能漏掉眉下垂或真ptosis，且過切增加閉合不全與暴露"
+            }
+          ],
+          "recall": {
+            "prompt": "何時blepharoplasty不應單獨取代提眉或ptosis修復？",
+            "answer": "主要原因在眉位或瞼緣/levator而非單純皮膚冗餘時。"
+          },
+          "status": "source-checked"
         }
       ]
     },
@@ -5079,7 +5572,7 @@
             "prompt": "為何術前不能只標要切多少皮？",
             "answer": "需先辨眉位、瞼緣、脂肪與支持層，才能對準問題。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch013-u02",
@@ -5170,7 +5663,7 @@
             "prompt": "深膚色雷射與填充最需告知的風險是否一樣？",
             "answer": "不一樣；前者重視色素與熱傷害，後者另有血管內注射風險。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch013-u03",
@@ -5263,7 +5756,7 @@
             "prompt": "填充和拉提最大的機轉差異？",
             "answer": "前者主要補體積，後者主要重新定位下垂組織。"
           },
-          "status": "draft"
+          "status": "source-checked"
         }
       ]
     },
@@ -5371,7 +5864,7 @@
             "prompt": "灌洗通但面癱流淚，最重要的替代解釋？",
             "answer": "淚泵失效及淚點貼附不良，而非單純解剖堵塞。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch014-u02",
@@ -5451,7 +5944,7 @@
             "prompt": "淚囊窩前方主要是哪塊骨？",
             "answer": "上頷骨的上行部分形成前淚嵴。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch014-u03",
@@ -5532,7 +6025,7 @@
             "prompt": "CN VII在分泌與排淚中扮演相同角色嗎？",
             "answer": "不同；一條是副交感分泌路徑，另一條是眼輪匝肌的運動泵。"
           },
-          "status": "draft"
+          "status": "source-checked"
         }
       ]
     },
@@ -5711,7 +6204,7 @@
             "prompt": "毛束旁小孔流淚且淚河正常，應先想到什麼？",
             "answer": "異位淚腺分泌管，而非直接假定NLDO。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch015-u02",
@@ -5800,7 +6293,7 @@
             "prompt": "流淚合併淚囊腫塊和血性逆流，為何不能只照NLDO處理？",
             "answer": "需先排淚囊腫瘤及其他佔位病因。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch015-u03",
@@ -5895,7 +6388,7 @@
             "prompt": "反覆結膜分泌且淚點可擠出碎屑，要想到什麼？",
             "answer": "淚小管炎，需處理管內持續來源。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s07-ch015-u04",
@@ -6006,7 +6499,119 @@
             "prompt": "hard stop加對側黏液逆流最支持哪一段？",
             "answer": "近端已進囊，但鼻淚管遠端阻塞較值得考慮。"
           },
-          "status": "draft"
+          "status": "source-checked"
+        },
+        {
+          "id": "bcsc-s07-ch015-u05",
+          "title": "CNLDO：按摩位置、探通時機與急症例外",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                331,
+                332
+              ],
+              "printedPages": [
+                "312",
+                "313"
+              ],
+              "chapterHeading": "Abnormalities of the Lacrimal Secretory and Drainage Systems"
+            }
+          ],
+          "mechanism": [
+            "單純CNLDO常在Hasner端有膜性阻塞，淚囊壓迫可排出淚液黏液並建立液靜壓以協助開通；只是擦掉分泌物不等於有效按摩。多數簡單病例首年可改善，但感染或鼻內囊腫改變等待策略。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "嬰兒早期溢淚與分泌物、淚囊按壓黏液回流",
+              "meaning": "支持NLD阻塞；仍須排先天青光眼"
+            },
+            {
+              "finding": "內眥下方藍色囊腫、鼻塞或餵食呼吸困難",
+              "meaning": "考慮dacryocystocele及鼻內延伸"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "單純CNLDO",
+              "for": "早期溢淚而無角膜擴大或畏光",
+              "against": "不是所有流淚都是淚道阻塞",
+              "discriminator": "眼表、角膜及淚囊評估"
+            },
+            {
+              "diagnosis": "急性dacryocystitis",
+              "for": "紅痛腫脹、蜂窩炎或發熱",
+              "against": "不能只按摩觀察",
+              "discriminator": "全身感染與眼眶評估"
+            },
+            {
+              "diagnosis": "Dacryocystocele",
+              "for": "近遠端雙重阻塞及囊性擴張",
+              "against": "鼻內囊腫可能威脅嬰兒氣道",
+              "discriminator": "鼻內及呼吸評估"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "淚囊與鼻內檢查",
+              "purpose": "確認阻塞與鼻內囊腫",
+              "interpretation": "雙側病尤其注意呼吸",
+              "limitation": "內眥腱上方腫塊要考慮其他先天病灶"
+            }
+          ],
+          "management": [
+            {
+              "condition": "無急症的單純CNLDO",
+              "stage": "保守處置",
+              "action": "由醫師示範在內眥淚囊區施以確實向下壓力，重點是壓迫囊而非沿骨覆鼻側擦拭",
+              "rationale": "增加囊內液靜壓，可能協助膜開通",
+              "caution": "抗生素僅按明顯分泌物/感染使用，不能打開阻塞"
+            },
+            {
+              "condition": "持續約首年或症狀重",
+              "stage": "探通評估",
+              "action": "依病況討論office或GA下探通；前者避GA但嬰兒不適，後者較可控制並詳細評估",
+              "rationale": "在自然消退與持續症狀間權衡",
+              "caution": "年齡不是要求所有嚴重病都等待的硬界線"
+            },
+            {
+              "condition": "急性淚囊炎或氣道風險",
+              "stage": "急症處置",
+              "action": "急性淚囊炎或感染時立即全身抗感染；鼻內囊腫有氣道風險時優先緊急氣道/耳鼻喉評估及適當介入，是否抗感染依感染狀況決定",
+              "rationale": "感染與機械性氣道阻塞是不同急症分支，需要各自處理原因",
+              "caution": "不要等到固定年齡才處理"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "內眥與鼻內",
+              "clue": "淚囊位於腱下、鼻內囊腫",
+              "interpretation": "定位不同於腱上其他腫塊",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 328
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "按摩就是在鼻側皮膚向下擦幾下",
+              "correction": "應針對內眥淚囊區施壓；骨覆鼻淚管處不等於壓迫淚囊"
+            }
+          ],
+          "recall": {
+            "prompt": "何種CNLDO不能照一般等首年的策略？",
+            "answer": "急性淚囊炎、嚴重症狀或dacryocystocele合併鼻內/呼吸問題。"
+          },
+          "status": "source-checked",
+          "clinicalUpdates": [
+            {
+              "statement": "AAPOS描述Crigler按摩為在內眥區施確實向下壓力以排黏液/淚液並協助開膜；抗生素不能打開膜。持續至約12個月或症狀重可考慮探通；淚囊感染或鼻內囊腫造成呼吸問題須提早處理。",
+              "source": {
+                "title": "AAPOS Nasolacrimal Duct Obstruction",
+                "url": "https://aapos.org/glossary/nasolacrimal-duct-obstruction",
+                "checkedAt": "2026-10-20"
+              }
+            }
+          ]
         }
       ]
     }
@@ -6063,8 +6668,8 @@
       "explanation": "本題把附著點知識放進重建決策：需恢復深部支撐，不能由皮膚張力或相同人名猜構造。",
       "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s07-rq002",
@@ -6117,8 +6722,8 @@
       "explanation": "以受損功能先選神經，再把神經放回骨性通道；不要把所有與眼睛相關的神經都放入同一孔裂。",
       "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s07-rq003",
@@ -6171,8 +6776,8 @@
       "explanation": "殘存眼球組織的確認會影響診斷、視覺評估及眶部生長復健，不可只由外觀命名。",
       "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s07-rq004",
@@ -6225,8 +6830,8 @@
       "explanation": "先把病灶定位為眼球發育相關，再與顱骨、眼瞼、淚道的發育缺陷區分。",
       "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s07-rq005",
@@ -6279,8 +6884,8 @@
       "explanation": "此題評估風險背景與病理證據的權重：宿主提示真菌，組織形態進一步縮小病原，二者不能互相取代。",
       "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s07-rq006",
@@ -6333,8 +6938,8 @@
       "explanation": "將病灶名轉為風險分層；治療強度取決於視神經受威脅、進展與手術可達性。",
       "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s07-rq007",
@@ -6387,8 +6992,8 @@
       "explanation": "題目要求從形態辨起源：神經、神經鞘與鄰近骨性腦膜病變須分開。",
       "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s07-rq008",
@@ -6441,8 +7046,8 @@
       "explanation": "搏動不等於動靜脈瘻；先問搏動是血流本身，還是經骨缺損傳來。",
       "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s07-rq009",
@@ -6495,8 +7100,8 @@
       "explanation": "把發育解剖連到外傷型態，而非只記兒童骨折與成人不同。",
       "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s07-rq010",
@@ -6549,8 +7154,8 @@
       "explanation": "病因是眶內壓力與灌流受損，不是僅有一個高IOP數字；臨床確認後的及時減壓優先。",
       "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s07-rq011",
@@ -6603,8 +7208,8 @@
       "explanation": "用病灶、視神經和肌肉三者的相對位置選路徑，不能只背手術名稱。",
       "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s07-rq012",
@@ -6657,8 +7262,8 @@
       "explanation": "先把分泌物定位到表面炎症、機械刺激、暴露或感染，再決定治療，不能把全部症狀歸於植入物。",
       "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s07-rq013",
@@ -6711,8 +7316,8 @@
       "explanation": "原書對顳頂筋膜內深／淺措辭有不一致；可確定的是顳頂筋膜與深顳筋膜不同。題目考筋膜身份，不硬考某固定半層。",
       "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s07-rq014",
@@ -6765,8 +7370,8 @@
       "explanation": "先辨毛根位置與是否新增一排，再用方向、數量與顏色的不同術語。",
       "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s07-rq015",
@@ -6819,8 +7424,8 @@
       "explanation": "相似ptosis可屬不同疾病；此題的多個眼瞼發育徵象共同指向BPES，而非單一眼瞼下垂。",
       "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s07-rq016",
@@ -6873,8 +7478,8 @@
       "explanation": "症狀可能比表皮復發更早顯現，應沿神經路徑做有針對性的評估。",
       "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s07-rq017",
@@ -6927,8 +7532,8 @@
       "explanation": "用常見形態識別病灶後，仍要依病理與邊界管理，不把外觀典型當成良性保證。",
       "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s07-rq018",
@@ -6981,8 +7586,8 @@
       "explanation": "眼瞼傷口外觀不是損傷範圍的終點；初次修復前需確認眼球、眶內和相關通路。",
       "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s07-rq019",
@@ -7035,8 +7640,8 @@
       "explanation": "重建需同時恢復組織並保護正在發育的視覺，不可照搬成人跨瞼手術。",
       "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s07-rq020",
@@ -7089,8 +7694,8 @@
       "explanation": "以可回位性和組織長度判機轉，能避免對瘢痕不足只做水平緊縮。",
       "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s07-rq021",
@@ -7143,8 +7748,8 @@
       "explanation": "可用medial spindle等方式評估恢復淚點內轉；是否加水平緊縮取決於同時存在的鬆弛，而非一律同術式。",
       "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s07-rq022",
@@ -7197,8 +7802,8 @@
       "explanation": "內翻可有縮肌、水平鬆弛與眼輪匝肌覆蓋等多因素；要依主要缺陷選治療。",
       "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s07-rq023",
@@ -7251,8 +7856,8 @@
       "explanation": "重建不是只把瞼緣縫回外觀位置；需解除造成錯位的組織短缺並處理其病因。",
       "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s07-rq024",
@@ -7305,8 +7910,8 @@
       "explanation": "術前的動態測試比單張高度量測多出神經共同驅動資訊，可預見單側修復後的對側表現。",
       "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s07-rq025",
@@ -7359,8 +7964,8 @@
       "explanation": "外觀皮膚足夠不代表每一層都長度足夠，需辨前、中、後層後再選鬆解與延長。",
       "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s07-rq026",
@@ -7415,8 +8020,8 @@
       "explanation": "從受損動作和手術路徑定位神經，避免把所有眉眼不對稱都當成ptosis或Horner。",
       "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s07-rq027",
@@ -7469,8 +8074,8 @@
       "explanation": "風險告知應對應實際治療與膚質，不可用「非手術」當低風險保證。",
       "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s07-rq028",
@@ -7523,8 +8128,8 @@
       "explanation": "骨性定位影響淚囊及鼻腔通路手術；前後淚嵴不是同一骨構造。",
       "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s07-rq029",
@@ -7577,8 +8182,8 @@
       "explanation": "區分分泌、入口貼附、動態泵與通路阻塞，能解釋為何一個通暢測試不能終結整個流淚評估。",
       "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s07-rq030",
@@ -7631,8 +8236,8 @@
       "explanation": "先找淚從哪裡來，再選手術；同樣是家屬說「流眼淚」，分泌管錯位與排出管阻塞是不同問題。",
       "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     }
   ],
   "coverage": {
@@ -7644,11 +8249,11 @@
           "bcsc-s07-ch001-u02",
           "bcsc-s07-ch001-u03"
         ],
-        "teachingStatus": "draft",
-        "coverageStatus": "partial",
+        "teachingStatus": "source-checked",
+        "coverageStatus": "independently-reviewed",
         "originalImageStatus": "not-reviewed",
         "gaps": [
-          "章內原始圖像尚未逐圖目視核對；目前影像線索來自英文文字。"
+          "原書各圖尚未逐圖視覺核對；主要文字範圍已依獨立報告核對，非逐段全文/全圖覆蓋。"
         ]
       },
       {
@@ -7657,11 +8262,11 @@
           "bcsc-s07-ch002-u01",
           "bcsc-s07-ch002-u02"
         ],
-        "teachingStatus": "draft",
-        "coverageStatus": "partial",
+        "teachingStatus": "source-checked",
+        "coverageStatus": "independently-reviewed",
         "originalImageStatus": "not-reviewed",
         "gaps": [
-          "章內原始圖像尚未逐圖目視核對；目前影像線索來自英文文字。"
+          "原書各圖尚未逐圖視覺核對；主要文字範圍已依獨立報告核對，非逐段全文/全圖覆蓋。"
         ]
       },
       {
@@ -7671,11 +8276,11 @@
           "bcsc-s07-ch003-u02",
           "bcsc-s07-ch003-u03"
         ],
-        "teachingStatus": "draft",
-        "coverageStatus": "partial",
+        "teachingStatus": "source-checked",
+        "coverageStatus": "independently-reviewed",
         "originalImageStatus": "not-reviewed",
         "gaps": [
-          "章內原始圖像尚未逐圖目視核對；目前影像線索來自英文文字。"
+          "原書各圖尚未逐圖視覺核對；主要文字範圍已依獨立報告核對，非逐段全文/全圖覆蓋。"
         ]
       },
       {
@@ -7688,13 +8293,15 @@
           "bcsc-s07-ch004-u05",
           "bcsc-s07-ch004-u06",
           "bcsc-s07-ch004-u07",
-          "bcsc-s07-ch004-u08"
+          "bcsc-s07-ch004-u08",
+          "bcsc-s07-ch004-u09",
+          "bcsc-s07-ch004-u10"
         ],
-        "teachingStatus": "draft",
-        "coverageStatus": "partial",
+        "teachingStatus": "source-checked",
+        "coverageStatus": "independently-reviewed",
         "originalImageStatus": "not-reviewed",
         "gaps": [
-          "章內原始圖像尚未逐圖目視核對；目前影像線索來自英文文字。"
+          "原書各圖尚未逐圖視覺核對；主要文字範圍已依獨立報告核對，非逐段全文/全圖覆蓋。"
         ]
       },
       {
@@ -7710,11 +8317,11 @@
           "bcsc-s07-ch005-u08",
           "bcsc-s07-ch005-u09"
         ],
-        "teachingStatus": "draft",
-        "coverageStatus": "partial",
+        "teachingStatus": "source-checked",
+        "coverageStatus": "independently-reviewed",
         "originalImageStatus": "not-reviewed",
         "gaps": [
-          "章內原始圖像尚未逐圖目視核對；目前影像線索來自英文文字。"
+          "原書各圖尚未逐圖視覺核對；主要文字範圍已依獨立報告核對，非逐段全文/全圖覆蓋。"
         ]
       },
       {
@@ -7724,11 +8331,11 @@
           "bcsc-s07-ch006-u02",
           "bcsc-s07-ch006-u03"
         ],
-        "teachingStatus": "draft",
-        "coverageStatus": "partial",
+        "teachingStatus": "source-checked",
+        "coverageStatus": "independently-reviewed",
         "originalImageStatus": "not-reviewed",
         "gaps": [
-          "章內原始圖像尚未逐圖目視核對；目前影像線索來自英文文字。"
+          "原書各圖尚未逐圖視覺核對；主要文字範圍已依獨立報告核對，非逐段全文/全圖覆蓋。"
         ]
       },
       {
@@ -7737,11 +8344,11 @@
           "bcsc-s07-ch007-u01",
           "bcsc-s07-ch007-u02"
         ],
-        "teachingStatus": "draft",
-        "coverageStatus": "partial",
+        "teachingStatus": "source-checked",
+        "coverageStatus": "independently-reviewed",
         "originalImageStatus": "not-reviewed",
         "gaps": [
-          "章內原始圖像尚未逐圖目視核對；目前影像線索來自英文文字。"
+          "原書各圖尚未逐圖視覺核對；主要文字範圍已依獨立報告核對，非逐段全文/全圖覆蓋。"
         ]
       },
       {
@@ -7751,11 +8358,11 @@
           "bcsc-s07-ch008-u02",
           "bcsc-s07-ch008-u03"
         ],
-        "teachingStatus": "draft",
-        "coverageStatus": "partial",
+        "teachingStatus": "source-checked",
+        "coverageStatus": "independently-reviewed",
         "originalImageStatus": "not-reviewed",
         "gaps": [
-          "章內原始圖像尚未逐圖目視核對；目前影像線索來自英文文字。"
+          "原書各圖尚未逐圖視覺核對；主要文字範圍已依獨立報告核對，非逐段全文/全圖覆蓋。"
         ]
       },
       {
@@ -7765,11 +8372,11 @@
           "bcsc-s07-ch009-u02",
           "bcsc-s07-ch009-u03"
         ],
-        "teachingStatus": "draft",
-        "coverageStatus": "partial",
+        "teachingStatus": "source-checked",
+        "coverageStatus": "independently-reviewed",
         "originalImageStatus": "not-reviewed",
         "gaps": [
-          "章內原始圖像尚未逐圖目視核對；目前影像線索來自英文文字。"
+          "原書各圖尚未逐圖視覺核對；主要文字範圍已依獨立報告核對，非逐段全文/全圖覆蓋。"
         ]
       },
       {
@@ -7778,13 +8385,14 @@
           "bcsc-s07-ch010-u01",
           "bcsc-s07-ch010-u02",
           "bcsc-s07-ch010-u03",
-          "bcsc-s07-ch010-u04"
+          "bcsc-s07-ch010-u04",
+          "bcsc-s07-ch010-u05"
         ],
-        "teachingStatus": "draft",
-        "coverageStatus": "partial",
+        "teachingStatus": "source-checked",
+        "coverageStatus": "independently-reviewed",
         "originalImageStatus": "not-reviewed",
         "gaps": [
-          "章內原始圖像尚未逐圖目視核對；目前影像線索來自英文文字。"
+          "原書各圖尚未逐圖視覺核對；主要文字範圍已依獨立報告核對，非逐段全文/全圖覆蓋。"
         ]
       },
       {
@@ -7794,11 +8402,11 @@
           "bcsc-s07-ch011-u02",
           "bcsc-s07-ch011-u03"
         ],
-        "teachingStatus": "draft",
-        "coverageStatus": "partial",
+        "teachingStatus": "source-checked",
+        "coverageStatus": "independently-reviewed",
         "originalImageStatus": "not-reviewed",
         "gaps": [
-          "章內原始圖像尚未逐圖目視核對；目前影像線索來自英文文字。"
+          "原書各圖尚未逐圖視覺核對；主要文字範圍已依獨立報告核對，非逐段全文/全圖覆蓋。"
         ]
       },
       {
@@ -7807,13 +8415,14 @@
           "bcsc-s07-ch012-u01",
           "bcsc-s07-ch012-u02",
           "bcsc-s07-ch012-u03",
-          "bcsc-s07-ch012-u04"
+          "bcsc-s07-ch012-u04",
+          "bcsc-s07-ch012-u05"
         ],
-        "teachingStatus": "draft",
-        "coverageStatus": "partial",
+        "teachingStatus": "source-checked",
+        "coverageStatus": "independently-reviewed",
         "originalImageStatus": "not-reviewed",
         "gaps": [
-          "章內原始圖像尚未逐圖目視核對；目前影像線索來自英文文字。"
+          "原書各圖尚未逐圖視覺核對；主要文字範圍已依獨立報告核對，非逐段全文/全圖覆蓋。"
         ]
       },
       {
@@ -7823,11 +8432,11 @@
           "bcsc-s07-ch013-u02",
           "bcsc-s07-ch013-u03"
         ],
-        "teachingStatus": "draft",
-        "coverageStatus": "partial",
+        "teachingStatus": "source-checked",
+        "coverageStatus": "independently-reviewed",
         "originalImageStatus": "not-reviewed",
         "gaps": [
-          "章內原始圖像尚未逐圖目視核對；目前影像線索來自英文文字。"
+          "原書各圖尚未逐圖視覺核對；主要文字範圍已依獨立報告核對，非逐段全文/全圖覆蓋。"
         ]
       },
       {
@@ -7837,11 +8446,11 @@
           "bcsc-s07-ch014-u02",
           "bcsc-s07-ch014-u03"
         ],
-        "teachingStatus": "draft",
-        "coverageStatus": "partial",
+        "teachingStatus": "source-checked",
+        "coverageStatus": "independently-reviewed",
         "originalImageStatus": "not-reviewed",
         "gaps": [
-          "章內原始圖像尚未逐圖目視核對；目前影像線索來自英文文字。"
+          "原書各圖尚未逐圖視覺核對；主要文字範圍已依獨立報告核對，非逐段全文/全圖覆蓋。"
         ]
       },
       {
@@ -7850,13 +8459,14 @@
           "bcsc-s07-ch015-u01",
           "bcsc-s07-ch015-u02",
           "bcsc-s07-ch015-u03",
-          "bcsc-s07-ch015-u04"
+          "bcsc-s07-ch015-u04",
+          "bcsc-s07-ch015-u05"
         ],
-        "teachingStatus": "draft",
-        "coverageStatus": "partial",
+        "teachingStatus": "source-checked",
+        "coverageStatus": "independently-reviewed",
         "originalImageStatus": "not-reviewed",
         "gaps": [
-          "章內原始圖像尚未逐圖目視核對；目前影像線索來自英文文字。"
+          "原書各圖尚未逐圖視覺核對；主要文字範圍已依獨立報告核對，非逐段全文/全圖覆蓋。"
         ]
       }
     ],
@@ -7869,7 +8479,7 @@
         "unitIds": [
           "bcsc-s07-ch001-u02"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
         "gaps": []
@@ -7882,7 +8492,7 @@
         "unitIds": [
           "bcsc-s07-ch001-u02"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
         "gaps": []
@@ -7895,7 +8505,7 @@
         "unitIds": [
           "bcsc-s07-ch003-u01"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
         "gaps": []
@@ -7908,7 +8518,7 @@
         "unitIds": [
           "bcsc-s07-ch003-u01"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
         "gaps": []
@@ -7921,7 +8531,7 @@
         "unitIds": [
           "bcsc-s07-ch004-u02"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
         "gaps": []
@@ -7934,7 +8544,7 @@
         "unitIds": [
           "bcsc-s07-ch005-u01"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
         "gaps": []
@@ -7947,7 +8557,7 @@
         "unitIds": [
           "bcsc-s07-ch005-u02"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
         "gaps": []
@@ -7960,7 +8570,7 @@
         "unitIds": [
           "bcsc-s07-ch005-u02"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
         "gaps": []
@@ -7973,7 +8583,7 @@
         "unitIds": [
           "bcsc-s07-ch006-u01"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
         "gaps": []
@@ -7986,7 +8596,7 @@
         "unitIds": [
           "bcsc-s07-ch006-u02"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
         "gaps": []
@@ -7999,7 +8609,7 @@
         "unitIds": [
           "bcsc-s07-ch007-u01"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
         "gaps": []
@@ -8012,7 +8622,7 @@
         "unitIds": [
           "bcsc-s07-ch008-u02"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
         "gaps": []
@@ -8025,7 +8635,7 @@
         "unitIds": [
           "bcsc-s07-ch009-u02"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
         "gaps": []
@@ -8038,7 +8648,7 @@
         "unitIds": [
           "bcsc-s07-ch010-u01"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
         "gaps": []
@@ -8051,7 +8661,7 @@
         "unitIds": [
           "bcsc-s07-ch010-u01"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
         "gaps": []
@@ -8064,7 +8674,7 @@
         "unitIds": [
           "bcsc-s07-ch010-u03"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
         "gaps": []
@@ -8077,7 +8687,7 @@
         "unitIds": [
           "bcsc-s07-ch010-u03"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
         "gaps": []
@@ -8090,7 +8700,7 @@
         "unitIds": [
           "bcsc-s07-ch011-u01"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
         "gaps": []
@@ -8103,7 +8713,7 @@
         "unitIds": [
           "bcsc-s07-ch011-u02"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
         "gaps": []
@@ -8116,7 +8726,7 @@
         "unitIds": [
           "bcsc-s07-ch012-u01"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
         "gaps": []
@@ -8129,7 +8739,7 @@
         "unitIds": [
           "bcsc-s07-ch012-u01"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
         "gaps": []
@@ -8142,7 +8752,7 @@
         "unitIds": [
           "bcsc-s07-ch012-u01"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
         "gaps": []
@@ -8155,7 +8765,7 @@
         "unitIds": [
           "bcsc-s07-ch012-u01"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
         "gaps": []
@@ -8168,7 +8778,7 @@
         "unitIds": [
           "bcsc-s07-ch012-u02"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
         "gaps": []
@@ -8181,7 +8791,7 @@
         "unitIds": [
           "bcsc-s07-ch012-u03"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
         "gaps": []
@@ -8195,7 +8805,7 @@
           "bcsc-s07-ch009-u02",
           "bcsc-s07-ch013-u01"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
         "gaps": []
@@ -8208,7 +8818,7 @@
         "unitIds": [
           "bcsc-s07-ch013-u02"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
         "gaps": []
@@ -8221,7 +8831,7 @@
         "unitIds": [
           "bcsc-s07-ch014-u02"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
         "gaps": []
@@ -8234,7 +8844,7 @@
         "unitIds": [
           "bcsc-s07-ch014-u01"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
         "gaps": []
@@ -8247,18 +8857,137 @@
         "unitIds": [
           "bcsc-s07-ch015-u01"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
         "originalImageStatus": "not-applicable",
         "gaps": []
       }
     ],
     "summary": {
-      "taughtChapters": 0,
+      "taughtChapters": 15,
       "authoredChapters": 15,
-      "readyQuestions": 0,
+      "readyQuestions": 30,
       "authoredQuestions": 30,
       "verifiedImages": 0
     }
+  },
+  "review": {
+    "schemaVersion": 1,
+    "authorSha256": "ed1cad06f122858af3059834c35954405dba75763751a4835aaa84f3dc4457bd",
+    "reviewedAt": "2026-10-20",
+    "scope": "Independent source/clinical review of authored units, mapped question concepts and bounded major chapter topics; original chapter figures remain separately unreviewed.",
+    "unitContentHashes": {
+      "bcsc-s07-ch001-u01": "09bcb22cee4085bb92297bae1d6c57ad5e40c6b637f756a1beb06cab9909ecc6",
+      "bcsc-s07-ch001-u02": "ec0eedea143d545ea1a66cdc45f8d61732c77bdc9b9a59dd1f42a78ba7f6128a",
+      "bcsc-s07-ch001-u03": "632a3f33ad00841017ce1c802c1d6c116827f06a46a3d755ad191bb6dbf703ba",
+      "bcsc-s07-ch002-u01": "70724f76b2a7ba20d7e23379dedcdbbf4e878b9ef7b9a278986b4b519311fa4b",
+      "bcsc-s07-ch002-u02": "c3e5393889aefef14ba4606f4b80bb8b4b32e5b135e1615490f5d6e09f3335f3",
+      "bcsc-s07-ch003-u01": "a35d6dc19f60cdf845961d66fa0218a02c30b733f5fe24b505c458ddd7ccaa41",
+      "bcsc-s07-ch003-u02": "b985843ad581b95778b3796449ce20590108006f22f1ea946e2c2f094a1065e6",
+      "bcsc-s07-ch003-u03": "56fc4e00856ecb2440608af687574c431407734fc0b23a42de3659beb5f0d727",
+      "bcsc-s07-ch004-u01": "8be585b28f790eccbe2acd90f344c94ba00139c5e52ccd74bb35a22039777bad",
+      "bcsc-s07-ch004-u02": "21e404745db77c344327b3cee4394b6df065669eec105b24413c522f26af804e",
+      "bcsc-s07-ch004-u03": "a5201c2273920faf2bd0fb31f3f13e2e504fabb30c2fc70f7eb60fecda8dc8f6",
+      "bcsc-s07-ch004-u04": "ce228b1456c04d48bf76f562bf24c998a96219063803647a035684def3e049c8",
+      "bcsc-s07-ch004-u05": "61169c737e581383d7928f87b889d9a4ac2b52ec53db1b6140613582824b9e0a",
+      "bcsc-s07-ch004-u06": "8dd636f0698e01758aa698aab727feec5c5b3720bd4e77bd727c366b0427af46",
+      "bcsc-s07-ch004-u07": "8b63dad4aa3056f229746bf20136a12d979b71086cec669cab4a51684220fc8c",
+      "bcsc-s07-ch004-u08": "2353080f98c9b94df4b113388b9aeeb4303311e59d466d40531c6f246f684b26",
+      "bcsc-s07-ch004-u09": "4127a854a30583c5a1382c6b80e3a4565c4793891cbb9164ba142eb101a904fe",
+      "bcsc-s07-ch004-u10": "6649bcbab4241b0fcb47bb6892c4595fc5b05682c07098d416d9365d69b4036e",
+      "bcsc-s07-ch005-u01": "a467b31bc58c3e92158e3436e7015cd6ea754ce22443b2eff7f686f06a86c009",
+      "bcsc-s07-ch005-u02": "9ab1a9486d579a8be91f36a5bad4d9da1b9805ca29a2eb72b39fae9f88ee0f10",
+      "bcsc-s07-ch005-u03": "d8e8fc29ffae8ec82257b99b35f083d31e3df699a74e12a01fba8a917fab55f4",
+      "bcsc-s07-ch005-u04": "272feb947b293972ccf33829f57104415b97484d8c8c6dd3f34ca3f5b9f039a0",
+      "bcsc-s07-ch005-u05": "96e1aa4388db61e3ce96805946b5b8d2f108f6688c0e8e7055f118ede403246c",
+      "bcsc-s07-ch005-u06": "f77659c1db943f975e21d34e5cc4c0ab97f8848c089a2efeb9a1b633d2bffa0a",
+      "bcsc-s07-ch005-u07": "9387e03be444d1b4aefac7d0a49efdba7a3048d8991fe02afaaaa99cf66c938b",
+      "bcsc-s07-ch005-u08": "1365e77f9ae9da7e0ed27c1d753b6cfa502bab91e3e0fb9481778512b842799b",
+      "bcsc-s07-ch005-u09": "16785d61b34f8ce813dd56cea3b9b253b4668501309dbcb6ba6fc6b95d34555e",
+      "bcsc-s07-ch006-u01": "fb2b55e995efaebc543dab0171462282ce388f9f53e4db8a42d95b18a8707fa3",
+      "bcsc-s07-ch006-u02": "8cb452a8b1ab71feea7c30c4afadd5481c80601a55ebf06b7e8cf31412dbf5b7",
+      "bcsc-s07-ch006-u03": "313e6f7f878ca194466f530e84ccf483eea827245fe24385487375281bb11cda",
+      "bcsc-s07-ch007-u01": "5dfd4a8c75e22b9cb4fe3cc56cfede358be2383a95e242f1f5a8483e9c253d6d",
+      "bcsc-s07-ch007-u02": "b3bac37f932537ef64d284f7fbaf6ddce9e5600167ff91a98edcdae97342fd73",
+      "bcsc-s07-ch008-u01": "22a71130929039b58e489ac1af34d3bb2077cd54267104e0318a0077d28d4c56",
+      "bcsc-s07-ch008-u02": "34267a755514f2c91a2cd48c6a1fc4d575a8937f48ac439f033577fc3808da06",
+      "bcsc-s07-ch008-u03": "03ce31bfa72b824e5112a824b8dfa5bcb5b1310b951a9da0e2ec23b147da0a52",
+      "bcsc-s07-ch009-u01": "d8c275d51e06e625abf5ef7153ec968b689366285b88d0fd67a16468523a63e9",
+      "bcsc-s07-ch009-u02": "79218372a5868d530b95d8c5d6e69baa349416a379ba54726b5c24b10c877603",
+      "bcsc-s07-ch009-u03": "d2bca8273f1ed1dc611f645e75f1b524e4593b81229ed4fe61f96c3d825a8a3b",
+      "bcsc-s07-ch010-u01": "c83bf3532943c89c8bf99ab479b620125c1009b906ef697caa5c1044544cda91",
+      "bcsc-s07-ch010-u02": "3f06ba391c3045e417ea768ff7dc899e2f06f9b8fe0989a60a673d31861c1d11",
+      "bcsc-s07-ch010-u03": "8886782a5a71080e3127c4abf61484fc263a8516613cd6822f0d00f0cf97ec1e",
+      "bcsc-s07-ch010-u04": "93ec15fccca48c7ae30cd37d351cacb6a385c5fe8758664acdf27c55d2d76f60",
+      "bcsc-s07-ch010-u05": "b39f34a097f56e7f43cd8e115679d45ca51e82b513c872c53d7761d23e5a3210",
+      "bcsc-s07-ch011-u01": "c49666039ecf4de7dc98cfd021535d5e9a90f94edc9b9215f123e6a8c740b3b1",
+      "bcsc-s07-ch011-u02": "d0f3cb350f98d5c7aca7b9604d56dfa41740afea46447efa56a973fd8790ebed",
+      "bcsc-s07-ch011-u03": "6278814f5a92a972bc3b2b185cad955e5c7068524ed678eca80106caae0dede1",
+      "bcsc-s07-ch012-u01": "5bbb1693d7798104b6c8a8c96b3fe63e1181a2b5aca9dda2f938eddf4d587f62",
+      "bcsc-s07-ch012-u02": "87f14e95db8f91e5617a163585cba99fb7d83c72b7c0c0ad009dc7537a0042a9",
+      "bcsc-s07-ch012-u03": "e8854368fae858ad2453f79d774b00d0906e3c394bce556232ec275121f07ac7",
+      "bcsc-s07-ch012-u04": "abe62c226feb3751f9f7458bf9fad147901a8dc3c0f0ab5b47fccf66c43709dc",
+      "bcsc-s07-ch012-u05": "dea3924e18619b13684e7b8b9da15aa92a117baa2da068ddec7012a48f0638f7",
+      "bcsc-s07-ch013-u01": "445b2ec67ab56aa042a6c95ccfb7f713b0d9fa20d3bad338a6c8cb1220c4e840",
+      "bcsc-s07-ch013-u02": "7c46f09b3075efa5dbc8f69120a526046255f8d33bd97c6ffc39673b24fdd6ef",
+      "bcsc-s07-ch013-u03": "224de22f52b0ef7a6610f7f98081de63ae084247011e891d0c648f2d4a4b6bd1",
+      "bcsc-s07-ch014-u01": "c77b85a9d85ae94572995583d68ff5ac2ae79718a1b46c8958b6772190c34b2b",
+      "bcsc-s07-ch014-u02": "fe4c10cd2dcaf4732065bdfc8b9306bf9f8dd38b6b9ba6a5325628a18004f8b2",
+      "bcsc-s07-ch014-u03": "30d339e3725b6d9b1f16ccaae524fd2b864e7e1b0f90f8678ab75fb7802ef6ca",
+      "bcsc-s07-ch015-u01": "893d1ef638ca27e2c377c4c95ccab0dc8d19a3008475bdb03cc098bb680459b2",
+      "bcsc-s07-ch015-u02": "113329baeb8f35dc3ff2b321cb27e285f3d166e9cb27a6e0f801ec9e1dd62e54",
+      "bcsc-s07-ch015-u03": "f7fdc259f66955632169538667cdcf3dc9a06c6537a8a707bd91b7d19a2a2a3d",
+      "bcsc-s07-ch015-u04": "248b92c3a6c1b888cb0d7377601c076859684df984845e925986b64fdc2f8cc4",
+      "bcsc-s07-ch015-u05": "5440ed37a244843262f3de84abc85641943e8a93cbd50c89c97e9b268a3f0d4b"
+    },
+    "questionContentHashes": {
+      "bcsc-s07-rq001": "31f80ec48052771ac3fe8f17ba62228dc931a0387ab3c34868ab64364afaacc7",
+      "bcsc-s07-rq002": "b4eb4dd8e226b31fe77acda5e36fbc435a5293dd25f69d7a89ec1c79aa6ed360",
+      "bcsc-s07-rq003": "e67f6c48940001b00ddf6b5607640fc25ffdbd34ab12e6418a1e7921a5003c18",
+      "bcsc-s07-rq004": "66914742a13ffb1f4ffadc8caf4a06f8b9165784d66c66b2de7be7fd84be676f",
+      "bcsc-s07-rq005": "5e8ae14720d76ede5783213d00395deff19356c56a0910d83a38243581fbf5d7",
+      "bcsc-s07-rq006": "4451dc2bc46ba13ee5f8286e46d6bb8c9bdcff5d2bbdb47be42f91e458a222eb",
+      "bcsc-s07-rq007": "075178e4f404a0b32228ba23a34a73e052894a52a4763b9444bc79cf3985520d",
+      "bcsc-s07-rq008": "5ae9dd667d49edef75dc0734c3e21ac3a376a1f11844cf4b2d21578ee685bfb9",
+      "bcsc-s07-rq009": "36482ec292926a7fbb7881dbd3b73063ee08f3721096e6c69a42750950a9526f",
+      "bcsc-s07-rq010": "b3ab008cfbb11173be3f3875cda51fbbae321201d15f72dbb494a112054c4d17",
+      "bcsc-s07-rq011": "c2bd091366e8ebaffcb8f85739f674f992c63e2d6966f4fda0f821a9c4f42911",
+      "bcsc-s07-rq012": "49656288603c0970e2296bc91516922b29dcb7952938493714d453dad1de77c8",
+      "bcsc-s07-rq013": "a60611510e36616670893070fc22accb79c292a7843052c9daaa2978490bfd8c",
+      "bcsc-s07-rq014": "aec18a77374532e34380fbbb7f20108f7a9655c19653d01c71d443b2e1ee2efc",
+      "bcsc-s07-rq015": "1bdabd841e8961859e2e87d5e8af1402ae0d856c2b9090c97c82a10f908ec45a",
+      "bcsc-s07-rq016": "75e5d98db29abed4783ac09ecf053870ba79aafe98578ac27c35ffd0a1ed7f3b",
+      "bcsc-s07-rq017": "de7974c1e243194a0e1ded677a195bdd2e708d9d873538df3d77d6837fafe089",
+      "bcsc-s07-rq018": "f7ccf488f3df2845836660e6ed4d701b4f051ea59c75f827d0e90e9d70acc775",
+      "bcsc-s07-rq019": "92846aeb56e16865d6b330194b4e4de32b9c27b1b0ac9d27bfdc3ba959f397a3",
+      "bcsc-s07-rq020": "e31dc4b2d38a543aaf870869e5b30159755e551ab23429031f87436b2c08d17e",
+      "bcsc-s07-rq021": "4a61a790cfd4e8c9481f3495d8f9108c39904d94c3f3d2601f578f404280764b",
+      "bcsc-s07-rq022": "fc3cdc9dfdb33ecf0181c4216d76fc4ed8c4a58219e45ae899fcb9f10e137652",
+      "bcsc-s07-rq023": "e26886b8aff7537a8c965c880892d612be21442453f3512ecf8f2a526add06e3",
+      "bcsc-s07-rq024": "4b9e119bbb1649d5b951084196ac07581ccf3129e69dce9e0d11939e64314e3f",
+      "bcsc-s07-rq025": "ec00ff4419d35de439e1fc7536f447bacd3a1e6d6d4ab0577ab070e7ca7d9b9f",
+      "bcsc-s07-rq026": "99b579d9b847021c4b4edd6a6d3c4a5d3cc6517772b531bc8b8f6528c9fc89ec",
+      "bcsc-s07-rq027": "0cae1cbd8e2e463fb9d5b8ebba119788a96589f235c007f7655284eebbf02620",
+      "bcsc-s07-rq028": "0d542c6b90d0243650b06d018fd765c572b3430d1609351dd6c3a9deb0cf2348",
+      "bcsc-s07-rq029": "60ce5f5d46df39d685d4ffe93cff1e9a6047bae4350cca698ec4144218c6438e",
+      "bcsc-s07-rq030": "639d6058d55816163a5f03e765393a9ab226ca9818f295daf7c54f86c96197bf"
+    },
+    "chapterCoverageIds": [
+      "bcsc-s07-ch001",
+      "bcsc-s07-ch002",
+      "bcsc-s07-ch003",
+      "bcsc-s07-ch004",
+      "bcsc-s07-ch005",
+      "bcsc-s07-ch006",
+      "bcsc-s07-ch007",
+      "bcsc-s07-ch008",
+      "bcsc-s07-ch009",
+      "bcsc-s07-ch010",
+      "bcsc-s07-ch011",
+      "bcsc-s07-ch012",
+      "bcsc-s07-ch013",
+      "bcsc-s07-ch014",
+      "bcsc-s07-ch015"
+    ]
   }
 }

@@ -120,7 +120,7 @@
             "prompt": "為何相同球柱鏡處方的人夜間視覺可以不同？",
             "answer": "瞳孔、角膜與晶狀體高階像差、淚膜及散射都會改變成像，處方只描述低階部分。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s13-ch001-u02",
@@ -211,7 +211,7 @@
             "prompt": "若要問後表面是否異常，Placido、波前儀與角膜斷層三者應選誰？",
             "answer": "角膜斷層直接提供後表面與厚度分布；Placido重點在前表面，Hartmann–Shack重點在出射波前。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s13-ch001-u03",
@@ -228,7 +228,8 @@
                 44,
                 45,
                 46,
-                47
+                47,
+                48
               ],
               "printedPages": [
                 "19",
@@ -240,7 +241,8 @@
                 "29",
                 "30",
                 "31",
-                "32"
+                "32",
+                "33"
               ],
               "chapterHeading": "The Science of Refractive Surgery"
             }
@@ -318,7 +320,7 @@
             "prompt": "為何同樣近視度數，較大光學區需要更多組織？",
             "answer": "簡化幾何中切削深度與直徑平方成正比，光學區變大會增加深度並改變結構預算。"
           },
-          "status": "draft",
+          "status": "source-checked",
           "calculationChecks": [
             {
               "expression": "5*6**2/3",
@@ -329,6 +331,103 @@
               "expected": 81.66666666666667
             }
           ]
+        },
+        {
+          "id": "bcsc-s13-ch001-u04",
+          "title": "生物力學量測與上皮遮蔽：厚度之外還要看什麼",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                38,
+                42,
+                43,
+                53,
+                54
+              ],
+              "printedPages": [
+                "23",
+                "27",
+                "28",
+                "38",
+                "39"
+              ],
+              "chapterHeading": "The Science of Refractive Surgery"
+            }
+          ],
+          "mechanism": [
+            "角膜前部基質膠原分枝與交織較多，承重特性和後部不同；同樣改變若干微米，手術層次及被切斷的層板不同，結構效應不相等。",
+            "雙向氣流壓平量測以向內與回彈兩次壓平的壓力差估corneal hysteresis，反映黏滯耗能；高速Scheimpflug則記錄氣流造成的變形速度、長度與時間。兩者不是直接拍出膠原強度。",
+            "上皮會重分布以平滑基質表面。圓錐處局部上皮薄、周圍較厚可遮蔽基質形狀；接觸鏡塑形及術後重塑亦會改變圖形，需分開上皮、基質與總厚度。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "前表面尚平順但上皮圖有局部變薄環狀補償",
+              "meaning": "不能用表面平順否認被上皮遮蔽的基質異常。"
+            },
+            {
+              "finding": "單一生物力學指數正常但斷層可疑",
+              "meaning": "正常單值不能取代整合或保證雷射安全。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "早期擴張特徵",
+              "for": "上皮/基質/後表面出現相互支持的空間異常",
+              "against": "只有低品質單次圖不足診斷",
+              "discriminator": "停戴及改善表面後多模式重測"
+            },
+            {
+              "diagnosis": "接觸鏡形變或眼表偽影",
+              "for": "圖形隨停戴或表面改善而改變",
+              "against": "固定結構異常不能只歸咎鏡片",
+              "discriminator": "比較上皮、基質及序列圖"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "雙向壓平、高速變形成像及上皮分層圖",
+              "purpose": "補充斷層所未直接描述的反應與遮蔽",
+              "interpretation": "hysteresis是兩次壓平差，變形指標則是動態幾何；上皮圖須與基質及總厚度對照",
+              "limitation": "眼壓、品質與眼表等因素影響數據，沒有單一正常指數可完全排除風險"
+            }
+          ],
+          "management": [
+            {
+              "condition": "不同模式結果不一致",
+              "stage": "暫緩永久切削",
+              "action": "先改善表面/停戴，再整合斷層、上皮與動態反應，必要時轉角膜專科",
+              "rationale": "避免把補償過的表面或單一正常指數當作完整健康證明",
+              "caution": "不以裝置分數直接取代病人整體結構"
+            },
+            {
+              "condition": "解釋不同手術承重差",
+              "stage": "依層次討論",
+              "action": "把前基質交織、瓣切口與去除位置納入組織預算",
+              "rationale": "微米只量厚度，沒有完整描述力學網路",
+              "caution": "不保證某無瓣術式可消除擴張"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "上皮/基質圖與動態變形",
+              "clue": "找局部變薄、周邊補償及可重複性",
+              "interpretation": "原圖未核，模式提示需與真正結構相互驗證",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 54
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "總厚度相同就有相同承重能力",
+              "correction": "上皮遮蔽、層板交織及切斷層次不同，厚度不是力學的全部。"
+            }
+          ],
+          "recall": {
+            "prompt": "為何上皮圖與斷層、生物力學要一起看？",
+            "answer": "它們分別描述補償層、結構形狀及動態反應；任何一個都可能漏掉其他面向或受量測因素影響。"
+          },
+          "status": "source-checked"
         }
       ]
     },
@@ -452,7 +551,7 @@
             "prompt": "原近視−4.5 D、目標留−1 D時治療量如何算？",
             "answer": "以原值減去目標值，−4.5−(−1)=−3.5 D；並確認單眼視耐受及術後視程取捨。"
           },
-          "status": "draft",
+          "status": "source-checked",
           "calculationChecks": [
             {
               "expression": "-4.5-(-1)",
@@ -473,7 +572,8 @@
                 67,
                 68,
                 69,
-                70
+                70,
+                71
               ],
               "printedPages": [
                 "48",
@@ -483,14 +583,27 @@
                 "52",
                 "53",
                 "54",
-                "55"
+                "55",
+                "56"
               ],
               "chapterHeading": "Patient Evaluation"
+            },
+            {
+              "pdfPages": [
+                230,
+                238
+              ],
+              "printedPages": [
+                "215",
+                "223"
+              ],
+              "chapterHeading": "Study Questions and Answers"
             }
           ],
           "mechanism": [
             "剩餘基質床等於角膜厚度扣除瓣與消融厚度；瓣雖仍存在，其切斷的層板不能視為與未切角膜相同承重。",
-            "異常地形、後表面與厚度分布、年齡及組織移除比例需一起考量；書中剩餘床低於250 μm是警訊而非反向保證高於它就安全。"
+            "異常地形、後表面與厚度分布、年齡及組織移除比例需一起考量；書中剩餘床低於250 μm是警訊而非反向保證高於它就安全。",
+            "本版提醒預期術後角膜K過陡、超過約50 D時可增加球面像差及光學品質問題，題設52 D即為明確警訊；這是需重考量的風險線索，不是只憑某K值即能完整批准或否決手術。"
           ],
           "clinicalClues": [
             {
@@ -560,7 +673,7 @@
             "prompt": "為何「預估剩餘床足夠」仍可能不適合LASIK？",
             "answer": "預估瓣厚有誤差，原角膜可能已有擴張特徵，且剩餘組織的結構與治療比例亦影響風險。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s13-ch002-u03",
@@ -664,7 +777,105 @@
             "prompt": "乾眼為何同時影響規劃和恢復？",
             "answer": "淚膜改變測量的折射介面，上皮健康又決定術後再上皮化與穩定成像。"
           },
-          "status": "draft"
+          "status": "source-checked"
+        },
+        {
+          "id": "bcsc-s13-ch002-u04",
+          "title": "RSB與PTA是兩種組織預算，不是兩張安全證書",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                71
+              ],
+              "printedPages": [
+                "56"
+              ],
+              "chapterHeading": "Patient Evaluation"
+            }
+          ],
+          "mechanism": [
+            "RSB=CCT−瓣厚−消融厚度，問的是剩多少床；PTA=(瓣厚+消融厚度)/術前CCT×100%，問的是原厚度中有多少被改變。",
+            "教材描述LASIK的PTA超過40%與較高擴張風險相關，這是關聯線索而非跨所有術式的絕對界線；正常地形與其他因素仍要整合。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "同樣剩餘床但原始厚度和瓣厚不同",
+              "meaning": "相對改變比例可不同，不能只比較RSB。"
+            },
+            {
+              "finding": "以最樂觀預測瓣厚才使PTA偏低",
+              "meaning": "實際瓣較厚會同時降低床厚、提高PTA。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "絕對剩餘量不足",
+              "for": "RSB低於規劃需求",
+              "against": "相同RSB不代表相同PTA或結構",
+              "discriminator": "同時計兩者及原始圖形"
+            },
+            {
+              "diagnosis": "內在角膜擴張疾病",
+              "for": "即使組織數字尚可仍有異常圖形",
+              "against": "數字正常不能否定疾病",
+              "discriminator": "先檢查原始斷層與序列變化"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "同單位組織表與誤差範圍",
+              "purpose": "計絕對量及相對比例",
+              "interpretation": "合成例CCT500、瓣120、消融90 μm：RSB290 μm，PTA42%",
+              "limitation": "簡化預測不包含所有個人力學與實際製瓣誤差"
+            }
+          ],
+          "management": [
+            {
+              "condition": "比例或剩餘量有疑慮",
+              "stage": "停止追求勉強通過",
+              "action": "重估治療量、光學區、瓣誤差與替代，異常結構先排疾病",
+              "rationale": "改一個數字不是處理全部風險",
+              "caution": "不以42%單值直接替病人下處方，也不以39%保證安全"
+            },
+            {
+              "condition": "病人詢問門檻",
+              "stage": "解釋關聯與限制",
+              "action": "用兩公式說清楚組織預算，同時說明年齡、圖形及原病",
+              "rationale": "避免把風險關聯變二分安全承諾",
+              "caution": "門檻為教材版次資料，非通用個人允許證"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "厚度/瓣/消融剖面",
+              "clue": "標示分子兩項及術前分母",
+              "interpretation": "原圖未核，計算不能遺漏瓣厚",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 71
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "PTA只用消融深度除CCT",
+              "correction": "LASIK教材定義還包含瓣厚，漏掉會系統低估比例。"
+            }
+          ],
+          "recall": {
+            "prompt": "CCT500、瓣120、消融90 μm，RSB與PTA各為多少？",
+            "answer": "RSB=500−120−90=290 μm；PTA=(120+90)/500×100=42%。這些數值仍不能單獨決定適應。"
+          },
+          "status": "source-checked",
+          "calculationChecks": [
+            {
+              "expression": "500-120-90",
+              "expected": 290
+            },
+            {
+              "expression": "(120+90)/500*100",
+              "expected": 42
+            }
+          ]
         }
       ]
     },
@@ -780,7 +991,7 @@
             "prompt": "為何白內障術後早期RK眼遠視不宜立即做增強？",
             "answer": "角膜水腫與舊切口力學可暫時使中央變平，需等待連續量測穩定。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s13-ch003-u02",
@@ -804,11 +1015,23 @@
                 "73"
               ],
               "chapterHeading": "Incisional Corneal Surgery"
+            },
+            {
+              "pdfPages": [
+                225,
+                233
+              ],
+              "printedPages": [
+                "210",
+                "218"
+              ],
+              "chapterHeading": "Study Questions and Answers"
             }
           ],
           "mechanism": [
             "在陡峭子午線作弧形鬆弛切口可使該方向變平，另一主子午線相對變陡；這種耦合使等效球面可能變化較小。",
-            "LRI位置比中央AK周邊，相同矯正量常需較長或較深切口；光學區、長度、深度、年齡與癒合均會改變效應。"
+            "LRI位置比中央AK周邊，相同矯正量常需較長或較深切口；光學區、長度、深度、年齡與癒合均會改變效應。",
+            "正柱鏡記法的陡軸若為90°，教材型成對弧切的子午線位置是90/270°；題設約7 mm的周邊光學區須與nomogram、厚度與角膜圖核對，不是直接依眼鏡軸就可決定所有切口。"
           ],
           "clinicalClues": [
             {
@@ -878,7 +1101,7 @@
             "prompt": "弧形切口為何可降散光而等效球面改變較小？",
             "answer": "切口子午線變平，垂直方向相對變陡，耦合作用讓兩主子午線屈光力變化部分抵銷。"
           },
-          "status": "draft"
+          "status": "source-checked"
         }
       ]
     },
@@ -924,11 +1147,23 @@
                 "82"
               ],
               "chapterHeading": "Photoablation: Techniques and Outcomes"
+            },
+            {
+              "pdfPages": [
+                231,
+                238
+              ],
+              "printedPages": [
+                "216",
+                "223"
+              ],
+              "chapterHeading": "Study Questions and Answers"
             }
           ],
           "mechanism": [
             "PRK先去上皮再作基質消融，恢復取決於上皮再生與基質癒合；LASIK將消融置於瓣下，初期舒適與視覺恢復較快，但增加終身瓣介面問題。",
-            "LASEK及epiLASIK以不同方式處理上皮，不等同於LASIK的基質瓣；保留或移動上皮不代表沒有表面癒合與混濁風險。"
+            "LASEK及epiLASIK以不同方式處理上皮，不等同於LASIK的基質瓣；保留或移動上皮不代表沒有表面癒合與混濁風險。",
+            "LASIK瓣剛復位時的貼附，重要機轉是內皮泵維持基質相對脫水所支持的吸附；不能把即刻貼附、瓣緣上皮修復與長期瘢痕強度當同一時間尺度，中央介面並未恢復未切開的結構。"
           ],
           "clinicalClues": [
             {
@@ -998,7 +1233,7 @@
             "prompt": "為何LASIK初期恢復快，卻仍有多年後瓣移位風險？",
             "answer": "消融區被上皮完整的瓣覆蓋，但中央介面癒合有限，貼附並非回復未切開角膜的結構。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s13-ch004-u02",
@@ -1028,11 +1263,23 @@
                 "90"
               ],
               "chapterHeading": "Photoablation: Techniques and Outcomes"
+            },
+            {
+              "pdfPages": [
+                230,
+                237
+              ],
+              "printedPages": [
+                "215",
+                "222"
+              ],
+              "chapterHeading": "Study Questions and Answers"
             }
           ],
           "mechanism": [
             "Wavefront-guided依個人全眼波前規劃；wavefront-optimized主要調整消融輪廓以降低誘發球面像差；topography-guided使用角膜表面形狀資訊處理角膜不規則。",
-            "飛秒製瓣與準分子消融是不同步驟；瓣厚、定位、旋轉、追蹤、基質水合與雷射校正都可影響最終屈光。"
+            "飛秒製瓣與準分子消融是不同步驟；瓣厚、定位、旋轉、追蹤、基質水合與雷射校正都可影響最終屈光。",
+            "與機械microkeratome相比，飛秒製瓣的相對優勢包括瓣厚與幾何形狀較可預測；可預測不等於沒有誤差、沒有瓣併發或任意病例成本效益都較好。"
           ],
           "clinicalClues": [
             {
@@ -1102,7 +1349,7 @@
             "prompt": "topography-guided為何不能直接等同wavefront-guided？",
             "answer": "前者依角膜表面形狀，後者依全眼出射波前；眼內像差可能造成不同目標。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s13-ch004-u03",
@@ -1134,11 +1381,32 @@
                 "99"
               ],
               "chapterHeading": "Photoablation: Techniques and Outcomes"
+            },
+            {
+              "pdfPages": [
+                232
+              ],
+              "printedPages": [
+                "217"
+              ],
+              "chapterHeading": "Study Questions and Answers"
+            },
+            {
+              "pdfPages": [
+                225,
+                232
+              ],
+              "printedPages": [
+                "210",
+                "217"
+              ],
+              "chapterHeading": "Study Questions and Answers"
             }
           ],
           "mechanism": [
             "殘餘度數可來自初始規劃、癒合回退、眼表、晶狀體或結構失穩；只有可定位且穩定的可矯正部分才適合考慮增強。",
-            "再表面切削既往LASIK、PRK、PK或RK眼時，既有傷口環境可增加混濁風險；MMC藉抑制細胞增殖調節反應，屬超適應症使用。"
+            "再表面切削既往LASIK、PRK、PK或RK眼時，既有傷口環境可增加混濁風險；MMC藉抑制細胞增殖調節反應，屬超適應症使用。",
+            "本版原題所舉0.02% MMC暴露30秒屬常見濃度/時間區間內的例子；屈光用途是超適應症，不能把這個配對當所有PRK或所有病人的固定醫囑。"
           ],
           "clinicalClues": [
             {
@@ -1208,7 +1476,105 @@
             "prompt": "為何原LASIK眼只補少量PRK仍可能討論MMC？",
             "answer": "混濁風險不只由度數決定，既往手術與基質傷口反應亦重要；須衡量超適應症藥物的收益與毒性。"
           },
-          "status": "draft"
+          "status": "source-checked"
+        },
+        {
+          "id": "bcsc-s13-ch004-u04",
+          "title": "術後照護依傷口分流：上皮閉合與介面完整性",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                109,
+                110
+              ],
+              "printedPages": [
+                "94",
+                "95"
+              ],
+              "chapterHeading": "Photoablation: Techniques and Outcomes"
+            }
+          ],
+          "mechanism": [
+            "表面切削早期重點是開放上皮的保護與感染監測；繃帶鏡在專業監控下協助上皮癒合，不是任意長期戴的一般鏡片。",
+            "LASIK早期需確認瓣對位、皺紋、碎屑、上皮缺損與介面炎症；裸視恢復快不代表可以跳過組織檢查。",
+            "抗菌藥預防/處理感染，類固醇調節傷口炎症但可升眼壓，NSAID止痛但可能延遲癒合，三者目的與風險不同。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "PRK上皮尚未閉合或繃帶鏡仍在",
+              "meaning": "需密切檢查閉合與感染，按方案維持抗菌保護。"
+            },
+            {
+              "finding": "LASIK視力突然下降或疼痛/紅/光敏感加重",
+              "meaning": "立即檢查瓣、介面與感染，不當例行恢復等待。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "正常表面恢復",
+              "for": "缺損逐漸縮小、無浸潤且症狀改善",
+              "against": "持續缺損或病灶惡化不符",
+              "discriminator": "序列染色、基質與前房檢查"
+            },
+            {
+              "diagnosis": "瓣/介面併發症",
+              "for": "不對位、視軸皺紋或炎症",
+              "against": "PRK無基質瓣，需改用相應病因",
+              "discriminator": "確認術式與裂隙燈層次"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "表面閉合、鏡片配適、瓣/介面及眼壓監測",
+              "purpose": "檢查各類藥物與傷口真正的目標",
+              "interpretation": "表面鏡可在確認穩定上皮後移除；類固醇依反應漸減並追眼壓",
+              "limitation": "不以固定日數保證閉合或把所有人套同一療程"
+            }
+          ],
+          "management": [
+            {
+              "condition": "表面切削尚未上皮化",
+              "stage": "保護並密切追蹤",
+              "action": "保持適合的繃帶鏡、潤滑與抗菌覆蓋，延遲癒合時停可疑局部NSAID並查病因",
+              "rationale": "上皮與鏡片狀態決定感染暴露與照護需求",
+              "caution": "浸潤或惡化須急排感染，不能只繼續例行藥"
+            },
+            {
+              "condition": "LASIK早期",
+              "stage": "確認解剖完整",
+              "action": "檢查瓣、紋、碎屑與缺損，潤滑及防揉撞；影響視軸的問題需及時專科處理",
+              "rationale": "機械異常不會因口頭保證恢復快而自行安全",
+              "caution": "藥物頻率與停藥依個別方案及反應"
+            },
+            {
+              "condition": "使用類固醇",
+              "stage": "同時監測壓力",
+              "action": "依haze/炎症與癒合調整，不將抗菌、止痛及類固醇視為可互換",
+              "rationale": "較長療程增加需要警覺的眼壓反應",
+              "caution": "中央GAT可能因術後角膜改變低估"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "染色與早期瓣介面",
+              "clue": "依術式找不同危險訊號",
+              "interpretation": "原圖未核，不能只看視力表決定正常",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 109
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "到了預定某日就不必看上皮即可移除繃帶鏡",
+              "correction": "要確認穩定閉合、感染與配適狀態，而非只按日曆。"
+            }
+          ],
+          "recall": {
+            "prompt": "PRK與LASIK第一個傷口問題各是什麼？",
+            "answer": "PRK先確認上皮閉合與感染；LASIK要確認瓣位置、紋與介面，兩者皆需眼表照護及藥物副作用監測。"
+          },
+          "status": "source-checked"
         }
       ]
     },
@@ -1334,7 +1700,7 @@
             "prompt": "為何「過矯」病人不應直接安排反向雷射？",
             "answer": "需先查明眼表、結構、癒合或定位問題並確認穩定，病因未處理會使第二次手術更不可靠。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s13-ch005-u02",
@@ -1439,7 +1805,7 @@
             "prompt": "上皮兩週未癒合、Schirmer正常時，為何仍需停可疑NSAID？",
             "answer": "淚液量正常無法排除藥物毒性；頻繁局部NSAID可延遲上皮化並增加角膜傷害。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s13-ch005-u03",
@@ -1545,7 +1911,7 @@
             "prompt": "為何瓣邊上皮缺損增加長入風險？",
             "answer": "它提供上皮進入介面的入口，尤其掀瓣後可沿低癒合介面擴展。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s13-ch005-u04",
@@ -1569,11 +1935,34 @@
                 "124"
               ],
               "chapterHeading": "Photoablation: Complications and Adverse Effects"
+            },
+            {
+              "pdfPages": [
+                225,
+                233
+              ],
+              "printedPages": [
+                "210",
+                "218"
+              ],
+              "chapterHeading": "Study Questions and Answers"
+            },
+            {
+              "pdfPages": [
+                225,
+                232
+              ],
+              "printedPages": [
+                "210",
+                "217"
+              ],
+              "chapterHeading": "Study Questions and Answers"
             }
           ],
           "mechanism": [
             "DLK是無菌性介面白血球反應；感染可累及瓣與基質且伴局部浸潤或前房反應，兩者的類固醇處置方向不能混用。",
-            "類固醇誘發高眼壓可產生介面液體或壓力相關基質混濁，中央壓平眼壓反而可能假低。擴張則是形狀及力學持續失穩，不是單純術後欠矯。"
+            "類固醇誘發高眼壓可產生介面液體或壓力相關基質混濁，中央壓平眼壓反而可能假低。擴張則是形狀及力學持續失穩，不是單純術後欠矯。",
+            "在本版比較的屈光術式中，術後ectasia最常與LASIK配對；這是來源比較的風險排序，不代表PRK/其他術式零風險。原角膜、瓣與消融造成的削弱仍須一起評估。"
           ],
           "clinicalClues": [
             {
@@ -1636,7 +2025,7 @@
               "stage": "立即採樣與治療",
               "action": "角膜專科評估掀瓣採樣及抗微生物，不盲目加強類固醇",
               "rationale": "感染延誤可造成基質破壞",
-              "caution": "病原中常見葡萄球菌，非典型分枝桿菌亦重要"
+              "caution": "依本版LASIK後感染比較，最常見病原群為革蘭氏陽性菌（含葡萄球菌）；非典型分枝桿菌亦重要"
             },
             {
               "condition": "確認壓力相關介面混濁",
@@ -1673,7 +2062,7 @@
             "prompt": "為何LASIK後中央眼壓低卻仍可能是壓力相關介面病變？",
             "answer": "介面積液及術後角膜力學改變可低估中央壓平值，應評估周邊眼壓與整體臨床證據。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s13-ch005-u05",
@@ -1691,6 +2080,15 @@
                 "123"
               ],
               "chapterHeading": "Photoablation: Complications and Adverse Effects"
+            },
+            {
+              "pdfPages": [
+                237
+              ],
+              "printedPages": [
+                "222"
+              ],
+              "chapterHeading": "Study Questions and Answers"
             }
           ],
           "mechanism": [
@@ -1765,7 +2163,107 @@
             "prompt": "飛秒後視力好、眼不紅、介面清卻畏光，為何不直接掀瓣？",
             "answer": "可能是短暫光敏感症候群，先排危險病因後以醫療處理，無明確介面病灶不應反射性機械介入。"
           },
-          "status": "draft"
+          "status": "source-checked"
+        },
+        {
+          "id": "bcsc-s13-ch005-u06",
+          "title": "薄瓣、buttonhole、不完整瓣與free cap：停止點不同",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                125,
+                126,
+                127
+              ],
+              "printedPages": [
+                "110",
+                "111",
+                "112"
+              ],
+              "chapterHeading": "Photoablation: Complications and Adverse Effects"
+            }
+          ],
+          "mechanism": [
+            "微型角膜刀刀片、吸附或通過不均可產生薄、孔洞或不完整瓣，若無足夠完整床面就不能照原計畫消融。",
+            "Free cap是鉸鏈被切斷、整片游離，與中央有孔的buttonhole不同；可否安全續作須看床面、cap完整性及可恢復方向。",
+            "EBMD易發生上皮剝落，缺損增加DLK、感染、瓣紋及上皮長入風險，故上皮傷害需主動保護與監測。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "製瓣時看見中央孔洞或不完整區不足以容納切削",
+              "meaning": "應停止原準分子計畫，不跨缺陷硬做。"
+            },
+            {
+              "finding": "完整但游離的cap",
+              "meaning": "需保持濕潤及上皮外向，依預標記復位；不能翻面。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "薄/孔洞/不足區域瓣",
+              "for": "不連續或承接消融面不足",
+              "against": "完整游離cap是另一種問題",
+              "discriminator": "確認瓣完整性與床面範圍"
+            },
+            {
+              "diagnosis": "Free cap",
+              "for": "無鉸鏈但可能保持完整",
+              "against": "中央孔洞不屬同一處置前提",
+              "discriminator": "保存濕潤、方向與定位標記"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "術中瓣、床面、上皮及原標記檢查",
+              "purpose": "決定停止與可安全處理的邊界",
+              "interpretation": "發現不適合原計畫是中止理由，不是勉強完成理由",
+              "limitation": "單看度數或床厚無法消除表面缺陷"
+            }
+          ],
+          "management": [
+            {
+              "condition": "薄/孔洞或不完整瓣不容許安全消融",
+              "stage": "中止並讓其癒合",
+              "action": "若尚未掀則避免掀；已掀則復位、保護眼表，不做計畫消融，之後再評替代",
+              "rationale": "可避免把暫時失敗變成永久不規則與視力損失",
+              "caution": "不套一個固定再手術日期，需實際癒合"
+            },
+            {
+              "condition": "完整游離cap",
+              "stage": "保護方向與位置",
+              "action": "保持濕潤，上皮外向，使用既有標記復位；是否續作由完整床面與安全操作決定",
+              "rationale": "free cap不是一律與buttonhole相同，但倒置或失位會有害",
+              "caution": "不可在方向不確定時勉強放回"
+            },
+            {
+              "condition": "上皮剝落或缺損",
+              "stage": "保護並加密追蹤",
+              "action": "依情境使用專業監控的繃帶鏡及潤滑，查DLK、感染、長入及反覆糜爛",
+              "rationale": "上皮不完整改變多個介面風險",
+              "caution": "顯著EBMD需在術前選術式時考慮"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "Buttonhole與free cap示意",
+              "clue": "分清中央缺損及鉸鏈中斷、上皮外向",
+              "interpretation": "原圖未核，不能只把所有製瓣失敗稱同一併發症",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 126
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "遇到buttonhole仍完成原定雷射以免浪費",
+              "correction": "安全停止、復位與癒合比完成原計畫重要。"
+            }
+          ],
+          "recall": {
+            "prompt": "free cap與buttonhole的第一個區別為何？",
+            "answer": "前者鉸鏈中斷但整片可能完整，後者有組織缺陷；兩者可否安全消融與方向保護前提不同。"
+          },
+          "status": "source-checked"
         }
       ]
     },
@@ -1879,7 +2377,7 @@
             "prompt": "SMILE為何不像LASIK可直接再掀原瓣增強？",
             "answer": "它以小切口取出角膜內透鏡，沒有原先可直接掀起的大片瓣，須另選適合cap與剩餘組織的方案。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s13-ch006-u02",
@@ -1973,7 +2471,7 @@
             "prompt": "透鏡取出後視力差，為何不能只補一個球柱鏡雷射？",
             "answer": "先排除殘留、錯平面、癒合與眼表問題，只有穩定可矯正殘差才是適合的增強靶點。"
           },
-          "status": "draft"
+          "status": "source-checked"
         }
       ]
     },
@@ -2105,7 +2603,7 @@
             "prompt": "同樣看似透明角膜，為何疱疹史與TGFBI疾病需不同討論？",
             "answer": "前者重點在感染復發、神經與藥物影響，後者有傷口誘發沉積等風險，不能用同一禁忌表取代病因。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s13-ch007-u02",
@@ -2209,7 +2707,7 @@
             "prompt": "移植後等了一年為何仍不一定能做雷射？",
             "answer": "縫線、排斥、表面與角膜形狀可能尚未穩定，還須確認傷口及可預測的治療目標。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s13-ch007-u03",
@@ -2235,11 +2733,23 @@
                 "151"
               ],
               "chapterHeading": "Refractive Surgery in Ocular and Systemic Disease"
+            },
+            {
+              "pdfPages": [
+                228,
+                236
+              ],
+              "printedPages": [
+                "213",
+                "221"
+              ],
+              "chapterHeading": "Study Questions and Answers"
             }
           ],
           "mechanism": [
             "血糖變動會改變晶狀體相關屈光狀態，糖尿病亦可能影響角膜感覺、上皮癒合及視網膜；不穩定驗光不是立即手術的靶點。",
-            "免疫疾病、免疫抑制與HIV狀態需依活動度、眼表、感染與癒合風險個別衡量。懷孕及哺乳期的暫時屈光或角膜變動不適合選擇性永久矯正。"
+            "免疫疾病、免疫抑制與HIV狀態需依活動度、眼表、感染與癒合風險個別衡量。懷孕及哺乳期的暫時屈光或角膜變動不適合選擇性永久矯正。",
+            "本版將HIV相關免疫狀態列為相對禁忌的評估項；不能解讀成所有HIV者一律永久禁止或一律允許，需看控制程度、感染、眼表與癒合條件。"
           ],
           "clinicalClues": [
             {
@@ -2316,7 +2826,100 @@
             "prompt": "HIV在教材列相對禁忌，是否表示所有人都一律禁止或允許？",
             "answer": "都不是；應依免疫控制、眼表、感染與癒合風險個別評估，並辨識教材版本限制。"
           },
-          "status": "draft"
+          "status": "source-checked"
+        },
+        {
+          "id": "bcsc-s13-ch007-u04",
+          "title": "青光眼候選人：吸附、既有濾泡與類固醇是不同風險",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                156,
+                157,
+                158
+              ],
+              "printedPages": [
+                "141",
+                "142",
+                "143"
+              ],
+              "chapterHeading": "Refractive Surgery in Ocular and Systemic Disease"
+            }
+          ],
+          "mechanism": [
+            "LASIK製瓣吸附可短暫升高眼壓，對已受損視神經有不同風險；既有濾泡或引流管亦可能使吸附環放置不合適。",
+            "表面切削可避開製瓣吸附，但仍有類固醇反應及術後眼壓低估，不是青光眼患者無條件替代。",
+            "屈光手術只處理度數，不治療青光眼或其自然病程，原本壓力控制與視神經狀態是是否做選擇性手術的前提。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "眼壓控制不佳或已有進展/重度視野損傷",
+              "meaning": "先控制病情，不能只因想脫鏡就排雷射。"
+            },
+            {
+              "finding": "功能性濾泡或tube",
+              "meaning": "需評估吸附環是否會干擾，與術後類固醇升壓不同。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "術中吸附風險",
+              "for": "製瓣階段短暫機械/缺血負荷",
+              "against": "不能用術後滴藥完全抵銷",
+              "discriminator": "依視神經儲備及術式評估"
+            },
+            {
+              "diagnosis": "術後類固醇反應",
+              "for": "用藥後高壓可能伴中央假低讀值",
+              "against": "沒有瓣也不代表沒有此風險",
+              "discriminator": "可信量壓與結構功能追蹤"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "術前眼壓、角度、神經、視野與厚度基線",
+              "purpose": "判斷可否手術並保留未來比較",
+              "interpretation": "控制不佳及明顯損傷改變適應，單次正常讀值不足",
+              "limitation": "術後角膜改變使單一校正式不可靠"
+            }
+          ],
+          "management": [
+            {
+              "condition": "未控制或進展性青光眼",
+              "stage": "先延後選擇性屈光手術",
+              "action": "與青光眼團隊整合控制及視神經風險，再決定是否不做",
+              "rationale": "避免可預防的額外傷害",
+              "caution": "不自行設定所有人的目標眼壓"
+            },
+            {
+              "condition": "病情穩定但有青光眼背景",
+              "stage": "明確告知與選路徑",
+              "action": "比較吸附、濾泡/管、藥物及量測代價，保留完整基線與長期照護",
+              "rationale": "表面替代可能避吸附但不避所有高壓與監測問題",
+              "caution": "不承諾脫鏡後不用青光眼藥或追蹤"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "視神經/視野與前節手術結構",
+              "clue": "分開已有損傷及吸附位置",
+              "interpretation": "章原圖未核，對照需保留真正基線",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 157
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "青光眼改PRK就完全安全",
+              "correction": "無製瓣吸附仍有類固醇與量壓誤差，且原病可能不適合選擇性手術。"
+            }
+          ],
+          "recall": {
+            "prompt": "青光眼術前為何需要先看病程與神經，而非只看當天眼壓？",
+            "answer": "進展、儲備與量測條件都重要，且手術不會治療原青光眼；單次讀值無法代表整體風險。"
+          },
+          "status": "source-checked"
         }
       ]
     },
@@ -2432,7 +3035,7 @@
             "prompt": "沒有術前資料時，是否只能用一般K值碰運氣？",
             "answer": "可用適合術後角膜的無歷史資料方法與總角膜量測交叉比較，並向病人說明殘餘不確定性。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s13-ch008-u02",
@@ -2528,7 +3131,100 @@
             "prompt": "脫鏡後眼壓降低是否代表青光眼風險降低？",
             "answer": "不一定，讀值可因角膜改變而低估，仍需結構、視野與合適量壓方法。"
           },
-          "status": "draft"
+          "status": "source-checked"
+        },
+        {
+          "id": "bcsc-s13-ch008-u03",
+          "title": "再配鏡與角膜移植：原手術改變新的幾何與傷口",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                173,
+                174,
+                175
+              ],
+              "printedPages": [
+                "158",
+                "159",
+                "160"
+              ],
+              "chapterHeading": "Considerations After Refractive Surgery"
+            }
+          ],
+          "mechanism": [
+            "屈光用RGP/鞏膜鏡以規則前光學面復健，不等於軟繃帶鏡保護上皮；永久配鏡需傷口與序列屈光穩定。",
+            "RK或近視消融後的中央扁平/周邊相對陡形狀可使一般硬鏡難定位；反幾何、混合與鞏膜設計可改善配適，但不保證清除所有高階像差。",
+            "後續移植時RK切口可能張開，LASIK介面在環鑽切割時亦可分離；原手術史會改變傷口保護與縫合計畫。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "一般RGP在oblate角膜移位或中央積液/周邊接觸",
+              "meaning": "需按真實形狀改設計，而非只加鏡片度數。"
+            },
+            {
+              "finding": "RK傷口新生血管或缺氧徵象",
+              "meaning": "需要停戴/調整與追蹤組織，不只看矯正視力。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "需要光學復健",
+              "for": "規則鏡前面可改善不規則",
+              "against": "保護上皮的軟鏡不能同樣中和不規則",
+              "discriminator": "試戴、over-refraction與地形"
+            },
+            {
+              "diagnosis": "需要傷口保護",
+              "for": "開放上皮或特定早期情境",
+              "against": "不是尚未穩定就永久配屈光鏡的理由",
+              "discriminator": "確認癒合、感染與配適"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "角膜圖、動態配適及傷口健康",
+              "purpose": "選設計並監測缺氧/血管/介面",
+              "interpretation": "改善視力與角膜健康須同時成立",
+              "limitation": "高階像差或眼內疾病可能使硬鏡收益有限"
+            }
+          ],
+          "management": [
+            {
+              "condition": "穩定術後不規則",
+              "stage": "按形狀試光學鏡",
+              "action": "考慮反幾何RGP、混合或鞏膜鏡，持續看氧供與RK傷口血管",
+              "rationale": "規則前表面可改善光學但不能取代健康監測",
+              "caution": "新生血管或缺氧需停止或改配適"
+            },
+            {
+              "condition": "計畫移植",
+              "stage": "事先辨識舊傷口",
+              "action": "讓手術計畫納入RK切口張開及LASIK瓣介面分離的保護",
+              "rationale": "環鑽與縫線會碰到原有弱層次",
+              "caution": "不直接套未手術角膜的傷口處理"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "術後配鏡染色與移植切面",
+              "clue": "看中央扁平、周邊承托及舊切口/介面",
+              "interpretation": "原圖未核，不能以普通角膜形狀套每個術後眼",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 174
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "任何硬鏡都會解決術後全部夜視問題",
+              "correction": "高階像差、眼內散射及配適健康仍可能限制收益。"
+            }
+          ],
+          "recall": {
+            "prompt": "屈光硬鏡與軟繃帶鏡最大的目標差異為何？",
+            "answer": "前者重建規則光學面，後者保護/幫助上皮癒合；使用時機、監測及成功標準不同。"
+          },
+          "status": "source-checked"
         }
       ]
     },
@@ -2656,7 +3352,7 @@
             "prompt": "同為ICL術後高眼壓，為何不能先假設都是類固醇反應？",
             "answer": "殘留黏彈劑、瞳孔阻滯及高vault機械擁擠亦可能，需要檢查機轉再處理。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s13-ch009-u02",
@@ -2772,7 +3468,7 @@
             "prompt": "角膜雷射不合適時，為何不應直接跳到RLE？",
             "answer": "還需比較保留晶狀體的方案、調節代價、前節條件及視網膜風險，不是單一路徑。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s13-ch009-u03",
@@ -2887,7 +3583,100 @@
             "prompt": "piggyback IOL間混濁為何不能直接按後囊混濁處理？",
             "answer": "混濁位置與細胞病因不同，Nd:YAG不一定解決鏡片界面問題，顯著病例可能需鏡片處理。"
           },
-          "status": "draft"
+          "status": "source-checked"
+        },
+        {
+          "id": "bcsc-s13-ch009-u04",
+          "title": "Toric IOL先定規則性與軸，再查術後旋轉",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                192,
+                193,
+                194
+              ],
+              "printedPages": [
+                "177",
+                "178",
+                "179"
+              ],
+              "chapterHeading": "Intraocular Refractive Surgery"
+            }
+          ],
+          "mechanism": [
+            "Toric IOL針對規則角膜散光，不直接治療不規則角膜或恢復自然調節；主觀柱鏡包含晶狀體成分，不能直接搬入角膜矯正。",
+            "規劃需整合前後角膜、預估手術誘發散光與定位；驗光、K及地形不一致時應重測及找原因，而非任選一個軸。",
+            "旋轉會降低矯正，角度大時可加重殘餘柱鏡；術後有殘差先看實際IOL軸，不直接把一切殘差送角膜雷射。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "驗光軸與角膜圖不一致",
+              "meaning": "眼表品質、後角膜或眼內散光可能參與。"
+            },
+            {
+              "finding": "術後柱鏡出現且IOL軸偏離計畫",
+              "meaning": "可能需要處理旋轉而非交換屈光力或追加消融。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "IOL旋轉",
+              "for": "實際軸與計畫不同且能解釋殘差",
+              "against": "軸正確需查原角膜模型、SIA或度數",
+              "discriminator": "散瞳確認軸與向量分析"
+            },
+            {
+              "diagnosis": "原始散光估計錯誤",
+              "for": "重測前後角膜或SIA顯示差異",
+              "against": "不能只因有殘差就認定旋轉",
+              "discriminator": "核前後資料與模型"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "多次K/地形/總角膜與實際IOL軸",
+              "purpose": "定位規劃誤差或旋轉",
+              "interpretation": "後角膜及手術切口誘發散光會改變總向量",
+              "limitation": "前表面單一K與主觀柱鏡均不是全部真值"
+            }
+          ],
+          "management": [
+            {
+              "condition": "術前測量不一致",
+              "stage": "先改善品質與重測",
+              "action": "確認規則性、前後角膜及定位，再選適當計算方式",
+              "rationale": "避免把晶狀體散光誤矯進IOL",
+              "caution": "型號範圍需核當前裝置，不用舊表當現況"
+            },
+            {
+              "condition": "術後明顯殘餘柱鏡",
+              "stage": "先定位問題",
+              "action": "確認軸、角膜與眼表，以向量估重定位收益，再評估IOL或其他處置",
+              "rationale": "旋轉處理可能比錯誤的角膜增強更對因",
+              "caution": "不給所有病例同一重定位日期或角度門檻"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "IOL軸標記及前後角膜圖",
+              "clue": "對照計畫軸和實際軸",
+              "interpretation": "章圖未核，軸偏移須由真實檢查確認",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 193
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "有toric就不需近用鏡且可消除全部散光",
+              "correction": "它處理相應規則散光，不等於調節復原或全眼所有像差矯正。"
+            }
+          ],
+          "recall": {
+            "prompt": "Toric術後有柱鏡為何先查軸？",
+            "answer": "旋轉可能改變矯正向量；若未先定位就切角膜，可能把可處理的鏡片位置問題永久化。"
+          },
+          "status": "source-checked"
         }
       ]
     },
@@ -3005,7 +3794,7 @@
             "prompt": "新雙眼複視與單眼重影在第一個檢查上怎麼分？",
             "answer": "輪流遮眼；雙眼融合性複視遮任一眼消失，單眼光學重影仍留在受影響那眼。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s13-ch010-u02",
@@ -3113,7 +3902,7 @@
             "prompt": "Kamra型小孔與CK的近用收益為何不是同一機轉？",
             "answer": "前者以小孔增加景深，後者以周邊熱收縮改變中央屈光；兩者都不等同自然調節恢復。"
           },
-          "status": "draft"
+          "status": "source-checked"
         },
         {
           "id": "bcsc-s13-ch010-u03",
@@ -3213,7 +4002,192 @@
             "prompt": "為何縮瞳後近視力改善不代表老花已逆轉？",
             "answer": "小孔增加景深即可改善近用，並不證明晶狀體彈性或真正調節已恢復。"
           },
-          "status": "draft"
+          "status": "source-checked"
+        },
+        {
+          "id": "bcsc-s13-ch010-u04",
+          "title": "Helmholtz與調節型IOL：設計機轉不等於實際調節量",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                204,
+                205,
+                217,
+                218
+              ],
+              "printedPages": [
+                "189",
+                "190",
+                "202",
+                "203"
+              ],
+              "chapterHeading": "Accommodative and Nonaccommodative Treatment of Presbyopia"
+            }
+          ],
+          "mechanism": [
+            "Helmholtz模型中睫狀肌收縮使懸韌帶張力下降，彈性晶狀體變圓、曲率與屈光力增加；老化晶狀體較硬，即使有努力也不產生同樣形變。",
+            "調節型IOL嘗試藉optic前移、前表面曲率改變或折射率改變取得近用屈光力；不同設計把睫狀體力量轉成不同光學變化。",
+            "近視力可同時受瞳孔、殘餘近視與景深影響，因此調節型名稱與讀近字能力不能單獨證明有足夠真調節。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "有睫狀肌反應但近用能力下降",
+              "meaning": "可能是晶狀體形變不足，不是肌肉完全不收縮。"
+            },
+            {
+              "finding": "調節型IOL近視力改善但客觀動態屈光變化小",
+              "meaning": "偽調節亦可能參與。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "真正屈光改變",
+              "for": "隨調節努力可重複測得動態焦力變化",
+              "against": "僅近視或小孔效應不能證明",
+              "discriminator": "客觀動態屈光及設計運動"
+            },
+            {
+              "diagnosis": "景深/多焦偽調節",
+              "for": "多物距可用但不需動態焦力增加",
+              "against": "不能據此稱晶狀體年輕化",
+              "discriminator": "固定照明瞳孔與屈光控制後比較"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "動態屈光、光學位置/形狀與遠近功能",
+              "purpose": "驗設計是否轉成有用真調節",
+              "interpretation": "測量需分動態力改變與靜態可用視程",
+              "limitation": "主觀近點可能被景深與視標大小影響"
+            }
+          ],
+          "management": [
+            {
+              "condition": "說明老花原因",
+              "stage": "用力學順序解釋",
+              "action": "睫狀肌收縮→張力減→年輕晶狀體可變圓；老化限制在反應能力",
+              "rationale": "避免把所有老花稱肌肉無力",
+              "caution": "模型不是對每種實驗手術的證明"
+            },
+            {
+              "condition": "評估調節型IOL",
+              "stage": "要求可驗證收益",
+              "action": "同時看移動/曲率/折射率設計與客觀調節、對比及副作用",
+              "rationale": "機轉合理不等於臨床足量與長期穩定",
+              "caution": "不把2024研發品牌/核准名單直接當當前現況"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "Helmholtz與調節IOL示意",
+              "clue": "跟隨張力、晶狀體形變與焦力變化順序",
+              "interpretation": "原圖未核，活動示意不是效果保證",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 204
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "睫狀肌收縮把懸韌帶拉更緊才近看",
+              "correction": "Helmholtz下收縮使張力下降，彈性晶狀體變圓。"
+            }
+          ],
+          "recall": {
+            "prompt": "調節型IOL近用好，為何還要測動態屈光？",
+            "answer": "近視力可由多焦、景深或殘餘近視改善，需客觀動態焦力才能分辨真正調節的貢獻。"
+          },
+          "status": "source-checked"
+        },
+        {
+          "id": "bcsc-s13-ch010-u05",
+          "title": "多焦角膜消融與單眼視、嵌入片的光學取捨",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                212,
+                213
+              ],
+              "printedPages": [
+                "197",
+                "198"
+              ],
+              "chapterHeading": "Accommodative and Nonaccommodative Treatment of Presbyopia"
+            }
+          ],
+          "mechanism": [
+            "PresbyLASIK類設計以角膜不同區域安排近、遠焦點，可能同時投影或依瞳孔使用中央與周邊區；不是在眼內讓晶狀體恢復調節。",
+            "這與兩眼分工的單眼視、或放入角膜的嵌入片不同。區域化角膜可增加可用視程，也可能帶來高階像差、對比與瞳孔依賴。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "亮暗環境下遠近收益改變",
+              "meaning": "瞳孔涵蓋不同光學區可能改變成像。"
+            },
+            {
+              "finding": "同一眼多視程但抱怨對比與夜視",
+              "meaning": "不能只看近視力表就宣稱整體視覺品質提高。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "角膜多焦區域",
+              "for": "一眼內不同區域分配焦點",
+              "against": "不是單眼遠另一眼近的同一機轉",
+              "discriminator": "比較地形、瞳孔及遠近功能"
+            },
+            {
+              "diagnosis": "單眼視",
+              "for": "兩眼目標焦點分工",
+              "against": "不必有多焦角膜圖形",
+              "discriminator": "分眼屈光與雙眼功能"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "角膜地形、瞳孔、離焦曲線與對比",
+              "purpose": "評估不同光照的實際收益與代價",
+              "interpretation": "中央近區、周邊近區等設計需按具體光學解釋",
+              "limitation": "2024教材證據有發展中限制，不能把歷史模式當通用推薦"
+            }
+          ],
+          "management": [
+            {
+              "condition": "討論角膜老花設計",
+              "stage": "先說視程與品質交換",
+              "action": "與眼鏡、接觸鏡、單眼視或眼內方案比較，確認病人需求與接受代價",
+              "rationale": "多焦不是免費增加焦點，光能與像差會影響品質",
+              "caution": "已有不規則、眼表或眼底問題可限制收益"
+            },
+            {
+              "condition": "術後不滿意",
+              "stage": "由表面至眼底重新評估",
+              "action": "確認眼表、殘差、區域圖形、瞳孔及對比/眼底因素",
+              "rationale": "不把所有抱怨都稱神經適應即可等待",
+              "caution": "再次切削前需清楚目標與組織風險"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "多焦消融角膜圖",
+              "clue": "找中央/周邊區域與瞳孔重疊",
+              "interpretation": "原圖未核，一例好視力不等於普遍結果",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 213
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "PresbyLASIK等同植入小孔片",
+              "correction": "前者改變角膜形狀與分區，後者另有小孔或其他植入機轉。"
+            }
+          ],
+          "recall": {
+            "prompt": "多焦角膜為何可能有瞳孔依賴？",
+            "answer": "瞳孔大小改變使用哪些角膜區域與近遠光能分配，因此光照不同時視程和對比可不同。"
+          },
+          "status": "source-checked"
         }
       ]
     }
@@ -3268,10 +4242,10 @@
       ],
       "correctIndex": 0,
       "explanation": "先由光路辨識量測：視網膜反射加小透鏡陣列是波前感測，不能與角膜表面反射或斷層成像混為一談。",
-      "imageStatus": "not-reviewed",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq002",
@@ -3322,10 +4296,10 @@
       ],
       "correctIndex": 0,
       "explanation": "原考點是MMC的用途、使用背景與超適應症屬性，而非「所有PRK一律使用」。小量表面增強仍需考慮既往角膜傷口。",
-      "imageStatus": "not-reviewed",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq003",
@@ -3376,10 +4350,10 @@
       ],
       "correctIndex": 0,
       "explanation": "無瓣優勢不代表治療範圍、客製化與增強路徑都與準分子相同；產品現況須另核，這題明確回顧教材版本的限制。",
-      "imageStatus": "not-reviewed",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq004",
@@ -3430,16 +4404,16 @@
       ],
       "correctIndex": 0,
       "explanation": "此為合成算例，重點是治療量與目標殘餘分清；單眼視仍需評估雙眼融合、立體與夜間視覺取捨。",
-      "imageStatus": "not-reviewed",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
+      "status": "source-checked",
       "calculationChecks": [
         {
           "expression": "-4.5-(-1.0)",
           "expected": -3.5
         }
       ],
-      "readiness": "draft"
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq005",
@@ -3490,10 +4464,10 @@
       ],
       "correctIndex": 0,
       "explanation": "原題考藥物濃度與時間，不能刪去數值後改成泛泛抗纖維化問題。這是版次知識，MMC屈光用途仍屬超適應症，須獨立核對且不能直接當臨床處方。",
-      "imageStatus": "not-reviewed",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq006",
@@ -3544,10 +4518,10 @@
       ],
       "correctIndex": 0,
       "explanation": "病原排序不是不用培養的理由；局部浸潤與前房反應應優先排感染，不能依「介面白色」就診斷DLK並加類固醇。",
-      "imageStatus": "not-reviewed",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq007",
@@ -3600,10 +4574,10 @@
       ],
       "correctIndex": 0,
       "explanation": "擴張評估要看原始角膜及手術削弱的結構。PRK無瓣也需篩檢；基質環改善形狀與CXL穩定進展不是同一治療目標。",
-      "imageStatus": "not-reviewed",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq008",
@@ -3629,35 +4603,35 @@
           "chapterHeading": "Study Questions and Answers"
         }
       ],
-      "stem": "PRK後上皮已閉合、無感染，逐漸出現輕度基質haze。依該版教材常見時間軸，何者最合理？",
+      "stem": "PRK後上皮完整、無感染的典型haze，依2024–25教材，最常在哪一時段達較明顯程度？",
       "options": [
         {
-          "text": "數週出現，約1–2個月較明顯，之後數月至一年可逐漸減退",
-          "rationale": "保留教材對典型haze的出現、峰值與重塑時程。",
-          "whenTrue": "適用於典型輕度穩定haze，異常進展仍需另查。"
+          "text": "約術後1–2個月，後續6–12個月可逐漸減退",
+          "rationale": "符合原答案的典型傷口反應與重塑時序。",
+          "whenTrue": "適用典型輕度穩定haze，非所有混濁皆可只觀察。"
         },
         {
-          "text": "手術當下達峰，當天完全消失",
-          "rationale": "不符細胞及細胞外基質傷口反應的時間軸。",
-          "whenTrue": "介面暫時液體或氣泡可能很早出現，但不是這種PRK haze病程。"
+          "text": "約術後1–2天即達典型峰值",
+          "rationale": "這較早的時段更需先評上皮缺損、急性反應或感染，不是教材haze峰值。",
+          "whenTrue": "早期疼痛、上皮缺損或某些炎症可在此時明顯，需依病灶判斷。"
         },
         {
-          "text": "一定在術後十年才首次出現",
-          "rationale": "不符教材典型早期haze。",
-          "whenTrue": "多年後新混濁需要重新尋找其他病因，不可直接套此典型時程。"
+          "text": "約術後1–2週達峰，之後不再重塑",
+          "rationale": "數週可開始見haze，但把峰值提早且否認後續重塑不符原答案。",
+          "whenTrue": "此時可出現早期haze線索，仍需序列追蹤。"
         },
         {
-          "text": "一旦出現即不會再變化",
-          "rationale": "角膜癒合會持續重塑，不應把早期輕度混濁當永久終點。",
-          "whenTrue": "成熟固定瘢痕可持續，但需依個別病程辨識。"
+          "text": "典型峰值約術後6–12個月，之後立即消失",
+          "rationale": "將常見逐步改善的時段當典型峰值，並承諾立即消失，均不符自然史。",
+          "whenTrue": "晚發或持續混濁可能存在，需重新評估，但不是本題典型時間軸。"
         }
       ],
       "correctIndex": 0,
-      "explanation": "典型時間軸幫助判斷觀察與介入，但不能拿月份排除感染或毒性；嚴重、局部或惡化病灶須重新診斷。",
-      "imageStatus": "not-reviewed",
+      "explanation": "原考點是約1–2個月峰值與後續月餘重塑，仍需依局部浸潤、進展及視覺影響排除不典型病因。",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq009",
@@ -3708,10 +4682,10 @@
       ],
       "correctIndex": 0,
       "explanation": "這是重新設定軸位的合成例，考點是正柱鏡記法、陡軸及安全周邊光學區；實際切口不是只憑眼鏡處方。",
-      "imageStatus": "not-reviewed",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq010",
@@ -3764,10 +4738,10 @@
       ],
       "correctIndex": 0,
       "explanation": "不要把所有手術風險混成同一項；這題問的是上皮修復，不是最大消融量或光學回退。",
-      "imageStatus": "not-reviewed",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq011",
@@ -3818,10 +4792,10 @@
       ],
       "correctIndex": 0,
       "explanation": "保留原考點的193 nm與機制，同時分清飛秒光致破裂、UVA交聯及熱性作用，不能只背「都是雷射」。",
-      "imageStatus": "not-reviewed",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq012",
@@ -3872,10 +4846,10 @@
       ],
       "correctIndex": 0,
       "explanation": "原題強調瓣邊上皮缺損。上皮長入的存在不必然等於立即手術；進展、視軸與瓣融解決定介入。",
-      "imageStatus": "not-reviewed",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq013",
@@ -3901,35 +4875,35 @@
           "chapterHeading": "Study Questions and Answers"
         }
       ],
-      "stem": "三位病人分別有舊RK、LASIK及一般白內障手術史。比較多年後鈍傷的傷口特性，何者最值得特別警覺深放射切口裂開？",
+      "stem": "比較既往手術後多年遭受鈍傷時的傷口特性，哪一類眼在教材中特別有眼球裂開的長期結構風險？",
       "options": [
         {
-          "text": "舊RK眼",
-          "rationale": "深放射切口是長期機械弱點，鈍傷可沿切口破裂。",
-          "whenTrue": "懷疑眼球破裂需緊急眼外傷處理，不先常規驗光加壓。"
+          "text": "放射狀角膜切開（RK）",
+          "rationale": "深切口留下長期力學弱點，可在鈍傷時裂開。",
+          "whenTrue": "懷疑眼球破裂需緊急外傷處理，避免加壓。"
         },
         {
-          "text": "只有LASIK史的眼",
-          "rationale": "也可能有瓣移位，但此題問深放射傷口的眼球破裂機制。",
-          "whenTrue": "LASIK眼遭外傷後要檢查瓣與介面，並不代表沒有任何嚴重傷害。"
+          "text": "LASIK",
+          "rationale": "可出現多年後瓣移位等傷害，但教材此組比較著重RK的眼球破裂風險。",
+          "whenTrue": "外傷LASIK眼需檢查瓣及眼球，不因相對比較排除嚴重傷害。"
         },
         {
-          "text": "只有一般小切口白內障史的眼",
-          "rationale": "仍需評估傷口與眼球完整，但沒有RK特有多條深放射切口。",
-          "whenTrue": "任何術後眼外傷都需按實際傷口檢查。"
+          "text": "PRK",
+          "rationale": "表面消融沒有RK式多條深切口，不是本題最高風險路徑。",
+          "whenTrue": "仍需按外傷能量與真實檢查排眼球損傷。"
         },
         {
-          "text": "三者傷口結構完全相同",
-          "rationale": "手術切口深度、方向與癒合不同，不能視為同一力學狀態。",
-          "whenTrue": "不存在三類傷口完全等同的前提；應按原術式評估。"
+          "text": "一般小切口白內障手術",
+          "rationale": "眼內切口亦需檢查，但與RK多條深放射切口的結構不同。",
+          "whenTrue": "任何術後眼均可能有傷口問題，需按實際手術判斷。"
         }
       ],
       "correctIndex": 0,
-      "explanation": "考點是RK長期傷口脆弱。相對比較不能變成對其他術後眼的無傷害保證。",
-      "imageStatus": "not-reviewed",
+      "explanation": "比較的是原手術留下的結構，答案不代表其他眼外傷可省略完整檢查。",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq014",
@@ -3980,10 +4954,10 @@
       ],
       "correctIndex": 0,
       "explanation": "同一病人有兩個目標：鏡片處理視覺，CXL處理進展。原題問光學復健，不可把它改成單一「哪種療法治療擴張」。",
-      "imageStatus": "not-reviewed",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq015",
@@ -4034,9 +5008,9 @@
       ],
       "correctIndex": 0,
       "explanation": "此為獨立可算的合成例，並非手術處方。要記得單位μm與mm，以及公式未包含全部過渡區與個人化演算法。",
-      "imageStatus": "not-reviewed",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
+      "status": "source-checked",
       "calculationChecks": [
         {
           "expression": "5*6**2/3",
@@ -4047,7 +5021,7 @@
           "expected": 81.66666666666667
         }
       ],
-      "readiness": "draft"
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq016",
@@ -4100,10 +5074,10 @@
       ],
       "correctIndex": 0,
       "explanation": "題目保留高近視、早期與皺褶的原考點；先處理機械不貼合，不以相同「看不清」改稱感染或擴張。",
-      "imageStatus": "not-reviewed",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq017",
@@ -4156,10 +5130,10 @@
       ],
       "correctIndex": 0,
       "explanation": "原題測試白內障術後RK的暫時性角膜扁平與等待穩定，並非泛指所有屈光驚訝都只能觀察。",
-      "imageStatus": "not-reviewed",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq018",
@@ -4212,10 +5186,10 @@
       ],
       "correctIndex": 0,
       "explanation": "原考點是降低機械皺褶的操作，而非單純選雷射品牌。對位、介面液體及瓣的實際貼合均重要。",
-      "imageStatus": "not-reviewed",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq019",
@@ -4266,10 +5240,10 @@
       ],
       "correctIndex": 0,
       "explanation": "保留原題「一個月輕度haze先給自然重塑時間」的考點；不將觀察延伸為忽視任何感染或嚴重病灶。",
-      "imageStatus": "not-reviewed",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq020",
@@ -4320,10 +5294,10 @@
       ],
       "correctIndex": 0,
       "explanation": "此題只回顧不同技術的作用方式；歷史裝置的核准、撤回及當前可用性需另核，不作2026產品推薦。",
-      "imageStatus": "not-reviewed",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq021",
@@ -4374,10 +5348,10 @@
       ],
       "correctIndex": 0,
       "explanation": "原考點是藥物相關延遲上皮化。病人用藥與實際缺損比單一正常Schirmer更能指向下一步。",
-      "imageStatus": "not-reviewed",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq022",
@@ -4428,10 +5402,10 @@
       ],
       "correctIndex": 0,
       "explanation": "這題保留原書的精確階數考點，不能以「都會影響夜視」取代分類；像差症狀仍須整合淚膜、散射及瞳孔。",
-      "imageStatus": "not-reviewed",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq023",
@@ -4482,10 +5456,10 @@
       ],
       "correctIndex": 0,
       "explanation": "原考點是LRI較周邊及相應效應差異；不是所有鬆弛切口都共享相同幾何與預測性。",
-      "imageStatus": "not-reviewed",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq024",
@@ -4536,10 +5510,10 @@
       ],
       "correctIndex": 0,
       "explanation": "保留原題免疫缺陷的選項辨識，同時避免把相對禁忌變成永久一刀切；現行個人適應需完整評估。",
-      "imageStatus": "not-reviewed",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq025",
@@ -4590,10 +5564,10 @@
       ],
       "correctIndex": 0,
       "explanation": "數值是原題實際考點，保留並清楚限定它只是多因子風險之一；RSB=CCT−瓣厚−消融厚度。",
-      "imageStatus": "not-reviewed",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq026",
@@ -4644,10 +5618,10 @@
       ],
       "correctIndex": 0,
       "explanation": "原考點是移植後手術時機與穩定條件，不是將某一術式列為所有PK眼的最佳答案；精確間隔需獨立核原頁。",
-      "imageStatus": "not-reviewed",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq027",
@@ -4698,10 +5672,10 @@
       ],
       "correctIndex": 0,
       "explanation": "此題保留原書「矯正屈光不改變高度近視自然眼底風險」的概念，不虛構手術具有視網膜保護效果。",
-      "imageStatus": "not-reviewed",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq028",
@@ -4752,10 +5726,10 @@
       ],
       "correctIndex": 0,
       "explanation": "保留原題光敏感症候群的特定組合，並分開其藥物處理與真實介面病灶的手術處理。",
-      "imageStatus": "not-reviewed",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq029",
@@ -4806,10 +5780,10 @@
       ],
       "correctIndex": 0,
       "explanation": "原考點是立即多焦光學不耐受與保留交換可行性，不能把所有眩光當後囊混濁。",
-      "imageStatus": "not-reviewed",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq030",
@@ -4860,10 +5834,10 @@
       ],
       "correctIndex": 0,
       "explanation": "原題真正考點是先穩定血糖與屈光，並非糖尿病一概永遠不能做手術。",
-      "imageStatus": "not-reviewed",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq031",
@@ -4914,10 +5888,10 @@
       ],
       "correctIndex": 0,
       "explanation": "此題保留懷孕/哺乳期的暫時性禁忌概念，不額外把「等幾個月」寫成對所有人的當前保證。",
-      "imageStatus": "not-reviewed",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq032",
@@ -4968,10 +5942,10 @@
       ],
       "correctIndex": 0,
       "explanation": "本題與波前儀原理分別對應不同原題概念；前表面曲率不是全眼波前，也不完整代表後表面結構。",
-      "imageStatus": "not-reviewed",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq033",
@@ -5022,10 +5996,10 @@
       ],
       "correctIndex": 0,
       "explanation": "原考點是較可預測瓣厚；這個相對優勢不能變成零併發症、零誤差或所有成本效益的保證。",
-      "imageStatus": "not-reviewed",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq034",
@@ -5033,12 +6007,10 @@
       "questionScope": "end-of-volume",
       "sourceNumber": 34,
       "chapterIds": [
-        "bcsc-s13-ch002",
-        "bcsc-s13-ch004"
+        "bcsc-s13-ch002"
       ],
       "unitIds": [
-        "bcsc-s13-ch002-u02",
-        "bcsc-s13-ch004-u02"
+        "bcsc-s13-ch002-u02"
       ],
       "sourceRefs": [
         {
@@ -5078,10 +6050,10 @@
       ],
       "correctIndex": 0,
       "explanation": "保留原題具體K值與光學風險，而非把所有候選限制統稱不適合；各風險的機轉不同。",
-      "imageStatus": "not-reviewed",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq035",
@@ -5107,35 +6079,35 @@
           "chapterHeading": "Study Questions and Answers"
         }
       ],
-      "stem": "近視雷射後要做白內障手術，標準K值與一般公式可能造成IOL度數誤差。最核心的角膜原因為何？",
+      "stem": "近視雷射後，若特別問「標準角膜折射率不再準確代表總角膜屈光力」的核心原因，哪項最直接？",
       "options": [
         {
-          "text": "前表面被改變後，原先假設的前後曲率關係失準",
-          "rationale": "標準角膜折射率與取樣方法不再準確代表總角膜屈光力。",
-          "whenTrue": "應用術後專用方法並視是否有舊資料比較估計。"
+          "text": "前表面改變後，前後角膜曲率的原假設關係被打破",
+          "rationale": "標準等效折射率依前後表面關係推估總力，消融使此模型失準。",
+          "whenTrue": "需使用適合術後角膜的量測與方法。"
         },
         {
-          "text": "雷射使眼軸無法再以任何儀器量測",
-          "rationale": "角膜手術不等於眼軸消失或不能量；眼軸仍需可靠測量。",
-          "whenTrue": "生物測量確有品質問題時需重測，但不是此特有模型誤差。"
+          "text": "公式以K估計有效鏡片位置造成誤差",
+          "rationale": "ELP預測確可造成另一種誤差，但不是本題指定角膜等效折射率假設的原因。",
+          "whenTrue": "分析整體postrefractive IOL誤差時需同時評估。"
         },
         {
-          "text": "只有淚膜問題，治乾眼後一般K必然完全正確",
-          "rationale": "眼表可加重誤差，卻不能恢復消融前的前後曲率關係。",
-          "whenTrue": "改善表面是準備工作之一，仍要使用適當術後模型。"
+          "text": "一般角膜取樣較旁中央，未充分反映中央有效區",
+          "rationale": "取樣區差異亦是實際問題，但與前後曲率模型是不同來源。",
+          "whenTrue": "特別問取樣代表性時，此項可成關鍵。"
         },
         {
-          "text": "主要因眼壓改變，所以只需固定加減眼壓數值",
-          "rationale": "眼壓讀值問題不能直接修正角膜總屈光力估算。",
-          "whenTrue": "眼壓監測與IOL生物測量是不同任務，均須合適方法。"
+          "text": "生物測量固定不佳造成眼軸方向錯誤",
+          "rationale": "眼軸品質確需檢查，但不能解釋題目指定的角膜等效折射率模型改變。",
+          "whenTrue": "若數據不重複或有後葡萄腫等條件，需另核眼軸。"
         }
       ],
       "correctIndex": 0,
-      "explanation": "原題核心是前後角膜曲率假設被打破，另外還有中央取樣與ELP模型問題；不能泛稱所有誤差皆來自眼軸。",
-      "imageStatus": "not-reviewed",
+      "explanation": "postrefractive IOL可能同時有多項誤差。本題明確鎖定標準角膜折射率的前後曲率假設，不能把其他真問題當不存在。",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq036",
@@ -5186,10 +6158,10 @@
       ],
       "correctIndex": 0,
       "explanation": "定位是關鍵：兩鏡片間混濁不同於後囊混濁，治療要處理真正的界面病因。",
-      "imageStatus": "not-reviewed",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq037",
@@ -5240,10 +6212,10 @@
       ],
       "correctIndex": 0,
       "explanation": "保留射頻、周邊膠原收縮與中央變陡三個原考點，效果不應被描述為永久新生調節。",
-      "imageStatus": "not-reviewed",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq038",
@@ -5271,35 +6243,35 @@
           "chapterHeading": "Study Questions and Answers"
         }
       ],
-      "stem": "LASIK瓣放回後可迅速貼附，但中央介面多年後仍可能被外傷分開。最能解釋「立即貼附」的是哪項？",
+      "stem": "依教材對LASIK瓣或完整free cap快速穩定貼附的描述，哪個主要生理作用最符合「即刻」階段？",
       "options": [
         {
-          "text": "內皮泵脫水形成的吸附作用",
-          "rationale": "早期貼附可由角膜脫水相關作用支持，並不等於立刻完成膠原瘢痕癒合。",
-          "whenTrue": "仍需準確復位、避免搓揉與後續機械擾動。"
+          "text": "內皮泵維持基質脫水所支持的吸附作用",
+          "rationale": "原答案強調內皮泵與脫水，與後來形成的傷口細胞反應不同。",
+          "whenTrue": "仍需要準確對位、良好介面及機械保護。"
         },
         {
-          "text": "當下已形成完整成熟膠原瘢痕",
-          "rationale": "成熟瘢痕不會在幾分鐘內完成，且中央介面癒合有限。",
-          "whenTrue": "後續傷口生物反應可發生，但不能解釋即刻貼附。"
+          "text": "瓣邊上皮癒合",
+          "rationale": "邊緣上皮閉合有助後續保護，但不是數分鐘內原答案強調的生理支持。",
+          "whenTrue": "屬後續邊緣癒合與屏障恢復的一環。"
         },
         {
-          "text": "上皮已在數秒內跨越整個中央介面",
-          "rationale": "上皮不是中央介面即刻黏合的主要機轉，長入反而可有害。",
-          "whenTrue": "邊緣上皮癒合與中央介面不同，需分層理解。"
+          "text": "基質纖維母細胞與膠原重塑",
+          "rationale": "這是真實的較晚傷口反應，不能用來解釋即刻貼附。",
+          "whenTrue": "分析後續邊緣瘢痕與修復時適用，中央介面仍有限。"
         },
         {
-          "text": "瓣只靠重力貼住，與角膜水合無關",
-          "rationale": "無法解釋角膜泵與介面水合對貼附的作用。",
-          "whenTrue": "良好機械對位重要，但不能以重力取代生理機轉。"
+          "text": "介面液體的毛細作用",
+          "rationale": "介面物理力可能有助貼合，但題目問教材強調的主要生理脫水支持。",
+          "whenTrue": "可作介面輔助物理作用理解，不能取代內皮泵及準確對位。"
         }
       ],
       "correctIndex": 0,
-      "explanation": "原題考早期瓣貼附機轉。貼附與結構恢復是不同時間尺度，因此初期視力好不代表日後無外傷風險。",
-      "imageStatus": "not-reviewed",
+      "explanation": "即刻貼附、邊緣上皮恢復與晚期瘢痕不是同一時間尺度。中央介面仍可能多年後受外傷分離。",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq039",
@@ -5352,10 +6324,10 @@
       ],
       "correctIndex": 0,
       "explanation": "原題考雙眼複視而非一般術後模糊；遮蓋測試能避免把融合問題誤當純角膜不規則。",
-      "imageStatus": "not-reviewed",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     },
     {
       "id": "bcsc-s13-rq040",
@@ -5408,10 +6380,10 @@
       ],
       "correctIndex": 0,
       "explanation": "原題精確考photodisruption，不以泛稱「雷射切割」掩蓋光分解、光凝與熱收縮的不同。",
-      "imageStatus": "not-reviewed",
+      "imageStatus": "not-applicable",
       "requiresImage": false,
-      "status": "draft",
-      "readiness": "draft"
+      "status": "source-checked",
+      "readiness": "ready"
     }
   ],
   "coverage": {
@@ -5421,14 +6393,14 @@
         "unitIds": [
           "bcsc-s13-ch001-u01",
           "bcsc-s13-ch001-u02",
-          "bcsc-s13-ch001-u03"
+          "bcsc-s13-ch001-u03",
+          "bcsc-s13-ch001-u04"
         ],
-        "teachingStatus": "draft",
-        "coverageStatus": "partial",
+        "teachingStatus": "source-checked",
+        "coverageStatus": "independently-reviewed",
         "originalImageStatus": "not-reviewed",
         "gaps": [
-          "原圖尚未逐圖核對",
-          "本卷原創教學與子題完整性仍待獨立醫學/來源審核"
+          "原書各圖尚未逐圖視覺核對；主要文字範圍已依獨立報告核對，非逐段全文/全圖覆蓋。"
         ]
       },
       {
@@ -5436,14 +6408,14 @@
         "unitIds": [
           "bcsc-s13-ch002-u01",
           "bcsc-s13-ch002-u02",
-          "bcsc-s13-ch002-u03"
+          "bcsc-s13-ch002-u03",
+          "bcsc-s13-ch002-u04"
         ],
-        "teachingStatus": "draft",
-        "coverageStatus": "partial",
+        "teachingStatus": "source-checked",
+        "coverageStatus": "independently-reviewed",
         "originalImageStatus": "not-reviewed",
         "gaps": [
-          "原圖尚未逐圖核對",
-          "本卷原創教學與子題完整性仍待獨立醫學/來源審核"
+          "原書各圖尚未逐圖視覺核對；主要文字範圍已依獨立報告核對，非逐段全文/全圖覆蓋。"
         ]
       },
       {
@@ -5452,12 +6424,11 @@
           "bcsc-s13-ch003-u01",
           "bcsc-s13-ch003-u02"
         ],
-        "teachingStatus": "draft",
-        "coverageStatus": "partial",
+        "teachingStatus": "source-checked",
+        "coverageStatus": "independently-reviewed",
         "originalImageStatus": "not-reviewed",
         "gaps": [
-          "原圖尚未逐圖核對",
-          "本卷原創教學與子題完整性仍待獨立醫學/來源審核"
+          "原書各圖尚未逐圖視覺核對；主要文字範圍已依獨立報告核對，非逐段全文/全圖覆蓋。"
         ]
       },
       {
@@ -5465,14 +6436,14 @@
         "unitIds": [
           "bcsc-s13-ch004-u01",
           "bcsc-s13-ch004-u02",
-          "bcsc-s13-ch004-u03"
+          "bcsc-s13-ch004-u03",
+          "bcsc-s13-ch004-u04"
         ],
-        "teachingStatus": "draft",
-        "coverageStatus": "partial",
+        "teachingStatus": "source-checked",
+        "coverageStatus": "independently-reviewed",
         "originalImageStatus": "not-reviewed",
         "gaps": [
-          "原圖尚未逐圖核對",
-          "本卷原創教學與子題完整性仍待獨立醫學/來源審核"
+          "原書各圖尚未逐圖視覺核對；主要文字範圍已依獨立報告核對，非逐段全文/全圖覆蓋。"
         ]
       },
       {
@@ -5482,14 +6453,14 @@
           "bcsc-s13-ch005-u02",
           "bcsc-s13-ch005-u03",
           "bcsc-s13-ch005-u04",
-          "bcsc-s13-ch005-u05"
+          "bcsc-s13-ch005-u05",
+          "bcsc-s13-ch005-u06"
         ],
-        "teachingStatus": "draft",
-        "coverageStatus": "partial",
+        "teachingStatus": "source-checked",
+        "coverageStatus": "independently-reviewed",
         "originalImageStatus": "not-reviewed",
         "gaps": [
-          "原圖尚未逐圖核對",
-          "本卷原創教學與子題完整性仍待獨立醫學/來源審核"
+          "原書各圖尚未逐圖視覺核對；主要文字範圍已依獨立報告核對，非逐段全文/全圖覆蓋。"
         ]
       },
       {
@@ -5498,12 +6469,11 @@
           "bcsc-s13-ch006-u01",
           "bcsc-s13-ch006-u02"
         ],
-        "teachingStatus": "draft",
-        "coverageStatus": "partial",
+        "teachingStatus": "source-checked",
+        "coverageStatus": "independently-reviewed",
         "originalImageStatus": "not-reviewed",
         "gaps": [
-          "原圖尚未逐圖核對",
-          "本卷原創教學與子題完整性仍待獨立醫學/來源審核"
+          "原書各圖尚未逐圖視覺核對；主要文字範圍已依獨立報告核對，非逐段全文/全圖覆蓋。"
         ]
       },
       {
@@ -5511,28 +6481,28 @@
         "unitIds": [
           "bcsc-s13-ch007-u01",
           "bcsc-s13-ch007-u02",
-          "bcsc-s13-ch007-u03"
+          "bcsc-s13-ch007-u03",
+          "bcsc-s13-ch007-u04"
         ],
-        "teachingStatus": "draft",
-        "coverageStatus": "partial",
+        "teachingStatus": "source-checked",
+        "coverageStatus": "independently-reviewed",
         "originalImageStatus": "not-reviewed",
         "gaps": [
-          "原圖尚未逐圖核對",
-          "本卷原創教學與子題完整性仍待獨立醫學/來源審核"
+          "原書各圖尚未逐圖視覺核對；主要文字範圍已依獨立報告核對，非逐段全文/全圖覆蓋。"
         ]
       },
       {
         "chapterId": "bcsc-s13-ch008",
         "unitIds": [
           "bcsc-s13-ch008-u01",
-          "bcsc-s13-ch008-u02"
+          "bcsc-s13-ch008-u02",
+          "bcsc-s13-ch008-u03"
         ],
-        "teachingStatus": "draft",
-        "coverageStatus": "partial",
+        "teachingStatus": "source-checked",
+        "coverageStatus": "independently-reviewed",
         "originalImageStatus": "not-reviewed",
         "gaps": [
-          "原圖尚未逐圖核對",
-          "本卷原創教學與子題完整性仍待獨立醫學/來源審核"
+          "原書各圖尚未逐圖視覺核對；主要文字範圍已依獨立報告核對，非逐段全文/全圖覆蓋。"
         ]
       },
       {
@@ -5540,14 +6510,14 @@
         "unitIds": [
           "bcsc-s13-ch009-u01",
           "bcsc-s13-ch009-u02",
-          "bcsc-s13-ch009-u03"
+          "bcsc-s13-ch009-u03",
+          "bcsc-s13-ch009-u04"
         ],
-        "teachingStatus": "draft",
-        "coverageStatus": "partial",
+        "teachingStatus": "source-checked",
+        "coverageStatus": "independently-reviewed",
         "originalImageStatus": "not-reviewed",
         "gaps": [
-          "原圖尚未逐圖核對",
-          "本卷原創教學與子題完整性仍待獨立醫學/來源審核"
+          "原書各圖尚未逐圖視覺核對；主要文字範圍已依獨立報告核對，非逐段全文/全圖覆蓋。"
         ]
       },
       {
@@ -5555,14 +6525,15 @@
         "unitIds": [
           "bcsc-s13-ch010-u01",
           "bcsc-s13-ch010-u02",
-          "bcsc-s13-ch010-u03"
+          "bcsc-s13-ch010-u03",
+          "bcsc-s13-ch010-u04",
+          "bcsc-s13-ch010-u05"
         ],
-        "teachingStatus": "draft",
-        "coverageStatus": "partial",
+        "teachingStatus": "source-checked",
+        "coverageStatus": "independently-reviewed",
         "originalImageStatus": "not-reviewed",
         "gaps": [
-          "原圖尚未逐圖核對",
-          "本卷原創教學與子題完整性仍待獨立醫學/來源審核"
+          "原書各圖尚未逐圖視覺核對；主要文字範圍已依獨立報告核對，非逐段全文/全圖覆蓋。"
         ]
       }
     ],
@@ -5575,13 +6546,10 @@
         "unitIds": [
           "bcsc-s13-ch001-u02"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq002",
@@ -5591,13 +6559,10 @@
         "unitIds": [
           "bcsc-s13-ch004-u03"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq003",
@@ -5607,13 +6572,10 @@
         "unitIds": [
           "bcsc-s13-ch006-u01"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq004",
@@ -5623,13 +6585,10 @@
         "unitIds": [
           "bcsc-s13-ch002-u01"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq005",
@@ -5639,13 +6598,10 @@
         "unitIds": [
           "bcsc-s13-ch004-u03"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq006",
@@ -5655,13 +6611,10 @@
         "unitIds": [
           "bcsc-s13-ch005-u04"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq007",
@@ -5672,13 +6625,10 @@
           "bcsc-s13-ch002-u02",
           "bcsc-s13-ch005-u04"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq008",
@@ -5688,13 +6638,10 @@
         "unitIds": [
           "bcsc-s13-ch005-u02"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq009",
@@ -5704,13 +6651,10 @@
         "unitIds": [
           "bcsc-s13-ch003-u02"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq010",
@@ -5721,13 +6665,10 @@
           "bcsc-s13-ch002-u03",
           "bcsc-s13-ch005-u02"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq011",
@@ -5737,13 +6678,10 @@
         "unitIds": [
           "bcsc-s13-ch001-u03"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq012",
@@ -5753,13 +6691,10 @@
         "unitIds": [
           "bcsc-s13-ch005-u03"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq013",
@@ -5769,13 +6704,10 @@
         "unitIds": [
           "bcsc-s13-ch003-u01"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq014",
@@ -5785,13 +6717,10 @@
         "unitIds": [
           "bcsc-s13-ch005-u04"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq015",
@@ -5801,13 +6730,10 @@
         "unitIds": [
           "bcsc-s13-ch001-u03"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq016",
@@ -5818,13 +6744,10 @@
           "bcsc-s13-ch004-u02",
           "bcsc-s13-ch005-u03"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq017",
@@ -5835,13 +6758,10 @@
           "bcsc-s13-ch003-u01",
           "bcsc-s13-ch008-u01"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq018",
@@ -5852,13 +6772,10 @@
           "bcsc-s13-ch004-u02",
           "bcsc-s13-ch005-u03"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq019",
@@ -5868,13 +6785,10 @@
         "unitIds": [
           "bcsc-s13-ch005-u02"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq020",
@@ -5884,13 +6798,10 @@
         "unitIds": [
           "bcsc-s13-ch010-u02"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq021",
@@ -5900,13 +6811,10 @@
         "unitIds": [
           "bcsc-s13-ch005-u02"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq022",
@@ -5916,13 +6824,10 @@
         "unitIds": [
           "bcsc-s13-ch001-u01"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq023",
@@ -5932,13 +6837,10 @@
         "unitIds": [
           "bcsc-s13-ch003-u02"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq024",
@@ -5948,13 +6850,10 @@
         "unitIds": [
           "bcsc-s13-ch007-u03"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq025",
@@ -5964,13 +6863,10 @@
         "unitIds": [
           "bcsc-s13-ch002-u02"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq026",
@@ -5980,13 +6876,10 @@
         "unitIds": [
           "bcsc-s13-ch007-u02"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq027",
@@ -5996,13 +6889,10 @@
         "unitIds": [
           "bcsc-s13-ch007-u02"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq028",
@@ -6012,13 +6902,10 @@
         "unitIds": [
           "bcsc-s13-ch005-u05"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq029",
@@ -6028,13 +6915,10 @@
         "unitIds": [
           "bcsc-s13-ch009-u03"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq030",
@@ -6044,13 +6928,10 @@
         "unitIds": [
           "bcsc-s13-ch007-u03"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq031",
@@ -6060,13 +6941,10 @@
         "unitIds": [
           "bcsc-s13-ch007-u03"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq032",
@@ -6076,13 +6954,10 @@
         "unitIds": [
           "bcsc-s13-ch001-u02"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq033",
@@ -6092,13 +6967,10 @@
         "unitIds": [
           "bcsc-s13-ch004-u02"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq034",
@@ -6106,16 +6978,12 @@
         "sourceNumber": 34,
         "questionId": "bcsc-s13-rq034",
         "unitIds": [
-          "bcsc-s13-ch002-u02",
-          "bcsc-s13-ch004-u02"
+          "bcsc-s13-ch002-u02"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq035",
@@ -6125,13 +6993,10 @@
         "unitIds": [
           "bcsc-s13-ch008-u01"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq036",
@@ -6141,13 +7006,10 @@
         "unitIds": [
           "bcsc-s13-ch009-u03"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq037",
@@ -6157,13 +7019,10 @@
         "unitIds": [
           "bcsc-s13-ch010-u02"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq038",
@@ -6174,13 +7033,10 @@
           "bcsc-s13-ch004-u01",
           "bcsc-s13-ch005-u03"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq039",
@@ -6191,13 +7047,10 @@
           "bcsc-s13-ch010-u01",
           "bcsc-s13-ch002-u01"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       },
       {
         "sourceQuestionKey": "bcsc-s13-rq040",
@@ -6208,21 +7061,118 @@
           "bcsc-s13-ch001-u03",
           "bcsc-s13-ch006-u01"
         ],
-        "conceptStatus": "draft",
+        "conceptStatus": "source-checked",
         "sourceAnswerStatus": "matched",
-        "originalImageStatus": "not-reviewed",
-        "gaps": [
-          "原Q/A附圖需求尚待獨立核對",
-          "概念及逐選項理由仍待獨立審核"
-        ]
+        "originalImageStatus": "not-applicable",
+        "gaps": []
       }
     ],
     "summary": {
-      "taughtChapters": 0,
+      "taughtChapters": 10,
       "authoredChapters": 10,
-      "readyQuestions": 0,
+      "readyQuestions": 40,
       "authoredQuestions": 40,
       "verifiedImages": 0
     }
+  },
+  "review": {
+    "schemaVersion": 1,
+    "authorSha256": "e58214b08f73f56147ea82eb7da72134bf8d235664a6df324d7051261b30f87c",
+    "reviewedAt": "2026-10-20",
+    "scope": "Independent source/clinical review of authored units, mapped question concepts and bounded major chapter topics; original chapter figures remain separately unreviewed.",
+    "unitContentHashes": {
+      "bcsc-s13-ch001-u01": "bda04044ae4746947e2da67ede94a18040d640ac61f194f17117b1fa9e2ddcf2",
+      "bcsc-s13-ch001-u02": "81c391673a1203c139843ed1b5e6f8931c3d0466176a0d89046ff958e65685fe",
+      "bcsc-s13-ch001-u03": "9e3c29d29dcb977ae1bfc072e5e53006f4b3d31a59c795d3833f17bfd4421d02",
+      "bcsc-s13-ch001-u04": "2ef1aacc12b87bbfe1b75730920c223bd298523e19ebf0a3a30fbb8ae29def8b",
+      "bcsc-s13-ch002-u01": "f8928a18f222d28e85aa867113100e4691060fc5f956cab2b6f7a15c0c2eda42",
+      "bcsc-s13-ch002-u02": "515e9a72ba9e32bac26e258c0202e29816252aef79e3ac441e430a1921dee3e7",
+      "bcsc-s13-ch002-u03": "ee12adb05f9bff565e29ef603bf892a73a79705f72c4b68e48d7a7e181d7d575",
+      "bcsc-s13-ch002-u04": "4b4c2d545c06603ba929e9d319f50ce423e3461dd02184ba11966c09ed6b61aa",
+      "bcsc-s13-ch003-u01": "f686f60b2b7cb5c3345ef48cdf5f1309e1f083e796567df6d0398d2b4d2df236",
+      "bcsc-s13-ch003-u02": "bc01ffd7ae0b0765b583b194947059df001bd4f9fbd401f784c5f2803d1a3208",
+      "bcsc-s13-ch004-u01": "0f42290348046cc9de8cec2097c50b66c4ec83007eac756860698fe663e3065d",
+      "bcsc-s13-ch004-u02": "1a3d1ea06e1a065f8b47a2ec8c0fcf5cf12a583d104bdf9b5f35945f803c390c",
+      "bcsc-s13-ch004-u03": "ee960715935fcfa82c060da45a6d29afe55dea7916541a346bc5cff2c9c637ba",
+      "bcsc-s13-ch004-u04": "700ca277865cfacdf1e09f880278daf000f1015f62032e1951b9be52a5ac49f6",
+      "bcsc-s13-ch005-u01": "c4617a3d430b3d30caa2978eb0439667b24f6df300d92aa4c8cfa15645d56bef",
+      "bcsc-s13-ch005-u02": "bc513bf6e71ae7d80cc86cd5f93a030b1d4831ce0000c6b91095ddba8cbe5e42",
+      "bcsc-s13-ch005-u03": "e7ffc64affe1e0393b9caa66d0768fc12c92bfd47abaf0a60e32d86a5e9067cb",
+      "bcsc-s13-ch005-u04": "3c5804212683863e25ac8214b5e14f32c8fb5448542dce82d9a68788b89a607a",
+      "bcsc-s13-ch005-u05": "0f26ab269f6a63c7a278c50999b582005fafa82cd3c517235d2a28e263d91436",
+      "bcsc-s13-ch005-u06": "26d4898c05a182c985eb963f8028f6e0e52f61e06a29231699f377b659236cef",
+      "bcsc-s13-ch006-u01": "3f942a40d802359019525c7a9f92a539fcbffb896d96531fedf0f6ebe4d5909c",
+      "bcsc-s13-ch006-u02": "f68d16088d432b19a43346656cb26fffb099c6167aab90f8edda16da5ebdc14a",
+      "bcsc-s13-ch007-u01": "ff81f9de98ae93dd602997073ac28371b54f7aba7f01bb16cbeb5cef133d271b",
+      "bcsc-s13-ch007-u02": "beb3d13009206a7530c3c9bbcbc0f898ab1f56640d4e5107852625fb0b8546f7",
+      "bcsc-s13-ch007-u03": "307a118b2d39841d3fdb8c2dfe92fe1bd97098fe3fa61e34c832efd3d32fe476",
+      "bcsc-s13-ch007-u04": "5988a79b74a81b2ccf838589d5810706defcc6a4f8c285fe48d205b6a06ac0fb",
+      "bcsc-s13-ch008-u01": "5a20a9db682533e6fd02a4baad8c14635efbbe5e5f13e7dd0fbbaf8039170264",
+      "bcsc-s13-ch008-u02": "8ea9b70f3a6d02d4064988c700c6dfc253788bfa861dc43e54854de325e8f0a5",
+      "bcsc-s13-ch008-u03": "ec964439bfc3b7b68118fd7a7c41e3bfa254e7a175ab0a98ae64f6eb7c8fc5e0",
+      "bcsc-s13-ch009-u01": "02ab134d24896228b2956deb2758c4db0e7e60f3b5e991d4319228d73e805205",
+      "bcsc-s13-ch009-u02": "5eae1fa430426829350f44abd263b113a35a442f5d128d13196d845ddc975664",
+      "bcsc-s13-ch009-u03": "a54cca64190d27eb8d63407c3798639439eb0c632d169e5031be0e9f7c8b1daf",
+      "bcsc-s13-ch009-u04": "438382d5a5db7ebc88a121798fba458b3b53c06bc2644384214c803d49982ea2",
+      "bcsc-s13-ch010-u01": "e31f991ff5e8266f495187fd276d27fea70842c029fec253d114f44cdfaba387",
+      "bcsc-s13-ch010-u02": "2031291dcf17eb8a356402c7380ffa969c223ea1d3788702b3b926c3a498b8a1",
+      "bcsc-s13-ch010-u03": "a15058912c2a53af1faae9cbff7ea78148da92a200303e9157d5ac4ba9c8cd28",
+      "bcsc-s13-ch010-u04": "fc57231da897640adb65b58f72b2c4a59735023cbc7ea6e949941c1d35193f83",
+      "bcsc-s13-ch010-u05": "49be3ec5aff8a918c57052b79e21400c63975dfc2b95e95ac55ba6700136e403"
+    },
+    "questionContentHashes": {
+      "bcsc-s13-rq001": "3725f7dcdc9dbd9c16e0c9c937213a7895ea3b23a65cdcee60df2e5a3b1066ca",
+      "bcsc-s13-rq002": "82bf778a6ff5046fcbae66256784c051f167dac5e361d0788258f06eb7e86a79",
+      "bcsc-s13-rq003": "418c7dee933017c4747609d22e63fcdfea8c31f02829c111e0fbe707f90aefec",
+      "bcsc-s13-rq004": "35d889facb0e78a0b1b8ec3d2b480a7051e714a128322e9a11e0e8d7a425a88d",
+      "bcsc-s13-rq005": "0e89b33243590af156c8a31adb100096607f6da160cbcc2fd22a160eb0516bf7",
+      "bcsc-s13-rq006": "e351e4e07e8fa30a730759d3bf6d75a7b70615d2118d7259e116b63e30ee4b1b",
+      "bcsc-s13-rq007": "cfc74bc352d75676a36ba9d888587d50a0efa4f6d840bc937b99870b20efdfa4",
+      "bcsc-s13-rq008": "ce25fd0b52b9253d1648f1fe99d46b1aa7e5b48866b16e5f727951936f82a322",
+      "bcsc-s13-rq009": "66044444e992f99822255cd2910ebb51c0223bec72d3db8409fca13a3867d025",
+      "bcsc-s13-rq010": "c702a9dabb72058cb16ea843aa8510c40265e97ec200cc556910c3a69491d926",
+      "bcsc-s13-rq011": "4a22e55bdc11025c7649a5c5c9118a5fc532c9de196a9c61066b9279d24952a5",
+      "bcsc-s13-rq012": "0f79b6078699283a6caab714f4aebd73ea305c055655c9cf18393daea55158f8",
+      "bcsc-s13-rq013": "91b0e6264e9629aaf3c5a4649b05721d3cc228ee84bf5f9d8e30ddad97429be7",
+      "bcsc-s13-rq014": "c02e160c2defbbca2c63fb9d638d0c101b45f6b33a47c694d9e4d177563f52f8",
+      "bcsc-s13-rq015": "cc9a5ba4a015a5665207bcbcebd0eb77c161029a0c30b03fb897681e57644186",
+      "bcsc-s13-rq016": "39413ca1e616d469c3281e433b0aa194596d4ffc44ac9beff7146b11dcf159d0",
+      "bcsc-s13-rq017": "83bd2b0ac439d7268d4919ed3ed2d51ab6a7bdb7b0754bc09aae1ac1d1c3a263",
+      "bcsc-s13-rq018": "0750372b898d894cb313397adb57ef378ff132725c724f95c9a3683e77882b8b",
+      "bcsc-s13-rq019": "6c6e1b7a584f1b6721daf64c2f1ecf2e3b11ca3f7b7a0671fb80bb7475f108f6",
+      "bcsc-s13-rq020": "3301198d96a645f6ff3fa5aa60ca342b7132e273fa0505f77cfa0045f01c7eea",
+      "bcsc-s13-rq021": "856671bbc56a86bbf09d350f23d6e30375aa5e4bc5d5868ec3e96edcd37fb36a",
+      "bcsc-s13-rq022": "6665c1d981c05cb9bbf502d43b2fe8b42ff9ed3365ed74ab631fec031c695f97",
+      "bcsc-s13-rq023": "752b4d2423934a7616067351c5307e40eb0297c51fe4be91345107f75f95cf44",
+      "bcsc-s13-rq024": "fa01249bd4e3fbc4c50bf00fc562b2af331e268406bb117fcb8c105df60a2b01",
+      "bcsc-s13-rq025": "92b6489837d8492535047d3adfd56ef2107376401ad0da1692c691b4a0b55213",
+      "bcsc-s13-rq026": "632b63bbb7b6e758696db9b9e5b22bdbae9bce315637cb06b638330171416a86",
+      "bcsc-s13-rq027": "21719e839911b31cc63082b9d687495fb309ae58c0eece433dc071151f877ebe",
+      "bcsc-s13-rq028": "dca42300dce64f1011b95a32828a41614f5a882d858ffef48bfe9be01b786053",
+      "bcsc-s13-rq029": "5c3558a9f941fee5d4493e71e5c10764db927871f44c6924de3746f8792b3ccc",
+      "bcsc-s13-rq030": "e7d3d189a98d2c4f8d18059b8d2dc32919936922ab923bc1a5e1124e34e1c28a",
+      "bcsc-s13-rq031": "e6f43601f0b16c4835625b2cd1fffec61281cd9e2918ae974ee2187862463604",
+      "bcsc-s13-rq032": "248d633c778697f638c3b3f3ba45194ba81c1860306a9f34218036008fbd30de",
+      "bcsc-s13-rq033": "d688e695c488c233f59e4734ae59cec879f74219397d74e11524af8cce6897fd",
+      "bcsc-s13-rq034": "47bbe61644bf305a32961cfd3c3ec7b7a5ab6565002fec39adc21e3f06b30ba4",
+      "bcsc-s13-rq035": "77a5101c761c9ed760abb45100a99151ba8dfc1abb3b46cf6d859aaa1ffbb832",
+      "bcsc-s13-rq036": "c6ce5bec54314e26d1e0ecf79f800fe0f58c649e6de5a0dd09b952a2d4e4deda",
+      "bcsc-s13-rq037": "64c0d86955c89e7a05d1bc7d69af056b3a4f0b7a82095898e1596553c7aaf235",
+      "bcsc-s13-rq038": "177ea6d7bcef84c447e4bc0a0e628ae06db25ef9381d5002eb2ee229b24f6ba4",
+      "bcsc-s13-rq039": "255c9416f8bed4e7e8b08a879743421fd2f34509af2236812464765da5c2110b",
+      "bcsc-s13-rq040": "3292f3a925cdf2f4909b6815c696a7761c8d235843f40da02fc9e26a06fa812b"
+    },
+    "chapterCoverageIds": [
+      "bcsc-s13-ch001",
+      "bcsc-s13-ch002",
+      "bcsc-s13-ch003",
+      "bcsc-s13-ch004",
+      "bcsc-s13-ch005",
+      "bcsc-s13-ch006",
+      "bcsc-s13-ch007",
+      "bcsc-s13-ch008",
+      "bcsc-s13-ch009",
+      "bcsc-s13-ch010"
+    ]
   }
 }
