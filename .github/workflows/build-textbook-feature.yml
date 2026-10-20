@@ -12,6 +12,8 @@ on:
     paths:
       - content/textbook-manifest.json
       - content/textbook-depth/**
+      - scripts/progress-sync.js
+      - scripts/test-progress-sync.cjs
       - scripts/study-*.js
       - scripts/test-study-srs.cjs
       - scripts/textbook-*.js

@@ -33,7 +33,8 @@ function absorbProgress(payload){
 function saveLocal(){
   clearTimeout(localTimer);localTimer=null;
   const s=storage();
-  if(!s||!deviceSettings().autosave){syncStatus();return false;}
+  if(!deviceSettings().autosave){syncStatus();return false;}
+  if(!s){syncState.localError=true;syncStatus();return false;}
   const ok=writeJSON(s,STORE.state,progressPayload());
   syncState.localError=!ok;
   if(ok){syncState.lastLocal=Date.now();dirty=false;$('.topbar').classList.remove('is-dirty');}
@@ -226,12 +227,13 @@ function syncStatus(){
   const el=$('#save-status'),bar=$('.topbar');
   if(!el||!bar)return;
   const cfg=cloudConfig(),autosave=syncState.storage&&deviceSettings().autosave;
+  const locallySaved=autosave&&!dirty&&!syncState.localError&&syncState.lastLocal!==null;
   let text,state;
   if(syncState.busy){text='同步中…';state='busy';}
-  else if(cfg&&syncState.error){text='雲端同步暫停'+(autosave?' · 已保存在此裝置':'');state='error';}
+  else if(cfg&&syncState.error){text='雲端同步暫停'+(locallySaved?' · 已保存在此裝置':' · 本機尚未保存');state='error';}
+  else if(syncState.localError&&deviceSettings().autosave){text=syncState.storage?'此裝置無法保存 · 請到「保存與同步」查看':'此瀏覽器無法自動保存 · 離開前請匯出';state='error';}
   else if(dirty&&autosave){text='正在保存…';state='dirty';}
-  else if(syncState.localError){text='此裝置無法保存 · 請到「保存與同步」查看';state='error';}
-  else if(cfg&&syncState.pending){text=(autosave?'已保存在此裝置':'尚未保存')+' · 稍後同步到雲端';state=autosave?'saved':'dirty';}
+  else if(cfg&&syncState.pending){text=(locallySaved?'已保存在此裝置':'尚未保存')+' · 稍後同步到雲端';state=autosave?'saved':'dirty';}
   else if(cfg&&syncState.lastSync){text='已同步到雲端 · '+syncTime(syncState.lastSync);state='synced';}
   else if(cfg){text='已連上雲端 · 等待同步';state='saved';}
   else if(autosave){text='已自動保存在此裝置';state='saved';}
