@@ -1,0 +1,1382 @@
+{
+  "schemaVersion": 1,
+  "bookId": "bcsc-s06",
+  "source": {
+    "title": "Pediatric Ophthalmology and Strabismus",
+    "edition": "2024–2025",
+    "sha256": "04634b833594a3bbf9706195abf72d3d8cfbc2d251913ffcf9c704e345043d64",
+    "pdfPageCount": 529
+  },
+  "chapters": [
+    {
+      "id": "bcsc-s06-ch001",
+      "number": 1,
+      "title": "The Pediatric Eye Evaluation",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            26,
+            39
+          ],
+          "printedPages": [
+            "3"
+          ],
+          "chapterHeading": "The Pediatric Eye Evaluation"
+        }
+      ],
+      "units": []
+    },
+    {
+      "id": "bcsc-s06-ch002",
+      "number": 2,
+      "title": "Anatomy of the Extraocular Muscles",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            40,
+            53
+          ],
+          "printedPages": [
+            "17"
+          ],
+          "chapterHeading": "Anatomy of the Extraocular Muscles"
+        }
+      ],
+      "units": []
+    },
+    {
+      "id": "bcsc-s06-ch003",
+      "number": 3,
+      "title": "Motor Physiology",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            54,
+            65
+          ],
+          "printedPages": [
+            "31"
+          ],
+          "chapterHeading": "Motor Physiology"
+        }
+      ],
+      "units": []
+    },
+    {
+      "id": "bcsc-s06-ch004",
+      "number": 4,
+      "title": "Sensory Physiology and Pathology",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            66,
+            77
+          ],
+          "printedPages": [
+            "43"
+          ],
+          "chapterHeading": "Sensory Physiology and Pathology"
+        }
+      ],
+      "units": []
+    },
+    {
+      "id": "bcsc-s06-ch005",
+      "number": 5,
+      "title": "Amblyopia",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            78,
+            87
+          ],
+          "printedPages": [
+            "55"
+          ],
+          "chapterHeading": "Amblyopia"
+        }
+      ],
+      "units": []
+    },
+    {
+      "id": "bcsc-s06-ch006",
+      "number": 6,
+      "title": "Diagnostic Evaluation of Strabismus and Torticollis",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            88,
+            111
+          ],
+          "printedPages": [
+            "65"
+          ],
+          "chapterHeading": "Diagnostic Evaluation of Strabismus and Torticollis"
+        }
+      ],
+      "units": []
+    },
+    {
+      "id": "bcsc-s06-ch007",
+      "number": 7,
+      "title": "Esodeviations",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            112,
+            127
+          ],
+          "printedPages": [
+            "89"
+          ],
+          "chapterHeading": "Esodeviations"
+        }
+      ],
+      "units": []
+    },
+    {
+      "id": "bcsc-s06-ch008",
+      "number": 8,
+      "title": "Exodeviations",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            128,
+            137
+          ],
+          "printedPages": [
+            "105"
+          ],
+          "chapterHeading": "Exodeviations"
+        }
+      ],
+      "units": []
+    },
+    {
+      "id": "bcsc-s06-ch009",
+      "number": 9,
+      "title": "Pattern Strabismus",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            138,
+            145
+          ],
+          "printedPages": [
+            "115"
+          ],
+          "chapterHeading": "Pattern Strabismus"
+        }
+      ],
+      "units": []
+    },
+    {
+      "id": "bcsc-s06-ch010",
+      "number": 10,
+      "title": "Vertical Deviations",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            146,
+            163
+          ],
+          "printedPages": [
+            "123"
+          ],
+          "chapterHeading": "Vertical Deviations"
+        }
+      ],
+      "units": []
+    },
+    {
+      "id": "bcsc-s06-ch011",
+      "number": 11,
+      "title": "Special Motility Disorders",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            164,
+            181
+          ],
+          "printedPages": [
+            "141"
+          ],
+          "chapterHeading": "Special Motility Disorders"
+        }
+      ],
+      "units": []
+    },
+    {
+      "id": "bcsc-s06-ch012",
+      "number": 12,
+      "title": "Childhood Nystagmus",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            182,
+            193
+          ],
+          "printedPages": [
+            "159"
+          ],
+          "chapterHeading": "Childhood Nystagmus"
+        }
+      ],
+      "units": []
+    },
+    {
+      "id": "bcsc-s06-ch013",
+      "number": 13,
+      "title": "Surgery of the Extraocular Muscles",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            194,
+            215
+          ],
+          "printedPages": [
+            "171"
+          ],
+          "chapterHeading": "Surgery of the Extraocular Muscles"
+        }
+      ],
+      "units": []
+    },
+    {
+      "id": "bcsc-s06-ch014",
+      "number": 14,
+      "title": "Growth and Development of the Eye",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            216,
+            221
+          ],
+          "printedPages": [
+            "193"
+          ],
+          "chapterHeading": "Growth and Development of the Eye"
+        }
+      ],
+      "units": []
+    },
+    {
+      "id": "bcsc-s06-ch015",
+      "number": 15,
+      "title": "Decreased Vision in Infants",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            222,
+            227
+          ],
+          "printedPages": [
+            "199"
+          ],
+          "chapterHeading": "Decreased Vision in Infants"
+        }
+      ],
+      "units": []
+    },
+    {
+      "id": "bcsc-s06-ch016",
+      "number": 16,
+      "title": "Eyelid Disorders",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            228,
+            239
+          ],
+          "printedPages": [
+            "205"
+          ],
+          "chapterHeading": "Eyelid Disorders"
+        }
+      ],
+      "units": []
+    },
+    {
+      "id": "bcsc-s06-ch017",
+      "number": 17,
+      "title": "Orbital Disorders",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            240,
+            265
+          ],
+          "printedPages": [
+            "217"
+          ],
+          "chapterHeading": "Orbital Disorders"
+        }
+      ],
+      "units": []
+    },
+    {
+      "id": "bcsc-s06-ch018",
+      "number": 18,
+      "title": "Lacrimal Drainage System Abnormalities",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            266,
+            275
+          ],
+          "printedPages": [
+            "243"
+          ],
+          "chapterHeading": "Lacrimal Drainage System Abnormalities"
+        }
+      ],
+      "units": []
+    },
+    {
+      "id": "bcsc-s06-ch019",
+      "number": 19,
+      "title": "External Diseases of the Eye",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            276,
+            291
+          ],
+          "printedPages": [
+            "253"
+          ],
+          "chapterHeading": "External Diseases of the Eye"
+        }
+      ],
+      "units": []
+    },
+    {
+      "id": "bcsc-s06-ch020",
+      "number": 20,
+      "title": "Disorders of the Anterior Segment",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            292,
+            317
+          ],
+          "printedPages": [
+            "269"
+          ],
+          "chapterHeading": "Disorders of the Anterior Segment"
+        }
+      ],
+      "units": []
+    },
+    {
+      "id": "bcsc-s06-ch021",
+      "number": 21,
+      "title": "Childhood Glaucomas",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            318,
+            331
+          ],
+          "printedPages": [
+            "295"
+          ],
+          "chapterHeading": "Childhood Glaucomas"
+        }
+      ],
+      "units": []
+    },
+    {
+      "id": "bcsc-s06-ch022",
+      "number": 22,
+      "title": "Childhood Cataracts and Other Pediatric Lens Disorders",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            332,
+            347
+          ],
+          "printedPages": [
+            "309"
+          ],
+          "chapterHeading": "Childhood Cataracts and Other Pediatric Lens Disorders"
+        }
+      ],
+      "units": []
+    },
+    {
+      "id": "bcsc-s06-ch023",
+      "number": 23,
+      "title": "Optic Nerve Head Abnormalities",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            348,
+            361
+          ],
+          "printedPages": [
+            "325"
+          ],
+          "chapterHeading": "Optic Nerve Head Abnormalities"
+        }
+      ],
+      "units": []
+    },
+    {
+      "id": "bcsc-s06-ch024",
+      "number": 24,
+      "title": "Disorders of the Ret ina and Vitreous",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            362,
+            393
+          ],
+          "printedPages": [
+            "339"
+          ],
+          "chapterHeading": "Disorders of the Ret ina and Vitreous"
+        }
+      ],
+      "units": []
+    },
+    {
+      "id": "bcsc-s06-ch025",
+      "number": 25,
+      "title": "Pediatric Uveitis",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            394,
+            413
+          ],
+          "printedPages": [
+            "371"
+          ],
+          "chapterHeading": "Pediatric Uveitis"
+        }
+      ],
+      "units": []
+    },
+    {
+      "id": "bcsc-s06-ch026",
+      "number": 26,
+      "title": "Ocular Trauma in Childhood",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            414,
+            425
+          ],
+          "printedPages": [
+            "391"
+          ],
+          "chapterHeading": "Ocular Trauma in Childhood"
+        }
+      ],
+      "units": []
+    },
+    {
+      "id": "bcsc-s06-ch027",
+      "number": 27,
+      "title": "Ocular Manifestations of Systemic Disease",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            426,
+            461
+          ],
+          "printedPages": [
+            "403"
+          ],
+          "chapterHeading": "Ocular Manifestations of Systemic Disease"
+        }
+      ],
+      "units": []
+    },
+    {
+      "id": "bcsc-s06-ch028",
+      "number": 28,
+      "title": "Pediatric Chronic Eye Care and Low Vision Rehabilitation",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            462,
+            473
+          ],
+          "printedPages": [
+            "439"
+          ],
+          "chapterHeading": "Pediatric Chronic Eye Care and Low Vision Rehabilitation"
+        }
+      ],
+      "units": []
+    }
+  ],
+  "questions": [],
+  "coverage": {
+    "chapterRows": [
+      {
+        "chapterId": "bcsc-s06-ch001",
+        "unitIds": [],
+        "teachingStatus": "unreviewed",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "教材尚未補入"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s06-ch002",
+        "unitIds": [],
+        "teachingStatus": "unreviewed",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "教材尚未補入"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s06-ch003",
+        "unitIds": [],
+        "teachingStatus": "unreviewed",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "教材尚未補入"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s06-ch004",
+        "unitIds": [],
+        "teachingStatus": "unreviewed",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "教材尚未補入"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s06-ch005",
+        "unitIds": [],
+        "teachingStatus": "unreviewed",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "教材尚未補入"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s06-ch006",
+        "unitIds": [],
+        "teachingStatus": "unreviewed",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "教材尚未補入"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s06-ch007",
+        "unitIds": [],
+        "teachingStatus": "unreviewed",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "教材尚未補入"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s06-ch008",
+        "unitIds": [],
+        "teachingStatus": "unreviewed",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "教材尚未補入"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s06-ch009",
+        "unitIds": [],
+        "teachingStatus": "unreviewed",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "教材尚未補入"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s06-ch010",
+        "unitIds": [],
+        "teachingStatus": "unreviewed",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "教材尚未補入"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s06-ch011",
+        "unitIds": [],
+        "teachingStatus": "unreviewed",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "教材尚未補入"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s06-ch012",
+        "unitIds": [],
+        "teachingStatus": "unreviewed",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "教材尚未補入"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s06-ch013",
+        "unitIds": [],
+        "teachingStatus": "unreviewed",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "教材尚未補入"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s06-ch014",
+        "unitIds": [],
+        "teachingStatus": "unreviewed",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "教材尚未補入"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s06-ch015",
+        "unitIds": [],
+        "teachingStatus": "unreviewed",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "教材尚未補入"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s06-ch016",
+        "unitIds": [],
+        "teachingStatus": "unreviewed",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "教材尚未補入"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s06-ch017",
+        "unitIds": [],
+        "teachingStatus": "unreviewed",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "教材尚未補入"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s06-ch018",
+        "unitIds": [],
+        "teachingStatus": "unreviewed",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "教材尚未補入"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s06-ch019",
+        "unitIds": [],
+        "teachingStatus": "unreviewed",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "教材尚未補入"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s06-ch020",
+        "unitIds": [],
+        "teachingStatus": "unreviewed",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "教材尚未補入"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s06-ch021",
+        "unitIds": [],
+        "teachingStatus": "unreviewed",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "教材尚未補入"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s06-ch022",
+        "unitIds": [],
+        "teachingStatus": "unreviewed",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "教材尚未補入"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s06-ch023",
+        "unitIds": [],
+        "teachingStatus": "unreviewed",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "教材尚未補入"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s06-ch024",
+        "unitIds": [],
+        "teachingStatus": "unreviewed",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "教材尚未補入"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s06-ch025",
+        "unitIds": [],
+        "teachingStatus": "unreviewed",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "教材尚未補入"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s06-ch026",
+        "unitIds": [],
+        "teachingStatus": "unreviewed",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "教材尚未補入"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s06-ch027",
+        "unitIds": [],
+        "teachingStatus": "unreviewed",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "教材尚未補入"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s06-ch028",
+        "unitIds": [],
+        "teachingStatus": "unreviewed",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "教材尚未補入"
+        ]
+      }
+    ],
+    "questionRows": [
+      {
+        "sourceQuestionKey": "bcsc-s06-rq001",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 1,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq002",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 2,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq003",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 3,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq004",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 4,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq005",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 5,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq006",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 6,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq007",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 7,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq008",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 8,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq009",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 9,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq010",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 10,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq011",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 11,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq012",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 12,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq013",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 13,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq014",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 14,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq015",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 15,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq016",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 16,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq017",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 17,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq018",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 18,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq019",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 19,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq020",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 20,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq021",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 21,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq022",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 22,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq023",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 23,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq024",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 24,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq025",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 25,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq026",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 26,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq027",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 27,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq028",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 28,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq029",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 29,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq030",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 30,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq031",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 31,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq032",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 32,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq033",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 33,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq034",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 34,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq035",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 35,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq036",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 36,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq037",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 37,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq038",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 38,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq039",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 39,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq040",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 40,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq041",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 41,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq042",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 42,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq043",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 43,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s06-rq044",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 44,
+        "questionId": null,
+        "unitIds": [],
+        "conceptStatus": "unmapped",
+        "sourceAnswerStatus": "unverified",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "概念重述尚未補入"
+        ]
+      }
+    ],
+    "summary": {
+      "taughtChapters": 0,
+      "authoredChapters": 0,
+      "readyQuestions": 0,
+      "authoredQuestions": 0,
+      "verifiedImages": 0
+    }
+  }
+}

@@ -1,0 +1,79 @@
+name: Build and verify textbook feature branch
+
+on:
+  workflow_dispatch:
+    inputs:
+      require_complete:
+        description: Require all chapter teaching and all source concept restatements (final acceptance)
+        type: boolean
+        default: false
+  push:
+    branches: [content/bcsc-depth-issue-8]
+    paths:
+      - content/textbook-manifest.json
+      - content/textbook-depth/**
+      - scripts/textbook-*.js
+      - scripts/textbook-*.css
+      - scripts/validate-textbook.py
+      - scripts/apply-textbook.py
+      - scripts/practice-ui.js
+      - scripts/test-textbook-depth.cjs
+      - .github/workflows/build-textbook-feature.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: textbook-feature-issue-8
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.ref == 'refs/heads/content/bcsc-depth-issue-8'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: content/bcsc-depth-issue-8
+      - name: Refuse default-branch or unexpected workspace writes
+        shell: bash
+        run: |
+          set -euo pipefail
+          repo_root="$(git rev-parse --show-toplevel)"
+          test "$repo_root" = "$GITHUB_WORKSPACE"
+          test "$repo_root" != /Users/wangtingwei
+          test "$GITHUB_REF_NAME" = content/bcsc-depth-issue-8
+          test "$GITHUB_REF_NAME" != main
+      - name: Validate authored scope and build only from small source files
+        run: |
+          if [ '${{ inputs.require_complete }}' = true ]; then
+            python3 scripts/validate-textbook.py --require-complete
+          else
+            python3 scripts/validate-textbook.py
+          fi
+          python3 scripts/apply-enrichment.py
+          python3 scripts/apply-textbook.py
+          python3 scripts/apply-textbook.py --check
+          node scripts/test-integrated-lessons.cjs
+          node scripts/test-source-coverage.cjs
+          node scripts/test-practice-sections.cjs
+          node scripts/test-progress-sync.cjs
+          node scripts/test-textbook-depth.cjs
+      - name: Commit generated index to this feature branch only
+        shell: bash
+        run: |
+          set -euo pipefail
+          repo_root="$(git rev-parse --show-toplevel)"
+          test "$repo_root" = "$GITHUB_WORKSPACE"
+          test "$GITHUB_REF_NAME" = content/bcsc-depth-issue-8
+          test "$GITHUB_REF_NAME" != main
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add -- index.html
+          if git diff --cached --quiet -- index.html; then
+            echo 'Generated index already current.'
+          else
+            git commit -m 'Build textbook advanced study view'
+            git push origin HEAD:content/bcsc-depth-issue-8
+          fi

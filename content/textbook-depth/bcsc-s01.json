@@ -1,0 +1,5464 @@
+{
+  "schemaVersion": 1,
+  "bookId": "bcsc-s01",
+  "source": {
+    "title": "Update on General Medicine",
+    "edition": "2024–2025",
+    "sha256": "51c978f1858d6ac5313c485bef5f602aa121202bd55e919abc7b7e9052c2d0ae",
+    "pdfPageCount": 393
+  },
+  "chapters": [
+    {
+      "id": "bcsc-s01-ch001",
+      "number": 1,
+      "title": "Social Determinants of Health",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
+          "printedPages": [
+            "3",
+            "12"
+          ],
+          "chapterHeading": "Social Determinants of Health"
+        }
+      ],
+      "units": [
+        {
+          "id": "bcsc-s01-ch001-u01",
+          "title": "把「失聯」拆成可處理的就醫障礙",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31
+              ],
+              "printedPages": [
+                "3",
+                "12"
+              ],
+              "chapterHeading": "Social Determinants of Health"
+            }
+          ],
+          "mechanism": [
+            "視力結果同時受疾病、費用、交通、健康識能及醫療可近性影響；漏診不等於患者不在乎。",
+            "同樣的治療建議，若無法取得藥物或回診，實際暴露於治療的程度便不同。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "多次漏診且無固定交通",
+              "meaning": "先查實際障礙，再判斷依從性"
+            },
+            {
+              "finding": "能重述目的卻付不起藥費",
+              "meaning": "知識衛教無法單獨解決經濟阻礙"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "知識不足",
+              "for": "無法重述用法",
+              "against": "能清楚說明卻無法取得藥物",
+              "discriminator": "teach-back加實際可取得性詢問"
+            },
+            {
+              "diagnosis": "就醫可近性不足",
+              "for": "交通、費用、照護責任受限",
+              "against": "資源充足仍拒治需另談價值觀",
+              "discriminator": "逐項問阻礙而非用族群外觀代替評估"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "社會需求訪談",
+              "purpose": "找可改變的障礙",
+              "interpretation": "詢問付款、交通、語言及支持者",
+              "limitation": "一次訪談不能代表所有生活情境"
+            }
+          ],
+          "management": [
+            {
+              "condition": "確認費用或交通限制",
+              "stage": "共同決策",
+              "action": "轉介社工或可負擔方案並約定可行回診方式",
+              "rationale": "讓治療計畫能被實際執行",
+              "caution": "不可因族群或保險類別降低應有的診療標準"
+            }
+          ],
+          "imageClues": [],
+          "pitfalls": [
+            {
+              "mistake": "把漏診直接記為不合作",
+              "correction": "先查可近性、識能及病人目標"
+            }
+          ],
+          "recall": {
+            "prompt": "兩個視力相同的病人為何可能需要不同的追蹤安排？",
+            "answer": "疾病風險之外，就醫障礙與支持系統會改變能否按計畫完成照護。"
+          },
+          "notApplicable": {
+            "imageClues": "此單元以病史、功能或系統性檢驗判讀為核心；不以未檢視的原圖推論診斷。"
+          },
+          "status": "draft"
+        }
+      ]
+    },
+    {
+      "id": "bcsc-s01-ch002",
+      "number": 2,
+      "title": "Using Research to Improve ­Clinical Practice",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63
+          ],
+          "printedPages": [
+            "13",
+            "44"
+          ],
+          "chapterHeading": "Using Research to Improve ­Clinical Practice"
+        }
+      ],
+      "units": [
+        {
+          "id": "bcsc-s01-ch002-u01",
+          "title": "研究問題、變數尺度與證據能回答什麼",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63
+              ],
+              "printedPages": [
+                "13",
+                "44"
+              ],
+              "chapterHeading": "Using Research to Improve ­Clinical Practice"
+            }
+          ],
+          "mechanism": [
+            "研究設計必須對準問題：診斷準確度、治療效果及預後所需的對照與時間架構不同。",
+            "序位資料有順序，但相鄰選項不保證有相等距離；問卷等級不能不加思考地當成連續量。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "VFQ各等級由容易到困難",
+              "meaning": "等級可排序，差距不必相等"
+            },
+            {
+              "finding": "接受治療者比未治療者病情較重",
+              "meaning": "觀察到的差異可能包含適應症混雜"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "隨機化試驗",
+              "for": "能比較分派策略的因果效果",
+              "against": "流失、交叉治療仍可造成偏差",
+              "discriminator": "檢查分派、分析族群及追蹤完整性"
+            },
+            {
+              "diagnosis": "觀察性關聯",
+              "for": "適合描述風險與真實情境",
+              "against": "無法單靠關聯排除混雜",
+              "discriminator": "對照基線風險與調整方法"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "研究設計與偏差評讀",
+              "purpose": "判斷結果是否能回答臨床問題",
+              "interpretation": "先看對象、比較、終點及追蹤再看P值",
+              "limitation": "統計顯著不保證臨床重要或可外推"
+            }
+          ],
+          "management": [
+            {
+              "condition": "使用新研究更改照護前",
+              "stage": "證據轉譯",
+              "action": "比較效果大小、不確定性與病人基線風險",
+              "rationale": "同一相對效果在不同風險者的絕對獲益不同",
+              "caution": "不可將替代終點等同病人重要結果"
+            }
+          ],
+          "imageClues": [],
+          "pitfalls": [
+            {
+              "mistake": "有排序就把每級距離當相同",
+              "correction": "序位尺度只保證次序"
+            }
+          ],
+          "recall": {
+            "prompt": "為何問卷1到2與4到5不一定代表相同變化？",
+            "answer": "數字可以只是等級標記，並未證明心理或功能差距等距。"
+          },
+          "notApplicable": {
+            "imageClues": "此單元以病史、功能或系統性檢驗判讀為核心；不以未檢視的原圖推論診斷。"
+          },
+          "status": "draft"
+        },
+        {
+          "id": "bcsc-s01-ch002-u02",
+          "title": "準確度、盛行率與檢驗後機率",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63
+              ],
+              "printedPages": [
+                "13",
+                "44"
+              ],
+              "chapterHeading": "Using Research to Improve ­Clinical Practice"
+            }
+          ],
+          "mechanism": [
+            "敏感度與特異度描述患病或未患病群中的分類表現；陽性預測值回答陽性者有多可能真患病。",
+            "疾病較少見時，即使檢驗本身不變，陽性結果中的偽陽性比例仍可升高。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "低風險社區大量篩檢",
+              "meaning": "陽性結果需考慮低先驗機率"
+            },
+            {
+              "finding": "轉診門診同一陽性結果",
+              "meaning": "較高先驗風險可提高檢驗後患病機率"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "偽陽性",
+              "for": "未患病卻測陽性",
+              "against": "不能只由陽性率判定",
+              "discriminator": "需以參考標準交叉分類"
+            },
+            {
+              "diagnosis": "偽陰性",
+              "for": "已患病卻測陰性",
+              "against": "陰性不等於風險為零",
+              "discriminator": "連結敏感度與檢驗前風險"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "二乘二表與信賴區間",
+              "purpose": "核對分母與不確定性",
+              "interpretation": "先分清疾病狀態與測試結果，再計算各指標",
+              "limitation": "光譜、閾值及不完整驗證可改變表現"
+            }
+          ],
+          "management": [
+            {
+              "condition": "評估是否導入篩檢",
+              "stage": "決策分析",
+              "action": "同時計算後續確認、漏診後果與偽陽性負擔",
+              "rationale": "準確度不是整條照護路徑的效益",
+              "caution": "不以單一高敏感度取代對特異度與可執行性的評估"
+            }
+          ],
+          "imageClues": [],
+          "pitfalls": [
+            {
+              "mistake": "將敏感度當成陽性後患病機率",
+              "correction": "後者是預測值，受先驗風險影響"
+            }
+          ],
+          "recall": {
+            "prompt": "同一檢驗搬到低盛行率族群後最易誤判哪件事？",
+            "answer": "直接沿用原門診的陽性預測值。"
+          },
+          "notApplicable": {
+            "imageClues": "此單元以病史、功能或系統性檢驗判讀為核心；不以未檢視的原圖推論診斷。"
+          },
+          "status": "draft"
+        }
+      ]
+    },
+    {
+      "id": "bcsc-s01-ch003",
+      "number": 3,
+      "title": "Endocrine Disorders",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81
+          ],
+          "printedPages": [
+            "45",
+            "62"
+          ],
+          "chapterHeading": "Endocrine Disorders"
+        }
+      ],
+      "units": [
+        {
+          "id": "bcsc-s01-ch003-u01",
+          "title": "糖代謝、甲狀腺眼病與MEN：從系統病找到眼部連結",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                64,
+                65,
+                66,
+                67,
+                68,
+                69,
+                70,
+                71,
+                72,
+                73,
+                74,
+                75,
+                76,
+                77,
+                78,
+                79,
+                80,
+                81
+              ],
+              "printedPages": [
+                "45",
+                "62"
+              ],
+              "chapterHeading": "Endocrine Disorders"
+            }
+          ],
+          "mechanism": [
+            "高血糖造成微血管與大血管併發症，眼部風險不能只用當天視力估計。",
+            "甲狀腺眼病涉及眼眶自體免疫訊號；teprotumumab針對IGF-1受體，並非單純抑制甲狀腺荷爾蒙。",
+            "MEN2及本卷所稱MEN3的重要腫瘤是甲狀腺髓質癌；名稱須辨清不同版本的MEN2A/2B。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "糖尿病但自覺視力正常",
+              "meaning": "仍不能排除早期視網膜病變"
+            },
+            {
+              "finding": "眼眶炎症及複視",
+              "meaning": "需連結甲狀腺眼病的活動與嚴重度"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "甲狀腺眼病",
+              "for": "眼瞼退縮、眼眶與眼外肌表現支持",
+              "against": "單靠甲狀腺抽血不能完整判定眼眶活動",
+              "discriminator": "眼部功能與眼眶評估"
+            },
+            {
+              "diagnosis": "其他眼眶病灶",
+              "for": "單側不典型進展或局部占位可提示",
+              "against": "系統病史不等於眼眶診斷",
+              "discriminator": "必要時影像確認解剖分布"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "糖代謝與眼底評估",
+              "purpose": "把系統控制與眼部風險一起判讀",
+              "interpretation": "長期暴露和其他血管危險因子共同影響預後",
+              "limitation": "單次血糖不足以代表長期控制"
+            },
+            {
+              "test": "甲狀腺功能及眼眶功能檢查",
+              "purpose": "評估內分泌與眼部疾病",
+              "interpretation": "視力、色覺及眼位受影響可改變處置優先順序",
+              "limitation": "檢驗正常不排除所有甲狀腺眼病情境"
+            }
+          ],
+          "management": [
+            {
+              "condition": "考慮甲狀腺眼病標靶治療",
+              "stage": "專科評估",
+              "action": "按活動度、嚴重度與治療風險選擇",
+              "rationale": "標靶是免疫訊號而非只校正荷爾蒙",
+              "caution": "適應症、監測及現行核准範圍需依當地最新版規範核對"
+            }
+          ],
+          "imageClues": [],
+          "pitfalls": [
+            {
+              "mistake": "把teprotumumab當成抗甲狀腺合成藥",
+              "correction": "其標靶為IGF-1受體"
+            }
+          ],
+          "recall": {
+            "prompt": "為何控制甲狀腺血值後仍需獨立評估眼病？",
+            "answer": "眼眶自體免疫活動與局部功能損害不完全由血中荷爾蒙數值決定。"
+          },
+          "notApplicable": {
+            "imageClues": "此單元以病史、功能或系統性檢驗判讀為核心；不以未檢視的原圖推論診斷。"
+          },
+          "status": "draft"
+        }
+      ]
+    },
+    {
+      "id": "bcsc-s01-ch004",
+      "number": 4,
+      "title": "Hypertension",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101
+          ],
+          "printedPages": [
+            "63",
+            "82"
+          ],
+          "chapterHeading": "Hypertension"
+        }
+      ],
+      "units": [
+        {
+          "id": "bcsc-s01-ch004-u01",
+          "title": "血壓量測、風險分層與藥物選擇",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                82,
+                83,
+                84,
+                85,
+                86,
+                87,
+                88,
+                89,
+                90,
+                91,
+                92,
+                93,
+                94,
+                95,
+                96,
+                97,
+                98,
+                99,
+                100,
+                101
+              ],
+              "printedPages": [
+                "63",
+                "82"
+              ],
+              "chapterHeading": "Hypertension"
+            }
+          ],
+          "mechanism": [
+            "血壓控制的目的在降低心腦腎與視網膜血管損害，不是只追單次數字。",
+            "藥物選擇受腎病、蛋白尿、心衰竭、耐受性及既有治療影響；本卷援引的族群建議須放回其指引年代。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "診間升高而家中較低",
+              "meaning": "考慮白袍效應與量測條件"
+            },
+            {
+              "finding": "診間正常但有高風險或器官損害",
+              "meaning": "不能忽略隱蔽性高血壓"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "白袍效應",
+              "for": "診間與居家讀值系統性不同",
+              "against": "不能只靠一次讀值確診",
+              "discriminator": "標準化居家或動態監測"
+            },
+            {
+              "diagnosis": "持續性高血壓",
+              "for": "多時點均升高",
+              "against": "疼痛或急性壓力可短暫影響",
+              "discriminator": "核對重複量測與風險背景"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "居家或動態血壓",
+              "purpose": "確認日常暴露",
+              "interpretation": "可找出白袍及隱蔽性型態",
+              "limitation": "需正確袖帶與技術"
+            }
+          ],
+          "management": [
+            {
+              "condition": "需開始或調整降壓治療",
+              "stage": "長期風險管理",
+              "action": "依共病與耐受性選擇藥物並追蹤",
+              "rationale": "降低器官風險同時維持灌流",
+              "caution": "本書分類與目標屬2024–25版所引用資料；臨床目標須核對現行指引"
+            }
+          ],
+          "imageClues": [],
+          "pitfalls": [
+            {
+              "mistake": "只用一次門診值判定治療失敗",
+              "correction": "先核對量測、依從性及診間外讀值"
+            }
+          ],
+          "recall": {
+            "prompt": "何時正常門診血壓仍不足以放心？",
+            "answer": "有器官損害或高風險且懷疑隱蔽性高血壓時。"
+          },
+          "notApplicable": {
+            "imageClues": "此單元以病史、功能或系統性檢驗判讀為核心；不以未檢視的原圖推論診斷。"
+          },
+          "status": "draft",
+          "clinicalUpdates": [
+            {
+              "statement": "高血壓：2025 AHA/ACC指引已取代本卷引用的2017指引，新增PREVENT風險方程式等決策更新。Q5明確保留為該版教材的歷史框架回顧，不作為僅依族群分類的當前個別處方；診間外量測與共病風險仍須納入。",
+              "source": {
+                "title": "AHA 2025 High Blood Pressure Guideline summary",
+                "url": "https://professional.heart.org/en/science-news/2025-high-blood-pressure-guideline",
+                "checkedAt": "2026-10-20"
+              },
+              "chapterIds": [
+                "bcsc-s01-ch004"
+              ],
+              "questionIds": [
+                "bcsc-s01-rq005"
+              ],
+              "verificationStatus": "primary-source-checked; independently-confirmed-by-basic-review"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bcsc-s01-ch005",
+      "number": 5,
+      "title": "Hyperlipidemia and ­Cardiovascular Risk",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            111
+          ],
+          "printedPages": [
+            "83",
+            "92"
+          ],
+          "chapterHeading": "Hyperlipidemia and ­Cardiovascular Risk"
+        }
+      ],
+      "units": [
+        {
+          "id": "bcsc-s01-ch005-u01",
+          "title": "LDL受體回收與降脂階梯",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                102,
+                103,
+                104,
+                105,
+                106,
+                107,
+                108,
+                109,
+                110,
+                111
+              ],
+              "printedPages": [
+                "83",
+                "92"
+              ],
+              "chapterHeading": "Hyperlipidemia and ­Cardiovascular Risk"
+            }
+          ],
+          "mechanism": [
+            "Statin抑制膽固醇合成並增加肝臟清除LDL的能力。",
+            "PCSK9會促進LDL受體降解；抑制它可保留受體回收，供高風險且既有治療不足者加用。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "已有ASCVD且LDL控制仍不足",
+              "meaning": "評估治療強度、依從性與加藥空間"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "治療反應不足",
+              "for": "已確認規律且適量治療後仍未達目標",
+              "against": "未服藥與生物反應不足不同",
+              "discriminator": "先核對用藥和次發原因"
+            },
+            {
+              "diagnosis": "生活型態風險",
+              "for": "飲食與活動仍有改善空間",
+              "against": "不是所有高風險病人可單靠生活方式控制",
+              "discriminator": "整體心血管風險評估"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "血脂與風險評估",
+              "purpose": "評估基線及治療反應",
+              "interpretation": "看LDL變化並結合既有血管疾病",
+              "limitation": "單一總膽固醇值不足以代表風險"
+            }
+          ],
+          "management": [
+            {
+              "condition": "高風險且statin治療不足",
+              "stage": "加強降脂",
+              "action": "評估ezetimibe或PCSK9抑制劑",
+              "rationale": "不同機轉可提供額外LDL下降",
+              "caution": "不把PCSK9藥物當作人人都應先用的替代品"
+            }
+          ],
+          "imageClues": [],
+          "pitfalls": [
+            {
+              "mistake": "PCSK9抑制劑直接溶解動脈斑塊",
+              "correction": "主要作用是改善LDL受體介導清除"
+            }
+          ],
+          "recall": {
+            "prompt": "為何PCSK9抑制可降低LDL？",
+            "answer": "減少LDL受體降解，使肝細胞可重複利用受體清除LDL。"
+          },
+          "notApplicable": {
+            "imageClues": "此單元以病史、功能或系統性檢驗判讀為核心；不以未檢視的原圖推論診斷。"
+          },
+          "status": "draft"
+        }
+      ]
+    },
+    {
+      "id": "bcsc-s01-ch006",
+      "number": 6,
+      "title": "Acquired Heart Disease",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            112,
+            113,
+            114,
+            115,
+            116,
+            117,
+            118,
+            119,
+            120,
+            121,
+            122,
+            123,
+            124,
+            125,
+            126,
+            127,
+            128,
+            129,
+            130,
+            131,
+            132,
+            133,
+            134,
+            135,
+            136,
+            137
+          ],
+          "printedPages": [
+            "93",
+            "118"
+          ],
+          "chapterHeading": "Acquired Heart Disease"
+        }
+      ],
+      "units": [
+        {
+          "id": "bcsc-s01-ch006-u01",
+          "title": "缺血、心衰竭與惡性心律不整是不同決策軸",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                112,
+                113,
+                114,
+                115,
+                116,
+                117,
+                118,
+                119,
+                120,
+                121,
+                122,
+                123,
+                124,
+                125,
+                126,
+                127,
+                128,
+                129,
+                130,
+                131,
+                132,
+                133,
+                134,
+                135,
+                136,
+                137
+              ],
+              "printedPages": [
+                "93",
+                "118"
+              ],
+              "chapterHeading": "Acquired Heart Disease"
+            }
+          ],
+          "mechanism": [
+            "冠狀動脈斑塊破裂可引發血栓與急性缺血；再灌流處理的是受阻血流。",
+            "收縮功能不良時降低心室負荷與使用改善預後的藥物重要；治療也須兼顧灌流與鬱血。",
+            "ICD偵測並終止致命心室心律不整，並不取代血管重建或心衰竭藥物。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "曾有心跳停止或不穩定心室頻脈",
+              "meaning": "需辨認可逆原因並評估二級預防"
+            },
+            {
+              "finding": "鬱血加低心輸出",
+              "meaning": "治療目標同時包含負荷與灌流"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "血流重建需求",
+              "for": "急性冠狀動脈閉塞支持",
+              "against": "單純心律不整風險不等同固定血管阻塞",
+              "discriminator": "缺血評估"
+            },
+            {
+              "diagnosis": "致命心律不整二級預防",
+              "for": "曾有可危及生命的心室事件",
+              "against": "有明確可逆原因需分開判斷",
+              "discriminator": "事件紀錄、結構及可逆誘因評估"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "心電圖與心臟結構功能評估",
+              "purpose": "區分缺血、心律及泵功能問題",
+              "interpretation": "射出分率須與症狀和病因共同解釋",
+              "limitation": "單一數值不能決定全部處置"
+            }
+          ],
+          "management": [
+            {
+              "condition": "曾發生惡性心室心律不整",
+              "stage": "二級預防",
+              "action": "由心臟科評估ICD適應性並治療病因",
+              "rationale": "避免再次致命事件",
+              "caution": "是否有可逆誘因、預期效益及現行適應症均需個別判斷"
+            }
+          ],
+          "imageClues": [],
+          "pitfalls": [
+            {
+              "mistake": "裝ICD後即可停所有心臟治療",
+              "correction": "裝置處理特定心律事件，病因與心衰竭仍需管理"
+            }
+          ],
+          "recall": {
+            "prompt": "ICD與PCI解決的問題差在哪？",
+            "answer": "前者終止致命心室心律；後者處理冠狀動脈血流問題。"
+          },
+          "notApplicable": {
+            "imageClues": "此單元以病史、功能或系統性檢驗判讀為核心；不以未檢視的原圖推論診斷。"
+          },
+          "status": "draft"
+        }
+      ]
+    },
+    {
+      "id": "bcsc-s01-ch007",
+      "number": 7,
+      "title": "Cerebrovascular Disease",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            138,
+            139,
+            140,
+            141,
+            142,
+            143,
+            144,
+            145,
+            146,
+            147,
+            148,
+            149,
+            150,
+            151
+          ],
+          "printedPages": [
+            "119",
+            "132"
+          ],
+          "chapterHeading": "Cerebrovascular Disease"
+        }
+      ],
+      "units": [
+        {
+          "id": "bcsc-s01-ch007-u01",
+          "title": "急性局灶神經症狀：先分出血與缺血再談抗栓",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                138,
+                139,
+                140,
+                141,
+                142,
+                143,
+                144,
+                145,
+                146,
+                147,
+                148,
+                149,
+                150,
+                151
+              ],
+              "printedPages": [
+                "119",
+                "132"
+              ],
+              "chapterHeading": "Cerebrovascular Disease"
+            }
+          ],
+          "mechanism": [
+            "缺血與出血均可造成突發局灶缺損，但再灌流及抗血栓策略不同。",
+            "早期影像的首要作用之一是排除出血；敏感度較高的檢查不一定是最不延誤流程的選擇。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "突然同向偏盲或偏側無力",
+              "meaning": "視為急性腦血管事件線索"
+            },
+            {
+              "finding": "初期非增強CT無明顯梗塞",
+              "meaning": "不能據此排除早期缺血"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "缺血性中風",
+              "for": "急性局灶症狀、血管分布支持",
+              "against": "必須先排除出血與模仿者",
+              "discriminator": "急症影像及中風團隊評估"
+            },
+            {
+              "diagnosis": "顱內出血",
+              "for": "影像有出血支持",
+              "against": "症狀本身不足以排除",
+              "discriminator": "非增強腦CT"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "非增強腦CT",
+              "purpose": "快速辨識出血",
+              "interpretation": "無出血不等於已證實無缺血",
+              "limitation": "後顱窩及早期小病灶可能不明顯"
+            }
+          ],
+          "management": [
+            {
+              "condition": "新發局灶神經症狀",
+              "stage": "急症",
+              "action": "立即啟動中風流程並記最後正常時間",
+              "rationale": "治療效益受時間及影像選擇影響",
+              "caution": "本書部分時間窗與抗栓敘述偏舊；本單元不把其舊數字當現行全體適應症"
+            }
+          ],
+          "imageClues": [],
+          "pitfalls": [
+            {
+              "mistake": "在排除出血前先給抗栓",
+              "correction": "治療分流需先有急症影像與適應症評估"
+            }
+          ],
+          "recall": {
+            "prompt": "急性偏盲而CT未見梗塞，能否結束評估？",
+            "answer": "不能；早期CT可能不顯缺血，仍需中風評估。"
+          },
+          "notApplicable": {
+            "imageClues": "此單元以病史、功能或系統性檢驗判讀為核心；不以未檢視的原圖推論診斷。"
+          },
+          "status": "draft",
+          "clinicalUpdates": [
+            {
+              "statement": "急性缺血性中風：不能將本卷所列3小時一律當成現行排除治療界線。2026 AHA/ASA支持符合條件者於4.5小時內使用alteplase或tenecteplase；特定不明起始或4.5–9小時個案可依進階影像條件考慮延長窗。非致殘缺損與適合溶栓的致殘缺損不能混用同一路徑。",
+              "source": {
+                "title": "AHA/ASA 2026 AIS Guideline — Top Things to Know, items 3–4",
+                "url": "https://professional.heart.org/en/science-news/2026-guideline-for-the-early-management-of-patients-with-acute-ischemic-stroke/top-things-to-know",
+                "checkedAt": "2026-10-20"
+              },
+              "chapterIds": [
+                "bcsc-s01-ch007",
+                "bcsc-s01-ch017"
+              ],
+              "questionIds": [
+                "bcsc-s01-rq009",
+                "bcsc-s01-rq010"
+              ],
+              "verificationStatus": "primary-source-checked; independently-confirmed-by-basic-review"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bcsc-s01-ch008",
+      "number": 8,
+      "title": "Pulmonary Diseases",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            152,
+            153,
+            154,
+            155,
+            156,
+            157,
+            158,
+            159
+          ],
+          "printedPages": [
+            "133",
+            "140"
+          ],
+          "chapterHeading": "Pulmonary Diseases"
+        }
+      ],
+      "units": [
+        {
+          "id": "bcsc-s01-ch008-u01",
+          "title": "睡眠呼吸中止、吸菸與眼科風險",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                152,
+                153,
+                154,
+                155,
+                156,
+                157,
+                158,
+                159
+              ],
+              "printedPages": [
+                "133",
+                "140"
+              ],
+              "chapterHeading": "Pulmonary Diseases"
+            }
+          ],
+          "mechanism": [
+            "阻塞型睡眠呼吸中止造成反覆缺氧與睡眠中斷，與心血管及多種眼部病況相關。",
+            "吸菸是肺病與血管病的重要可改變暴露，眼科問診也應主動詢問。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "白天嗜睡、打鼾合併鬆弛眼瞼",
+              "meaning": "可提供OSA轉介線索"
+            },
+            {
+              "finding": "NAION或其他眼病合併睡眠症狀",
+              "meaning": "應考慮共同系統性風險，不以關聯直接證明因果"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "OSA相關風險",
+              "for": "睡眠症狀與共病支持",
+              "against": "眼病單獨出現不等於已確診OSA",
+              "discriminator": "睡眠專科評估"
+            },
+            {
+              "diagnosis": "COPD或其他肺病",
+              "for": "慢性呼吸症狀與吸菸暴露支持",
+              "against": "夜間症狀並非OSA專屬",
+              "discriminator": "病史與適應性肺功能檢查"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "睡眠病史與必要睡眠檢查",
+              "purpose": "驗證呼吸中止",
+              "interpretation": "需區分風險篩檢與正式診斷",
+              "limitation": "單一眼部徵象不能替代睡眠診斷"
+            }
+          ],
+          "management": [
+            {
+              "condition": "眼病合併疑似OSA症狀",
+              "stage": "系統風險處理",
+              "action": "轉介並同時管理眼部問題；吸菸者提供戒菸支持",
+              "rationale": "處理共同暴露與可改變危險因子",
+              "caution": "不承諾治療OSA一定逆轉既有眼神經損害"
+            }
+          ],
+          "imageClues": [],
+          "pitfalls": [
+            {
+              "mistake": "把OSA與青光眼關聯當成可直接逆轉的因果證據",
+              "correction": "區分關聯、風險評估與治療效果"
+            }
+          ],
+          "recall": {
+            "prompt": "鬆弛眼瞼合併嗜睡應多問哪個系統？",
+            "answer": "睡眠呼吸中止相關病史。"
+          },
+          "notApplicable": {
+            "imageClues": "此單元以病史、功能或系統性檢驗判讀為核心；不以未檢視的原圖推論診斷。"
+          },
+          "status": "draft"
+        }
+      ]
+    },
+    {
+      "id": "bcsc-s01-ch009",
+      "number": 9,
+      "title": "Hematologic Disorders",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            160,
+            161,
+            162,
+            163,
+            164,
+            165,
+            166,
+            167,
+            168,
+            169,
+            170,
+            171,
+            172,
+            173,
+            174,
+            175,
+            176,
+            177,
+            178,
+            179
+          ],
+          "printedPages": [
+            "141",
+            "160"
+          ],
+          "chapterHeading": "Hematologic Disorders"
+        }
+      ],
+      "units": [
+        {
+          "id": "bcsc-s01-ch009-u01",
+          "title": "貧血、血栓與血管脆弱：同樣出血卻不同病因",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                160,
+                161,
+                162,
+                163,
+                164,
+                165,
+                166,
+                167,
+                168,
+                169,
+                170,
+                171,
+                172,
+                173,
+                174,
+                175,
+                176,
+                177,
+                178,
+                179
+              ],
+              "printedPages": [
+                "141",
+                "160"
+              ],
+              "chapterHeading": "Hematologic Disorders"
+            }
+          ],
+          "mechanism": [
+            "紅血球來自髓系造血；淋巴系則產生淋巴球相關細胞。",
+            "Sideroblastic anemia的核心是鐵利用與heme合成障礙，不能見貧血就一律補鐵。",
+            "Factor V Leiden造成活化蛋白C調控失效；HHT則是血管異常並可有黏膜毛細血管擴張。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "結膜毛細血管擴張加反覆鼻出血",
+              "meaning": "考慮HHT及系統性血管異常"
+            },
+            {
+              "finding": "年輕者視網膜血管阻塞",
+              "meaning": "可評估特殊血栓背景；族群盛行率會影響檢驗前機率"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "血小板或凝血問題",
+              "for": "瘀青、出血型態可提供線索",
+              "against": "局部血管異常可有不同病理",
+              "discriminator": "出血史與相應檢驗"
+            },
+            {
+              "diagnosis": "血管壁異常",
+              "for": "局部黏膜血管擴張、家族史支持",
+              "against": "正常凝血數值不排除",
+              "discriminator": "理學檢查與家族/器官評估"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "血球、鐵代謝與適應性凝血檢驗",
+              "purpose": "分清產量、利用、破壞與凝血障礙",
+              "interpretation": "結果須與血球形態和臨床結合",
+              "limitation": "廣泛血栓檢驗不一定適合所有高齡常見型血管阻塞"
+            }
+          ],
+          "management": [
+            {
+              "condition": "疑似sideroblastic anemia",
+              "stage": "病因處理",
+              "action": "由血液科評估pyridoxine、鐵負荷及其他病因治療",
+              "rationale": "針對heme合成與鐵累積而非盲目補充",
+              "caution": "螯合藥也可有眼部毒性，需監測"
+            }
+          ],
+          "imageClues": [],
+          "pitfalls": [
+            {
+              "mistake": "缺鐵、鐵利用障礙與鐵過量都用同一補鐵策略",
+              "correction": "先確認病因和鐵負荷"
+            }
+          ],
+          "recall": {
+            "prompt": "HHT、Factor V Leiden、貧血的核心問題各在哪？",
+            "answer": "分別偏血管結構、抗凝調節及紅血球/血紅素生成。"
+          },
+          "notApplicable": {
+            "imageClues": "此單元以病史、功能或系統性檢驗判讀為核心；不以未檢視的原圖推論診斷。"
+          },
+          "status": "draft"
+        }
+      ]
+    },
+    {
+      "id": "bcsc-s01-ch010",
+      "number": 10,
+      "title": "Rheumatic Disorders",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            180,
+            181,
+            182,
+            183,
+            184,
+            185,
+            186,
+            187,
+            188,
+            189,
+            190,
+            191,
+            192,
+            193,
+            194,
+            195,
+            196,
+            197,
+            198,
+            199,
+            200,
+            201,
+            202,
+            203,
+            204,
+            205,
+            206,
+            207,
+            208,
+            209,
+            210,
+            211
+          ],
+          "printedPages": [
+            "161",
+            "192"
+          ],
+          "chapterHeading": "Rheumatic Disorders"
+        }
+      ],
+      "units": [
+        {
+          "id": "bcsc-s01-ch010-u01",
+          "title": "風濕病眼部表現：依組織而不是只依關節病名",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                180,
+                181,
+                182,
+                183,
+                184,
+                185,
+                186,
+                187,
+                188,
+                189,
+                190,
+                191,
+                192,
+                193,
+                194,
+                195,
+                196,
+                197,
+                198,
+                199,
+                200,
+                201,
+                202,
+                203,
+                204,
+                205,
+                206,
+                207,
+                208,
+                209,
+                210,
+                211
+              ],
+              "printedPages": [
+                "161",
+                "192"
+              ],
+              "chapterHeading": "Rheumatic Disorders"
+            }
+          ],
+          "mechanism": [
+            "RA可影響淚液、鞏膜與角膜；眼部疼痛與組織破壞不能只當成乾眼。",
+            "JIA相關葡萄膜炎可能沒有明顯症狀，寡關節型及特定自體抗體背景需要規劃篩檢。",
+            "感染後不對稱下肢關節炎、泌尿症狀與眼部炎症提示reactive arthritis。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "RA患者深層眼痛或角膜變薄",
+              "meaning": "需評估鞏膜炎與角膜融解"
+            },
+            {
+              "finding": "兒童關節炎但沒有紅眼抱怨",
+              "meaning": "仍可能有慢性前葡萄膜炎"
+            },
+            {
+              "finding": "乾眼加口乾而自體抗體陰性",
+              "meaning": "不能只由陰性血清排除Sjögren"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "RA相關眼病",
+              "for": "對稱性關節病與抗CCP背景支持",
+              "against": "前葡萄膜炎不是其唯一或最典型表現",
+              "discriminator": "眼部實際組織定位"
+            },
+            {
+              "diagnosis": "Reactive arthritis",
+              "for": "感染後尿道與不對稱關節症狀",
+              "against": "HLA-B27陽性不是單獨確診依據",
+              "discriminator": "臨床時序與鑑別"
+            },
+            {
+              "diagnosis": "Sjögren",
+              "for": "乾眼口乾及腺體功能異常",
+              "against": "乾燥症狀不專一",
+              "discriminator": "客觀檢驗及適應性唇部小唾液腺活檢"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "裂隙燈與角膜/鞏膜評估",
+              "purpose": "辨識無症狀炎症或組織危險",
+              "interpretation": "角膜融解與鞏膜炎改變處置急迫性",
+              "limitation": "正常外觀不能替代兒童定期裂隙燈篩檢"
+            },
+            {
+              "test": "自體抗體與腺體檢查",
+              "purpose": "支持系統診斷",
+              "interpretation": "抗CCP偏向RA；血清陰性仍可需其他客觀證據",
+              "limitation": "單一抗體不等於疾病活動度"
+            }
+          ],
+          "management": [
+            {
+              "condition": "JIA相關風險",
+              "stage": "預防失明",
+              "action": "依風險安排定期眼科檢查",
+              "rationale": "症狀不足以可靠發現早期炎症",
+              "caution": "間隔依現行兒童風濕/眼科規範決定"
+            },
+            {
+              "condition": "疑似威脅角膜或鞏膜的風濕病眼病",
+              "stage": "聯合照護",
+              "action": "同時評估感染及系統性免疫治療需求",
+              "rationale": "單靠眼表潤滑可能不足",
+              "caution": "免疫抑制前須考慮感染性模仿者"
+            }
+          ],
+          "imageClues": [],
+          "pitfalls": [
+            {
+              "mistake": "沒有痛就不需JIA眼科篩檢",
+              "correction": "JIA葡萄膜炎可無症狀"
+            },
+            {
+              "mistake": "血清陰性就排除Sjögren",
+              "correction": "可需客觀腺體或活檢證據"
+            }
+          ],
+          "recall": {
+            "prompt": "為何RA、JIA、reactive arthritis要分開記眼部表現？",
+            "answer": "侵犯組織、症狀顯著性與篩檢策略不同。"
+          },
+          "notApplicable": {
+            "imageClues": "此單元以病史、功能或系統性檢驗判讀為核心；不以未檢視的原圖推論診斷。"
+          },
+          "status": "draft",
+          "clinicalUpdates": [
+            {
+              "statement": "AAO 2025 revision仍以HCQ日劑量≤5.0 mg/kg實際體重為基準；重度肥胖者另需低於400 mg/day。這是降低風險的框架，不能保證無毒性。",
+              "source": {
+                "title": "AAO Special Report: Hydroxychloroquine Retinopathy Screening (2025 Revision)",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/41232611/",
+                "checkedAt": "2026-10-20"
+              },
+              "chapterIds": [
+                "bcsc-s01-ch010"
+              ],
+              "questionIds": [
+                "bcsc-s01-rq020"
+              ],
+              "verificationStatus": "primary-source-checked; independently-confirmed-by-basic-review"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bcsc-s01-ch011",
+      "number": 11,
+      "title": "Geriatrics",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            212,
+            213,
+            214,
+            215,
+            216,
+            217,
+            218,
+            219,
+            220,
+            221
+          ],
+          "printedPages": [
+            "193",
+            "202"
+          ],
+          "chapterHeading": "Geriatrics"
+        }
+      ],
+      "units": [
+        {
+          "id": "bcsc-s01-ch011-u01",
+          "title": "老人視覺照護：功能目標、復健與保護",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                212,
+                213,
+                214,
+                215,
+                216,
+                217,
+                218,
+                219,
+                220,
+                221
+              ],
+              "printedPages": [
+                "193",
+                "202"
+              ],
+              "chapterHeading": "Geriatrics"
+            }
+          ],
+          "mechanism": [
+            "老人照護重視功能、共病與支持系統；視力表不等於日常閱讀、行走與自理能力。",
+            "疑似虐待或疏忽時，照護者在場可能限制病人揭露；應保留私下訪談與客觀紀錄。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "反覆瘀青、急診就醫且敘事受照護者控制",
+              "meaning": "須考慮安全與受虐評估"
+            },
+            {
+              "finding": "視野缺損或對比下降但中央視力尚可",
+              "meaning": "仍可能有明顯功能障礙與復健需求"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "眼部光學或視網膜因素",
+              "for": "檢查有相應病灶",
+              "against": "無法解釋全部功能困難時須拓展",
+              "discriminator": "功能任務與眼部結果對照"
+            },
+            {
+              "diagnosis": "認知、環境或保護問題",
+              "for": "敘事、用藥及居家安全異常",
+              "against": "不能以年齡本身推定認知失能",
+              "discriminator": "分開詢問病人目標與支持情境"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "功能與低視能需求評估",
+              "purpose": "找可改善的生活任務",
+              "interpretation": "閱讀、行動、對比及視野比單一視力值更完整",
+              "limitation": "復健不是等到完全看不見才開始"
+            }
+          ],
+          "management": [
+            {
+              "condition": "疑似受虐或疏忽",
+              "stage": "安全評估",
+              "action": "安排私下病史、紀錄客觀所見並依地方法規轉介通報",
+              "rationale": "保護病人且避免被他人敘事取代",
+              "caution": "通報義務與程序需依所在地核對"
+            }
+          ],
+          "imageClues": [],
+          "pitfalls": [
+            {
+              "mistake": "高齡就只追求最佳視力數字",
+              "correction": "共同訂定可實現的生活功能目標"
+            }
+          ],
+          "recall": {
+            "prompt": "視力表正常，是否一定不需要視覺復健？",
+            "answer": "否；視野、對比、認知與任務需求仍可造成障礙。"
+          },
+          "notApplicable": {
+            "imageClues": "此單元以病史、功能或系統性檢驗判讀為核心；不以未檢視的原圖推論診斷。"
+          },
+          "status": "draft"
+        }
+      ]
+    },
+    {
+      "id": "bcsc-s01-ch012",
+      "number": 12,
+      "title": "Behavioral and Neurologic Disorders",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            222,
+            223,
+            224,
+            225,
+            226,
+            227,
+            228,
+            229,
+            230,
+            231,
+            232,
+            233,
+            234,
+            235,
+            236,
+            237,
+            238,
+            239,
+            240,
+            241
+          ],
+          "printedPages": [
+            "203",
+            "222"
+          ],
+          "chapterHeading": "Behavioral and Neurologic Disorders"
+        }
+      ],
+      "units": [
+        {
+          "id": "bcsc-s01-ch012-u01",
+          "title": "看不清卻眼檢查正常：從營養、藥物到高階視覺",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                222,
+                223,
+                224,
+                225,
+                226,
+                227,
+                228,
+                229,
+                230,
+                231,
+                232,
+                233,
+                234,
+                235,
+                236,
+                237,
+                238,
+                239,
+                240,
+                241
+              ],
+              "printedPages": [
+                "203",
+                "222"
+              ],
+              "chapterHeading": "Behavioral and Neurologic Disorders"
+            }
+          ],
+          "mechanism": [
+            "視覺功能可因情緒、認知與營養狀態改變；未找到眼球病灶不等於沒有器質性問題。",
+            "後部皮質萎縮可先以閱讀及視空間功能困難表現；單純再換鏡片未必改善。",
+            "Vigabatrin可造成周邊視野損害；精神科藥物也可透過代謝風險影響眼部健康。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "眼球檢查與視力表難以解釋閱讀障礙",
+              "meaning": "考慮高階視覺或認知評估"
+            },
+            {
+              "finding": "進食障礙加雙側點狀結膜出血",
+              "meaning": "可由反覆嘔吐造成；亦需評估營養缺乏"
+            },
+            {
+              "finding": "Vigabatrin使用者無主訴",
+              "meaning": "不能據無症狀排除視野毒性"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "後部皮質萎縮",
+              "for": "漸進閱讀或視空間障礙且眼檢查不相稱",
+              "against": "須排除其他神經病因",
+              "discriminator": "視野、認知及神經影像整合"
+            },
+            {
+              "diagnosis": "眼部屈光問題",
+              "for": "可有相應驗光改變",
+              "against": "矯正充分仍無改善需重新定位",
+              "discriminator": "比較最佳矯正功能與症狀"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "視野與認知功能檢查",
+              "purpose": "定位高階或周邊視覺異常",
+              "interpretation": "同向缺損支持視交叉後定位",
+              "limitation": "早期影像不一定能解釋全部症狀"
+            }
+          ],
+          "management": [
+            {
+              "condition": "功能困難與眼部結果不相稱",
+              "stage": "重新定位",
+              "action": "評估神經、認知、藥物及營養背景",
+              "rationale": "避免重複低效眼部處置",
+              "caution": "不得把所有無明顯眼病者歸為心理因素"
+            }
+          ],
+          "imageClues": [],
+          "pitfalls": [
+            {
+              "mistake": "白內障術後閱讀仍差就繼續換IOL",
+              "correction": "先確認屈光、眼底、視野與高階功能的因果鏈"
+            }
+          ],
+          "recall": {
+            "prompt": "何種「看不清」值得從眼球改往大腦定位？",
+            "answer": "最佳矯正視力與眼檢查尚可，卻有明顯閱讀、視空間或同向視野問題。"
+          },
+          "notApplicable": {
+            "imageClues": "此單元以病史、功能或系統性檢驗判讀為核心；不以未檢視的原圖推論診斷。"
+          },
+          "status": "draft"
+        }
+      ]
+    },
+    {
+      "id": "bcsc-s01-ch013",
+      "number": 13,
+      "title": "Preventive Medicine",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            242,
+            243,
+            244,
+            245,
+            246,
+            247,
+            248,
+            249,
+            250,
+            251,
+            252,
+            253,
+            254,
+            255,
+            256,
+            257,
+            258,
+            259,
+            260,
+            261,
+            262,
+            263
+          ],
+          "printedPages": [
+            "223",
+            "244"
+          ],
+          "chapterHeading": "Preventive Medicine"
+        }
+      ],
+      "units": [
+        {
+          "id": "bcsc-s01-ch013-u01",
+          "title": "篩檢的獲益與代價、疫苗的預防層次",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                242,
+                243,
+                244,
+                245,
+                246,
+                247,
+                248,
+                249,
+                250,
+                251,
+                252,
+                253,
+                254,
+                255,
+                256,
+                257,
+                258,
+                259,
+                260,
+                261,
+                262,
+                263
+              ],
+              "printedPages": [
+                "223",
+                "244"
+              ],
+              "chapterHeading": "Preventive Medicine"
+            }
+          ],
+          "mechanism": [
+            "篩檢必須衡量疾病風險、偽陽性、過度診斷與後續處置傷害；不是檢驗越多越安全。",
+            "疫苗可在感染或嚴重疾病發生前提供保護；抗原靶點與疫苗平台是兩個不同概念。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "無症狀且平均風險者要求大量腫瘤檢驗",
+              "meaning": "需要先談適用族群與可能傷害"
+            },
+            {
+              "finding": "同為mRNA或載體疫苗",
+              "meaning": "平台不同不代表其抗原靶點一定不同"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "高風險篩檢",
+              "for": "家族史、遺傳背景或其他風險支持",
+              "against": "不能直接套用平均風險族群安排",
+              "discriminator": "個別化風險與共同決策"
+            },
+            {
+              "diagnosis": "診斷性檢查",
+              "for": "已出現症狀或徵象",
+              "against": "不再是單純無症狀篩檢問題",
+              "discriminator": "依症狀建立檢驗前機率"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "風險與篩檢適用性評估",
+              "purpose": "判斷是否進入篩檢路徑",
+              "interpretation": "應同時看可治療性及後續結果",
+              "limitation": "僅檢出率高不代表死亡或功能獲益"
+            }
+          ],
+          "management": [
+            {
+              "condition": "討論PSA或其他腫瘤篩檢",
+              "stage": "共同決策",
+              "action": "解釋可能獲益、偽陽性與後續處置負擔",
+              "rationale": "使選擇符合風險與病人偏好",
+              "caution": "本書數字與年齡規範需另核最新版，不推導成年度例行檢驗處方"
+            }
+          ],
+          "imageClues": [],
+          "pitfalls": [
+            {
+              "mistake": "陽性檢出更多就是篩檢更好",
+              "correction": "需看病人重要結果、過度診斷與處置傷害"
+            }
+          ],
+          "recall": {
+            "prompt": "疫苗平台與抗原靶點有何不同？",
+            "answer": "平台是遞送或產生抗原的方法；靶點是免疫系統辨識的病毒成分。"
+          },
+          "notApplicable": {
+            "imageClues": "此單元以病史、功能或系統性檢驗判讀為核心；不以未檢視的原圖推論診斷。"
+          },
+          "status": "draft",
+          "clinicalUpdates": [
+            {
+              "statement": "目前USPSTF攝護腺癌篩檢最終建議頁為2018版，更新進行中：55–69歲是否接受PSA篩檢採個人決策；70歲以上不建議例行PSA篩檢。家族史須納入討論，不等於自動年度篩檢。",
+              "source": {
+                "title": "USPSTF Prostate Cancer: Screening, final recommendation and update status",
+                "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/prostate-cancer-screening",
+                "checkedAt": "2026-10-20"
+              },
+              "chapterIds": [
+                "bcsc-s01-ch013"
+              ],
+              "questionIds": [
+                "bcsc-s01-rq024"
+              ],
+              "verificationStatus": "primary-source-checked; independently-confirmed-by-basic-review"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bcsc-s01-ch014",
+      "number": 14,
+      "title": "Cancer",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            264,
+            265,
+            266,
+            267,
+            268,
+            269,
+            270,
+            271,
+            272,
+            273
+          ],
+          "printedPages": [
+            "245",
+            "254"
+          ],
+          "chapterHeading": "Cancer"
+        }
+      ],
+      "units": [
+        {
+          "id": "bcsc-s01-ch014-u01",
+          "title": "癌症分期、治療時序與眼部代價",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                264,
+                265,
+                266,
+                267,
+                268,
+                269,
+                270,
+                271,
+                272,
+                273
+              ],
+              "printedPages": [
+                "245",
+                "254"
+              ],
+              "chapterHeading": "Cancer"
+            }
+          ],
+          "mechanism": [
+            "TNM分別整理原發腫瘤範圍、區域淋巴結與遠端轉移；不是把所有腫瘤特徵混成單一字母。",
+            "Neoadjuvant治療在手術前用來改善可切除性或縮小處置；adjuvant則在手術後處理殘留微觀風險。",
+            "眼部副作用可能來自輻射、化療或免疫解除煞車後的炎症。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "免疫檢查點抑制後新發雙眼畏光、視力下降",
+              "meaning": "需考慮藥物相關眼內炎症"
+            },
+            {
+              "finding": "接受輻射後水晶體逐漸混濁",
+              "meaning": "病程與曝露可支持輻射性白內障"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "腫瘤直接眼部侵犯",
+              "for": "局部病灶與轉移背景支持",
+              "against": "症狀也可來自治療本身",
+              "discriminator": "定位病灶並連結影像及腫瘤病史"
+            },
+            {
+              "diagnosis": "治療相關炎症或毒性",
+              "for": "與治療時序相關",
+              "against": "不能未排感染就假定皆免疫性",
+              "discriminator": "眼部檢查與跨科評估"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "裂隙燈、眼底與適應性影像",
+              "purpose": "區分水晶體、眼內炎症與占位",
+              "interpretation": "不同組織受損有不同處置",
+              "limitation": "單憑藥名不能確定因果"
+            }
+          ],
+          "management": [
+            {
+              "condition": "抗癌治療期間新發眼部症狀",
+              "stage": "聯合風險管理",
+              "action": "及時眼科評估並與腫瘤科討論",
+              "rationale": "平衡視力風險與抗癌必要性",
+              "caution": "勿自行停止救命治療；免疫治療眼病也需排除感染"
+            }
+          ],
+          "imageClues": [],
+          "pitfalls": [
+            {
+              "mistake": "把術前化療稱adjuvant",
+              "correction": "術前為neoadjuvant，術後為adjuvant"
+            }
+          ],
+          "recall": {
+            "prompt": "同樣是視力下降，癌症病人為何需同時想病灶與治療？",
+            "answer": "腫瘤直接作用、轉移、放射與免疫/藥物毒性可造成不同眼部病變。"
+          },
+          "notApplicable": {
+            "imageClues": "此單元以病史、功能或系統性檢驗判讀為核心；不以未檢視的原圖推論診斷。"
+          },
+          "status": "draft"
+        }
+      ]
+    },
+    {
+      "id": "bcsc-s01-ch015",
+      "number": 15,
+      "title": "Infectious Diseases",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            274,
+            275,
+            276,
+            277,
+            278,
+            279,
+            280,
+            281,
+            282,
+            283,
+            284,
+            285,
+            286,
+            287,
+            288,
+            289,
+            290,
+            291,
+            292,
+            293,
+            294,
+            295,
+            296,
+            297,
+            298,
+            299,
+            300,
+            301,
+            302,
+            303,
+            304,
+            305,
+            306,
+            307,
+            308,
+            309
+          ],
+          "printedPages": [
+            "255",
+            "290"
+          ],
+          "chapterHeading": "Infectious Diseases"
+        }
+      ],
+      "units": [
+        {
+          "id": "bcsc-s01-ch015-u01",
+          "title": "感染檢驗、抗藥性與治療後新症狀",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                274,
+                275,
+                276,
+                277,
+                278,
+                279,
+                280,
+                281,
+                282,
+                283,
+                284,
+                285,
+                286,
+                287,
+                288,
+                289,
+                290,
+                291,
+                292,
+                293,
+                294,
+                295,
+                296,
+                297,
+                298,
+                299,
+                300,
+                301,
+                302,
+                303,
+                304,
+                305,
+                306,
+                307,
+                308,
+                309
+              ],
+              "printedPages": [
+                "255",
+                "290"
+              ],
+              "chapterHeading": "Infectious Diseases"
+            }
+          ],
+          "mechanism": [
+            "核酸檢測可提高某些病原偵測能力，但檢驗選擇仍受採樣部位、時機及臨床情境影響。",
+            "抗生素可破壞正常菌叢，使C. difficile相關疾病風險上升；治療後腹瀉不一定是原感染惡化。",
+            "Hib疫苗降低特定兒童感染；舊研究的敏感性結果不代表所有年代、所有族群永遠相同。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "使用clindamycin後發燒腹瀉",
+              "meaning": "考慮C. difficile並做合適糞便檢驗"
+            },
+            {
+              "finding": "淋巴結、皮疹、全身不適與梅毒風險",
+              "meaning": "辨識次期感染表現，眼部表現可跨期出現"
+            },
+            {
+              "finding": "Ethambutol後視力/色覺改變",
+              "meaning": "同時考慮抗感染藥眼神經毒性"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "感染復發",
+              "for": "症狀與原病灶/病原相符",
+              "against": "新器官症狀可能是治療併發症",
+              "discriminator": "時序、部位與檢驗"
+            },
+            {
+              "diagnosis": "抗生素相關腸炎",
+              "for": "新發腹瀉與暴露時序支持",
+              "against": "單純帶菌不等於症狀性疾病",
+              "discriminator": "依臨床條件選用毒素/核酸等檢驗策略"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "病原學與抗藥性資料",
+              "purpose": "依病灶選擇治療",
+              "interpretation": "本地與個別分離菌結果較能支持當前決策",
+              "limitation": "ARMOR等歷史資料不能代替現場藥敏"
+            },
+            {
+              "test": "視力、色覺、中心視野及視神經檢查",
+              "purpose": "偵測疑似ethambutol毒性",
+              "interpretation": "雙眼中心功能改變需連結用藥",
+              "limitation": "無症狀或單次正常值不能概括全部風險"
+            }
+          ],
+          "management": [
+            {
+              "condition": "抗生素使用後新發發燒腹瀉",
+              "stage": "再評估",
+              "action": "依C. difficile症狀及檢驗路徑處理並檢討誘發藥",
+              "rationale": "避免僅因原病灶好轉而忽略新疾病",
+              "caution": "治療選擇及隔離措施需核對現行規範"
+            }
+          ],
+          "imageClues": [],
+          "pitfalls": [
+            {
+              "mistake": "ARMOR樣本全敏感就宣稱某藥永遠不會抗藥",
+              "correction": "研究結果有時空與採樣限制"
+            }
+          ],
+          "recall": {
+            "prompt": "感染治療已有效，為何新發腹瀉仍需重新定位？",
+            "answer": "可能是抗生素導致的菌叢與毒素相關併發症，而非原病灶。"
+          },
+          "notApplicable": {
+            "imageClues": "此單元以病史、功能或系統性檢驗判讀為核心；不以未檢視的原圖推論診斷。"
+          },
+          "status": "draft"
+        }
+      ]
+    },
+    {
+      "id": "bcsc-s01-ch016",
+      "number": 16,
+      "title": "Perioperative Management in ­Ocular Surgery",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            310,
+            311,
+            312,
+            313,
+            314,
+            315,
+            316,
+            317,
+            318,
+            319,
+            320,
+            321,
+            322,
+            323,
+            324,
+            325
+          ],
+          "printedPages": [
+            "291",
+            "306"
+          ],
+          "chapterHeading": "Perioperative Management in ­Ocular Surgery"
+        }
+      ],
+      "units": [
+        {
+          "id": "bcsc-s01-ch016-u01",
+          "title": "術前評估、抗凝與麻醉併發症",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                310,
+                311,
+                312,
+                313,
+                314,
+                315,
+                316,
+                317,
+                318,
+                319,
+                320,
+                321,
+                322,
+                323,
+                324,
+                325
+              ],
+              "printedPages": [
+                "291",
+                "306"
+              ],
+              "chapterHeading": "Perioperative Management in ­Ocular Surgery"
+            }
+          ],
+          "mechanism": [
+            "低風險眼科手術不使沒有適應症的例行檢驗自動變成必要；病史與身體評估仍不可省。",
+            "停抗凝須平衡手術出血與血栓風險；可逆轉藥物有其特定靶點，不是通用解藥。",
+            "局部麻醉藥若進入眼外肌可先造成肌力異常，之後纖維化形成限制性斜視。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "球後麻醉後逐漸出現固定複視且forced duction陽性",
+              "meaning": "支持機械性限制而非單純神經肌接合疲弱"
+            },
+            {
+              "finding": "手術前要求一律抽血心電圖",
+              "meaning": "先判斷檢驗在非手術情況是否同樣有適應症"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "限制性斜視",
+              "for": "被動牽拉受限支持",
+              "against": "MG或失代償隱斜通常不造成被動限制",
+              "discriminator": "forced duction與病史"
+            },
+            {
+              "diagnosis": "麻醉相關肌毒性",
+              "for": "局部注射與後續纖維化時序支持",
+              "against": "仍需排除甲狀腺或外傷限制",
+              "discriminator": "結構與時間關係"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "針對性術前檢驗",
+              "purpose": "驗證病史提示的風險",
+              "interpretation": "檢驗結果應有可能改變計畫",
+              "limitation": "無差別檢驗未必改善低風險手術結果"
+            }
+          ],
+          "management": [
+            {
+              "condition": "規劃眼科手術",
+              "stage": "術前",
+              "action": "完成病史與功能風險評估，再依適應症選檢驗和藥物計畫",
+              "rationale": "降低出血、血栓與麻醉風險",
+              "caution": "抗凝停藥及逆轉須與相關團隊依現行規範決定"
+            }
+          ],
+          "imageClues": [],
+          "pitfalls": [
+            {
+              "mistake": "低風險手術就可省略病史",
+              "correction": "省不必要檢驗不等於省略術前評估"
+            }
+          ],
+          "recall": {
+            "prompt": "術前檢驗的核心問題是什麼？",
+            "answer": "這項檢驗是否因病人本身的風險而需要，且結果是否會改變照護。"
+          },
+          "notApplicable": {
+            "imageClues": "此單元以病史、功能或系統性檢驗判讀為核心；不以未檢視的原圖推論診斷。"
+          },
+          "status": "draft"
+        }
+      ]
+    },
+    {
+      "id": "bcsc-s01-ch017",
+      "number": 17,
+      "title": "Medical Emergencies and ­Adverse Effects of Ophthalmic and Systemic Medi­cations",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            326,
+            327,
+            328,
+            329,
+            330,
+            331,
+            332,
+            333,
+            334,
+            335,
+            336,
+            337,
+            338,
+            339,
+            340,
+            341,
+            342,
+            343,
+            344,
+            345,
+            346,
+            347
+          ],
+          "printedPages": [
+            "307",
+            "328"
+          ],
+          "chapterHeading": "Medical Emergencies and ­Adverse Effects of Ophthalmic and Systemic Medi­cations"
+        }
+      ],
+      "units": [
+        {
+          "id": "bcsc-s01-ch017-u01",
+          "title": "診間急症：先辨生理失衡再使用對應解救",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                326,
+                327,
+                328,
+                329,
+                330,
+                331,
+                332,
+                333,
+                334,
+                335,
+                336,
+                337,
+                338,
+                339,
+                340,
+                341,
+                342,
+                343,
+                344,
+                345,
+                346,
+                347
+              ],
+              "printedPages": [
+                "307",
+                "328"
+              ],
+              "chapterHeading": "Medical Emergencies and ­Adverse Effects of Ophthalmic and Systemic Medi­cations"
+            }
+          ],
+          "mechanism": [
+            "心跳停止需迅速辨識並啟動求救、胸外按壓與AED；急救不應等完整診斷後才開始。",
+            "Cholinergic過度刺激可造成出汗、分泌物、腸胃症狀及心搏過慢；antimuscarinic作用可對抗其部分生理效應。",
+            "急性視覺或神經症狀可能是全身急症的第一個線索。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "膽鹼酯酶抑制測試後出汗、噁心、心搏過慢",
+              "meaning": "考慮膽鹼性不良反應而非立刻當成鴉片類中毒"
+            },
+            {
+              "finding": "突然無反應且無正常呼吸",
+              "meaning": "立即進入急救流程"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "膽鹼性反應",
+              "for": "分泌與副交感症狀群支持",
+              "against": "naloxone處理的是另一受體機制",
+              "discriminator": "暴露時序與生理表現"
+            },
+            {
+              "diagnosis": "低血糖或其他意識改變",
+              "for": "病史與床邊結果可支持",
+              "against": "不能因有糖尿病就忽略心跳停止",
+              "discriminator": "先辨反應、呼吸循環並做適應性床邊檢驗"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "即時生命徵象與床邊評估",
+              "purpose": "確認危及生命的生理問題",
+              "interpretation": "急救與檢查應依優先順序並行",
+              "limitation": "不可讓非必要檢驗延誤復甦"
+            }
+          ],
+          "management": [
+            {
+              "condition": "疑似膽鹼性心搏過慢等毒性",
+              "stage": "立即處置",
+              "action": "停止誘發程序、支持呼吸循環並依急救規範使用對應藥物",
+              "rationale": "處理受體效應與灌流風險",
+              "caution": "原書edrophonium及劑量敘述屬教材情境；本單元不取代現行急救劑量流程"
+            }
+          ],
+          "imageClues": [],
+          "pitfalls": [
+            {
+              "mistake": "所有昏迷都先給naloxone",
+              "correction": "按生理表現和暴露選擇解救，且不能延誤基本復甦"
+            }
+          ],
+          "recall": {
+            "prompt": "膽鹼性症候群為何不直接用naloxone？",
+            "answer": "毒性機轉不是鴉片類受體；先支持生命，再處理相應受體效應。"
+          },
+          "notApplicable": {
+            "imageClues": "此單元以病史、功能或系統性檢驗判讀為核心；不以未檢視的原圖推論診斷。"
+          },
+          "status": "draft",
+          "clinicalUpdates": [
+            {
+              "statement": "急性缺血性中風：不能將本卷所列3小時一律當成現行排除治療界線。2026 AHA/ASA支持符合條件者於4.5小時內使用alteplase或tenecteplase；特定不明起始或4.5–9小時個案可依進階影像條件考慮延長窗。非致殘缺損與適合溶栓的致殘缺損不能混用同一路徑。",
+              "source": {
+                "title": "AHA/ASA 2026 AIS Guideline — Top Things to Know, items 3–4",
+                "url": "https://professional.heart.org/en/science-news/2026-guideline-for-the-early-management-of-patients-with-acute-ischemic-stroke/top-things-to-know",
+                "checkedAt": "2026-10-20"
+              },
+              "chapterIds": [
+                "bcsc-s01-ch007",
+                "bcsc-s01-ch017"
+              ],
+              "questionIds": [
+                "bcsc-s01-rq009",
+                "bcsc-s01-rq010"
+              ],
+              "verificationStatus": "primary-source-checked; independently-confirmed-by-basic-review"
+            },
+            {
+              "statement": "Atropine的劑量必須連同適應症閱讀。2025 AHA成人有脈搏心搏過慢、合併心肺灌流不良的流程列首劑1 mg IV；本卷edrophonium測試後膽鹼性反應所寫0.5 mg不能被抽成所有成人心搏過慢的通用首劑。兒童及特定毒物情境亦不能直接套此成人流程。",
+              "source": {
+                "title": "AHA 2025 Adult Bradycardia With a Pulse Algorithm",
+                "url": "https://cpr.heart.org/-/media/CPR-Files/CPR-Guidelines-Files/2025-Algorithms/Algorithm-ACLS-Bradycardia-250514.pdf?sc_lang=en",
+                "checkedAt": "2026-10-20"
+              },
+              "chapterIds": [
+                "bcsc-s01-ch017"
+              ],
+              "questionIds": [
+                "bcsc-s01-rq037"
+              ],
+              "verificationStatus": "primary-source-checked; independently-confirmed-by-basic-review"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "bcsc-s01-rq001",
+      "sourceQuestionKey": "bcsc-s01-rq001",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 1,
+      "chapterIds": [
+        "bcsc-s01-ch001"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch001-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            348,
+            356
+          ],
+          "printedPages": [
+            "329",
+            "337"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "讀書會回顧2024–2025版本卷用於說明美國醫療可近性的資料。按該書引用的年代，未投保人口約占哪個量級？本題考教材歷史數字，不詢問2026年現況。",
+      "options": [
+        {
+          "text": "約十分之一",
+          "rationale": "本卷引用約10%；用途是理解保險障礙仍影響可近性。",
+          "whenTrue": "限於本卷所引用的美國歷史統計，不能直接套用台灣或當年最新資料。"
+        },
+        {
+          "text": "約五十分之一",
+          "rationale": "約2%低於來源的約10%。",
+          "whenTrue": "若另一個明確資料集未投保比例約2%，才符合此量級；不是本書資料。"
+        },
+        {
+          "text": "約六分之一",
+          "rationale": "約15%較接近這個量級，但不是本卷的選定估計。",
+          "whenTrue": "適用於未投保比例約15%–17%的另一定義與年代資料。"
+        },
+        {
+          "text": "約五分之一",
+          "rationale": "20%高於書中所列的約10%。",
+          "whenTrue": "需有明確另一定義或年代20%的資料支持。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "原考點是來源年代約10%的比例；不能先把10%給在題幹再只考乘法。群體比例也不能取代對個人費用、保險、交通與語言障礙的詢問。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s01-rq002",
+      "sourceQuestionKey": "bcsc-s01-rq002",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 2,
+      "chapterIds": [
+        "bcsc-s01-ch002"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch002-u01",
+        "bcsc-s01-ch002-u02"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            348,
+            356
+          ],
+          "printedPages": [
+            "329",
+            "337"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "追蹤青光眼復健成效時，團隊把患者閱讀困難分為「無、輕、中、重」。相鄰類別未被證明等距。這個單一項目最適合先視為哪種資料？",
+      "options": [
+        {
+          "text": "序位資料",
+          "rationale": "四類有可解釋的次序，但不能由編碼保證等距。",
+          "whenTrue": "有順序的等級評分，且未證明級距相等時。"
+        },
+        {
+          "text": "名目資料",
+          "rationale": "它忽略了本題明確存在的困難程度排序。",
+          "whenTrue": "血型、疾病類別等只有類別而無自然順序時。"
+        },
+        {
+          "text": "連續等距資料",
+          "rationale": "本題未證明分數間的差值可當成相同量。",
+          "whenTrue": "量測本身有可解釋且等距的數值差異時。"
+        },
+        {
+          "text": "二元資料",
+          "rationale": "本題有四個等級，尚未被合併為兩類。",
+          "whenTrue": "例如是否完成療程，或事先明確定義成功/失敗時。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "先辨識資料尺度，再選描述與分析方法。可排序不等於等距；若為分析將其合併成二元，也會改變原始資訊。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s01-rq003",
+      "sourceQuestionKey": "bcsc-s01-rq003",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 3,
+      "chapterIds": [
+        "bcsc-s01-ch003"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch003-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            348,
+            356
+          ],
+          "printedPages": [
+            "329",
+            "337"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "甲狀腺眼病治療討論中，病人問teprotumumab為何與單純調整甲狀腺素不同。最合適的機轉說明是？",
+      "options": [
+        {
+          "text": "阻斷IGF-1受體訊號，介入眼眶相關自體免疫途徑",
+          "rationale": "這是本卷列示的藥物標靶。",
+          "whenTrue": "討論teprotumumab機轉時。"
+        },
+        {
+          "text": "抑制甲狀腺過氧化酶以減少荷爾蒙合成",
+          "rationale": "這描述的是抗甲狀腺合成藥的作用方向，不是teprotumumab。",
+          "whenTrue": "討論methimazole等藥物時。"
+        },
+        {
+          "text": "直接阻斷VEGF以使視網膜新生血管消退",
+          "rationale": "此機轉不對應本題眼眶疾病與藥物。",
+          "whenTrue": "討論抗VEGF治療相關視網膜病變時。"
+        },
+        {
+          "text": "可逆抑制acetylcholinesterase以增加神經肌接合處乙醯膽鹼",
+          "rationale": "這屬pyridostigmine等藥物的機轉，不是teprotumumab的IGF-1R阻斷。",
+          "whenTrue": "以pyridostigmine改善myasthenia gravis的症狀性治療時。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "藥物名稱與疾病名不應取代標靶理解：本題要區別眼眶免疫訊號治療與甲狀腺荷爾蒙控制。適應症和監測另依現行規範。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s01-rq004",
+      "sourceQuestionKey": "bcsc-s01-rq004",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 4,
+      "chapterIds": [
+        "bcsc-s01-ch003"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch003-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            348,
+            356
+          ],
+          "printedPages": [
+            "329",
+            "337"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "一家族被辨識為RET相關多發內分泌腫瘤症候群；團隊依本卷MEN2及MEN3的內容討論主要腫瘤風險。哪一項最應列入核心評估？",
+      "options": [
+        {
+          "text": "甲狀腺髓質癌",
+          "rationale": "本卷將其列為這些症候群的重要、常見惡性腫瘤。",
+          "whenTrue": "MEN2相關家族風險與對應遺傳評估時。"
+        },
+        {
+          "text": "甲狀腺乳突癌",
+          "rationale": "雖是常見甲狀腺癌，卻不是此症候群配對的主要答案。",
+          "whenTrue": "討論一般甲狀腺結節或其他風險背景時。"
+        },
+        {
+          "text": "視網膜母細胞瘤",
+          "rationale": "其經典遺傳連結是RB1，非本題內分泌症候群。",
+          "whenTrue": "兒童白瞳或RB1家族史時。"
+        },
+        {
+          "text": "腎母細胞瘤",
+          "rationale": "需想到WAGR等不同遺傳背景，不能與MEN標籤混配。",
+          "whenTrue": "虹膜缺損合併相應發育異常或基因風險時。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "先確認症候群的分子與腫瘤配對，再處理不同版本的命名。本卷MEN3相當於部分舊稱MEN2B的脈絡，不能因名稱不同漏掉髓質癌風險。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s01-rq005",
+      "sourceQuestionKey": "bcsc-s01-rq005",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 5,
+      "chapterIds": [
+        "bcsc-s01-ch004"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch004-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            349,
+            356
+          ],
+          "printedPages": [
+            "330",
+            "337"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "讀書會限定回顧本卷引用的2017 ACC/AHA框架。一位Black成人沒有CKD、心衰竭或缺血性心臟病，若依該版無特殊共病的初始選藥敘述，最符合哪組？",
+      "options": [
+        {
+          "text": "Thiazide類利尿劑或鈣離子通道阻斷劑",
+          "rationale": "是來源該框架所列的初始類別。",
+          "whenTrue": "本題指定的歷史族群框架且無改變選藥的特殊共病時。"
+        },
+        {
+          "text": "ACE inhibitor或ARB作優先選擇",
+          "rationale": "這類藥可有重要共病適應症，但不是書中此限定族群的優先配對。",
+          "whenTrue": "合併蛋白尿性CKD等需RAAS阻斷的條件，且無禁忌時。"
+        },
+        {
+          "text": "β阻斷劑",
+          "rationale": "本題沒有足以優先選它的心臟適應症。",
+          "whenTrue": "特定缺血性心臟病、心律問題或適合的心衰竭情境。"
+        },
+        {
+          "text": "Loop利尿劑",
+          "rationale": "它的容量處理角色不同於本題初始常規類別。",
+          "whenTrue": "合併明顯鬱血或特定腎功能下需處理容量時。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "這是來源版次的歷史框架題；2025 AHA/ACC已替代2017版本，今日個體處方應整合共病、腎功能、風險與耐受性，不能僅靠族群分類。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "clinicalUpdates": [
+        {
+          "statement": "高血壓：2025 AHA/ACC指引已取代本卷引用的2017指引，新增PREVENT風險方程式等決策更新。Q5明確保留為該版教材的歷史框架回顧，不作為僅依族群分類的當前個別處方；診間外量測與共病風險仍須納入。",
+          "source": {
+            "title": "AHA 2025 High Blood Pressure Guideline summary",
+            "url": "https://professional.heart.org/en/science-news/2025-high-blood-pressure-guideline",
+            "checkedAt": "2026-10-20"
+          },
+          "chapterIds": [
+            "bcsc-s01-ch004"
+          ],
+          "questionIds": [
+            "bcsc-s01-rq005"
+          ],
+          "verificationStatus": "primary-source-checked; independently-confirmed-by-basic-review"
+        }
+      ],
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s01-rq006",
+      "sourceQuestionKey": "bcsc-s01-rq006",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 6,
+      "chapterIds": [
+        "bcsc-s01-ch005"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch005-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            349,
+            356
+          ],
+          "printedPages": [
+            "330",
+            "337"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "下列哪位病人最符合本卷把注射型PCSK9抑制劑當作「加強治療」的角色？",
+      "options": [
+        {
+          "text": "已有ASCVD，已確認依從性並使用最大可耐受statin，LDL仍未達適合其風險的目標",
+          "rationale": "來源的核心是高風險且statin不足時的附加治療，不是把它當所有人的第一步。",
+          "whenTrue": "在個別風險、既有治療與其他加藥選項完成評估且符合適應症時。"
+        },
+        {
+          "text": "低風險成人尚未調整生活型態，希望先用注射藥取代風險評估",
+          "rationale": "尚未建立本題所需高風險及既有治療不足的條件。",
+          "whenTrue": "若之後診斷極高風險或特殊遺傳性高膽固醇血症，才須依該情境重評。"
+        },
+        {
+          "text": "病人主要問題是重度高三酸甘油酯與胰臟炎風險",
+          "rationale": "本題PCSK9的主軸是LDL受體與LDL降低，非此主要治療目標。",
+          "whenTrue": "需優先處理三酸甘油酯與其病因時，應採對應飲食和降TG策略。"
+        },
+        {
+          "text": "血脂已達個別治療目標，這次需處理急性血小板血栓",
+          "rationale": "抑制PCSK9不能替代急性抗血小板或再灌流的適應症。",
+          "whenTrue": "急性冠脈事件的抗栓與再灌流處理屬不同且可並行的決策。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "PCSK9促進LDL受體降解；抑制後受體可再利用，增加肝臟清除LDL。Statin為來源大多數需藥物者的基礎；必要時評估ezetimibe或PCSK9。原書個別LDL數值不能被擴張成所有風險族群的停藥門檻。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s01-rq007",
+      "sourceQuestionKey": "bcsc-s01-rq007",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 7,
+      "chapterIds": [
+        "bcsc-s01-ch006"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch006-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            349,
+            356
+          ],
+          "printedPages": [
+            "330",
+            "337"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "一個HFrEF教學案例使用動脈擴張策略，目的在減少左心室射血時必須克服的阻力。這最直接稱為降低哪種負荷？",
+      "options": [
+        {
+          "text": "後負荷",
+          "rationale": "心室射血要克服的動脈阻力就是本題主要概念。",
+          "whenTrue": "討論動脈擴張與射血負擔時。"
+        },
+        {
+          "text": "前負荷",
+          "rationale": "它偏向舒張充盈，並不等同射血阻力。",
+          "whenTrue": "討論靜脈回流與心室充盈時。"
+        },
+        {
+          "text": "心率",
+          "rationale": "它描述每單位時間搏動次數，與本題阻力定義不同。",
+          "whenTrue": "討論降低心搏過速或控制某些心律問題時。"
+        },
+        {
+          "text": "房室傳導速度",
+          "rationale": "它是電傳導特性，不是左心室射血的機械阻力。",
+          "whenTrue": "討論影響AV node的藥物或傳導疾病時。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "本題重述負荷的生理差別，不宣稱降低後負荷就是HFrEF完整治療。現行整體心衰竭治療仍須由病因、灌流、鬱血與改善預後策略共同構成。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s01-rq008",
+      "sourceQuestionKey": "bcsc-s01-rq008",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 8,
+      "chapterIds": [
+        "bcsc-s01-ch006"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch006-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            349,
+            356
+          ],
+          "printedPages": [
+            "330",
+            "337"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "一名病人曾因非可逆誘因造成的惡性心室心律不整獲救。團隊討論能偵測並終止再次致命心室事件的裝置，最符合哪項？",
+      "options": [
+        {
+          "text": "植入式心律去顫器ICD",
+          "rationale": "可偵測並終止相應致命心室事件。",
+          "whenTrue": "符合二級預防等適應症並評估可逆誘因後。"
+        },
+        {
+          "text": "冠狀動脈支架",
+          "rationale": "它處理特定血管病灶的血流，不提供本題的心律終止功能。",
+          "whenTrue": "有適當冠狀動脈血流重建需求時。"
+        },
+        {
+          "text": "僅以抗心律不整藥取代裝置評估",
+          "rationale": "藥物可能有角色，但不能由此排除本題ICD適應性評估。",
+          "whenTrue": "需要藥物控制或與裝置併用時應由心臟科規劃。"
+        },
+        {
+          "text": "一般單純心律節律器",
+          "rationale": "它主要處理特定過慢心律，非所有此類裝置皆有去顫功能。",
+          "whenTrue": "有符合節律器適應症的過慢心律或傳導問題時。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "先排查可逆原因並確認適應症。ICD處理再次致命心室心律的風險，不取代缺血、結構病與心衰竭的治療。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s01-rq009",
+      "sourceQuestionKey": "bcsc-s01-rq009",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 9,
+      "chapterIds": [
+        "bcsc-s01-ch007"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch007-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            349,
+            357
+          ],
+          "printedPages": [
+            "330",
+            "338"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "急診病人突然偏側無力，團隊正在評估再灌流治療。若當下最急迫的影像問題是「有沒有顱內出血」，哪個檢查最直接符合快速分流目的？",
+      "options": [
+        {
+          "text": "非增強腦部CT",
+          "rationale": "可快速評估出血並支援初始急症分流。",
+          "whenTrue": "題目限定立即排除顱內出血且CT可快速取得時。"
+        },
+        {
+          "text": "先做頸動脈超音波",
+          "rationale": "可找部分血管風險，卻不能完成眼前顱內出血判斷。",
+          "whenTrue": "進一步評估頸動脈病變與次級預防時。"
+        },
+        {
+          "text": "以CT灌流取代所有初始出血評估",
+          "rationale": "灌流是不同的影像選擇問題，不能忽略初始出血資訊。",
+          "whenTrue": "特定延長窗或其他需評估可救組織的情境時。"
+        },
+        {
+          "text": "只安排腦部DWI MRI並等待",
+          "rationale": "可提高部分缺血偵測，但在題目CT立即可得時不應因等待延誤快速分流。",
+          "whenTrue": "MRI可及且符合整體急症影像策略時有其用途。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "初始影像目的不只找出梗塞，更包括排除會改變治療方向的出血。CT未顯梗塞不等於沒有早期缺血。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "clinicalUpdates": [
+        {
+          "statement": "急性缺血性中風：不能將本卷所列3小時一律當成現行排除治療界線。2026 AHA/ASA支持符合條件者於4.5小時內使用alteplase或tenecteplase；特定不明起始或4.5–9小時個案可依進階影像條件考慮延長窗。非致殘缺損與適合溶栓的致殘缺損不能混用同一路徑。",
+          "source": {
+            "title": "AHA/ASA 2026 AIS Guideline — Top Things to Know, items 3–4",
+            "url": "https://professional.heart.org/en/science-news/2026-guideline-for-the-early-management-of-patients-with-acute-ischemic-stroke/top-things-to-know",
+            "checkedAt": "2026-10-20"
+          },
+          "chapterIds": [
+            "bcsc-s01-ch007",
+            "bcsc-s01-ch017"
+          ],
+          "questionIds": [
+            "bcsc-s01-rq009",
+            "bcsc-s01-rq010"
+          ],
+          "verificationStatus": "primary-source-checked; independently-confirmed-by-basic-review"
+        }
+      ],
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s01-rq010",
+      "sourceQuestionKey": "bcsc-s01-rq010",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 10,
+      "chapterIds": [
+        "bcsc-s01-ch007"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch007-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            350,
+            357
+          ],
+          "printedPages": [
+            "331",
+            "338"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "限定回顧2024–2025版本卷的早期缺血性中風抗栓比較：排除出血後，該書引用大型早期試驗而選定的策略是哪項？實際臨床仍須與下方2026更新並讀。",
+      "options": [
+        {
+          "text": "Aspirin",
+          "rationale": "是本卷原答案選項；該書引用早期死亡及復發中風的試驗效益。",
+          "whenTrue": "回答本題指定的教材版次；臨床使用須考量再灌流、出血及吞嚥等條件。"
+        },
+        {
+          "text": "Aspirin與clopidogrel雙重抗血小板",
+          "rationale": "不是這個舊版原答案，但現行對特定非致殘缺血中風族群有其角色。",
+          "whenTrue": "2026 AHA/ASA所述適合的非致殘缺損等條件，完成專業分流後。"
+        },
+        {
+          "text": "Enoxaparin",
+          "rationale": "不應將常規抗凝當成來源一般早期抗栓比較的首選。",
+          "whenTrue": "另有合適的靜脈血栓預防或治療適應症，且其出血風險與時序允許時。"
+        },
+        {
+          "text": "Unfractionated heparin",
+          "rationale": "來源不支持以常規heparin取代一般早期抗血小板策略。",
+          "whenTrue": "存在另外明確、專業評估的抗凝適應症時，而非只因診斷中風。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "教材原答案為aspirin。2026 AHA/ASA已更清楚區分：符合條件的致殘缺損需評估溶栓；特定非致殘缺損偏好雙抗血小板。單一舊版答案不能當所有缺血中風的現行共同處方。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "clinicalUpdates": [
+        {
+          "statement": "急性缺血性中風：不能將本卷所列3小時一律當成現行排除治療界線。2026 AHA/ASA支持符合條件者於4.5小時內使用alteplase或tenecteplase；特定不明起始或4.5–9小時個案可依進階影像條件考慮延長窗。非致殘缺損與適合溶栓的致殘缺損不能混用同一路徑。",
+          "source": {
+            "title": "AHA/ASA 2026 AIS Guideline — Top Things to Know, items 3–4",
+            "url": "https://professional.heart.org/en/science-news/2026-guideline-for-the-early-management-of-patients-with-acute-ischemic-stroke/top-things-to-know",
+            "checkedAt": "2026-10-20"
+          },
+          "chapterIds": [
+            "bcsc-s01-ch007",
+            "bcsc-s01-ch017"
+          ],
+          "questionIds": [
+            "bcsc-s01-rq009",
+            "bcsc-s01-rq010"
+          ],
+          "verificationStatus": "primary-source-checked; independently-confirmed-by-basic-review"
+        }
+      ],
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s01-rq011",
+      "sourceQuestionKey": "bcsc-s01-rq011",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 11,
+      "chapterIds": [
+        "bcsc-s01-ch008"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch008-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            350,
+            357
+          ],
+          "printedPages": [
+            "331",
+            "338"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "病人突然單眼無痛視力下降，視神經盤水腫與視野所見支持NAION。系統病史另有肥胖、打鼾與白天嗜睡。哪個聯繫最符合本卷的眼科—睡眠疾病關聯？",
+      "options": [
+        {
+          "text": "NAION與阻塞型睡眠呼吸中止有關聯，應詢問並安排適當睡眠評估",
+          "rationale": "保留原考點：OSA相關眼病包含NAION；病史支持進一步評估。",
+          "whenTrue": "有NAION及符合睡眠呼吸中止風險線索時。"
+        },
+        {
+          "text": "典型脫髓鞘視神經炎是OSA在本卷的主要對應",
+          "rationale": "視神經炎有不同的發炎/脫髓鞘路徑，不等同來源NAION關聯。",
+          "whenTrue": "眼球轉動痛、色覺與MRI等支持視神經炎時，須建立另一診斷路徑。"
+        },
+        {
+          "text": "後囊下白內障解釋這次急性視神經盤水腫",
+          "rationale": "水晶體混濁無法解釋急性盤腫與相應視野模式。",
+          "whenTrue": "慢性眩光及裂隙燈確立水晶體混濁時。"
+        },
+        {
+          "text": "眼肌型myasthenia解釋這次視神經病變",
+          "rationale": "神經肌接合病造成眼瞼/眼位變化，不造成此型視神經損害。",
+          "whenTrue": "波動性複視或眼瞼下垂而傳入視覺功能保留時。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "OSA另與floppy eyelid、乾眼、青光眼、papilledema及CSCR有關聯；association不等於已證明單一因果或CPAP必能恢復NAION。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s01-rq012",
+      "sourceQuestionKey": "bcsc-s01-rq012",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 12,
+      "chapterIds": [
+        "bcsc-s01-ch009"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch009-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            350,
+            357
+          ],
+          "printedPages": [
+            "331",
+            "338"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "骨髓造血圖中，有一條前驅路徑可產生紅血球、粒細胞、單核球及血小板。這條路徑最符合哪個名稱？",
+      "options": [
+        {
+          "text": "髓系造血路徑",
+          "rationale": "可通向紅血球、粒細胞、單核球與血小板相關前驅。",
+          "whenTrue": "討論這些血球的共同譜系時。"
+        },
+        {
+          "text": "淋巴系分化路徑",
+          "rationale": "主要通向T、B等淋巴細胞群，不能涵蓋本題全組。",
+          "whenTrue": "討論淋巴細胞及相關免疫細胞來源時。"
+        },
+        {
+          "text": "間質幹細胞路徑",
+          "rationale": "可通向骨、軟骨、脂肪等，並非本題血球組。",
+          "whenTrue": "討論間質組織分化時。"
+        },
+        {
+          "text": "成熟巨核細胞",
+          "rationale": "與血小板形成有關，但不是紅血球等全組共同前驅。",
+          "whenTrue": "討論血小板的直接產生來源時。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "先辨血球所屬的造血譜系，再連到疾病或治療；不要把不同「幹細胞」名稱當成可互換。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s01-rq013",
+      "sourceQuestionKey": "bcsc-s01-rq013",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 13,
+      "chapterIds": [
+        "bcsc-s01-ch009"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch009-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            350,
+            357
+          ],
+          "printedPages": [
+            "331",
+            "338"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "血液科確立貧血源於鐵無法正常併入heme，且有鐵負荷過高。依本卷的sideroblastic anemia概念，哪個配對最合理？",
+      "options": [
+        {
+          "text": "Pyridoxine（B6），並在鐵負荷適應症下採鐵螯合策略",
+          "rationale": "對應heme合成/鐵利用障礙；來源明列B6與iron-chelating agents。",
+          "whenTrue": "確立此類病因，且血液科依反應與鐵負荷決定治療時。"
+        },
+        {
+          "text": "口服鐵劑補充",
+          "rationale": "本病例已有鐵利用障礙與過量，補鐵可能加重負荷。",
+          "whenTrue": "經鐵指標等確立缺鐵性貧血且需要補充時。"
+        },
+        {
+          "text": "維生素B12補充",
+          "rationale": "對應DNA合成障礙的巨球性/神經問題，不是此heme障礙配對。",
+          "whenTrue": "B12缺乏或惡性貧血確立時。"
+        },
+        {
+          "text": "針對免疫性溶血使用免疫抑制",
+          "rationale": "本題不是抗體介導的紅血球破壞。",
+          "whenTrue": "免疫性溶血的檢驗與臨床條件支持時。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "來源亦提選定個案的造血幹細胞移植。Deferoxamine等螯合藥需注意眼部/聽覺毒性；不能把所有貧血都當缺鐵。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s01-rq014",
+      "sourceQuestionKey": "bcsc-s01-rq014",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 14,
+      "chapterIds": [
+        "bcsc-s01-ch009"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch009-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            350,
+            357
+          ],
+          "printedPages": [
+            "331",
+            "338"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "讀書會討論本卷所述的年輕White病人視網膜靜脈阻塞與遺傳性高凝血狀態。四種候選中，來源列為最常見且經APC阻抗造成風險的是？",
+      "options": [
+        {
+          "text": "Factor V Leiden",
+          "rationale": "使Factor V較不易被活化蛋白C失活，對應來源族群與RVO關聯。",
+          "whenTrue": "本題明定的來源族群與遺傳性APC阻抗比較。"
+        },
+        {
+          "text": "Prothrombin G20210A",
+          "rationale": "也是遺傳性血栓風險，但不是此來源比較的首位答案。",
+          "whenTrue": "相應基因變異及臨床血栓背景時。"
+        },
+        {
+          "text": "Protein C deficiency",
+          "rationale": "是抗凝蛋白缺乏，不是Factor V對APC失活的抗性。",
+          "whenTrue": "蛋白C缺乏經適當時機檢驗確立時。"
+        },
+        {
+          "text": "Protein S deficiency",
+          "rationale": "可形成高凝風險，但不是該原題族群中的首位機轉。",
+          "whenTrue": "蛋白S缺乏經排除干擾因素後確立時。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "不可把來源White族群的相對常見度當作所有族群，亦不表示每例RVO需無差別全套thrombophilia screening；檢驗需依年齡、病史與管理影響選擇。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s01-rq015",
+      "sourceQuestionKey": "bcsc-s01-rq015",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 15,
+      "chapterIds": [
+        "bcsc-s01-ch009"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch009-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            350,
+            357
+          ],
+          "printedPages": [
+            "331",
+            "338"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "一個家庭多人有反覆鼻出血；病人同時有口腔與結膜毛細血管擴張。最能連結這些表現的疾病概念是？",
+      "options": [
+        {
+          "text": "HHT",
+          "rationale": "家族性鼻出血與多部位黏膜血管擴張最能整合此題。",
+          "whenTrue": "相應臨床與家族證據支持時。"
+        },
+        {
+          "text": "免疫性血小板減少",
+          "rationale": "可致出血，但不典型產生這種家族性血管形態。",
+          "whenTrue": "血小板低下與相符評估時。"
+        },
+        {
+          "text": "von Willebrand病",
+          "rationale": "可有黏膜出血，卻不能單獨解釋典型多部位血管擴張。",
+          "whenTrue": "凝血與家族病史支持相應止血缺陷時。"
+        },
+        {
+          "text": "局部結膜血管病灶",
+          "rationale": "可解釋局部所見，不能整合全家及其他黏膜病史。",
+          "whenTrue": "只有局部病灶而缺乏系統線索時。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "眼部表面血管也可能是系統性疾病線索。HHT偏向血管異常，不應與凝血因子異常或局部眼表發炎混為一談。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s01-rq016",
+      "sourceQuestionKey": "bcsc-s01-rq016",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 16,
+      "chapterIds": [
+        "bcsc-s01-ch010"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch010-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            351,
+            358
+          ],
+          "printedPages": [
+            "332",
+            "339"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "已確診RA的病人出現乾澀，之後又有深層眼痛與角膜周邊變薄。哪個整合最符合本卷的眼部表現？",
+      "options": [
+        {
+          "text": "乾眼、鞏膜炎與角膜炎/融解",
+          "rationale": "可涵蓋RA相關多組織侵犯並解釋本題疼痛與變薄。",
+          "whenTrue": "RA加相符眼表、角膜或鞏膜徵象時。"
+        },
+        {
+          "text": "單獨急性前葡萄膜炎",
+          "rationale": "需要前房細胞等證據，不能完整解釋明示角膜變薄。",
+          "whenTrue": "細胞、flare等前房炎症明確時。"
+        },
+        {
+          "text": "壞死性視網膜炎",
+          "rationale": "定位在後節，與本題主要前節組織徵象不同。",
+          "whenTrue": "有相應眼底壞死病灶及感染評估支持時。"
+        },
+        {
+          "text": "急性閉角發作",
+          "rationale": "高眼壓、角膜水腫及隅角等資訊應支持此診斷。",
+          "whenTrue": "有典型疼痛性高眼壓和隅角證據時。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "抓住受侵犯的組織比只背系統診斷更重要；角膜融解或鞏膜炎需積極辨識感染與免疫性病因。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s01-rq017",
+      "sourceQuestionKey": "bcsc-s01-rq017",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 17,
+      "chapterIds": [
+        "bcsc-s01-ch010"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch010-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            351,
+            358
+          ],
+          "printedPages": [
+            "332",
+            "339"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "兒童風濕門診要找出即使沒有眼部抱怨仍需規劃葡萄膜炎篩檢的高風險族群。依本卷，哪個組合最值得注意？",
+      "options": [
+        {
+          "text": "寡關節型JIA，尤其ANA陽性背景",
+          "rationale": "本卷強調寡關節型眼部侵犯與無症狀篩檢的重要性。",
+          "whenTrue": "JIA風險分層與安排眼科追蹤時。"
+        },
+        {
+          "text": "只有急性扭傷而無關節炎診斷",
+          "rationale": "沒有本題慢性免疫風險脈絡。",
+          "whenTrue": "外傷所致局部疼痛且病程相符時應走外傷評估。"
+        },
+        {
+          "text": "將全身型JIA一概視為最高眼部風險",
+          "rationale": "本卷並未如此排序，且指出眼部侵犯較少。",
+          "whenTrue": "全身症狀需要相應處理，但眼部風險須獨立分層。"
+        },
+        {
+          "text": "只要兒童沒有紅眼就不用安排檢查",
+          "rationale": "JIA相關炎症可能在早期沒有明顯主訴。",
+          "whenTrue": "是否追蹤仍應由疾病與風險條件決定，而非單看症狀。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "這個概念題的關鍵是症狀與病情可能不一致；實際篩檢間隔須依現行兒童風濕及眼科風險規範。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s01-rq018",
+      "sourceQuestionKey": "bcsc-s01-rq018",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 18,
+      "chapterIds": [
+        "bcsc-s01-ch010"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch010-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            351,
+            358
+          ],
+          "printedPages": [
+            "332",
+            "339"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "一名成人在腸胃/泌尿感染後出現不對稱下肢關節痛，並有結膜炎；HLA-B27陽性。最能整合時序的診斷是？",
+      "options": [
+        {
+          "text": "Reactive arthritis",
+          "rationale": "感染後時序、不對稱下肢關節與眼部症狀相符。",
+          "whenTrue": "相應臨床組合且排除其他原因時。"
+        },
+        {
+          "text": "RA",
+          "rationale": "典型慢性對稱性小關節模式與本題時序不同。",
+          "whenTrue": "有相應關節型態與血清證據時。"
+        },
+        {
+          "text": "Relapsing polychondritis",
+          "rationale": "需要反覆耳、鼻或氣道軟骨炎等線索。",
+          "whenTrue": "眼部炎症合併典型軟骨病史時。"
+        },
+        {
+          "text": "Ankylosing spondylitis",
+          "rationale": "雖可有HLA-B27與眼炎，但此題缺少典型軸性症狀，且感染時序更支持另一診斷。",
+          "whenTrue": "有炎性背痛、薦髂關節等相應證據時。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "HLA-B27是支持背景，並非單獨確診。感染後時間軸和侵犯部位才是整合診斷的重要部分。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s01-rq019",
+      "sourceQuestionKey": "bcsc-s01-rq019",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 19,
+      "chapterIds": [
+        "bcsc-s01-ch010"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch010-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            351,
+            358
+          ],
+          "printedPages": [
+            "332",
+            "339"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "乾眼與口乾患者的自體抗體檢驗沒有提供明確證據。若仍懷疑Sjögren，哪項能提供腺體病理層級的確認資訊？",
+      "options": [
+        {
+          "text": "適應性唇部小唾液腺活檢",
+          "rationale": "它提供腺體組織證據，與單純眼表乾燥測試不同。",
+          "whenTrue": "血清證據不足且臨床需要進一步客觀確認時。"
+        },
+        {
+          "text": "只有Schirmer測試",
+          "rationale": "可支持淚液功能異常，但並非本題要求的腺體病理。",
+          "whenTrue": "評估水液缺乏型乾眼時。"
+        },
+        {
+          "text": "只有眼表染色",
+          "rationale": "反映眼表受損，不能單獨證實系統性Sjögren。",
+          "whenTrue": "檢查眼表損傷程度與分布時。"
+        },
+        {
+          "text": "抗CCP作為唯一確診依據",
+          "rationale": "它更指向RA相關血清評估，不是Sjögren腺體病理。",
+          "whenTrue": "懷疑RA並有相應關節表現時。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "乾燥症狀、眼表損傷、腺體功能與腺體組織是不同層次的證據；血清陰性不必然終止評估。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s01-rq020",
+      "sourceQuestionKey": "bcsc-s01-rq020",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 20,
+      "chapterIds": [
+        "bcsc-s01-ch010"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch010-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            351,
+            358
+          ],
+          "printedPages": [
+            "332",
+            "339"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "風濕科與眼科共同檢視HCQ長期暴露。依本卷及AAO 2025 revision，降低視網膜毒性風險所採的日劑量基準是哪個？",
+      "options": [
+        {
+          "text": "不超過5.0 mg/kg/day，分母採實際體重",
+          "rationale": "來源及新AAO聲明均支持這個基準。",
+          "whenTrue": "作為HCQ風險控制的日劑量框架，仍需整合腎功能、使用時間等風險。"
+        },
+        {
+          "text": "不超過5.0 mg/kg/day，分母採理想體重",
+          "rationale": "本題AAO更新採real/actual weight；理想體重不是該推薦的替代分母。",
+          "whenTrue": "在本題所指定的HCQ框架下不是推薦答案；其他藥物若指定理想體重屬另一個模型。"
+        },
+        {
+          "text": "不超過6.5 mg/kg/day，分母採實際體重",
+          "rationale": "上限高於本題5.0，不能沿用作降低風險的現行基準。",
+          "whenTrue": "在本題指定的HCQ風險框架下沒有成立情境。"
+        },
+        {
+          "text": "日劑量固定400 mg，不必換算體重",
+          "rationale": "固定劑量不能保證低體重者符合mg/kg上限；AAO另提醒重度肥胖需低於400 mg/day。",
+          "whenTrue": "400 mg可能落在某些個體處方內，但不能使「不必換算」的整句成立。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "5.0是風險控制上限框架，不是保證無毒性。AAO更新亦強調評估腎病、tamoxifen及年齡等風險，並以合適的結構/功能檢查監測；病人不可自行停藥。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "clinicalUpdates": [
+        {
+          "statement": "AAO 2025 revision仍以HCQ日劑量≤5.0 mg/kg實際體重為基準；重度肥胖者另需低於400 mg/day。這是降低風險的框架，不能保證無毒性。",
+          "source": {
+            "title": "AAO Special Report: Hydroxychloroquine Retinopathy Screening (2025 Revision)",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41232611/",
+            "checkedAt": "2026-10-20"
+          },
+          "chapterIds": [
+            "bcsc-s01-ch010"
+          ],
+          "questionIds": [
+            "bcsc-s01-rq020"
+          ],
+          "verificationStatus": "primary-source-checked; independently-confirmed-by-basic-review"
+        }
+      ],
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s01-rq021",
+      "sourceQuestionKey": "bcsc-s01-rq021",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 21,
+      "chapterIds": [
+        "bcsc-s01-ch011"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch011-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            351,
+            358
+          ],
+          "printedPages": [
+            "332",
+            "339"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "高齡病人反覆有不明瘀青，陪同者總是代答並阻止追問。初步建立安全病史，哪個安排最有價值？",
+      "options": [
+        {
+          "text": "在安全情況下與病人私下訪談",
+          "rationale": "可減少陪同者對病史揭露的限制。",
+          "whenTrue": "懷疑受虐、疏忽或被控制敘事時。"
+        },
+        {
+          "text": "只先向陪同者確認用藥",
+          "rationale": "可補充資料，但不能解決病人可能無法自由說話的問題。",
+          "whenTrue": "病人同意且需核對照護資訊時。"
+        },
+        {
+          "text": "先以客觀方式紀錄傷勢",
+          "rationale": "重要，但題目問的是建立可揭露病史的安排。",
+          "whenTrue": "保護評估過程中應依規範完成紀錄。"
+        },
+        {
+          "text": "先聯繫原照護醫師查既往紀錄",
+          "rationale": "可提供時序，卻不能取代病人本人的安全訪談。",
+          "whenTrue": "完成必要安全評估後跨團隊核對背景時。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "先建立能說真話的環境並記錄所見，再依所在地法規、風險與資源進行保護與通報。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s01-rq022",
+      "sourceQuestionKey": "bcsc-s01-rq022",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 22,
+      "chapterIds": [
+        "bcsc-s01-ch012"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch012-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            352,
+            358
+          ],
+          "printedPages": [
+            "333",
+            "339"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "反覆催吐者出現雙眼點狀結膜出血，眼球檢查沒有感染或占位證據。哪個機轉最能解釋該眼部表現？",
+      "options": [
+        {
+          "text": "催吐的壓力變化使表淺小血管破裂",
+          "rationale": "對應bulimia所見的結膜出血來源概念。",
+          "whenTrue": "催吐與出血時序相符、並排除其他重要出血原因時。"
+        },
+        {
+          "text": "維生素A缺乏導致角結膜上皮病變",
+          "rationale": "營養不足可造成夜盲與xerosis，但不是點狀結膜出血的主要解釋。",
+          "whenTrue": "飲食不足伴夜盲、乾燥或角膜病變等相符表現時。"
+        },
+        {
+          "text": "Thiamine缺乏造成眼球運動障礙",
+          "rationale": "B1缺乏可有眼震/眼肌麻痺，並不直接配對本題表淺出血。",
+          "whenTrue": "營養不足合併意識、步態與眼動異常的Wernicke路徑時。"
+        },
+        {
+          "text": "眼眶脂肪萎縮導致閉眼不全",
+          "rationale": "此機轉較能解釋暴露性眼表損傷，不是催吐的小血管破裂。",
+          "whenTrue": "嚴重消瘦伴閉合不全和暴露性病變時。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "飲食障礙可同時造成壓力傷害、缺乏症與脂肪流失；眼部所見應分別定位，並轉介完整營養/精神照護。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s01-rq023",
+      "sourceQuestionKey": "bcsc-s01-rq023",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 23,
+      "chapterIds": [
+        "bcsc-s01-ch012"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch012-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            352,
+            359
+          ],
+          "printedPages": [
+            "333",
+            "340"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "病人多年漸進閱讀與視空間操作困難，並有同向性視野缺損；眼底及屈光狀態不足以解釋，早期MRI也未顯著異常。哪項最能整合病程？",
+      "options": [
+        {
+          "text": "Posterior cortical atrophy",
+          "rationale": "漸進高階視覺障礙、同向缺損與相對正常眼檢查支持後部皮質退化。",
+          "whenTrue": "功能與眼部所見不相稱且神經認知評估支持漸進皮質疾病時。"
+        },
+        {
+          "text": "枕葉缺血性中風",
+          "rationale": "可造成同向缺損，但典型突然起始的病程不符多年漸進。",
+          "whenTrue": "急性局灶缺損，並有相應血管與影像證據時。"
+        },
+        {
+          "text": "雙眼黃斑變性",
+          "rationale": "可影響閱讀，但應有相應黃斑結構/功能異常，亦不典型造成同向視野缺損。",
+          "whenTrue": "OCT/眼底及中央視功能相符時。"
+        },
+        {
+          "text": "非器質性視覺症狀",
+          "rationale": "正常早期MRI不能直接證明無器質病因，且此處有進行性神經視覺線索。",
+          "whenTrue": "經完整排除及有正向功能性表徵支持時，才建立該診斷。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "正常視力表或早期MRI不排除PCA。要把病程、視野與高階視覺功能合併定位，再與急性枕葉病變、眼底病變及功能性障礙區分。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s01-rq024",
+      "sourceQuestionKey": "bcsc-s01-rq024",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 24,
+      "chapterIds": [
+        "bcsc-s01-ch013"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch013-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            352,
+            359
+          ],
+          "printedPages": [
+            "333",
+            "340"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "一位60歲、父親罹患攝護腺癌的無症狀男性，在讀過本卷「高風險年篩」原題後要求固定每年PSA。哪個說明最忠實區分來源考點與現行USPSTF最終建議？",
+      "options": [
+        {
+          "text": "原題選60歲且有家族史者；目前55–69歲應先依風險、獲益及傷害作個人決策，並非自動年篩",
+          "rationale": "保留原age/FH選項脈絡，亦避免將舊書年篩敘述當現行無條件命令。",
+          "whenTrue": "此無症狀60歲個案考慮是否接受PSA篩檢時。"
+        },
+        {
+          "text": "因為有家族史，PSA升高即可視為確診",
+          "rationale": "家族史提高風險，不能把篩檢陽性當組織診斷。",
+          "whenTrue": "PSA作為既有攝護腺癌監測指標時用途不同，仍不能使這句確診推論成立。"
+        },
+        {
+          "text": "只要沒有泌尿症狀，就無須討論篩檢",
+          "rationale": "篩檢正是針對尚無症狀者；是否做需衡量個別淨效益。",
+          "whenTrue": "出現症狀時改走診斷性評估，並非排除所有無症狀討論。"
+        },
+        {
+          "text": "等滿70歲後再常規開始PSA篩檢",
+          "rationale": "目前USPSTF不建議70歲以上例行PSA篩檢。",
+          "whenTrue": "本題指定的USPSTF框架下無此常規開始策略；既有癌症監測不屬此題。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "原書同時談55–69歲共同決策，卻在題目採高風險年度框架。現行官方最終頁為2018建議、更新進行中：55–69歲個別決定；≥70歲不例行篩檢。家族史是討論風險的理由，不是消除過度診斷或治療傷害。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "clinicalUpdates": [
+        {
+          "statement": "目前USPSTF攝護腺癌篩檢最終建議頁為2018版，更新進行中：55–69歲是否接受PSA篩檢採個人決策；70歲以上不建議例行PSA篩檢。家族史須納入討論，不等於自動年度篩檢。",
+          "source": {
+            "title": "USPSTF Prostate Cancer: Screening, final recommendation and update status",
+            "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/prostate-cancer-screening",
+            "checkedAt": "2026-10-20"
+          },
+          "chapterIds": [
+            "bcsc-s01-ch013"
+          ],
+          "questionIds": [
+            "bcsc-s01-rq024"
+          ],
+          "verificationStatus": "primary-source-checked; independently-confirmed-by-basic-review"
+        }
+      ],
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s01-rq025",
+      "sourceQuestionKey": "bcsc-s01-rq025",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 25,
+      "chapterIds": [
+        "bcsc-s01-ch015"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch015-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            352,
+            359
+          ],
+          "printedPages": [
+            "333",
+            "340"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "教材勘核小組要標註2024–2025版本卷原題的流行病學答案，而非製作當前監測報告。該書將哪型病毒性肝炎列為當時美國的leading cause？",
+      "options": [
+        {
+          "text": "Hepatitis A",
+          "rationale": "這是本卷原答案；其傳播重點是糞口及受污染食物/飲水。",
+          "whenTrue": "僅限定本卷此歷史概括的原題答案，不當作2026各地急慢性肝炎共同排名。"
+        },
+        {
+          "text": "Hepatitis B",
+          "rationale": "是重要血液、性接觸及母嬰傳播病原，但非此書原題答案。",
+          "whenTrue": "討論HBV相關慢性感染、母嬰或血液暴露風險時。"
+        },
+        {
+          "text": "Hepatitis C",
+          "rationale": "慢性感染負擔與特定監測定義有不同排名，不能與本題原書措辭混用。",
+          "whenTrue": "討論HCV慢性感染或血液暴露等特定分母時。"
+        },
+        {
+          "text": "Hepatitis D",
+          "rationale": "需有HBV相關背景，非來源此原題的leading cause。",
+          "whenTrue": "HBV感染者的HDV共同或重疊感染評估時。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "原書概括未在此題清楚拆急性/慢性與監測年度，因此只保留作教材版次答案；現行排名必須另有明確定義與當年監測資料，不能以此題外推。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s01-rq026",
+      "sourceQuestionKey": "bcsc-s01-rq026",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 26,
+      "chapterIds": [
+        "bcsc-s01-ch013"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch013-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            352,
+            359
+          ],
+          "printedPages": [
+            "333",
+            "340"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "兩種早期COVID-19疫苗分別採mRNA與腺病毒載體平台，但都讓免疫系統辨識同一個重要病毒表面成分。這個靶點是？",
+      "options": [
+        {
+          "text": "Spike protein",
+          "rationale": "本卷所列兩種平台的目標抗原是spike。",
+          "whenTrue": "討論本題特定疫苗免疫靶點時。"
+        },
+        {
+          "text": "病毒RNA本身",
+          "rationale": "它可作平台材料或核酸診斷標的，不等於本題所問的蛋白抗原。",
+          "whenTrue": "PCR等核酸診斷或討論疫苗編碼材料時。"
+        },
+        {
+          "text": "Nucleocapsid protein",
+          "rationale": "可用於部分檢驗或研究，但不是這兩種疫苗的來源配對。",
+          "whenTrue": "討論相應抗原檢測或抗體反應時。"
+        },
+        {
+          "text": "Envelope protein",
+          "rationale": "也是病毒結構成分，仍不符合本題指定平台的抗原設計。",
+          "whenTrue": "討論病毒結構或針對該成分的特定研究時。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "先分清平台、編碼或遞送材料，以及免疫辨識的抗原；它們不是同義詞。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s01-rq027",
+      "sourceQuestionKey": "bcsc-s01-rq027",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 27,
+      "chapterIds": [
+        "bcsc-s01-ch014"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch014-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            353,
+            359
+          ],
+          "printedPages": [
+            "334",
+            "340"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "腫瘤紀錄寫有局部侵犯範圍、區域淋巴結狀態與遠端轉移。若以TNM整理，哪一項對應正確？",
+      "options": [
+        {
+          "text": "T對原發腫瘤範圍，N對區域淋巴結，M對遠端轉移",
+          "rationale": "三個字母分開描述不同解剖層次。",
+          "whenTrue": "使用適當腫瘤的TNM分期架構時。"
+        },
+        {
+          "text": "T只代表確診經過多久",
+          "rationale": "時間軸不是T分類的核心定義。",
+          "whenTrue": "發病時程仍可作病史，但不是此分期字母。"
+        },
+        {
+          "text": "N代表所有腫瘤的組織分化程度",
+          "rationale": "分化等級與淋巴結分類不同。",
+          "whenTrue": "討論grade等病理資訊時應另行記錄。"
+        },
+        {
+          "text": "M只代表預計採哪種治療",
+          "rationale": "治療策略受分期影響，但不是M字母本身意義。",
+          "whenTrue": "共同決策或治療計畫屬另一欄資訊。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "原題選項的概括用語需由答案正文的定義補清：T著重大小與局部侵犯；不要把type、grade、時間和治療混入TNM。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s01-rq028",
+      "sourceQuestionKey": "bcsc-s01-rq028",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 28,
+      "chapterIds": [
+        "bcsc-s01-ch014"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch014-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            353,
+            359
+          ],
+          "printedPages": [
+            "334",
+            "340"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "眼部接受輻射後逐漸眩光，裂隙燈在水晶體後皮質、靠近囊膜前方見顆粒狀混濁；眼底沒有足以解釋症狀的血管病變。最符合哪種損害？",
+      "options": [
+        {
+          "text": "後囊下白內障",
+          "rationale": "輻射與此位置的混濁相符；病灶仍在水晶體內，不是術後囊膜混濁。",
+          "whenTrue": "暴露史及水晶體混濁位置與視覺症狀相符時。"
+        },
+        {
+          "text": "輻射性視網膜病變",
+          "rationale": "應以眼底微血管變化與相關檢查支持，本題主要定位在水晶體。",
+          "whenTrue": "視網膜有相應缺血、出血、滲漏等變化時。"
+        },
+        {
+          "text": "輻射性視神經病變",
+          "rationale": "需要傳入功能、視野及影像等定位，不能解釋所述水晶體病灶。",
+          "whenTrue": "有相符視神經功能損傷且排除其他原因時。"
+        },
+        {
+          "text": "後囊混濁（PCO）",
+          "rationale": "PCO是白內障術後殘餘上皮造成的囊膜病變，本題未曾摘除原水晶體。",
+          "whenTrue": "既有白內障手術及相符後囊所見時。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "水晶體後囊下混濁和術後PCO是不同病灶。輻射也可傷害眼表、視網膜與視神經，需分組織定位。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s01-rq029",
+      "sourceQuestionKey": "bcsc-s01-rq029",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 29,
+      "chapterIds": [
+        "bcsc-s01-ch014"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch014-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            353,
+            359
+          ],
+          "printedPages": [
+            "334",
+            "340"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "團隊希望先縮小腫瘤，使後續切除範圍較小。這種在手術前給予的系統治療，時序上稱為？",
+      "options": [
+        {
+          "text": "Neoadjuvant treatment",
+          "rationale": "發生於主要手術前，目標包括改善可切除性或處置範圍。",
+          "whenTrue": "以術前腫瘤縮小為目的時。"
+        },
+        {
+          "text": "Adjuvant treatment",
+          "rationale": "通常是在主要局部治療後處理殘留風險。",
+          "whenTrue": "術後用來降低復發等風險時。"
+        },
+        {
+          "text": "Palliative treatment",
+          "rationale": "描述緩解症狀或疾病控制的目的，並非本題特定術前時序名稱。",
+          "whenTrue": "治療主要目標為緩解症狀或延緩不可治癒疾病時。"
+        },
+        {
+          "text": "Diagnostic biopsy",
+          "rationale": "它用來取得診斷組織，與本題縮小腫瘤的系統治療不同。",
+          "whenTrue": "需要病理診斷而決定適當取樣時。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "時序與目的需要分開描述：術前不一定等同緩和，術後也不只是治療已看得見的殘留。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s01-rq030",
+      "sourceQuestionKey": "bcsc-s01-rq030",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 30,
+      "chapterIds": [
+        "bcsc-s01-ch014"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch014-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            353,
+            359
+          ],
+          "printedPages": [
+            "334",
+            "340"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "使用immune checkpoint inhibitor的癌症病人新發雙眼畏光、眼內炎症及滲出性剝離，沒有明確眼內腫塊。最須優先評估的藥物相關診斷是？",
+      "options": [
+        {
+          "text": "Immune-related uveitis",
+          "rationale": "治療時序與雙眼炎症/滲出性變化符合免疫相關不良反應。",
+          "whenTrue": "治療後出現相應炎症，並完成感染和其他病因鑑別時。"
+        },
+        {
+          "text": "脈絡膜轉移",
+          "rationale": "癌症病史使其重要，但通常需相應占位/影像證據。",
+          "whenTrue": "檢查發現符合的脈絡膜腫塊或其他轉移證據時。"
+        },
+        {
+          "text": "感染性眼內炎或感染性葡萄膜炎",
+          "rationale": "必須排除，尤其免疫狀態改變者；但本題未提供相應微生物證據。",
+          "whenTrue": "感染風險、臨床型態與檢驗支持時，須優先對應抗感染。"
+        },
+        {
+          "text": "類固醇性高眼壓",
+          "rationale": "可在治療過程另發生，但本身不解釋新發雙眼炎症及滲出性剝離。",
+          "whenTrue": "有類固醇暴露與相符眼壓上升時。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "先排感染與轉移，再確認免疫相關機轉；眼部抗炎及抗癌藥調整須依炎症嚴重度與腫瘤科共同決策，不能只靠藥名自行停藥。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s01-rq031",
+      "sourceQuestionKey": "bcsc-s01-rq031",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 31,
+      "chapterIds": [
+        "bcsc-s01-ch015"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch015-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            353,
+            360
+          ],
+          "printedPages": [
+            "334",
+            "341"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "讀書會比較本卷ARMOR眼部分離株監測資料：下列哪個抗菌藥是該來源中葡萄球菌分離株均保有敏感性的答案？",
+      "options": [
+        {
+          "text": "Vancomycin",
+          "rationale": "符合原研究樣本結果；並不保證當前或未來每一菌株。",
+          "whenTrue": "限定報告該來源監測樣本時；病人治療仍需本地與個案資料。"
+        },
+        {
+          "text": "Methicillin",
+          "rationale": "原研究納入methicillin-resistant菌株，不能概括均敏感。",
+          "whenTrue": "個案菌株經藥敏確認為methicillin-susceptible時。"
+        },
+        {
+          "text": "Ciprofloxacin",
+          "rationale": "抗藥與methicillin resistance有相關背景，不能代替來源全敏感答案。",
+          "whenTrue": "菌株、感染部位及藥物可達性支持使用時。"
+        },
+        {
+          "text": "Azithromycin",
+          "rationale": "巨環內酯也不能由此研究假定所有葡萄球菌均敏感。",
+          "whenTrue": "特定病原及藥敏支持其適應症時。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "問題保留原監測概念，答案只適用該樣本。培養與藥敏、部位及藥物可達性仍決定當前治療，不能由「歷史全敏感」推出跨時空保證。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s01-rq032",
+      "sourceQuestionKey": "bcsc-s01-rq032",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 32,
+      "chapterIds": [
+        "bcsc-s01-ch015"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch015-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            353,
+            360
+          ],
+          "printedPages": [
+            "334",
+            "341"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "眼部感染在抗生素治療後改善，但病人隨後發燒並腹瀉。若懷疑C. difficile，哪項檢驗方向最貼近病因？",
+      "options": [
+        {
+          "text": "依症狀採合適糞便毒素/核酸策略",
+          "rationale": "對準C. difficile相關腸炎與其診斷問題。",
+          "whenTrue": "臨床有符合症狀並依當地演算法評估時。"
+        },
+        {
+          "text": "糞便寄生蟲鏡檢",
+          "rationale": "未對準本題抗生素暴露後的主要疑慮。",
+          "whenTrue": "有相應旅行或寄生蟲暴露時。"
+        },
+        {
+          "text": "只做一般糞便細菌培養",
+          "rationale": "不一定涵蓋本題需要判定的特定毒素或病原問題。",
+          "whenTrue": "其他細菌性腸炎需相應培養時。"
+        },
+        {
+          "text": "只有血液培養",
+          "rationale": "陰性不能排除本題局部腸道毒素相關疾病。",
+          "whenTrue": "有菌血症或其他系統感染疑慮時。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "對症狀部位重新定位，比假定所有後續症狀都屬原眼病更重要。檢驗亦應區分有症狀感染與單純帶菌。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s01-rq033",
+      "sourceQuestionKey": "bcsc-s01-rq033",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 33,
+      "chapterIds": [
+        "bcsc-s01-ch015"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch015-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            354,
+            360
+          ],
+          "printedPages": [
+            "335",
+            "341"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "回顧兒童眼眶感染的病原趨勢時，哪項公共衛生措施能解釋本卷所述H. influenzae type b感染下降？",
+      "options": [
+        {
+          "text": "Hib疫苗的廣泛使用",
+          "rationale": "它針對該病原提供重要群體保護。",
+          "whenTrue": "有相應兒童接種政策與覆蓋時。"
+        },
+        {
+          "text": "更積極治療中耳炎",
+          "rationale": "治療個別感染與疫苗帶來的流行病學改變不同。",
+          "whenTrue": "中耳炎本身符合治療適應症時。"
+        },
+        {
+          "text": "一般飲食與用水衛生改善",
+          "rationale": "可減少部分感染風險，但不是本題Hib疫苗前後趨勢的主要來源解釋。",
+          "whenTrue": "糞口傳播等其他病原的預防時。"
+        },
+        {
+          "text": "只隔離已出現眼眶感染者",
+          "rationale": "無法等同在感染發生前提供特定免疫保護。",
+          "whenTrue": "有相應傳播風險與隔離適應症時。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "病原流行會隨疫苗與族群改變；不要把接種前的常見病原排序永久套用今日每個地區。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s01-rq034",
+      "sourceQuestionKey": "bcsc-s01-rq034",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 34,
+      "chapterIds": [
+        "bcsc-s01-ch015"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch015-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            354,
+            360
+          ],
+          "printedPages": [
+            "335",
+            "341"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "病人有全身不適、淋巴結腫大、脫髮與廣泛皮疹，梅毒檢驗及臨床時序相符。這組表現最貼近哪個階段？",
+      "options": [
+        {
+          "text": "次期梅毒",
+          "rationale": "全身性與皮膚黏膜表現符合來源描述。",
+          "whenTrue": "有相應臨床時序與檢驗證據時。"
+        },
+        {
+          "text": "初期梅毒",
+          "rationale": "較典型重點是接種部位chancre，不能完整概括本題全身表現。",
+          "whenTrue": "有相應早期潰瘍病史時。"
+        },
+        {
+          "text": "單純潛伏梅毒",
+          "rationale": "定義重點是血清陽性而沒有相應臨床表現。",
+          "whenTrue": "無症狀且依時程、病史分類時。"
+        },
+        {
+          "text": "僅由三期樹膠腫解釋",
+          "rationale": "三期破壞性病變與本題症狀群不同。",
+          "whenTrue": "有相應晚期器官與病理證據時。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "分期用於整理病程；眼部侵犯不能單靠某個分期名稱排除，仍須依眼部所見與感染評估處理。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s01-rq035",
+      "sourceQuestionKey": "bcsc-s01-rq035",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 35,
+      "chapterIds": [
+        "bcsc-s01-ch015"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch015-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            354,
+            360
+          ],
+          "printedPages": [
+            "335",
+            "341"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "使用ethambutol後出現雙眼中心功能與色覺變化。選擇功能檢查時，哪個最直接對準此毒性常影響的區域？",
+      "options": [
+        {
+          "text": "中心靜態視野，並結合視力、色覺與視神經評估",
+          "rationale": "直接對準本題可能受損的中心功能。",
+          "whenTrue": "疑似ethambutol毒性視神經病變時。"
+        },
+        {
+          "text": "僅做周邊動態視野",
+          "rationale": "範圍選擇可能未充分回答中心敏感度問題。",
+          "whenTrue": "需評估周邊視野範圍或動態檢查適應症時。"
+        },
+        {
+          "text": "僅用黃斑OCT決定有無視神經毒性",
+          "rationale": "黃斑結構檢查不能單獨取代視神經功能評估。",
+          "whenTrue": "懷疑黃斑結構病變時。"
+        },
+        {
+          "text": "以螢光眼底血管攝影作唯一篩檢",
+          "rationale": "它較對準血管灌流與滲漏，非本題主要毒性功能。",
+          "whenTrue": "有相應視網膜血管問題需評估時。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "把檢查對準受損功能，而非只列眼科檢查清單；單次無異常也需放回症狀、暴露與其他檢驗判讀。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s01-rq036",
+      "sourceQuestionKey": "bcsc-s01-rq036",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 36,
+      "chapterIds": [
+        "bcsc-s01-ch016"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch016-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            354,
+            360
+          ],
+          "printedPages": [
+            "335",
+            "341"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "健康病人接受低風險白內障手術，病史、功能狀態與檢查未出現特定警訊。哪項術前檢驗策略最符合本卷？",
+      "options": [
+        {
+          "text": "依個別獨立適應症選檢驗，未有適應症時不因手術本身加做常規整套",
+          "rationale": "是否檢驗取決於結果能否回答具體問題並改變管理。",
+          "whenTrue": "完成術前病史與檢查後，沒有額外檢驗指標的低風險情境。"
+        },
+        {
+          "text": "每位病人固定安排胸片",
+          "rationale": "沒有心肺線索時，不能只因排定眼科手術就一律做。",
+          "whenTrue": "心肺症狀或其他獨立臨床問題使影像可能改變管理時。"
+        },
+        {
+          "text": "以年齡門檻決定每位病人都做心臟負荷試驗",
+          "rationale": "低風險手術不能單靠年齡推定需要壓力檢查。",
+          "whenTrue": "有適當心臟風險、功能或症狀問題，且結果會改變管理時。"
+        },
+        {
+          "text": "為沒有出血史或抗凝藥暴露者固定查完整凝血檢驗",
+          "rationale": "缺乏臨床適應症的例行檢驗不等於更好的結果。",
+          "whenTrue": "出血傾向、相關疾病或藥物問題需要檢驗回答時。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "減少不必要檢驗不等於略過評估；完整病史、用藥、功能與身體檢查仍為基礎。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s01-rq037",
+      "sourceQuestionKey": "bcsc-s01-rq037",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 37,
+      "chapterIds": [
+        "bcsc-s01-ch017"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch017-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            354,
+            360
+          ],
+          "printedPages": [
+            "335",
+            "341"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "限定回顧本卷edrophonium診斷測試的歷史情境：注射後出汗、噁心與心搏過慢，支持呼吸循環並停下測試後，該書備妥的解救藥及首劑是哪個？",
+      "options": [
+        {
+          "text": "Atropine sulfate 0.5 mg IV（此教材測試情境）",
+          "rationale": "抗muscarinic作用可對抗膽鹼性反應，0.5 mg是原書此情境劑量。",
+          "whenTrue": "本題明確限定舊書edrophonium情境；不可替代現行成人有脈搏心搏過慢流程。"
+        },
+        {
+          "text": "Naloxone 0.4 mg IV",
+          "rationale": "此藥對應鴉片類受體，不是edrophonium的膽鹼性作用。",
+          "whenTrue": "有鴉片類呼吸抑制且依適當急救流程給藥時。"
+        },
+        {
+          "text": "Dextrose 25 g IV",
+          "rationale": "葡萄糖對準低血糖，本題提供的是膽鹼性暴露與症候群。",
+          "whenTrue": "低血糖且給藥途徑/濃度適合個案時。"
+        },
+        {
+          "text": "Epinephrine按過敏性休克流程給藥",
+          "rationale": "不應把此膽鹼性反應等同IgE相關過敏性休克。",
+          "whenTrue": "有氣道、呼吸或循環危急的anaphylaxis時，首選IM epinephrine適當流程。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "原書的0.5 mg是特定測試後反應；2025 AHA成人有脈搏心搏過慢伴心肺灌流不良的算法首劑為1 mg IV。兩個適應症與年代不同，必須整段閱讀，兒童也不能直接套成人劑量。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "clinicalUpdates": [
+        {
+          "statement": "Atropine的劑量必須連同適應症閱讀。2025 AHA成人有脈搏心搏過慢、合併心肺灌流不良的流程列首劑1 mg IV；本卷edrophonium測試後膽鹼性反應所寫0.5 mg不能被抽成所有成人心搏過慢的通用首劑。兒童及特定毒物情境亦不能直接套此成人流程。",
+          "source": {
+            "title": "AHA 2025 Adult Bradycardia With a Pulse Algorithm",
+            "url": "https://cpr.heart.org/-/media/CPR-Files/CPR-Guidelines-Files/2025-Algorithms/Algorithm-ACLS-Bradycardia-250514.pdf?sc_lang=en",
+            "checkedAt": "2026-10-20"
+          },
+          "chapterIds": [
+            "bcsc-s01-ch017"
+          ],
+          "questionIds": [
+            "bcsc-s01-rq037"
+          ],
+          "verificationStatus": "primary-source-checked; independently-confirmed-by-basic-review"
+        }
+      ],
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s01-rq038",
+      "sourceQuestionKey": "bcsc-s01-rq038",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 38,
+      "chapterIds": [
+        "bcsc-s01-ch016"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch016-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            355,
+            361
+          ],
+          "printedPages": [
+            "336",
+            "342"
+          ],
+          "chapterHeading": "Study Questions / Answers"
+        }
+      ],
+      "stem": "眼球後局部麻醉後逐漸出現固定的上轉受限；被動牽拉也受限。哪個解釋最符合這個時序及檢查？",
+      "options": [
+        {
+          "text": "局部麻醉藥相關肌毒性後纖維化",
+          "rationale": "病史與限制性forced duction結果可串成病理鏈。",
+          "whenTrue": "相應注射暴露後出現持續性機械限制時。"
+        },
+        {
+          "text": "單純失代償隱斜",
+          "rationale": "通常不會使被動牽拉也受限。",
+          "whenTrue": "眼球運動完整而融合失代償時。"
+        },
+        {
+          "text": "單純myasthenia gravis",
+          "rationale": "可有變動性無力，但不應用它解釋固定被動限制。",
+          "whenTrue": "易疲勞、變動性眼瞼或眼肌無力等相符情境時。"
+        },
+        {
+          "text": "短暫ocular neuromyotonia",
+          "rationale": "它偏短暫發作性複視，而非本題固定纖維化限制。",
+          "whenTrue": "有符合誘發與短暫發作型態時。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "先用forced duction區分機械限制與單純主動神經肌肉問題，再以時間軸比較麻醉、甲狀腺或外傷等病因。",
+      "imageStatus": "not-applicable",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    }
+  ],
+  "coverage": {
+    "chapterRows": [
+      {
+        "chapterId": "bcsc-s01-ch001",
+        "unitIds": [
+          "bcsc-s01-ch001-u01"
+        ],
+        "teachingStatus": "draft",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原圖尚未逐圖核對；教材先聚焦本章可由文字驗證的核心機轉與決策對照。"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s01-ch002",
+        "unitIds": [
+          "bcsc-s01-ch002-u01",
+          "bcsc-s01-ch002-u02"
+        ],
+        "teachingStatus": "draft",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原圖尚未逐圖核對；教材先聚焦本章可由文字驗證的核心機轉與決策對照。"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s01-ch003",
+        "unitIds": [
+          "bcsc-s01-ch003-u01"
+        ],
+        "teachingStatus": "draft",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原圖尚未逐圖核對；教材先聚焦本章可由文字驗證的核心機轉與決策對照。"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s01-ch004",
+        "unitIds": [
+          "bcsc-s01-ch004-u01"
+        ],
+        "teachingStatus": "draft",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原圖尚未逐圖核對；教材先聚焦本章可由文字驗證的核心機轉與決策對照。"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s01-ch005",
+        "unitIds": [
+          "bcsc-s01-ch005-u01"
+        ],
+        "teachingStatus": "draft",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原圖尚未逐圖核對；教材先聚焦本章可由文字驗證的核心機轉與決策對照。"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s01-ch006",
+        "unitIds": [
+          "bcsc-s01-ch006-u01"
+        ],
+        "teachingStatus": "draft",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原圖尚未逐圖核對；教材先聚焦本章可由文字驗證的核心機轉與決策對照。"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s01-ch007",
+        "unitIds": [
+          "bcsc-s01-ch007-u01"
+        ],
+        "teachingStatus": "draft",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原圖尚未逐圖核對；教材先聚焦本章可由文字驗證的核心機轉與決策對照。"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s01-ch008",
+        "unitIds": [
+          "bcsc-s01-ch008-u01"
+        ],
+        "teachingStatus": "draft",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原圖尚未逐圖核對；教材先聚焦本章可由文字驗證的核心機轉與決策對照。"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s01-ch009",
+        "unitIds": [
+          "bcsc-s01-ch009-u01"
+        ],
+        "teachingStatus": "draft",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原圖尚未逐圖核對；教材先聚焦本章可由文字驗證的核心機轉與決策對照。"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s01-ch010",
+        "unitIds": [
+          "bcsc-s01-ch010-u01"
+        ],
+        "teachingStatus": "draft",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原圖尚未逐圖核對；教材先聚焦本章可由文字驗證的核心機轉與決策對照。"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s01-ch011",
+        "unitIds": [
+          "bcsc-s01-ch011-u01"
+        ],
+        "teachingStatus": "draft",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原圖尚未逐圖核對；教材先聚焦本章可由文字驗證的核心機轉與決策對照。"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s01-ch012",
+        "unitIds": [
+          "bcsc-s01-ch012-u01"
+        ],
+        "teachingStatus": "draft",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原圖尚未逐圖核對；教材先聚焦本章可由文字驗證的核心機轉與決策對照。"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s01-ch013",
+        "unitIds": [
+          "bcsc-s01-ch013-u01"
+        ],
+        "teachingStatus": "draft",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原圖尚未逐圖核對；教材先聚焦本章可由文字驗證的核心機轉與決策對照。"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s01-ch014",
+        "unitIds": [
+          "bcsc-s01-ch014-u01"
+        ],
+        "teachingStatus": "draft",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原圖尚未逐圖核對；教材先聚焦本章可由文字驗證的核心機轉與決策對照。"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s01-ch015",
+        "unitIds": [
+          "bcsc-s01-ch015-u01"
+        ],
+        "teachingStatus": "draft",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原圖尚未逐圖核對；教材先聚焦本章可由文字驗證的核心機轉與決策對照。"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s01-ch016",
+        "unitIds": [
+          "bcsc-s01-ch016-u01"
+        ],
+        "teachingStatus": "draft",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原圖尚未逐圖核對；教材先聚焦本章可由文字驗證的核心機轉與決策對照。"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s01-ch017",
+        "unitIds": [
+          "bcsc-s01-ch017-u01"
+        ],
+        "teachingStatus": "draft",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原圖尚未逐圖核對；教材先聚焦本章可由文字驗證的核心機轉與決策對照。"
+        ]
+      }
+    ],
+    "questionRows": [
+      {
+        "sourceQuestionKey": "bcsc-s01-rq001",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 1,
+        "questionId": "bcsc-s01-rq001",
+        "unitIds": [
+          "bcsc-s01-ch001-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": []
+      },
+      {
+        "sourceQuestionKey": "bcsc-s01-rq002",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 2,
+        "questionId": "bcsc-s01-rq002",
+        "unitIds": [
+          "bcsc-s01-ch002-u01",
+          "bcsc-s01-ch002-u02"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": []
+      },
+      {
+        "sourceQuestionKey": "bcsc-s01-rq003",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 3,
+        "questionId": "bcsc-s01-rq003",
+        "unitIds": [
+          "bcsc-s01-ch003-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": []
+      },
+      {
+        "sourceQuestionKey": "bcsc-s01-rq004",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 4,
+        "questionId": "bcsc-s01-rq004",
+        "unitIds": [
+          "bcsc-s01-ch003-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": []
+      },
+      {
+        "sourceQuestionKey": "bcsc-s01-rq005",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 5,
+        "questionId": "bcsc-s01-rq005",
+        "unitIds": [
+          "bcsc-s01-ch004-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": []
+      },
+      {
+        "sourceQuestionKey": "bcsc-s01-rq006",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 6,
+        "questionId": "bcsc-s01-rq006",
+        "unitIds": [
+          "bcsc-s01-ch005-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": []
+      },
+      {
+        "sourceQuestionKey": "bcsc-s01-rq007",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 7,
+        "questionId": "bcsc-s01-rq007",
+        "unitIds": [
+          "bcsc-s01-ch006-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": []
+      },
+      {
+        "sourceQuestionKey": "bcsc-s01-rq008",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 8,
+        "questionId": "bcsc-s01-rq008",
+        "unitIds": [
+          "bcsc-s01-ch006-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": []
+      },
+      {
+        "sourceQuestionKey": "bcsc-s01-rq009",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 9,
+        "questionId": "bcsc-s01-rq009",
+        "unitIds": [
+          "bcsc-s01-ch007-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": []
+      },
+      {
+        "sourceQuestionKey": "bcsc-s01-rq010",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 10,
+        "questionId": "bcsc-s01-rq010",
+        "unitIds": [
+          "bcsc-s01-ch007-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": [
+          "原書抗栓比較與2026指引存在版本差異；本題明示歷史來源，臨床更新另列。"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s01-rq011",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 11,
+        "questionId": "bcsc-s01-rq011",
+        "unitIds": [
+          "bcsc-s01-ch008-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": []
+      },
+      {
+        "sourceQuestionKey": "bcsc-s01-rq012",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 12,
+        "questionId": "bcsc-s01-rq012",
+        "unitIds": [
+          "bcsc-s01-ch009-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": []
+      },
+      {
+        "sourceQuestionKey": "bcsc-s01-rq013",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 13,
+        "questionId": "bcsc-s01-rq013",
+        "unitIds": [
+          "bcsc-s01-ch009-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": []
+      },
+      {
+        "sourceQuestionKey": "bcsc-s01-rq014",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 14,
+        "questionId": "bcsc-s01-rq014",
+        "unitIds": [
+          "bcsc-s01-ch009-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": []
+      },
+      {
+        "sourceQuestionKey": "bcsc-s01-rq015",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 15,
+        "questionId": "bcsc-s01-rq015",
+        "unitIds": [
+          "bcsc-s01-ch009-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": []
+      },
+      {
+        "sourceQuestionKey": "bcsc-s01-rq016",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 16,
+        "questionId": "bcsc-s01-rq016",
+        "unitIds": [
+          "bcsc-s01-ch010-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": []
+      },
+      {
+        "sourceQuestionKey": "bcsc-s01-rq017",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 17,
+        "questionId": "bcsc-s01-rq017",
+        "unitIds": [
+          "bcsc-s01-ch010-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": []
+      },
+      {
+        "sourceQuestionKey": "bcsc-s01-rq018",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 18,
+        "questionId": "bcsc-s01-rq018",
+        "unitIds": [
+          "bcsc-s01-ch010-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": []
+      },
+      {
+        "sourceQuestionKey": "bcsc-s01-rq019",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 19,
+        "questionId": "bcsc-s01-rq019",
+        "unitIds": [
+          "bcsc-s01-ch010-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": []
+      },
+      {
+        "sourceQuestionKey": "bcsc-s01-rq020",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 20,
+        "questionId": "bcsc-s01-rq020",
+        "unitIds": [
+          "bcsc-s01-ch010-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": []
+      },
+      {
+        "sourceQuestionKey": "bcsc-s01-rq021",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 21,
+        "questionId": "bcsc-s01-rq021",
+        "unitIds": [
+          "bcsc-s01-ch011-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": []
+      },
+      {
+        "sourceQuestionKey": "bcsc-s01-rq022",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 22,
+        "questionId": "bcsc-s01-rq022",
+        "unitIds": [
+          "bcsc-s01-ch012-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": []
+      },
+      {
+        "sourceQuestionKey": "bcsc-s01-rq023",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 23,
+        "questionId": "bcsc-s01-rq023",
+        "unitIds": [
+          "bcsc-s01-ch012-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": []
+      },
+      {
+        "sourceQuestionKey": "bcsc-s01-rq024",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 24,
+        "questionId": "bcsc-s01-rq024",
+        "unitIds": [
+          "bcsc-s01-ch013-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": []
+      },
+      {
+        "sourceQuestionKey": "bcsc-s01-rq025",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 25,
+        "questionId": "bcsc-s01-rq025",
+        "unitIds": [
+          "bcsc-s01-ch015-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": []
+      },
+      {
+        "sourceQuestionKey": "bcsc-s01-rq026",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 26,
+        "questionId": "bcsc-s01-rq026",
+        "unitIds": [
+          "bcsc-s01-ch013-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": []
+      },
+      {
+        "sourceQuestionKey": "bcsc-s01-rq027",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 27,
+        "questionId": "bcsc-s01-rq027",
+        "unitIds": [
+          "bcsc-s01-ch014-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": []
+      },
+      {
+        "sourceQuestionKey": "bcsc-s01-rq028",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 28,
+        "questionId": "bcsc-s01-rq028",
+        "unitIds": [
+          "bcsc-s01-ch014-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": []
+      },
+      {
+        "sourceQuestionKey": "bcsc-s01-rq029",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 29,
+        "questionId": "bcsc-s01-rq029",
+        "unitIds": [
+          "bcsc-s01-ch014-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": []
+      },
+      {
+        "sourceQuestionKey": "bcsc-s01-rq030",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 30,
+        "questionId": "bcsc-s01-rq030",
+        "unitIds": [
+          "bcsc-s01-ch014-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": []
+      },
+      {
+        "sourceQuestionKey": "bcsc-s01-rq031",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 31,
+        "questionId": "bcsc-s01-rq031",
+        "unitIds": [
+          "bcsc-s01-ch015-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": []
+      },
+      {
+        "sourceQuestionKey": "bcsc-s01-rq032",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 32,
+        "questionId": "bcsc-s01-rq032",
+        "unitIds": [
+          "bcsc-s01-ch015-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": []
+      },
+      {
+        "sourceQuestionKey": "bcsc-s01-rq033",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 33,
+        "questionId": "bcsc-s01-rq033",
+        "unitIds": [
+          "bcsc-s01-ch015-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": []
+      },
+      {
+        "sourceQuestionKey": "bcsc-s01-rq034",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 34,
+        "questionId": "bcsc-s01-rq034",
+        "unitIds": [
+          "bcsc-s01-ch015-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": []
+      },
+      {
+        "sourceQuestionKey": "bcsc-s01-rq035",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 35,
+        "questionId": "bcsc-s01-rq035",
+        "unitIds": [
+          "bcsc-s01-ch015-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": []
+      },
+      {
+        "sourceQuestionKey": "bcsc-s01-rq036",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 36,
+        "questionId": "bcsc-s01-rq036",
+        "unitIds": [
+          "bcsc-s01-ch016-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": []
+      },
+      {
+        "sourceQuestionKey": "bcsc-s01-rq037",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 37,
+        "questionId": "bcsc-s01-rq037",
+        "unitIds": [
+          "bcsc-s01-ch017-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": []
+      },
+      {
+        "sourceQuestionKey": "bcsc-s01-rq038",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 38,
+        "questionId": "bcsc-s01-rq038",
+        "unitIds": [
+          "bcsc-s01-ch016-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-applicable",
+        "gaps": []
+      }
+    ],
+    "summary": {
+      "taughtChapters": 0,
+      "authoredChapters": 17,
+      "readyQuestions": 0,
+      "authoredQuestions": 38,
+      "verifiedImages": 0
+    }
+  },
+  "editorialNote": "原創教學重述；參照2024–2025版來源，不代表已逐圖核對或已取代現行臨床指引。高風險處置依題目條件與目前院內流程判斷。",
+  "clinicalUpdates": [
+    {
+      "statement": "急性缺血性中風：不能將本卷所列3小時一律當成現行排除治療界線。2026 AHA/ASA支持符合條件者於4.5小時內使用alteplase或tenecteplase；特定不明起始或4.5–9小時個案可依進階影像條件考慮延長窗。非致殘缺損與適合溶栓的致殘缺損不能混用同一路徑。",
+      "source": {
+        "title": "AHA/ASA 2026 AIS Guideline — Top Things to Know, items 3–4",
+        "url": "https://professional.heart.org/en/science-news/2026-guideline-for-the-early-management-of-patients-with-acute-ischemic-stroke/top-things-to-know",
+        "checkedAt": "2026-10-20"
+      },
+      "chapterIds": [
+        "bcsc-s01-ch007",
+        "bcsc-s01-ch017"
+      ],
+      "questionIds": [
+        "bcsc-s01-rq009",
+        "bcsc-s01-rq010"
+      ],
+      "verificationStatus": "primary-source-checked; independently-confirmed-by-basic-review"
+    },
+    {
+      "statement": "高血壓：2025 AHA/ACC指引已取代本卷引用的2017指引，新增PREVENT風險方程式等決策更新。Q5明確保留為該版教材的歷史框架回顧，不作為僅依族群分類的當前個別處方；診間外量測與共病風險仍須納入。",
+      "source": {
+        "title": "AHA 2025 High Blood Pressure Guideline summary",
+        "url": "https://professional.heart.org/en/science-news/2025-high-blood-pressure-guideline",
+        "checkedAt": "2026-10-20"
+      },
+      "chapterIds": [
+        "bcsc-s01-ch004"
+      ],
+      "questionIds": [
+        "bcsc-s01-rq005"
+      ],
+      "verificationStatus": "primary-source-checked; independently-confirmed-by-basic-review"
+    },
+    {
+      "statement": "Atropine的劑量必須連同適應症閱讀。2025 AHA成人有脈搏心搏過慢、合併心肺灌流不良的流程列首劑1 mg IV；本卷edrophonium測試後膽鹼性反應所寫0.5 mg不能被抽成所有成人心搏過慢的通用首劑。兒童及特定毒物情境亦不能直接套此成人流程。",
+      "source": {
+        "title": "AHA 2025 Adult Bradycardia With a Pulse Algorithm",
+        "url": "https://cpr.heart.org/-/media/CPR-Files/CPR-Guidelines-Files/2025-Algorithms/Algorithm-ACLS-Bradycardia-250514.pdf?sc_lang=en",
+        "checkedAt": "2026-10-20"
+      },
+      "chapterIds": [
+        "bcsc-s01-ch017"
+      ],
+      "questionIds": [
+        "bcsc-s01-rq037"
+      ],
+      "verificationStatus": "primary-source-checked; independently-confirmed-by-basic-review"
+    },
+    {
+      "statement": "AAO 2025 revision仍以HCQ日劑量≤5.0 mg/kg實際體重為基準；重度肥胖者另需低於400 mg/day。這是降低風險的框架，不能保證無毒性。",
+      "source": {
+        "title": "AAO Special Report: Hydroxychloroquine Retinopathy Screening (2025 Revision)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/41232611/",
+        "checkedAt": "2026-10-20"
+      },
+      "chapterIds": [
+        "bcsc-s01-ch010"
+      ],
+      "questionIds": [
+        "bcsc-s01-rq020"
+      ],
+      "verificationStatus": "primary-source-checked; independently-confirmed-by-basic-review"
+    },
+    {
+      "statement": "目前USPSTF攝護腺癌篩檢最終建議頁為2018版，更新進行中：55–69歲是否接受PSA篩檢採個人決策；70歲以上不建議例行PSA篩檢。家族史須納入討論，不等於自動年度篩檢。",
+      "source": {
+        "title": "USPSTF Prostate Cancer: Screening, final recommendation and update status",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/prostate-cancer-screening",
+        "checkedAt": "2026-10-20"
+      },
+      "chapterIds": [
+        "bcsc-s01-ch013"
+      ],
+      "questionIds": [
+        "bcsc-s01-rq024"
+      ],
+      "verificationStatus": "primary-source-checked; independently-confirmed-by-basic-review"
+    }
+  ]
+}

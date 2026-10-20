@@ -1,0 +1,6228 @@
+{
+  "schemaVersion": 1,
+  "bookId": "bcsc-s13",
+  "source": {
+    "title": "Refractive Surgery",
+    "edition": "2024–2025",
+    "sha256": "d8f7e9fdb34e471c73188939af0b8dd0f964540b8bddc14ce81a67eb72e380c7",
+    "pdfPageCount": 257
+  },
+  "chapters": [
+    {
+      "id": "bcsc-s13-ch001",
+      "number": 1,
+      "title": "The Science of Refractive Surgery",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            22,
+            55
+          ],
+          "printedPages": [
+            "7",
+            "40"
+          ],
+          "chapterHeading": "The Science of Refractive Surgery"
+        }
+      ],
+      "units": [
+        {
+          "id": "bcsc-s13-ch001-u01",
+          "title": "屈光度正常仍看不清：低階、高階像差與散射",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                23,
+                24,
+                25,
+                26,
+                27
+              ],
+              "printedPages": [
+                "8",
+                "9",
+                "10",
+                "11",
+                "12"
+              ],
+              "chapterHeading": "The Science of Refractive Surgery"
+            }
+          ],
+          "mechanism": [
+            "球面與規則散光屬低階像差，鏡片能以規則屈光力補償；彗差、三葉草與球面像差需要描述整個瞳孔內的波前，不能只用球柱鏡處方代表。",
+            "像差會隨瞳孔大小改變，淚膜不穩亦會使量測起伏；角膜混濁造成的散射與波前失真是不同的視覺品質問題。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "裸視佳但夜間光暈明顯",
+              "meaning": "要問大瞳孔下像差、光學區及淚膜，不能僅以白天視力排除問題。"
+            },
+            {
+              "finding": "眨眼後短暫變清楚",
+              "meaning": "提示淚膜參與，但仍須排除固定的角膜不規則。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "殘餘規則散光",
+              "for": "柱鏡可穩定改善",
+              "against": "最佳矯正後仍有重影不符單純規則散光",
+              "discriminator": "比較主觀驗光、波前與角膜圖"
+            },
+            {
+              "diagnosis": "角膜散射",
+              "for": "混濁、眩光或對比下降",
+              "against": "透明角膜且症狀隨瞳孔變化時支持較弱",
+              "discriminator": "裂隙燈與角膜透明度，而非只看像差圖"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "主觀驗光及不同瞳孔下波前",
+              "purpose": "分辨低階可矯正部分與高階成分",
+              "interpretation": "彗差屬第三階，球面像差屬第四階；不能由等效球面直接推定",
+              "limitation": "不穩淚膜、失焦與瞳孔尺寸會改變結果"
+            }
+          ],
+          "management": [
+            {
+              "condition": "表面不穩或驗光反覆",
+              "stage": "先改善可逆因子",
+              "action": "處理眼表後重測驗光與波前",
+              "rationale": "避免以一次失真的數據規劃切削",
+              "caution": "屈光穩定前不急著增強手術"
+            },
+            {
+              "condition": "低階已矯正仍有視覺品質問題",
+              "stage": "定位來源",
+              "action": "比較角膜、全眼波前與晶狀體狀態，再討論可否個人化處理",
+              "rationale": "角膜與晶狀體的像差可能互相補償或抵銷",
+              "caution": "不能保證任何客製手術都消除夜視症狀"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "波前與Zernike分解圖",
+              "clue": "找相同瞳孔條件下各模式及其方向",
+              "interpretation": "模式名稱與階數代表不同光學失真，非疾病診斷",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 26
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "把球鏡與柱鏡歸零當成所有像差歸零",
+              "correction": "低階驗光無法完整表示高階像差與散射。"
+            }
+          ],
+          "recall": {
+            "prompt": "為何相同球柱鏡處方的人夜間視覺可以不同？",
+            "answer": "瞳孔、角膜與晶狀體高階像差、淚膜及散射都會改變成像，處方只描述低階部分。"
+          },
+          "status": "draft"
+        },
+        {
+          "id": "bcsc-s13-ch001-u02",
+          "title": "反射環、角膜斷層與眼內波前各回答什麼",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                28,
+                29,
+                30,
+                31,
+                32,
+                33
+              ],
+              "printedPages": [
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "18"
+              ],
+              "chapterHeading": "The Science of Refractive Surgery"
+            }
+          ],
+          "mechanism": [
+            "Placido系統從角膜前表面的反射環推算曲率；斷層掃描提供前後表面與厚度的空間分布，不能把一張前表面圖當作完整角膜結構。",
+            "Hartmann–Shack由視網膜反射的出射波前經小透鏡陣列形成光點，以偏移量重建波前；這與直接量角膜形狀的儀器不同。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "前表面看似規則但後表面或厚度分布異常",
+              "meaning": "需重新評估擴張風險，不能只用中央厚度放行。"
+            },
+            {
+              "finding": "反射環破碎、每次圖形不同",
+              "meaning": "先判斷淚膜或擷取品質，未必是真正不規則散光。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "真實角膜不規則",
+              "for": "重複影像保持相同空間形態",
+              "against": "眨眼後消失或定位不一支持不足",
+              "discriminator": "處理淚膜後重複掃描"
+            },
+            {
+              "diagnosis": "擷取或表面偽影",
+              "for": "反射環中斷且品質指標差",
+              "against": "不同模式均持續同一異常時較不符",
+              "discriminator": "檢查原始影像與跨次一致性"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "前表面地形圖、斷層及波前交叉比較",
+              "purpose": "區分角膜形狀、結構和全眼光學問題",
+              "interpretation": "三者回答的問題不同，互補而非相互代替",
+              "limitation": "正常單一指標不能排除早期擴張疾病"
+            }
+          ],
+          "management": [
+            {
+              "condition": "任一結構或品質警訊",
+              "stage": "暫停手術規劃",
+              "action": "重測並整合雙眼不對稱、既往資料、厚度與後表面",
+              "rationale": "不可信的輸入會使切削計畫看似精準卻方向錯誤",
+              "caution": "不要用單一正常K值掩蓋異常圖形"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "Placido與斷層原圖",
+              "clue": "看環規則性、後表面與厚度最薄點相對位置",
+              "interpretation": "圖上不同色階與參考面需一致才能比較",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 30
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "將角膜地形圖稱為全眼像差",
+              "correction": "角膜形狀並未包含晶狀體等其他眼內光學成分。"
+            }
+          ],
+          "recall": {
+            "prompt": "若要問後表面是否異常，Placido、波前儀與角膜斷層三者應選誰？",
+            "answer": "角膜斷層直接提供後表面與厚度分布；Placido重點在前表面，Hartmann–Shack重點在出射波前。"
+          },
+          "status": "draft"
+        },
+        {
+          "id": "bcsc-s13-ch001-u03",
+          "title": "雷射交互作用、切削幾何與角膜傷口癒合",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                44,
+                45,
+                46,
+                47
+              ],
+              "printedPages": [
+                "19",
+                "20",
+                "21",
+                "22",
+                "23",
+                "24",
+                "29",
+                "30",
+                "31",
+                "32"
+              ],
+              "chapterHeading": "The Science of Refractive Surgery"
+            }
+          ],
+          "mechanism": [
+            "氟化氬準分子雷射以193 nm紫外光進行表層光分解；飛秒雷射利用光致破裂產生電漿及空化微泡，沿預定平面分離組織。",
+            "近視切削使中央變平，遠視周邊環狀切削使中央相對變陡；切口、植入物及熱收縮又有不同力學作用，屈光效果不等同於直接移除等量厚度。",
+            "Munnerlyn近似式顯示近視切削深度隨光學區直徑平方增加；癒合反應與上皮重塑可使實際結果偏離簡化幾何。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "擴大光學區以改善夜視但預估切削變深",
+              "meaning": "要重新核算剩餘組織，不能把光學區視為免費參數。"
+            },
+            {
+              "finding": "表面切削後混濁或回退",
+              "meaning": "上皮、基質細胞與細胞外基質重塑影響屈光與透明度。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "光分解",
+              "for": "表層高精度移除",
+              "against": "不是製作深層角膜瓣的機制",
+              "discriminator": "看能量是否以表層消融工作"
+            },
+            {
+              "diagnosis": "光致破裂",
+              "for": "可在透明角膜內形成分離平面",
+              "against": "不能將微泡等同於熱燒灼",
+              "discriminator": "辨認電漿、空化與切割平面"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "組織預算與切削模擬",
+              "purpose": "比較光學區、矯正量、瓣厚與剩餘基質",
+              "interpretation": "5 D近視、6 mm區域的簡化深度約60 μm；擴至7 mm約81.7 μm",
+              "limitation": "僅為近似，不能代替實際雷射演算法、過渡區與結構評估"
+            }
+          ],
+          "management": [
+            {
+              "condition": "提高矯正量或光學區",
+              "stage": "規劃前重新計算",
+              "action": "將預計切削、實際瓣厚不確定性與病人擴張風險一起討論",
+              "rationale": "去除組織與切斷層板會改變承重",
+              "caution": "任何單一安全厚度都不是無風險保證"
+            },
+            {
+              "condition": "考慮傷口調節藥物",
+              "stage": "依風險選擇",
+              "action": "將MMC限於有理由的表面切削情境並注意暴露與沖洗",
+              "rationale": "抑制纖維化可減少混濁，也可能影響細胞及癒合",
+              "caution": "屬超適應症使用，勿把藥液當常規沖洗液"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "切削輪廓示意",
+              "clue": "比較中央近視消融與周邊遠視消融",
+              "interpretation": "從曲率改變推論屈光力，而非只背雷射名稱",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 38
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "將飛秒雷射說成以193 nm消融角膜",
+              "correction": "飛秒以光致破裂分離組織，193 nm是準分子光分解。"
+            }
+          ],
+          "recall": {
+            "prompt": "為何同樣近視度數，較大光學區需要更多組織？",
+            "answer": "簡化幾何中切削深度與直徑平方成正比，光學區變大會增加深度並改變結構預算。"
+          },
+          "status": "draft",
+          "calculationChecks": [
+            {
+              "expression": "5*6**2/3",
+              "expected": 60
+            },
+            {
+              "expression": "5*7**2/3",
+              "expected": 81.66666666666667
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bcsc-s13-ch002",
+      "number": 2,
+      "title": "Patient Evaluation",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            56,
+            77
+          ],
+          "printedPages": [
+            "41",
+            "62"
+          ],
+          "chapterHeading": "Patient Evaluation"
+        }
+      ],
+      "units": [
+        {
+          "id": "bcsc-s13-ch002-u01",
+          "title": "從需求與驗光穩定性選擇手術目標",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                57,
+                58,
+                59,
+                60,
+                61,
+                62
+              ],
+              "printedPages": [
+                "42",
+                "43",
+                "44",
+                "45",
+                "46",
+                "47"
+              ],
+              "chapterHeading": "Patient Evaluation"
+            }
+          ],
+          "mechanism": [
+            "手術改變光學狀態，無法取消老花、弱視或高度近視的視網膜風險；滿意度取決於可實現的目標與個人用眼需求是否吻合。",
+            "單眼視以兩眼不同焦點換取視程，會犧牲部分立體感或融合能力；應在永久手術前測試耐受。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "夜間駕駛或精細立體工作需求高",
+              "meaning": "除裸視力還要討論眩光、對比與單眼視的代價。"
+            },
+            {
+              "finding": "隱形眼鏡停戴後驗光或角膜形狀仍變動",
+              "meaning": "尚不宜把當日測量作為永久切削終點。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "真實屈光不穩",
+              "for": "跨次主觀驗光與角膜數據一致地改變",
+              "against": "只有單次低品質量測較不支持",
+              "discriminator": "停戴及處理眼表後重新追蹤"
+            },
+            {
+              "diagnosis": "早期晶狀體變化",
+              "for": "眼內光學或近視變化且角膜穩定",
+              "against": "透明晶狀體與穩定驗光較不符",
+              "discriminator": "散瞳裂隙燈、最佳矯正與眼內像差"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "主觀與睫狀肌麻痺驗光、最佳矯正遠近視力",
+              "purpose": "確認可矯正成分及潛伏遠視或調節影響",
+              "interpretation": "明顯不一致需先找原因而非直接取平均",
+              "limitation": "配合、調節、眼表及停戴狀態均影響結果"
+            },
+            {
+              "test": "接觸鏡單眼視試戴及雙眼視檢查",
+              "purpose": "估計近距收益與融合代價",
+              "interpretation": "舒適的試戴能幫助選目標，但不能保證術後所有光照下滿意",
+              "limitation": "新發複視需區分雙眼與單眼來源"
+            }
+          ],
+          "management": [
+            {
+              "condition": "目標不切實際或數據未穩定",
+              "stage": "延後決定",
+              "action": "先釐清工作、年齡相關需求、停戴與驗光變化，再選擇光學目標",
+              "rationale": "手術精度無法補救錯誤目標",
+              "caution": "不要保證終身不需眼鏡"
+            },
+            {
+              "condition": "打算保留近視作單眼視",
+              "stage": "透明說明並試戴",
+              "action": "依原始驗光與目標殘餘度數計算處方，確認雙眼耐受",
+              "rationale": "治療量是原度數減目標度數，不是把目標再加深",
+              "caution": "主視眼偏好不能取代實際試戴"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "驗光與角膜圖跨次比較",
+              "clue": "看數據是否在相同條件下穩定",
+              "interpretation": "不是只看單次視力表是否可讀至正常",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 62
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "把單眼視當作恢復晶狀體調節",
+              "correction": "它是焦點分工，並未恢復年輕晶狀體的調節能力。"
+            }
+          ],
+          "recall": {
+            "prompt": "原近視−4.5 D、目標留−1 D時治療量如何算？",
+            "answer": "以原值減去目標值，−4.5−(−1)=−3.5 D；並確認單眼視耐受及術後視程取捨。"
+          },
+          "status": "draft",
+          "calculationChecks": [
+            {
+              "expression": "-4.5-(-1)",
+              "expected": -3.5
+            }
+          ]
+        },
+        {
+          "id": "bcsc-s13-ch002-u02",
+          "title": "擴張風險是結構、年齡與治療量的共同判斷",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                63,
+                64,
+                65,
+                66,
+                67,
+                68,
+                69,
+                70
+              ],
+              "printedPages": [
+                "48",
+                "49",
+                "50",
+                "51",
+                "52",
+                "53",
+                "54",
+                "55"
+              ],
+              "chapterHeading": "Patient Evaluation"
+            }
+          ],
+          "mechanism": [
+            "剩餘基質床等於角膜厚度扣除瓣與消融厚度；瓣雖仍存在，其切斷的層板不能視為與未切角膜相同承重。",
+            "異常地形、後表面與厚度分布、年齡及組織移除比例需一起考量；書中剩餘床低於250 μm是警訊而非反向保證高於它就安全。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "偏心變薄、下方不對稱變陡或雙眼差異",
+              "meaning": "需排除角膜擴張疾病與隱形眼鏡塑形。"
+            },
+            {
+              "finding": "計算依賴非常薄的預測瓣才勉強通過",
+              "meaning": "實際瓣較厚會吃掉剩餘床，規劃缺少容錯。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "早期圓錐角膜或相關擴張",
+              "for": "結構異常在重測後仍存在",
+              "against": "只用中央厚度正常不足以否定",
+              "discriminator": "完整斷層、厚度空間分布及過去影像"
+            },
+            {
+              "diagnosis": "接觸鏡造成形變",
+              "for": "停戴後逐漸改變",
+              "against": "固定且伴後表面異常時不能只歸咎鏡片",
+              "discriminator": "延長觀察並比較重複掃描"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "角膜斷層、全域厚度與組織預算",
+              "purpose": "判斷是否有內在疾病及手術造成的額外負荷",
+              "interpretation": "同一剩餘床數值對不同原始角膜並非同一風險",
+              "limitation": "沒有單一指標可完全排除術後擴張"
+            }
+          ],
+          "management": [
+            {
+              "condition": "存在可疑擴張圖形",
+              "stage": "停止角膜切削計畫",
+              "action": "先由角膜專科確認疾病及進展，討論非角膜替代",
+              "rationale": "再少量切削仍可能加速脆弱角膜失代償",
+              "caution": "不要用較小光學區掩蓋內在結構問題"
+            },
+            {
+              "condition": "結構正常但治療量大",
+              "stage": "比較替代方案",
+              "action": "把表面切削、眼內手術、眼鏡或接觸鏡的不同風險一起討論",
+              "rationale": "目標是可接受的整體風險，不是必須選某一種雷射",
+              "caution": "眼內方案也需獨立評估前房、內皮與視網膜"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "厚度與高程圖",
+              "clue": "尋找最薄點、非對稱及跨時間變化",
+              "interpretation": "原圖未核，不以正常中央值取代整幅判讀",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 66
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "剩餘床超過250 μm就承諾不會擴張",
+              "correction": "250 μm是教材的風險線索之一，需整合地形、厚度與個別風險。"
+            }
+          ],
+          "recall": {
+            "prompt": "為何「預估剩餘床足夠」仍可能不適合LASIK？",
+            "answer": "預估瓣厚有誤差，原角膜可能已有擴張特徵，且剩餘組織的結構與治療比例亦影響風險。"
+          },
+          "status": "draft"
+        },
+        {
+          "id": "bcsc-s13-ch002-u03",
+          "title": "眼表、全眼檢查與手術方式選擇",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                59,
+                60,
+                61,
+                71,
+                72,
+                73,
+                74,
+                75,
+                76
+              ],
+              "printedPages": [
+                "44",
+                "45",
+                "46",
+                "56",
+                "57",
+                "58",
+                "59",
+                "60",
+                "61"
+              ],
+              "chapterHeading": "Patient Evaluation"
+            }
+          ],
+          "mechanism": [
+            "淚膜及角膜上皮是量測介面，也是術後癒合的起點；乾眼或上皮基底膜異常會同時降低規劃可信度並增加併發症。",
+            "術前需尋找會限制視力或改變風險的晶狀體、視神經及視網膜疾病，不能將所有視覺不良歸為屈光不正。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "乾澀、角膜染色或反覆上皮糜爛史",
+              "meaning": "先處理眼表，並重新衡量製瓣與表面切削的不同傷口風險。"
+            },
+            {
+              "finding": "最佳矯正視力未達預期",
+              "meaning": "需找弱視、角膜或眼內疾病，不能只增加切削量。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "眼表相關視覺波動",
+              "for": "眨眼或潤滑後改善並伴染色",
+              "against": "持續固定視野缺損不符合單純眼表病",
+              "discriminator": "裂隙燈、淚膜及眼底檢查"
+            },
+            {
+              "diagnosis": "視網膜或視神經病變",
+              "for": "矯正後仍差或有特定症狀",
+              "against": "僅在眨眼前後變化且眼底正常時較弱",
+              "discriminator": "依症狀安排散瞳與視神經功能評估"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "裂隙燈、眼壓、散瞳眼底及必要的視野評估",
+              "purpose": "找出手術不會改善甚至可能惡化的問題",
+              "interpretation": "基線眼壓與角膜數據留存有利術後長期比較",
+              "limitation": "正常裸視不代表沒有周邊視網膜風險"
+            }
+          ],
+          "management": [
+            {
+              "condition": "明顯乾眼或上皮病變",
+              "stage": "先治病再驗光",
+              "action": "處理眼表、重測並討論恢復時間與可選術式",
+              "rationale": "乾眼會延遲PRK上皮化；製瓣亦影響神經與淚膜",
+              "caution": "不因PRK沒有瓣就宣稱乾眼不重要"
+            },
+            {
+              "condition": "可選PRK或LASIK",
+              "stage": "共同決策",
+              "action": "比較疼痛與上皮恢復、瓣相關風險、組織預算及工作需求",
+              "rationale": "兩者去除組織與癒合路徑不同",
+              "caution": "不能只用術後第一天視力作總體優劣結論"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "裂隙燈與染色",
+              "clue": "辨認上皮不規則、糜爛及淚膜破裂",
+              "interpretation": "書圖未核，臨床判讀需要實際影像",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 72
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "用視力表代替完整術前檢查",
+              "correction": "最佳矯正與全眼檢查是界定手術能改善什麼的必要基線。"
+            }
+          ],
+          "recall": {
+            "prompt": "乾眼為何同時影響規劃和恢復？",
+            "answer": "淚膜改變測量的折射介面，上皮健康又決定術後再上皮化與穩定成像。"
+          },
+          "status": "draft"
+        }
+      ]
+    },
+    {
+      "id": "bcsc-s13-ch003",
+      "number": 3,
+      "title": "Incisional Corneal Surgery",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            78,
+            89
+          ],
+          "printedPages": [
+            "63",
+            "74"
+          ],
+          "chapterHeading": "Incisional Corneal Surgery"
+        }
+      ],
+      "units": [
+        {
+          "id": "bcsc-s13-ch003-u01",
+          "title": "放射狀角膜切開的長期後果與後續手術",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                79,
+                80,
+                81,
+                82,
+                83
+              ],
+              "printedPages": [
+                "64",
+                "65",
+                "66",
+                "67",
+                "68"
+              ],
+              "chapterHeading": "Incisional Corneal Surgery"
+            }
+          ],
+          "mechanism": [
+            "RK以深層放射狀切口改變角膜力學，使中央變平；傷口不會回復成與完整基質相同的結構。",
+            "水合與結構變化使度數可有日內波動及多年遠視漂移，之後白內障手術亦可能暫時使角膜更平。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "曾RK且早晚視力不同",
+              "meaning": "先比較不同時間的驗光與角膜形狀，而非只按單次數據配鏡或選IOL。"
+            },
+            {
+              "finding": "外傷後舊RK切口裂開",
+              "meaning": "需以開放性眼球傷處理，不能因手術已多年而排除。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "RK相關屈光波動",
+              "for": "與時間、水合及舊切口相符",
+              "against": "新進展的不對稱變陡需另排擴張",
+              "discriminator": "跨時段驗光、斷層與舊紀錄"
+            },
+            {
+              "diagnosis": "白內障造成屈光改變",
+              "for": "晶狀體混濁與視覺變差相符",
+              "against": "快速日內角膜變化不能只由晶狀體解釋",
+              "discriminator": "裂隙燈與角膜連續量測"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "裂隙燈評估切口及連續角膜測量",
+              "purpose": "辨識傷口脆弱與可重複的角膜屈光狀態",
+              "interpretation": "後續手術計畫需避開或慎處舊切口",
+              "limitation": "單次角膜曲率可能誤導IOL計算"
+            }
+          ],
+          "management": [
+            {
+              "condition": "舊RK接受白內障或其他眼內手術",
+              "stage": "保護原切口並預告波動",
+              "action": "選切口位置與IOL方法時納入RK歷史，術後等角膜穩定再判斷殘餘度數",
+              "rationale": "術後早期水腫會加重暫時性扁平化",
+              "caution": "不要即以早期遠視驚訝做不可逆增強"
+            },
+            {
+              "condition": "有眼球破裂疑慮",
+              "stage": "眼外傷急處理",
+              "action": "避免眼球加壓並緊急轉眼外傷處置",
+              "rationale": "深切口可成為受力時的裂開路徑",
+              "caution": "常規驗光不能優先於眼球完整性"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "RK裂隙燈及地形圖",
+              "clue": "看深放射狀切口與中央扁平、不規則分布",
+              "interpretation": "視力受規則與不規則屈光影響",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 81
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "把RK當作單純穩定的低階近視矯正",
+              "correction": "其長期傷口與力學變化會影響外傷及後續手術。"
+            }
+          ],
+          "recall": {
+            "prompt": "為何白內障術後早期RK眼遠視不宜立即做增強？",
+            "answer": "角膜水腫與舊切口力學可暫時使中央變平，需等待連續量測穩定。"
+          },
+          "status": "draft"
+        },
+        {
+          "id": "bcsc-s13-ch003-u02",
+          "title": "弧形與角膜緣鬆弛切口：先認主子午線再談量",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                83,
+                84,
+                85,
+                86,
+                87,
+                88
+              ],
+              "printedPages": [
+                "68",
+                "69",
+                "70",
+                "71",
+                "72",
+                "73"
+              ],
+              "chapterHeading": "Incisional Corneal Surgery"
+            }
+          ],
+          "mechanism": [
+            "在陡峭子午線作弧形鬆弛切口可使該方向變平，另一主子午線相對變陡；這種耦合使等效球面可能變化較小。",
+            "LRI位置比中央AK周邊，相同矯正量常需較長或較深切口；光學區、長度、深度、年齡與癒合均會改變效應。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "規則散光但兩次定位軸不一致",
+              "meaning": "先排除頭位旋轉、標記誤差及眼表影響。"
+            },
+            {
+              "finding": "只有眼鏡散光卻角膜散光很小",
+              "meaning": "內部散光參與，不能全用角膜切口處理。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "角膜規則散光",
+              "for": "角膜圖與主觀柱鏡方向相符",
+              "against": "明顯非對稱或局部陡峭不是標準規則散光",
+              "discriminator": "比較地形與主觀驗光向量"
+            },
+            {
+              "diagnosis": "眼內散光",
+              "for": "晶狀體或其他內部光學與角膜軸不吻合",
+              "against": "角膜足以解釋總散光時不必假設額外來源",
+              "discriminator": "比較全眼與角膜屈光資訊"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "術前軸標記、地形圖與驗光",
+              "purpose": "辨識真正需要放鬆的陡峭子午線",
+              "interpretation": "正柱鏡處方的軸可對應要處理的角膜陡軸；仍需角膜圖確認",
+              "limitation": "不可混淆正負柱鏡轉置後的軸"
+            }
+          ],
+          "management": [
+            {
+              "condition": "確認為穩定規則角膜散光",
+              "stage": "依位置與量選切口",
+              "action": "在適當周邊光學區沿陡軸規劃成對弧形切口，使用對應術式的nomogram",
+              "rationale": "正確方向先於增加切口力道",
+              "caution": "過中央、過深、過長或錯軸可造成不規則及穿孔"
+            },
+            {
+              "condition": "治療後仍殘餘散光",
+              "stage": "先重新定性",
+              "action": "確認是低矯、軸誤差或不規則化，再考慮處理",
+              "rationale": "盲目再加切口可能放大不可逆不規則",
+              "caution": "角膜緣與中央AK不能直接套相同參數"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "正柱鏡處方與角膜地形方向圖",
+              "clue": "沿同一子午線看相對的兩個弧形切口位置",
+              "interpretation": "切口方向錯90度可能惡化原散光",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 85
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "把正柱鏡軸轉90度後直接作切口",
+              "correction": "先明確使用的柱鏡記法，並用角膜陡軸核對，不機械背軸。"
+            }
+          ],
+          "recall": {
+            "prompt": "弧形切口為何可降散光而等效球面改變較小？",
+            "answer": "切口子午線變平，垂直方向相對變陡，耦合作用讓兩主子午線屈光力變化部分抵銷。"
+          },
+          "status": "draft"
+        }
+      ]
+    },
+    {
+      "id": "bcsc-s13-ch004",
+      "number": 4,
+      "title": "Photoablation: Techniques and Outcomes",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            90,
+            115
+          ],
+          "printedPages": [
+            "75",
+            "100"
+          ],
+          "chapterHeading": "Photoablation: Techniques and Outcomes"
+        }
+      ],
+      "units": [
+        {
+          "id": "bcsc-s13-ch004-u01",
+          "title": "表面切削與LASIK：恢復快慢來自不同傷口",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                91,
+                92,
+                93,
+                94,
+                95,
+                96,
+                97
+              ],
+              "printedPages": [
+                "76",
+                "77",
+                "78",
+                "79",
+                "80",
+                "81",
+                "82"
+              ],
+              "chapterHeading": "Photoablation: Techniques and Outcomes"
+            }
+          ],
+          "mechanism": [
+            "PRK先去上皮再作基質消融，恢復取決於上皮再生與基質癒合；LASIK將消融置於瓣下，初期舒適與視覺恢復較快，但增加終身瓣介面問題。",
+            "LASEK及epiLASIK以不同方式處理上皮，不等同於LASIK的基質瓣；保留或移動上皮不代表沒有表面癒合與混濁風險。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "無法承受工作中的角膜瓣撞擊風險",
+              "meaning": "應討論表面切削與其他矯正，並告知較慢恢復。"
+            },
+            {
+              "finding": "上皮鬆動或EBMD線索",
+              "meaning": "製瓣可造成上皮剝落及後續介面發炎或長入。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "表面切削恢復期疼痛",
+              "for": "與上皮缺損一致且逐漸癒合",
+              "against": "惡化的局部浸潤或前房反應需另排感染",
+              "discriminator": "連續裂隙燈追蹤上皮與基質"
+            },
+            {
+              "diagnosis": "瓣介面問題",
+              "for": "症狀與瓣紋、移位或介面混濁相符",
+              "against": "PRK沒有基質瓣，病理路徑不同",
+              "discriminator": "確認原術式與實際組織層次"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "上皮、淚膜、角膜厚度與地形評估",
+              "purpose": "選擇可接受的傷口風險及組織預算",
+              "interpretation": "沒有瓣並不等於不需擴張風險篩檢",
+              "limitation": "術式選擇還需合併眼底、晶狀體與個人期待"
+            }
+          ],
+          "management": [
+            {
+              "condition": "選表面切削",
+              "stage": "說明恢復路徑",
+              "action": "術後保護上皮、監測感染與再上皮化，再依反應管理混濁風險",
+              "rationale": "上皮完整性是早期視覺與疼痛改善的關鍵",
+              "caution": "持續缺損不能只延長止痛滴劑"
+            },
+            {
+              "condition": "選LASIK",
+              "stage": "同時準備瓣風險照護",
+              "action": "術前排除上皮與結構警訊，術中確認完整瓣與準確復位，術後避免搓揉與撞擊",
+              "rationale": "介面初期貼附不代表基質已完全癒合",
+              "caution": "出現突然視力下降需檢查瓣及介面"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "PRK與LASIK層次示意",
+              "clue": "確認上皮去除、基質消融與瓣的位置",
+              "interpretation": "操作層次決定不同併發症",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 93
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "將epiLASIK直接當作飛秒LASIK",
+              "correction": "前者主要處理上皮層，後者製作角膜基質瓣。"
+            }
+          ],
+          "recall": {
+            "prompt": "為何LASIK初期恢復快，卻仍有多年後瓣移位風險？",
+            "answer": "消融區被上皮完整的瓣覆蓋，但中央介面癒合有限，貼附並非回復未切開角膜的結構。"
+          },
+          "status": "draft"
+        },
+        {
+          "id": "bcsc-s13-ch004-u02",
+          "title": "客製化消融的資料來源與操作誤差",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                97,
+                98,
+                99,
+                100,
+                101,
+                102,
+                103,
+                104,
+                105
+              ],
+              "printedPages": [
+                "82",
+                "83",
+                "84",
+                "85",
+                "86",
+                "87",
+                "88",
+                "89",
+                "90"
+              ],
+              "chapterHeading": "Photoablation: Techniques and Outcomes"
+            }
+          ],
+          "mechanism": [
+            "Wavefront-guided依個人全眼波前規劃；wavefront-optimized主要調整消融輪廓以降低誘發球面像差；topography-guided使用角膜表面形狀資訊處理角膜不規則。",
+            "飛秒製瓣與準分子消融是不同步驟；瓣厚、定位、旋轉、追蹤、基質水合與雷射校正都可影響最終屈光。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "全眼波前與角膜地形異常方向不同",
+              "meaning": "先找晶狀體或表面因素，不把兩種導引當成同一份資料。"
+            },
+            {
+              "finding": "高度近視瓣攤回較平的基質床後有皺紋",
+              "meaning": "深切削造成瓣與床的幾何不吻合，須確實攤平及定位。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "規則低階殘餘度數",
+              "for": "可由穩定驗光重複測得",
+              "against": "固定偏心或不規則圖形非單純球柱鏡問題",
+              "discriminator": "比較主觀驗光、角膜圖與波前"
+            },
+            {
+              "diagnosis": "消融偏心或高階像差",
+              "for": "與瞳孔及切削中心不吻合、視覺品質差",
+              "against": "僅有暫時淚膜波動不足以定性",
+              "discriminator": "先處理眼表後檢查原圖與定位"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "波前、地形、瞳孔與追蹤註冊資料品質",
+              "purpose": "確認導引資料可信且與手術座標一致",
+              "interpretation": "客製化指的是使用的資料與目標，不保證任何情況均較好",
+              "limitation": "低品質輸入或內部光學變化可能抵銷利益"
+            }
+          ],
+          "management": [
+            {
+              "condition": "擷取不可靠或眼表不穩",
+              "stage": "中止以該次圖規劃",
+              "action": "改善表面並重測，確認穩定後選適當消融模式",
+              "rationale": "錯誤資料可誘發新不規則",
+              "caution": "不能為了客製標籤勉強採用不可信圖"
+            },
+            {
+              "condition": "術中瓣可完整復位",
+              "stage": "預防皺褶",
+              "action": "仔細對位與攤平，減少多餘沖洗並檢查邊緣",
+              "rationale": "過多介面液體可使瓣不貼合",
+              "caution": "不可用低張水或過度操作增加水腫"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "三種導引模式及消融定位圖",
+              "clue": "辨識全眼波前、優化輪廓或角膜表面資料",
+              "interpretation": "不同輸入不應混稱同一技術",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 100
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "波前優化等於每位病人的高階像差訂製",
+              "correction": "優化輪廓與個人波前導引是不同概念。"
+            }
+          ],
+          "recall": {
+            "prompt": "topography-guided為何不能直接等同wavefront-guided？",
+            "answer": "前者依角膜表面形狀，後者依全眼出射波前；眼內像差可能造成不同目標。"
+          },
+          "status": "draft"
+        },
+        {
+          "id": "bcsc-s13-ch004-u03",
+          "title": "增強手術與MMC：先找殘差原因再追加治療",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                105,
+                106,
+                107,
+                108,
+                109,
+                110,
+                111,
+                112,
+                113,
+                114
+              ],
+              "printedPages": [
+                "90",
+                "91",
+                "92",
+                "93",
+                "94",
+                "95",
+                "96",
+                "97",
+                "98",
+                "99"
+              ],
+              "chapterHeading": "Photoablation: Techniques and Outcomes"
+            }
+          ],
+          "mechanism": [
+            "殘餘度數可來自初始規劃、癒合回退、眼表、晶狀體或結構失穩；只有可定位且穩定的可矯正部分才適合考慮增強。",
+            "再表面切削既往LASIK、PRK、PK或RK眼時，既有傷口環境可增加混濁風險；MMC藉抑制細胞增殖調節反應，屬超適應症使用。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "原先滿意後度數持續改變且角膜漸變陡",
+              "meaning": "先排擴張，不能當作單純回退再切削。"
+            },
+            {
+              "finding": "上次矯正後角膜已薄或瓣厚不明",
+              "meaning": "需要更完整的組織估算與其他選擇。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "穩定殘餘規則度數",
+              "for": "驗光、形狀及最佳矯正跨次穩定",
+              "against": "持續變陡變薄不符穩定殘差",
+              "discriminator": "連續驗光、斷層與厚度"
+            },
+            {
+              "diagnosis": "眼表或晶狀體所致視覺問題",
+              "for": "波動或眼內變化可解釋症狀",
+              "against": "角膜殘差穩定且試鏡可完全改善時較弱",
+              "discriminator": "先治眼表並評估晶狀體"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "原手術紀錄、斷層、瓣厚與試鏡效果",
+              "purpose": "確認追加治療的靶點及安全餘裕",
+              "interpretation": "若光學矯正不能改善症狀，不能保證再消融有用",
+              "limitation": "舊手術資料缺失會增加不確定性"
+            }
+          ],
+          "management": [
+            {
+              "condition": "穩定且組織允許的殘餘度數",
+              "stage": "比較路徑",
+              "action": "依原瓣、眼表與混濁風險選擇表面或掀瓣增強，亦可保留鏡片矯正",
+              "rationale": "兩種路徑分別增加表面傷口或上皮長入等風險",
+              "caution": "不是所有殘差都需手術"
+            },
+            {
+              "condition": "高混濁風險的表面切削",
+              "stage": "藥物風險討論",
+              "action": "書中常見MMC約0.01–0.02%、暴露10–120秒，實際依風險與方案選定並充分BSS沖洗",
+              "rationale": "減少纖維化與毒性之間需要平衡",
+              "caution": "不是FDA核准的屈光用途，也不是止痛或日常沖洗；暴露可能影響內皮與癒合"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "增強前後連續角膜圖",
+              "clue": "區分固定殘差與進展性結構變化",
+              "interpretation": "單次正常圖不足以宣稱已穩定",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 110
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "只因度數低就認為不會PRK haze",
+              "correction": "既往角膜手術等傷口背景也影響混濁風險。"
+            }
+          ],
+          "recall": {
+            "prompt": "為何原LASIK眼只補少量PRK仍可能討論MMC？",
+            "answer": "混濁風險不只由度數決定，既往手術與基質傷口反應亦重要；須衡量超適應症藥物的收益與毒性。"
+          },
+          "status": "draft"
+        }
+      ]
+    },
+    {
+      "id": "bcsc-s13-ch005",
+      "number": 5,
+      "title": "Photoablation: Complications and Adverse Effects",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            116,
+            139
+          ],
+          "printedPages": [
+            "101",
+            "124"
+          ],
+          "chapterHeading": "Photoablation: Complications and Adverse Effects"
+        }
+      ],
+      "units": [
+        {
+          "id": "bcsc-s13-ch005-u01",
+          "title": "殘差、偏心、乾眼與中央毒性角膜病變",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                117,
+                118,
+                119,
+                120,
+                121,
+                122,
+                123
+              ],
+              "printedPages": [
+                "102",
+                "103",
+                "104",
+                "105",
+                "106",
+                "107",
+                "108"
+              ],
+              "chapterHeading": "Photoablation: Complications and Adverse Effects"
+            }
+          ],
+          "mechanism": [
+            "欠矯或過矯描述結果，不是病因；淚膜、消融定位、高階像差及癒合改變可造成看似相同的視力抱怨。",
+            "中央毒性角膜病變可在術後數日產生非發炎性中央混濁、組織變薄與遠視偏移，與會進展的感染或介面發炎不同。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "眼乾且視力隨眨眼變動",
+              "meaning": "先重新檢查淚膜與角膜表面。"
+            },
+            {
+              "finding": "中央混濁伴變薄、遠視偏移但發炎不明顯",
+              "meaning": "考慮中央毒性角膜病變，同時排除感染與其他急症。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "乾眼或神經相關眼表問題",
+              "for": "有表面染色及視覺波動",
+              "against": "固定中央結構損失不能僅用乾眼解釋",
+              "discriminator": "裂隙燈、表面檢查及重複驗光"
+            },
+            {
+              "diagnosis": "中央毒性角膜病變",
+              "for": "中央非發炎性變化、變薄與遠視偏移",
+              "against": "局部化膿、前房反應或持續惡化更需考慮感染",
+              "discriminator": "臨床演變及角膜厚度/形狀連續比較"
+            },
+            {
+              "diagnosis": "偏心消融或中央島",
+              "for": "角膜圖與症狀光學型態吻合",
+              "against": "淚膜治療後完全恢復者較不符",
+              "discriminator": "可靠地形與波前、試鏡效果"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "主觀驗光、淚膜、斷層與裂隙燈",
+              "purpose": "分開規則殘差、光學不規則與組織疾病",
+              "interpretation": "中央病灶的層次、發炎與進展性比「白色」本身更重要",
+              "limitation": "早期病灶可能重疊，需密切專科追蹤"
+            }
+          ],
+          "management": [
+            {
+              "condition": "可逆表面問題",
+              "stage": "先治病再評估殘差",
+              "action": "優化淚膜並停用有毒性或不必要刺激藥物",
+              "rationale": "先穩定折射介面才能解讀測量",
+              "caution": "不要在不穩定表面上做客製增強"
+            },
+            {
+              "condition": "疑中央毒性病變且已排感染",
+              "stage": "監測結構與恢復",
+              "action": "由角膜專科追蹤，避免在角膜仍變化時追加消融",
+              "rationale": "病程可能逐漸改善，早期增強會把暫時變化永久化",
+              "caution": "任何感染疑慮需另走急診斷及治療路徑"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "角膜混濁與斷層圖",
+              "clue": "比較混濁層次、中央厚度及遠視偏移",
+              "interpretation": "未核原圖，不以文字外觀單獨下診斷",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 121
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "術後有白色病灶一律加強類固醇",
+              "correction": "感染、毒性變化與DLK處置不同，必須先定位。"
+            }
+          ],
+          "recall": {
+            "prompt": "為何「過矯」病人不應直接安排反向雷射？",
+            "answer": "需先查明眼表、結構、癒合或定位問題並確認穩定，病因未處理會使第二次手術更不可靠。"
+          },
+          "status": "draft"
+        },
+        {
+          "id": "bcsc-s13-ch005-u02",
+          "title": "PRK上皮缺損、haze與藥物相關傷害",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                123,
+                124,
+                125,
+                126,
+                127,
+                128
+              ],
+              "printedPages": [
+                "108",
+                "109",
+                "110",
+                "111",
+                "112",
+                "113"
+              ],
+              "chapterHeading": "Photoablation: Complications and Adverse Effects"
+            }
+          ],
+          "mechanism": [
+            "表面切削後上皮修復與基質纖維化是不同過程；乾眼、藥物毒性或感染可延遲閉合，而haze反映基質傷口反應。",
+            "典型PRK haze於數週出現、約1–2個月較明顯，常在其後6–12個月減退；持續或嚴重病例與早期輕度混濁的處理不同。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "持續上皮缺損且頻繁使用局部NSAID",
+              "meaning": "需考慮藥物延遲癒合與角膜溶解風險。"
+            },
+            {
+              "finding": "早期輕度瀰漫haze而上皮完整、沒有感染線索",
+              "meaning": "可先觀察及依術後方案監測，而非立即再切削。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "藥物毒性或乾眼造成不癒合",
+              "for": "暴露史或表面異常可解釋",
+              "against": "局部浸潤、惡化疼痛或前房反應需排感染",
+              "discriminator": "檢查用藥、缺損邊緣及基質"
+            },
+            {
+              "diagnosis": "感染性角膜炎",
+              "for": "局部浸潤、進展或前房發炎",
+              "against": "單純均勻早期haze且穩定時較弱",
+              "discriminator": "必要時採樣並立即抗感染處理"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "連續染色、裂隙燈與用藥檢視",
+              "purpose": "確認上皮閉合、毒性及混濁演變",
+              "interpretation": "淚液量正常不能排除藥物傷害或淚膜品質問題",
+              "limitation": "正常Schirmer不等於可無限使用NSAID"
+            }
+          ],
+          "management": [
+            {
+              "condition": "缺損持續且正在頻繁滴NSAID",
+              "stage": "移除可能毒因",
+              "action": "停用可疑NSAID，保護眼表並排除感染，密切追蹤癒合",
+              "rationale": "持續止痛藥暴露可能阻礙修復甚至造成溶解",
+              "caution": "不可只增加類固醇而忽略感染或毒性"
+            },
+            {
+              "condition": "早期輕度haze",
+              "stage": "給癒合時間",
+              "action": "觀察及依個別術後方案監測；若持續且影響視覺才評估後續表面處理",
+              "rationale": "纖維化可逐漸重塑",
+              "caution": "嚴重或不典型混濁需重新診斷，不一律等待"
+            },
+            {
+              "condition": "穩定且長期視覺顯著受影響",
+              "stage": "選擇性介入",
+              "action": "角膜專科評估淺層角膜切除或PTK及是否加MMC",
+              "rationale": "治療需對準既有混濁深度與組織餘裕",
+              "caution": "重做傷口本身也可能誘發新haze"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "上皮染色與haze層次",
+              "clue": "先分上皮缺損和基質混濁",
+              "interpretation": "兩者可共存，但治療目標不同",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 125
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "PRK一個月haze就安排PTK",
+              "correction": "需按嚴重程度、感染線索及癒合趨勢決定，不只看月份。"
+            }
+          ],
+          "recall": {
+            "prompt": "上皮兩週未癒合、Schirmer正常時，為何仍需停可疑NSAID？",
+            "answer": "淚液量正常無法排除藥物毒性；頻繁局部NSAID可延遲上皮化並增加角膜傷害。"
+          },
+          "status": "draft"
+        },
+        {
+          "id": "bcsc-s13-ch005-u03",
+          "title": "瓣移位、皺紋與上皮長入的機械處理",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                127,
+                128,
+                129,
+                130,
+                134,
+                135,
+                136
+              ],
+              "printedPages": [
+                "112",
+                "113",
+                "114",
+                "115",
+                "119",
+                "120",
+                "121"
+              ],
+              "chapterHeading": "Photoablation: Complications and Adverse Effects"
+            }
+          ],
+          "mechanism": [
+            "LASIK中央介面癒合有限，外傷可在多年後移位；宏觀皺紋穿過瓣全層並可能影響視軸，微細皺紋則常較輕微。",
+            "上皮可經瓣邊缺損進入介面，掀瓣增強及上皮缺損增加風險；進展、視軸影響或溶解使它不只是外觀問題。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "揉眼或撞擊後突然視力下降，瓣邊不齊",
+              "meaning": "需立即檢查瓣移位與夾入上皮。"
+            },
+            {
+              "finding": "瓣緣介面上皮逐漸向中心移動",
+              "meaning": "評估進展、屈光影響及瓣溶解，不只記錄存在與否。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "宏觀瓣紋",
+              "for": "平行全層皺褶、與視覺下降相符",
+              "against": "單純微細表面皺紋未必影響視力",
+              "discriminator": "裂隙燈反光、逆照及螢光染色"
+            },
+            {
+              "diagnosis": "上皮長入",
+              "for": "介面上皮巢或邊界，伴進展或融解",
+              "against": "瀰漫白血球浸潤不等於上皮",
+              "discriminator": "追蹤邊界與細胞層次"
+            },
+            {
+              "diagnosis": "瓣移位",
+              "for": "瓣邊位置改變及不規則",
+              "against": "原位且只有輕度表面波動較不符",
+              "discriminator": "實際瓣邊和介面檢查"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "裂隙燈定位與連續攝影",
+              "purpose": "判定是否影響視軸、持續進展或造成溶解",
+              "interpretation": "僅驗光不能修復機械移位",
+              "limitation": "原圖未核，需實際裂隙燈確認"
+            }
+          ],
+          "management": [
+            {
+              "condition": "急性瓣移位或視覺顯著宏觀紋",
+              "stage": "及時恢復解剖位置",
+              "action": "由熟悉屈光角膜的醫師掀瓣、清理介面並準確攤平復位",
+              "rationale": "拖延會增加固定皺紋、上皮夾入與不規則",
+              "caution": "避免粗暴操作及過量液體造成更多皺褶"
+            },
+            {
+              "condition": "小範圍穩定周邊上皮長入",
+              "stage": "觀察進展",
+              "action": "記錄位置並密切追蹤；若進展、影響視軸或溶解則清除與處理入口",
+              "rationale": "不是每個上皮巢都要手術，但有害進展不能只觀察",
+              "caution": "單純刮掉介面而未處理邊緣可復發"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "瓣邊、宏觀紋與介面上皮",
+              "clue": "看視軸、邊界及變化",
+              "interpretation": "機械問題可與DLK同時存在",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 130
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "用眼鏡處方處理急性瓣移位",
+              "correction": "應先修復組織位置，驗光不是急性機械傷害的替代治療。"
+            }
+          ],
+          "recall": {
+            "prompt": "為何瓣邊上皮缺損增加長入風險？",
+            "answer": "它提供上皮進入介面的入口，尤其掀瓣後可沿低癒合介面擴展。"
+          },
+          "status": "draft"
+        },
+        {
+          "id": "bcsc-s13-ch005-u04",
+          "title": "白色介面不只DLK：感染、壓力與進展性擴張",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                131,
+                132,
+                133,
+                137,
+                138,
+                139
+              ],
+              "printedPages": [
+                "116",
+                "117",
+                "118",
+                "122",
+                "123",
+                "124"
+              ],
+              "chapterHeading": "Photoablation: Complications and Adverse Effects"
+            }
+          ],
+          "mechanism": [
+            "DLK是無菌性介面白血球反應；感染可累及瓣與基質且伴局部浸潤或前房反應，兩者的類固醇處置方向不能混用。",
+            "類固醇誘發高眼壓可產生介面液體或壓力相關基質混濁，中央壓平眼壓反而可能假低。擴張則是形狀及力學持續失穩，不是單純術後欠矯。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "瀰漫細顆粒介面混濁而早期發生",
+              "meaning": "支持DLK但不排除感染，仍需完整檢查。"
+            },
+            {
+              "finding": "局部化膿、前房反應或快速惡化",
+              "meaning": "提高感染疑慮；LASIK後痛覺可能不可靠。"
+            },
+            {
+              "finding": "類固醇加強後不改善且有介面液體",
+              "meaning": "須評估周邊眼壓與壓力相關病變。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "DLK",
+              "for": "早期瀰漫介面細胞",
+              "against": "局部浸潤與前房反應較不典型",
+              "discriminator": "檢查分布與嚴重度，持續追蹤"
+            },
+            {
+              "diagnosis": "感染性角膜炎",
+              "for": "局部進展、瓣或床浸潤、前房發炎",
+              "against": "無菌性均勻反應較不支持但不能只依時序排除",
+              "discriminator": "必要時掀瓣採樣、培養並立即抗微生物"
+            },
+            {
+              "diagnosis": "壓力相關介面問題",
+              "for": "類固醇暴露、介面液體與周邊高壓",
+              "against": "中央單一低眼壓無法否定",
+              "discriminator": "周邊量壓及結構觀察"
+            },
+            {
+              "diagnosis": "術後擴張",
+              "for": "連續變薄變陡、近視散光與最佳矯正變差",
+              "against": "穩定低矯未呈進展",
+              "discriminator": "序列斷層與屈光比較"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "裂隙燈、前房反應、適當眼壓與序列斷層",
+              "purpose": "區分需要抗感染、抗炎、降壓或穩定結構的病因",
+              "interpretation": "術後日數只是線索，不能取代病灶及壓力檢查",
+              "limitation": "角膜改變與介面液體可使中央GAT低估"
+            }
+          ],
+          "management": [
+            {
+              "condition": "輕度DLK且感染已合理排除",
+              "stage": "抑制無菌反應",
+              "action": "密切監測下使用頻繁局部類固醇；中央密集或有融解風險需緊急專科評估介面處理",
+              "rationale": "早期控制可避免視軸瘢痕",
+              "caution": "嚴重融解時掀瓣本身有風險，不機械套所有分期"
+            },
+            {
+              "condition": "疑感染",
+              "stage": "立即採樣與治療",
+              "action": "角膜專科評估掀瓣採樣及抗微生物，不盲目加強類固醇",
+              "rationale": "感染延誤可造成基質破壞",
+              "caution": "病原中常見葡萄球菌，非典型分枝桿菌亦重要"
+            },
+            {
+              "condition": "確認壓力相關介面混濁",
+              "stage": "改變治療方向",
+              "action": "處理類固醇反應並降眼壓，改用可信測量追蹤",
+              "rationale": "加更多類固醇可使病因惡化",
+              "caution": "需同時確認無感染或其他原因"
+            },
+            {
+              "condition": "擴張進展",
+              "stage": "分開穩定與視覺復健",
+              "action": "評估CXL穩定進展，RGP或鞏膜鏡改善不規則光學；選擇性再重建",
+              "rationale": "交聯不等於最佳視力矯正，鏡片不等於阻止進展",
+              "caution": "避免追加削薄角膜的雷射增強"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "介面浸潤、液體與擴張斷層",
+              "clue": "看病灶局部/瀰漫、前房及連續形狀變化",
+              "interpretation": "原圖未核，不能靠單一白色示意代替鑑別",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 132
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "疑DLK不改善就持續無限加類固醇",
+              "correction": "重查感染與高眼壓，三者處置方向可相反。"
+            }
+          ],
+          "recall": {
+            "prompt": "為何LASIK後中央眼壓低卻仍可能是壓力相關介面病變？",
+            "answer": "介面積液及術後角膜力學改變可低估中央壓平值，應評估周邊眼壓與整體臨床證據。"
+          },
+          "status": "draft"
+        },
+        {
+          "id": "bcsc-s13-ch005-u05",
+          "title": "飛秒特有氣泡與短暫光敏感：何時不要掀瓣",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                136,
+                137,
+                138
+              ],
+              "printedPages": [
+                "121",
+                "122",
+                "123"
+              ],
+              "chapterHeading": "Photoablation: Complications and Adverse Effects"
+            }
+          ],
+          "mechanism": [
+            "飛秒光致破裂產生氣體，opaque bubble layer或前房氣泡可干擾追蹤與後續消融，並不等於感染。氣體向表面突破時須評估瓣的完整性。",
+            "短暫光敏感症候群可在飛秒LASIK後數週至數月出現，病人畏光但視力好、眼安靜、介面近正常；與局部感染或DLK不同。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "氣泡使追蹤無法可靠定位",
+              "meaning": "需等氣體或依設備安全方案處理，不強行忽略追蹤品質。"
+            },
+            {
+              "finding": "良好裸視且安靜眼卻強烈畏光",
+              "meaning": "排除感染等病因後考慮短暫光敏感症候群。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "短暫光敏感症候群",
+              "for": "飛秒術後延遲畏光而介面安靜",
+              "against": "局部浸潤或前房炎症提示另查",
+              "discriminator": "確認視力、裂隙燈及病程"
+            },
+            {
+              "diagnosis": "DLK或感染",
+              "for": "有明確介面細胞或局部進展",
+              "against": "正常安靜介面不典型",
+              "discriminator": "實際介面與前房檢查"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "裂隙燈、視力、前房與追蹤狀態",
+              "purpose": "區分氣泡操作問題和術後發炎病因",
+              "interpretation": "正常視力不會排除畏光的真實負擔",
+              "limitation": "症候群診斷應在排除危險原因後建立"
+            }
+          ],
+          "management": [
+            {
+              "condition": "術中氣泡干擾或表面突破",
+              "stage": "先確認完整性與追蹤",
+              "action": "依狀態等待或中止當次後續步驟，若疑瓣缺損不盲目掀瓣，可待癒合後評估其他路徑",
+              "rationale": "錯誤平面與不可靠追蹤會增加永久傷害",
+              "caution": "處理依實際裝置及步驟，不套單一重作方案"
+            },
+            {
+              "condition": "安靜眼、好視力的術後延遲畏光且已排除其他病因",
+              "stage": "治療短暫光敏感",
+              "action": "由角膜醫師使用局部類固醇，必要時加免疫調節並追蹤眼壓",
+              "rationale": "控制相關炎症而非為正常介面做機械操作",
+              "caution": "不可把所有術後畏光先當此症候群而漏感染"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "opaque bubble layer及安靜介面",
+              "clue": "分辨氣體與真正細胞浸潤",
+              "interpretation": "原圖未核，不能僅因白色外觀混稱DLK",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 137
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "延遲畏光一律掀瓣沖洗",
+              "correction": "先看介面是否有病灶，短暫光敏感可在正常介面出現。"
+            }
+          ],
+          "recall": {
+            "prompt": "飛秒後視力好、眼不紅、介面清卻畏光，為何不直接掀瓣？",
+            "answer": "可能是短暫光敏感症候群，先排危險病因後以醫療處理，無明確介面病灶不應反射性機械介入。"
+          },
+          "status": "draft"
+        }
+      ]
+    },
+    {
+      "id": "bcsc-s13-ch006",
+      "number": 6,
+      "title": "Femtosecond Lenticule Extraction",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            140,
+            147
+          ],
+          "printedPages": [
+            "125",
+            "132"
+          ],
+          "chapterHeading": "Femtosecond Lenticule Extraction"
+        }
+      ],
+      "units": [
+        {
+          "id": "bcsc-s13-ch006-u01",
+          "title": "SMILE的透鏡層次、收益與限制",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                141,
+                142,
+                143,
+                144
+              ],
+              "printedPages": [
+                "126",
+                "127",
+                "128",
+                "129"
+              ],
+              "chapterHeading": "Femtosecond Lenticule Extraction"
+            }
+          ],
+          "mechanism": [
+            "SMILE以飛秒在角膜內切出透鏡，再經小切口取出；它沒有LASIK式大片可掀瓣，也不靠準分子雷射逐點消融透鏡。",
+            "小切口可減少部分前角膜神經切斷及瓣相關併發症，但不能宣稱不會乾眼或擴張；屈光範圍、客製化與增強選擇仍受平台限制。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "高度依賴客製高階像差處理或特殊屈光範圍",
+              "meaning": "不能因無瓣優勢忽略裝置可提供的實際治療。"
+            },
+            {
+              "finding": "術後仍有乾澀或結構進展",
+              "meaning": "無瓣不會排除這些問題。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "SMILE透鏡取出",
+              "for": "角膜內先切出再取出透鏡",
+              "against": "不是準分子消融",
+              "discriminator": "核對手術層次與小切口"
+            },
+            {
+              "diagnosis": "LASIK",
+              "for": "基質瓣下準分子消融",
+              "against": "有可掀瓣與瓣邊問題",
+              "discriminator": "確認既往術式與層次"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "與其他角膜屈光手術同等的術前篩檢",
+              "purpose": "確保驗光、眼表與結構適合",
+              "interpretation": "SMILE同樣需要斷層、厚度及風險整合",
+              "limitation": "不以術式名稱取代疾病篩檢"
+            }
+          ],
+          "management": [
+            {
+              "condition": "考慮透鏡取出",
+              "stage": "依平台與需求比較",
+              "action": "明確核對適應範圍、可用客製化及若有殘差的處理路徑",
+              "rationale": "2024–25教材描述的核准範圍有版次限制，不代表所有當前裝置",
+              "caution": "型號與當前核准需另查官方資料"
+            },
+            {
+              "condition": "重視瓣外傷風險",
+              "stage": "說明相對優勢",
+              "action": "討論無大片瓣的結構差異，同時告知乾眼、感染與擴張仍可能",
+              "rationale": "減少某類併發症不等於消除所有角膜風險",
+              "caution": "不要把潛在生物力學優勢說成保證"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "透鏡與cap層次圖",
+              "clue": "辨識前後透鏡平面及取出小切口",
+              "interpretation": "cap不是可任意掀開的LASIK瓣",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 142
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "SMILE無瓣所以無需擴張篩檢",
+              "correction": "仍移除角膜組織，原本結構病變與手術負荷仍重要。"
+            }
+          ],
+          "recall": {
+            "prompt": "SMILE為何不像LASIK可直接再掀原瓣增強？",
+            "answer": "它以小切口取出角膜內透鏡，沒有原先可直接掀起的大片瓣，須另選適合cap與剩餘組織的方案。"
+          },
+          "status": "draft"
+        },
+        {
+          "id": "bcsc-s13-ch006-u02",
+          "title": "吸附中斷、分離錯平面與殘留透鏡",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                144,
+                145,
+                146,
+                147
+              ],
+              "printedPages": [
+                "129",
+                "130",
+                "131",
+                "132"
+              ],
+              "chapterHeading": "Femtosecond Lenticule Extraction"
+            }
+          ],
+          "mechanism": [
+            "透鏡取出必須依序辨識並分離正確前後界面；錯平面或不完整分離可造成cap或透鏡撕裂及殘留組織。",
+            "吸附中斷的處理取決於雷射已完成哪個步驟與設備方案，不能一律重做全部切割；殘留透鏡會造成不規則光學而非單純規則殘度。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "取出困難、透鏡不完整或術後不對稱不規則",
+              "meaning": "需檢查殘留及層次，不急著把殘差當成可消融度數。"
+            },
+            {
+              "finding": "術中吸附中斷",
+              "meaning": "先確認切割進度、定位與可安全續作的方案。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "透鏡殘留或不完整取出",
+              "for": "術中組織不完整、術後固定不規則",
+              "against": "單純可穩定柱鏡矯正且透鏡完整時較弱",
+              "discriminator": "檢查取出組織、裂隙燈與斷層"
+            },
+            {
+              "diagnosis": "表面或癒合波動",
+              "for": "眨眼或時間相關改善",
+              "against": "持續明確局部結構異常需另找原因",
+              "discriminator": "眼表處理後重測"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "術中平面辨識與術後角膜影像",
+              "purpose": "確定完整取出及異常所在層次",
+              "interpretation": "前節影像可幫助定位，不代替手術紀錄",
+              "limitation": "微小殘片與瘢痕可能需多模式評估"
+            }
+          ],
+          "management": [
+            {
+              "condition": "取出時阻力或平面不明",
+              "stage": "停止盲目牽拉",
+              "action": "重新確認界面與透鏡完整性，再依專科經驗處理",
+              "rationale": "用力拉扯會使cap與透鏡破裂",
+              "caution": "不可為完成手術而持續在未知層次分離"
+            },
+            {
+              "condition": "術後穩定殘差",
+              "stage": "先確認病因與結構",
+              "action": "比較表面增強、適當cap轉瓣或其他平台允許方式，亦可光學矯正",
+              "rationale": "增強要符合原cap與組織預算，並非通用單一步驟",
+              "caution": "規律殘差和殘留透鏡的處置不同"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "透鏡完整性與前節層次",
+              "clue": "看是否有殘片、切割不連續或cap損傷",
+              "interpretation": "原圖未核，不把示意當實際殘留證據",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 145
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "吸附中斷一律從頭雷射",
+              "correction": "需依已完成階段與設備方案決定，重複切割可產生不相容平面。"
+            }
+          ],
+          "recall": {
+            "prompt": "透鏡取出後視力差，為何不能只補一個球柱鏡雷射？",
+            "answer": "先排除殘留、錯平面、癒合與眼表問題，只有穩定可矯正殘差才是適合的增強靶點。"
+          },
+          "status": "draft"
+        }
+      ]
+    },
+    {
+      "id": "bcsc-s13-ch007",
+      "number": 7,
+      "title": "Refractive Surgery in Ocular and Systemic Disease",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            148,
+            167
+          ],
+          "printedPages": [
+            "133",
+            "152"
+          ],
+          "chapterHeading": "Refractive Surgery in Ocular and Systemic Disease"
+        }
+      ],
+      "units": [
+        {
+          "id": "bcsc-s13-ch007-u01",
+          "title": "角膜疾病與既往感染：病因決定能否再造傷口",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                149,
+                150,
+                151,
+                152,
+                153,
+                154,
+                155,
+                156
+              ],
+              "printedPages": [
+                "134",
+                "135",
+                "136",
+                "137",
+                "138",
+                "139",
+                "140",
+                "141"
+              ],
+              "chapterHeading": "Refractive Surgery in Ocular and Systemic Disease"
+            }
+          ],
+          "mechanism": [
+            "乾眼、MGD與上皮疾病會影響量測及癒合；角膜基質或內皮疾病則有各自被雷射或製瓣放大的風險，不可當作同一類禁忌。",
+            "疑角膜擴張不宜靠再切削改善形狀；某些TGFBI相關角膜營養不良可在LASIK後加重沉積，內皮功能不足亦不能只看術前表面清晰。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "曾反覆疱疹性角膜炎",
+              "meaning": "評估復發、角膜感覺與瘢痕，手術及術後類固醇可能改變風險。"
+            },
+            {
+              "finding": "家族史或點狀/顆粒基質沉積",
+              "meaning": "確認角膜營養不良種類，不把它當普通屈光不正。"
+            },
+            {
+              "finding": "晨間霧視與內皮異常",
+              "meaning": "須評估內皮功能，單看中央厚度不夠。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "乾眼或MGD",
+              "for": "表面波動與腺體異常",
+              "against": "固定基質沉積不能用乾眼全解釋",
+              "discriminator": "染色、瞼緣及淚膜檢查"
+            },
+            {
+              "diagnosis": "基質營養不良",
+              "for": "典型沉積與家族線索",
+              "against": "單次表面染色不足支持",
+              "discriminator": "裂隙燈層次與需要時的遺傳評估"
+            },
+            {
+              "diagnosis": "內皮病變",
+              "for": "guttae、角膜水腫或晨間霧",
+              "against": "正常前表面地形不能排除",
+              "discriminator": "內皮與角膜水合狀態評估"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "裂隙燈分層、眼表、角膜感覺與必要內皮檢查",
+              "purpose": "明確疾病及手術會增加的特定風險",
+              "interpretation": "不同疾病需不同評估，不能只做通用驗光套餐",
+              "limitation": "一次無症狀不能消除復發疾病的長期風險"
+            }
+          ],
+          "management": [
+            {
+              "condition": "眼表活動性病變",
+              "stage": "先改善表面",
+              "action": "治療MGD、乾眼或上皮疾病後重測，必要時不做手術",
+              "rationale": "可逆表面狀態會改變可預測性",
+              "caution": "表面改善不等於角膜結構風險消失"
+            },
+            {
+              "condition": "疑擴張或有特定角膜疾病",
+              "stage": "改變或停止屈光手術計畫",
+              "action": "按疾病及受影響層次由角膜專科評估替代，疱疹史需個別衡量與預防方案",
+              "rationale": "永久新傷口可能增加原病復發或失代償",
+              "caution": "不給所有角膜營養不良相同術式建議"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "基質沉積、內皮與表面檢查",
+              "clue": "先辨病變層次及典型分布",
+              "interpretation": "原圖未核，不能把圖像教學線索當已核原書影像",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 153
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "只要中央厚度足夠便可忽略角膜病",
+              "correction": "厚度不能代表內皮、遺傳沉積或復發性炎症風險。"
+            }
+          ],
+          "recall": {
+            "prompt": "同樣看似透明角膜，為何疱疹史與TGFBI疾病需不同討論？",
+            "answer": "前者重點在感染復發、神經與藥物影響，後者有傷口誘發沉積等風險，不能用同一禁忌表取代病因。"
+          },
+          "status": "draft"
+        },
+        {
+          "id": "bcsc-s13-ch007-u02",
+          "title": "移植後屈光、兒童特例與高度近視的殘餘疾病風險",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                155,
+                156,
+                157,
+                158,
+                159,
+                160
+              ],
+              "printedPages": [
+                "140",
+                "141",
+                "142",
+                "143",
+                "144",
+                "145"
+              ],
+              "chapterHeading": "Refractive Surgery in Ocular and Systemic Disease"
+            }
+          ],
+          "mechanism": [
+            "穿透性移植後的屈光處理須等移植物、縫線及角膜形狀穩定；規則殘差、不規則散光與移植傷口風險需分開處理。",
+            "屈光矯正改變焦點並不縮短高度近視眼球，視網膜裂孔與剝離的基礎風險仍存在；兒童難治性屈光不等的手術是特殊情境，並非一般脫鏡延伸。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "移植後尚有縫線或角膜形狀持續變動",
+              "meaning": "尚未建立可靠的永久治療目標。"
+            },
+            {
+              "finding": "脫鏡後新飛蚊、閃光或視野遮蔽",
+              "meaning": "仍應緊急排查視網膜病變。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "移植後規則散光",
+              "for": "驗光與角膜形狀跨次一致",
+              "against": "不規則且最佳眼鏡矯正差時較弱",
+              "discriminator": "試鏡、RGP效果及地形比較"
+            },
+            {
+              "diagnosis": "視網膜疾病造成視覺下降",
+              "for": "有閃光飛蚊或眼底異常",
+              "against": "角膜試鏡可完全改善且無眼底線索時較弱",
+              "discriminator": "散瞳眼底與必要的周邊評估"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "移植紀錄、縫線狀態、序列驗光與斷層",
+              "purpose": "確認穩定及傷口安全",
+              "interpretation": "教材建議至少移植一年後且拆線後穩定，再以多次量測確認",
+              "limitation": "時間是最低背景，不能取代實際穩定與移植物健康"
+            },
+            {
+              "test": "高度近視的散瞳眼底檢查",
+              "purpose": "辨認未被脫鏡手術消除的疾病",
+              "interpretation": "矯正屈光不等於處理眼軸相關病變",
+              "limitation": "無症狀一次正常不能保證將來不發病"
+            }
+          ],
+          "management": [
+            {
+              "condition": "移植後穩定且有顯著殘差",
+              "stage": "先用可逆光學方案評估",
+              "action": "依規則性選鏡片或評估PRK/LASIK等，權衡移植傷口、haze與組織",
+              "rationale": "兩種雷射各有風險，不能只宣稱其中一個永遠最佳",
+              "caution": "LASIK製瓣可傷及移植傷口；表面切削可有癒合與混濁問題"
+            },
+            {
+              "condition": "兒童難治屈光不等的特例",
+              "stage": "專科多方決策",
+              "action": "先確認傳統光學及弱視治療困難，再考慮非常規介入",
+              "rationale": "手術並不自動消除弱視或代替後續訓練",
+              "caution": "不能把成人選擇性脫鏡目標套在兒童"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "移植後角膜圖與眼底",
+              "clue": "分開前節屈光不規則及高度近視視網膜病灶",
+              "interpretation": "不同問題不能以相同視力值代替辨識",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 158
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "雷射已矯正高度近視就不需警示RD症狀",
+              "correction": "眼軸與周邊視網膜風險仍在，需保留眼底照護。"
+            }
+          ],
+          "recall": {
+            "prompt": "移植後等了一年為何仍不一定能做雷射？",
+            "answer": "縫線、排斥、表面與角膜形狀可能尚未穩定，還須確認傷口及可預測的治療目標。"
+          },
+          "status": "draft"
+        },
+        {
+          "id": "bcsc-s13-ch007-u03",
+          "title": "糖尿病、免疫疾病與暫時性屈光變動",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                160,
+                161,
+                162,
+                163,
+                164,
+                165,
+                166
+              ],
+              "printedPages": [
+                "145",
+                "146",
+                "147",
+                "148",
+                "149",
+                "150",
+                "151"
+              ],
+              "chapterHeading": "Refractive Surgery in Ocular and Systemic Disease"
+            }
+          ],
+          "mechanism": [
+            "血糖變動會改變晶狀體相關屈光狀態，糖尿病亦可能影響角膜感覺、上皮癒合及視網膜；不穩定驗光不是立即手術的靶點。",
+            "免疫疾病、免疫抑制與HIV狀態需依活動度、眼表、感染與癒合風險個別衡量。懷孕及哺乳期的暫時屈光或角膜變動不適合選擇性永久矯正。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "血糖近期劇烈波動且眼鏡度數跟著變",
+              "meaning": "先控制代謝並重測，不立刻開新永久目標。"
+            },
+            {
+              "finding": "系統自體免疫病活動、乾眼或正在調整免疫藥",
+              "meaning": "需與原照護團隊確認疾病及傷口風險。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "代謝性暫時屈光變動",
+              "for": "與血糖及時序相關",
+              "against": "角膜結構持續變薄變陡需另排擴張",
+              "discriminator": "穩定後重複驗光與全眼評估"
+            },
+            {
+              "diagnosis": "固定角膜或晶狀體病變",
+              "for": "穩定且可定位的結構異常",
+              "against": "完全隨代謝恢復而消失時較不符",
+              "discriminator": "裂隙燈、角膜及眼底檢查"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "疾病活動度、用藥、眼表與視網膜評估",
+              "purpose": "區分暫緩理由與長期不適合理由",
+              "interpretation": "診斷名稱本身不足以精準量化個別手術風險",
+              "limitation": "教材的相對禁忌並非某疾病所有人永久不可手術"
+            }
+          ],
+          "management": [
+            {
+              "condition": "血糖與驗光不穩",
+              "stage": "延後屈光決策",
+              "action": "先由照護團隊改善代謝，再確認屈光與眼表穩定",
+              "rationale": "直接按暫時度數手術可造成永久殘差",
+              "caution": "不可自行停慢性病藥物"
+            },
+            {
+              "condition": "免疫狀態不佳或疾病活動",
+              "stage": "共同評估是否不做",
+              "action": "核對感染、癒合與眼表風險，優先處理疾病",
+              "rationale": "選擇性手術收益可能小於可避免傷害",
+              "caution": "不能把相對禁忌簡化為無條件放行"
+            },
+            {
+              "condition": "懷孕或哺乳相關變動",
+              "stage": "暫停選擇性角膜手術",
+              "action": "待相關生理狀態結束且屈光確實穩定再評估",
+              "rationale": "避免把暫時光學狀態永久化",
+              "caution": "不只用一次無症狀驗光決定"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "術前眼表與眼底紀錄",
+              "clue": "看系統病在眼部的實際影響",
+              "interpretation": "無視力抱怨不能排除視網膜或神經問題",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 162
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "血糖控制不佳的變動驗光直接做LASIK",
+              "correction": "需先控制代謝並確認穩定，手術不能鎖定正在移動的目標。"
+            }
+          ],
+          "recall": {
+            "prompt": "HIV在教材列相對禁忌，是否表示所有人都一律禁止或允許？",
+            "answer": "都不是；應依免疫控制、眼表、感染與癒合風險個別評估，並辨識教材版本限制。"
+          },
+          "status": "draft"
+        }
+      ]
+    },
+    {
+      "id": "bcsc-s13-ch008",
+      "number": 8,
+      "title": "Considerations After Refractive Surgery",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            168,
+            177
+          ],
+          "printedPages": [
+            "153",
+            "162"
+          ],
+          "chapterHeading": "Considerations After Refractive Surgery"
+        }
+      ],
+      "units": [
+        {
+          "id": "bcsc-s13-ch008-u01",
+          "title": "雷射後IOL計算為何不能直接相信一般K值",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                169,
+                170,
+                171,
+                172,
+                173
+              ],
+              "printedPages": [
+                "154",
+                "155",
+                "156",
+                "157",
+                "158"
+              ],
+              "chapterHeading": "Considerations After Refractive Surgery"
+            }
+          ],
+          "mechanism": [
+            "標準角膜測量以固定前後曲率關係推估總屈光力；近視或遠視消融改變前表面後，這項關係不再可靠。",
+            "量測區域與中央有效屈光力可能不同，某些IOL公式的有效鏡片位置預測亦受K值影響；錯誤不代表眼軸長度不能量。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "曾脫鏡雷射卻無舊病歷",
+              "meaning": "需使用適合無歷史資料的術後屈光算法，不能直接填一般K值。"
+            },
+            {
+              "finding": "不同量測或公式差異大",
+              "meaning": "先查眼表、手術類型及所量的是前表面還是總角膜屈光力。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "角膜屈光力估算錯誤",
+              "for": "前後曲率關係、取樣區域與手術史相符",
+              "against": "不能只用眼軸量測正常排除",
+              "discriminator": "比較總角膜測量及術後特定算法"
+            },
+            {
+              "diagnosis": "生物測量品質或眼表問題",
+              "for": "重複測量差、固定不佳或表面不穩",
+              "against": "多模式一致的術後特定偏差不只是品質",
+              "discriminator": "優化眼表並重測眼軸與角膜"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "原屈光紀錄、術式、總角膜測量及術後專用算法",
+              "purpose": "減少歷史資料與無歷史資料條件下的系統誤差",
+              "interpretation": "可用ASCRS等術後計算方法比較，不將某個單一結果當真值",
+              "limitation": "舊資料不準同樣會誤導；RK、近視與遠視雷射需分開"
+            }
+          ],
+          "management": [
+            {
+              "condition": "已安排白內障手術",
+              "stage": "明確說明較大不確定性",
+              "action": "蒐集原資料、改善表面並比較適當公式，依需求設定目標",
+              "rationale": "測得漂亮的眼軸不能修正錯誤的角膜模型",
+              "caution": "不得承諾與未手術角膜同等可預測"
+            },
+            {
+              "condition": "術後殘差",
+              "stage": "先確認角膜與屈光穩定",
+              "action": "評估是否為暫時水合或固定計算誤差，再選眼鏡、角膜或眼內處理",
+              "rationale": "特別RK可有早期遠視偏移",
+              "caution": "不要早期即因意外度數做不可逆IOL交換"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "消融前後前後曲率與取樣示意",
+              "clue": "看標準角膜折射率假設如何失準",
+              "interpretation": "術式改變的是角膜模型，不是把眼軸變成無法量測",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 170
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "將postLASIK IOL誤差全歸因於眼軸量不準",
+              "correction": "主要還有總角膜屈光力與有效鏡片位置模型問題。"
+            }
+          ],
+          "recall": {
+            "prompt": "沒有術前資料時，是否只能用一般K值碰運氣？",
+            "answer": "可用適合術後角膜的無歷史資料方法與總角膜量測交叉比較，並向病人說明殘餘不確定性。"
+          },
+          "status": "draft"
+        },
+        {
+          "id": "bcsc-s13-ch008-u02",
+          "title": "眼壓、接觸鏡與後續手術的特殊限制",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                173,
+                174,
+                175,
+                176,
+                177
+              ],
+              "printedPages": [
+                "158",
+                "159",
+                "160",
+                "161",
+                "162"
+              ],
+              "chapterHeading": "Considerations After Refractive Surgery"
+            }
+          ],
+          "mechanism": [
+            "消融後角膜厚度、形狀與力學改變，使GAT常低估眼壓；同一角膜厚度差異不等於可套固定加減公式。",
+            "不規則或RK角膜的接觸鏡配適需依實際形狀；後續視網膜或角膜手術亦須記得LASIK介面仍易被機械擾動。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "眼壓看似正常但視神經或視野進展",
+              "meaning": "不能用中央GAT單值否定青光眼。"
+            },
+            {
+              "finding": "LASIK眼有介面積液、類固醇暴露",
+              "meaning": "更需警覺眼壓假低與壓力相關混濁。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "真實低眼壓",
+              "for": "多證據與眼球整體狀態相符",
+              "against": "介面液體或術後力學改變時中央單值不可靠",
+              "discriminator": "替代位置/方法與結構功能比較"
+            },
+            {
+              "diagnosis": "不規則角膜的光學問題",
+              "for": "硬式或鞏膜鏡試戴改善",
+              "against": "眼底或視神經損害不能由鏡片補回",
+              "discriminator": "比較試戴最佳矯正與全眼檢查"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "多方法眼壓、視神經OCT與視野及術前基線",
+              "purpose": "判斷壓力與是否已有損傷",
+              "interpretation": "解讀趨勢與結構功能，不用任一固定校正式取代",
+              "limitation": "儀器不同、角膜狀態不同不宜直接硬比"
+            }
+          ],
+          "management": [
+            {
+              "condition": "有青光眼風險或進展",
+              "stage": "恢復完整監測",
+              "action": "記錄屈光手術史，採可信量壓並追結構功能，由青光眼專科整合",
+              "rationale": "低讀值不等於沒有壓力風險",
+              "caution": "避免依錯誤中央低值繼續增加類固醇"
+            },
+            {
+              "condition": "需要視網膜或角膜手術",
+              "stage": "保護既往角膜層次",
+              "action": "在暴露、接觸與器械操作時留意瓣，術後檢查瓣位置及上皮",
+              "rationale": "原手術會改變之後可承受的機械擾動",
+              "caution": "任何新視覺症狀仍需完整眼底排查"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "介面液體及配鏡角膜圖",
+              "clue": "看中央量壓受干擾與不規則形狀",
+              "interpretation": "視神經證據和角膜證據要分別追蹤",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 175
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "給每個LASIK眼壓統一加某個數值",
+              "correction": "角膜力學與測量偏差因人及方法而異，無通用固定補償。"
+            }
+          ],
+          "recall": {
+            "prompt": "脫鏡後眼壓降低是否代表青光眼風險降低？",
+            "answer": "不一定，讀值可因角膜改變而低估，仍需結構、視野與合適量壓方法。"
+          },
+          "status": "draft"
+        }
+      ]
+    },
+    {
+      "id": "bcsc-s13-ch009",
+      "number": 9,
+      "title": "Intraocular Refractive Surgery",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            178,
+            201
+          ],
+          "printedPages": [
+            "163",
+            "186"
+          ],
+          "chapterHeading": "Intraocular Refractive Surgery"
+        }
+      ],
+      "units": [
+        {
+          "id": "bcsc-s13-ch009-u01",
+          "title": "有晶狀體眼IOL：保留調節但增加前節監測",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                179,
+                180,
+                181,
+                182,
+                183,
+                184,
+                185,
+                186
+              ],
+              "printedPages": [
+                "164",
+                "165",
+                "166",
+                "167",
+                "168",
+                "169",
+                "170",
+                "171"
+              ],
+              "chapterHeading": "Intraocular Refractive Surgery"
+            }
+          ],
+          "mechanism": [
+            "Phakic IOL保留自然晶狀體與調節，不需要角膜消融，但將植入物置入前節，會帶來內皮、虹膜、房角、眼壓與白內障風險。",
+            "後房型ICL的vault表示植入物與自然晶狀體間的間距；過低可增加晶狀體接觸及白內障風險，過高可擠壓房角或虹膜。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "角膜組織不適合高矯正量但自然晶狀體透明",
+              "meaning": "可評估phakic IOL，仍須前房與內皮合格。"
+            },
+            {
+              "finding": "術後眼壓上升",
+              "meaning": "分辨殘留黏彈劑、瞳孔阻滯、vault或類固醇反應等原因。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "低vault相關晶狀體風險",
+              "for": "植入物接近自然晶狀體",
+              "against": "單純眼壓高不代表一定低vault",
+              "discriminator": "前節影像及晶狀體檢查"
+            },
+            {
+              "diagnosis": "高vault或房角擁擠",
+              "for": "間距高且角度變窄或虹膜接觸",
+              "against": "正常開放房角需另查高壓原因",
+              "discriminator": "前節OCT、房角及眼壓"
+            },
+            {
+              "diagnosis": "內皮不適合",
+              "for": "密度或形態與裝置要求不符",
+              "against": "角膜透明不代表長期內皮餘裕充足",
+              "discriminator": "內皮與前房條件依裝置規格核對"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "前房深度、房角、內皮及sizing/vault評估",
+              "purpose": "確認植入物可安全長期共存",
+              "interpretation": "適應範圍、尺寸方法及是否需周邊虹膜切開依裝置設計",
+              "limitation": "中央孔型與非中央孔型不能套用同一阻滯預防敘述"
+            }
+          ],
+          "management": [
+            {
+              "condition": "選擇phakic IOL",
+              "stage": "核對裝置與個人條件",
+              "action": "評估前房、內皮、晶狀體與視網膜，說明長期追蹤",
+              "rationale": "不消融角膜不等於沒有眼內風險",
+              "caution": "不把2024書內型號核准直接當當前全部適應症"
+            },
+            {
+              "condition": "術後高壓或vault異常",
+              "stage": "釐清機轉後處理",
+              "action": "檢查房角、植入物位置、黏彈劑及瞳孔阻滯，必要時調整或交換",
+              "rationale": "不同高壓原因需不同介入",
+              "caution": "不可只長期滴降壓藥而忽略持續的機械問題"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "前節OCT及植入物位置",
+              "clue": "看ICL與自然晶狀體、虹膜及房角的關係",
+              "interpretation": "單一vault值要與症狀、角度及裝置要求整合",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 184
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "phakic IOL完全可逆所以沒有長期傷害",
+              "correction": "移除不能保證逆轉內皮流失、白內障或其他已發生損害。"
+            }
+          ],
+          "recall": {
+            "prompt": "同為ICL術後高眼壓，為何不能先假設都是類固醇反應？",
+            "answer": "殘留黏彈劑、瞳孔阻滯及高vault機械擁擠亦可能，需要檢查機轉再處理。"
+          },
+          "status": "draft"
+        },
+        {
+          "id": "bcsc-s13-ch009-u02",
+          "title": "透明晶狀體置換、人工水晶體光學與病人取捨",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                187,
+                188,
+                189,
+                190,
+                191,
+                192,
+                193,
+                194,
+                195,
+                196
+              ],
+              "printedPages": [
+                "172",
+                "173",
+                "174",
+                "175",
+                "176",
+                "177",
+                "178",
+                "179",
+                "180",
+                "181"
+              ],
+              "chapterHeading": "Intraocular Refractive Surgery"
+            }
+          ],
+          "mechanism": [
+            "透明晶狀體置換移除自然晶狀體，同時失去原有調節；較接近老花、高遠視等情境的收益可能較大，高度近視則須特別衡量視網膜風險。",
+            "單焦、散光、延伸焦深、多焦與可光調整等鏡片解決不同問題；增加近用視程或可調整度數不代表無對比、光暈或治療程序代價。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "仍有明顯自然調節且晶狀體透明",
+              "meaning": "需要明確計算失去調節的代價。"
+            },
+            {
+              "finding": "高度近視、後葡萄腫或周邊視網膜病變",
+              "meaning": "影響生物測量及視網膜風險，不能只按可矯正度數選RLE。"
+            },
+            {
+              "finding": "夜間駕駛重視對比且不能接受光暈",
+              "meaning": "多焦光學不一定適合，即使近視力表現好。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "角膜屈光方案",
+              "for": "保留自然晶狀體",
+              "against": "組織或角膜病變可能限制",
+              "discriminator": "結構與量測篩檢"
+            },
+            {
+              "diagnosis": "phakic IOL",
+              "for": "保留調節且可處理較大度數",
+              "against": "前房、內皮或晶狀體問題可能不適合",
+              "discriminator": "裝置與解剖評估"
+            },
+            {
+              "diagnosis": "晶狀體置換",
+              "for": "同時處理晶狀體與屈光",
+              "against": "失去調節、眼內與RD風險需接受",
+              "discriminator": "年齡、自然晶狀體、視網膜與需求共同決策"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "生物測量、黃斑及周邊視網膜評估",
+              "purpose": "估計手術收益與光學選擇的限制",
+              "interpretation": "後葡萄腫可影響測量方向，眼底疾病可限制多焦收益",
+              "limitation": "精準IOL公式不能補回不可逆視網膜功能損失"
+            }
+          ],
+          "management": [
+            {
+              "condition": "考慮RLE",
+              "stage": "比較全眼替代而非只比度數",
+              "action": "討論調節喪失、RD與感染等風險，優先保留合理且可逆選項",
+              "rationale": "選擇性手術需具體視覺收益支持",
+              "caution": "不能向年輕高度近視者只強調永久脫鏡"
+            },
+            {
+              "condition": "考慮多焦/EDOF或LAL",
+              "stage": "按需求說明機轉",
+              "action": "多焦分配光能、EDOF延長焦深；LAL以術後光照改變聚合物分布並需完成鎖定程序",
+              "rationale": "不同機轉有不同症狀與照護要求",
+              "caution": "LAL依流程需UV防護至調整與鎖定完成，不任意省略"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "IOL光學與離焦曲線",
+              "clue": "比較焦點配置與視程而非只看一點近視力",
+              "interpretation": "圖像未核，不將設計示意當個人結果保證",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 193
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "延伸焦深或多焦等於恢復自然調節",
+              "correction": "它們多屬光學延長視程，不能與自然晶狀體改變屈光力混稱。"
+            }
+          ],
+          "recall": {
+            "prompt": "角膜雷射不合適時，為何不應直接跳到RLE？",
+            "answer": "還需比較保留晶狀體的方案、調節代價、前節條件及視網膜風險，不是單一路徑。"
+          },
+          "status": "draft"
+        },
+        {
+          "id": "bcsc-s13-ch009-u03",
+          "title": "多焦不耐受、piggyback混濁與bioptics殘差",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                191,
+                192,
+                196,
+                197,
+                198,
+                199,
+                200,
+                201
+              ],
+              "printedPages": [
+                "176",
+                "177",
+                "181",
+                "182",
+                "183",
+                "184",
+                "185",
+                "186"
+              ],
+              "chapterHeading": "Intraocular Refractive Surgery"
+            }
+          ],
+          "mechanism": [
+            "多焦IOL術後立即持續光暈可能來自光學不耐受，也可能有眼表、殘差或位置問題；後囊混濁通常需有相符的實際病灶與病程。",
+            "Piggyback IOL間的細胞增殖可形成interlenticular opacification，並非所有膜樣混濁都能靠Nd:YAG永久解決。角膜加眼內的bioptics亦須分階段確認穩定。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "術後立即出現難以接受光暈而囊膜尚清晰",
+              "meaning": "先檢查可逆原因並考慮光學設計不耐受，不急做後囊切開。"
+            },
+            {
+              "finding": "兩片IOL間混濁且視覺下降",
+              "meaning": "定位是鏡片之間而非單純後囊。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "多焦光學不耐受",
+              "for": "術後即持續且已處理表面與殘差",
+              "against": "晚期新出且有明確後囊混濁需另評估",
+              "discriminator": "完整屈光、位置、表面及後囊檢查"
+            },
+            {
+              "diagnosis": "後囊混濁",
+              "for": "病灶與漸進症狀相符",
+              "against": "囊膜清晰而立即術後光暈不支持",
+              "discriminator": "裂隙燈逆照"
+            },
+            {
+              "diagnosis": "interlenticular opacification",
+              "for": "位於兩IOL間",
+              "against": "單一IOL後囊病變位置不同",
+              "discriminator": "確定混濁層次與植入位置"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "逆照、屈光、角膜及IOL位置評估",
+              "purpose": "定位光學症狀與膜的位置",
+              "interpretation": "能否鏡片矯正、病程與混濁層次決定後續",
+              "limitation": "只聽「眩光」不能決定Nd:YAG"
+            }
+          ],
+          "management": [
+            {
+              "condition": "多焦不耐受且症狀持續",
+              "stage": "先保留交換選項",
+              "action": "先排除可逆原因，必要時討論改單焦；若可能交換，避免先打開清晰後囊",
+              "rationale": "後囊切開可使後續IOL交換更困難",
+              "caution": "非所有早期光暈都需立即交換"
+            },
+            {
+              "condition": "顯著interlenticular opacification",
+              "stage": "處理鏡片間病因",
+              "action": "評估移除/交換相關鏡片而非一律Nd:YAG或表面剝膜",
+              "rationale": "細胞與鏡片界面病因可使雷射效果不持久",
+              "caution": "眼內再手術需衡量囊袋、韌帶及其他風險"
+            },
+            {
+              "condition": "規劃bioptics",
+              "stage": "分階段重測",
+              "action": "先確認主要眼內矯正與殘差穩定，再評估角膜追加",
+              "rationale": "減少將暫時殘差永久化",
+              "caution": "角膜組織與眼表仍需重新評估"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "IOL逆照與混濁層次",
+              "clue": "辨認後囊、兩鏡片間或其他位置",
+              "interpretation": "位置錯認會導致錯誤雷射或手術",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 191
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "多焦術後光暈一律先Nd:YAG",
+              "correction": "若是鏡片設計不耐受且需交換，先切囊可增加難度。"
+            }
+          ],
+          "recall": {
+            "prompt": "piggyback IOL間混濁為何不能直接按後囊混濁處理？",
+            "answer": "混濁位置與細胞病因不同，Nd:YAG不一定解決鏡片界面問題，顯著病例可能需鏡片處理。"
+          },
+          "status": "draft"
+        }
+      ]
+    },
+    {
+      "id": "bcsc-s13-ch010",
+      "number": 10,
+      "title": "Accommodative and Nonaccommodative Treatment of Presbyopia",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            202,
+            223
+          ],
+          "printedPages": [
+            "187",
+            "208"
+          ],
+          "chapterHeading": "Accommodative and Nonaccommodative Treatment of Presbyopia"
+        }
+      ],
+      "units": [
+        {
+          "id": "bcsc-s13-ch010-u01",
+          "title": "真調節與偽調節：老花療效不能只看近視力",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                203,
+                204,
+                205,
+                206,
+                207,
+                208
+              ],
+              "printedPages": [
+                "188",
+                "189",
+                "190",
+                "191",
+                "192",
+                "193"
+              ],
+              "chapterHeading": "Accommodative and Nonaccommodative Treatment of Presbyopia"
+            }
+          ],
+          "mechanism": [
+            "真正調節是眼睛主動改變屈光力；小孔、角膜多焦、人工多焦或單眼視可延長可用視程，但不一定產生真調節。",
+            "單眼視將兩眼焦點分工，可能降低立體感或誘發原有斜位失代償；術前接觸鏡試戴有助暴露這些取捨。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "近視力改善但動態屈光力未明顯改變",
+              "meaning": "可能是景深或多焦光學，不應直接稱恢復調節。"
+            },
+            {
+              "finding": "術後新雙眼複視、遮一眼即消失",
+              "meaning": "要評估融合與斜位，不能只找單眼角膜瓣紋。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "單眼光學重影",
+              "for": "遮另一眼仍存在",
+              "against": "遮任一眼即完全消失較不支持",
+              "discriminator": "分別測單眼視覺與角膜/IOL"
+            },
+            {
+              "diagnosis": "雙眼融合失代償",
+              "for": "遮任一眼消失，與單眼視或既往斜位相符",
+              "against": "單眼持續重影需另查光學",
+              "discriminator": "遮蓋測試、眼位及雙眼功能"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "遠近視力、離焦曲線、動態屈光及雙眼功能",
+              "purpose": "分開可用視程與真正調節量",
+              "interpretation": "單一近視力或主觀推近法可能受景深影響",
+              "limitation": "檢查條件與瞳孔會改變表現"
+            }
+          ],
+          "management": [
+            {
+              "condition": "考慮單眼視",
+              "stage": "先體驗再永久化",
+              "action": "接觸鏡試戴、夜間與工作情境測試，評估立體與融合",
+              "rationale": "可逆試戴能顯示取捨而非只宣傳近用收益",
+              "caution": "不能保證術後完全重現短期試戴"
+            },
+            {
+              "condition": "宣稱恢復調節的術式",
+              "stage": "要求機轉與證據",
+              "action": "分辨鏡片移位/變形與偽調節的實際貢獻",
+              "rationale": "設計名稱或近視力改善不等同足夠真調節",
+              "caution": "鞏膜擴張/鬆弛的收益不穩，並可能有前節缺血等傷害"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "離焦曲線與調節示意",
+              "clue": "分開焦點延伸、兩眼分工與屈光力動態變化",
+              "interpretation": "圖形本身不代表生理調節恢復",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 205
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "近距能讀字就證明調節功能回復",
+              "correction": "景深、近視與多焦亦能提供近視力，需客觀動態評估。"
+            }
+          ],
+          "recall": {
+            "prompt": "新雙眼複視與單眼重影在第一個檢查上怎麼分？",
+            "answer": "輪流遮眼；雙眼融合性複視遮任一眼消失，單眼光學重影仍留在受影響那眼。"
+          },
+          "status": "draft"
+        },
+        {
+          "id": "bcsc-s13-ch010-u02",
+          "title": "角膜老花手術、熱收縮與嵌入片的不同代價",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                208,
+                209,
+                210,
+                211,
+                212,
+                213,
+                214,
+                215
+              ],
+              "printedPages": [
+                "193",
+                "194",
+                "195",
+                "196",
+                "197",
+                "198",
+                "199",
+                "200"
+              ],
+              "chapterHeading": "Accommodative and Nonaccommodative Treatment of Presbyopia"
+            }
+          ],
+          "mechanism": [
+            "Conductive keratoplasty以周邊射頻使膠原熱收縮，令中央相對變陡；效果可回退，不是永久固定的新晶狀體調節。",
+            "嵌入片可利用小孔增加景深、改變局部屈光指數或角膜形狀；不同設計的混濁、營養與移除後風險不能互相套用。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "小孔嵌入片改善近用",
+              "meaning": "主要是限制光束增加景深，不是恢復睫狀肌功能。"
+            },
+            {
+              "finding": "熱性角膜術後近用效果逐漸減弱",
+              "meaning": "需考慮回退，不直接稱患者失去新的調節能力。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "小孔機轉",
+              "for": "限制入射光並增加景深",
+              "against": "不依靠中央角膜變陡",
+              "discriminator": "辨認孔徑型設計"
+            },
+            {
+              "diagnosis": "折射型或形狀型嵌入片",
+              "for": "改變局部光學指數或形狀",
+              "against": "不同於純小孔",
+              "discriminator": "核對具體裝置機轉與角膜反應"
+            },
+            {
+              "diagnosis": "周邊熱收縮",
+              "for": "膠原收縮使中央變陡",
+              "against": "不是組織透鏡取出",
+              "discriminator": "核對能量與作用部位"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "角膜透明度、厚度、形狀及用眼需求",
+              "purpose": "評估局部植入或熱作用的代價",
+              "interpretation": "視程、對比與夜間表現須一起看",
+              "limitation": "歷史裝置上市或撤回狀態不能直接當2026可用選項"
+            }
+          ],
+          "management": [
+            {
+              "condition": "討論角膜老花介入",
+              "stage": "按具體機轉告知",
+              "action": "說明景深、中央屈光改變、回退與混濁等風險，而非宣稱普遍恢復調節",
+              "rationale": "不同策略是在光學收益與角膜傷害間取捨",
+              "caution": "移除植入物不保證角膜完全回復"
+            },
+            {
+              "condition": "出現混濁或視覺下降",
+              "stage": "定位並重新衡量",
+              "action": "評估眼表、植入位置、角膜反應及是否需移除",
+              "rationale": "持續角膜反應不是單純換眼鏡即可解決",
+              "caution": "歷史型號風險與當前狀態需另查官方資料"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "小孔、折射與形狀型嵌入片示意",
+              "clue": "辨識各自作用而非只記品牌",
+              "interpretation": "本區原圖未核，歷史機轉描述不等於現行產品推薦",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 212
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "CK是以中央組織消融使中央變平",
+              "correction": "其周邊射頻膠原收縮造成中央相對變陡，並可能回退。"
+            }
+          ],
+          "recall": {
+            "prompt": "Kamra型小孔與CK的近用收益為何不是同一機轉？",
+            "answer": "前者以小孔增加景深，後者以周邊熱收縮改變中央屈光；兩者都不等同自然調節恢復。"
+          },
+          "status": "draft"
+        },
+        {
+          "id": "bcsc-s13-ch010-u03",
+          "title": "老花點藥與鏡片選擇：把版次和機轉分開",
+          "sourceRefs": [
+            {
+              "pdfPages": [
+                216,
+                217,
+                218,
+                219,
+                220,
+                221,
+                222
+              ],
+              "printedPages": [
+                "201",
+                "202",
+                "203",
+                "204",
+                "205",
+                "206",
+                "207"
+              ],
+              "chapterHeading": "Accommodative and Nonaccommodative Treatment of Presbyopia"
+            }
+          ],
+          "mechanism": [
+            "縮瞳藥可藉小孔效應增加景深，並可能有調節相關作用；它沒有把老化晶狀體永久變成年輕晶狀體。",
+            "晶狀體軟化策略與縮瞳機轉不同，2024–25書中仍描述研發與早期證據；核准藥物與產品狀態會改變，不能將舊版「唯一」字句當現況。"
+          ],
+          "clinicalClues": [
+            {
+              "finding": "近視程改善但暗處抱怨增加",
+              "meaning": "需衡量縮瞳與光線、對比的代價。"
+            },
+            {
+              "finding": "病人期待點藥後永久不再老花",
+              "meaning": "要釐清藥效時程、限制與適用性，而非承諾逆轉老化。"
+            }
+          ],
+          "differential": [
+            {
+              "diagnosis": "縮瞳增加景深",
+              "for": "與瞳孔縮小及用藥時間相關",
+              "against": "不等同客觀晶狀體年輕化",
+              "discriminator": "評估光照、瞳孔與遠近功能"
+            },
+            {
+              "diagnosis": "晶狀體軟化研發",
+              "for": "目標在晶狀體物性",
+              "against": "不能以縮瞳造成近視力改善證明軟化有效",
+              "discriminator": "須看相應機轉及臨床證據"
+            }
+          ],
+          "investigations": [
+            {
+              "test": "用藥前全眼與視覺需求評估、核對現行官方標示",
+              "purpose": "判斷是否適合特定藥及需警示的症狀",
+              "interpretation": "眼底風險、夜間任務與實際藥品標示影響決策",
+              "limitation": "本單元未提供2026產品核准名單，不把歷史研發當現行可處方"
+            }
+          ],
+          "management": [
+            {
+              "condition": "考慮藥物老花治療",
+              "stage": "按具體產品評估",
+              "action": "確認正式標示、眼部狀態及用眼需求，說明暫時收益與可能不適",
+              "rationale": "小孔收益有光線與對比代價，不能只比近視表",
+              "caution": "若有新閃光飛蚊或視野遮蔽仍需眼底急評估"
+            },
+            {
+              "condition": "同時比較鏡片或手術",
+              "stage": "以整體視程共同決策",
+              "action": "將眼鏡、接觸鏡、單眼視與眼內/角膜方案的可逆性及風險一同討論",
+              "rationale": "老花可用多種光學策略處理，不必以侵入性替代所有其他選擇",
+              "caution": "多焦/EDOF仍可能有光暈與對比代價"
+            }
+          ],
+          "imageClues": [
+            {
+              "modality": "藥物與光學機轉示意",
+              "clue": "看瞳孔效應與晶狀體改變是否被分開呈現",
+              "interpretation": "原圖未核，示意不能證明療效或核准",
+              "status": "not-reviewed",
+              "figureId": null,
+              "pdfPage": 217
+            }
+          ],
+          "pitfalls": [
+            {
+              "mistake": "將書中2024只有某藥核准照抄成2026唯一選擇",
+              "correction": "現況要查官方來源；本區保留版次，避免歷史敘述冒充現行核准資訊。"
+            }
+          ],
+          "recall": {
+            "prompt": "為何縮瞳後近視力改善不代表老花已逆轉？",
+            "answer": "小孔增加景深即可改善近用，並不證明晶狀體彈性或真正調節已恢復。"
+          },
+          "status": "draft"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "bcsc-s13-rq001",
+      "sourceQuestionKey": "bcsc-s13-rq001",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 1,
+      "chapterIds": [
+        "bcsc-s13-ch001"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch001-u02"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            224,
+            232
+          ],
+          "printedPages": [
+            "209",
+            "217"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "一台儀器在眼底形成光點，再由出射光通過小透鏡陣列，分析各光點相對位置的偏移。它主要採用哪一種原理？",
+      "options": [
+        {
+          "text": "Hartmann–Shack波前感測",
+          "rationale": "以 lenslet array 的點位偏移重建出射波前，正好符合題目光路。",
+          "whenTrue": "適用於評估全眼波前像差，但須注意瞳孔與擷取品質。"
+        },
+        {
+          "text": "Placido反射環地形",
+          "rationale": "反射環提供角膜前表面形狀，不是由視網膜光點回傳的小透鏡陣列。",
+          "whenTrue": "欲評估前表面曲率、環規則性時使用。"
+        },
+        {
+          "text": "Scheimpflug角膜斷層",
+          "rationale": "以斜照切面成像重建前後表面及厚度，不以出射波前點位偏移工作。",
+          "whenTrue": "欲評估角膜結構與後表面時使用。"
+        },
+        {
+          "text": "逐束光線追跡",
+          "rationale": "會追蹤不同入射光線的路徑或落點，但題目指定的小透鏡陣列屬Hartmann–Shack。",
+          "whenTrue": "裝置若逐點或逐束量測光線偏折，才符合此類感測。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "先由光路辨識量測：視網膜反射加小透鏡陣列是波前感測，不能與角膜表面反射或斷層成像混為一談。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq002",
+      "sourceQuestionKey": "bcsc-s13-rq002",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 2,
+      "chapterIds": [
+        "bcsc-s13-ch004"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch004-u03"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            224,
+            232
+          ],
+          "printedPages": [
+            "209",
+            "217"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "病人曾做LASIK，現在穩定的小量殘餘近視考慮表面增強。為何即使追加度數不大，仍可能討論MMC？",
+      "options": [
+        {
+          "text": "既往角膜手術使傷口反應與haze風險不能只按度數判斷",
+          "rationale": "表面增強既往手術眼可有較高混濁風險，MMC以調節纖維化為目的。",
+          "whenTrue": "選擇高風險表面切削並權衡毒性時，可討論超適應症MMC。"
+        },
+        {
+          "text": "用MMC取代BSS作為術後止痛沖洗",
+          "rationale": "MMC不是止痛沖洗液，需控制暴露並以BSS充分沖洗。",
+          "whenTrue": "BSS可用於手術沖洗；不應將這個角色交給MMC。"
+        },
+        {
+          "text": "因MMC是已核准的常規屈光增強藥",
+          "rationale": "教材明示屈光用途為超適應症，不能用核准字樣取代風險同意。",
+          "whenTrue": "應在真正獲核准的適應症及標示內談核准用途，非此情境。"
+        },
+        {
+          "text": "僅在高度數初次PRK才需考慮混濁",
+          "rationale": "這忽略既往傷口等非度數風險，也不能由小度數推定無haze。",
+          "whenTrue": "高矯正量是風險之一，但不是唯一評估條件。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "原考點是MMC的用途、使用背景與超適應症屬性，而非「所有PRK一律使用」。小量表面增強仍需考慮既往角膜傷口。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq003",
+      "sourceQuestionKey": "bcsc-s13-rq003",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 3,
+      "chapterIds": [
+        "bcsc-s13-ch006"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch006-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            224,
+            232
+          ],
+          "printedPages": [
+            "209",
+            "217"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "依2024–25教材比較SMILE與準分子消融，下列何者是選術式時要保留的SMILE限制？",
+      "options": [
+        {
+          "text": "可處理的屈光範圍及客製化選擇較受限",
+          "rationale": "教材指出其治療範圍不如準分子平台廣，並非所有屈光目標均適用。",
+          "whenTrue": "要依實際裝置、版次與當前核准核對，而不是只看無瓣優勢。"
+        },
+        {
+          "text": "比LASIK多出大片可移位角膜瓣",
+          "rationale": "SMILE以小切口取出透鏡，沒有LASIK式大片瓣。",
+          "whenTrue": "LASIK的大片瓣可有相關移位與皺紋風險。"
+        },
+        {
+          "text": "必須靠準分子雷射在瓣下消融",
+          "rationale": "這是LASIK的組織處理方式，不是SMILE的透鏡取出。",
+          "whenTrue": "LASIK結合製瓣與準分子消融時適用。"
+        },
+        {
+          "text": "完全保留所有前角膜神經，因此沒有乾眼",
+          "rationale": "減少神經切斷是相對優勢，並不等於零乾眼。",
+          "whenTrue": "較少神經擾動可作相對比較；絕對不乾眼的敘述不成立。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "無瓣優勢不代表治療範圍、客製化與增強路徑都與準分子相同；產品現況須另核，這題明確回顧教材版本的限制。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq004",
+      "sourceQuestionKey": "bcsc-s13-rq004",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 4,
+      "chapterIds": [
+        "bcsc-s13-ch002"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch002-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            225,
+            232
+          ],
+          "printedPages": [
+            "210",
+            "217"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "單眼視試戴可接受。某眼原驗光−4.5 D，希望術後保留−1.0 D作近用；只看球鏡治療量應規劃多少？",
+      "options": [
+        {
+          "text": "−3.5 D",
+          "rationale": "原始值減目標殘餘值：−4.5−(−1.0)=−3.5 D。",
+          "whenTrue": "確定以相同記法表達原值與目標，且其餘適應條件已確認。"
+        },
+        {
+          "text": "−5.5 D",
+          "rationale": "這把要保留的近視反而加到矯正量，會超出目標。",
+          "whenTrue": "若原值真為−5.5 D且目標零，才是此治療量。"
+        },
+        {
+          "text": "−1.0 D",
+          "rationale": "這是目標殘餘度數，不是從原狀態到目標的改變量。",
+          "whenTrue": "描述預期術後屈光終點時適用。"
+        },
+        {
+          "text": "−4.5 D",
+          "rationale": "這是以零殘餘為目標的全矯量，會失去原設定的近用近視。",
+          "whenTrue": "若改以正視為球鏡目標才適用。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "此為合成算例，重點是治療量與目標殘餘分清；單眼視仍需評估雙眼融合、立體與夜間視覺取捨。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "calculationChecks": [
+        {
+          "expression": "-4.5-(-1.0)",
+          "expected": -3.5
+        }
+      ],
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq005",
+      "sourceQuestionKey": "bcsc-s13-rq005",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 5,
+      "chapterIds": [
+        "bcsc-s13-ch004"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch004-u03"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            225,
+            232
+          ],
+          "printedPages": [
+            "210",
+            "217"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "回顧該版教材中的表面切削MMC方案，哪個濃度與暴露時間最落在書中常見範圍內？此題不是個別處方。",
+      "options": [
+        {
+          "text": "0.02%，30秒",
+          "rationale": "教材答案討論約0.01–0.02%、10–120秒的常見範圍；本選項在其中。",
+          "whenTrue": "實際暴露需按風險、毒性及手術方案決定，且充分BSS沖洗。"
+        },
+        {
+          "text": "2%，30秒",
+          "rationale": "濃度比0.02%高百倍，不能因時間相同視為等價。",
+          "whenTrue": "2%可能是其他藥液濃度，並非此MMC表面切削範圍。"
+        },
+        {
+          "text": "0.2%，30秒",
+          "rationale": "濃度比0.02%高十倍，增加毒性風險而非教材方案。",
+          "whenTrue": "此濃度不屬題目所指的教材常見MMC範圍。"
+        },
+        {
+          "text": "0.02%，持續浸泡至術後回診",
+          "rationale": "延長至術後不是短時間受控暴露，會增加細胞及癒合傷害。",
+          "whenTrue": "長時間維持濃度不適合此用途；應按方案限時並沖洗。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "原題考藥物濃度與時間，不能刪去數值後改成泛泛抗纖維化問題。這是版次知識，MMC屈光用途仍屬超適應症，須獨立核對且不能直接當臨床處方。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq006",
+      "sourceQuestionKey": "bcsc-s13-rq006",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 6,
+      "chapterIds": [
+        "bcsc-s13-ch005"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch005-u04"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            225,
+            232
+          ],
+          "printedPages": [
+            "210",
+            "217"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "LASIK後出現局部化膿性角膜浸潤及前房反應，需立即採樣及抗感染。依該版教材，最常見的病原群以何者為代表？",
+      "options": [
+        {
+          "text": "葡萄球菌等革蘭氏陽性菌",
+          "rationale": "教材列葡萄球菌/鏈球菌為常見病原，非典型分枝桿菌亦重要但不是首位。",
+          "whenTrue": "可作初始病原思考，仍需採樣與依臨床調整治療。"
+        },
+        {
+          "text": "非典型分枝桿菌",
+          "rationale": "是LASIK後重要感染病原，但教材的頻率排序不是最多。",
+          "whenTrue": "延遲、特殊暴露或不典型/難治病程可提高懷疑。"
+        },
+        {
+          "text": "真菌",
+          "rationale": "可造成角膜感染，但不是教材此處最常見群。",
+          "whenTrue": "相應外傷、暴露或菌絲樣病灶等線索需納入。"
+        },
+        {
+          "text": "棘阿米巴",
+          "rationale": "屬可嚴重的角膜感染，頻率並非此術後感染的首位。",
+          "whenTrue": "接觸鏡或水暴露及相應症狀可提高懷疑。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "病原排序不是不用培養的理由；局部浸潤與前房反應應優先排感染，不能依「介面白色」就診斷DLK並加類固醇。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq007",
+      "sourceQuestionKey": "bcsc-s13-rq007",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 7,
+      "chapterIds": [
+        "bcsc-s13-ch002",
+        "bcsc-s13-ch005"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch002-u02",
+        "bcsc-s13-ch005-u04"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            225,
+            233
+          ],
+          "printedPages": [
+            "210",
+            "218"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "比較LASIK、PRK、角膜基質環與歷史性epikeratophakia，哪一項最應注意瓣加消融造成的術後擴張風險？",
+      "options": [
+        {
+          "text": "LASIK",
+          "rationale": "瓣切斷層板加上基質床消融，教材在這些選項中強調較高擴張風險。",
+          "whenTrue": "仍需依個人結構與治療量判斷，不能用術式排序取代篩檢。"
+        },
+        {
+          "text": "PRK",
+          "rationale": "PRK也可擴張，但沒有LASIK瓣的額外層板切斷，並非教材此組最高者。",
+          "whenTrue": "表面切削仍需完整擴張篩檢，不能稱零風險。"
+        },
+        {
+          "text": "角膜基質環",
+          "rationale": "用以改變不規則角膜光學，不是此組主要的瓣加消融機制。",
+          "whenTrue": "選定角膜擴張病人可作視覺復健，但不保證穩定進展。"
+        },
+        {
+          "text": "Epikeratophakia",
+          "rationale": "歷史性表層組織加成術不是此題的高風險消融加瓣機制。",
+          "whenTrue": "討論歷史性組織加成矯正時適用，不代表現在常規選擇。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "擴張評估要看原始角膜及手術削弱的結構。PRK無瓣也需篩檢；基質環改善形狀與CXL穩定進展不是同一治療目標。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq008",
+      "sourceQuestionKey": "bcsc-s13-rq008",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 8,
+      "chapterIds": [
+        "bcsc-s13-ch005"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch005-u02"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            225,
+            233
+          ],
+          "printedPages": [
+            "210",
+            "218"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "PRK後上皮已閉合、無感染，逐漸出現輕度基質haze。依該版教材常見時間軸，何者最合理？",
+      "options": [
+        {
+          "text": "數週出現，約1–2個月較明顯，之後數月至一年可逐漸減退",
+          "rationale": "保留教材對典型haze的出現、峰值與重塑時程。",
+          "whenTrue": "適用於典型輕度穩定haze，異常進展仍需另查。"
+        },
+        {
+          "text": "手術當下達峰，當天完全消失",
+          "rationale": "不符細胞及細胞外基質傷口反應的時間軸。",
+          "whenTrue": "介面暫時液體或氣泡可能很早出現，但不是這種PRK haze病程。"
+        },
+        {
+          "text": "一定在術後十年才首次出現",
+          "rationale": "不符教材典型早期haze。",
+          "whenTrue": "多年後新混濁需要重新尋找其他病因，不可直接套此典型時程。"
+        },
+        {
+          "text": "一旦出現即不會再變化",
+          "rationale": "角膜癒合會持續重塑，不應把早期輕度混濁當永久終點。",
+          "whenTrue": "成熟固定瘢痕可持續，但需依個別病程辨識。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "典型時間軸幫助判斷觀察與介入，但不能拿月份排除感染或毒性；嚴重、局部或惡化病灶須重新診斷。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq009",
+      "sourceQuestionKey": "bcsc-s13-rq009",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 9,
+      "chapterIds": [
+        "bcsc-s13-ch003"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch003-u02"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            225,
+            233
+          ],
+          "printedPages": [
+            "210",
+            "218"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "角膜圖與驗光一致顯示規則角膜散光，處方以正柱鏡寫為plano +2.0 D ×90。要用弧形切口放鬆陡軸，下列方向與位置何者合理？",
+      "options": [
+        {
+          "text": "以90/270度相對子午線、適當周邊約7 mm光學區規劃",
+          "rationale": "正柱鏡軸對應此例角膜陡軸，沿相對位置切口使其變平；周邊位置避免過中央不規則。",
+          "whenTrue": "必須由角膜圖核對角度，實際長度深度按nomogram及個人條件。"
+        },
+        {
+          "text": "改沿0/180度作同樣切口",
+          "rationale": "這把要放鬆的方向旋轉90度，可能使原散光更差。",
+          "whenTrue": "若真實陡軸位於0/180度，才應針對該軸。"
+        },
+        {
+          "text": "沿90/270度但縮至中央約4 mm",
+          "rationale": "軸雖相符，過中央會增加不規則與光學風險，非題目合理規劃。",
+          "whenTrue": "不同切口設計有專用規則，不能把此位置當常規AK答案。"
+        },
+        {
+          "text": "只按鏡框水平線切、不需角膜圖核對",
+          "rationale": "眼位旋轉與內部散光可能造成方向誤判。",
+          "whenTrue": "水平可作標記參考，但不能取代陡軸驗證。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "這是重新設定軸位的合成例，考點是正柱鏡記法、陡軸及安全周邊光學區；實際切口不是只憑眼鏡處方。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq010",
+      "sourceQuestionKey": "bcsc-s13-rq010",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 10,
+      "chapterIds": [
+        "bcsc-s13-ch002",
+        "bcsc-s13-ch005"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch002-u03",
+        "bcsc-s13-ch005-u02"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            226,
+            233
+          ],
+          "printedPages": [
+            "211",
+            "218"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "擬做PRK的病人，何種術前狀態最直接增加延遲再上皮化的風險？",
+      "options": [
+        {
+          "text": "乾眼性角結膜炎",
+          "rationale": "不健康眼表與淚膜會影響上皮修復，是此題直接的癒合風險。",
+          "whenTrue": "應先處理眼表並重測，再判斷是否適合手術。"
+        },
+        {
+          "text": "單純高近視而眼表健康",
+          "rationale": "高切削量可影響其他風險，但不是此題最直接的上皮癒合問題。",
+          "whenTrue": "討論組織預算與haze風險時仍重要。"
+        },
+        {
+          "text": "規則遠視而上皮與淚膜健康",
+          "rationale": "屈光型態本身不等同乾眼造成的上皮修復障礙。",
+          "whenTrue": "遠視切削另有形狀與回退評估。"
+        },
+        {
+          "text": "穩定低度散光且眼表正常",
+          "rationale": "低度散光未提供延遲上皮化的直接病因。",
+          "whenTrue": "可作屈光規劃資料，仍需完整眼表篩檢。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "不要把所有手術風險混成同一項；這題問的是上皮修復，不是最大消融量或光學回退。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq011",
+      "sourceQuestionKey": "bcsc-s13-rq011",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 11,
+      "chapterIds": [
+        "bcsc-s13-ch001"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch001-u03"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            226,
+            233
+          ],
+          "printedPages": [
+            "211",
+            "218"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "角膜屈光手術需精細移除表層組織並減少深層熱損傷，下列能量與機制配對何者正確？",
+      "options": [
+        {
+          "text": "193 nm準分子雷射—表層光分解",
+          "rationale": "淺層高吸收使其可精細消融，與深部熱燒灼不同。",
+          "whenTrue": "用於PRK或LASIK的基質消融。"
+        },
+        {
+          "text": "約1053 nm飛秒雷射—表層逐點光分解",
+          "rationale": "飛秒主要以光致破裂產生空化分離平面，配對機制錯誤。",
+          "whenTrue": "製瓣或角膜內透鏡切割時利用光致破裂。"
+        },
+        {
+          "text": "365 nm UVA—精細近視消融",
+          "rationale": "這是交聯等情境的能量範圍，不是準分子近視消融機制。",
+          "whenTrue": "配合核黃素角膜交聯時應討論相應方案及安全。"
+        },
+        {
+          "text": "約2.13 μm holmium雷射—非熱性準分子消融",
+          "rationale": "其典型作用偏熱性，不能當193 nm表層光分解。",
+          "whenTrue": "歷史熱性角膜成形術可使用其熱作用。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "保留原考點的193 nm與機制，同時分清飛秒光致破裂、UVA交聯及熱性作用，不能只背「都是雷射」。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq012",
+      "sourceQuestionKey": "bcsc-s13-rq012",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 12,
+      "chapterIds": [
+        "bcsc-s13-ch005"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch005-u03"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            226,
+            233
+          ],
+          "printedPages": [
+            "211",
+            "218"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "LASIK後何種情況最直接提供介面上皮長入的入口？",
+      "options": [
+        {
+          "text": "瓣邊上皮缺損，尤其再掀瓣後",
+          "rationale": "破損邊緣可讓上皮進入低癒合介面，再掀瓣亦增加風險。",
+          "whenTrue": "需追蹤位置、進展與是否影響視軸或造成溶解。"
+        },
+        {
+          "text": "單純高近視且瓣緣完整",
+          "rationale": "度數本身不是上皮進入介面的直接入口。",
+          "whenTrue": "高近視可增加深切削及部分瓣幾何問題，但不等於上皮入口。"
+        },
+        {
+          "text": "單純微細瓣紋而上皮完整",
+          "rationale": "皺紋是機械形狀問題，不是本題最直接入口。",
+          "whenTrue": "影響視軸的宏觀紋可能需復位，仍需另外評估上皮。"
+        },
+        {
+          "text": "無水腫的內皮guttae",
+          "rationale": "內皮層疾病與瓣邊上皮入口不同。",
+          "whenTrue": "應用於內皮功能及水腫風險評估。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "原題強調瓣邊上皮缺損。上皮長入的存在不必然等於立即手術；進展、視軸與瓣融解決定介入。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq013",
+      "sourceQuestionKey": "bcsc-s13-rq013",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 13,
+      "chapterIds": [
+        "bcsc-s13-ch003"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch003-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            226,
+            234
+          ],
+          "printedPages": [
+            "211",
+            "219"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "三位病人分別有舊RK、LASIK及一般白內障手術史。比較多年後鈍傷的傷口特性，何者最值得特別警覺深放射切口裂開？",
+      "options": [
+        {
+          "text": "舊RK眼",
+          "rationale": "深放射切口是長期機械弱點，鈍傷可沿切口破裂。",
+          "whenTrue": "懷疑眼球破裂需緊急眼外傷處理，不先常規驗光加壓。"
+        },
+        {
+          "text": "只有LASIK史的眼",
+          "rationale": "也可能有瓣移位，但此題問深放射傷口的眼球破裂機制。",
+          "whenTrue": "LASIK眼遭外傷後要檢查瓣與介面，並不代表沒有任何嚴重傷害。"
+        },
+        {
+          "text": "只有一般小切口白內障史的眼",
+          "rationale": "仍需評估傷口與眼球完整，但沒有RK特有多條深放射切口。",
+          "whenTrue": "任何術後眼外傷都需按實際傷口檢查。"
+        },
+        {
+          "text": "三者傷口結構完全相同",
+          "rationale": "手術切口深度、方向與癒合不同，不能視為同一力學狀態。",
+          "whenTrue": "不存在三類傷口完全等同的前提；應按原術式評估。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "考點是RK長期傷口脆弱。相對比較不能變成對其他術後眼的無傷害保證。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq014",
+      "sourceQuestionKey": "bcsc-s13-rq014",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 14,
+      "chapterIds": [
+        "bcsc-s13-ch005"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch005-u04"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            226,
+            234
+          ],
+          "printedPages": [
+            "211",
+            "219"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "LASIK後擴張已由專科評估進展性，正規劃穩定治療。若問題特別問「先改善不規則角膜的視覺光學」，何者最直接？",
+      "options": [
+        {
+          "text": "合適的RGP或鞏膜鏡配適",
+          "rationale": "硬式前表面與淚液鏡片可改善不規則光學，是視覺復健角色。",
+          "whenTrue": "依角膜形狀及耐受選配，並持續另外追蹤/處理進展。"
+        },
+        {
+          "text": "CXL必定給出最佳光學矯正",
+          "rationale": "交聯主要目標是穩定進展，不等同保證最佳視覺校正。",
+          "whenTrue": "有進展的適合病例可評估CXL穩定結構。"
+        },
+        {
+          "text": "追加LASIK消除近視散光",
+          "rationale": "再削薄已失穩角膜可能加劇擴張，不是合理第一步光學復健。",
+          "whenTrue": "穩定且結構正常的普通殘差才可能另評估增強，不適用此例。"
+        },
+        {
+          "text": "追加放射或鬆弛切口",
+          "rationale": "再作削弱切口不能處理此例結構失穩。",
+          "whenTrue": "穩定規則散光在適合角膜可討論特定切口術，不是進展擴張。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "同一病人有兩個目標：鏡片處理視覺，CXL處理進展。原題問光學復健，不可把它改成單一「哪種療法治療擴張」。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq015",
+      "sourceQuestionKey": "bcsc-s13-rq015",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 15,
+      "chapterIds": [
+        "bcsc-s13-ch001"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch001-u03"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            226,
+            234
+          ],
+          "printedPages": [
+            "211",
+            "219"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "用Munnerlyn近似式比較相同5 D近視：光學區直徑由6 mm增加到7 mm，預估消融深度如何改變？",
+      "options": [
+        {
+          "text": "由約60 μm增至約81.7 μm",
+          "rationale": "深度≈D×直徑平方/3，因此光學區增加會非線性增加深度。",
+          "whenTrue": "僅用於理解近視球面簡化幾何，實際計畫依平台演算法。"
+        },
+        {
+          "text": "仍是60 μm，度數相同就等深",
+          "rationale": "忽略光學區直徑平方的關係。",
+          "whenTrue": "只有光學區等參數也不變時，這種單純比較才可保持相同估計。"
+        },
+        {
+          "text": "由60 μm線性增至70 μm",
+          "rationale": "把直徑當一次方，漏掉平方效應。",
+          "whenTrue": "線性比例適用某些其他變量，不是本式的直徑。"
+        },
+        {
+          "text": "由60 μm減至約44 μm",
+          "rationale": "方向顛倒；更大光學區需更多而非更少組織。",
+          "whenTrue": "若縮小光學區才可能減少簡化深度，但仍有光學代價。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "此為獨立可算的合成例，並非手術處方。要記得單位μm與mm，以及公式未包含全部過渡區與個人化演算法。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "calculationChecks": [
+        {
+          "expression": "5*6**2/3",
+          "expected": 60
+        },
+        {
+          "expression": "5*7**2/3",
+          "expected": 81.66666666666667
+        }
+      ],
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq016",
+      "sourceQuestionKey": "bcsc-s13-rq016",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 16,
+      "chapterIds": [
+        "bcsc-s13-ch004",
+        "bcsc-s13-ch005"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch004-u02",
+        "bcsc-s13-ch005-u03"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            227,
+            234
+          ],
+          "printedPages": [
+            "212",
+            "219"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "高度近視LASIK後早期，視力降低且裂隙燈見平行皺褶跨越視軸，沒有浸潤。最符合的機制為何？",
+      "options": [
+        {
+          "text": "深消融後瓣與較平基質床不吻合而形成瓣紋",
+          "rationale": "高度近視切削改變床面曲率，可使瓣在復位時出現皺褶。",
+          "whenTrue": "視軸上的宏觀紋需及時評估復位與攤平。"
+        },
+        {
+          "text": "已形成數月進展的角膜擴張",
+          "rationale": "擴張以連續變薄變陡為證據，不由早期平行瓣皺褶定義。",
+          "whenTrue": "後續近視散光持續增加且斷層進展時需懷疑。"
+        },
+        {
+          "text": "介面上皮巢長入",
+          "rationale": "上皮長入呈介面細胞/邊界，不是這個平行機械皺褶外觀。",
+          "whenTrue": "瓣邊上皮缺損、再掀瓣與進展上皮可支持。"
+        },
+        {
+          "text": "瀰漫介面白血球反應",
+          "rationale": "DLK會有細胞浸潤，不能解釋單純平行全層皺褶。",
+          "whenTrue": "有典型瀰漫介面細胞且已排感染時考慮DLK。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "題目保留高近視、早期與皺褶的原考點；先處理機械不貼合，不以相同「看不清」改稱感染或擴張。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq017",
+      "sourceQuestionKey": "bcsc-s13-rq017",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 17,
+      "chapterIds": [
+        "bcsc-s13-ch003",
+        "bcsc-s13-ch008"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch003-u01",
+        "bcsc-s13-ch008-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            227,
+            234
+          ],
+          "printedPages": [
+            "212",
+            "219"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "曾RK的病人白內障手術後一週出現遠視偏移，角膜有輕度水腫，IOL位置正確。最適當的初期解讀？",
+      "options": [
+        {
+          "text": "角膜暫時扁平化可造成早期遠視，先追蹤至屈光與形狀穩定",
+          "rationale": "RK傷口的水合及力學變化可讓早期測量偏離最終狀態。",
+          "whenTrue": "同時排除其他病因，不把所有意外度數一律等待。"
+        },
+        {
+          "text": "已證明永久IOL度數錯誤，立即交換",
+          "rationale": "早期不穩定角膜使此結論過早。",
+          "whenTrue": "確認持續穩定殘差及正確病因後，才評估IOL處理等方案。"
+        },
+        {
+          "text": "立即以PRK消除當週遠視",
+          "rationale": "把暫時變化永久化會造成後續偏差，且角膜尚未穩定。",
+          "whenTrue": "穩定殘差、健康結構與充分風險評估後才可能討論增強。"
+        },
+        {
+          "text": "RK眼遠視永不改變，不需再量測",
+          "rationale": "RK眼可有日內及長期變化，不能放棄序列評估。",
+          "whenTrue": "不存在可由這個早期情境保證永不變化的前提。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "原題測試白內障術後RK的暫時性角膜扁平與等待穩定，並非泛指所有屈光驚訝都只能觀察。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq018",
+      "sourceQuestionKey": "bcsc-s13-rq018",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 18,
+      "chapterIds": [
+        "bcsc-s13-ch004",
+        "bcsc-s13-ch005"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch004-u02",
+        "bcsc-s13-ch005-u03"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            227,
+            234
+          ],
+          "printedPages": [
+            "212",
+            "219"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "LASIK完成消融後，哪個操作最符合減少宏觀瓣紋的方向？",
+      "options": [
+        {
+          "text": "仔細對位與攤平瓣，避免多餘介面沖洗",
+          "rationale": "正確貼合與少量必要液體有助減少瓣床不吻合及皺褶。",
+          "whenTrue": "仍須確保介面清潔，不是完全不准使用BSS。"
+        },
+        {
+          "text": "以大量液體反覆灌滿介面",
+          "rationale": "過度沖洗可使瓣浮動、水腫並增加不貼合。",
+          "whenTrue": "必要的介面清理可用適量BSS，但不能以越多越好作原則。"
+        },
+        {
+          "text": "刻意使用低張水使瓣膨脹",
+          "rationale": "膨脹並不改善精準貼合，可能增加皺褶及組織傷害。",
+          "whenTrue": "此處應使用合適手術溶液，不以低張水作預防。"
+        },
+        {
+          "text": "只追求極薄瓣而不管復位",
+          "rationale": "瓣厚是組織規劃的一部分，不能取代仔細攤平。",
+          "whenTrue": "瓣厚評估適用於術前組織預算及風險，不是忽略復位的理由。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "原考點是降低機械皺褶的操作，而非單純選雷射品牌。對位、介面液體及瓣的實際貼合均重要。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq019",
+      "sourceQuestionKey": "bcsc-s13-rq019",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 19,
+      "chapterIds": [
+        "bcsc-s13-ch005"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch005-u02"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            227,
+            235
+          ],
+          "printedPages": [
+            "212",
+            "220"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "PRK後一個月有輕度haze，上皮完整、視力尚可且無感染或進展警訊。依典型自然史，最合理的初期路徑？",
+      "options": [
+        {
+          "text": "觀察重塑趨勢並依術後方案監測",
+          "rationale": "早期輕度haze常可隨時間改善，不必立即再製造表面傷口。",
+          "whenTrue": "若嚴重、惡化或不典型，需重新診斷及調整處置。"
+        },
+        {
+          "text": "立即做PTK去除所有混濁",
+          "rationale": "過早再次切削可能增加新傷口與haze，不是此輕度病例首選。",
+          "whenTrue": "長期穩定且顯著影響視覺的選定病例可評估PTK等處理。"
+        },
+        {
+          "text": "讓病人自行長期高頻率滴MMC",
+          "rationale": "MMC不是任意長期居家滴用的常規haze處方，有毒性。",
+          "whenTrue": "受控手術暴露且有明確理由時才討論其超適應症用途。"
+        },
+        {
+          "text": "立即給全身高劑量類固醇而不再檢查",
+          "rationale": "此情境未提供需要全身處理的適應理由，亦不能忽略副作用。",
+          "whenTrue": "有真正需全身免疫治療的疾病應依相應診斷處理，非典型輕度haze。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "保留原題「一個月輕度haze先給自然重塑時間」的考點；不將觀察延伸為忽視任何感染或嚴重病灶。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq020",
+      "sourceQuestionKey": "bcsc-s13-rq020",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 20,
+      "chapterIds": [
+        "bcsc-s13-ch010"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch010-u02"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            227,
+            235
+          ],
+          "printedPages": [
+            "212",
+            "220"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "以歷史裝置機轉為題：Kamra型角膜嵌入片主要如何增加近用視程？",
+      "options": [
+        {
+          "text": "小孔效應增加景深",
+          "rationale": "阻擋較周邊光線、減少模糊圈，使一定範圍物距可用。",
+          "whenTrue": "是景深策略，並未恢復晶狀體調節。"
+        },
+        {
+          "text": "以不同折射率形成近用加成區",
+          "rationale": "這屬折射型嵌入片概念，不是Kamra小孔機轉。",
+          "whenTrue": "討論Flexivue等折射型設計的歷史機轉時適用。"
+        },
+        {
+          "text": "使中央角膜變陡以增加近用屈光力",
+          "rationale": "形狀型嵌入片可採此方向，並非純小孔策略。",
+          "whenTrue": "討論歷史Raindrop等形狀改變設計時適用，不代表現行可用。"
+        },
+        {
+          "text": "以周邊射頻膠原收縮",
+          "rationale": "這是conductive keratoplasty的機轉，不是嵌入片小孔。",
+          "whenTrue": "CK以周邊熱作用使中央相對變陡。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "此題只回顧不同技術的作用方式；歷史裝置的核准、撤回及當前可用性需另核，不作2026產品推薦。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq021",
+      "sourceQuestionKey": "bcsc-s13-rq021",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 21,
+      "chapterIds": [
+        "bcsc-s13-ch005"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch005-u02"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            228,
+            235
+          ],
+          "printedPages": [
+            "213",
+            "220"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "PRK後兩週上皮仍未閉合，Schirmer並未降低，病人持續頻繁使用局部NSAID止痛，尚無感染證據。首先應特別改變哪一項？",
+      "options": [
+        {
+          "text": "停用可疑局部NSAID並重新評估眼表、毒性與感染",
+          "rationale": "頻繁局部NSAID可延遲上皮化並造成更嚴重角膜傷害；淚液量正常不能排除。",
+          "whenTrue": "同時保護眼表並密切追蹤，若感染疑慮需採取相應措施。"
+        },
+        {
+          "text": "只加淚點塞，不檢視用藥",
+          "rationale": "淚液保存可能有特定用途，但不能忽略明確藥物毒因。",
+          "whenTrue": "確認淚液缺乏且適合保留淚液時可考慮，非此題第一個因果處理。"
+        },
+        {
+          "text": "繼續NSAID並只加cyclosporine",
+          "rationale": "免疫調節不會立即抵銷持續毒性暴露。",
+          "whenTrue": "慢性眼表炎症可有適應理由，但需先移除傷害因子。"
+        },
+        {
+          "text": "只把局部類固醇加倍",
+          "rationale": "持續缺損需查病因與感染，不以加抗炎掩蓋所有問題。",
+          "whenTrue": "明確無菌炎症可需抗炎，但不能代替缺損病因評估。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "原考點是藥物相關延遲上皮化。病人用藥與實際缺損比單一正常Schirmer更能指向下一步。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq022",
+      "sourceQuestionKey": "bcsc-s13-rq022",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 22,
+      "chapterIds": [
+        "bcsc-s13-ch001"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch001-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            228,
+            235
+          ],
+          "printedPages": [
+            "213",
+            "220"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "以Zernike階數分類，哪一項屬第三階高階像差？",
+      "options": [
+        {
+          "text": "彗差（coma）",
+          "rationale": "彗差屬第三階高階像差，會造成不對稱影像拖尾。",
+          "whenTrue": "三葉草亦為第三階；實際解讀須固定瞳孔條件。"
+        },
+        {
+          "text": "球面像差（spherical aberration）",
+          "rationale": "球面像差是第四階，不是第三階。",
+          "whenTrue": "討論中央與周邊光線焦點差異時適用。"
+        },
+        {
+          "text": "離焦（defocus）",
+          "rationale": "離焦屬第二階低階像差，可用球鏡矯正。",
+          "whenTrue": "一般球鏡驗光處理的低階成分。"
+        },
+        {
+          "text": "規則散光",
+          "rationale": "規則散光屬第二階低階像差，不是第三階。",
+          "whenTrue": "一般柱鏡驗光可描述其低階成分。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "這題保留原書的精確階數考點，不能以「都會影響夜視」取代分類；像差症狀仍須整合淚膜、散射及瞳孔。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq023",
+      "sourceQuestionKey": "bcsc-s13-rq023",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 23,
+      "chapterIds": [
+        "bcsc-s13-ch003"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch003-u02"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            228,
+            236
+          ],
+          "printedPages": [
+            "213",
+            "221"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "對相似的角膜規則散光矯正，LRI相較較中央的AK，哪個敘述最合理？",
+      "options": [
+        {
+          "text": "LRI較周邊，常需較長或較深切口才有相當效應",
+          "rationale": "切口離中央較遠使其影響不同，不能直接複製中央AK參數。",
+          "whenTrue": "實際依相應nomogram、年齡、厚度與個人角膜調整。"
+        },
+        {
+          "text": "LRI一定比AK更中央",
+          "rationale": "與角膜緣鬆弛切口的定位相反。",
+          "whenTrue": "中央/旁中央AK與角膜緣LRI是不同位置設計。"
+        },
+        {
+          "text": "兩種切口可不看深度而只按長度換算",
+          "rationale": "深度、位置與癒合都影響效果，長度不是唯一參數。",
+          "whenTrue": "長度可為nomogram的一項輸入，但不能孤立使用。"
+        },
+        {
+          "text": "LRI是以削去中央透鏡組織矯正",
+          "rationale": "這把切口式手術和透鏡取出混淆。",
+          "whenTrue": "SMILE等透鏡取出是不同組織操作。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "原考點是LRI較周邊及相應效應差異；不是所有鬆弛切口都共享相同幾何與預測性。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq024",
+      "sourceQuestionKey": "bcsc-s13-rq024",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 24,
+      "chapterIds": [
+        "bcsc-s13-ch007"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch007-u03"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            228,
+            236
+          ],
+          "printedPages": [
+            "213",
+            "221"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "依2024–25教材的LASIK候選人討論，哪一項應特別評估免疫與癒合風險、屬相對禁忌背景？",
+      "options": [
+        {
+          "text": "HIV相關免疫狀態",
+          "rationale": "教材列其為相對禁忌，需看疾病控制、感染及癒合等實際條件。",
+          "whenTrue": "不等於所有HIV病人無條件禁止，亦非無條件允許。"
+        },
+        {
+          "text": "沒有眼表或相關問題的單純氣喘史",
+          "rationale": "診斷名稱本身不是此題的免疫缺陷背景，但相關過敏與用藥仍要問。",
+          "whenTrue": "若有異位性眼表病或類固醇等風險，需按實際情況評估。"
+        },
+        {
+          "text": "沒有其他風險線索的憂鬱症史",
+          "rationale": "需評估期待與用藥相關乾眼等，但不是本題的免疫缺陷重點。",
+          "whenTrue": "若期待不切實際或藥物影響眼表，仍可構成延後理由。"
+        },
+        {
+          "text": "沒有活動性視神經問題的多發性硬化症史",
+          "rationale": "仍須看視覺功能與病程，但不等同題目指定的免疫缺陷風險。",
+          "whenTrue": "活動性神經眼科問題或相關治療會改變個別決策。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "保留原題免疫缺陷的選項辨識，同時避免把相對禁忌變成永久一刀切；現行個人適應需完整評估。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq025",
+      "sourceQuestionKey": "bcsc-s13-rq025",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 25,
+      "chapterIds": [
+        "bcsc-s13-ch002"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch002-u02"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            228,
+            236
+          ],
+          "printedPages": [
+            "213",
+            "221"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "哪個LASIK規劃最明確落入教材提醒的剩餘基質床擴張風險？",
+      "options": [
+        {
+          "text": "預估床厚低於250 μm，且實際瓣厚仍有不確定性",
+          "rationale": "書中將低於250 μm列為重要風險線索，較厚實際瓣會使餘量更少。",
+          "whenTrue": "此為版次風險資訊，不是反推高於250就絕對安全。"
+        },
+        {
+          "text": "中央厚度正常，所以無需算瓣與消融",
+          "rationale": "中央厚度不足以代表手術後真正剩餘承重組織。",
+          "whenTrue": "中央厚度是評估之一，仍需完整結構與組織預算。"
+        },
+        {
+          "text": "以預測最薄瓣計算後剛好達門檻即可保證",
+          "rationale": "預測瓣厚可能有誤差，且單值不能保證沒有內在擴張病。",
+          "whenTrue": "需留意誤差與結構，不用「剛好」作安全承諾。"
+        },
+        {
+          "text": "角膜圖可疑但床厚較高就可忽略",
+          "rationale": "原始角膜疾病風險不能靠一個較高床厚消除。",
+          "whenTrue": "正常結構仍需綜合年齡、切削量等條件。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "數值是原題實際考點，保留並清楚限定它只是多因子風險之一；RSB=CCT−瓣厚−消融厚度。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq026",
+      "sourceQuestionKey": "bcsc-s13-rq026",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 26,
+      "chapterIds": [
+        "bcsc-s13-ch007"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch007-u02"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            228,
+            236
+          ],
+          "printedPages": [
+            "213",
+            "221"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "穿透性角膜移植後8個月想以雷射處理散光。依該版教材的時機概念，何者最適當？",
+      "options": [
+        {
+          "text": "先等待移植至少一年並在拆線後確認多次屈光與角膜穩定",
+          "rationale": "教材提至少一年、拆線後約4個月及間隔量測穩定等條件，不能只看當次驗光。",
+          "whenTrue": "實際仍要看移植物健康、縫線、傷口及個人病程。"
+        },
+        {
+          "text": "8個月只要裸視不好即可立即LASIK",
+          "rationale": "未確認移植及縫線相關變化穩定，永久矯正目標不可靠。",
+          "whenTrue": "LASIK可能在選定穩定病例評估，但須衡量傷口風險。"
+        },
+        {
+          "text": "所有移植眼一律只能PRK，無需等穩定",
+          "rationale": "PRK亦有haze、癒合與預測性問題，不能免除穩定要求。",
+          "whenTrue": "選定病例可討論PRK，需與其他方案比較。"
+        },
+        {
+          "text": "只要已滿一年，不管拆線或變動都可做",
+          "rationale": "最低時間背景不能取代實際穩定。",
+          "whenTrue": "已滿一年仍需確認縫線、形狀與驗光跨次穩定。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "原考點是移植後手術時機與穩定條件，不是將某一術式列為所有PK眼的最佳答案；精確間隔需獨立核原頁。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq027",
+      "sourceQuestionKey": "bcsc-s13-rq027",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 27,
+      "chapterIds": [
+        "bcsc-s13-ch007"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch007-u02"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            229,
+            237
+          ],
+          "printedPages": [
+            "214",
+            "222"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "高度近視者做LASIK後不再需厚眼鏡。關於日後視網膜剝離風險的諮詢，何者合理？",
+      "options": [
+        {
+          "text": "原高度近視相關風險仍在，需保留警訊及眼底照護",
+          "rationale": "角膜屈光改變不會消除眼軸及周邊視網膜病因，教材未證明LASIK/PRK使風險相對同程度未術近視者明顯增減。",
+          "whenTrue": "新閃光、飛蚊或視野遮蔽需及時評估。"
+        },
+        {
+          "text": "屈光度變零即恢復非近視眼的視網膜風險",
+          "rationale": "脫鏡改的是焦點，不是眼軸與視網膜結構。",
+          "whenTrue": "原本非高度近視的眼需依其自己的風險，而不能按術後處方重分類。"
+        },
+        {
+          "text": "LASIK已被教材證明必定防止RD",
+          "rationale": "教材沒有這種預防結論。",
+          "whenTrue": "已辨識的視網膜病灶需按其適應評估，不以角膜雷射取代。"
+        },
+        {
+          "text": "術後任何新飛蚊都只是角膜恢復",
+          "rationale": "角膜癒合不能合理解釋所有眼底警訊。",
+          "whenTrue": "視覺波動可來自角膜，但新眼底症狀需另查。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "此題保留原書「矯正屈光不改變高度近視自然眼底風險」的概念，不虛構手術具有視網膜保護效果。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq028",
+      "sourceQuestionKey": "bcsc-s13-rq028",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 28,
+      "chapterIds": [
+        "bcsc-s13-ch005"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch005-u05"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            229,
+            237
+          ],
+          "printedPages": [
+            "214",
+            "222"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "飛秒LASIK後數週開始強烈畏光；裸視仍佳、眼不紅、介面近乎正常且無感染線索。最符合哪個方向？",
+      "options": [
+        {
+          "text": "短暫光敏感症候群；排除其他病因後由角膜醫師使用局部抗炎",
+          "rationale": "延遲畏光、良好視力與安靜介面符合教材描述，可用類固醇、必要時免疫調節並監測眼壓。",
+          "whenTrue": "需先合理排除感染與其他眼內疾病，不能對所有畏光套用。"
+        },
+        {
+          "text": "DLK必須立即掀瓣沖洗",
+          "rationale": "DLK應有介面細胞等證據，本題特別指出介面近正常。",
+          "whenTrue": "中央密集DLK等特定情境需專科評估介面處理。"
+        },
+        {
+          "text": "感染性角膜炎一律先只加強類固醇",
+          "rationale": "若真疑感染，應採樣及抗微生物，類固醇不能作唯一先手。",
+          "whenTrue": "感染需依病原與專科判斷處理，非此安靜眼典型描述。"
+        },
+        {
+          "text": "瓣移位，僅靠畏光即可確診",
+          "rationale": "瓣移位需實際位置與光學證據，不能由症狀單獨推定。",
+          "whenTrue": "有外傷、瓣邊改變與不規則時應緊急檢查。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "保留原題光敏感症候群的特定組合，並分開其藥物處理與真實介面病灶的手術處理。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq029",
+      "sourceQuestionKey": "bcsc-s13-rq029",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 29,
+      "chapterIds": [
+        "bcsc-s13-ch009"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch009-u03"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            229,
+            237
+          ],
+          "printedPages": [
+            "214",
+            "222"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "繞射多焦IOL後立即出現持續且難以接受的光暈。眼表、殘餘度數與位置均已評估處理，後囊清晰。若考慮換單焦，下列何者較合理？",
+      "options": [
+        {
+          "text": "在先保留完整後囊的情況下討論IOL交換",
+          "rationale": "症狀可能是多焦光學不耐受，先Nd:YAG會增加之後交換的難度。",
+          "whenTrue": "需完整告知再次眼內手術風險；不是所有早期光暈都立刻交換。"
+        },
+        {
+          "text": "先對清晰後囊作Nd:YAG再決定",
+          "rationale": "缺乏後囊病因，且可能不改善設計相關光暈並使交換更複雜。",
+          "whenTrue": "真正後囊混濁與症狀吻合時，才評估後囊切開。"
+        },
+        {
+          "text": "以piggyback再加一片多焦消除所有光暈",
+          "rationale": "再加光學並不處理原設計不耐受，亦增加其他風險。",
+          "whenTrue": "特定穩定殘餘屈光問題可另評估附加鏡片，不是通用光暈療法。"
+        },
+        {
+          "text": "一定是晚發後囊混濁，不需檢查",
+          "rationale": "症狀自手術起且囊膜清晰，與此結論矛盾。",
+          "whenTrue": "晚期漸進症狀與明確後囊病灶才支持PCO。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "原考點是立即多焦光學不耐受與保留交換可行性，不能把所有眩光當後囊混濁。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq030",
+      "sourceQuestionKey": "bcsc-s13-rq030",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 30,
+      "chapterIds": [
+        "bcsc-s13-ch007"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch007-u03"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            229,
+            237
+          ],
+          "printedPages": [
+            "214",
+            "222"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "糖尿病病人近期血糖波動，兩次驗光度數差異明顯，急著做LASIK脫鏡。下一步？",
+      "options": [
+        {
+          "text": "先改善代謝控制，待屈光確實穩定再重新評估",
+          "rationale": "血糖相關晶狀體變化可造成暫時驗光移動，現在切削可能鎖定錯誤目標。",
+          "whenTrue": "同時檢查眼表、感覺與視網膜等糖尿病相關風險。"
+        },
+        {
+          "text": "直接取兩次驗光平均值做LASIK",
+          "rationale": "平均並不能證明目標穩定或病因已解除。",
+          "whenTrue": "穩定且可靠重測後才可規劃，不用平均掩蓋波動。"
+        },
+        {
+          "text": "只配永久新眼鏡並宣稱以後不會再變",
+          "rationale": "在代謝未穩定時新處方仍可能很快失準。",
+          "whenTrue": "暫時光學需求可個別處理，但要說明仍可能變動。"
+        },
+        {
+          "text": "改做更大量的手術以預防後續波動",
+          "rationale": "角膜永久改變無法防止血糖造成眼內屈光變動。",
+          "whenTrue": "沒有合理情境支持以過量角膜治療預防代謝波動。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "原題真正考點是先穩定血糖與屈光，並非糖尿病一概永遠不能做手術。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq031",
+      "sourceQuestionKey": "bcsc-s13-rq031",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 31,
+      "chapterIds": [
+        "bcsc-s13-ch007"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch007-u03"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            230,
+            237
+          ],
+          "printedPages": [
+            "215",
+            "222"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "哪種情況最適合先延後選擇性PRK，而不是把當下驗光當永久目標？",
+      "options": [
+        {
+          "text": "正在懷孕或哺乳且可能有生理性屈光改變",
+          "rationale": "教材將此列為暫時不適合背景，需等相關狀態結束且屈光穩定再評估。",
+          "whenTrue": "並非只要某次裸視正常就可忽略生理變動。"
+        },
+        {
+          "text": "眼表健康的穩定低度散光",
+          "rationale": "沒有提供同樣的暫時屈光變化線索，仍須完整篩檢。",
+          "whenTrue": "若其他條件適合可進一步評估，但不由此單項保證可手術。"
+        },
+        {
+          "text": "單純氣喘史而眼表無異常",
+          "rationale": "診斷名稱本身不是本題的暫時性屈光變化重點。",
+          "whenTrue": "相關過敏、用藥或眼表疾病仍須按實際情況評估。"
+        },
+        {
+          "text": "穩定近視且角膜圖正常",
+          "rationale": "與懷孕哺乳相關變動不同，但仍不代表所有安全條件已滿足。",
+          "whenTrue": "若其他風險亦合理，可共同討論選項。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "此題保留懷孕/哺乳期的暫時性禁忌概念，不額外把「等幾個月」寫成對所有人的當前保證。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq032",
+      "sourceQuestionKey": "bcsc-s13-rq032",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 32,
+      "chapterIds": [
+        "bcsc-s13-ch001"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch001-u02"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            230,
+            237
+          ],
+          "printedPages": [
+            "215",
+            "222"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "檢查投射同心圓到角膜，利用反射環的間距與形變推估前表面曲率。是哪一種技術？",
+      "options": [
+        {
+          "text": "Placido式角膜地形圖",
+          "rationale": "同心圓前表面反射是此技術的關鍵輸入。",
+          "whenTrue": "適用於分析前表面規則性，需注意淚膜與擷取品質。"
+        },
+        {
+          "text": "掃描裂隙或Scheimpflug斷層",
+          "rationale": "其藉切面資訊重建結構，並非本題同心反射環原理。",
+          "whenTrue": "若需前後表面與厚度空間分布，應考慮斷層資訊。"
+        },
+        {
+          "text": "Hartmann–Shack全眼波前",
+          "rationale": "小透鏡陣列分析出射光，與前表面反射環不同。",
+          "whenTrue": "評估全眼波前像差時使用。"
+        },
+        {
+          "text": "超音波測厚",
+          "rationale": "藉聲波往返估厚，不靠角膜反射環推曲率。",
+          "whenTrue": "測量角膜厚度時可使用相應超音波方法。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "本題與波前儀原理分別對應不同原題概念；前表面曲率不是全眼波前，也不完整代表後表面結構。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq033",
+      "sourceQuestionKey": "bcsc-s13-rq033",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 33,
+      "chapterIds": [
+        "bcsc-s13-ch004"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch004-u02"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            230,
+            237
+          ],
+          "printedPages": [
+            "215",
+            "222"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "相較機械微型角膜刀製瓣，飛秒製瓣在教材強調的優勢是哪項？",
+      "options": [
+        {
+          "text": "瓣厚及幾何形狀較可預測",
+          "rationale": "以雷射預定平面切割，教材強調厚度控制的重複性。",
+          "whenTrue": "仍有實際誤差及飛秒特有氣泡/光敏感等風險。"
+        },
+        {
+          "text": "必然成本較低",
+          "rationale": "成本不是此題所述主要優勢，也不能由技術機轉推出。",
+          "whenTrue": "價格是設備與醫療體系條件，需另有實際資料。"
+        },
+        {
+          "text": "必然手術時間更短",
+          "rationale": "技術步驟與設備不同，不能一概宣稱更短。",
+          "whenTrue": "時間需依實際流程比較，不是瓣厚可預測性的同義詞。"
+        },
+        {
+          "text": "製瓣本身就是虹膜註冊",
+          "rationale": "虹膜註冊處理定位/旋轉，並非飛秒製瓣的同一功能。",
+          "whenTrue": "準分子導引的定位校正可另使用相關技術。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "原考點是較可預測瓣厚；這個相對優勢不能變成零併發症、零誤差或所有成本效益的保證。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq034",
+      "sourceQuestionKey": "bcsc-s13-rq034",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 34,
+      "chapterIds": [
+        "bcsc-s13-ch002",
+        "bcsc-s13-ch004"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch002-u02",
+        "bcsc-s13-ch004-u02"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            230,
+            238
+          ],
+          "printedPages": [
+            "215",
+            "223"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "四名候選人其他條件近似。依教材提醒，哪個規劃最需因預期術後角膜過陡與球面像差而重新考量LASIK？",
+      "options": [
+        {
+          "text": "預測術後角膜K值約52 D",
+          "rationale": "教材提醒超過約50 D的過陡術後形狀會增加球面像差等問題，52 D是本題明確警訊。",
+          "whenTrue": "這是版次風險線索，要整合完整角膜與治療計畫，不是孤立現行安全界線。"
+        },
+        {
+          "text": "剩餘基質床預估300 μm",
+          "rationale": "此值本身不是本題過陡的線索，亦不能單靠它保證安全。",
+          "whenTrue": "仍需整合原始結構、瓣厚與消融量。"
+        },
+        {
+          "text": "有皮膚蟹足腫史但眼部評估正常",
+          "rationale": "教材不以皮膚瘢痕史直接等同一定角膜術後過度瘢痕。",
+          "whenTrue": "有活動性疾病或實際角膜風險時須另評估。"
+        },
+        {
+          "text": "無可靠個人波前資料但其他資料可信",
+          "rationale": "不一定排除所有常規消融；須確認為何波前不可靠與適合模式。",
+          "whenTrue": "若特定病情需要可信客製資料，缺失可成為延後理由。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "保留原題具體K值與光學風險，而非把所有候選限制統稱不適合；各風險的機轉不同。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq035",
+      "sourceQuestionKey": "bcsc-s13-rq035",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 35,
+      "chapterIds": [
+        "bcsc-s13-ch008"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch008-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            230,
+            238
+          ],
+          "printedPages": [
+            "215",
+            "223"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "近視雷射後要做白內障手術，標準K值與一般公式可能造成IOL度數誤差。最核心的角膜原因為何？",
+      "options": [
+        {
+          "text": "前表面被改變後，原先假設的前後曲率關係失準",
+          "rationale": "標準角膜折射率與取樣方法不再準確代表總角膜屈光力。",
+          "whenTrue": "應用術後專用方法並視是否有舊資料比較估計。"
+        },
+        {
+          "text": "雷射使眼軸無法再以任何儀器量測",
+          "rationale": "角膜手術不等於眼軸消失或不能量；眼軸仍需可靠測量。",
+          "whenTrue": "生物測量確有品質問題時需重測，但不是此特有模型誤差。"
+        },
+        {
+          "text": "只有淚膜問題，治乾眼後一般K必然完全正確",
+          "rationale": "眼表可加重誤差，卻不能恢復消融前的前後曲率關係。",
+          "whenTrue": "改善表面是準備工作之一，仍要使用適當術後模型。"
+        },
+        {
+          "text": "主要因眼壓改變，所以只需固定加減眼壓數值",
+          "rationale": "眼壓讀值問題不能直接修正角膜總屈光力估算。",
+          "whenTrue": "眼壓監測與IOL生物測量是不同任務，均須合適方法。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "原題核心是前後角膜曲率假設被打破，另外還有中央取樣與ELP模型問題；不能泛稱所有誤差皆來自眼軸。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq036",
+      "sourceQuestionKey": "bcsc-s13-rq036",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 36,
+      "chapterIds": [
+        "bcsc-s13-ch009"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch009-u03"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            230,
+            238
+          ],
+          "printedPages": [
+            "215",
+            "223"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "Piggyback IOL後兩片鏡片之間出現明顯混濁，影響視力。確定為interlenticular opacification時，何者是較具根本性的處理方向？",
+      "options": [
+        {
+          "text": "評估移除或交換相關IOL",
+          "rationale": "混濁來自兩鏡片界面細胞與材料環境，顯著病例可能需鏡片處理。",
+          "whenTrue": "需依囊袋、位置與眼內風險設計個別方案。"
+        },
+        {
+          "text": "一律只做Nd:YAG即可永久解決",
+          "rationale": "雷射不一定處理界面細胞病因，不能承諾永久改善。",
+          "whenTrue": "確定是適當的後囊混濁等病灶時才考慮相應雷射。"
+        },
+        {
+          "text": "只將混濁膜當作角膜表層剝除",
+          "rationale": "病灶位於眼內兩IOL之間，不是角膜上皮或淺層基質。",
+          "whenTrue": "角膜表層病灶才可能討論相應表面處理。"
+        },
+        {
+          "text": "即使視力顯著受損仍不需再評估",
+          "rationale": "需衡量症狀與可處理病因，不能用固定觀察代替決策。",
+          "whenTrue": "輕度無症狀且穩定病例可討論觀察，不符合本題影響視力。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "定位是關鍵：兩鏡片間混濁不同於後囊混濁，治療要處理真正的界面病因。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq037",
+      "sourceQuestionKey": "bcsc-s13-rq037",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 37,
+      "chapterIds": [
+        "bcsc-s13-ch010"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch010-u02"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            231,
+            238
+          ],
+          "printedPages": [
+            "216",
+            "223"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "Conductive keratoplasty矯正近用需求的主要機轉是什麼？",
+      "options": [
+        {
+          "text": "周邊射頻造成膠原熱收縮，使中央相對變陡",
+          "rationale": "這是CK的熱性幾何改變，並可能隨時間回退。",
+          "whenTrue": "是改變角膜屈光，不是恢復自然晶狀體調節。"
+        },
+        {
+          "text": "準分子切除中央基質使中央變平",
+          "rationale": "這是近視光分解方向，與CK周邊熱收縮相反。",
+          "whenTrue": "PRK或LASIK近視消融可採此方向。"
+        },
+        {
+          "text": "用holmium:YAG雷射而不是射頻",
+          "rationale": "holmium熱性角膜術是另一技術，不能與CK混稱。",
+          "whenTrue": "歷史laser thermal keratoplasty可使用相應雷射。"
+        },
+        {
+          "text": "將人工小孔片放入角膜",
+          "rationale": "這是小孔嵌入片的景深策略，不是CK。",
+          "whenTrue": "歷史Kamra型裝置利用此機轉。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "保留射頻、周邊膠原收縮與中央變陡三個原考點，效果不應被描述為永久新生調節。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq038",
+      "sourceQuestionKey": "bcsc-s13-rq038",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 38,
+      "chapterIds": [
+        "bcsc-s13-ch004",
+        "bcsc-s13-ch005"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch004-u01",
+        "bcsc-s13-ch005-u03"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            231,
+            238
+          ],
+          "printedPages": [
+            "216",
+            "223"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "LASIK瓣放回後可迅速貼附，但中央介面多年後仍可能被外傷分開。最能解釋「立即貼附」的是哪項？",
+      "options": [
+        {
+          "text": "內皮泵脫水形成的吸附作用",
+          "rationale": "早期貼附可由角膜脫水相關作用支持，並不等於立刻完成膠原瘢痕癒合。",
+          "whenTrue": "仍需準確復位、避免搓揉與後續機械擾動。"
+        },
+        {
+          "text": "當下已形成完整成熟膠原瘢痕",
+          "rationale": "成熟瘢痕不會在幾分鐘內完成，且中央介面癒合有限。",
+          "whenTrue": "後續傷口生物反應可發生，但不能解釋即刻貼附。"
+        },
+        {
+          "text": "上皮已在數秒內跨越整個中央介面",
+          "rationale": "上皮不是中央介面即刻黏合的主要機轉，長入反而可有害。",
+          "whenTrue": "邊緣上皮癒合與中央介面不同，需分層理解。"
+        },
+        {
+          "text": "瓣只靠重力貼住，與角膜水合無關",
+          "rationale": "無法解釋角膜泵與介面水合對貼附的作用。",
+          "whenTrue": "良好機械對位重要，但不能以重力取代生理機轉。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "原題考早期瓣貼附機轉。貼附與結構恢復是不同時間尺度，因此初期視力好不代表日後無外傷風險。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq039",
+      "sourceQuestionKey": "bcsc-s13-rq039",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 39,
+      "chapterIds": [
+        "bcsc-s13-ch010",
+        "bcsc-s13-ch002"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch010-u01",
+        "bcsc-s13-ch002-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            231,
+            238
+          ],
+          "printedPages": [
+            "216",
+            "223"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "原本有可代償斜位，接受單眼視LASIK後出現重影；遮住任一眼重影消失。最應先思考什麼？",
+      "options": [
+        {
+          "text": "雙眼融合失代償所致複視",
+          "rationale": "遮任一眼消失支持雙眼來源，單眼視改變兩眼影像與融合負荷。",
+          "whenTrue": "需眼位與雙眼功能評估，術前試戴可協助暴露風險。"
+        },
+        {
+          "text": "單眼角膜瓣紋就是唯一原因",
+          "rationale": "瓣紋可有單眼重影，通常遮另一眼後受影響眼仍有症狀。",
+          "whenTrue": "若單眼測試仍重影，才需針對角膜光學檢查。"
+        },
+        {
+          "text": "單眼角膜水腫即可解釋遮任一眼都消失",
+          "rationale": "水腫可造成單眼影像問題，與此遮蓋結果不符。",
+          "whenTrue": "單眼持續重影並有水腫時應處理角膜病因。"
+        },
+        {
+          "text": "只因有LASIK史，所以不需測眼位",
+          "rationale": "術式不能取代區分單眼與雙眼複視的第一步。",
+          "whenTrue": "所有新複視都應按症狀及遮蓋結果定位，必要時排神經原因。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "原題考雙眼複視而非一般術後模糊；遮蓋測試能避免把融合問題誤當純角膜不規則。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    },
+    {
+      "id": "bcsc-s13-rq040",
+      "sourceQuestionKey": "bcsc-s13-rq040",
+      "questionScope": "end-of-volume",
+      "sourceNumber": 40,
+      "chapterIds": [
+        "bcsc-s13-ch001",
+        "bcsc-s13-ch006"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch001-u03",
+        "bcsc-s13-ch006-u01"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            231,
+            239
+          ],
+          "printedPages": [
+            "216",
+            "224"
+          ],
+          "chapterHeading": "Study Questions and Answers"
+        }
+      ],
+      "stem": "飛秒雷射在透明角膜內製作分離平面，最符合哪種組織作用？",
+      "options": [
+        {
+          "text": "光致破裂產生電漿及空化微泡，連續形成切割平面",
+          "rationale": "超短脈衝在預定深度產生局部效應，微泡相連分離組織。",
+          "whenTrue": "用於製瓣或角膜內透鏡切割，需注意氣泡與層次。"
+        },
+        {
+          "text": "193 nm光分解逐層蒸發表面基質",
+          "rationale": "這是準分子消融機制，不是飛秒深部平面切割。",
+          "whenTrue": "PRK/LASIK消融部分採用準分子雷射。"
+        },
+        {
+          "text": "視網膜色素吸收後光凝固",
+          "rationale": "屬不同目標組織與熱凝固機制。",
+          "whenTrue": "眼底光凝治療有相應情境，非本題角膜飛秒。"
+        },
+        {
+          "text": "以長時間熱收縮周邊膠原",
+          "rationale": "這更接近熱性角膜成形術，與飛秒空化分離不同。",
+          "whenTrue": "CK或其他熱性方法需依其實際能量機轉描述。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "原題精確考photodisruption，不以泛稱「雷射切割」掩蓋光分解、光凝與熱收縮的不同。",
+      "imageStatus": "not-reviewed",
+      "requiresImage": false,
+      "status": "draft",
+      "readiness": "draft"
+    }
+  ],
+  "coverage": {
+    "chapterRows": [
+      {
+        "chapterId": "bcsc-s13-ch001",
+        "unitIds": [
+          "bcsc-s13-ch001-u01",
+          "bcsc-s13-ch001-u02",
+          "bcsc-s13-ch001-u03"
+        ],
+        "teachingStatus": "draft",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原圖尚未逐圖核對",
+          "本卷原創教學與子題完整性仍待獨立醫學/來源審核"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s13-ch002",
+        "unitIds": [
+          "bcsc-s13-ch002-u01",
+          "bcsc-s13-ch002-u02",
+          "bcsc-s13-ch002-u03"
+        ],
+        "teachingStatus": "draft",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原圖尚未逐圖核對",
+          "本卷原創教學與子題完整性仍待獨立醫學/來源審核"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s13-ch003",
+        "unitIds": [
+          "bcsc-s13-ch003-u01",
+          "bcsc-s13-ch003-u02"
+        ],
+        "teachingStatus": "draft",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原圖尚未逐圖核對",
+          "本卷原創教學與子題完整性仍待獨立醫學/來源審核"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s13-ch004",
+        "unitIds": [
+          "bcsc-s13-ch004-u01",
+          "bcsc-s13-ch004-u02",
+          "bcsc-s13-ch004-u03"
+        ],
+        "teachingStatus": "draft",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原圖尚未逐圖核對",
+          "本卷原創教學與子題完整性仍待獨立醫學/來源審核"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s13-ch005",
+        "unitIds": [
+          "bcsc-s13-ch005-u01",
+          "bcsc-s13-ch005-u02",
+          "bcsc-s13-ch005-u03",
+          "bcsc-s13-ch005-u04",
+          "bcsc-s13-ch005-u05"
+        ],
+        "teachingStatus": "draft",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原圖尚未逐圖核對",
+          "本卷原創教學與子題完整性仍待獨立醫學/來源審核"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s13-ch006",
+        "unitIds": [
+          "bcsc-s13-ch006-u01",
+          "bcsc-s13-ch006-u02"
+        ],
+        "teachingStatus": "draft",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原圖尚未逐圖核對",
+          "本卷原創教學與子題完整性仍待獨立醫學/來源審核"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s13-ch007",
+        "unitIds": [
+          "bcsc-s13-ch007-u01",
+          "bcsc-s13-ch007-u02",
+          "bcsc-s13-ch007-u03"
+        ],
+        "teachingStatus": "draft",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原圖尚未逐圖核對",
+          "本卷原創教學與子題完整性仍待獨立醫學/來源審核"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s13-ch008",
+        "unitIds": [
+          "bcsc-s13-ch008-u01",
+          "bcsc-s13-ch008-u02"
+        ],
+        "teachingStatus": "draft",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原圖尚未逐圖核對",
+          "本卷原創教學與子題完整性仍待獨立醫學/來源審核"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s13-ch009",
+        "unitIds": [
+          "bcsc-s13-ch009-u01",
+          "bcsc-s13-ch009-u02",
+          "bcsc-s13-ch009-u03"
+        ],
+        "teachingStatus": "draft",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原圖尚未逐圖核對",
+          "本卷原創教學與子題完整性仍待獨立醫學/來源審核"
+        ]
+      },
+      {
+        "chapterId": "bcsc-s13-ch010",
+        "unitIds": [
+          "bcsc-s13-ch010-u01",
+          "bcsc-s13-ch010-u02",
+          "bcsc-s13-ch010-u03"
+        ],
+        "teachingStatus": "draft",
+        "coverageStatus": "partial",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原圖尚未逐圖核對",
+          "本卷原創教學與子題完整性仍待獨立醫學/來源審核"
+        ]
+      }
+    ],
+    "questionRows": [
+      {
+        "sourceQuestionKey": "bcsc-s13-rq001",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 1,
+        "questionId": "bcsc-s13-rq001",
+        "unitIds": [
+          "bcsc-s13-ch001-u02"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq002",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 2,
+        "questionId": "bcsc-s13-rq002",
+        "unitIds": [
+          "bcsc-s13-ch004-u03"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq003",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 3,
+        "questionId": "bcsc-s13-rq003",
+        "unitIds": [
+          "bcsc-s13-ch006-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq004",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 4,
+        "questionId": "bcsc-s13-rq004",
+        "unitIds": [
+          "bcsc-s13-ch002-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq005",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 5,
+        "questionId": "bcsc-s13-rq005",
+        "unitIds": [
+          "bcsc-s13-ch004-u03"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq006",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 6,
+        "questionId": "bcsc-s13-rq006",
+        "unitIds": [
+          "bcsc-s13-ch005-u04"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq007",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 7,
+        "questionId": "bcsc-s13-rq007",
+        "unitIds": [
+          "bcsc-s13-ch002-u02",
+          "bcsc-s13-ch005-u04"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq008",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 8,
+        "questionId": "bcsc-s13-rq008",
+        "unitIds": [
+          "bcsc-s13-ch005-u02"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq009",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 9,
+        "questionId": "bcsc-s13-rq009",
+        "unitIds": [
+          "bcsc-s13-ch003-u02"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq010",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 10,
+        "questionId": "bcsc-s13-rq010",
+        "unitIds": [
+          "bcsc-s13-ch002-u03",
+          "bcsc-s13-ch005-u02"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq011",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 11,
+        "questionId": "bcsc-s13-rq011",
+        "unitIds": [
+          "bcsc-s13-ch001-u03"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq012",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 12,
+        "questionId": "bcsc-s13-rq012",
+        "unitIds": [
+          "bcsc-s13-ch005-u03"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq013",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 13,
+        "questionId": "bcsc-s13-rq013",
+        "unitIds": [
+          "bcsc-s13-ch003-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq014",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 14,
+        "questionId": "bcsc-s13-rq014",
+        "unitIds": [
+          "bcsc-s13-ch005-u04"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq015",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 15,
+        "questionId": "bcsc-s13-rq015",
+        "unitIds": [
+          "bcsc-s13-ch001-u03"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq016",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 16,
+        "questionId": "bcsc-s13-rq016",
+        "unitIds": [
+          "bcsc-s13-ch004-u02",
+          "bcsc-s13-ch005-u03"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq017",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 17,
+        "questionId": "bcsc-s13-rq017",
+        "unitIds": [
+          "bcsc-s13-ch003-u01",
+          "bcsc-s13-ch008-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq018",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 18,
+        "questionId": "bcsc-s13-rq018",
+        "unitIds": [
+          "bcsc-s13-ch004-u02",
+          "bcsc-s13-ch005-u03"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq019",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 19,
+        "questionId": "bcsc-s13-rq019",
+        "unitIds": [
+          "bcsc-s13-ch005-u02"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq020",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 20,
+        "questionId": "bcsc-s13-rq020",
+        "unitIds": [
+          "bcsc-s13-ch010-u02"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq021",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 21,
+        "questionId": "bcsc-s13-rq021",
+        "unitIds": [
+          "bcsc-s13-ch005-u02"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq022",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 22,
+        "questionId": "bcsc-s13-rq022",
+        "unitIds": [
+          "bcsc-s13-ch001-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq023",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 23,
+        "questionId": "bcsc-s13-rq023",
+        "unitIds": [
+          "bcsc-s13-ch003-u02"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq024",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 24,
+        "questionId": "bcsc-s13-rq024",
+        "unitIds": [
+          "bcsc-s13-ch007-u03"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq025",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 25,
+        "questionId": "bcsc-s13-rq025",
+        "unitIds": [
+          "bcsc-s13-ch002-u02"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq026",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 26,
+        "questionId": "bcsc-s13-rq026",
+        "unitIds": [
+          "bcsc-s13-ch007-u02"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq027",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 27,
+        "questionId": "bcsc-s13-rq027",
+        "unitIds": [
+          "bcsc-s13-ch007-u02"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq028",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 28,
+        "questionId": "bcsc-s13-rq028",
+        "unitIds": [
+          "bcsc-s13-ch005-u05"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq029",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 29,
+        "questionId": "bcsc-s13-rq029",
+        "unitIds": [
+          "bcsc-s13-ch009-u03"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq030",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 30,
+        "questionId": "bcsc-s13-rq030",
+        "unitIds": [
+          "bcsc-s13-ch007-u03"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq031",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 31,
+        "questionId": "bcsc-s13-rq031",
+        "unitIds": [
+          "bcsc-s13-ch007-u03"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq032",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 32,
+        "questionId": "bcsc-s13-rq032",
+        "unitIds": [
+          "bcsc-s13-ch001-u02"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq033",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 33,
+        "questionId": "bcsc-s13-rq033",
+        "unitIds": [
+          "bcsc-s13-ch004-u02"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq034",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 34,
+        "questionId": "bcsc-s13-rq034",
+        "unitIds": [
+          "bcsc-s13-ch002-u02",
+          "bcsc-s13-ch004-u02"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq035",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 35,
+        "questionId": "bcsc-s13-rq035",
+        "unitIds": [
+          "bcsc-s13-ch008-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq036",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 36,
+        "questionId": "bcsc-s13-rq036",
+        "unitIds": [
+          "bcsc-s13-ch009-u03"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq037",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 37,
+        "questionId": "bcsc-s13-rq037",
+        "unitIds": [
+          "bcsc-s13-ch010-u02"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq038",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 38,
+        "questionId": "bcsc-s13-rq038",
+        "unitIds": [
+          "bcsc-s13-ch004-u01",
+          "bcsc-s13-ch005-u03"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq039",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 39,
+        "questionId": "bcsc-s13-rq039",
+        "unitIds": [
+          "bcsc-s13-ch010-u01",
+          "bcsc-s13-ch002-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      },
+      {
+        "sourceQuestionKey": "bcsc-s13-rq040",
+        "questionScope": "end-of-volume",
+        "sourceNumber": 40,
+        "questionId": "bcsc-s13-rq040",
+        "unitIds": [
+          "bcsc-s13-ch001-u03",
+          "bcsc-s13-ch006-u01"
+        ],
+        "conceptStatus": "draft",
+        "sourceAnswerStatus": "matched",
+        "originalImageStatus": "not-reviewed",
+        "gaps": [
+          "原Q/A附圖需求尚待獨立核對",
+          "概念及逐選項理由仍待獨立審核"
+        ]
+      }
+    ],
+    "summary": {
+      "taughtChapters": 0,
+      "authoredChapters": 10,
+      "readyQuestions": 0,
+      "authoredQuestions": 40,
+      "verifiedImages": 0
+    }
+  }
+}
