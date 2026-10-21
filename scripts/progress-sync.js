@@ -24,7 +24,7 @@ function sameProgress(a,b){return canonical(normalizedProgress(a))===canonical(n
 function absorbProgress(payload){
   if(!payload||!PROGRESS_FORMATS.includes(payload.format)||!payload.entries||typeof payload.entries!=='object'||Array.isArray(payload.entries))throw syncError('保存的進度格式不符。');
   let count=0;
-  for(const [key,v] of Object.entries(payload.entries)){const value=validateEntry(key,v);if(value&&(!entries[key]||Date.parse(value.at)>Date.parse(entries[key].at))){entries[key]=value;count++;}}
+  for(const [key,v] of Object.entries(payload.entries)){const value=validateEntry(key,v);if(value&&(key.startsWith('project:')||!entries[key]||Date.parse(value.at)>Date.parse(entries[key].at))){const next=key.startsWith('project:')?projectMerge(key,entries[key],value):value;if(next!==entries[key]){entries[key]=next;count++;}}}
   if(payload.meta&&typeof payload.meta==='object'&&!Array.isArray(payload.meta))for(const [key,v] of Object.entries(payload.meta)){const value=validateMeta(key,v);if(value&&(!meta[key]||Date.parse(value.at)>Date.parse(meta[key].at))){meta[key]=value;count++;}}
   return count;
 }

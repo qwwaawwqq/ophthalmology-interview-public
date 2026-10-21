@@ -121,3 +121,27 @@ node scripts/test-progress-sync.cjs
 若重新匯入已清理的基礎 `index.html`，必須保留本儲存庫的 `content/`、`assets/` 和腳本，並再次執行上述步驟，避免移除深入教材。不得匯入含私人資料的完整 App。
 
 GitHub Pages 發布來源為 `main` 分支根目錄；提交並推送後會自動更新。
+
+
+### 甄試訓練日誌
+
+「甄試訓練日誌」串連現有三個題池、SRS、筆試與面試。目標日期可空白；每日分鐘預設30，可在15–120間調整。到期錯題優先，今日題單建立後保持穩定，原有進度與所有入口持續可用。
+
+練習里程只記錄參與，不代表醫療能力、考試成績或錄取機率。首次有效作答或提交前已到期的作答，每題每天10 XP（同來源與題目共用鍵，每日最多20題）；口述完成倒數、本輪編輯草稿、逐項自評確認與反思後，每日20 XP。低自評同樣可記錄。限時小關、設定、清單勾選、解析揭示與熟悉度評級不另給分；合併多裝置紀錄後仍以每日有效上限計算。舊進度不回灌XP，超額練習照常保存。
+
+限時筆試小關每日一份10題、10分鐘；離開頁面倒數繼續，重開沿用原題序、選項快照、已選答案與絕對截止時間。交卷前不顯示正誤，到期或交卷後一次結算，未答列入未答與需回訪。它是練習小關，不是正式考試。
+
+計畫、申請筆記、人工核對狀態與練習證據沿用原本的 `entries/meta` 及保存/私人同步設定；手動關閉選項保留。不新增錄音、遙測或公開分享。正式站與預覽若不同origin，裝置進度會分開；預覽無舊資料不代表正式站資料遺失。
+
+建置順序：
+
+```bash
+python3 scripts/apply-enrichment.py
+python3 scripts/apply-textbook.py
+python3 scripts/apply-learning-project.py
+python3 scripts/apply-textbook.py --check
+python3 scripts/apply-learning-project.py --check
+node scripts/test-learning-project.cjs
+```
+
+`build-learning-project.yml`僅能在issue12功能分支，以精確來源SHA重建並比對已審查的index雜湊，正常fast-forward產生index子提交；拒絕分支移動及main寫入。獨立PR測試workflow只有read權限。合併與正式發布由人處理。

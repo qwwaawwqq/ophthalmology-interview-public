@@ -1,0 +1,32 @@
+{
+  "indexSha256": "bce5d57dc7112d7fa0deb0602fdbc4f44a0620e82685e49d3d614493b6a468e2",
+  "sources": {
+    "scripts/apply-enrichment.py": "a27e95009273bad56415a8cd52369ddb8e2cad9268f2b1859e43fa796510ecac",
+    "scripts/apply-textbook.py": "a8e361cfb5205e8d88ed3e231342d395d0bcb5882dba80491d405a6a4da818f1",
+    "scripts/cram-review.css": "44d3749ed94c03421b21af5456ec490a8031a65ef9118e8800177dac82444a3e",
+    "scripts/cram-review.js": "5a895d334b159447b9603cc074d60f1f63d6c0d28ba23694c335dafc7afb64cf",
+    "scripts/practice-ui.css": "2c5b497b594a840a334eaff4ebde024ea6c46a0a5b35b14d9d0309aa6ecf1985",
+    "scripts/practice-ui.js": "daa6e2e1f6ae777414fc412e93bc412d1a6b78318cdd2bc7555f335147d35357",
+    "scripts/progress-sync.js": "ad5d8ac06c25a7b9146ea079fe73d5a986817f6c48ac4d6f18189d892098a0f1",
+    "scripts/study-bridge.js": "a8815d56c3b9796addad6c069f82a676024446192a42dcb716be2c3c4d01c6e8",
+    "scripts/study-srs.js": "8e368e9a6d98d10f3271beb35a659f9aa3dc9fb0e6cd56e90d7fde7f591f1a84",
+    "scripts/test-integrated-lessons.cjs": "52bfdb52fb32e726872b696cf44a2627536c4d8d37f1d8cad8620dd347290b69",
+    "scripts/test-practice-sections.cjs": "bd396efb9cb7ef6245afe348256722f694534c8d261d6bbd798f3c3da1a74801",
+    "scripts/test-progress-sync.cjs": "b2e7a58ac292adc14a534bd3d34e5e27951ef834df5841c6c599cd17e7785394",
+    "scripts/test-source-coverage.cjs": "e1c3c31b521ff2524119eda2b8c01b0f2e0f72d3419d2c888210951393da100f",
+    "scripts/test-study-srs.cjs": "ddd648ccbfbcf0399257bff5e968d4f790da6f5f2f93bfbef7235007c2604e66",
+    "scripts/test-textbook-depth.cjs": "dc4273d9c79fe53033f34c52b6fe0b6c93671929144fe56ae649f73487d62825",
+    "scripts/textbook-bridge.js": "e183647ea6e94e536314152a1f5c6f221ca0110b594b63c78637af980087d54f",
+    "scripts/textbook-depth.css": "11627ea58b139c6d99af1fe6202971c7528c31ce576459c4171214743f9f4eb6",
+    "scripts/textbook-depth.js": "b9abd22170066ae856183f91c71edea04e5bd1ac9ed37cde791bf1550ecb6205",
+    "scripts/validate-textbook.py": "84dc4b08b17f0c73dd496996ef3a8b389fdcc9b871089fb8b9ee68cc1e045ea8",
+    "scripts/vendor/qrcode-generator.LICENSE": "3a850fa5f08101db6f40676c2786e10bd2cd5fff7b12ffdf1e0c434d4e49d90c",
+    "scripts/vendor/qrcode.js": "e0ac904caf38a0104d7e1ecfbe9fc84001f43b45d7bfe474b0694d309e10e3e6",
+    "scripts/learning-project-core.js": "a146c5965b3de0200bc7ab88101eb953825e75c1b17f4438e01c9e876191464c",
+    "scripts/learning-project-bridge.js": "de74ae3b23ca7c5cfb8f33ce94f77eb1befe3ff1e9584fc65a55020af0aff1b2",
+    "scripts/learning-project.js": "c5749b92c6b5db3f192c9989c31837b5b1460b674af4996a2023568f3b9f0917",
+    "scripts/learning-project.css": "e0d07556e71d5aa4b2403070d0ad6b45ae5e31e1f6c9055335aee51db6d9df1a",
+    "scripts/apply-learning-project.py": "15edfedb0fc334663930a132d8d279ae2916268bd2d9906cf17af7e252db2982",
+    "scripts/test-learning-project.cjs": "d8989382f3fd243a1b2563bddc16a8cc70674f3f7f67614112840f2fd44744c9"
+  }
+}
