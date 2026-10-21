@@ -145,3 +145,32 @@ node scripts/test-learning-project.cjs
 ```
 
 `build-learning-project.yml`僅能在issue12功能分支，以精確來源SHA重建並比對已審查的index雜湊，正常fast-forward產生index子提交；拒絕分支移動及main寫入。獨立PR測試workflow只有read權限。合併與正式發布由人處理。
+
+### Hard｜臨床推理
+
+首頁及選單可直接進入Hard臨床推理，選領域不計時深練，或開始12題／18分鐘的混合訓練。進階題是原創多步病例與接近正解的干擾選項，獨立醫學、來源、數值及題目推理檢查以逐題內容雜湊鎖定。難度由作者設定，尚未以使用者前兩場實際甄試題目校準。
+
+限時Hard只取已審核進階題，先涵蓋各可用領域，再依領域輪流補題；域內到期題優先，接著未答、弱項與其他題。少於12題時會明示實際題數，不以基礎題湊數。題序、來源選項索引、已選答案與絕對截止時間持久保存，離開頁面倒數繼續；交卷前隱藏答案、解析及來源提示，交卷後顯示各領域含未答的結果、決定性線索、最接近干擾項與改變條件後的判斷。原10題／10分鐘基礎小關及其紀錄仍可開啟，與同日Hard互不覆寫。
+
+新進階題沿用extra題池與原SRS、保存、私人同步及里程規則。日常題單仍優先所有舊題池的到期題；新題探索再優先Hard。原有已建立的今日題單、共筆題、原書概念題及120題自編題不改寫。
+
+- `content/textbook-depth/advanced-practice.json`：已審核原創進階題；來源仍追溯原文書與外部主要來源，不含原書全文。
+- `content/textbook-depth/advanced-review.json`：獨立逐題接受狀態及內容雜湊；更動已審內容需重新檢查。
+- `scripts/advanced-training-core.js`：領域抽題、選項快照、計時session及驗證。
+- `scripts/advanced-practice.js`：舊120題與新進階題的單一extra索引，兩種載入順序皆保留原ID。
+
+完整建置與本次驗證：
+
+```bash
+python3 scripts/apply-enrichment.py
+python3 scripts/apply-textbook.py
+python3 scripts/apply-learning-project.py
+python3 scripts/apply-advanced-training.py
+python3 scripts/apply-advanced-training.py --check
+python3 scripts/validate-advanced.py
+python3 scripts/test-advanced-validation.py
+node scripts/test-advanced-training.cjs
+node scripts/test-study-srs.cjs
+```
+
+`build-advanced-training.yml`只允許issue16功能分支，以精確來源SHA與分支lease重建並比對審查雜湊，只正常fast-forward產生index；拒絕main及分支移動。`test-advanced-training.yml`只有read權限。原有PR回歸測試仍會執行。
