@@ -2,6 +2,10 @@
 // Shape validation deliberately does not depend on a lazily loaded book.
 function textbookEntry(key,v){
   if(!key.startsWith('textbook:'))return undefined;
+  if(/^textbook:extra-question:extra-\d{8}-q\d{3}$/.test(key)){
+    if(!v||typeof v!=='object'||Array.isArray(v)||!Number.isInteger(v.choice)||v.choice<0||v.choice>3)return null;
+    return {version:1,choice:v.choice,revealed:v.revealed===true,confidence:[0,1,2,3].includes(v.confidence)?v.confidence:0,edition:typeof v.edition==='string'?v.edition.slice(0,40):'',at:validDate(v.at)};
+  }
   if(!/^textbook:(unit|question):bcsc-s(?:0[1-9]|1[0-3])-(?:ch\d{3}-u\d{2}|rq\d{3}|ch\d{3}-iq\d{3})$/.test(key)||!v||typeof v!=='object'||Array.isArray(v))return null;
   if(key.startsWith('textbook:unit:')&&!/-ch\d{3}-u\d{2}$/.test(key))return null;
   if(key.startsWith('textbook:question:')&&/-u\d{2}$/.test(key))return null;

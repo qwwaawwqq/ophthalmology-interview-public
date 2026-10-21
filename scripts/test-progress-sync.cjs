@@ -306,6 +306,38 @@ const Q = JSON.parse(payload).questions;
     assert.equal(b.qa.entries['topic:notes-09'], undefined);
   });
 
+  await test('quota failure reports an unsaved local error, and a later successful autosave recovers every pending change', async () => {
+    class QuotaStorage extends MemoryStorage { setItem(k,v) { if(this.fail && k==='oph-prep:progress-v3')throw new Error('Quota exceeded');super.setItem(k,v); } }
+    const local=new QuotaStorage(),github=fakeGitHub(),a=boot({local,session:new MemoryStorage(),github});
+    local.fail=true;a.qa.put('q:'+Q[0].id,{choice:Q[0].correctIndex,correct:true});await a.runTimers(t=>t.ms===400);
+    assert.equal(a.qa.syncState.localError,true);assert.equal(a.qa.dirty,true);assert(a.status().includes('無法保存'));assert(!a.status().includes('正在保存'));assert.equal(local.getItem('oph-prep:progress-v3'),null);
+    local.fail=false;a.qa.put('q:'+Q[1].id,{choice:Q[1].correctIndex,correct:true});await a.runTimers(t=>t.ms===400);
+    assert.equal(a.qa.syncState.localError,false);assert.equal(a.qa.dirty,false);const b=boot({local,session:new MemoryStorage(),github});assert(b.qa.entries['q:'+Q[0].id]&&b.qa.entries['q:'+Q[1].id]);
+  });
+
+  await test('storage blocked after boot marks the failed save instead of showing an endless pending save', async () => {
+    class BlockedStorage extends MemoryStorage { setItem(k,v) { if(this.blocked)throw new Error('Storage blocked');super.setItem(k,v); } }
+    const local=new BlockedStorage(),a=boot({local,session:new MemoryStorage(),github:fakeGitHub()});
+    local.blocked=true;a.qa.put('q:'+Q[0].id,{choice:Q[0].correctIndex,correct:true});await a.runTimers(t=>t.ms===400);
+    assert.equal(a.qa.syncState.localError,true);assert.equal(a.qa.dirty,true);assert(a.status().includes('無法保存'));assert(!a.status().includes('正在保存'));
+  });
+
+  await test('cloud failure never claims local persistence when the progress write also failed', async () => {
+    class QuotaStorage extends MemoryStorage { setItem(k,v) { if(k==='oph-prep:progress-v3')throw new Error('Quota exceeded');super.setItem(k,v); } }
+    const local=new QuotaStorage(),github=fakeGitHub();github.add('me/p','test-token',{readOnly:true});
+    local.setItem('oph-prep:cloud',JSON.stringify({owner:'me',repo:'p'}));local.setItem('oph-prep:cloud-token','test-token');
+    const a=boot({local,session:new MemoryStorage(),github});a.qa.put('q:'+Q[0].id,{choice:Q[0].correctIndex,correct:true});await a.runTimers(t=>t.ms===400);assert.equal(await a.qa.syncNow('manual'),false);
+    assert(a.status().includes('雲端同步暫停'));assert(a.status().includes('本機尚未保存'));assert(!a.status().includes('已保存在此裝置'));assert.equal(a.qa.dirty,true);assert.equal(local.getItem('oph-prep:progress-v3'),null);
+  });
+
+  await test('the local-saved claim after a cloud error requires a successful current local copy', async () => {
+    const local=new MemoryStorage(),github=fakeGitHub();github.add('me/p','test-token',{readOnly:true});
+    local.setItem('oph-prep:cloud',JSON.stringify({owner:'me',repo:'p'}));local.setItem('oph-prep:cloud-token','test-token');
+    const a=boot({local,session:new MemoryStorage(),github});a.qa.put('q:'+Q[0].id,{choice:Q[0].correctIndex,correct:true});await a.runTimers(t=>t.ms===400);await a.qa.syncNow('manual');assert(a.status().includes('已保存在此裝置'));
+    a.qa.put('q:'+Q[1].id,{choice:Q[1].correctIndex,correct:true});assert(a.status().includes('本機尚未保存'));assert(!a.status().includes('已保存在此裝置'));
+    await a.runTimers(t=>t.ms===400);assert(a.status().includes('已保存在此裝置'));assert.equal(a.qa.dirty,false);
+  });
+
   await test('without browser storage the app still runs and asks for export', async () => {
     const broken = {getItem() { throw new Error('denied'); }, setItem() { throw new Error('denied'); }, removeItem() {}};
     const a = boot({local: broken, session: broken, github: fakeGitHub()});
