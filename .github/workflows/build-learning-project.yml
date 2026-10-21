@@ -1,0 +1,76 @@
+name: Build learning project on its feature branch
+on:
+  push:
+    branches: [feature/learning-project-issue-12]
+    paths:
+      - scripts/learning-project*
+      - scripts/apply-learning-project.py
+      - scripts/study-srs.js
+      - scripts/progress-sync.js
+      - scripts/test-learning-project.cjs
+      - .github/workflows/build-learning-project.yml
+permissions:
+  contents: write
+concurrency:
+  group: learning-project-issue-12-builder
+  cancel-in-progress: false
+jobs:
+  build:
+    if: github.ref == 'refs/heads/feature/learning-project-issue-12'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+      - name: Verify feature-only workspace and unchanged branch head
+        shell: bash
+        run: |
+          set -euo pipefail
+          repo_root="$(git rev-parse --show-toplevel)"
+          test "$repo_root" = "$GITHUB_WORKSPACE"
+          test "$repo_root" != /Users/wangtingwei
+          test "$GITHUB_REF_NAME" = feature/learning-project-issue-12
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          test "$(git ls-remote origin refs/heads/feature/learning-project-issue-12 | cut -f1)" = "$GITHUB_SHA"
+      - name: Build, compare frozen output and test
+        run: |
+          python3 scripts/apply-enrichment.py
+          python3 scripts/apply-textbook.py
+          python3 scripts/apply-learning-project.py
+          python3 scripts/apply-textbook.py --check
+          python3 scripts/apply-learning-project.py --check
+          python3 scripts/validate-textbook.py --require-complete
+          python3 - <<'PY'
+          import json,hashlib,pathlib
+          expected=json.loads(pathlib.Path('scripts/learning-project-build.json').read_text())
+          for name,sha in expected['sources'].items():
+              assert hashlib.sha256(pathlib.Path(name).read_bytes()).hexdigest()==sha,name
+          assert hashlib.sha256(pathlib.Path('index.html').read_bytes()).hexdigest()==expected['indexSha256'],'generated index differs from reviewed candidate'
+          PY
+          node scripts/test-integrated-lessons.cjs
+          node scripts/test-source-coverage.cjs
+          node scripts/test-practice-sections.cjs
+          node scripts/test-progress-sync.cjs
+          node scripts/test-textbook-depth.cjs
+          node scripts/test-study-srs.cjs
+          node scripts/test-learning-project.cjs
+      - name: Publish generated index only by normal feature-branch fast-forward
+        shell: bash
+        run: |
+          set -euo pipefail
+          repo_root="$(git rev-parse --show-toplevel)"
+          test "$repo_root" = "$GITHUB_WORKSPACE"
+          test "$repo_root" != /Users/wangtingwei
+          test "$GITHUB_REF_NAME" = feature/learning-project-issue-12
+          test "$(git ls-remote origin refs/heads/feature/learning-project-issue-12 | cut -f1)" = "$GITHUB_SHA"
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add -- index.html
+          if git diff --cached --quiet -- index.html; then
+            echo 'Reviewed index is already current.'
+          else
+            git commit -m 'Build reviewed learning project preview'
+            test "$(git ls-remote origin refs/heads/feature/learning-project-issue-12 | cut -f1)" = "$GITHUB_SHA"
+            git push origin HEAD:feature/learning-project-issue-12
+          fi

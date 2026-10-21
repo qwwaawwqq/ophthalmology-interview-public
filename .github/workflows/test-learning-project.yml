@@ -1,0 +1,27 @@
+name: Test learning project without repository writes
+on:
+  pull_request:
+    paths:
+      - index.html
+      - scripts/**
+      - .github/workflows/*learning-project.yml
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate hooks and run behavior checks
+        run: |
+          python3 scripts/apply-enrichment.py --check
+          python3 scripts/apply-textbook.py --check
+          python3 scripts/apply-learning-project.py --check
+          node scripts/test-integrated-lessons.cjs
+          node scripts/test-source-coverage.cjs
+          node scripts/test-practice-sections.cjs
+          node scripts/test-progress-sync.cjs
+          node scripts/test-textbook-depth.cjs
+          node scripts/test-study-srs.cjs
+          node scripts/test-learning-project.cjs
