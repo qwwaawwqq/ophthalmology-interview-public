@@ -24,9 +24,9 @@
     "scripts/vendor/qrcode.js": "e0ac904caf38a0104d7e1ecfbe9fc84001f43b45d7bfe474b0694d309e10e3e6",
     "scripts/learning-project-core.js": "a146c5965b3de0200bc7ab88101eb953825e75c1b17f4438e01c9e876191464c",
     "scripts/learning-project-bridge.js": "de74ae3b23ca7c5cfb8f33ce94f77eb1befe3ff1e9584fc65a55020af0aff1b2",
-    "scripts/learning-project.js": "c5749b92c6b5db3f192c9989c31837b5b1460b674af4996a2023568f3b9f0917",
+    "scripts/learning-project.js": "c102954846a971ac25af5fb36bba8e70d8bb084bdcaeaf80bb2ca39874d6a0e2",
     "scripts/learning-project.css": "e0d07556e71d5aa4b2403070d0ad6b45ae5e31e1f6c9055335aee51db6d9df1a",
     "scripts/apply-learning-project.py": "15edfedb0fc334663930a132d8d279ae2916268bd2d9906cf17af7e252db2982",
-    "scripts/test-learning-project.cjs": "d8989382f3fd243a1b2563bddc16a8cc70674f3f7f67614112840f2fd44744c9"
+    "scripts/test-learning-project.cjs": "5746e9c00bcf602084459830f891e1c2b6318cbaf6fe7f70fae904a89239718f"
   }
 }

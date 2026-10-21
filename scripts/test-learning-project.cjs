@@ -8,14 +8,14 @@ const host={require,process:{argv:[]},__dirname:here,console,URL,Blob,Buffer,Tex
 vm.runInNewContext(harness+'\nglobalThis.factories={boot,MemoryStorage,fakeGitHub};',host);
 const {boot,MemoryStorage,fakeGitHub}=host.factories;
 const json=p=>JSON.parse(fs.readFileSync(path.join(here,'..',p),'utf8'));
-async function fresh(local=new MemoryStorage(),github=fakeGitHub()){
+async function fresh(local=new MemoryStorage(),github=fakeGitHub(),{mount=true}={}){
  const a=boot({local,session:new MemoryStorage(),github}),ctx=a.context,get=a.document.getElementById;
  a.document.baseURI='https://example.test/';a.document.currentScript={src:'https://example.test/scripts/study-srs.js'};a.document.getElementById=id=>['study-root','project-root','textbook-root'].includes(id)?null:get(id);
  const on=a.document.addEventListener;a.document.addEventListener=()=>{};vm.runInContext(fs.readFileSync(path.join(here,'study-srs.js'),'utf8'),ctx);a.document.addEventListener=on;ctx.window.OphStudy.setClock(()=>n);
  ctx.fetch=async url=>({ok:true,json:async()=>json(String(url).endsWith('textbook-manifest.json')?'content/textbook-manifest.json':'content/textbook-depth/additional-practice.json')});
  a.document.currentScript={src:'https://example.test/scripts/learning-project.js'};vm.runInContext(fs.readFileSync(path.join(here,'learning-project.js'),'utf8'),ctx);
  ctx.window.OphProject.setClock(()=>n);a.document.getElementById=get;
- const root={isConnected:true,innerHTML:''};await ctx.window.OphProject.mount(root);ctx.fetch=github.fetch;
+ const root={isConnected:true,innerHTML:''};if(mount)await ctx.window.OphProject.mount(root);ctx.fetch=github.fetch;
  return Object.assign(a,{root,local,github,project:ctx.window.OphProject,bridge:ctx.window.OphProjectBridge});
 }
 function submit(a,q,correct=true){a.action('practice-one',q.id);a.change('answer',{name:'answer',value:String(correct?q.correctIndex:(q.correctIndex+1)%q.options.length)});a.action('submit');}
@@ -53,6 +53,16 @@ async function test(name,fn){try{await fn();results.push({name,pass:true});}catc
   assert.equal(b.qa.entries[key].status,'finished');assert.equal(b.qa.entries[key].correct,1);assert.equal(b.qa.entries['study:srs:shared:'+q.id].answerCount,1);assert.equal(C.totals(b.qa.entries,'2026-10-22').xp,10);assert(b.root.innerHTML.includes('未答 9 題'));
   b.project.action('project-exam-submit','');b.project.action('project-written','');assert.equal(b.qa.entries['study:srs:shared:'+q.id].answerCount,1);
   const stale={...v,at:new Date(n+500).toISOString()};b.qa.mergeProgress({format:'ophthalmology-prep-progress-v3',entries:{[key]:stale},meta:{}});assert.equal(b.qa.entries[key].status,'finished');n=Date.parse('2026-10-22T01:00:00.000Z');
+ });
+ await test('a reload restores the timed challenge: it finalizes at its deadline with or without reopening the journal',async()=>{
+  for(const reopen of [true,false]){
+   n=Date.parse('2026-10-22T02:00:00.000Z');const a=await fresh();a.project.action('project-written','');const key='project:exam:2026-10-22',q=a.qa.entries[key].items[0];a.project.change({dataset:{projectAnswer:q.id},value:String(q.correctIndex)});await a.runTimers(t=>t.ms===400);
+   const b=await fresh(a.local,undefined,{mount:reopen});assert.equal(b.qa.entries[key].status,'active');n+=600001;for(let i=0;i<8;i++)for(const t of b.intervals.filter(t=>t.ms===250))t.fn();
+   assert.equal(b.qa.entries[key].status,'finished',reopen?'journal open':'journal never opened');assert.equal(b.qa.entries[key].correct,1);assert.equal(b.qa.entries['study:srs:shared:'+q.id].answerCount,1);assert.equal(C.totals(b.qa.entries,'2026-10-22').xp,10);
+   for(let i=0;i<16;i++)for(const t of b.intervals.filter(t=>t.ms===250))t.fn();assert.equal(b.qa.entries['study:srs:shared:'+q.id].answerCount,1,'applied once');
+  }
+  n=Date.parse('2026-10-22T02:00:00.000Z');const c=await fresh();c.project.action('project-written','');const key='project:exam:2026-10-22';await c.runTimers(t=>t.ms===400);n+=600001;
+  const d=await fresh(c.local);assert.equal(d.qa.entries[key].status,'finished','mounting after the deadline finalizes before the first render');assert(d.root.innerHTML.includes('挑戰 10 題限時小關'));assert(!d.root.innerHTML.includes('接續限時筆試小關'));n=Date.parse('2026-10-22T01:00:00.000Z');
  });
  await test('oral requires same-round timer, new draft, rubric review and reflection; low self-ratings remain valid',async()=>{
   const a=await fresh();a.action('interview','intro');a.action('iv-done');assert.equal(C.totals(a.qa.entries,'2026-10-22').xp,0);assert(!a.bridge.finishOral());
