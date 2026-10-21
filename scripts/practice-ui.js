@@ -304,8 +304,8 @@ function practiceInput(el){
   if(id==='pbl-issues'){const c=pblCase(),v=pblNotes(c.id);putMeta('pbl:'+c.id,{notes:v.notes,issues:el.value});return true;}
   return false;
 }
-function practiceChange(el){if(syncChange(el))return true;if(el?.id==='link-topic'){S.linkDraft.topicId=el.value;return true;}return false;}
-function practiceAction(a,v,b){
+function practiceChange(el){if(window.OphAdvanced?.change(el))return true;if(syncChange(el))return true;if(el?.id==='link-topic'){S.linkDraft.topicId=el.value;return true;}return false;}
+function practiceAction(a,v,b){if(window.OphAdvanced?.action(a,v,b))return true;
   if(syncAction(a))return;
   switch(a){
   case'pbl-open':if(pblCases().some(c=>c.id===v)){S.pbl=v;switchTab('pbl');}break;

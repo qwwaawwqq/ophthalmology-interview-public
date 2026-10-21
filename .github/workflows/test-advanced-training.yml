@@ -1,0 +1,24 @@
+name: Test advanced training without repository writes
+on:
+  pull_request:
+    paths:
+      - index.html
+      - scripts/**
+      - content/textbook-depth/advanced-practice.json
+      - content/textbook-depth/advanced-review.json
+      - .github/workflows/*advanced-training.yml
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate reviewed content and actual advanced training handlers
+        run: |
+          python3 scripts/apply-advanced-training.py --check
+          python3 scripts/validate-advanced.py
+          python3 scripts/test-advanced-validation.py
+          node scripts/test-advanced-training.cjs
+          node scripts/test-study-srs.cjs

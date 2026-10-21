@@ -1,0 +1,72 @@
+name: Build reviewed advanced training on its feature branch
+on:
+  push:
+    branches: [feature/advanced-clinical-issue-16]
+    paths:
+      - scripts/**
+      - content/textbook-depth/advanced-practice.json
+      - content/textbook-depth/advanced-review.json
+      - .github/workflows/*advanced-training.yml
+permissions:
+  contents: write
+concurrency:
+  group: advanced-clinical-issue-16-builder
+  cancel-in-progress: false
+jobs:
+  build:
+    if: github.ref == 'refs/heads/feature/advanced-clinical-issue-16'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+      - name: Verify feature-only workspace and exact branch lease
+        shell: bash
+        run: |
+          set -euo pipefail
+          repo_root="$(git rev-parse --show-toplevel)"
+          test "$repo_root" = "$GITHUB_WORKSPACE"
+          test "$repo_root" != /Users/wangtingwei
+          test "$GITHUB_REF_NAME" = feature/advanced-clinical-issue-16
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          test "$(git ls-remote origin refs/heads/feature/advanced-clinical-issue-16 | cut -f1)" = "$GITHUB_SHA"
+      - name: Build exact reviewed output and validate training
+        run: |
+          python3 scripts/apply-enrichment.py
+          python3 scripts/apply-textbook.py
+          python3 scripts/apply-learning-project.py
+          python3 scripts/apply-advanced-training.py
+          python3 scripts/apply-textbook.py --check
+          python3 scripts/apply-learning-project.py --check
+          python3 scripts/apply-advanced-training.py --check
+          python3 scripts/validate-advanced.py
+          python3 scripts/test-advanced-validation.py
+          python3 - <<'PY'
+          import json,hashlib,pathlib
+          expected=json.loads(pathlib.Path('scripts/advanced-training-build.json').read_text())
+          for name,sha in expected['sources'].items():
+              assert hashlib.sha256(pathlib.Path(name).read_bytes()).hexdigest()==sha,name
+          assert hashlib.sha256(pathlib.Path('index.html').read_bytes()).hexdigest()==expected['indexSha256'],'generated index differs from reviewed candidate'
+          PY
+          node scripts/test-advanced-training.cjs
+          node scripts/test-study-srs.cjs
+      - name: Publish generated index by normal feature-branch fast-forward
+        shell: bash
+        run: |
+          set -euo pipefail
+          repo_root="$(git rev-parse --show-toplevel)"
+          test "$repo_root" = "$GITHUB_WORKSPACE"
+          test "$repo_root" != /Users/wangtingwei
+          test "$GITHUB_REF_NAME" = feature/advanced-clinical-issue-16
+          test "$(git ls-remote origin refs/heads/feature/advanced-clinical-issue-16 | cut -f1)" = "$GITHUB_SHA"
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add -- index.html
+          if git diff --cached --quiet -- index.html; then
+            echo 'Reviewed index is already current.'
+          else
+            git commit -m 'Build reviewed advanced clinical training'
+            test "$(git ls-remote origin refs/heads/feature/advanced-clinical-issue-16 | cut -f1)" = "$GITHUB_SHA"
+            git push origin HEAD:feature/advanced-clinical-issue-16
+          fi

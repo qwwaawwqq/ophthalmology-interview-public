@@ -75,10 +75,10 @@ async function test(name,fn){try{await fn();results.push({name,pass:true});}catc
  });
  await test('a timed session that expires after a reload finalizes without reopening the challenge (#14)',async()=>{
   const a=await fresh();a.project.action('project-written','');const key='project:exam:2026-10-22',q=a.qa.entries[key].items[0];a.project.change({dataset:{projectAnswer:q.id},value:String(q.correctIndex)});await a.runTimers(t=>t.ms===400);
-  const b=await fresh(a.local);assert.equal(b.qa.entries[key].status,'active');assert(b.root.innerHTML.includes('接續限時筆試小關'));
+  const b=await fresh(a.local);assert.equal(b.qa.entries[key].status,'active');assert(b.root.innerHTML.includes('接續基礎限時小關'));
   for(const t of b.intervals.filter(t=>t.ms===250))t.fn();assert.equal(b.qa.entries[key].status,'active','still inside the 10 minutes');
   n+=600001;for(const t of b.intervals.filter(t=>t.ms===250))t.fn();
-  assert.equal(b.qa.entries[key].status,'finished');assert.equal(b.qa.entries[key].correct,1);assert.equal(b.qa.entries['study:srs:shared:'+q.id].answerCount,1);assert.equal(C.totals(b.qa.entries,'2026-10-22').xp,10);assert(!b.root.innerHTML.includes('接續限時筆試小關'));
+  assert.equal(b.qa.entries[key].status,'finished');assert.equal(b.qa.entries[key].correct,1);assert.equal(b.qa.entries['study:srs:shared:'+q.id].answerCount,1);assert.equal(C.totals(b.qa.entries,'2026-10-22').xp,10);assert(!b.root.innerHTML.includes('接續基礎限時小關'));
   n+=1000;for(const t of b.intervals.filter(t=>t.ms===250))t.fn();assert.equal(b.qa.entries['study:srs:shared:'+q.id].answerCount,1,'answers apply once');n=Date.parse('2026-10-22T01:00:00.000Z');
  });
  await test('application notes escape HTML and local restore respects explicit autosave opt-out',async()=>{
