@@ -38,6 +38,7 @@ def external(name):
 
  return s
 def build(s):
+ s=s.replace("if(file.size>2000000)throw Error('檔案過大，請使用本 App 匯出的進度檔。');",'')
  s=re.sub(r'/\* practice-ui:start \*/.*?/\* practice-ui:end \*/',lambda _:(ROOT/'scripts/practice-ui.js').read_text().strip(),s,count=1,flags=re.S)
  s=once(s,'<script src="scripts/study-srs.js" defer></script>','<link rel="stylesheet" href="scripts/advanced-training.css">\n<script src="scripts/advanced-practice.js" defer></script>\n<script src="scripts/study-srs.js" defer></script>')
  s=once(s,'<link rel="stylesheet" href="scripts/learning-project.css">','<script src="scripts/advanced-training.js" defer></script>\n<link rel="stylesheet" href="scripts/learning-project.css">')
