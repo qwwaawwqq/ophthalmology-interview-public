@@ -16,7 +16,7 @@
   - `pause` — if any open issue has this label, every agent stops
 - One issue → one branch → one pull request. Never commit to the default branch.
 - The PR body must contain `Closes #<issue number>` and say how it was tested.
-- Humans merge. Agents never merge, never force-push, never delete branches.
+- For this user's authorized updates in this repository, agents should automatically merge eligible PRs created by the agent team unless the user requests draft or PR-only delivery. Eligibility requires verifying the exact current head SHA, non-draft and conflict-free state, authorized diff scope, successful required and task-relevant tests/CI for that SHA, and existing review/branch protections. Pin direct merges to that SHA; use GitHub auto-merge only if the platform enforces the same gates, and recheck after any head change. Never bypass failed, pending, action-required or missing relevant checks, or include unrelated changes. Human-created and external-contributor PRs remain human decisions. Agents never force-push or delete branches. Verify the merge result and, when applicable, deployment outcome.
 - Do not edit AGENTS.md, CLAUDE.md or `.claude/` unless the issue asks for it.
 - Change only what the issue asks. No drive-by refactors. No new dependencies unless the issue asks.
 - Add or update tests for behavior you change. Tests must pass before opening a PR.
