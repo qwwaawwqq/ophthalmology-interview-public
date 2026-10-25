@@ -1,0 +1,204 @@
+{
+  "version": 1,
+  "checks": {
+    "test": "node scripts/test-integrated-lessons.cjs && node scripts/test-source-coverage.cjs",
+    "pass": "each script prints a JSON report ending with \"failed\": 0 and every result \"pass\": true; the command exits 0",
+    "open": "python3 -m http.server 8000 in the repository root, then http://localhost:8000/"
+  },
+  "modules": [
+    {
+      "id": "fix-content",
+      "name": "Fix a content error",
+      "hint": "A wrong answer, explanation or teaching point",
+      "size": "S",
+      "route": "build",
+      "fields": [
+        { "id": "where", "label": "Which item (question ID such as notes-01-k01, or page link such as #topic-notes-02)", "required": true },
+        { "id": "wrong", "label": "What is wrong now", "type": "long", "required": true },
+        { "id": "right", "label": "What is right", "type": "long", "required": true },
+        { "id": "source", "label": "Source that supports the fix (guideline, EyeWiki, handout page)", "placeholder": "AAO PPP 2025, p. 12" }
+      ],
+      "title": "Content fix: {where}",
+      "problem": "{where} is wrong: {wrong}",
+      "criteria": [
+        "{where} now says, in original Traditional Chinese wording: {right}",
+        "[[The explanation or source line cites {source}]]",
+        "The fix is made in the content JSON under content/ and index.html is rebuilt with python3 scripts/apply-enrichment.py; no handout text is pasted verbatim",
+        "python3 scripts/apply-enrichment.py --check exits 0 with \"existing_content_preserved\": true",
+        "{TEST} passes: {PASS}"
+      ],
+      "files": "content/*.json, index.html (generated)",
+      "outOfScope": "Other questions and chapters; progress file formats",
+      "check": [
+        "{OPEN}, go to {where}: it says {right}",
+        "Run python3 scripts/apply-enrichment.py --check: exit 0 and \"existing_content_preserved\": true",
+        "Run {TEST}: {PASS}"
+      ]
+    },
+    {
+      "id": "past-exam-questions",
+      "name": "Add past-exam concept questions",
+      "hint": "Restate more 考古題 for one chapter",
+      "size": "M",
+      "route": "build",
+      "fields": [
+        { "id": "chapter", "label": "Chapter (notes-01 … notes-14)", "required": true },
+        { "id": "count", "label": "How many questions", "type": "number", "default": "10", "required": true },
+        { "id": "pages", "label": "Handout pages or years to cover", "placeholder": "眼科學No.03 p. 40–45, 2019–2022" }
+      ],
+      "title": "Past-exam concept questions: {chapter}",
+      "problem": "{chapter} needs {count} more past-exam concept questions in the 筆試練習 pool.",
+      "criteria": [
+        "content/past-exam-questions.json has {count} new entries with topicId {chapter}, pastExam: true, four options, correctIndex, an explanation starting with 考點 and a 常見陷阱 line",
+        "[[Every new question cites a page from {pages} in sourceRef]]",
+        "Stems, numbers and options are restated, not copied; questions whose source image is missing or blurry become text-only concept questions marked in the source line",
+        "The original 294 questions are unchanged",
+        "{TEST} passes: {PASS}"
+      ],
+      "files": "content/past-exam-questions.json, index.html (generated)",
+      "outOfScope": "Other chapters; existing question IDs",
+      "check": [
+        "{OPEN}, open 筆試練習 with range 考古題考點 and chapter {chapter}: the {count} new questions appear with explanations",
+        "Run python3 scripts/apply-enrichment.py --check: exit 0",
+        "Run {TEST}: {PASS}"
+      ]
+    },
+    {
+      "id": "interview-answer",
+      "name": "Revise an interview answer",
+      "hint": "Improve a detailed answer or speaker sample",
+      "size": "S",
+      "route": "build",
+      "fields": [
+        { "id": "question", "label": "Interview question (link such as #interview-notes-01-case-1)", "required": true },
+        { "id": "part", "label": "Which part", "type": "select", "options": ["detailed answer", "follow-up answers", "speaker samples A/B/C"], "required": true },
+        { "id": "change", "label": "What to change", "type": "long", "required": true }
+      ],
+      "title": "Interview answer: {question} ({part})",
+      "problem": "The {part} of {question} needs this change: {change}",
+      "criteria": [
+        "The {part} of {question} reflects: {change}",
+        "Detailed answers live in content/interview-detailed.json, speaker samples in content/interview-samples.json; personal experience stays marked with 【】",
+        "No other question's answer changes",
+        "{TEST} passes: {PASS}"
+      ],
+      "files": "content/interview-detailed.json, content/interview-samples.json, index.html (generated)",
+      "outOfScope": "Other interview questions; the interview timer and UI",
+      "check": [
+        "{OPEN}, go to {question} and expand the {part}: it shows the change",
+        "Run node scripts/test-practice-sections.cjs: every result \"pass\": true, exit 0",
+        "Run {TEST}: {PASS}"
+      ]
+    },
+    {
+      "id": "pbl-or-workflow",
+      "name": "Add a PBL case or clinical workflow",
+      "hint": "A new three-act case or a 處置流程",
+      "size": "M",
+      "route": "build",
+      "fields": [
+        { "id": "kind", "label": "Kind", "type": "select", "options": ["PBL case", "clinical workflow"], "required": true },
+        { "id": "topic", "label": "Topic", "placeholder": "Acute angle closure", "required": true },
+        { "id": "sources", "label": "Sources to check against", "placeholder": "AAO PPP, EyeWiki" }
+      ],
+      "title": "New {kind}: {topic}",
+      "problem": "The site has no {kind} on {topic}.",
+      "criteria": [
+        "A new {kind} on {topic} is added to content/pbl-cases.json (three acts, learning issues, examiner questions) or content/clinical-workflows.json (steps with reasons, red flags, common errors, SBAR example)",
+        "Every source ID it cites already exists among the chapter resources in content/study-enrichment.json",
+        "[[Clinical content is checked against {sources}]]",
+        "Existing cases and workflows are unchanged",
+        "{TEST} passes: {PASS}"
+      ],
+      "files": "content/pbl-cases.json or content/clinical-workflows.json, index.html (generated)",
+      "outOfScope": "Other cases and workflows; the PBL and workflow UI code",
+      "check": [
+        "{OPEN}, open PBL 情境討論 or 臨床流程: the {topic} {kind} is listed and opens",
+        "Run python3 scripts/apply-enrichment.py --check: exit 0, pbl_cases or workflows count is one higher",
+        "Run node scripts/test-practice-sections.cjs: every result \"pass\": true, exit 0",
+        "Run {TEST}: {PASS}"
+      ]
+    },
+    {
+      "id": "ui-fix",
+      "name": "Fix a page layout or behaviour",
+      "hint": "Something looks or works wrong in the browser",
+      "size": "M",
+      "route": "ui",
+      "fields": [
+        { "id": "page", "label": "Page or link (such as #links, #pbl-dr)", "required": true },
+        { "id": "device", "label": "Device", "type": "select", "options": ["phone", "desktop", "both"], "default": "both" },
+        { "id": "issue", "label": "What goes wrong", "type": "long", "required": true },
+        { "id": "expected", "label": "What should happen", "type": "long", "required": true }
+      ],
+      "title": "UI fix: {page}",
+      "problem": "On {page}[[ ({device})]]: {issue}",
+      "criteria": [
+        "On {page}[[ on {device}]]: {expected}",
+        "The fix is in the source script or stylesheet under scripts/ and index.html is rebuilt by its apply script, not hand-edited",
+        "Saved progress still imports and exports as v1/v2/v3",
+        "{TEST} passes: {PASS}"
+      ],
+      "files": "scripts/*.js, scripts/*.css, index.html (generated)",
+      "outOfScope": "Content JSON; other pages",
+      "check": [
+        "{OPEN}, go to {page}[[ at {device} width]]: {expected}",
+        "Run node scripts/test-practice-sections.cjs and node scripts/test-progress-sync.cjs: every result \"pass\": true, exit 0",
+        "Run {TEST}: {PASS}"
+      ]
+    },
+    {
+      "id": "progress-sync",
+      "name": "Fix saving or sync",
+      "hint": "Progress lost, not restored, or GitHub sync fails",
+      "size": "L",
+      "route": "build",
+      "fields": [
+        { "id": "symptom", "label": "What happened", "type": "long", "required": true },
+        { "id": "where", "label": "Where", "type": "select", "options": ["autosave on this device", "GitHub sync", "import/export", "resume last screen"], "required": true },
+        { "id": "steps", "label": "Steps to reproduce", "type": "long" }
+      ],
+      "title": "Progress fix: {where}",
+      "problem": "{where}: {symptom}",
+      "criteria": [
+        "[[Following {steps} no longer loses or misplaces progress]]",
+        "A regression test for this case is added to scripts/test-progress-sync.cjs",
+        "Progress files stay compatible with v1/v2/v3; tokens never enter exports",
+        "{TEST} passes: {PASS}"
+      ],
+      "files": "scripts/progress-sync.js, scripts/test-progress-sync.cjs, index.html (generated)",
+      "outOfScope": "Content JSON; page layout",
+      "check": [
+        "Run node scripts/test-progress-sync.cjs: every result \"pass\": true including the new case, exit 0",
+        "{OPEN}, [[follow {steps}, ]]reload the page: progress is still there",
+        "Run {TEST}: {PASS}"
+      ]
+    },
+    {
+      "id": "new-feature",
+      "name": "Plan a new learning feature",
+      "hint": "A bigger addition the administrator splits up",
+      "size": "L",
+      "route": "plan",
+      "fields": [
+        { "id": "goal", "label": "What should learners be able to do", "type": "long", "required": true },
+        { "id": "keep", "label": "What must not change", "type": "long", "placeholder": "Existing question IDs, progress format" }
+      ],
+      "title": "Plan: {goal}",
+      "problem": "Learners cannot yet: {goal}",
+      "criteria": [
+        "The feature is split into small issues, each with its own files and check",
+        "[[Unchanged: {keep}]]",
+        "Existing progress (v1/v2/v3), question IDs and the 539-question pool are preserved",
+        "{TEST} passes: {PASS}"
+      ],
+      "files": "Decided per sub-issue",
+      "outOfScope": "Publishing to main (a human merges)",
+      "check": [
+        "Each sub-issue names its own command and page check",
+        "{OPEN}: the feature is reachable from the menu once all sub-issues are merged",
+        "Run {TEST}: {PASS}"
+      ]
+    }
+  ]
+}
