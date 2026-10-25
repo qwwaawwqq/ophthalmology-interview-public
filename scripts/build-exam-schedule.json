@@ -1,9 +1,9 @@
 {
-  "indexSha256": "4146abe4991fd66f49863040564ccc4508e6145c4bf3ec58b88094a5076f8c7c",
+  "indexSha256": "503274a5ee75d6eda3d1376536dccb78b63a3209f8bff87feaa9809722b8ac69",
   "sources": {
     "scripts/exam-schedule.js": "a1f521e2a54a751d5e451193115998610608bd4c70a8f3bc75b3d191c5abbb2a",
     "scripts/exam-schedule.css": "6cbeeb95b8d8abff82f11ed614667e15a094a0ae41f8c762b9d8ff9e64193103",
-    "scripts/apply-exam-schedule.py": "621619f51e93695858a78a893f0cfd8078b0ee165a5c749bdc6a9ef9dba8e9c4",
+    "scripts/apply-exam-schedule.py": "de46a7b9249b55e42283892b112c8ffd07c35ba69332179e7273d713c54ab01e",
     "scripts/test-exam-schedule.cjs": "ab9558e84a06195e77699a2af2d79d3fa2f500f649edb8bc89a748e3e1e69415",
     "content/exam-schedule.json": "83f705cfcd9b2d88511727c5a4196b9cfae935c314de68e1f79244d7856d4762"
   }

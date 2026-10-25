@@ -12,7 +12,7 @@ def once(text, old, new):
 def build(text):
     text = once(text, '</title>', '</title>\n<link rel="stylesheet" href="scripts/exam-schedule.css">\n<script src="scripts/exam-schedule.js" defer></script>')
     text = once(text, "['links','☆','我的連結'],['sync'", "['links','☆','我的連結'],['schedule','▣','考試時程'],['sync'")
-    text = once(text, "['安排與回顧',['plan','progress','sync']]", "['安排與回顧',['schedule','plan','progress','sync']]")
+    text = once(text, "['進階訓練',['advanced']],", "['進階訓練',['advanced']],['考試安排',['schedule']],")
     text = once(text, "$('#main').innerHTML=({notebook,", "$('#main').innerHTML=({schedule:schedulePage,notebook,")
     text = once(text, 'function render(){window.OphStudy?.context', "function schedulePage(){setTimeout(()=>window.OphSchedule?.mount(document.getElementById('schedule-root')),0);return heading('','考試時程','報名截止、筆試與面試，按日期整理。')+'<section id=\"schedule-root\" aria-label=\"考試時程\"><p role=\"status\">正在讀取時程…</p></section>';}\nfunction render(){window.OphStudy?.context")
     return text
