@@ -10,28 +10,54 @@
         {
           "id": "femh-deadline",
           "type": "deadline",
-          "title": "報名資料收件截止（待確認）",
-          "date": null,
+          "title": "報名資料收件截止",
+          "date": "2026-10-29",
           "time": null,
-          "note": "院方徵才貼文之收件期限仍待重新確認，請及早向院方確認。",
-          "sourceUrl": "https://www.104.com.tw/job/5sdbw",
-          "sourceLabel": "院方 104 招募職缺（完整甄試通知待確認）",
+          "note": "郵戳為憑；未載明截止時刻。",
+          "sourceUrl": "https://www.104.com.tw/job/similar/5sdbw?jobsource=analysis_jobsame_b",
+          "sourceLabel": "亞東院方104職缺（標題）",
           "verifiedAt": "2026-10-25",
           "sourceRetrievedAt": "2026-10-25",
           "location": ""
         },
         {
-          "id": "femh-exam-pending",
-          "type": "interview",
-          "title": "甄試日期待確認",
-          "date": null,
-          "time": null,
-          "note": "本輪完整甄試日期、報到及筆試／面試時間尚未取得；請以科部正式通知為準。",
+          "date": "2026-11-14",
           "sourceUrl": "https://www.104.com.tw/job/5sdbw",
-          "sourceLabel": "院方 104 招募職缺（完整甄試通知待確認）",
+          "sourceLabel": "亞東院方104職缺（搜尋索引）",
           "verifiedAt": "2026-10-25",
-          "sourceRetrievedAt": "2026-10-25",
-          "location": ""
+          "id": "femh-checkin",
+          "type": "checkin",
+          "title": "甄試報到",
+          "time": "10:30",
+          "endTime": "10:45",
+          "location": "10樓第二教室",
+          "note": "請攜帶2吋照片1張。依104搜尋索引保留的亞東院方職缺內容核對；索引標示約3週前擷取，請以院方後續通知為準。"
+        },
+        {
+          "date": "2026-11-14",
+          "sourceUrl": "https://www.104.com.tw/job/5sdbw",
+          "sourceLabel": "亞東院方104職缺（搜尋索引）",
+          "verifiedAt": "2026-10-25",
+          "id": "femh-written",
+          "type": "written",
+          "title": "筆試",
+          "time": "10:45",
+          "endTime": "12:00",
+          "location": "",
+          "note": "筆試地點未載明，請依院方通知；勿將報到教室視為筆試地點。依104搜尋索引保留的亞東院方職缺內容核對；索引標示約3週前擷取，請以院方後續通知為準。"
+        },
+        {
+          "date": "2026-11-14",
+          "sourceUrl": "https://www.104.com.tw/job/5sdbw",
+          "sourceLabel": "亞東院方104職缺（搜尋索引）",
+          "verifiedAt": "2026-10-25",
+          "id": "femh-interview",
+          "type": "interview",
+          "title": "面試",
+          "time": "14:00",
+          "endTime": "17:00",
+          "location": "10樓第三會議室",
+          "note": "13:00–14:00公告合格名單與面試梯次。依104搜尋索引保留的亞東院方職缺內容核對；索引標示約3週前擷取，請以院方後續通知為準。"
         }
       ]
     },
@@ -244,6 +270,6 @@
       ]
     }
   ],
-  "verificationStatus": "四院核心時程已交叉核對；亞東期限與考試待確認。",
-  "provenanceNote": "馬偕為2026/10/25網頁查得；中榮、國泰、新光依2026/10/24已保存官方原文於2026/10/25重新讀取。亞東期限與考試未完成交叉核實，故日期留空。個別報名或錄取狀態未作推論。"
+  "verificationStatus": "五院核心時程已交叉核對；亞東考試流程引用104搜尋索引，請留意院方後續通知。",
+  "provenanceNote": "馬偕及亞東報名期限為2026/10/25網頁查得；中榮、國泰、新光依2026/10/24已保存官方原文於2026/10/25重新讀取。亞東11/14流程依104搜尋索引保留之院方職缺，索引標示約3週前擷取，未將其視為當日公告。個別報名或錄取狀態未作推論。"
 }

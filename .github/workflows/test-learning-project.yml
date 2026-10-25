@@ -3,6 +3,7 @@ on:
   pull_request:
     paths:
       - index.html
+      - content/exam-schedule.json
       - scripts/**
       - .github/workflows/*learning-project.yml
 permissions:
@@ -18,6 +19,8 @@ jobs:
           python3 scripts/apply-enrichment.py --check
           python3 scripts/apply-textbook.py --check
           python3 scripts/apply-learning-project.py --check
+          python3 scripts/apply-exam-schedule.py --check
+          node scripts/test-exam-schedule.cjs
           node scripts/test-integrated-lessons.cjs
           node scripts/test-source-coverage.cjs
           node scripts/test-practice-sections.cjs
