@@ -24,17 +24,23 @@ async function test(name,fn){try{await fn();results.push({name,pass:true});}catc
  });
  await test('filters keep undated events separate and order exact calendar dates',()=>{
   const {api}=fixture();const all=api.filtered(production,'','all',now),upcoming=api.filtered(production,'','upcoming',now),pending=api.filtered(production,'','pending',now);
-  assert.equal(all.length,16);assert.equal(upcoming.length,14);assert.equal(pending.length,2);assert(pending.some(e=>e.id==='femh-exam-pending'));
-  assert.equal(upcoming[0].date,'2026-10-30');assert.equal(upcoming.at(-1).date,'2026-11-29');assert(api.filtered(production,'skh','all',now).every(e=>e.hospitalId==='skh'));
+  assert.equal(all.length,18);assert.equal(upcoming.length,18);assert.equal(pending.length,0);
+  assert.equal(upcoming[0].date,'2026-10-29');assert.equal(upcoming.at(-1).date,'2026-11-29');assert(api.filtered(production,'skh','all',now).every(e=>e.hospitalId==='skh'));
  });
  await test('duplicate activities for one hospital never imply a cross-hospital clash',()=>{
   const {api}=fixture();assert.equal(api.conflicts(production,now).length,0);
-  const d=clone(production);d.hospitals[0].events[1].date='2026-11-08';const c=api.conflicts(d,now);assert.equal(c.length,1);assert.equal(c[0].names.length,2);
+  const d=clone(production);d.hospitals[0].events.find(e=>e.type==='written').date='2026-11-08';const c=api.conflicts(d,now);assert.equal(c.length,1);assert.equal(c[0].names.length,2);
  });
  await test('renders source age, deadline uncertainty, and both filters without writing progress',async()=>{
   const a=fixture();await a.api.mount(a.root);assert(a.root.innerHTML.includes('擷取 2026/10/24'));assert(a.root.innerHTML.includes('核對 2026/10/25'));assert(a.root.innerHTML.includes('14:00'));assert(a.root.innerHTML.includes('00:00'));assert(a.root.innerHTML.includes('時間有衝突'));
-  a.listeners.change({target:{hasAttribute:n=>n==='data-schedule-mode',value:'pending'}});assert(a.root.innerHTML.includes('甄試日期待確認'));assert(!a.root.innerHTML.includes('還有 null'));
-  a.listeners.change({target:{hasAttribute:n=>n==='data-schedule-mode',value:'all'}});assert(a.root.innerHTML.includes('16 項'));
+  a.listeners.change({target:{hasAttribute:n=>n==='data-schedule-mode',value:'pending'}});assert(a.root.innerHTML.includes('這個篩選下沒有時程'));assert(!a.root.innerHTML.includes('還有 null'));
+  a.listeners.change({target:{hasAttribute:n=>n==='data-schedule-mode',value:'all'}});assert(a.root.innerHTML.includes('18 項'));
+ });
+ await test('pending dates are visible from upcoming, scoped by hospital, and absent at zero',async()=>{
+  const data=clone(production), event=data.hospitals[0].events[0];event.date=null;event.time=null;
+  const a=fixture(data);await a.api.mount(a.root);assert(a.root.innerHTML.includes('data-schedule-pending'));assert(a.root.innerHTML.includes('項日期待確認'));
+  a.listeners.click({target:{closest:q=>q==='[data-schedule-pending]'?{}:null}});assert(a.root.innerHTML.includes('data-event-id="'+event.id+'"'));assert(!a.root.innerHTML.includes('data-schedule-pending'));
+  const confirmed=clone(production);for(const h of confirmed.hospitals)for(const e of h.events)if(e.date===null)e.date='2026-11-01';const b=fixture(confirmed);await b.api.mount(b.root);assert(!b.root.innerHTML.includes('data-schedule-pending'));
  });
  await test('transient fetch failure can be retried',async()=>{
   const a=fixture(production,true);await a.api.mount(a.root);assert(a.root.innerHTML.includes('暫時離線'));assert(a.root.innerHTML.includes('data-schedule-retry'));await a.api.mount(a.root);assert(a.root.innerHTML.includes('亞東紀念醫院'));assert.equal(a.calls(),2);
