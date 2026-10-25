@@ -129,6 +129,28 @@ assert all(not x['field'].startswith('source') for x in claims)
   const pending=b.api.__test.choosePdf(input('bcsc-s07',waiting));b.windowHandlers.get('pagehide')();resolve(new TextEncoder().encode('%PDF-').buffer);await pending;assert.equal(created.length,3,'unload must invalidate pending file reads');assert.equal(b.api.__test.localPdfs.size,0);assert.deepEqual(revoked,[previous,'blob:https://example.test/local-3','blob:https://example.test/local-2']);b.windowHandlers.get('beforeunload')();assert.equal(revoked.length,3);
   const reload=moduleBoot(new Map(),'#textbook',fixture,{URL:PdfURL});await reload.mount();await reload.action('book','bcsc-s07');assert(reload.root.innerHTML.includes('尚未選擇原書'));assert(!reload.root.innerHTML.includes('blob:https://example.test/'));
  });
+ await test('figure pages from the learner\'s own PDF show beside questions and units, with a load button and no persistence or upload',async()=>{
+  const created=[];
+  class PdfURL extends URL{static createObjectURL(blob){assert.equal(blob.type,'application/pdf');const url='blob:https://example.test/fig-'+(created.length+1);created.push(url);return url;}static revokeObjectURL(){}}
+  const own=()=>{const blob=new Blob(['%PDF-1.7\nfigure fixture'],{type:'application/pdf'});Object.defineProperty(blob,'name',{value:'secret-volume.pdf'});return blob;};
+  const input=id=>({dataset:{book:id},files:[own()],value:''});
+  const q=fixture.questions[0],uid=q.unitIds[0],page=fixture.chapters.flatMap(c=>c.units).find(u=>u.id===uid).imageClues.find(i=>i.pdfPage).pdfPage;
+  const store=new Map(),b=moduleBoot(store,'#textbook-'+q.id,fixture,{URL:PdfURL});await b.mount();const networkBefore=b.calls.length;
+  assert(b.root.innerHTML.includes('class="tb-question-layout"'));assert(b.root.innerHTML.includes('原書圖頁 PDF p. '+page));assert(b.root.innerHTML.includes('data-tb-pdf data-book="bcsc-s07"'));assert(!b.root.innerHTML.includes('<iframe'));
+  await b.api.__test.choosePdf(input('bcsc-s07'));
+  assert(b.root.innerHTML.includes('<iframe src="blob:https://example.test/fig-1#page='+page+'"'));assert(b.root.innerHTML.includes('在新分頁開啟'));assert(/href="blob:https:\/\/example\.test\/fig-1#page=\d+" target="_blank" rel="noopener noreferrer"/.test(b.root.innerHTML));
+  b.window.navigator={pdfViewerEnabled:true,userAgent:'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X)',platform:'iPhone',maxTouchPoints:5};await b.action('mode','questions');assert(!b.root.innerHTML.includes('<iframe'));assert(b.root.innerHTML.includes('#page='+page+'" target="_blank" rel="noopener noreferrer">在新分頁開啟'));delete b.window.navigator;
+  await b.action('answer',q.id+'|'+q.correctIndex);await b.action('reveal',q.id);
+  const saved=JSON.stringify([...store.entries()])+b.window.location.hash;assert(!saved.includes('blob:'));assert(!saved.includes('secret-volume'));assert(!saved.includes('#page='));assert.equal(b.calls.length,networkBefore);
+  const multi=JSON.parse(JSON.stringify(fixture));multi.questions[0].requiresImage=true;multi.questions[0].sourceRefs=[{pdfPages:[300,0,9999]}];
+  const m=moduleBoot(new Map(),'#textbook-'+q.id,multi,{URL:PdfURL});await m.mount();await m.api.__test.choosePdf(input('bcsc-s07'));assert(m.root.innerHTML.includes('#page=300"'));assert(!m.root.innerHTML.includes('#page=9999'));assert(!m.root.innerHTML.includes('#page=0'));
+  await m.action('figure',q.id+'|bcsc-s07|'+page);assert(m.root.innerHTML.includes('<iframe src="blob:https://example.test/fig-2#page='+page+'"'));assert(!m.root.innerHTML.includes('<iframe src="blob:https://example.test/fig-2#page=300"'));
+  const u=moduleBoot(new Map(),'#textbook-'+uid,fixture,{URL:PdfURL});await u.mount();const before=u.calls.length;assert(u.root.innerHTML.includes('在這裡顯示原書圖頁 p. '+page));assert(!u.root.innerHTML.includes('tb-figure-load'));
+  const clue=fixture.chapters.flatMap(c=>c.units).find(x=>x.id===uid).imageClues.findIndex(i=>i.pdfPage);
+  await u.action('unit-figure',uid+'|'+clue);assert(u.root.innerHTML.includes('tb-figure-load'));assert.equal(u.calls.length,before);
+  await u.api.__test.choosePdf(input('bcsc-s07'));assert(u.root.innerHTML.includes('<iframe src="blob:https://example.test/fig-3#page='+page+'"'));
+  await u.action('unit-figure',uid+'|'+clue);assert(!u.root.innerHTML.includes('<iframe'));await u.action('unit-figure','javascript:alert(1)');assert(!u.root.innerHTML.includes('<iframe'));assert.equal(u.progress.size,0);
+ });
  const extraQuestion={...JSON.parse(JSON.stringify(fixture.questions[0])),id:'extra-20261020-q001',questionScope:'original-practice',bookId:'bcsc-s07',requiresImage:false,imageStatus:'not-applicable',status:'source-checked',readiness:'ready'};
  const extraFixture={schemaVersion:1,packId:'additional-20261020',origin:'original-extra-practice',notice:'全新原創病例練習，非原書題',questions:[extraQuestion]};
  await test('extra practice loads only on request and keeps the 13-volume 540-concept denominator',async()=>{
