@@ -1,0 +1,249 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-10-25",
+  "timezone": "Asia/Taipei",
+  "hospitals": [
+    {
+      "id": "femh",
+      "name": "亞東紀念醫院",
+      "events": [
+        {
+          "id": "femh-deadline",
+          "type": "deadline",
+          "title": "報名資料收件截止",
+          "date": "2026-10-29",
+          "time": null,
+          "note": "院方職缺標題列 115/10/29，郵戳為憑；完整甄試安排尚待確認。",
+          "sourceUrl": "https://www.104.com.tw/job/5sdbw",
+          "sourceLabel": "院方 104 招募職缺（完整甄試通知待確認）",
+          "verifiedAt": "2026-10-25",
+          "sourceRetrievedAt": "2026-10-25",
+          "location": ""
+        },
+        {
+          "id": "femh-exam-pending",
+          "type": "interview",
+          "title": "甄試日期待確認",
+          "date": null,
+          "time": null,
+          "note": "本輪完整甄試日期、報到及筆試／面試時間尚未取得；請以科部正式通知為準。",
+          "sourceUrl": "https://www.104.com.tw/job/5sdbw",
+          "sourceLabel": "院方 104 招募職缺（完整甄試通知待確認）",
+          "verifiedAt": "2026-10-25",
+          "sourceRetrievedAt": "2026-10-25",
+          "location": ""
+        }
+      ]
+    },
+    {
+      "id": "mackay",
+      "name": "馬偕紀念醫院",
+      "events": [
+        {
+          "id": "mackay-deadline",
+          "type": "deadline",
+          "title": "報名資料收件截止",
+          "date": "2026-10-30",
+          "time": null,
+          "note": "眼科適用「其餘科別」；掛號郵寄、郵戳為憑，不接受考試當日現場報名。",
+          "sourceUrl": "https://www.mmh.org.tw/news_view.php?id=10947",
+          "sourceLabel": "116 年度住院醫師招募簡章",
+          "verifiedAt": "2026-10-25",
+          "sourceRetrievedAt": "2026-10-25",
+          "location": ""
+        },
+        {
+          "id": "mackay-written",
+          "type": "written",
+          "title": "甄試日：筆試時間待通知",
+          "date": "2026-11-07",
+          "time": null,
+          "note": "簡章列「其他科別」於 115/11/07 甄試；筆試、面試的個別時間及地點另行通知。",
+          "sourceUrl": "https://www.mmh.org.tw/news_view.php?id=10947",
+          "sourceLabel": "116 年度住院醫師招募簡章",
+          "verifiedAt": "2026-10-25",
+          "sourceRetrievedAt": "2026-10-25",
+          "location": ""
+        },
+        {
+          "id": "mackay-interview",
+          "type": "interview",
+          "title": "甄試日：面試時間待通知",
+          "date": "2026-11-07",
+          "time": null,
+          "note": "請查收院方 E-mail 的個別甄試通知。",
+          "sourceUrl": "https://www.mmh.org.tw/news_view.php?id=10947",
+          "sourceLabel": "116 年度住院醫師招募簡章",
+          "verifiedAt": "2026-10-25",
+          "sourceRetrievedAt": "2026-10-25",
+          "location": ""
+        }
+      ]
+    },
+    {
+      "id": "vghtc",
+      "name": "臺中榮民總醫院",
+      "events": [
+        {
+          "id": "vghtc-deadline",
+          "type": "deadline",
+          "title": "報名資料收件截止",
+          "date": "2026-11-02",
+          "time": null,
+          "note": "親送或掛號郵寄，郵戳為憑。網頁上網期間至當日 17:30；並非將郵戳截止改為 17:30。",
+          "sourceUrl": "https://www.vghtc.gov.tw/RecruitmentContent/270/1004",
+          "sourceLabel": "116 年度眼科 R1 官方公告與簡章",
+          "verifiedAt": "2026-10-25",
+          "sourceRetrievedAt": "2026-10-24",
+          "location": ""
+        },
+        {
+          "id": "vghtc-written",
+          "type": "written",
+          "title": "筆試（時間待通知）",
+          "date": "2026-11-29",
+          "time": null,
+          "location": "門診前棟七樓眼科部 2779 室",
+          "note": "先筆試再面試，官方簡章未列開始與報到時間。",
+          "sourceUrl": "https://www.vghtc.gov.tw/RecruitmentContent/270/1004",
+          "sourceLabel": "116 年度眼科 R1 官方公告與簡章",
+          "verifiedAt": "2026-10-25",
+          "sourceRetrievedAt": "2026-10-24"
+        },
+        {
+          "id": "vghtc-interview",
+          "type": "interview",
+          "title": "面試（時間待通知）",
+          "date": "2026-11-29",
+          "time": null,
+          "location": "門診前棟七樓眼科部 2779 室",
+          "note": "接續筆試辦理；攜帶國民身分證。",
+          "sourceUrl": "https://www.vghtc.gov.tw/RecruitmentContent/270/1004",
+          "sourceLabel": "116 年度眼科 R1 官方公告與簡章",
+          "verifiedAt": "2026-10-25",
+          "sourceRetrievedAt": "2026-10-24"
+        }
+      ]
+    },
+    {
+      "id": "skh",
+      "name": "新光吳火獅紀念醫院",
+      "events": [
+        {
+          "id": "skh-deadline",
+          "type": "deadline",
+          "title": "線上履歷截止（時間有衝突）",
+          "date": "2026-11-05",
+          "time": null,
+          "note": "公告正文寫 11/5 14:00；系統 deadline 欄為 11/5 00:00，時間有衝突。請提早送件並向院方確認正確截止時間。",
+          "sourceUrl": "https://recruitweb.skh.org.tw/Recruit/JobVacancyResume/List",
+          "sourceLabel": "官方職缺 9826｜RQ20261000008",
+          "verifiedAt": "2026-10-25",
+          "sourceRetrievedAt": "2026-10-24",
+          "location": ""
+        },
+        {
+          "id": "skh-checkin",
+          "type": "checkin",
+          "title": "甄試報到",
+          "date": "2026-11-08",
+          "time": "14:00",
+          "location": "火獅樓 B2 第六會議室",
+          "sourceUrl": "https://recruitweb.skh.org.tw/Recruit/JobVacancyResume/List",
+          "sourceLabel": "官方職缺 9826｜RQ20261000008",
+          "verifiedAt": "2026-10-25",
+          "sourceRetrievedAt": "2026-10-24",
+          "note": ""
+        },
+        {
+          "id": "skh-written",
+          "type": "written",
+          "title": "筆試",
+          "date": "2026-11-08",
+          "time": "14:10",
+          "endTime": "14:50",
+          "location": "火獅樓 B2 第六會議室",
+          "sourceUrl": "https://recruitweb.skh.org.tw/Recruit/JobVacancyResume/List",
+          "sourceLabel": "官方職缺 9826｜RQ20261000008",
+          "verifiedAt": "2026-10-25",
+          "sourceRetrievedAt": "2026-10-24",
+          "note": ""
+        },
+        {
+          "id": "skh-interview",
+          "type": "interview",
+          "title": "面試",
+          "date": "2026-11-08",
+          "time": "15:00",
+          "location": "火獅樓 B2 第六會議室",
+          "sourceUrl": "https://recruitweb.skh.org.tw/Recruit/JobVacancyResume/List",
+          "sourceLabel": "官方職缺 9826｜RQ20261000008",
+          "verifiedAt": "2026-10-25",
+          "sourceRetrievedAt": "2026-10-24",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "cgh",
+      "name": "國泰綜合醫院",
+      "events": [
+        {
+          "id": "cgh-online-deadline",
+          "type": "deadline",
+          "title": "線上報名截止",
+          "date": "2026-11-09",
+          "time": "17:00",
+          "note": "須另寄紙本報名資料；線上報名與紙本兩者皆須完成。",
+          "sourceUrl": "https://recruit.cgh.org.tw/Rot/prospectus/R_OUT_16.pdf",
+          "sourceLabel": "116 年度眼科 R1 官方簡章（115.10.19 版）",
+          "verifiedAt": "2026-10-25",
+          "sourceRetrievedAt": "2026-10-24",
+          "location": ""
+        },
+        {
+          "id": "cgh-post-deadline",
+          "type": "deadline",
+          "title": "紙本寄件截止",
+          "date": "2026-11-09",
+          "time": null,
+          "note": "郵戳須為 11/09 前，包含 11/09 當日。",
+          "sourceUrl": "https://recruit.cgh.org.tw/Rot/prospectus/R_OUT_16.pdf",
+          "sourceLabel": "116 年度眼科 R1 官方簡章（115.10.19 版）",
+          "verifiedAt": "2026-10-25",
+          "sourceRetrievedAt": "2026-10-24",
+          "location": ""
+        },
+        {
+          "id": "cgh-written",
+          "type": "written",
+          "title": "筆試",
+          "date": "2026-11-15",
+          "time": "08:00",
+          "endTime": "09:30",
+          "location": "國泰醫院本館 7F 視訊會議室",
+          "note": "簡章未另列報到時間。",
+          "sourceUrl": "https://recruit.cgh.org.tw/Rot/prospectus/R_OUT_16.pdf",
+          "sourceLabel": "116 年度眼科 R1 官方簡章（115.10.19 版）",
+          "verifiedAt": "2026-10-25",
+          "sourceRetrievedAt": "2026-10-24"
+        },
+        {
+          "id": "cgh-interview",
+          "type": "interview",
+          "title": "面試",
+          "date": "2026-11-15",
+          "time": "10:00",
+          "location": "國泰醫院第一分館 B1 眼科討論室",
+          "note": "面試自 10:00 起；個別順序與時間依院方通知。",
+          "sourceUrl": "https://recruit.cgh.org.tw/Rot/prospectus/R_OUT_16.pdf",
+          "sourceLabel": "116 年度眼科 R1 官方簡章（115.10.19 版）",
+          "verifiedAt": "2026-10-25",
+          "sourceRetrievedAt": "2026-10-24"
+        }
+      ]
+    }
+  ],
+  "verificationStatus": "awaiting_independent_verifier",
+  "provenanceNote": "馬偕及亞東職缺標題為2026/10/25網頁查得；中榮、國泰、新光依2026/10/24已保存官方原文於2026/10/25重新讀取。個別報名/錄取狀態未作推論。"
+}
