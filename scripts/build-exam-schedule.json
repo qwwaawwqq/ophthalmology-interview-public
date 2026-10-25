@@ -1,0 +1,10 @@
+{
+  "indexSha256": "503274a5ee75d6eda3d1376536dccb78b63a3209f8bff87feaa9809722b8ac69",
+  "sources": {
+    "scripts/exam-schedule.js": "db97c916a2476228f4ae0d566d5830f6ed70ddd1653311ece981144def545233",
+    "scripts/exam-schedule.css": "6cbeeb95b8d8abff82f11ed614667e15a094a0ae41f8c762b9d8ff9e64193103",
+    "scripts/apply-exam-schedule.py": "de46a7b9249b55e42283892b112c8ffd07c35ba69332179e7273d713c54ab01e",
+    "scripts/test-exam-schedule.cjs": "9e5ac91ca8204f298c625b62b10f4f9bcf1e9e8c891498a4dbab9316c1d7571b",
+    "content/exam-schedule.json": "f9c112efa1dce5ac976d7c73d2de962589b9537ea12e41a605d2ebd73ab65b24"
+  }
+}
