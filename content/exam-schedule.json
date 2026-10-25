@@ -10,10 +10,10 @@
         {
           "id": "femh-deadline",
           "type": "deadline",
-          "title": "報名資料收件截止",
-          "date": "2026-10-29",
+          "title": "報名資料收件截止（待確認）",
+          "date": null,
           "time": null,
-          "note": "院方職缺標題列 115/10/29，郵戳為憑；完整甄試安排尚待確認。",
+          "note": "院方徵才貼文之收件期限仍待重新確認，請及早向院方確認。",
           "sourceUrl": "https://www.104.com.tw/job/5sdbw",
           "sourceLabel": "院方 104 招募職缺（完整甄試通知待確認）",
           "verifiedAt": "2026-10-25",
@@ -244,6 +244,6 @@
       ]
     }
   ],
-  "verificationStatus": "awaiting_independent_verifier",
-  "provenanceNote": "馬偕及亞東職缺標題為2026/10/25網頁查得；中榮、國泰、新光依2026/10/24已保存官方原文於2026/10/25重新讀取。個別報名/錄取狀態未作推論。"
+  "verificationStatus": "四院核心時程已交叉核對；亞東期限與考試待確認。",
+  "provenanceNote": "馬偕為2026/10/25網頁查得；中榮、國泰、新光依2026/10/24已保存官方原文於2026/10/25重新讀取。亞東期限與考試未完成交叉核實，故日期留空。個別報名或錄取狀態未作推論。"
 }

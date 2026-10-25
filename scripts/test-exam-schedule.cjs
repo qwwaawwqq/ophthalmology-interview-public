@@ -24,8 +24,8 @@ async function test(name,fn){try{await fn();results.push({name,pass:true});}catc
  });
  await test('filters keep undated events separate and order exact calendar dates',()=>{
   const {api}=fixture();const all=api.filtered(production,'','all',now),upcoming=api.filtered(production,'','upcoming',now),pending=api.filtered(production,'','pending',now);
-  assert.equal(all.length,16);assert.equal(upcoming.length,15);assert.equal(pending.length,1);assert.equal(pending[0].id,'femh-exam-pending');
-  assert.equal(upcoming[0].date,'2026-10-29');assert.equal(upcoming.at(-1).date,'2026-11-29');assert(api.filtered(production,'skh','all',now).every(e=>e.hospitalId==='skh'));
+  assert.equal(all.length,16);assert.equal(upcoming.length,14);assert.equal(pending.length,2);assert(pending.some(e=>e.id==='femh-exam-pending'));
+  assert.equal(upcoming[0].date,'2026-10-30');assert.equal(upcoming.at(-1).date,'2026-11-29');assert(api.filtered(production,'skh','all',now).every(e=>e.hospitalId==='skh'));
  });
  await test('duplicate activities for one hospital never imply a cross-hospital clash',()=>{
   const {api}=fixture();assert.equal(api.conflicts(production,now).length,0);
@@ -40,7 +40,7 @@ async function test(name,fn){try{await fn();results.push({name,pass:true});}catc
   const a=fixture(production,true);await a.api.mount(a.root);assert(a.root.innerHTML.includes('暫時離線'));assert(a.root.innerHTML.includes('data-schedule-retry'));await a.api.mount(a.root);assert(a.root.innerHTML.includes('亞東紀念醫院'));assert.equal(a.calls(),2);
  });
  await test('calendar midnight refresh keeps same-day deadlines until the next day',async()=>{
-  const a=fixture();await a.api.mount(a.root);a.api.setClock(()=>Date.parse('2026-10-29T15:59:59Z'));assert(a.root.innerHTML.includes('今天'));a.api.setClock(()=>Date.parse('2026-10-29T16:00:00Z'));assert(!a.root.innerHTML.includes('data-event-id="femh-deadline"'));
+  const a=fixture();await a.api.mount(a.root);a.api.setClock(()=>Date.parse('2026-10-30T15:59:59Z'));assert(a.root.innerHTML.includes('今天'));a.api.setClock(()=>Date.parse('2026-10-30T16:00:00Z'));assert(!a.root.innerHTML.includes('data-event-id="mackay-deadline"'));
  });
  await test('native navigation includes schedule and leaves all progress entries unchanged',()=>{
   let harness=read('scripts/test-progress-sync.cjs').split('(async () => {')[0];
