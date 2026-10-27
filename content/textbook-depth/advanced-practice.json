@@ -4,8 +4,8 @@
   "origin": "original-extra-practice",
   "questionScope": "original-practice",
   "officialCoverageCredit": false,
-  "title": "Hard｜多步臨床推理",
-  "description": "原創多步病例、相近鑑別與檢查衝突整合；編輯評定為Hard，未以實際甄試效度驗證。",
+  "title": "Hard｜深度臨床推理",
+  "description": "原創多步病例、相近鑑別與檢查衝突整合，搭配八個決策深讀單元；編輯分級尚未以實際甄試效度校準。",
   "notice": "自編原創練習，非原書或實際考古題。教材連結是既有catalog定位；新題醫學主張另以官方指南／原始研究核對。",
   "status": "ready",
   "domainLabels": {
@@ -2892,17 +2892,3804 @@
       "imageStatus": "not-applicable",
       "status": "source-checked",
       "readiness": "ready"
+    },
+    {
+      "id": "extra-20261022-q040",
+      "questionScope": "original-practice",
+      "bookId": "bcsc-s10",
+      "chapterIds": [
+        "bcsc-s10-ch004",
+        "bcsc-s10-ch009"
+      ],
+      "unitIds": [
+        "bcsc-s10-ch004-u02",
+        "bcsc-s10-ch009-u02"
+      ],
+      "stem": "合成病例：一名原有高度遠視、曾被告知房角狹窄的病人，開始topiramate後一週出現單眼劇痛與霧視。本次IOP明顯升高，gonioscopy證實周邊房角關閉。團隊先給房水抑制治療，疼痛稍緩。兩眼驗光均未出現新的近視偏移；患眼中央前房尚可、周邊極淺，虹膜呈向前弓起。晶狀體尚透明，UBM未見睫狀體上腔積液或整個晶狀體－虹膜隔前移；對側房角亦狹窄。有人因藥名建議只停藥、cycloplegia而避免LPI。依目前證據，哪個後續策略最合理？",
+      "options": [
+        {
+          "text": "先停topiramate並按積液性閉角給cycloplegia；待用藥效應消退及再做UBM後，才決定是否需要LPI",
+          "rationale": "用藥是重要先驗資訊，但題幹沒有其典型整體前移、積液或新近視變化，反有iris bombe與既有窄角；不能由藥名取代機轉判定。",
+          "whenTrue": "若UBM顯示睫狀體上腔積液、雙眼晶狀體－虹膜隔前移且新近視，非瞳孔阻滯治療才更吻合。"
+        },
+        {
+          "text": "先按晶狀體擁擠主導處理；急性壓力穩定後規畫晶狀體手術，將LPI留待手術無法安排時",
+          "rationale": "Clear-lens extraction可在符合條件的閉角病人中有角色，不能以晶狀體透明就排除。此題問當下急性阻滯已被證實時的後續排序；LPI直接處理目前阻滯，日後是否採晶狀體方案仍需另依病程與手術條件評估。",
+          "whenTrue": "有相符晶狀體因素、合適手術適應症並經個別化評估時，可討論早期晶狀體手術，而非由藥名或遠視直接決定。"
+        },
+        {
+          "text": "繼續降壓與抗炎，按瞳孔阻滯機轉安排角膜允許時LPI，並與處方團隊同步檢討topiramate",
+          "rationale": "現有解剖線索較支持壓力差造成的iris bombe。處理用藥風險與解除已證實的阻滯不是互斥選項，不能停藥後就擱置房角危險。",
+          "whenTrue": "有瞳孔阻滯成分、仍有可處理房角且無特殊禁忌時，LPI針對的是阻滯機轉。"
+        },
+        {
+          "text": "先以iridoplasty打開周邊房角；把plateau iris列為主要機轉，待效果不足時才處理瞳孔阻滯",
+          "rationale": "Plateau iris需對應構型，單看周邊狹窄不足以確立；本例iris bombe較支持先處理瞳孔阻滯成分。",
+          "whenTrue": "已處理瞳孔阻滯仍閉角且影像支持plateau機轉時，才另考慮周邊虹膜成形等方法。"
+        }
+      ],
+      "correctIndex": 2,
+      "explanation": "先承認topiramate可能相關，但不把時間關聯當成已證實機轉 → 用中央／周邊前房差、iris bombe與UBM是否整體前移／積液分流 → 保留急性降壓與抗炎，同時解除目前證據支持的瞳孔阻滯並檢討用藥。關鍵是未見積液與整體前移，卻有iris bombe及既有窄角；它使「只停藥、避免LPI」不足以處理本例。",
+      "testConcept": "近期用藥只能改變先驗機率，實際房角構型決定閉角治療分支",
+      "difficulty": "advanced",
+      "difficultyCalibration": "editor-rated-hard; not exam-validated",
+      "questionType": "clinical-reasoning",
+      "domain": "glaucoma",
+      "cognitiveTags": [
+        "multi-step",
+        "conflicting-evidence",
+        "management-sequencing"
+      ],
+      "reasoningSteps": [
+        "先承認topiramate可能相關，但不把時間關聯當成已證實機轉",
+        "用中央／周邊前房差、iris bombe與UBM是否整體前移／積液分流",
+        "保留急性降壓與抗炎，同時解除目前證據支持的瞳孔阻滯並檢討用藥"
+      ],
+      "closestDistractorIndex": 0,
+      "decisiveDiscriminator": "關鍵是未見積液與整體前移，卻有iris bombe及既有窄角；它使「只停藥、避免LPI」不足以處理本例。",
+      "counterfactual": "若改為雙眼新近視、中央及周邊前房同時變淺，UBM顯示積液與整體前移，便轉向藥物相關非瞳孔阻滯；不能沿用本題LPI作主要解法。",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            66,
+            68,
+            73,
+            75,
+            77
+          ],
+          "printedPages": [
+            "49",
+            "51",
+            "56",
+            "58",
+            "60"
+          ],
+          "chapterHeading": "Clinical Evaluation and Imaging of the Anterior Segment",
+          "bookId": "bcsc-s10"
+        },
+        {
+          "pdfPages": [
+            168,
+            169,
+            170,
+            181,
+            183
+          ],
+          "printedPages": [
+            "151",
+            "152",
+            "153",
+            "164",
+            "166"
+          ],
+          "chapterHeading": "Primary Angle- Closure Disease",
+          "bookId": "bcsc-s10"
+        }
+      ],
+      "sourceRefProvenance": "Existing verified curriculum anchors identify related learning units; external references support the new medical claims.",
+      "externalRefs": [
+        {
+          "title": "European Glaucoma Society Terminology and Guidelines for Glaucoma, 5th edition",
+          "url": "https://bjo.bmj.com/content/105/Suppl_1/1",
+          "locator": "OCT quality/progression; angle-closure mechanisms",
+          "version": "2021",
+          "checkedAt": "2026-10-28",
+          "accessNote": "本次可核對出版者搜尋索引；第6版官方下載頁可定位但全文未能取得。此處僅引用診斷品質與阻滯機轉原則。"
+        },
+        {
+          "title": "EGS Guidelines: Classification and terminology",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5583685/",
+          "locator": "Primary angle closure; drug-induced secondary angle closure",
+          "version": "2017, 4th edition chapter 2",
+          "checkedAt": "2026-10-28"
+        }
+      ],
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "status": "source-checked",
+      "readiness": "ready",
+      "authoredAt": "2026-10-28",
+      "batchId": "deep-dives-20261028",
+      "syntheticCase": true
+    },
+    {
+      "id": "extra-20261022-q041",
+      "questionScope": "original-practice",
+      "bookId": "bcsc-s10",
+      "chapterIds": [
+        "bcsc-s10-ch005",
+        "bcsc-s10-ch006"
+      ],
+      "unitIds": [
+        "bcsc-s10-ch005-u02",
+        "bcsc-s10-ch006-u02"
+      ],
+      "stem": "合成病例：高度近視青光眼病人在固定治療下，多次門診IOP均低於原先個別設定的目標。最新OCT全局RNFL報告顯示明顯變薄，但上方B-scan存在分層錯誤。另一方面，下方RNFL局部缺損在品質良好的重掃仍可重現，連續disc照片顯示相同區域rim切跡加深；兩次可靠視野出現相符的上方弓形缺損擴大。有人主張「OCT有假影且眼壓達標，暫不必改計畫」。最合理的整合判讀是？",
+      "options": [
+        {
+          "text": "不採受假影污染的全局變化量，但以相符的局部結構/功能證據判定進展；核對用藥與壓力後重訂目標",
+          "rationale": "假影只否定受污染的測量，不能抹掉其他品質合格且解剖相符的獨立證據；原目標也不是永遠有效的安全線。",
+          "whenTrue": "多種可靠檢查呈一致區域性惡化，且已排除可解釋該模式的混雜時。"
+        },
+        {
+          "text": "先把此次影像改變歸入高近視相關測量偏差；維持治療，重建OCT及視野基線後才評估進展",
+          "rationale": "高度近視增加假影風險，但本例有可重現局部變化及匹配視野；要求所有影像完美才承認進展會延誤。",
+          "whenTrue": "若異常均隨分層錯誤消失，可靠視野及照片穩定，才適合先改善測量後觀察。"
+        },
+        {
+          "text": "以全局RNFL報告的下降量作為進展速率，按其幅度決定干預強度，局部B-scan及視野作輔助",
+          "rationale": "將受污染的全局量化值當作精確進展速率，會把假影一併放大；本例支持重新評估治療，不等於由這個數字直接決定手術。",
+          "whenTrue": "只有品質充分、可重現且經臨床整合的測量，才適合進入進展速率與治療討論。"
+        },
+        {
+          "text": "先將達標下惡化歸入非眼壓性視神經病變，維持降壓方案並優先完成神經影像評估",
+          "rationale": "達到原目標並不排除仍需更低壓力；應先檢視病程、量測、依從及實際可行性，而非用目標本身證明治療足夠。",
+          "whenTrue": "若重新評估顯示其他病因更能解釋損傷，應另作相應診療，但不能單憑達標就下此結論。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "先拆開受假影影響的全局量測與品質合格的局部訊號 → 確認局部RNFL、disc與可靠視野是否在解剖上相互支持 → 在證實進展後重新審視個別目標與治療，而非以舊目標抵銷進展。不是「OCT異常就進展」或「有假影就全否定」二選一；本例最有重量的是三種獨立、區域相符的證據。",
+      "testConcept": "OCT假影與真實進展可以並存；舊目標眼壓必須接受病程檢驗",
+      "difficulty": "advanced",
+      "difficultyCalibration": "editor-rated-hard; not exam-validated",
+      "questionType": "clinical-reasoning",
+      "domain": "glaucoma",
+      "cognitiveTags": [
+        "multi-step",
+        "conflicting-evidence",
+        "management-sequencing"
+      ],
+      "reasoningSteps": [
+        "先拆開受假影影響的全局量測與品質合格的局部訊號",
+        "確認局部RNFL、disc與可靠視野是否在解剖上相互支持",
+        "在證實進展後重新審視個別目標與治療，而非以舊目標抵銷進展"
+      ],
+      "closestDistractorIndex": 1,
+      "decisiveDiscriminator": "不是「OCT異常就進展」或「有假影就全否定」二選一；本例最有重量的是三種獨立、區域相符的證據。",
+      "counterfactual": "若高品質重掃的局部缺損消失，disc照片與可靠視野亦穩定，就應先處理量測與追蹤設計，不能沿用本題的進展結論。",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            85,
+            87,
+            91,
+            93
+          ],
+          "printedPages": [
+            "68",
+            "70",
+            "74",
+            "76"
+          ],
+          "chapterHeading": "Clinical Evaluation and Imaging of the Posterior Segment: Optic Nerve Head, Ret i nal Nerve Fiber Layer, and Macula",
+          "bookId": "bcsc-s10"
+        },
+        {
+          "pdfPages": [
+            104,
+            107,
+            108,
+            110,
+            111,
+            112,
+            113,
+            114,
+            117,
+            118,
+            119,
+            120,
+            121,
+            122,
+            123,
+            124
+          ],
+          "printedPages": [
+            "87",
+            "90",
+            "91",
+            "93",
+            "94",
+            "95",
+            "96",
+            "97",
+            "100",
+            "101",
+            "102",
+            "103",
+            "104",
+            "105",
+            "106",
+            "107"
+          ],
+          "chapterHeading": "Perimetry",
+          "bookId": "bcsc-s10"
+        }
+      ],
+      "sourceRefProvenance": "Existing verified curriculum anchors identify related learning units; external references support the new medical claims.",
+      "externalRefs": [
+        {
+          "title": "European Glaucoma Society Terminology and Guidelines for Glaucoma, 5th edition",
+          "url": "https://bjo.bmj.com/content/105/Suppl_1/1",
+          "locator": "OCT quality/progression; angle-closure mechanisms",
+          "version": "2021",
+          "checkedAt": "2026-10-28",
+          "accessNote": "本次可核對出版者搜尋索引；第6版官方下載頁可定位但全文未能取得。此處僅引用診斷品質與阻滯機轉原則。"
+        },
+        {
+          "title": "Impact of Artifacts From OCT RNFL and Macula Scans on Detection of Glaucoma Progression",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/32818450/",
+          "locator": "Original study: raw B-scan review prevents false-positive and false-negative progression calls",
+          "version": "2020",
+          "checkedAt": "2026-10-28"
+        }
+      ],
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "status": "source-checked",
+      "readiness": "ready",
+      "authoredAt": "2026-10-28",
+      "batchId": "deep-dives-20261028",
+      "syntheticCase": true
+    },
+    {
+      "id": "extra-20261022-q042",
+      "domain": "cornea-uveitis",
+      "stem": "一名配戴軟式隱形眼鏡的成人因角膜潰瘍接受培養；Pseudomonas對目前局部抗生素有感受性，密集治療後分泌物與膿性浸潤已減少。可是疼痛、較深層放射狀浸潤及上皮病灶仍持續擴展。初次刮片只做一般細菌培養，未做阿米巴或真菌檢查；今天confocal有少數可疑高反射結構，但操作者認為品質不足以確診。病人否認最近外傷，卻常以自來水沖鏡盒。此刻要在「把剩餘病變當成已控制感染後的炎症」與「重新查病原」間選擇，哪項計畫最合理？",
+      "options": [
+        {
+          "text": "立即由角膜專科重評，保留抗綠膿治療並取樣擴查及複核影像；疑有未涵蓋感染時同步調整經驗性治療，不等報告才處理進展",
+          "rationale": "細菌性部分改善但另一組病灶進展，且初次檢查未涵蓋相關病原；需即刻專科重評，採樣與必要的經驗性涵蓋調整可並行，不能為等結果而延誤處理。",
+          "whenTrue": "原病原只能解釋部分病程，且未涵蓋病原的檢查會改變用藥時。"
+        },
+        {
+          "text": "維持原病原診斷，先提高抗綠膿藥物的局部暴露並密切測量浸潤；若整體反應仍不足，再安排阿米巴與真菌的擴大檢查",
+          "rationale": "提高暴露對不足量細菌治療有意義；但本例細菌性部分已改善，特殊深層病灶卻進展，將擴大診斷排在後面未直接處理目前的疑點。",
+          "whenTrue": "用藥執行或有效局部暴露不足，且沒有支持其他病原的分離性病程時。"
+        },
+        {
+          "text": "保留抗綠膿治療並加低強度類固醇處理剩餘的免疫性神經周圍炎症；以疼痛和深層浸潤的短期變化，決定是否再補病原檢查",
+          "rationale": "這把未確定的深層進展先定為免疫性，並用可能暫時壓低炎症的反應回推病因；本例尚有重要感染盲區，不適合用抗炎試驗取代取樣。",
+          "whenTrue": "感染已充分重估且受控、剩餘表現有可靠證據支持免疫性病灶時。"
+        },
+        {
+          "text": "先把confocal疑似結構當作目前主要感染的線索，轉為以抗阿米巴治療為主並縮減抗細菌藥；再依培養結果修正病原涵蓋",
+          "rationale": "可信阿米巴證據可支持加上對應治療；但目前影像品質不足，且既有細菌培養與治療反應仍有意義，先縮減涵蓋的依據不足。",
+          "whenTrue": "已取得可靠病原證據，且重新評估支持原細菌病灶已控制、可以縮減涵蓋時。"
+        }
+      ],
+      "correctIndex": 0,
+      "closestDistractorIndex": 1,
+      "reasoningSteps": [
+        "先拆開「對原細菌有效」與「全部病灶已被原診斷解釋」兩件事",
+        "以未檢驗病原、進展部位及暴露史提高共感染疑慮，但不把低品質confocal當確診",
+        "立即由角膜專科重評，保留已證實病原的有效涵蓋；針對性取樣與必要的經驗性擴大治療並行，不等待報告才處理進展"
+      ],
+      "explanation": "先拆開「對原細菌有效」與「全部病灶已被原診斷解釋」兩件事 → 以未檢驗病原、進展部位及暴露史提高共感染疑慮，但不把低品質confocal當確診 → 立即由角膜專科重評，保留已證實病原的有效涵蓋；針對性取樣與必要的經驗性擴大治療並行，不等待報告才處理進展。真正改變選擇的是病灶反應不一致加上初次檢查盲區；不是只看到隱形眼鏡或疼痛就直接換成單一阿米巴診斷。",
+      "decisiveDiscriminator": "真正改變選擇的是病灶反應不一致加上初次檢查盲區；不是只看到隱形眼鏡或疼痛就直接換成單一阿米巴診斷。",
+      "counterfactual": "若重新評估顯示浸潤穩定消退、上皮病變符合藥物毒性，且沒有未處理感染證據，則降低藥物毒性或審慎輔助抗炎可成為合理分支。",
+      "testConcept": "陽性培養不等於完整病因；以不一致反應識別未涵蓋感染",
+      "questionType": "clinical-reasoning",
+      "difficulty": "advanced",
+      "authoredAt": "2026-10-28",
+      "caseType": "synthetic-original",
+      "externalRefs": [
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9296050/",
+          "title": "Case Series: Unusual Presentation of Acanthamoeba Coinfection in the Cornea",
+          "locator": "原始研究／官方文件",
+          "checkedOn": "2026-10-28"
+        },
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/37232397/",
+          "title": "A 5-Year Review of Coinfections in Acanthamoeba Keratitis From South India",
+          "locator": "原始研究／官方文件",
+          "checkedOn": "2026-10-28"
+        },
+        {
+          "url": "https://jamanetwork.com/journals/jamaophthalmology/fullarticle/2836544",
+          "title": "Steroids and Cross-Linking for Ulcer Treatment: The SCUT II Randomized Clinical Trial",
+          "locator": "Methods: exclusion criteria; Conclusions",
+          "checkedOn": "2026-10-28"
+        }
+      ],
+      "sourceEvidenceIds": [
+        "ak-coinfection-2022",
+        "ak-coinfection-2023",
+        "scut2-2025"
+      ],
+      "revisionNote": "2026-10-28：改用同層級、長度相近之專業競爭方案；錯誤由病例與證據適用條件決定，而非極端語氣。",
+      "questionScope": "original-practice",
+      "bookId": "bcsc-s08",
+      "unitIds": [
+        "bcsc-s08-ch012-u02",
+        "bcsc-s08-ch012-u03"
+      ],
+      "chapterIds": [
+        "bcsc-s08-ch012"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            336,
+            337,
+            338,
+            339,
+            340,
+            341,
+            342,
+            353,
+            357
+          ],
+          "printedPages": [
+            "317",
+            "318",
+            "319",
+            "320",
+            "321",
+            "322",
+            "323",
+            "334",
+            "338"
+          ],
+          "chapterHeading": "Infectious Diseases of the Cornea and External Eye: Bacterial, Fungal, and Parasitic Infections",
+          "bookId": "bcsc-s08"
+        },
+        {
+          "pdfPages": [
+            336,
+            337,
+            338,
+            342,
+            343,
+            344,
+            345,
+            346,
+            347,
+            362,
+            365
+          ],
+          "printedPages": [
+            "317",
+            "318",
+            "319",
+            "323",
+            "324",
+            "325",
+            "326",
+            "327",
+            "328",
+            "343",
+            "346"
+          ],
+          "chapterHeading": "Infectious Diseases of the Cornea and External Eye: Bacterial, Fungal, and Parasitic Infections",
+          "bookId": "bcsc-s08"
+        }
+      ],
+      "sourceRefProvenance": "Existing verified curriculum anchors identify related learning units; external references support the new medical claims.",
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "difficultyCalibration": "editor-rated-hard; not exam-validated",
+      "cognitiveTags": [
+        "multi-step",
+        "conflicting-evidence",
+        "management-sequencing"
+      ],
+      "batchId": "deep-dives-20261028",
+      "syntheticCase": true,
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "extra-20261022-q043",
+      "domain": "cornea-uveitis",
+      "stem": "另一名成人有中央、培養確認為一般細菌的角膜潰瘍。藥敏與病程支持目前抗生素有效，重複檢查未見真菌、阿米巴或Nocardia證據，也沒有進展性變薄。角膜仍有明顯炎症，病人擔心中央疤痕。有同事引用早期SCUT的部分次群分析，主張只要培養陽性且病灶在中央，就應固定加局部類固醇；另一位認為任何感染後類固醇都絕對不能用。把2025年SCUT II也納入後，哪項證據解釋最適合用於這次共享決策，而沒有把個別用藥選擇說成試驗已證實的通則？",
+      "options": [
+        {
+          "text": "本例是非Nocardia中央潰瘍，可把早期SCUT次群視為主要療效依據；在告知眼壓與上皮風險後，以較佳長期視力作為加藥的預期利益",
+          "rationale": "早期次群訊號可用於討論，卻不能取代總體RCT結果或成為本例預期改善的確證；SCUT II並未驗證常規添加的總體優勢。",
+          "whenTrue": "若有與本例族群相符、事先設定並經確認的效益證據，可較有把握把相應利益納入預期。"
+        },
+        {
+          "text": "本例仍擔心中央疤痕，可先用輔助CXL替代類固醇；SCUT II對角膜結構的結果，使CXL比單用抗生素更適合作為降低疤痕的依據",
+          "rationale": "SCUT II沒有支持以CXL改善這個結構目標，反而報告較大疤痕；不能以其抗菌機轉推導已證實的臨床淨利益。",
+          "whenTrue": "若特定病況與方法有相符的臨床效益證據，才能以該證據選擇輔助手段；此試驗不提供本選項所稱的支持。"
+        },
+        {
+          "text": "先確認感染控制與監測能力，再討論是否試用輔助類固醇；說明早期次群訊號與SCUT II總體結果不同，這位病人的淨獲益仍有不確定性",
+          "rationale": "這正確區分探索訊號、總體比較及個體選擇，同時保留在病原與控制狀態適當時作個別權衡的空間。",
+          "whenTrue": "有足夠病原評估與追蹤條件，並需在不確定平均效益下討論個別抗炎選擇時。"
+        },
+        {
+          "text": "本例先等到上皮完全閉合且培養轉陰，再討論添加類固醇；把這兩項當成SCUT系列已驗證、能確保抗炎效益的選案條件",
+          "rationale": "在某些個案延後抗炎可能有臨床理由，但這並非SCUT系列驗證的效益保證，也把臨床選案條件與試驗設計混為一談。",
+          "whenTrue": "若本例本身有持續感染或上皮風險，醫師可因個案理由延後；不能把延後解釋為試驗已證實的保證。"
+        }
+      ],
+      "correctIndex": 2,
+      "closestDistractorIndex": 0,
+      "reasoningSteps": [
+        "先確認本例接近典型細菌試驗族群，而非把所有感染混在一起",
+        "分清探索性次群訊號、總體隨機試驗結論與個體治療保證",
+        "以不確定效益及監測條件做共享決策，保留病原特異的禁忌與警訊"
+      ],
+      "explanation": "先確認本例接近典型細菌試驗族群，而非把所有感染混在一起 → 分清探索性次群訊號、總體隨機試驗結論與個體治療保證 → 以不確定效益及監測條件做共享決策，保留病原特異的禁忌與警訊。爭點不是「類固醇永遠可用或永遠不可用」，而是總體RCT未證實優勢時，能否仍把次群線索包裝成強制通則。",
+      "decisiveDiscriminator": "爭點不是「類固醇永遠可用或永遠不可用」，而是總體RCT未證實優勢時，能否仍把次群線索包裝成強制通則。",
+      "counterfactual": "若後續培養改報Nocardia或重新懷疑真菌／阿米巴，便不能沿用本例「典型細菌、感染受控」的權衡起點。",
+      "testConcept": "區分總體試驗、次群訊號與病原適用範圍",
+      "questionType": "clinical-reasoning",
+      "difficulty": "advanced",
+      "authoredAt": "2026-10-28",
+      "caseType": "synthetic-original",
+      "externalRefs": [
+        {
+          "url": "https://jamanetwork.com/journals/jamaophthalmology/fullarticle/2836544",
+          "title": "Steroids and Cross-Linking for Ulcer Treatment: The SCUT II Randomized Clinical Trial",
+          "locator": "Methods: exclusion criteria; Conclusions",
+          "checkedOn": "2026-10-28"
+        },
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3498612/",
+          "title": "Nocardia keratitis: Clinical course and effect of corticosteroids",
+          "locator": "原始研究／官方文件",
+          "checkedOn": "2026-10-28"
+        }
+      ],
+      "sourceEvidenceIds": [
+        "scut2-2025",
+        "scut-nocardia"
+      ],
+      "revisionNote": "2026-10-28：改用同層級、長度相近之專業競爭方案；錯誤由病例與證據適用條件決定，而非極端語氣。",
+      "questionScope": "original-practice",
+      "bookId": "bcsc-s08",
+      "unitIds": [
+        "bcsc-s08-ch012-u02"
+      ],
+      "chapterIds": [
+        "bcsc-s08-ch012"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            336,
+            337,
+            338,
+            339,
+            340,
+            341,
+            342,
+            353,
+            357
+          ],
+          "printedPages": [
+            "317",
+            "318",
+            "319",
+            "320",
+            "321",
+            "322",
+            "323",
+            "334",
+            "338"
+          ],
+          "chapterHeading": "Infectious Diseases of the Cornea and External Eye: Bacterial, Fungal, and Parasitic Infections",
+          "bookId": "bcsc-s08"
+        }
+      ],
+      "sourceRefProvenance": "Existing verified curriculum anchors identify related learning units; external references support the new medical claims.",
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "difficultyCalibration": "editor-rated-hard; not exam-validated",
+      "cognitiveTags": [
+        "multi-step",
+        "conflicting-evidence",
+        "management-sequencing"
+      ],
+      "batchId": "deep-dives-20261028",
+      "syntheticCase": true,
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "extra-20261022-q044",
+      "questionScope": "original-practice",
+      "bookId": "bcsc-s12",
+      "chapterIds": [
+        "bcsc-s12-ch006"
+      ],
+      "unitIds": [
+        "bcsc-s12-ch006-u01"
+      ],
+      "stem": "合成病例：缺血性CRVO接受anti-VEGF後，黃斑OCT已乾且視力由極差改善後進入平台。廣泛後極部無灌流仍存在。今天裂隙燈與gonioscopy未見NVI/NVA，病人能可靠回診。有人主張既然OCT乾了便可大幅延長追蹤；另一人主張只要有大片無灌流就立刻PRP。哪個計畫最能區分目前兩項治療目標？",
+      "options": [
+        {
+          "text": "維持固定anti-VEGF作黃斑及缺血風險控制，隨乾OCT把iris與gonioscopy監測間隔一併拉長",
+          "rationale": "anti-VEGF改善水腫不等於消除缺血或永久預防新生血管，停藥或間隔改變後仍可能出現前節新生血管。",
+          "whenTrue": "注射追蹤仍需依實際水腫與視力反應個別規畫，不能取代專門的新生血管監測。"
+        },
+        {
+          "text": "即使尚無NVI/NVA，也先依無灌流範圍做預防性PRP，再由黃斑OCT決定後續注射",
+          "rationale": "無灌流表示風險，但在無NVI/NVA且可密切追蹤時，不應把預防性PRP當普遍必做；PRP也不是CRVO水腫的等價替代療法。",
+          "whenTrue": "無法可靠監測或已出現新生血管等特殊情境，才需另外討論PRP時機及目的。"
+        },
+        {
+          "text": "因乾OCT且視力平台先停注射，降低複診頻率；若視力或OCT再惡化，再加強前節評估",
+          "rationale": "乾OCT與視力平台可影響是否繼續注射，但沒有回答虹膜或房角是否正開始長新血管；若等中心視力再掉或OCT再濕才恢復前節評估，可能延誤發現與黃斑液體不同步的併發症。",
+          "whenTrue": "病情已達穩定且專科評估不再需要密切監測時才逐步調整，並非由一次乾OCT決定。"
+        },
+        {
+          "text": "分開評估注射對水腫的收益與NV風險；保留虹膜/房角監測，依NV及追蹤可靠性討論PRP",
+          "rationale": "黃斑活動、視力潛能與缺血新生血管風險是不同軸。此方案承認乾OCT的意義，又沒有用它取消仍存在的缺血風險。",
+          "whenTrue": "缺血性CRVO無NV且可可靠追蹤時，依監測結果與個別風險決定後續。"
+        }
+      ],
+      "correctIndex": 3,
+      "explanation": "先把OCT乾燥解讀為目前黃斑液體受控，不推論無灌流已逆轉 → 用iris檢查與gonioscopy獨立追蹤NVI/NVA，而非只讀黃斑OCT → 依水腫收益個別調整注射，同時按缺血風險與可追蹤性安排NV監測。「能可靠回診、目前無NVI/NVA」使密切監測與自動預防性PRP之間有可用分界；乾OCT不是解除監測的理由。",
+      "testConcept": "CRVO的黃斑療效與缺血新生血管風險不能用同一個OCT終點代替",
+      "difficulty": "advanced",
+      "difficultyCalibration": "editor-rated-hard; not exam-validated",
+      "questionType": "clinical-reasoning",
+      "domain": "retina",
+      "cognitiveTags": [
+        "multi-step",
+        "conflicting-evidence",
+        "management-sequencing"
+      ],
+      "reasoningSteps": [
+        "先把OCT乾燥解讀為目前黃斑液體受控，不推論無灌流已逆轉",
+        "用iris檢查與gonioscopy獨立追蹤NVI/NVA，而非只讀黃斑OCT",
+        "依水腫收益個別調整注射，同時按缺血風險與可追蹤性安排NV監測"
+      ],
+      "closestDistractorIndex": 1,
+      "decisiveDiscriminator": "「能可靠回診、目前無NVI/NVA」使密切監測與自動預防性PRP之間有可用分界；乾OCT不是解除監測的理由。",
+      "counterfactual": "若病人無法可靠回診，或新出現NVI/NVA，PRP的討論與時機會改變；不能把本例監測策略機械套用。",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            155,
+            156,
+            157,
+            158,
+            159,
+            160,
+            161,
+            162,
+            163,
+            164,
+            165,
+            166,
+            167,
+            168,
+            169,
+            170,
+            171,
+            172,
+            173
+          ],
+          "printedPages": [
+            "134",
+            "135",
+            "136",
+            "137",
+            "138",
+            "139",
+            "140",
+            "141",
+            "142",
+            "143",
+            "144",
+            "145",
+            "146",
+            "147",
+            "148",
+            "149",
+            "150",
+            "151",
+            "152"
+          ],
+          "chapterHeading": "Ret i nal Vascular Diseases Associated With Cardiovascular Disease",
+          "bookId": "bcsc-s12"
+        }
+      ],
+      "sourceRefProvenance": "Existing verified curriculum anchors identify related learning units; external references support the new medical claims.",
+      "externalRefs": [
+        {
+          "title": "Royal College of Ophthalmologists: Retinal Vein Occlusion Clinical Guidelines",
+          "url": "https://www.rcophth.ac.uk/wp-content/uploads/2026/06/Retinal-vein-occlusion-guideline.pdf",
+          "locator": "pp. 4–6, 19–27: macular oedema, ischaemic CRVO and neovascularisation",
+          "version": "January 2022 document; URL hosting path is not the guideline year",
+          "checkedAt": "2026-10-28"
+        }
+      ],
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "status": "source-checked",
+      "readiness": "ready",
+      "authoredAt": "2026-10-28",
+      "batchId": "deep-dives-20261028",
+      "syntheticCase": true
+    },
+    {
+      "id": "extra-20261022-q045",
+      "questionScope": "original-practice",
+      "bookId": "bcsc-s12",
+      "chapterIds": [
+        "bcsc-s12-ch006"
+      ],
+      "unitIds": [
+        "bcsc-s12-ch006-u01"
+      ],
+      "stem": "合成病例：另一名缺血性CRVO病人的黃斑在anti-VEGF後仍維持乾燥，IOP也正常；本次gonioscopy卻確認新生血管跨越房角原有結構，瞳孔緣亦出現細小不規則血管，房角尚未廣泛黏閉。若把當前治療目標放在避免新生血管併發症，哪個安排最合理？",
+      "options": [
+        {
+          "text": "先維持原本注射並密切觀察NV，等IOP明顯上升或房角開始黏閉，再加入PRP",
+          "rationale": "NVI/NVA本身已是需要處理的前節新生血管事件；等到高壓與PAS形成會失去較早介入的機會。",
+          "whenTrue": "若目前只是正常血管而未確認NV，應先完成正確辨識，而不是把正常IOP當排除依據。"
+        },
+        {
+          "text": "及時以anti-VEGF輔助壓抑NV並完成足量PRP，同步監測房角與IOP，而非只追黃斑OCT",
+          "rationale": "anti-VEGF與PRP處理的時間尺度及目標不同：前者可幫助短期退縮，後者對持續缺血刺激提供較耐久的控制。",
+          "whenTrue": "確認ischaemic CRVO相關NVI/NVA且有可治療視網膜時。"
+        },
+        {
+          "text": "先縮短anti-VEGF間隔，待虹膜及房角血管完全退縮後，再評估是否仍需PRP",
+          "rationale": "短期退縮及黃斑乾燥並不證明缺血驅動消失；注射不能直接當PRP的持久替代。",
+          "whenTrue": "當介質或病況暫時無法施作PRP時，注射可作過渡，仍需明確後續計畫。"
+        },
+        {
+          "text": "改以dexamethasone植入物處理相關炎症與血管滲漏，再依眼壓和OCT反應決定是否PRP",
+          "rationale": "Dexamethasone可在選定RVO水腫情境考慮，但本例新增目標是NVI/NVA的缺血驅動；以抗炎植入物的OCT反應作PRP閘門沒有對應依據，亦需考量其IOP風險。",
+          "whenTrue": "針對黃斑水腫選藥時可討論類固醇植入物，但仍需另外處理已存在的前節新生血管。"
+        }
+      ],
+      "correctIndex": 1,
+      "explanation": "用虹膜與房角實際新生血管確認風險已從「可能」變成「已發生」 → 區分anti-VEGF快速退縮作用與PRP降低缺血刺激的角色 → 把及時NV處理、房角與IOP監測整合，而非等待高壓才行動。關鍵是已確認NVI/NVA，而不是OCT或IOP數字；眼壓正常不能把新生血管事件降回單純黃斑追蹤。",
+      "testConcept": "正常眼壓不等於尚無需處理的NVI/NVA；短期血管退縮與耐久缺血控制需並行",
+      "difficulty": "advanced",
+      "difficultyCalibration": "editor-rated-hard; not exam-validated",
+      "questionType": "clinical-reasoning",
+      "domain": "retina",
+      "cognitiveTags": [
+        "multi-step",
+        "conflicting-evidence",
+        "management-sequencing"
+      ],
+      "reasoningSteps": [
+        "用虹膜與房角實際新生血管確認風險已從「可能」變成「已發生」",
+        "區分anti-VEGF快速退縮作用與PRP降低缺血刺激的角色",
+        "把及時NV處理、房角與IOP監測整合，而非等待高壓才行動"
+      ],
+      "closestDistractorIndex": 2,
+      "decisiveDiscriminator": "關鍵是已確認NVI/NVA，而不是OCT或IOP數字；眼壓正常不能把新生血管事件降回單純黃斑追蹤。",
+      "counterfactual": "若重複gonioscopy確認只是正常虹膜血管、沒有NVI/NVA且追蹤可靠，便不應直接套用本題的已發NV治療分支。",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            155,
+            156,
+            157,
+            158,
+            159,
+            160,
+            161,
+            162,
+            163,
+            164,
+            165,
+            166,
+            167,
+            168,
+            169,
+            170,
+            171,
+            172,
+            173
+          ],
+          "printedPages": [
+            "134",
+            "135",
+            "136",
+            "137",
+            "138",
+            "139",
+            "140",
+            "141",
+            "142",
+            "143",
+            "144",
+            "145",
+            "146",
+            "147",
+            "148",
+            "149",
+            "150",
+            "151",
+            "152"
+          ],
+          "chapterHeading": "Ret i nal Vascular Diseases Associated With Cardiovascular Disease",
+          "bookId": "bcsc-s12"
+        }
+      ],
+      "sourceRefProvenance": "Existing verified curriculum anchors identify related learning units; external references support the new medical claims.",
+      "externalRefs": [
+        {
+          "title": "Royal College of Ophthalmologists: Retinal Vein Occlusion Clinical Guidelines",
+          "url": "https://www.rcophth.ac.uk/wp-content/uploads/2026/06/Retinal-vein-occlusion-guideline.pdf",
+          "locator": "pp. 4–6, 19–27: macular oedema, ischaemic CRVO and neovascularisation",
+          "version": "January 2022 document; URL hosting path is not the guideline year",
+          "checkedAt": "2026-10-28"
+        }
+      ],
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "status": "source-checked",
+      "readiness": "ready",
+      "authoredAt": "2026-10-28",
+      "batchId": "deep-dives-20261028",
+      "syntheticCase": true
+    },
+    {
+      "id": "extra-20261022-q046",
+      "questionScope": "original-practice",
+      "bookId": "bcsc-s05",
+      "chapterIds": [
+        "bcsc-s05-ch004"
+      ],
+      "unitIds": [
+        "bcsc-s05-ch004-u04",
+        "bcsc-s05-ch004-u08"
+      ],
+      "stem": "合成病例：已由EDI-OCT確認埋藏型optic disc drusen的病人，過去視盤外觀與視野穩定。最近出現新的搏動性耳鳴及姿勢相關短暫灰視；檢查發現原本沒有的視網膜皺褶，品質合格的連續OCT顯示額外RNFL腫脹，視野盲點也擴大。中央視力仍佳，血壓已確認不高。門診可以安排MRI及靜脈影像；目前尚未做LP。哪個推論與檢查順序最合理？",
+      "options": [
+        {
+          "text": "先按drusen相關變化安排短間隔OCT及視野，確定仍持續增厚後才加入神經影像",
+          "rationale": "Drusen可以解釋原本隆起，但不能自動排除其上另有真正disc edema；新症狀與可重現變化需要獨立解釋。",
+          "whenTrue": "若外觀、功能及症狀均長期穩定，才較支持按既定drusen追蹤。"
+        },
+        {
+          "text": "先以LP確認是否顱壓升高，再依opening pressure決定MRI及靜脈影像的必要性",
+          "rationale": "中央視力保留不能排除papilledema；血壓正常只排除部分原因。IIH是排除性診斷，必須先處理顱內及靜脈病因。",
+          "whenTrue": "完成合適影像並排除次發原因後，LP才是診斷整合的一部分，且opening pressure不能單獨解讀。"
+        },
+        {
+          "text": "將drusen與新浮腫視為可能共存，先作腦及靜脈影像排除次發原因，再依結果安排LP",
+          "rationale": "新功能與結構變化使既有drusen不足以解釋全貌。先影像含靜脈系統再LP，可避免把靜脈血栓等可處理原因錯稱IIH。",
+          "whenTrue": "有真正papilledema疑慮或不能由穩定pseudopapilledema解釋的新變化時。"
+        },
+        {
+          "text": "先作brain MRI排除腫塊；若正常便作LP，只有壓力升高時才追加MRV/CTV",
+          "rationale": "正常brain MRI未完成靜脈系統的評估；將MRV/CTV放在LP壓力結果之後，可能把未排除的靜脈病因誤當IIH。",
+          "whenTrue": "依影像禁忌與臨床條件可選擇MRI/MRV或適當CT/CTV，但需回答靜脈病因問題，不能只以腦實質影像取代。"
+        }
+      ],
+      "correctIndex": 2,
+      "explanation": "比較新舊症狀、OCT與視野，辨出不能由穩定drusen充分解釋的變化 → 將「存在drusen」與「沒有真正浮腫」拆成不同命題 → 先完成腦與靜脈影像，再依結果安排LP及次發病因評估。新皺褶、可重現額外RNFL腫脹和新症狀的組合，比單次證實drusen更能決定這次需要升級評估。",
+      "testConcept": "既有確診不會自動排除共存病變；papilledema疑慮需先排顱內與靜脈原因",
+      "difficulty": "advanced",
+      "difficultyCalibration": "editor-rated-hard; not exam-validated",
+      "questionType": "clinical-reasoning",
+      "domain": "neuro-pupils",
+      "cognitiveTags": [
+        "multi-step",
+        "conflicting-evidence",
+        "management-sequencing"
+      ],
+      "reasoningSteps": [
+        "比較新舊症狀、OCT與視野，辨出不能由穩定drusen充分解釋的變化",
+        "將「存在drusen」與「沒有真正浮腫」拆成不同命題",
+        "先完成腦與靜脈影像，再依結果安排LP及次發病因評估"
+      ],
+      "closestDistractorIndex": 0,
+      "decisiveDiscriminator": "新皺褶、可重現額外RNFL腫脹和新症狀的組合，比單次證實drusen更能決定這次需要升級評估。",
+      "counterfactual": "若症狀、視野與連續OCT均無變化，僅有長期穩定且明確的drusen，則不會由本題證據直接推導出緊急LP流程。",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            154,
+            155,
+            156,
+            157,
+            159,
+            160,
+            161
+          ],
+          "printedPages": [
+            "135",
+            "136",
+            "137",
+            "138",
+            "140",
+            "141",
+            "142"
+          ],
+          "chapterHeading": "The Patient With Decreased Vision Due to Retinal, Optic Nerve, and Chiasmal Diseases",
+          "bookId": "bcsc-s05"
+        },
+        {
+          "pdfPages": [
+            154,
+            155,
+            156,
+            194,
+            195
+          ],
+          "printedPages": [
+            "135",
+            "136",
+            "137",
+            "175",
+            "176"
+          ],
+          "chapterHeading": "The Patient With Decreased Vision Due to Retinal, Optic Nerve, and Chiasmal Diseases",
+          "bookId": "bcsc-s05"
+        }
+      ],
+      "sourceRefProvenance": "Existing verified curriculum anchors identify related learning units; external references support the new medical claims.",
+      "externalRefs": [
+        {
+          "title": "Idiopathic intracranial hypertension: consensus guidelines on management",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6166610/",
+          "locator": "Investigation of papilloedema: MRI/venography before LP; diagnostic uncertainty",
+          "version": "2018",
+          "checkedAt": "2026-10-28"
+        }
+      ],
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "status": "source-checked",
+      "readiness": "ready",
+      "authoredAt": "2026-10-28",
+      "batchId": "deep-dives-20261028",
+      "syntheticCase": true
+    },
+    {
+      "id": "extra-20261022-q047",
+      "questionScope": "original-practice",
+      "bookId": "bcsc-s05",
+      "chapterIds": [
+        "bcsc-s05-ch011"
+      ],
+      "unitIds": [
+        "bcsc-s05-ch011-u02"
+      ],
+      "stem": "合成病例：成人突然出現單側頸痛與眼眶痛；與舊照片相比，當側新出現輕度ptosis，anisocoria在暗處更明顯且有dilation lag。發作後數小時做apraclonidine沒有出現典型反轉；非增強head CT也未見異常。沒有肢體無力。病人無顯影劑禁忌，CTA當下可做。以下哪個後續方案對「陰性檢查」的解讀最恰當？",
+      "options": [
+        {
+          "text": "依急性痛性Horner風險現在作head/neck CTA；陰性藥測與非增強CT不作延後的依據",
+          "rationale": "藥測可在急性期偽陰性，非增強CT也未回答頸動脈壁與血管腔問題；臨床時序與定位仍支持急迫的血管影像。",
+          "whenTrue": "急性、疼痛、可疑Horner且沒有阻止適當CTA的特殊條件時。"
+        },
+        {
+          "text": "因初次藥測陰性，待交感反應穩定後重做apraclonidine，再用確認結果安排血管影像",
+          "rationale": "把確認性藥測當成急性危險病因評估的閘門，會錯把敏感度限制轉為安全保證。",
+          "whenTrue": "慢性、無疼痛且急症已合理排除的個案，可在適合情境補做藥理確認。"
+        },
+        {
+          "text": "先用brain MRI尋找中樞原因，若未見腦幹病灶再把影像延伸到頸部血管",
+          "rationale": "缺少其他中樞定位徵象，而急性同側頸痛使血管評估更急迫；把CTA排在brain MRI陰性之後可能增加不必要延遲。",
+          "whenTrue": "若影像目標是已定位的腦實質病灶，MRI有其角色，但不能替代未回答的血管問題。"
+        },
+        {
+          "text": "先作頸動脈超音波作第一線篩檢，有異常再作CTA，以減少不必要顯影劑檢查",
+          "rationale": "超音波對可見段有用途，但陰性不能充分涵蓋遠端頸部、顱底等部位，不能取代此急性情境的完整血管影像。",
+          "whenTrue": "特定血管追蹤或作輔助檢查時可使用，結果仍需依其涵蓋範圍解讀。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "用暗處anisocoria、dilation lag與新ptosis定位交感路徑問題 → 辨認急性apraclonidine陰性及非增強CT的排除限制 → 依痛性急性Horner風險安排適當head/neck血管影像，不等待藥測轉陽。這不是「藥測與臨床二選一」：急性時點下陰性藥測缺乏足夠排除力，而CT檢查目標又與頸動脈評估不同。",
+      "testConcept": "檢查陰性是否有排除力，取決於急性時序與它實際檢查的解剖範圍",
+      "difficulty": "advanced",
+      "difficultyCalibration": "editor-rated-hard; not exam-validated",
+      "questionType": "clinical-reasoning",
+      "domain": "neuro-pupils",
+      "cognitiveTags": [
+        "multi-step",
+        "conflicting-evidence",
+        "management-sequencing"
+      ],
+      "reasoningSteps": [
+        "用暗處anisocoria、dilation lag與新ptosis定位交感路徑問題",
+        "辨認急性apraclonidine陰性及非增強CT的排除限制",
+        "依痛性急性Horner風險安排適當head/neck血管影像，不等待藥測轉陽"
+      ],
+      "closestDistractorIndex": 1,
+      "decisiveDiscriminator": "這不是「藥測與臨床二選一」：急性時點下陰性藥測缺乏足夠排除力，而CT檢查目標又與頸動脈評估不同。",
+      "counterfactual": "若舊照片已證明多年相同且穩定、沒有新疼痛或神經症狀，便不能照搬本題急性痛性路徑的緊急程度。",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            330,
+            331,
+            332,
+            333,
+            334,
+            335,
+            336,
+            337,
+            338,
+            339,
+            340,
+            341,
+            342,
+            343,
+            344,
+            345
+          ],
+          "printedPages": [
+            "311",
+            "326"
+          ],
+          "chapterHeading": "The Patient With Pupillary Abnormalities",
+          "bookId": "bcsc-s05"
+        }
+      ],
+      "sourceRefProvenance": "Existing verified curriculum anchors identify related learning units; external references support the new medical claims.",
+      "externalRefs": [
+        {
+          "title": "ACR Appropriateness Criteria: Horner Syndrome",
+          "url": "https://acsearch.acr.org/docs/3195156/Narrative",
+          "locator": "Variant 1: acute painful or traumatic adult Horner syndrome",
+          "version": "2025",
+          "checkedAt": "2026-10-28",
+          "accessNote": "本次官方搜尋索引可讀；直接全文頁回傳403。"
+        },
+        {
+          "title": "Apraclonidine Is Better Than Cocaine for Detection of Horner Syndrome",
+          "url": "https://www.frontiersin.org/journals/neurology/articles/10.3389/fneur.2019.00055/full",
+          "locator": "Original retrospective diagnostic study; limits of negative results in acute lesions",
+          "version": "2019",
+          "checkedAt": "2026-10-28"
+        }
+      ],
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "status": "source-checked",
+      "readiness": "ready",
+      "authoredAt": "2026-10-28",
+      "batchId": "deep-dives-20261028",
+      "syntheticCase": true
+    },
+    {
+      "id": "extra-20261022-q048",
+      "domain": "cornea-uveitis",
+      "stem": "一名免疫功能正常成人反覆單眼前葡萄膜炎，每次眼壓上升與前房細胞數不成比例；本次另見局部虹膜萎縮及角膜內皮損傷。上一次在發作已緩解、接受治療後取到少量房水，HSV、VZV與CMV PCR均陰性；血清CMV IgG陽性。團隊正考慮因反覆發作而升級全身免疫抑制。今天眼壓已先接受控制，仍可見活動前房細胞；可安排專科眼內取樣，沒有必須立刻使用高劑量全身抗炎的危急狀況。就病因評估而言，哪項最合適？",
+      "options": [
+        {
+          "text": "先按HSV型復發給予經驗性抗病毒合併局部抗炎，待發作平息後再抽房水確認；在兩次發作之間評估是否需要全身免疫治療",
+          "rationale": "強烈HSV表型或不能等待時經驗治療可合理；但本例可在活動期取樣，先治療到安靜再抽樣會重複前次低排除力的問題，也未充分區分CMV等病因。",
+          "whenTrue": "取樣暫不可行而眼病急迫、臨床強烈支持某病原時，可先治療並規畫合適時機檢驗。"
+        },
+        {
+          "text": "先依CMV IgG與高壓表型給予抗CMV療程並監測全身毒性；若眼病沒有如預期改善，再以眼內檢查釐清其他感染或免疫病因",
+          "rationale": "監測毒性不能補上診斷缺口；血清暴露加表型不足以判定眼內CMV，且本例當下已有可安全取得較有用證據的機會。",
+          "whenTrue": "曾有可靠眼內CMV證據且這次符合已知復發型態時，可依專科計畫先治療。"
+        },
+        {
+          "text": "為降低眼內取樣風險，先重做血液病毒PCR與抗體，再按全身檢驗和局部抗炎反應決定是否升級免疫抑制",
+          "rationale": "全身檢驗在播散性感染等情境有用，但不能等同侷限眼內病原證據；本例的治療選擇需要解決眼內感染是否存在。",
+          "whenTrue": "有免疫抑制、全身症狀或疑播散性感染時，血液檢查是必要評估的一部分。"
+        },
+        {
+          "text": "在目前活動表現下規畫足量、涵蓋合適病原的眼內檢查，連同前次取樣時機重新判讀陰性結果，再選病原導向或免疫抑制策略",
+          "rationale": "活動表型仍支持感染，而前次樣本時機與量有限；現在取樣較直接回答治療分岔，既不把IgG當確診，也不忽略PCR可能偽陰性。",
+          "whenTrue": "活動期表型與原檢查結論不一致，且當前可安全取樣、結果將改變治療時。"
+        }
+      ],
+      "correctIndex": 3,
+      "closestDistractorIndex": 1,
+      "reasoningSteps": [
+        "區分血清暴露證據與眼內活動感染證據",
+        "依活動期表型與前次取樣限制評估陰性結果的排除力",
+        "先修正可改變治療的診斷不確定性，再決定是否安全升級免疫抑制"
+      ],
+      "explanation": "區分血清暴露證據與眼內活動感染證據 → 依活動期表型與前次取樣限制評估陰性結果的排除力 → 先修正可改變治療的診斷不確定性，再決定是否安全升級免疫抑制。眼壓高加虹膜萎縮不是CMV的單獨確診；真正需要處理的是高度相容表型與低排除力陰性檢查之間的衝突。",
+      "decisiveDiscriminator": "眼壓高加虹膜萎縮不是CMV的單獨確診；真正需要處理的是高度相容表型與低排除力陰性檢查之間的衝突。",
+      "counterfactual": "若在適當活動期取得可信的陰性眼內檢查，且有另一個充分支持的非感染診斷，則持續以病毒作唯一解釋的理由會下降。",
+      "testConcept": "把陰性PCR的排除力放回取樣時機與臨床前機率",
+      "questionType": "clinical-reasoning",
+      "difficulty": "advanced",
+      "authoredAt": "2026-10-28",
+      "caseType": "synthetic-original",
+      "externalRefs": [
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5084402/",
+          "title": "Aqueous humor polymerase chain reaction in uveitis – utility and safety",
+          "locator": "原始研究／官方文件",
+          "checkedOn": "2026-10-28"
+        },
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8501153/",
+          "title": "Classification Criteria for Cytomegalovirus Anterior Uveitis",
+          "locator": "原始研究／官方文件",
+          "checkedOn": "2026-10-28"
+        }
+      ],
+      "sourceEvidenceIds": [
+        "uveitis-pcr",
+        "sun-cmv"
+      ],
+      "revisionNote": "2026-10-28：改用同層級、長度相近之專業競爭方案；錯誤由病例與證據適用條件決定，而非極端語氣。",
+      "questionScope": "original-practice",
+      "bookId": "bcsc-s09",
+      "unitIds": [
+        "bcsc-s09-ch008-u01",
+        "bcsc-s09-ch012-u01"
+      ],
+      "chapterIds": [
+        "bcsc-s09-ch008",
+        "bcsc-s09-ch012"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            155,
+            162,
+            166,
+            167,
+            170
+          ],
+          "printedPages": [
+            "138",
+            "145",
+            "149",
+            "150",
+            "153"
+          ],
+          "chapterHeading": "Noninfectious Anterior and Intermediate Uveitis",
+          "bookId": "bcsc-s09"
+        },
+        {
+          "pdfPages": [
+            272,
+            273,
+            274,
+            275,
+            276,
+            277,
+            278,
+            279,
+            280,
+            281,
+            282,
+            283,
+            391
+          ],
+          "printedPages": [
+            "255",
+            "256",
+            "257",
+            "258",
+            "259",
+            "260",
+            "261",
+            "262",
+            "263",
+            "264",
+            "265",
+            "266",
+            "374"
+          ],
+          "chapterHeading": "Infectious Uveitis: Nonbacterial Causes",
+          "bookId": "bcsc-s09"
+        }
+      ],
+      "sourceRefProvenance": "Existing verified curriculum anchors identify related learning units; external references support the new medical claims.",
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "difficultyCalibration": "editor-rated-hard; not exam-validated",
+      "cognitiveTags": [
+        "multi-step",
+        "conflicting-evidence",
+        "management-sequencing"
+      ],
+      "batchId": "deep-dives-20261028",
+      "syntheticCase": true,
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "extra-20261022-q049",
+      "domain": "cornea-uveitis",
+      "stem": "一名年長成人因雙眼反覆玻璃體細胞及視力霧化被當作慢性葡萄膜炎，數次口服類固醇後改善、減藥後再發。現在前房反應很少，OCT見多處RPE下結節狀浸潤；既有感染評估未找到相應病原。腦部MRI沒有占位。上次玻璃體細胞學陰性，但採樣在類固醇療程中完成，報告註記檢體細胞稀少。當前視功能尚穩定，沒有需立即加強類固醇的危急表現；可安全安排玻璃體取樣，病理團隊也能預先配合處理。下列哪個計畫最能解決升級免疫抑制前的關鍵風險？",
+      "options": [
+        {
+          "text": "先用較能減少復發的免疫抑制療程，同時以OCT與玻璃體細胞追蹤；若RPE下病灶仍進展，再安排第二次診斷性玻璃體切除",
+          "rationale": "對已充分確診免疫性葡萄膜炎，這種減少類固醇的策略可合理；本例診斷仍受低產量樣本限制，先升級可能再次降低後續取樣價值。",
+          "whenTrue": "可靠排除感染與masquerade、且有充分證據支持非感染免疫性疾病時。"
+        },
+        {
+          "text": "先與病理協調第二次玻璃體診斷取樣及處理，在臨床允許下減少取樣前的類固醇干擾，整合細胞學、flow與輔助指標並安排分期",
+          "rationale": "目前可安全取得較有診斷力的眼內檢體；這直接修補前次低產量陰性的缺口，也不把腦MRI陰性誤作眼病的排除證據。",
+          "whenTrue": "非典型表型仍有masquerade疑慮，且眼內取樣可行、結果會改變長期治療時。"
+        },
+        {
+          "text": "優先重複腦MRI及腦脊液評估，等找到中樞病灶後再選取樣部位；眼內先以原類固醇劑量控制，以免第二次手術仍得到陰性結果",
+          "rationale": "中樞評估屬分期的重要部分，但眼部可先於腦病，等待中樞靶點可能延遲目前可行的眼內診斷；維持類固醇也不改善低產量問題。",
+          "whenTrue": "已出現適合優先取樣的中樞病灶，或眼內取樣風險使其他診斷部位更適合時。"
+        },
+        {
+          "text": "先抽房水測MYD88與IL-10，以支持性指標選擇免疫或腫瘤導向治療；依初始療效再決定是否需要重做玻璃體細胞學",
+          "rationale": "較低侵入性指標有輔助價值，但其結果不能各自替代可行的細胞學確認；用治療反應補診斷也會重演原本的陷阱。",
+          "whenTrue": "細胞性檢體取得受限時，可由多專科將這些指標作為輔助，並保留後續確認計畫。"
+        }
+      ],
+      "correctIndex": 1,
+      "closestDistractorIndex": 3,
+      "reasoningSteps": [
+        "不把治療反應及一次低產量陰性檢查當作病因證明",
+        "辨識眼部先發與RPE下／玻璃體表型的masquerade可能",
+        "先提高可診斷檢體的取得與處理品質，配合必要分期，再決定長期治療"
+      ],
+      "explanation": "不把治療反應及一次低產量陰性檢查當作病因證明 → 辨識眼部先發與RPE下／玻璃體表型的masquerade可能 → 先提高可診斷檢體的取得與處理品質，配合必要分期，再決定長期治療。最重要的不是背出一個罕見病名，而是辨認前一次陰性檢查在何種治療與檢體條件下不能承擔排除責任。",
+      "decisiveDiscriminator": "最重要的不是背出一個罕見病名，而是辨認前一次陰性檢查在何種治療與檢體條件下不能承擔排除責任。",
+      "counterfactual": "若發生急迫視功能或神經惡化，不能為提高檢體產量而機械式延後處置；需專科緊急協調診斷與治療時序。",
+      "testConcept": "治療反應與低品質陰性檢查可能共同掩蓋masquerade",
+      "questionType": "clinical-reasoning",
+      "difficulty": "advanced",
+      "authoredAt": "2026-10-28",
+      "caseType": "synthetic-original",
+      "externalRefs": [
+        {
+          "url": "https://onlinelibrary.wiley.com/doi/full/10.1002/hem3.89",
+          "title": "Primary central nervous system lymphomas: EHA–ESMO Clinical Practice Guideline for diagnosis, treatment and follow-up",
+          "locator": "Diagnosis; ocular lymphoma paragraphs; recommendations",
+          "checkedOn": "2026-10-28"
+        }
+      ],
+      "sourceEvidenceIds": [
+        "eha-esmo-2024"
+      ],
+      "revisionNote": "2026-10-28：改用同層級、長度相近之專業競爭方案；錯誤由病例與證據適用條件決定，而非極端語氣。",
+      "questionScope": "original-practice",
+      "bookId": "bcsc-s09",
+      "unitIds": [
+        "bcsc-s09-ch005-u02"
+      ],
+      "chapterIds": [
+        "bcsc-s09-ch005"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            85,
+            88,
+            89,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            248,
+            249,
+            257,
+            258
+          ],
+          "printedPages": [
+            "68",
+            "71",
+            "72",
+            "81",
+            "82",
+            "83",
+            "84",
+            "85",
+            "86",
+            "87",
+            "88",
+            "89",
+            "90",
+            "91",
+            "92",
+            "93",
+            "231",
+            "232",
+            "240",
+            "241"
+          ],
+          "chapterHeading": "Diagnostic Considerations in Uveitis",
+          "bookId": "bcsc-s09"
+        }
+      ],
+      "sourceRefProvenance": "Existing verified curriculum anchors identify related learning units; external references support the new medical claims.",
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "difficultyCalibration": "editor-rated-hard; not exam-validated",
+      "cognitiveTags": [
+        "multi-step",
+        "conflicting-evidence",
+        "management-sequencing"
+      ],
+      "batchId": "deep-dives-20261028",
+      "syntheticCase": true,
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "extra-20261022-q050",
+      "domain": "optics-biometry",
+      "stem": "一名有Fuchs角膜內皮病變及白內障的病人希望盡快手術。中央角膜厚度575 µm，尚低於某些舊文章常引用的厚度界線，因此轉介單建議直接做白內障即可。可是他晨起霧視明顯、下午較清楚；檢查見中央融合guttae，中央specular影像品質差而周邊細胞讀值尚可。重複Scheimpflug圖形出現等厚線不規則與後表面局部凹陷，黃斑OCT無法解釋其視覺波動。對手術風險的哪個結論最站得住腳？",
+      "options": [
+        {
+          "text": "把症狀、中央測量品質及可重現的斷層訊號一起納入內皮風險，先與病人討論單做白內障、分期或合併內皮手術的不同代價",
+          "rationale": "三組資訊共同降低單一厚度或周邊計數的代表性；它們需要改變風險溝通，但不能獨自指定唯一的手術組合。",
+          "whenTrue": "角膜功能症狀與可靠形態訊號不能由孤立數字充分解釋時。"
+        },
+        {
+          "text": "以未超過傳統厚度界線及尚可的周邊細胞讀值規畫白內障單做，採內皮保護技巧；將晨間霧視的角膜成分留待術後再評估",
+          "rationale": "內皮保護技巧是合理準備，但本例中央資訊不可靠、症狀及形態已有相符警訊，不能把角膜風險評估主要留到術後。",
+          "whenTrue": "術前可靠評估不見水腫訊號且視損由白內障充分解釋，病人接受相關風險時。"
+        },
+        {
+          "text": "將中央細胞無法計數視為儲備不足的主要證據，先安排內皮手術；待角膜清楚後，再以新量測決定白內障與人工水晶體計畫",
+          "rationale": "分期手術可能合適，但無法計數同時涉及guttae與影像品質，不能單憑這個缺值推定一定的功能程度；仍須整合臨床及形態。",
+          "whenTrue": "整體評估已支持內皮失代償，且先處理角膜更符合視覺需求與測量策略時。"
+        },
+        {
+          "text": "依目前斷層水腫徵象優先規畫同次白內障與內皮手術，把圖形變化當作決定時序的主軸，再以術後屈光結果調整視覺目標",
+          "rationale": "圖形可協助風險分層，但不能取代病人視覺目標與完整臨床判讀；本例尚未足以只由圖形決定手術時序。",
+          "whenTrue": "臨床功能、形態與病人需求均支持同次處理，且已討論其屈光與恢復取捨時。"
+        }
+      ],
+      "correctIndex": 0,
+      "closestDistractorIndex": 2,
+      "reasoningSteps": [
+        "把中央與周邊檢查的代表性、品質分開",
+        "把症狀和重現的斷層訊號與絕對厚度整合，而非以切點否決其他證據",
+        "將風險評估帶入手術選擇及告知，但不以單一訊號直接強制合併手術"
+      ],
+      "explanation": "把中央與周邊檢查的代表性、品質分開 → 把症狀和重現的斷層訊號與絕對厚度整合，而非以切點否決其他證據 → 將風險評估帶入手術選擇及告知，但不以單一訊號直接強制合併手術。本題是對「低於切點所以安全」的排除推論提出反證；不是聲稱575 µm本身就是任何手術的指徵。",
+      "decisiveDiscriminator": "本題是對「低於切點所以安全」的排除推論提出反證；不是聲稱575 µm本身就是任何手術的指徵。",
+      "counterfactual": "若沒有角膜相關症狀、可靠檢查亦無水腫訊號，且視損可由白內障解釋，白內障單做的風險討論會不同。",
+      "testConcept": "術前角膜風險是多維評估，不是單一厚度或細胞數闖關",
+      "questionType": "clinical-reasoning",
+      "difficulty": "advanced",
+      "authoredAt": "2026-10-28",
+      "caseType": "synthetic-original",
+      "externalRefs": [
+        {
+          "url": "https://www.escrs.org/escrs-recommendations-for-cataract-surgery",
+          "title": "ESCRS Recommendations for Cataract Surgery",
+          "locator": "4.2.5 Corneal comorbidities; 4.1.2 comorbidities",
+          "checkedOn": "2026-10-28"
+        },
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/31685256/",
+          "title": "Predicting the Prognosis of Fuchs Endothelial Corneal Dystrophy by Using Scheimpflug Tomography",
+          "locator": "原始研究／官方文件",
+          "checkedOn": "2026-10-28"
+        }
+      ],
+      "sourceEvidenceIds": [
+        "escrs-cataract",
+        "fuchs-tomography"
+      ],
+      "revisionNote": "2026-10-28：改用同層級、長度相近之專業競爭方案；錯誤由病例與證據適用條件決定，而非極端語氣。",
+      "questionScope": "original-practice",
+      "bookId": "bcsc-s08",
+      "unitIds": [
+        "bcsc-s08-ch008-u02",
+        "bcsc-s11-ch012-u01"
+      ],
+      "chapterIds": [
+        "bcsc-s08-ch008",
+        "bcsc-s11-ch012"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            226,
+            227,
+            228,
+            229,
+            230,
+            231,
+            232,
+            233,
+            234
+          ],
+          "printedPages": [
+            "207",
+            "208",
+            "209",
+            "210",
+            "211",
+            "212",
+            "213",
+            "214",
+            "215"
+          ],
+          "chapterHeading": "Diagnosis and Management of Corneal Dystrophies",
+          "bookId": "bcsc-s08"
+        },
+        {
+          "pdfPages": [
+            244,
+            246,
+            247,
+            248,
+            249,
+            250,
+            251,
+            252,
+            253,
+            254,
+            255,
+            256,
+            257,
+            258,
+            259,
+            263,
+            264,
+            265,
+            266,
+            267,
+            268,
+            288
+          ],
+          "printedPages": [
+            "227",
+            "229",
+            "230",
+            "231",
+            "232",
+            "233",
+            "234",
+            "235",
+            "236",
+            "237",
+            "238",
+            "239",
+            "240",
+            "241",
+            "242",
+            "246",
+            "247",
+            "248",
+            "249",
+            "250",
+            "251",
+            "271"
+          ],
+          "chapterHeading": "Preparing for Cataract Surgery in Special Situations",
+          "bookId": "bcsc-s11"
+        }
+      ],
+      "sourceRefProvenance": "Existing verified curriculum anchors identify related learning units; external references support the new medical claims.",
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "difficultyCalibration": "editor-rated-hard; not exam-validated",
+      "cognitiveTags": [
+        "multi-step",
+        "conflicting-evidence",
+        "management-sequencing"
+      ],
+      "batchId": "deep-dives-20261028",
+      "syntheticCase": true,
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "extra-20261022-q051",
+      "domain": "optics-biometry",
+      "stem": "一名已停用tamsulosin數月的病人準備第二眼白內障手術。這次術前散瞳良好，未見明顯phacodonesis。第一眼手術紀錄卻寫到灌流下虹膜飄動、逐漸縮瞳及切口脫出，曾臨時加用擴張器。病人因曾停藥後尿滯留，對再度改藥十分擔心；泌尿科希望知道停藥是否能確實避免這次風險。就目前資訊，哪項術前計畫最合理？",
+      "options": [
+        {
+          "text": "先與泌尿科討論延長停藥時間，待排尿狀況穩定後依本次良好散瞳採標準手術流程；若術中再縮瞳，再追加虹膜擴張措施",
+          "rationale": "跨科協調合理，但延長停藥的預防效益未確立，良好散瞳也不能抹去對側眼動態紀錄；因此仍應在手術前明確準備。",
+          "whenTrue": "無強烈既往動態風險且藥物另有需調整的醫療理由時，可協調用藥，仍保留術中應變能力。"
+        },
+        {
+          "text": "先按小瞳孔風險預防，在術前加強散瞳與黏彈劑規畫；若瞳孔維持良好，將既往用藥和對側眼紀錄視為次要資訊",
+          "rationale": "散瞳與黏彈劑可屬策略的一部分，但本例既往術中縮瞳和脫出直接提示動態風險，不能被當次靜態檢查降為次要。",
+          "whenTrue": "僅有可改善的術前散瞳不足，而無相容動態虹膜病史時，這些初步措施更可能足夠。"
+        },
+        {
+          "text": "把曾用藥及第一眼動態紀錄列入術前交班，預先備妥虹膜管理策略；藥物是否調整另與泌尿科權衡，不以停藥取代手術準備",
+          "rationale": "這同時處理較直接的手術證據與停藥的泌尿負擔；準備策略不等於每眼都固定使用同一器材。",
+          "whenTrue": "目前或既往暴露、或對側眼已有相容術中紀錄時。"
+        },
+        {
+          "text": "優先準備囊袋張力環以減少手術中前節不穩，將虹膜器材保留為救援；用目前沒有phacodonesis來決定是否需要額外術前評估",
+          "rationale": "囊袋支撐針對的是懸韌帶／囊袋機轉，不能替代本例已知的虹膜動態準備；無phacodonesis也不降低這個獨立風險。",
+          "whenTrue": "有明確懸韌帶異常時應另外評估囊袋支撐；若同時有虹膜風險，兩套準備需要分開。"
+        }
+      ],
+      "correctIndex": 2,
+      "closestDistractorIndex": 1,
+      "reasoningSteps": [
+        "用第一眼手術記錄辨認真正的動態風險，不只看今天的靜態瞳孔",
+        "分開虹膜問題與懸韌帶／囊袋問題",
+        "保留風險告知與術中準備，藥物調整則與開藥團隊共同權衡"
+      ],
+      "explanation": "用第一眼手術記錄辨認真正的動態風險，不只看今天的靜態瞳孔 → 分開虹膜問題與懸韌帶／囊袋問題 → 保留風險告知與術中準備，藥物調整則與開藥團隊共同權衡。正常術前散瞳與已停藥是兩個看似安心、卻不足排除IFIS的線索；對側眼的實際動態紀錄更直接。",
+      "decisiveDiscriminator": "正常術前散瞳與已停藥是兩個看似安心、卻不足排除IFIS的線索；對側眼的實際動態紀錄更直接。",
+      "counterfactual": "若出現明顯phacodonesis或其他懸韌帶異常，需另外加入囊袋支撐評估，但它不會消除虹膜管理需求。",
+      "testConcept": "靜態正常散瞳及停藥史不等於動態手術風險消失",
+      "questionType": "clinical-reasoning",
+      "difficulty": "advanced",
+      "authoredAt": "2026-10-28",
+      "caseType": "synthetic-original",
+      "externalRefs": [
+        {
+          "url": "https://www.dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=b3384748-92f1-0b49-e053-2a95a90abc73&type=display",
+          "title": "FLOMAX (tamsulosin hydrochloride) prescribing information – Intraoperative Floppy Iris Syndrome",
+          "locator": "5.5 Intraoperative Floppy Iris Syndrome",
+          "checkedOn": "2026-10-28"
+        },
+        {
+          "url": "https://www.escrs.org/escrs-recommendations-for-cataract-surgery",
+          "title": "ESCRS Recommendations for Cataract Surgery",
+          "locator": "4.2.5 Corneal comorbidities; 4.1.2 comorbidities",
+          "checkedOn": "2026-10-28"
+        }
+      ],
+      "sourceEvidenceIds": [
+        "flomax-label",
+        "escrs-cataract"
+      ],
+      "revisionNote": "2026-10-28：改用同層級、長度相近之專業競爭方案；錯誤由病例與證據適用條件決定，而非極端語氣。",
+      "questionScope": "original-practice",
+      "bookId": "bcsc-s11",
+      "unitIds": [
+        "bcsc-s11-ch010-u01"
+      ],
+      "chapterIds": [
+        "bcsc-s11-ch010"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            182,
+            184,
+            185,
+            187
+          ],
+          "printedPages": [
+            "165",
+            "167",
+            "168",
+            "170"
+          ],
+          "chapterHeading": "Intraoperative Challenges in Cataract Surgery",
+          "bookId": "bcsc-s11"
+        }
+      ],
+      "sourceRefProvenance": "Existing verified curriculum anchors identify related learning units; external references support the new medical claims.",
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "difficultyCalibration": "editor-rated-hard; not exam-validated",
+      "cognitiveTags": [
+        "multi-step",
+        "conflicting-evidence",
+        "management-sequencing"
+      ],
+      "batchId": "deep-dives-20261028",
+      "syntheticCase": true,
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "extra-20261022-q052",
+      "questionScope": "original-practice",
+      "bookId": "bcsc-s07",
+      "chapterIds": [
+        "bcsc-s07-ch006"
+      ],
+      "unitIds": [
+        "bcsc-s07-ch006-u02"
+      ],
+      "stem": "合成病例：眼眶手術後急性proptosis、緊繃眼眶及嚴重視損，團隊已立即施行完整lateral canthotomy與inferior cantholysis。重測IOP從明顯升高降至正常，眼眶觸感與retropulsion阻力也明顯改善，proptosis減少；但視力與RAPD沒有立即改善。床邊可繼續監測，眼科團隊及影像皆可迅速到位。目前最合適的下一步評估與處置為何？",
+      "options": [
+        {
+          "text": "先以連續IOP及視力恢復情形判斷是否需要影像，因目前壓力正常可觀察功能是否延後恢復",
+          "rationale": "視力可能不即刻回復，但目前尚未釐清殘餘深部壓迫或其他共存損傷；應在持續監測下立即重新定位，而非只等恢復速度替代評估。",
+          "whenTrue": "確認病因、完成必要評估且穩定後，才談預後及後續觀察。"
+        },
+        {
+          "text": "把持續RAPD視為減壓仍不足，先追加上方cantholysis，再依功能反應決定影像評估",
+          "rationale": "視力可因其他機轉未恢復；是否需追加減壓必須看持續張力、再出血或影像等依據，而非只用單一終點機械重做。",
+          "whenTrue": "若眼眶仍緊繃、IOP再升或有殘餘壓迫證據，需立即檢討追加減壓。"
+        },
+        {
+          "text": "先按traumatic optic neuropathy給高劑量steroid，待治療反應後再決定進一步影像",
+          "rationale": "持續RAPD只能提示傳入障礙，不足以指定損傷機轉；過早貼上TON會漏掉仍可處理原因，且不能直接推導出steroid必有益。",
+          "whenTrue": "釐清創傷性視神經損傷後，才由專科依具體證據討論處理；不由RAPD單獨定案。"
+        },
+        {
+          "text": "保持視力/瞳孔/IOP與張力監測，立即重評及作適當影像找殘餘壓迫或共存損傷，再決定追加處置",
+          "rationale": "目前有機械減壓改善的證據，但病理可能不只一項。此時應以連續臨床評估配合影像回答尚未解決的問題，而非由IOP或視力單值直接定案。",
+          "whenTrue": "初步緊急減壓完成而視功能異常持續，且可迅速完成進一步專科評估時。"
+        }
+      ],
+      "correctIndex": 3,
+      "explanation": "確認切開/鬆解是否帶來客觀機械改善，而非只看傷口已做過 → 把持續視功能障礙視為尚待解釋的訊號，評估殘餘壓迫與共存損傷 → 持續監測並以專科檢查和影像決定追加減壓或其他處置。題幹同時給了IOP、retropulsion與proptosis改善，才支持先重新定位；但它們仍不能保證深部問題全數消失。",
+      "testConcept": "緊急減壓後仍需重新定位；IOP、眼眶張力與視功能不是可以互相取代的指標",
+      "difficulty": "advanced",
+      "difficultyCalibration": "editor-rated-hard; not exam-validated",
+      "questionType": "clinical-reasoning",
+      "domain": "orbit-trauma",
+      "cognitiveTags": [
+        "multi-step",
+        "conflicting-evidence",
+        "management-sequencing"
+      ],
+      "reasoningSteps": [
+        "確認切開/鬆解是否帶來客觀機械改善，而非只看傷口已做過",
+        "把持續視功能障礙視為尚待解釋的訊號，評估殘餘壓迫與共存損傷",
+        "持續監測並以專科檢查和影像決定追加減壓或其他處置"
+      ],
+      "closestDistractorIndex": 1,
+      "decisiveDiscriminator": "題幹同時給了IOP、retropulsion與proptosis改善，才支持先重新定位；但它們仍不能保證深部問題全數消失。",
+      "counterfactual": "若IOP再升、眼眶仍緊或proptosis持續惡化，就不能因已切開而等待影像才處理，需立即重新評估及追加緊急減壓。",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            136,
+            137,
+            140,
+            143,
+            146,
+            148
+          ],
+          "printedPages": [
+            "117",
+            "118",
+            "121",
+            "124",
+            "127",
+            "129"
+          ],
+          "chapterHeading": "Orbital Trauma",
+          "bookId": "bcsc-s07"
+        }
+      ],
+      "sourceRefProvenance": "Existing verified curriculum anchors identify related learning units; external references support the new medical claims.",
+      "externalRefs": [
+        {
+          "title": "Intraocular Pressure Changes in Emergent Surgical Decompression of Orbital Compartment Syndrome",
+          "url": "https://jamanetwork.com/journals/jamaotolaryngology/fullarticle/2250429",
+          "locator": "Original clinical observation: serial IOP and orbital decompression",
+          "version": "2015",
+          "checkedAt": "2026-10-28"
+        },
+        {
+          "title": "Orbital compartment syndrome: Pearls and pitfalls for the emergency physician",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7936795/",
+          "locator": "Post-decompression reassessment and limits of imaging/IOP alone",
+          "version": "2021",
+          "checkedAt": "2026-10-28"
+        }
+      ],
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "status": "source-checked",
+      "readiness": "ready",
+      "authoredAt": "2026-10-28",
+      "batchId": "deep-dives-20261028",
+      "syntheticCase": true
+    },
+    {
+      "id": "extra-20261022-q053",
+      "questionScope": "original-practice",
+      "bookId": "bcsc-s07",
+      "chapterIds": [
+        "bcsc-s07-ch004"
+      ],
+      "unitIds": [
+        "bcsc-s07-ch004-u01",
+        "bcsc-s07-ch004-u04"
+      ],
+      "stem": "合成病例：兒童因鼻竇相關orbital cellulitis住院，CT見小型內側subperiosteal collection。起初視力、瞳孔反應正常，因此在ENT及眼科共同監督下用適當IV抗菌治療並密切觀察。之後發燒與炎症指標下降，CT集合大小也未增加；但在充分止痛與可靠重測後，患眼視力持續下降且新出現RAPD。有人想因「膿瘍小且抽血進步」繼續原觀察期。最合理的即時調整是？",
+      "options": [
+        {
+          "text": "依集合未變大且全身炎症改善維持IV療程，待下一輪影像或炎症趨勢再決定引流",
+          "rationale": "全身炎症反應與膿瘍尺寸未增加不能抵銷已確認的新視功能危險；等待固定天數缺少安全基礎。",
+          "whenTrue": "若視功能、眼眶症狀及整體病程均改善，才可延續密切觀察的醫療策略。"
+        },
+        {
+          "text": "維持抗菌並立即請ENT/眼科重評視功能與source control，不能由集合小或退燒延後升級",
+          "rationale": "初始保守方案以視功能受保護為前提；現在此前提已改變，即使小型內側集合也不能只看尺寸維持等待。",
+          "whenTrue": "可靠重測證實視功能惡化或其他嚴重眼眶/顱內警訊時。"
+        },
+        {
+          "text": "先擴大抗菌範圍並縮短視力監測間隔；若炎症指標或影像再惡化，才加入外科處理",
+          "rationale": "抗菌調整可能需要，但新而可靠的視功能惡化本身已值得source-control評估；不能把外科重評延至抽血或影像也跟著惡化。",
+          "whenTrue": "重新微生物評估顯示覆蓋不足時應調藥，但應與必要的眼眶評估並行。"
+        },
+        {
+          "text": "先加輔助全身steroid以降低眼眶水腫，再以短期視功能反應決定是否引流",
+          "rationale": "在新的視功能警訊下，不能以試用抗炎取代急性source control評估；adjunctive anti-inflammatory的角色需與感染控制和專科判斷整合。",
+          "whenTrue": "感染控制與手術需求已充分評估後，部分個案才由團隊討論輔助抗炎，不是延後本題升級的理由。"
+        }
+      ],
+      "correctIndex": 1,
+      "explanation": "辨認起初保守方案的關鍵前提：可靠監測下視功能沒有受威脅 → 把新且可重現的視力下降/RAPD與較不具排除力的尺寸、抽血指標分開加權 → 立即升級ENT/眼科source-control評估並維持抗菌治療，不等待固定觀察天數。改變答案的是新出現且可靠的視功能惡化；集合小和發燒改善並不能使這項危險指標失效。",
+      "testConcept": "保守觀察的適用性取決於視功能安全，不由膿瘍小或抽血改善單獨保證",
+      "difficulty": "advanced",
+      "difficultyCalibration": "editor-rated-hard; not exam-validated",
+      "questionType": "clinical-reasoning",
+      "domain": "orbit-trauma",
+      "cognitiveTags": [
+        "multi-step",
+        "conflicting-evidence",
+        "management-sequencing"
+      ],
+      "reasoningSteps": [
+        "辨認起初保守方案的關鍵前提：可靠監測下視功能沒有受威脅",
+        "把新且可重現的視力下降/RAPD與較不具排除力的尺寸、抽血指標分開加權",
+        "立即升級ENT/眼科source-control評估並維持抗菌治療，不等待固定觀察天數"
+      ],
+      "closestDistractorIndex": 0,
+      "decisiveDiscriminator": "改變答案的是新出現且可靠的視功能惡化；集合小和發燒改善並不能使這項危險指標失效。",
+      "counterfactual": "若視力、瞳孔與眼眶功能可靠地維持正常，症狀也在改善，小型內側collection才可能繼續由專科密切醫療觀察。",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            66,
+            67,
+            68,
+            69,
+            70
+          ],
+          "printedPages": [
+            "47",
+            "48",
+            "49",
+            "50",
+            "51"
+          ],
+          "chapterHeading": "Orbital Inflammatory and Infectious Disorders",
+          "bookId": "bcsc-s07"
+        },
+        {
+          "pdfPages": [
+            69,
+            71,
+            72
+          ],
+          "printedPages": [
+            "50",
+            "52",
+            "53"
+          ],
+          "chapterHeading": "Orbital Inflammatory and Infectious Disorders",
+          "bookId": "bcsc-s07"
+        }
+      ],
+      "sourceRefProvenance": "Existing verified curriculum anchors identify related learning units; external references support the new medical claims.",
+      "externalRefs": [
+        {
+          "title": "Royal Children’s Hospital: Periorbital and orbital cellulitis",
+          "url": "https://www.rch.org.au/clinicalguide/guideline_index/Periorbital_and_orbital_cellulitis/",
+          "locator": "Visual impairment/RAPD red flags; urgent ENT/ophthalmology consultation and contrast imaging",
+          "version": "Updated July 2026",
+          "checkedAt": "2026-10-28"
+        }
+      ],
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "status": "source-checked",
+      "readiness": "ready",
+      "authoredAt": "2026-10-28",
+      "batchId": "deep-dives-20261028",
+      "syntheticCase": true
+    },
+    {
+      "id": "extra-20261022-q054",
+      "domain": "peds-strabismus",
+      "stem": "一名6歲屈光參差性弱視兒童，家長說「每天遮2小時已經很久」，想引用PEDIG研究立刻改為6小時。紀錄顯示：原處方每日2小時共14週，但實際約每週遮5小時；6週前才根據新的屈光麻痺驗光增加患眼散光矯正。最近兩次同一crowded視標視力均20/60，但相隔僅3週，未作重測；健眼視力正常，眼底沒有結構異常。哪項對試驗證據與下一步的整合最精確？",
+      "options": [
+        {
+          "text": "可先把處方改為6小時並加入依從教育，以增加家庭實際完成的遮眼量；將PEDIG的加量效益作為此時的預期改善幅度",
+          "rationale": "改善實際治療暴露值得做，但本例未證明足量初始治療後的穩定殘餘弱視，不能直接用該RCT的加量效益估計此時的反應。",
+          "whenTrue": "充分矯正及足量初始治療後確認平台期，且家庭可承擔加量時，才較接近試驗中的選擇。"
+        },
+        {
+          "text": "先處理實際遮眼不足，並在新矯正下確認標準化視力軌跡；若足量治療後仍形成平台，再用加量RCT協助討論效益、負擔與替代策略",
+          "rationale": "目前未完成的光學與治療暴露條件會影響是否真的有平台期；先修補它們，才知道加量試驗對這位兒童的可比性。",
+          "whenTrue": "近期換鏡、實際執行不足或平台期確認不充分時。"
+        },
+        {
+          "text": "因家庭難以完成遮眼，先把治療改為atropine以降低執行負擔；用殘餘弱視加量RCT支持兩種升級方式可取得相近的額外改善",
+          "rationale": "Atropine在某些家庭可能是合理替代，但這項加量RCT比較的是遮眼時數，不能用它證明改atropine的相等增量效益；目前仍需檢查新矯正與量測。",
+          "whenTrue": "另有相符的atropine證據，且評估顯示它較適合該兒童及家庭時，可作獨立的共享決策。"
+        },
+        {
+          "text": "維持現在的處方到更長的回診間隔，等兩次視力再相同便判定殘餘弱視；先讓新眼鏡自行適應，之後再安排遮眼量調整",
+          "rationale": "給光學治療時間有道理，但如果不處理明確的實際遮眼不足，也不標準化確認平台，延長等待本身仍不能建立試驗可比性。",
+          "whenTrue": "治療執行與測量品質已可靠，而主要不確定性只剩光學適應時間時。"
+        }
+      ],
+      "correctIndex": 1,
+      "closestDistractorIndex": 0,
+      "reasoningSteps": [
+        "分開處方時數、實際執行與新眼鏡適應三條時間軸",
+        "檢查本例是否真的接近試驗中的足量初始治療後穩定殘餘弱視",
+        "先補齊可修正缺口，再討論加大量的平均效益，不能承諾個體必然反應"
+      ],
+      "explanation": "分開處方時數、實際執行與新眼鏡適應三條時間軸 → 檢查本例是否真的接近試驗中的足量初始治療後穩定殘餘弱視 → 先補齊可修正缺口，再討論加大量的平均效益，不能承諾個體必然反應。年齡及20/60落在看似合適範圍，並不能抵銷低遵從、最近換鏡與未充分確認平台期的差異。",
+      "decisiveDiscriminator": "年齡及20/60落在看似合適範圍，並不能抵銷低遵從、最近換鏡與未充分確認平台期的差異。",
+      "counterfactual": "若相同適當矯正已穩定、足量執行初始遮眼，且標準化重測確認平台期，增加至平均6小時便是可向家庭討論的有試驗支持選項；維持2小時仍不等於必然無效。",
+      "testConcept": "試驗適用性先查治療暴露與平台期，不只核對年齡和視力",
+      "questionType": "clinical-reasoning",
+      "difficulty": "advanced",
+      "authoredAt": "2026-10-28",
+      "caseType": "synthetic-original",
+      "externalRefs": [
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3833469/",
+          "title": "A Randomized Trial of Increasing Patching for Amblyopia",
+          "locator": "Methods eligibility; Results; Conclusion",
+          "checkedOn": "2026-10-28"
+        },
+        {
+          "url": "https://public.jaeb.org/pedig/stdy/29",
+          "title": "ATS15 – Increasing Patching for Amblyopia Study",
+          "locator": "原始研究／官方文件",
+          "checkedOn": "2026-10-28"
+        }
+      ],
+      "sourceEvidenceIds": [
+        "pedig-patching-2013",
+        "pedig-patching-protocol"
+      ],
+      "revisionNote": "2026-10-28：改用同層級、長度相近之專業競爭方案；錯誤由病例與證據適用條件決定，而非極端語氣。",
+      "questionScope": "original-practice",
+      "bookId": "bcsc-s06",
+      "unitIds": [
+        "bcsc-s06-ch005-u02",
+        "bcsc-s06-ch005-u03"
+      ],
+      "chapterIds": [
+        "bcsc-s06-ch005"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            81,
+            83,
+            84,
+            85
+          ],
+          "printedPages": [
+            "58",
+            "60",
+            "61",
+            "62"
+          ],
+          "chapterHeading": "Amblyopia",
+          "bookId": "bcsc-s06"
+        },
+        {
+          "pdfPages": [
+            85,
+            86,
+            87
+          ],
+          "printedPages": [
+            "62",
+            "63",
+            "64"
+          ],
+          "chapterHeading": "Amblyopia",
+          "bookId": "bcsc-s06"
+        }
+      ],
+      "sourceRefProvenance": "Existing verified curriculum anchors identify related learning units; external references support the new medical claims.",
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "difficultyCalibration": "editor-rated-hard; not exam-validated",
+      "cognitiveTags": [
+        "multi-step",
+        "conflicting-evidence",
+        "management-sequencing"
+      ],
+      "batchId": "deep-dives-20261028",
+      "syntheticCase": true,
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "extra-20261022-q055",
+      "domain": "peds-strabismus",
+      "stem": "一名原本已有近視的學齡兒童，間歇性外斜在配戴overminus眼鏡時遠方控制改善，家長因此認為病已治好。按計畫撤減後，控制又接近原來程度；屈光麻痺驗光則確認比治療前更近視。家長問：「既然斜視回來，是否代表眼鏡沒有真正作用？停掉後近視也會跟著恢復嗎？」若依PEDIG隨機試驗與延伸追蹤解釋，哪個回答最正確？",
+      "options": [
+        {
+          "text": "本例可同時有配戴時控制改善、撤減後效益減弱及近視差額保留；後續應分開討論兩種結局，不把保留差額當成停治後仍加速的證據",
+          "rationale": "RCT與延伸追蹤支持這種不同結局、不同時段的區分；它可以解釋眼位與屈光不同步的觀察。",
+          "whenTrue": "在共同討論暫時控制效益、屈光代價與後續策略時。"
+        },
+        {
+          "text": "外斜回到基線使原先的改善較像控制分數變異，近視則先歸於原有進展；可因此把overminus本身對兩種結局的影響降為次要",
+          "rationale": "回到基線不否定配戴時的效應，原有近視也不能直接解釋或排除治療相關的額外移位；這忽略了隨機比較提供的資訊。",
+          "whenTrue": "若個案量測不可靠，可先重測與核對，但不能因此撤銷試驗中已觀察到的配戴期及屈光差異。"
+        },
+        {
+          "text": "近視與外斜控制都受到調節影響，可先期待撤藥後兩者同步朝基線回復；在屈光重新穩定後，再決定是否繼續其他外斜治療",
+          "rationale": "機轉相關不代表兩個結局的可逆性相同；延伸資料不支持以停藥承諾額外近視差額隨之回復。",
+          "whenTrue": "若另有可逆調節性屈光成分，可特別評估它；不能把它等同試驗所觀察的全部屈光移位。"
+        },
+        {
+          "text": "停治後仍有近視差額，表示治療已改變後續屈光進展速度；可把較快進展作為長期預測，再與外斜控制目標共同權衡",
+          "rationale": "保留既有差額不等於之後斜率仍不同；延伸研究顯示停治後兩組進展相近，不能將差額解讀成持續加速。",
+          "whenTrue": "若個別兒童後續序列驗光確有持續加速，應據其資料評估近視策略，而非僅由群組差額推定。"
+        }
+      ],
+      "correctIndex": 0,
+      "closestDistractorIndex": 3,
+      "reasoningSteps": [
+        "分開配戴時的外斜控制效果與停治後是否保留效果",
+        "另檢視近視移位是回復、保留差額，還是持續加速；三者不能混說",
+        "把暫時功能效益與可能保留的屈光代價一起告知，而非直接推到必停或必開刀"
+      ],
+      "explanation": "分開配戴時的外斜控制效果與停治後是否保留效果 → 另檢視近視移位是回復、保留差額，還是持續加速；三者不能混說 → 把暫時功能效益與可能保留的屈光代價一起告知，而非直接推到必停或必開刀。難點是兩種結局的時間軌跡不同：控制效益可以消退，屈光差額可以保留；保留差額又不等於停治後仍不斷加速。「額外近視移位」是隨機試驗群組比較得到的因果估計；這個合成病例前後變得更近視，不能單憑個案前後差就全部歸因於overminus。",
+      "decisiveDiscriminator": "難點是兩種結局的時間軌跡不同：控制效益可以消退，屈光差額可以保留；保留差額又不等於停治後仍不斷加速。",
+      "counterfactual": "若可靠重測顯示本兒童沒有屈光進展，則個別風險權衡可不同，但仍不能向所有家庭承諾近視副作用不存在或會逆轉。",
+      "testConcept": "區分療效持續性、屈光差額持續性與後續進展速度",
+      "questionType": "clinical-reasoning",
+      "difficulty": "advanced",
+      "authoredAt": "2026-10-28",
+      "caseType": "synthetic-original",
+      "externalRefs": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/33662112/",
+          "title": "Overminus Lens Therapy for Children 3 to 10 Years of Age With Intermittent Exotropia: A Randomized Clinical Trial",
+          "locator": "原始研究／官方文件",
+          "checkedOn": "2026-10-28"
+        },
+        {
+          "url": "https://jamanetwork.com/journals/jamaophthalmology/fullarticle/2816568",
+          "title": "Refractive Error Change and Overminus Lens Therapy for Childhood Intermittent Exotropia",
+          "locator": "Conclusions; Discussion",
+          "checkedOn": "2026-10-28"
+        }
+      ],
+      "sourceEvidenceIds": [
+        "pedig-overminus-2021",
+        "pedig-overminus-2024"
+      ],
+      "revisionNote": "2026-10-28：改用同層級、長度相近之專業競爭方案；錯誤由病例與證據適用條件決定，而非極端語氣。",
+      "questionScope": "original-practice",
+      "bookId": "bcsc-s06",
+      "unitIds": [
+        "bcsc-s06-ch008-u01"
+      ],
+      "chapterIds": [
+        "bcsc-s06-ch008"
+      ],
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            128,
+            129,
+            130,
+            131
+          ],
+          "printedPages": [
+            "105",
+            "106",
+            "107",
+            "108"
+          ],
+          "chapterHeading": "Exodeviations",
+          "bookId": "bcsc-s06"
+        }
+      ],
+      "sourceRefProvenance": "Existing verified curriculum anchors identify related learning units; external references support the new medical claims.",
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "difficultyCalibration": "editor-rated-hard; not exam-validated",
+      "cognitiveTags": [
+        "multi-step",
+        "conflicting-evidence",
+        "management-sequencing"
+      ],
+      "batchId": "deep-dives-20261028",
+      "syntheticCase": true,
+      "status": "source-checked",
+      "readiness": "ready"
     }
   ],
   "readiness": "ready",
-  "reviewReceipt": "review/approved-reviewer-receipt-v5.json",
-  "reviewedQuestionCount": 20,
+  "reviewReceipt": "content/textbook-depth/advanced-review.json",
+  "reviewedQuestionCount": 36,
   "sourceEvidenceRecords": [
     "review/medical-review-approved-prototypes.json",
     "review/medical-review-clinical-b-support1.json",
     "review/medical-review-support-batch02.json",
     "review/medical-review-clinical-c.json",
     "review/medical-review-clinical-d.json",
-    "review/qa-medical-review-support-batch03.json"
-  ]
+    "review/qa-medical-review-support-batch03.json",
+    {
+      "id": "deep-20261028-1",
+      "title": "European Glaucoma Society Terminology and Guidelines for Glaucoma, 5th edition",
+      "url": "https://bjo.bmj.com/content/105/Suppl_1/1",
+      "locator": "OCT quality/progression; angle-closure mechanisms",
+      "version": "2021",
+      "checkedAt": "2026-10-28",
+      "accessNote": "本次可核對出版者搜尋索引；第6版官方下載頁可定位但全文未能取得。此處僅引用診斷品質與阻滯機轉原則。"
+    },
+    {
+      "id": "deep-20261028-2",
+      "title": "EGS Guidelines: Classification and terminology",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5583685/",
+      "locator": "Primary angle closure; drug-induced secondary angle closure",
+      "version": "2017, 4th edition chapter 2",
+      "checkedAt": "2026-10-28"
+    },
+    {
+      "id": "deep-20261028-3",
+      "title": "Impact of Artifacts From OCT RNFL and Macula Scans on Detection of Glaucoma Progression",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32818450/",
+      "locator": "Original study: raw B-scan review prevents false-positive and false-negative progression calls",
+      "version": "2020",
+      "checkedAt": "2026-10-28"
+    },
+    {
+      "id": "deep-20261028-4",
+      "title": "Royal College of Ophthalmologists: Retinal Vein Occlusion Clinical Guidelines",
+      "url": "https://www.rcophth.ac.uk/wp-content/uploads/2026/06/Retinal-vein-occlusion-guideline.pdf",
+      "locator": "pp. 4–6, 19–27: macular oedema, ischaemic CRVO and neovascularisation",
+      "version": "January 2022 document; URL hosting path is not the guideline year",
+      "checkedAt": "2026-10-28"
+    },
+    {
+      "id": "deep-20261028-5",
+      "title": "Idiopathic intracranial hypertension: consensus guidelines on management",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6166610/",
+      "locator": "Investigation of papilloedema: MRI/venography before LP; diagnostic uncertainty",
+      "version": "2018",
+      "checkedAt": "2026-10-28"
+    },
+    {
+      "id": "deep-20261028-6",
+      "title": "ACR Appropriateness Criteria: Horner Syndrome",
+      "url": "https://acsearch.acr.org/docs/3195156/Narrative",
+      "locator": "Variant 1: acute painful or traumatic adult Horner syndrome",
+      "version": "2025",
+      "checkedAt": "2026-10-28",
+      "accessNote": "本次官方搜尋索引可讀；直接全文頁回傳403。"
+    },
+    {
+      "id": "deep-20261028-7",
+      "title": "Apraclonidine Is Better Than Cocaine for Detection of Horner Syndrome",
+      "url": "https://www.frontiersin.org/journals/neurology/articles/10.3389/fneur.2019.00055/full",
+      "locator": "Original retrospective diagnostic study; limits of negative results in acute lesions",
+      "version": "2019",
+      "checkedAt": "2026-10-28"
+    },
+    {
+      "id": "deep-20261028-8",
+      "title": "Intraocular Pressure Changes in Emergent Surgical Decompression of Orbital Compartment Syndrome",
+      "url": "https://jamanetwork.com/journals/jamaotolaryngology/fullarticle/2250429",
+      "locator": "Original clinical observation: serial IOP and orbital decompression",
+      "version": "2015",
+      "checkedAt": "2026-10-28"
+    },
+    {
+      "id": "deep-20261028-9",
+      "title": "Orbital compartment syndrome: Pearls and pitfalls for the emergency physician",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7936795/",
+      "locator": "Post-decompression reassessment and limits of imaging/IOP alone",
+      "version": "2021",
+      "checkedAt": "2026-10-28"
+    },
+    {
+      "id": "deep-20261028-10",
+      "title": "Royal Children’s Hospital: Periorbital and orbital cellulitis",
+      "url": "https://www.rch.org.au/clinicalguide/guideline_index/Periorbital_and_orbital_cellulitis/",
+      "locator": "Visual impairment/RAPD red flags; urgent ENT/ophthalmology consultation and contrast imaging",
+      "version": "Updated July 2026",
+      "checkedAt": "2026-10-28"
+    },
+    {
+      "id": "ak-coinfection-2022",
+      "title": "Case Series: Unusual Presentation of Acanthamoeba Coinfection in the Cornea",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9296050/",
+      "kind": "original-case-series",
+      "published": "2022",
+      "checkedOn": "2026-10-28",
+      "evidence": "原始病例系列記錄Acanthamoeba與Pseudomonas等共感染；細菌培養陽性不構成排除另一病原的證據。病例系列證明可發生，不提供本病例的機率或固定療程。",
+      "access": "search-index article text; original article identified"
+    },
+    {
+      "id": "ak-coinfection-2023",
+      "title": "A 5-Year Review of Coinfections in Acanthamoeba Keratitis From South India",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37232397/",
+      "kind": "original-retrospective-study",
+      "published": "2023",
+      "checkedOn": "2026-10-28",
+      "evidence": "單中心回溯研究記錄培養確定Acanthamoeba病例中的其他病原共感染；不能把Pseudomonas和Acanthamoeba當互斥診斷，也不能把該中心比例直接當本地個案機率。",
+      "access": "original abstract indexed"
+    },
+    {
+      "id": "scut2-2025",
+      "title": "Steroids and Cross-Linking for Ulcer Treatment: The SCUT II Randomized Clinical Trial",
+      "url": "https://jamanetwork.com/journals/jamaophthalmology/fullarticle/2836544",
+      "kind": "randomized-trial",
+      "published": "2025-07-24",
+      "checkedOn": "2026-10-28",
+      "evidence": "SCUT II整體未顯示輔助局部類固醇優於安慰劑。研究納入典型細菌感染，排除病毒、真菌、阿米巴與Nocardia等非典型感染；不支持把類固醇固定套用到所有培養陽性的角膜潰瘍。",
+      "locator": "Methods: exclusion criteria; Conclusions",
+      "access": "full original article"
+    },
+    {
+      "id": "scut-nocardia",
+      "title": "Nocardia keratitis: Clinical course and effect of corticosteroids",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3498612/",
+      "kind": "randomized-trial-subgroup",
+      "published": "2012",
+      "checkedOn": "2026-10-28",
+      "evidence": "SCUT的Nocardia次群分析指出類固醇與較大浸潤／疤痕相關；菌種與分析層級會限制總體細菌性角膜炎結論的外推。",
+      "access": "original article indexed"
+    },
+    {
+      "id": "uveitis-pcr",
+      "title": "Aqueous humor polymerase chain reaction in uveitis – utility and safety",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5084402/",
+      "kind": "original-retrospective-study",
+      "published": "2016",
+      "checkedOn": "2026-10-28",
+      "evidence": "房水PCR是病原判定的輔助工具，有偽陰性及偽陽性。研究中強烈懷疑感染而PCR陰性的部分個案重複取樣；陰性結果需與疾病活動度、取樣品質及臨床表型整合。",
+      "access": "original article search text; direct page challenge"
+    },
+    {
+      "id": "sun-cmv",
+      "title": "Classification Criteria for Cytomegalovirus Anterior Uveitis",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8501153/",
+      "kind": "original-classification-study",
+      "published": "2021",
+      "checkedOn": "2026-10-28",
+      "evidence": "SUN的CMV前葡萄膜炎分類要求相容前葡萄膜炎與眼內CMV證據；作者區別偏重特異性的研究分類與臨床診斷，不能以未符合分類直接排除臨床感染。",
+      "access": "original article search text; direct page challenge"
+    },
+    {
+      "id": "eha-esmo-2024",
+      "title": "Primary central nervous system lymphomas: EHA–ESMO Clinical Practice Guideline for diagnosis, treatment and follow-up",
+      "url": "https://onlinelibrary.wiley.com/doi/full/10.1002/hem3.89",
+      "kind": "official-guideline",
+      "published": "2024-06",
+      "checkedOn": "2026-10-28",
+      "evidence": "疑PVRL須以玻璃體細胞學確認並在可行時合併flow cytometry；MYD88與IL-10是支持性指標而非單獨確診。眼病可先於腦病；避免在可行情況下於組織採樣前再給會降低腫瘤細胞存活的類固醇。",
+      "locator": "Diagnosis; ocular lymphoma paragraphs; recommendations",
+      "access": "full guideline"
+    },
+    {
+      "id": "escrs-cataract",
+      "title": "ESCRS Recommendations for Cataract Surgery",
+      "url": "https://www.escrs.org/escrs-recommendations-for-cataract-surgery",
+      "kind": "official-guideline",
+      "published": "2024 guideline; accessed current web recommendations",
+      "checkedOn": "2026-10-28",
+      "evidence": "Fuchs嚴重程度應依臨床表現與視覺症狀評估；共病與手術風險需要個別告知，不能只由單一儀器讀值決定手術組合。",
+      "locator": "4.2.5 Corneal comorbidities; 4.1.2 comorbidities",
+      "access": "full official recommendations"
+    },
+    {
+      "id": "fuchs-tomography",
+      "title": "Predicting the Prognosis of Fuchs Endothelial Corneal Dystrophy by Using Scheimpflug Tomography",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31685256/",
+      "kind": "original-prognostic-study",
+      "published": "2020",
+      "checkedOn": "2026-10-28",
+      "evidence": "研究以pachymetry與posterior elevation圖形、CCT及backscatter預測Fuchs病程；支持把角膜形態和水腫訊號與絕對厚度分開判讀，並非提供所有患者通用的單一手術界值。",
+      "access": "original abstract indexed"
+    },
+    {
+      "id": "flomax-label",
+      "title": "FLOMAX (tamsulosin hydrochloride) prescribing information – Intraoperative Floppy Iris Syndrome",
+      "url": "https://www.dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=b3384748-92f1-0b49-e053-2a95a90abc73&type=display",
+      "kind": "regulatory-label",
+      "published": "current label accessed",
+      "checkedOn": "2026-10-28",
+      "evidence": "現用或曾用alpha-1 blocker者均可發生IFIS；良好術前散瞳不排除術中進行性縮瞳。停藥的預防利益未確立，術者需準備虹膜勾、擴張環或黏彈劑等對策。",
+      "locator": "5.5 Intraoperative Floppy Iris Syndrome",
+      "access": "full regulatory label"
+    },
+    {
+      "id": "pedig-patching-2013",
+      "title": "A Randomized Trial of Increasing Patching for Amblyopia",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3833469/",
+      "kind": "randomized-trial",
+      "published": "2013",
+      "checkedOn": "2026-10-28",
+      "evidence": "試驗評估充分矯正且每日2小時遮眼後穩定殘餘弱視，增加至平均6小時與維持2小時的比較；增加組平均改善較多，但維持組亦有人改善。入組須確認穩定與依從，不能把未足量治療當作同一族群。",
+      "locator": "Methods eligibility; Results; Conclusion",
+      "access": "full original article"
+    },
+    {
+      "id": "pedig-patching-protocol",
+      "title": "ATS15 – Increasing Patching for Amblyopia Study",
+      "url": "https://public.jaeb.org/pedig/stdy/29",
+      "kind": "trial-protocol",
+      "published": "study completed 2013",
+      "checkedOn": "2026-10-28",
+      "evidence": "官方試驗頁描述先以2小時遮眼run-in，視力不再改善後才隨機分派維持2小時或增加至平均6小時。",
+      "access": "full official trial page"
+    },
+    {
+      "id": "pedig-overminus-2021",
+      "title": "Overminus Lens Therapy for Children 3 to 10 Years of Age With Intermittent Exotropia: A Randomized Clinical Trial",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33662112/",
+      "kind": "randomized-trial",
+      "published": "2021",
+      "checkedOn": "2026-10-28",
+      "evidence": "戴overminus鏡時遠方外斜控制可改善，撤減後未保留同等差異；治療同時增加近視移位。結果支持區分配戴時的控制效果與停治後的持續效果。",
+      "access": "original abstract indexed"
+    },
+    {
+      "id": "pedig-overminus-2024",
+      "title": "Refractive Error Change and Overminus Lens Therapy for Childhood Intermittent Exotropia",
+      "url": "https://jamanetwork.com/journals/jamaophthalmology/fullarticle/2816568",
+      "kind": "randomized-trial-extension",
+      "published": "2024-03-21",
+      "checkedOn": "2026-10-28",
+      "evidence": "延伸追蹤顯示額外近視移位在停用後仍存在，但停用後兩組並未持續以不同速度增加近視；不應承諾停止overminus就回復原屈光，也不應說其額外近視會無限持續加速。",
+      "locator": "Conclusions; Discussion",
+      "access": "full original article"
+    }
+  ],
+  "deepDives": [
+    {
+      "id": "deep-glaucoma",
+      "category": "青光眼",
+      "title": "藥名、影像與眼壓互相打架時，先分清哪個問題",
+      "overview": "先問資料能證明哪一層：用藥只增加某個病因的可能，UBM回答解剖機轉；OCT軟體回答統計變化，原始影像、disc與視野才讓它成為臨床進展。這個單元練習在部分資料不可靠時，仍從可重現的獨立證據作決策。",
+      "unitIds": [
+        "bcsc-s10-ch004-u02",
+        "bcsc-s10-ch005-u02",
+        "bcsc-s10-ch006-u02",
+        "bcsc-s10-ch009-u02"
+      ],
+      "questionIds": [
+        "extra-20261022-q040",
+        "extra-20261022-q041"
+      ],
+      "mechanism": [
+        "瞳孔阻滯會造成後房與前房壓力差，讓虹膜向前弓起；整個晶狀體－虹膜隔前移則是另一種幾何變化。兩者都能關閉房角，卻不應因「都是閉角」就用同一項最終治療。近期topiramate值得警覺，但必須回到前房深度分布、屈光變化和UBM，而不是以用藥時間線直接覆蓋檢查。",
+        "進展評估同樣需要拆層。全局RNFL數字把多個區域壓成單一量，分層錯誤可製造或掩蓋變化。找到一個假影只會降低那部分資料的可信度，不會自動消除其他部位與視野一致的真進展；舊目標眼壓則是可修訂的計畫，不是證明安全的生理界線。"
+      ],
+      "differential": [
+        {
+          "diagnosis": "以瞳孔阻滯為主的閉角",
+          "for": "iris bombe、周邊更淺及可解釋的窄角解剖",
+          "against": "單靠藥名或疼痛程度不足以確定",
+          "discriminator": "UBM/前節構型與gonioscopy，必要時比較另一眼及原有狀態"
+        },
+        {
+          "diagnosis": "積液／整體前移性閉角",
+          "for": "整體前移、中央亦淺、新近視偏移與積液等相符證據",
+          "against": "只有近期用藥不能取代機轉證據",
+          "discriminator": "確認睫狀體上腔及晶狀體－虹膜隔的實際位置"
+        },
+        {
+          "diagnosis": "量測假影伴或不伴真青光眼進展",
+          "for": "高近視/分層錯誤增加不確定性",
+          "against": "若可靠局部結構和功能一致，不能全歸假影",
+          "discriminator": "原始B-scan、連續disc照片與可靠重複perimetry的區域一致性"
+        }
+      ],
+      "investigations": [
+        {
+          "test": "UBM與gonioscopy",
+          "interpretation": "回答角關閉的機轉與是否有瞳孔阻滯成分",
+          "limitation": "一種機轉未被看見，不等於房角沒有關閉；仍須把可見構型整合"
+        },
+        {
+          "test": "OCT原始影像及重掃",
+          "interpretation": "核對訊號、分層及同一区域可重現性",
+          "limitation": "單一全局下降量不能自動量化真實神經損失"
+        },
+        {
+          "test": "可靠視野、disc照片、實際IOP/用藥評估",
+          "interpretation": "檢驗結構是否有相符功能後果及原治療目標是否仍足夠",
+          "limitation": "門診IOP達標不代表整個病程已無進展風險"
+        }
+      ],
+      "management": [
+        {
+          "stage": "先處理即時風險",
+          "action": "急性閉角先按專科急症流程控制壓力與炎症，並同步判斷機轉",
+          "rationale": "診斷細化不能變成放任急性損傷的理由"
+        },
+        {
+          "stage": "再處理真正阻滯點",
+          "action": "依瞳孔阻滯、積液或其他原因選擇後續，不把所有閉角等同LPI，也不因可疑藥名排除LPI",
+          "rationale": "治療目標是機轉，不是病例標籤"
+        },
+        {
+          "stage": "追蹤資料必須回到治療目標",
+          "action": "確認真進展後重估個別目標、依從、壓力量測及可接受治療代價",
+          "rationale": "既定目標需接受後續結構與功能結果的檢驗"
+        }
+      ],
+      "evidenceLimits": [
+        "EGS診斷原則支持原始影像品質與結構/功能整合，並未提供一個可套用所有高近視眼的自動校正式。OCT假影研究說明自動圖可有假陽性及假陰性，不能反推所有OCT都不值得用。",
+        "本單元把已核對教材和EGS機轉原則用於合成病例；不把用藥關聯當因果證明，也不提供依單次IOP或RNFL差量決定手術的門檻。"
+      ],
+      "pitfalls": [
+        "看到topiramate便停止解剖定位。",
+        "發現一個OCT假影後把所有其他進展證據一起丟掉。"
+      ],
+      "counterfactuals": [
+        "UBM若改成明確積液與整體前移，LPI不再是主要機轉解法。",
+        "品質合格的局部結構與視野若均穩定，便需先改善測量而非宣稱已證實進展。"
+      ],
+      "externalRefs": [
+        {
+          "title": "European Glaucoma Society Terminology and Guidelines for Glaucoma, 5th edition",
+          "url": "https://bjo.bmj.com/content/105/Suppl_1/1",
+          "locator": "OCT quality/progression; angle-closure mechanisms",
+          "version": "2021",
+          "checkedAt": "2026-10-28",
+          "accessNote": "本次可核對出版者搜尋索引；第6版官方下載頁可定位但全文未能取得。此處僅引用診斷品質與阻滯機轉原則。"
+        },
+        {
+          "title": "EGS Guidelines: Classification and terminology",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5583685/",
+          "locator": "Primary angle closure; drug-induced secondary angle closure",
+          "version": "2017, 4th edition chapter 2",
+          "checkedAt": "2026-10-28"
+        },
+        {
+          "title": "Impact of Artifacts From OCT RNFL and Macula Scans on Detection of Glaucoma Progression",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/32818450/",
+          "locator": "Original study: raw B-scan review prevents false-positive and false-negative progression calls",
+          "version": "2020",
+          "checkedAt": "2026-10-28"
+        }
+      ],
+      "curriculumLinks": [
+        {
+          "unitId": "bcsc-s10-ch004-u02",
+          "label": "AS-OCT和UBM：能否看虹膜後方"
+        },
+        {
+          "unitId": "bcsc-s10-ch005-u02",
+          "label": "OCT偽影、floor與progression"
+        },
+        {
+          "unitId": "bcsc-s10-ch006-u02",
+          "label": "視野進展、中心旁與功能餘裕"
+        },
+        {
+          "unitId": "bcsc-s10-ch009-u02",
+          "label": "急性瞳阻閉角：先降壓與抗炎，再解除阻滯"
+        }
+      ],
+      "bookId": "bcsc-s10",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            66,
+            68,
+            73,
+            75,
+            77
+          ],
+          "printedPages": [
+            "49",
+            "51",
+            "56",
+            "58",
+            "60"
+          ],
+          "chapterHeading": "Clinical Evaluation and Imaging of the Anterior Segment",
+          "bookId": "bcsc-s10"
+        },
+        {
+          "pdfPages": [
+            85,
+            87,
+            91,
+            93
+          ],
+          "printedPages": [
+            "68",
+            "70",
+            "74",
+            "76"
+          ],
+          "chapterHeading": "Clinical Evaluation and Imaging of the Posterior Segment: Optic Nerve Head, Ret i nal Nerve Fiber Layer, and Macula",
+          "bookId": "bcsc-s10"
+        },
+        {
+          "pdfPages": [
+            104,
+            107,
+            108,
+            110,
+            111,
+            112,
+            113,
+            114,
+            117,
+            118,
+            119,
+            120,
+            121,
+            122,
+            123,
+            124
+          ],
+          "printedPages": [
+            "87",
+            "90",
+            "91",
+            "93",
+            "94",
+            "95",
+            "96",
+            "97",
+            "100",
+            "101",
+            "102",
+            "103",
+            "104",
+            "105",
+            "106",
+            "107"
+          ],
+          "chapterHeading": "Perimetry",
+          "bookId": "bcsc-s10"
+        },
+        {
+          "pdfPages": [
+            168,
+            169,
+            170,
+            181,
+            183
+          ],
+          "printedPages": [
+            "151",
+            "152",
+            "153",
+            "164",
+            "166"
+          ],
+          "chapterHeading": "Primary Angle- Closure Disease",
+          "bookId": "bcsc-s10"
+        }
+      ],
+      "status": "source-checked",
+      "batchId": "deep-dives-20261028",
+      "authoredAt": "2026-10-28"
+    },
+    {
+      "id": "deep-cornea-20261028",
+      "title": "感染角膜：先問病原是否已完整解釋病程，再問抗炎是否有淨效益",
+      "overview": "相同「角膜還很白」可以代表仍有感染、宿主炎症、藥物毒性或已形成的疤痕。先沿時間軸比較不同病灶與功能的變化，再決定要擴大病原檢查、維持既有涵蓋，或討論輔助抗炎；單張照片與單份培養都不足代替這段推理。",
+      "questionIds": [
+        "extra-20261022-q042",
+        "extra-20261022-q043"
+      ],
+      "caseType": "synthetic-original",
+      "mechanism": [
+        "抗生素、抗阿米巴藥與抗真菌藥的涵蓋不同；一個病原對治療有反應，不代表所有造成病灶的機轉已被處理。把膿性浸潤、上皮完整性、深層病灶與疼痛分開追蹤，才能看出「一部分好、一部分壞」的診斷訊息。",
+        "感染控制與抑制宿主炎症是兩條相關但不同的決策。SCUT II未證明對典型細菌潰瘍例行加入類固醇有總體優勢；這既不是「任何患者絕不能用」，也不是「有中央疤痕風險就一定有用」。個案風險與試驗納入病原必須先對上。"
+      ],
+      "differential": [
+        {
+          "diagnosis": "原細菌尚未受控／抗生素未達有效暴露",
+          "discriminator": "重查用藥方式、病灶測量及必要重複培養，不能只看一次藥敏",
+          "for": "用藥執行、藥敏與整體浸潤軌跡不一致",
+          "against": "已確認足量有效治療，且只有特定未解釋區域持續進展"
+        },
+        {
+          "diagnosis": "另有阿米巴或真菌等共感染",
+          "discriminator": "專門刮片／培養／PCR與合格confocal相互校驗",
+          "for": "未涵蓋暴露史、較深層特殊病灶與分離的治療反應",
+          "against": "高品質針對性檢查及後續一致消退可降低疑慮"
+        },
+        {
+          "diagnosis": "非活動感染主導的炎症或表面毒性",
+          "discriminator": "序列檢查的方向比單次「變白」更有用",
+          "for": "浸潤消退而上皮表面異常與點藥暴露相符",
+          "against": "新深層浸潤、進展變薄或未解釋的活動病灶"
+        }
+      ],
+      "investigations": [
+        {
+          "test": "角膜刮片及培養範圍",
+          "interpretation": "先確認實際送了什麼病原檢查；一般細菌陰／陽性不代替真菌及阿米巴評估",
+          "limitation": "取樣深度、量與治療前後時機會影響結果；共感染可能"
+        },
+        {
+          "test": "In vivo confocal microscopy",
+          "interpretation": "可靠特徵可支持診斷，需與經驗判讀和病原證據整合",
+          "limitation": "低品質可疑高反射結構不等於確診，也不適合單獨決定全面換藥"
+        },
+        {
+          "test": "序列裂隙燈／上皮與厚度評估",
+          "interpretation": "分別記錄浸潤、上皮缺損、深度及變薄",
+          "limitation": "疼痛與疤痕密度都不是病原控制的單一替代指標"
+        }
+      ],
+      "management": [
+        {
+          "action": "先評估變薄、穿孔及眼內延伸風險，必要時立即升級角膜專科處理",
+          "stage": "保護角膜並重新定位仍在進展的部分",
+          "rationale": "診斷細化不能延誤結構性危急問題"
+        },
+        {
+          "action": "把未解釋的表現與初次檢查盲區對上，再決定擴大病原評估",
+          "stage": "維持已確立的有效涵蓋，補足會改變治療的檢查",
+          "rationale": "避免在兩個不完整診斷間來回全面換藥"
+        },
+        {
+          "action": "說明平均試驗結果、可能利益、未知之處與密切追蹤需求",
+          "stage": "在病原與控制狀態重估後討論抗炎",
+          "rationale": "感染與炎症的平衡屬個別決策，不是由單一cult+標籤自動啟動"
+        }
+      ],
+      "pitfalls": [
+        {
+          "mistake": "細菌培養陽性，所以其他病原不可能",
+          "correction": "它支持細菌參與，沒有測到的病原仍需依臨床反應評估"
+        },
+        {
+          "mistake": "早期次群可能受益，所以後續每例都應固定加類固醇",
+          "correction": "總體RCT與病原排除條件必須一起說明，不能升格探索訊號"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "change": "針對性重查可靠陰性，且病灶持續一致消退",
+          "effect": "共感染疑慮下降，可更重視毒性及炎症的個別調整"
+        },
+        {
+          "change": "改報Nocardia或出現真菌／阿米巴可信證據",
+          "effect": "典型細菌的抗炎試驗不再直接適用，需病原導向重新決策"
+        }
+      ],
+      "externalRefs": [
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9296050/",
+          "title": "Case Series: Unusual Presentation of Acanthamoeba Coinfection in the Cornea",
+          "locator": "原始研究／官方文件",
+          "checkedOn": "2026-10-28"
+        },
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/37232397/",
+          "title": "A 5-Year Review of Coinfections in Acanthamoeba Keratitis From South India",
+          "locator": "原始研究／官方文件",
+          "checkedOn": "2026-10-28"
+        },
+        {
+          "url": "https://jamanetwork.com/journals/jamaophthalmology/fullarticle/2836544",
+          "title": "Steroids and Cross-Linking for Ulcer Treatment: The SCUT II Randomized Clinical Trial",
+          "locator": "Methods: exclusion criteria; Conclusions",
+          "checkedOn": "2026-10-28"
+        },
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3498612/",
+          "title": "Nocardia keratitis: Clinical course and effect of corticosteroids",
+          "locator": "原始研究／官方文件",
+          "checkedOn": "2026-10-28"
+        }
+      ],
+      "sourceEvidenceIds": [
+        "ak-coinfection-2022",
+        "ak-coinfection-2023",
+        "scut2-2025",
+        "scut-nocardia"
+      ],
+      "evidenceLimits": [
+        "SCUT II評估的是典型細菌性潰瘍的輔助治療，並排除病毒、真菌、阿米巴及Nocardia等情況。其總體未顯示類固醇優於安慰劑，不能轉述為「所有患者都不可能獲益」，也不能用早期探索性次群訊號承諾這個人一定改善。",
+        "病灶位置、病原、治療前後狀態及研究中的藥物條件都影響外推。本單元不把SCUT系列當成已驗證的「培養轉陰／上皮閉合就必須開始類固醇」規則，也不把它當成感染未明時試用類固醇的授權。",
+        "阿米巴與細菌共感染的原始病例系列和回溯研究證明兩者並非互斥，不能提供此合成病例的後驗機率；不能因文獻曾見共感染就把低品質confocal當確診。是否擴大取樣，取決於未解釋的病程及結果是否會改變處理。"
+      ],
+      "category": "角膜",
+      "unitIds": [
+        "bcsc-s08-ch012-u02",
+        "bcsc-s08-ch012-u03"
+      ],
+      "curriculumLinks": [
+        {
+          "unitId": "bcsc-s08-ch012-u02",
+          "label": "細菌性角膜炎：取樣與立即治療並行"
+        },
+        {
+          "unitId": "bcsc-s08-ch012-u03",
+          "label": "真菌與Acanthamoeba：暴露線索加病原導向"
+        }
+      ],
+      "bookId": "bcsc-s08",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            336,
+            337,
+            338,
+            339,
+            340,
+            341,
+            342,
+            353,
+            357
+          ],
+          "printedPages": [
+            "317",
+            "318",
+            "319",
+            "320",
+            "321",
+            "322",
+            "323",
+            "334",
+            "338"
+          ],
+          "chapterHeading": "Infectious Diseases of the Cornea and External Eye: Bacterial, Fungal, and Parasitic Infections",
+          "bookId": "bcsc-s08"
+        },
+        {
+          "pdfPages": [
+            336,
+            337,
+            338,
+            342,
+            343,
+            344,
+            345,
+            346,
+            347,
+            362,
+            365
+          ],
+          "printedPages": [
+            "317",
+            "318",
+            "319",
+            "323",
+            "324",
+            "325",
+            "326",
+            "327",
+            "328",
+            "343",
+            "346"
+          ],
+          "chapterHeading": "Infectious Diseases of the Cornea and External Eye: Bacterial, Fungal, and Parasitic Infections",
+          "bookId": "bcsc-s08"
+        }
+      ],
+      "status": "source-checked",
+      "batchId": "deep-dives-20261028",
+      "authoredAt": "2026-10-28"
+    },
+    {
+      "id": "deep-retina",
+      "category": "視網膜",
+      "title": "CRVO的乾OCT，沒有回答新生血管會不會長",
+      "overview": "同一眼可以在黃斑液體下降後仍留有廣泛缺血。把視力、液體、灌流、虹膜/房角新生血管列為不同問題，才能理解為何減少注射不必然等於減少所有監測，或為何一個正常IOP的眼已需要另一條治療路徑。",
+      "unitIds": [
+        "bcsc-s12-ch006-u01"
+      ],
+      "questionIds": [
+        "extra-20261022-q044",
+        "extra-20261022-q045"
+      ],
+      "mechanism": [
+        "CRVO的靜脈回流障礙增加毛細血管壓力與滲漏；缺血又可透過VEGF等訊號加重通透性和新生血管。anti-VEGF可以讓黃斑變乾，卻不能因此推論未灌流視網膜已恢復。視力平台也可能受黃斑缺血或結構損傷限制，不只由液體量決定。",
+        "前節新生血管形成、退縮與房角黏閉有其病程。IOP尚正常不等於NVI/NVA無害；等到廣泛PAS和高壓才處理，可能錯過較早的控制時機。anti-VEGF快速壓抑血管與PRP降低缺血刺激的目的互補，不能只因一次退縮就說二者長期等價。"
+      ],
+      "differential": [
+        {
+          "diagnosis": "以黃斑水腫活動為主",
+          "for": "OCT液體與視力反應可變",
+          "against": "乾OCT不代表全眼缺血風險歸零",
+          "discriminator": "將黃斑影像與獨立的灌流及NV檢查分開追蹤"
+        },
+        {
+          "diagnosis": "有缺血風險但尚無NVI/NVA",
+          "for": "廣泛無灌流，虹膜/房角目前陰性",
+          "against": "風險不等於已發NV，也不等於每眼均必須預防性PRP",
+          "discriminator": "可否可靠密切回診、重複iris/gonioscopy是否出現NV"
+        },
+        {
+          "diagnosis": "已出現NVI/NVA",
+          "for": "異常血管跨越正常結構或瞳孔緣不規則新血管",
+          "against": "正常IOP無排除力",
+          "discriminator": "專科辨識真正NV，不能把正常虹膜血管誤當病變"
+        }
+      ],
+      "investigations": [
+        {
+          "test": "黃斑OCT與BCVA",
+          "interpretation": "評估液體與中心功能的治療收益",
+          "limitation": "不直接替代缺血或前節NV監測"
+        },
+        {
+          "test": "FA/OCTA",
+          "interpretation": "描述未灌流分布並與臨床嚴重度整合",
+          "limitation": "傳統7-field FA的disc-area定義不能不加校正搬到UWF"
+        },
+        {
+          "test": "Iris examination、gonioscopy與IOP",
+          "interpretation": "在高壓出現前找NVI/NVA，追蹤是否開始PAS",
+          "limitation": "一次陰性不等於以後不會發生，注射也可能暫時抑制表現"
+        }
+      ],
+      "management": [
+        {
+          "stage": "分開設定兩條追蹤目標",
+          "action": "依水腫/視力反應決定注射收益，依缺血/NV風險安排前節監測",
+          "rationale": "避免用乾OCT為整個疾病結案"
+        },
+        {
+          "stage": "無NV時看追蹤前提",
+          "action": "可可靠監測者採專科設定的密切追蹤；無法可靠回診者另行討論風險與PRP時機",
+          "rationale": "不能把所有缺血眼或所有注射眼當成同一條分支"
+        },
+        {
+          "stage": "NV已出現時處理持續驅動",
+          "action": "及時整合anti-VEGF輔助與足量PRP，並監測房角和眼壓",
+          "rationale": "不等待高壓才承認前節NV，也不把短期退縮視為耐久控制"
+        }
+      ],
+      "evidenceLimits": [
+        "RCOphth文件本體為2022版，網址的2026路徑不是新版年份。它把MO、缺血與NV拆開管理；追蹤或治療間隔仍需依個案而非此合成病例機械套用。",
+        "傳統CVOS定義來自7-field FA，與UWF的可見面積不同；不能僅換成更大影像上的同一個數字，便宣稱風險分類完全相同。"
+      ],
+      "pitfalls": [
+        "把「不需再治療液體」誤寫成「不需再監測NV」。",
+        "用正常IOP否定已由gonioscopy看到的新生血管。"
+      ],
+      "counterfactuals": [
+        "若無法可靠回診，預防性處理的權衡可能改變。",
+        "若原以為的NV經複核只是正常血管，則不能沿用已發NV的治療前提。"
+      ],
+      "externalRefs": [
+        {
+          "title": "Royal College of Ophthalmologists: Retinal Vein Occlusion Clinical Guidelines",
+          "url": "https://www.rcophth.ac.uk/wp-content/uploads/2026/06/Retinal-vein-occlusion-guideline.pdf",
+          "locator": "pp. 4–6, 19–27: macular oedema, ischaemic CRVO and neovascularisation",
+          "version": "January 2022 document; URL hosting path is not the guideline year",
+          "checkedAt": "2026-10-28"
+        }
+      ],
+      "curriculumLinks": [
+        {
+          "unitId": "bcsc-s12-ch006-u01",
+          "label": "RVO：水腫、缺血新血管與全身風險各自處理"
+        }
+      ],
+      "bookId": "bcsc-s12",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            155,
+            156,
+            157,
+            158,
+            159,
+            160,
+            161,
+            162,
+            163,
+            164,
+            165,
+            166,
+            167,
+            168,
+            169,
+            170,
+            171,
+            172,
+            173
+          ],
+          "printedPages": [
+            "134",
+            "135",
+            "136",
+            "137",
+            "138",
+            "139",
+            "140",
+            "141",
+            "142",
+            "143",
+            "144",
+            "145",
+            "146",
+            "147",
+            "148",
+            "149",
+            "150",
+            "151",
+            "152"
+          ],
+          "chapterHeading": "Ret i nal Vascular Diseases Associated With Cardiovascular Disease",
+          "bookId": "bcsc-s12"
+        }
+      ],
+      "status": "source-checked",
+      "batchId": "deep-dives-20261028",
+      "authoredAt": "2026-10-28"
+    },
+    {
+      "id": "deep-neuro",
+      "category": "神經眼科",
+      "title": "陰性檢查是否真的排除危險：時序與解剖範圍",
+      "overview": "這個單元練習兩個否定命題：有drusen不等於没有papilledema；apraclonidine陰性不等於急性痛性Horner沒有血管原因。重點不是拒絕檢查，而是問一個結果在此時、此人、此解剖範圍能排除到哪裡。",
+      "unitIds": [
+        "bcsc-s05-ch004-u04",
+        "bcsc-s05-ch004-u08",
+        "bcsc-s05-ch011-u02"
+      ],
+      "questionIds": [
+        "extra-20261022-q046",
+        "extra-20261022-q047"
+      ],
+      "mechanism": [
+        "Drusen會造成視盤隆起，也可能造成慢性視野異常，但它不是保護視神經免於其他病變的標記。與個人基線相比的新腫脹、皺褶、功能變化及顱壓相關症狀，要求另外回答是否合併真正disc edema。中央視力仍好，不能否定這種風險。",
+        "Horner藥測利用失神經後反應改變；臨床表現出現的時間與藥測可偵測變化的時間並不必然同步。新發痛性定位與陰性藥測可以共存。非增強head CT的正常結果，也沒有回答頸動脈壁、遠端頸段與顱底血管問題。"
+      ],
+      "differential": [
+        {
+          "diagnosis": "穩定drusen相關pseudopapilledema",
+          "for": "已由可靠影像確認且長期功能/外觀穩定",
+          "against": "不能充分解釋新症狀或額外可重現腫脹",
+          "discriminator": "比較個人基線而非只重證明drusen存在"
+        },
+        {
+          "diagnosis": "真正papilledema或共存浮腫",
+          "for": "新腫脹、皺褶、視野與症狀一致變化",
+          "against": "不能由BMI或單次LP數字直接命名IIH",
+          "discriminator": "腦影像、靜脈系統及合適的CSF/次發原因評估"
+        },
+        {
+          "diagnosis": "急性痛性Horner的血管原因",
+          "for": "新ptosis、暗處anisocoria/dilation lag及同側疼痛",
+          "against": "急性apraclonidine陰性缺乏足夠排除力",
+          "discriminator": "按定位作適當head/neck血管影像，而非只重做藥測"
+        }
+      ],
+      "investigations": [
+        {
+          "test": "EDI-OCT、B-scan及連續disc/OCT/視野比較",
+          "interpretation": "確定drusen並辨新增加的變化",
+          "limitation": "存在drusen的陽性結果，不是排除其他浮腫的陰性檢查"
+        },
+        {
+          "test": "MRI與MRV或適當CT/CTV",
+          "interpretation": "先排結構與靜脈血栓等原因，再整合LP",
+          "limitation": "Raised-ICP影像徵象並非IIH專屬，不能單靠它們確診"
+        },
+        {
+          "test": "Apraclonidine與head/neck CTA",
+          "interpretation": "前者補充交感路徑確認，後者回答急性血管病因",
+          "limitation": "藥測陰性與非增強CT正常各有範圍限制，不應延誤需要的血管影像"
+        }
+      ],
+      "management": [
+        {
+          "stage": "先找新的病程變化",
+          "action": "將目前症狀與過往影像、照片和功能作時間比較",
+          "rationale": "既有診斷不應吞掉新發警訊"
+        },
+        {
+          "stage": "按危險原因安排正確的檢查序列",
+          "action": "疑papilledema先排顱內/靜脈病因再LP；急性痛性Horner按血管風險作影像",
+          "rationale": "避免讓敏感度不足或範圍不對的陰性檢查終止流程"
+        },
+        {
+          "stage": "解讀陰性與後續追蹤",
+          "action": "影像或藥測若與臨床不合，重新核對時序、技術、涵蓋範圍與替代病因",
+          "rationale": "一個陰性結果的價值取決於它真正能排除的問題"
+        }
+      ],
+      "evidenceLimits": [
+        "IIH共識是跨專科指引，先排次發病因，再整合opening pressure；它沒有把單一壓力值或肥胖變成充分診斷條件。Drusen共存的推論需眼部影像及病程評估，不是此單元提供的自動判讀規則。",
+        "ACR 2025列急性痛性/外傷性成人Horner的CTA適當性；apraclonidine原始研究同時提醒急性陰性限制。兩者回答不同問題，不能拿藥測當影像轉介的唯一閘門。"
+      ],
+      "pitfalls": [
+        "把drusen的確診當成新浮腫的排除診斷。",
+        "把非增強head CT正常當成頸動脈評估已完成。"
+      ],
+      "counterfactuals": [
+        "長期無變化、無新症狀的drusen眼，急迫性不同於本題。",
+        "多年照片相同的無痛anisocoria，不能直接套用新發痛性Horner的急症時序。"
+      ],
+      "externalRefs": [
+        {
+          "title": "Idiopathic intracranial hypertension: consensus guidelines on management",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6166610/",
+          "locator": "Investigation of papilloedema: MRI/venography before LP; diagnostic uncertainty",
+          "version": "2018",
+          "checkedAt": "2026-10-28"
+        },
+        {
+          "title": "ACR Appropriateness Criteria: Horner Syndrome",
+          "url": "https://acsearch.acr.org/docs/3195156/Narrative",
+          "locator": "Variant 1: acute painful or traumatic adult Horner syndrome",
+          "version": "2025",
+          "checkedAt": "2026-10-28",
+          "accessNote": "本次官方搜尋索引可讀；直接全文頁回傳403。"
+        },
+        {
+          "title": "Apraclonidine Is Better Than Cocaine for Detection of Horner Syndrome",
+          "url": "https://www.frontiersin.org/journals/neurology/articles/10.3389/fneur.2019.00055/full",
+          "locator": "Original retrospective diagnostic study; limits of negative results in acute lesions",
+          "version": "2019",
+          "checkedAt": "2026-10-28"
+        }
+      ],
+      "curriculumLinks": [
+        {
+          "unitId": "bcsc-s05-ch004-u04",
+          "label": "Papilledema、pseudopapilledema與IIH的診斷順序"
+        },
+        {
+          "unitId": "bcsc-s05-ch004-u08",
+          "label": "Optic disc drusen 與真正浮腫：外觀、輔助影像與共存"
+        },
+        {
+          "unitId": "bcsc-s05-ch011-u02",
+          "label": "Horner三neuron路徑、藥測及急痛dissection"
+        }
+      ],
+      "bookId": "bcsc-s05",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            154,
+            155,
+            156,
+            157,
+            159,
+            160,
+            161
+          ],
+          "printedPages": [
+            "135",
+            "136",
+            "137",
+            "138",
+            "140",
+            "141",
+            "142"
+          ],
+          "chapterHeading": "The Patient With Decreased Vision Due to Retinal, Optic Nerve, and Chiasmal Diseases",
+          "bookId": "bcsc-s05"
+        },
+        {
+          "pdfPages": [
+            154,
+            155,
+            156,
+            194,
+            195
+          ],
+          "printedPages": [
+            "135",
+            "136",
+            "137",
+            "175",
+            "176"
+          ],
+          "chapterHeading": "The Patient With Decreased Vision Due to Retinal, Optic Nerve, and Chiasmal Diseases",
+          "bookId": "bcsc-s05"
+        },
+        {
+          "pdfPages": [
+            330,
+            331,
+            332,
+            333,
+            334,
+            335,
+            336,
+            337,
+            338,
+            339,
+            340,
+            341,
+            342,
+            343,
+            344,
+            345
+          ],
+          "printedPages": [
+            "311",
+            "326"
+          ],
+          "chapterHeading": "The Patient With Pupillary Abnormalities",
+          "bookId": "bcsc-s05"
+        }
+      ],
+      "status": "source-checked",
+      "batchId": "deep-dives-20261028",
+      "authoredAt": "2026-10-28"
+    },
+    {
+      "id": "deep-uveitis-20261028",
+      "title": "反覆葡萄膜炎：陰性檢查的責任與治療反應的陷阱",
+      "overview": "反覆發作最容易讓人把「上次有效的藥」誤當成病因證明。本單元把眼內感染的檢測限制與masquerade的檢體限制放在同一框架：先問這份陰性結果究竟測到了什麼、在何種時機測、是否足以承擔排除責任，再決定下一層治療。",
+      "questionIds": [
+        "extra-20261022-q048",
+        "extra-20261022-q049"
+      ],
+      "caseType": "synthetic-original",
+      "mechanism": [
+        "PCR回答的是取到的檢體在該時點是否有足以檢出的目標核酸。疾病活動度、樣本量及先前治療都會影響其資訊量；血清IgG則主要反映既往暴露。兩者不是互換的眼內活動感染測試。",
+        "類固醇可暫時改善多種炎症與腫瘤相關表現，也可能降低後續檢體的診斷產量。因此「類固醇有效」不能單獨證明非感染免疫性疾病，「類固醇期間細胞學陰性」也不能自動排除PVRL。"
+      ],
+      "differential": [
+        {
+          "diagnosis": "病毒性前葡萄膜炎",
+          "discriminator": "活動表型與合適眼內病原檢查，而非單靠血清IgG",
+          "for": "單側反覆、高眼壓與炎症量不相稱、虹膜或內皮改變",
+          "against": "充分病原評估陰性且另一病因證據較強時"
+        },
+        {
+          "diagnosis": "非感染性葡萄膜炎",
+          "discriminator": "在升級免疫抑制前重新檢查原診斷的證據強度",
+          "for": "相容全身／眼部表型且感染評估充分",
+          "against": "特異感染疑點未解釋，或診斷只依治療反應"
+        },
+        {
+          "diagnosis": "PVRL等masquerade",
+          "discriminator": "預先協調的眼內檢體細胞學與flow；分子／細胞激素為支持，不獨立取代診斷",
+          "for": "年長、反覆玻璃體／RPE下病灶、前房反應與後段病灶不相稱、低產量陰性細胞學",
+          "against": "高品質診斷取樣及另一更可靠病因可降低疑慮"
+        }
+      ],
+      "investigations": [
+        {
+          "test": "房水PCR",
+          "interpretation": "結合目標病原、疾病活動與樣本品質判讀陽／陰性",
+          "limitation": "單次陰性不是通用排除測試；研究分類條件不等於臨床排除法"
+        },
+        {
+          "test": "玻璃體診斷取樣",
+          "interpretation": "與病理團隊先規畫細胞學、flow及適當分子輔助檢查",
+          "limitation": "細胞稀少、處理延遲及治療中的樣本可降低產量"
+        },
+        {
+          "test": "腦與全身分期",
+          "interpretation": "眼部病變可先發，中樞影像與全身評估影響完整分期",
+          "limitation": "一次腦MRI陰性不排除侷限眼內或後續中樞病變"
+        }
+      ],
+      "management": [
+        {
+          "action": "必要急救與診斷規畫並行",
+          "stage": "先處理當下威脅視功能的壓力與炎症問題",
+          "rationale": "不能為理想檢體而忽略急迫器官傷害"
+        },
+        {
+          "action": "病毒表型與PCR不一致時考慮適時重查；masquerade疑慮時協調高產量取樣",
+          "stage": "修補會改變病因判斷的檢查缺口",
+          "rationale": "再加藥可能使原缺口更難補"
+        },
+        {
+          "action": "把病原導向、免疫抑制與腫瘤處理分開，記錄診斷仍未確定的部分",
+          "stage": "依完整證據選擇長期策略",
+          "rationale": "不同路徑的風險不可由一個「uveitis」標籤混合承擔"
+        }
+      ],
+      "pitfalls": [
+        {
+          "mistake": "沒有符合SUN分類就代表臨床不可能感染",
+          "correction": "分類是研究工具，偏重特異性；臨床診斷仍須整合檢查限制"
+        },
+        {
+          "mistake": "類固醇有反應加MRI陰性，即可排除眼內淋巴瘤",
+          "correction": "兩者都不能單獨排除；低產量的陰性檢體尤其需要重新評估"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "change": "高品質適時檢查支持明確非感染診斷",
+          "effect": "升級免疫抑制的證據基礎不同，不必無限重複同一感染假說"
+        },
+        {
+          "change": "出現急迫視力或神經惡化",
+          "effect": "須加速專科診療，不能將避免類固醇的原則套成延誤救治的硬規則"
+        }
+      ],
+      "externalRefs": [
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5084402/",
+          "title": "Aqueous humor polymerase chain reaction in uveitis – utility and safety",
+          "locator": "原始研究／官方文件",
+          "checkedOn": "2026-10-28"
+        },
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8501153/",
+          "title": "Classification Criteria for Cytomegalovirus Anterior Uveitis",
+          "locator": "原始研究／官方文件",
+          "checkedOn": "2026-10-28"
+        },
+        {
+          "url": "https://onlinelibrary.wiley.com/doi/full/10.1002/hem3.89",
+          "title": "Primary central nervous system lymphomas: EHA–ESMO Clinical Practice Guideline for diagnosis, treatment and follow-up",
+          "locator": "Diagnosis; ocular lymphoma paragraphs; recommendations",
+          "checkedOn": "2026-10-28"
+        }
+      ],
+      "sourceEvidenceIds": [
+        "uveitis-pcr",
+        "sun-cmv",
+        "eha-esmo-2024"
+      ],
+      "evidenceLimits": [
+        "SUN CMV分類主要用於研究族群的一致性，偏重分類特異性；未符合它不等於臨床上排除病毒感染，符合表型也不等於單靠外觀完成病原確診。血清暴露證據與眼內活動感染必須分開。",
+        "房水PCR資料包含選擇性收案的回溯研究，支持陰性結果應結合活動度、取樣與治療背景判讀，並不支持每位葡萄膜炎病人常規穿刺，或每次陰性都固定重複穿刺。只有當新的適時檢查能改變病因與治療分流時，才權衡再取樣的價值與風險。",
+        "EHA–ESMO把玻璃體細胞學及可行時的flow列為PVRL確認途徑；MYD88與IL-10屬支持性資料，不能各自取代完整診斷。避免取樣前類固醇是「臨床可行情況下」的原則，不能用來延誤急迫視功能或神經惡化的處理。"
+      ],
+      "category": "葡萄膜",
+      "unitIds": [
+        "bcsc-s09-ch008-u01",
+        "bcsc-s09-ch012-u01",
+        "bcsc-s09-ch005-u02"
+      ],
+      "curriculumLinks": [
+        {
+          "unitId": "bcsc-s09-ch008-u01",
+          "label": "急性前炎、Fuchs與病毒高眼壓前炎"
+        },
+        {
+          "unitId": "bcsc-s09-ch012-u01",
+          "label": "病毒前炎到壞死視網膜炎：散瞳不可省"
+        },
+        {
+          "unitId": "bcsc-s09-ch005-u02",
+          "label": "感染、系統病與masquerade：檢驗要回答問題"
+        }
+      ],
+      "bookId": "bcsc-s09",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            155,
+            162,
+            166,
+            167,
+            170
+          ],
+          "printedPages": [
+            "138",
+            "145",
+            "149",
+            "150",
+            "153"
+          ],
+          "chapterHeading": "Noninfectious Anterior and Intermediate Uveitis",
+          "bookId": "bcsc-s09"
+        },
+        {
+          "pdfPages": [
+            272,
+            273,
+            274,
+            275,
+            276,
+            277,
+            278,
+            279,
+            280,
+            281,
+            282,
+            283,
+            391
+          ],
+          "printedPages": [
+            "255",
+            "256",
+            "257",
+            "258",
+            "259",
+            "260",
+            "261",
+            "262",
+            "263",
+            "264",
+            "265",
+            "266",
+            "374"
+          ],
+          "chapterHeading": "Infectious Uveitis: Nonbacterial Causes",
+          "bookId": "bcsc-s09"
+        },
+        {
+          "pdfPages": [
+            85,
+            88,
+            89,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            248,
+            249,
+            257,
+            258
+          ],
+          "printedPages": [
+            "68",
+            "71",
+            "72",
+            "81",
+            "82",
+            "83",
+            "84",
+            "85",
+            "86",
+            "87",
+            "88",
+            "89",
+            "90",
+            "91",
+            "92",
+            "93",
+            "231",
+            "232",
+            "240",
+            "241"
+          ],
+          "chapterHeading": "Diagnostic Considerations in Uveitis",
+          "bookId": "bcsc-s09"
+        }
+      ],
+      "status": "source-checked",
+      "batchId": "deep-dives-20261028",
+      "authoredAt": "2026-10-28"
+    },
+    {
+      "id": "deep-lens-20261028",
+      "title": "白內障術前：把量測值、組織儲備與動態手術風險分開",
+      "overview": "術前數字漂亮不等於每個環節都安全。角膜內皮問題需要看症狀與可靠區域的代表性；IFIS則是灌流下的動態虹膜反應。本單元練習辨認「量到了，但沒有量到真正問題」的情況，並把它轉成可執行的告知與手術準備。",
+      "questionIds": [
+        "extra-20261022-q050",
+        "extra-20261022-q051"
+      ],
+      "caseType": "synthetic-original",
+      "mechanism": [
+        "角膜內皮的功能儲備與中央／周邊影像的可讀性不同。嚴重guttae可使最重要的中央區難以可靠計數；絕對厚度又受到個人的原始厚度影響。把症狀、臨床水腫與斷層形態整合，比只找一個數值通關更合理。",
+        "瞳孔在術前藥物下的大小是靜態量測，IFIS是在術中流體及切口環境中出現的動態現象。現用或既往alpha-1 blocker暴露、對側眼實際手術反應，不能由一次良好散瞳或停藥史抹去。"
+      ],
+      "differential": [
+        {
+          "diagnosis": "白內障主要限制視功能、角膜儲備相對足夠",
+          "discriminator": "把視損來源與角膜風險分開評估",
+          "for": "視覺症狀與晶體混濁相稱、角膜評估無水腫訊號",
+          "against": "明顯晨間波動、中央不可靠量測或重現水腫圖形"
+        },
+        {
+          "diagnosis": "Fuchs相關功能失代償／風險升高",
+          "discriminator": "臨床、可靠重測與形態證據的一致性",
+          "for": "中央guttae、晨起霧視與形態改變互相支持",
+          "against": "單一低品質影像或孤立數字不足決策"
+        },
+        {
+          "diagnosis": "IFIS與懸韌帶問題",
+          "discriminator": "病史、對側眼紀錄與各自的術中準備",
+          "for": "IFIS為虹膜飄動、縮瞳、脫出；懸韌帶問題為phacodonesis等",
+          "against": "兩種機轉可並存，不能互相代替"
+        }
+      ],
+      "investigations": [
+        {
+          "test": "Specular microscopy與角膜厚度",
+          "interpretation": "先查測量區域、影像品質與基線再解讀數字",
+          "limitation": "周邊可讀細胞不保證中央儲備，未過某厚度也不排除水腫"
+        },
+        {
+          "test": "角膜tomography及症狀時序",
+          "interpretation": "可重現的等厚線與後表面變化提供與絕對厚度不同的資訊",
+          "limitation": "它們支持風險分層，不自動規定唯一手術組合"
+        },
+        {
+          "test": "用藥史及第一眼手術紀錄",
+          "interpretation": "確認過去的alpha-1 blocker及實際虹膜動態反應",
+          "limitation": "停藥多久與術前散瞳大小都不能保證IFIS不發生"
+        }
+      ],
+      "management": [
+        {
+          "action": "分開晶體、角膜與後段的貢獻",
+          "stage": "定位預期視覺收益與主要組織風險",
+          "rationale": "才知道單做白內障可能得到什麼，也知道失代償風險來自何處"
+        },
+        {
+          "action": "Fuchs個案討論單做／分期／合併的取捨；IFIS風險預備相應虹膜策略",
+          "stage": "個別討論手術時序與工具準備",
+          "rationale": "風險分層應落到具體計畫而非僅在診斷欄註記"
+        },
+        {
+          "action": "不自行以停藥保證手術安全，記錄可能泌尿負擔與手術對策",
+          "stage": "與開藥團隊及病人共享決策",
+          "rationale": "避免為了未證實的預防利益造成另一個醫療問題"
+        }
+      ],
+      "pitfalls": [
+        {
+          "mistake": "絕對CCT或ECD沒有過切點，所以白內障單做一定安全",
+          "correction": "需核對基線、品質、區域、症狀與形態，並告知殘餘不確定性"
+        },
+        {
+          "mistake": "虹膜風險用囊袋張力環處理就夠",
+          "correction": "虹膜與懸韌帶是不同機轉，器材與策略不可互換"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "change": "可靠角膜評估不見水腫且症狀由白內障充分解釋",
+          "effect": "單做白內障的討論較有支持，但仍應告知Fuchs相關風險"
+        },
+        {
+          "change": "合併phacodonesis或明確懸韌帶缺損",
+          "effect": "另加入囊袋支撐評估，同時保留原本虹膜及角膜準備"
+        }
+      ],
+      "externalRefs": [
+        {
+          "url": "https://www.escrs.org/escrs-recommendations-for-cataract-surgery",
+          "title": "ESCRS Recommendations for Cataract Surgery",
+          "locator": "4.2.5 Corneal comorbidities; 4.1.2 comorbidities",
+          "checkedOn": "2026-10-28"
+        },
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/31685256/",
+          "title": "Predicting the Prognosis of Fuchs Endothelial Corneal Dystrophy by Using Scheimpflug Tomography",
+          "locator": "原始研究／官方文件",
+          "checkedOn": "2026-10-28"
+        },
+        {
+          "url": "https://www.dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=b3384748-92f1-0b49-e053-2a95a90abc73&type=display",
+          "title": "FLOMAX (tamsulosin hydrochloride) prescribing information – Intraoperative Floppy Iris Syndrome",
+          "locator": "5.5 Intraoperative Floppy Iris Syndrome",
+          "checkedOn": "2026-10-28"
+        }
+      ],
+      "sourceEvidenceIds": [
+        "escrs-cataract",
+        "fuchs-tomography",
+        "flomax-label"
+      ],
+      "evidenceLimits": [
+        "Fuchs的tomography研究是預後評估證據，不是把不同圖形或單一CCT／ECD界值隨機比較成固定術式的試驗。因此可用它挑戰「一個數字正常就低風險」的推論，不能只憑圖形數目指定先內皮、先白內障或一定合併。",
+        "ESCRS建議以臨床呈現與視覺症狀評估Fuchs嚴重度，再進入個別化手術討論。此單元中的575 µm是合成病例量測值，不是提出新的手術界線；中央量測品質、症狀與病人需求仍需實際評估。",
+        "藥品標示指出IFIS可能發生於現用或曾用alpha-1 blocker者，且術前停藥的預防利益未確立。這不等於每人都禁止停藥，也不等於每人預防性使用同一擴張器；用藥需跨科權衡，術中策略由實際風險與術者判斷決定。"
+      ],
+      "category": "晶體／白內障",
+      "unitIds": [
+        "bcsc-s08-ch008-u02",
+        "bcsc-s11-ch012-u01",
+        "bcsc-s11-ch010-u01"
+      ],
+      "curriculumLinks": [
+        {
+          "unitId": "bcsc-s08-ch008-u02",
+          "label": "Fuchs、PPCD與CHED：同是內皮病卻不同"
+        },
+        {
+          "unitId": "bcsc-s11-ch012-u01",
+          "label": "Cornea、uveitis與glaucoma共病：分期或合併"
+        },
+        {
+          "unitId": "bcsc-s11-ch010-u01",
+          "label": "小瞳孔、IFIS與CCC失控"
+        }
+      ],
+      "bookId": "bcsc-s08",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            226,
+            227,
+            228,
+            229,
+            230,
+            231,
+            232,
+            233,
+            234
+          ],
+          "printedPages": [
+            "207",
+            "208",
+            "209",
+            "210",
+            "211",
+            "212",
+            "213",
+            "214",
+            "215"
+          ],
+          "chapterHeading": "Diagnosis and Management of Corneal Dystrophies",
+          "bookId": "bcsc-s08"
+        },
+        {
+          "pdfPages": [
+            244,
+            246,
+            247,
+            248,
+            249,
+            250,
+            251,
+            252,
+            253,
+            254,
+            255,
+            256,
+            257,
+            258,
+            259,
+            263,
+            264,
+            265,
+            266,
+            267,
+            268,
+            288
+          ],
+          "printedPages": [
+            "227",
+            "229",
+            "230",
+            "231",
+            "232",
+            "233",
+            "234",
+            "235",
+            "236",
+            "237",
+            "238",
+            "239",
+            "240",
+            "241",
+            "242",
+            "246",
+            "247",
+            "248",
+            "249",
+            "250",
+            "251",
+            "271"
+          ],
+          "chapterHeading": "Preparing for Cataract Surgery in Special Situations",
+          "bookId": "bcsc-s11"
+        },
+        {
+          "pdfPages": [
+            182,
+            184,
+            185,
+            187
+          ],
+          "printedPages": [
+            "165",
+            "167",
+            "168",
+            "170"
+          ],
+          "chapterHeading": "Intraoperative Challenges in Cataract Surgery",
+          "bookId": "bcsc-s11"
+        }
+      ],
+      "status": "source-checked",
+      "batchId": "deep-dives-20261028",
+      "authoredAt": "2026-10-28"
+    },
+    {
+      "id": "deep-orbit",
+      "category": "眼眶／眼整形",
+      "title": "介入後哪個指標改善，才真正回答原來的危險？",
+      "overview": "眼眶急症不能只記住一次性的「有做某處置」。在減壓後，視功能、眼眶張力與IOP各回答不同問題；在感染治療後，退燒、抽血、膿瘍尺寸與視神經功能也可能朝不同方向變。這裡練習以治療前提是否仍成立，決定要繼續、重定位或升級。",
+      "unitIds": [
+        "bcsc-s07-ch006-u02",
+        "bcsc-s07-ch004-u01",
+        "bcsc-s07-ch004-u04"
+      ],
+      "questionIds": [
+        "extra-20261022-q052",
+        "extra-20261022-q053"
+      ],
+      "mechanism": [
+        "眼眶內容量突然增加可能損及灌流與視神經功能。減壓後IOP下降很重要，但IOP不是直接、完整的眼眶病因圖；殘餘深部壓迫、再出血與合併眼球/視神經損傷仍可能需要處理。相反地，視力沒有立即回復也不能單獨證明需要重複同一個床邊切開。",
+        "Orbital cellulitis的危險不只由體溫或膿瘍面積決定。小型內側collection在視功能正常、監測可靠且病程改善時可能有醫療觀察空間；新RAPD或可靠重測的視力下降會改變這個前提，不能由「小」或「抽血改善」抵銷。"
+      ],
+      "differential": [
+        {
+          "diagnosis": "減壓仍不足或再度壓迫",
+          "for": "眼眶仍緊、IOP再升、proptosis惡化或有殘餘壓迫證據",
+          "against": "傷口看起來已完成不能排除",
+          "discriminator": "連續臨床指標與必要影像，不只記錄已做canthotomy"
+        },
+        {
+          "diagnosis": "初步機械改善後的其他視功能損傷",
+          "for": "眼眶張力及IOP改善但RAPD/視損持續",
+          "against": "不能直接命名TON或宣告不可逆",
+          "discriminator": "專科重新檢查及定位眼球、視網膜、視神經與深部眼眶"
+        },
+        {
+          "diagnosis": "保守感染處理的前提已失效",
+          "for": "可靠的新視力下降/RAPD或顱內危險徵象",
+          "against": "抽血、體溫或集合尺寸改善不是視神經安全保證",
+          "discriminator": "視功能變化是否可重現及source-control需求"
+        }
+      ],
+      "investigations": [
+        {
+          "test": "連續視力、瞳孔、IOP及眼眶張力",
+          "interpretation": "判斷緊急處置是否帶來機械與功能改善",
+          "limitation": "沒有任何單項可取代其餘指標或單獨保證原因已解除"
+        },
+        {
+          "test": "影像與完整眼部評估",
+          "interpretation": "減壓後或感染惡化時找殘餘壓迫、深部來源及共存損傷",
+          "limitation": "高度疑OCS尚未減壓時，不應以等影像延誤初步急救"
+        },
+        {
+          "test": "感染反應及必要培養",
+          "interpretation": "協助抗菌療法與來源處理",
+          "limitation": "炎症指標下降不能反駁新視功能危險"
+        }
+      ],
+      "management": [
+        {
+          "stage": "先確認目前是否仍有緊急壓迫",
+          "action": "若仍緊繃/再升壓，立即重評緊急減壓；若多項機械指標改善仍視損，迅速重新定位",
+          "rationale": "既不能宣告成功結案，也不能由視力一項盲目重做"
+        },
+        {
+          "stage": "在感染中持續檢查原觀察前提",
+          "action": "視功能惡化時請ENT及眼科緊急共同重評影像、抗菌與source control",
+          "rationale": "不為了等滿固定觀察天數延後可處理的損傷"
+        },
+        {
+          "stage": "介入後繼續監測",
+          "action": "將視功能與機械/感染指標分開記錄，對不一致趨勢主動找原因",
+          "rationale": "治療不是單次事件，而是需要用結果不斷校正的路徑"
+        }
+      ],
+      "evidenceLimits": [
+        "減壓與IOP的研究及臨床報告可說明指標並非完全等價，不能由少數病例建立所有病人的單一數字或保證視力恢復。此處不主張正常IOP即絕對不需追加減壓。",
+        "RCH 2026指引把視損/RAPD等列為危險訊號，支持緊急專科與影像評估；本單元不以一個collection直徑訂出普遍手術界線，具體術式仍由團隊決定。"
+      ],
+      "pitfalls": [
+        "IOP正常就宣告沒有殘餘可處理病變。",
+        "小膿瘍與退燒就容許忽略新RAPD。"
+      ],
+      "counterfactuals": [
+        "眼眶張力或IOP若再惡化，應回到緊急壓迫分支，而非等所有影像完成。",
+        "感染眼若視力與瞳孔持續正常、整體亦改善，保守密切監測的權衡才可能不同。"
+      ],
+      "externalRefs": [
+        {
+          "title": "Intraocular Pressure Changes in Emergent Surgical Decompression of Orbital Compartment Syndrome",
+          "url": "https://jamanetwork.com/journals/jamaotolaryngology/fullarticle/2250429",
+          "locator": "Original clinical observation: serial IOP and orbital decompression",
+          "version": "2015",
+          "checkedAt": "2026-10-28"
+        },
+        {
+          "title": "Orbital compartment syndrome: Pearls and pitfalls for the emergency physician",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7936795/",
+          "locator": "Post-decompression reassessment and limits of imaging/IOP alone",
+          "version": "2021",
+          "checkedAt": "2026-10-28"
+        },
+        {
+          "title": "Royal Children’s Hospital: Periorbital and orbital cellulitis",
+          "url": "https://www.rch.org.au/clinicalguide/guideline_index/Periorbital_and_orbital_cellulitis/",
+          "locator": "Visual impairment/RAPD red flags; urgent ENT/ophthalmology consultation and contrast imaging",
+          "version": "Updated July 2026",
+          "checkedAt": "2026-10-28"
+        }
+      ],
+      "curriculumLinks": [
+        {
+          "unitId": "bcsc-s07-ch006-u02",
+          "label": "眶腔症候群、異物與視神經外傷"
+        },
+        {
+          "unitId": "bcsc-s07-ch004-u01",
+          "label": "眶隔前感染、眶內感染與膿瘍"
+        },
+        {
+          "unitId": "bcsc-s07-ch004-u04",
+          "label": "膿瘍引流、壞死性筋膜炎與感染升級"
+        }
+      ],
+      "bookId": "bcsc-s07",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            136,
+            137,
+            140,
+            143,
+            146,
+            148
+          ],
+          "printedPages": [
+            "117",
+            "118",
+            "121",
+            "124",
+            "127",
+            "129"
+          ],
+          "chapterHeading": "Orbital Trauma",
+          "bookId": "bcsc-s07"
+        },
+        {
+          "pdfPages": [
+            66,
+            67,
+            68,
+            69,
+            70
+          ],
+          "printedPages": [
+            "47",
+            "48",
+            "49",
+            "50",
+            "51"
+          ],
+          "chapterHeading": "Orbital Inflammatory and Infectious Disorders",
+          "bookId": "bcsc-s07"
+        },
+        {
+          "pdfPages": [
+            69,
+            71,
+            72
+          ],
+          "printedPages": [
+            "50",
+            "52",
+            "53"
+          ],
+          "chapterHeading": "Orbital Inflammatory and Infectious Disorders",
+          "bookId": "bcsc-s07"
+        }
+      ],
+      "status": "source-checked",
+      "batchId": "deep-dives-20261028",
+      "authoredAt": "2026-10-28"
+    },
+    {
+      "id": "deep-peds-20261028",
+      "title": "兒童治療的時間軸：處方、真正暴露、平台期與持續效益",
+      "overview": "兒童治療是否「沒效」不是一次視力或一次眼位可以回答。先把眼鏡適應、遮眼執行、量測可靠性放回時間軸；再分開治療當下效益、停治後持續效益與副作用。這樣使用RCT是在判斷個案的可比性，而不是把平均結果變成承諾。",
+      "questionIds": [
+        "extra-20261022-q054",
+        "extra-20261022-q055"
+      ],
+      "caseType": "synthetic-original",
+      "mechanism": [
+        "弱視改善同時受到光學矯正、兩眼視覺輸入及實際治療暴露影響。處方上有每日2小時，不等於孩子真的完成足量run-in；新眼鏡後的改善也可能尚未完成。平台期是一個需要可靠序列量測支持的狀態。",
+        "Overminus利用配戴時的調節相關機制改善部分IXT控制，但控制效益、停止後是否保留，以及屈光移位是三個不同問題。停止後失去同等控制效益，不等於先前是假效應；額外近視差額保留，也不等於停治後仍持續加速近視。"
+      ],
+      "differential": [
+        {
+          "diagnosis": "真正足量治療後的穩定殘餘弱視",
+          "discriminator": "處方與實際執行分開記錄，確認平台期",
+          "for": "充分適當矯正、遵從可靠、標準化反覆量測無改善",
+          "against": "近期換鏡、實際遮眼不足或量測不一致"
+        },
+        {
+          "diagnosis": "尚未完成初始治療或假性平台",
+          "discriminator": "先修正可改變因素，再討論升級的增量效益",
+          "for": "眼鏡／遵從變動與視力軌跡相符",
+          "against": "長期足量穩定治療仍無改善時"
+        },
+        {
+          "diagnosis": "IXT配戴期效益與屈光副作用",
+          "discriminator": "治療期與停治期分別分析兩種結局",
+          "for": "同時追蹤眼位控制及屈光麻痺驗光的時序",
+          "against": "只靠未麻痺驗光或單次控制分數不能完整推論"
+        }
+      ],
+      "investigations": [
+        {
+          "test": "標準化crowded分眼視力及重測",
+          "interpretation": "與固定矯正、相近測試條件下的序列結果比較",
+          "limitation": "短間隔兩個相同數值不一定證明充分治療後平台"
+        },
+        {
+          "test": "依從與光學治療紀錄",
+          "interpretation": "記實際週時數、困難原因及換鏡日期",
+          "limitation": "不能把家庭困難簡化成一個「不合作」標籤"
+        },
+        {
+          "test": "IXT控制、立體視與屈光麻痺驗光",
+          "interpretation": "分開功能效益與屈光代價，並記錄配戴或撤減狀態",
+          "limitation": "對其中一個結局有效，不代表另一結局也有持續好處"
+        }
+      ],
+      "management": [
+        {
+          "action": "核對矯正、量測與可實行的遮眼計畫",
+          "stage": "補齊會造成假性治療失敗的因素",
+          "rationale": "否則加大處方時數也可能沒有增加真實治療暴露"
+        },
+        {
+          "action": "說明增加時數有平均可能利益、維持組仍可能改善，並討論負擔與監測",
+          "stage": "在可比的殘餘弱視族群討論升級",
+          "rationale": "RCT提供比較依據，不保證每位兒童反應"
+        },
+        {
+          "action": "把配戴時控制、停治後控制及可能保留的近視移位一起告知",
+          "stage": "以多結局和時間軸討論IXT策略",
+          "rationale": "避免以單一眼位改善宣稱治癒，或以副作用直接推出唯一手術選擇"
+        }
+      ],
+      "pitfalls": [
+        {
+          "mistake": "處方寫2小時且兩次視力相同，便可照搬增加遮眼RCT",
+          "correction": "先檢查實際遵從、光學治療穩定性與平台期確認方式"
+        },
+        {
+          "mistake": "停overminus後眼位回復，近視也必然回復",
+          "correction": "兩種結局的持續性不同，須各自解釋"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "change": "充分矯正及足量執行後確認穩定殘餘弱視",
+          "effect": "增加遮眼量的試驗證據較可用於共享決策，但仍非必然改善"
+        },
+        {
+          "change": "個別兒童已有近視且近視移位是家庭高度在意的代價",
+          "effect": "需提高屈光副作用在IXT治療選擇中的權重，不能只追求配戴當下眼位"
+        }
+      ],
+      "externalRefs": [
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3833469/",
+          "title": "A Randomized Trial of Increasing Patching for Amblyopia",
+          "locator": "Methods eligibility; Results; Conclusion",
+          "checkedOn": "2026-10-28"
+        },
+        {
+          "url": "https://public.jaeb.org/pedig/stdy/29",
+          "title": "ATS15 – Increasing Patching for Amblyopia Study",
+          "locator": "原始研究／官方文件",
+          "checkedOn": "2026-10-28"
+        },
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/33662112/",
+          "title": "Overminus Lens Therapy for Children 3 to 10 Years of Age With Intermittent Exotropia: A Randomized Clinical Trial",
+          "locator": "原始研究／官方文件",
+          "checkedOn": "2026-10-28"
+        },
+        {
+          "url": "https://jamanetwork.com/journals/jamaophthalmology/fullarticle/2816568",
+          "title": "Refractive Error Change and Overminus Lens Therapy for Childhood Intermittent Exotropia",
+          "locator": "Conclusions; Discussion",
+          "checkedOn": "2026-10-28"
+        }
+      ],
+      "sourceEvidenceIds": [
+        "pedig-patching-2013",
+        "pedig-patching-protocol",
+        "pedig-overminus-2021",
+        "pedig-overminus-2024"
+      ],
+      "evidenceLimits": [
+        "PEDIG增加遮眼時數的試驗針對已接受充分初始治療、矯正穩定並確認視力平台的殘餘弱視，不能只因年齡或視力值相似就套用。處方時數與實際執行量不同，最近換鏡或不可靠量測會改變與試驗的可比性。",
+        "增加至平均6小時的組別有較大的平均改善，但維持2小時組也有改善者；這不提供個體必然獲益，也不證明每位兒童都必須採相同升級方法。負擔、遵從及替代方式的證據需另行討論。",
+        "Overminus隨機試驗顯示配戴期間的控制效益在撤減後未保留同等差異；延伸追蹤顯示額外近視移位可保留，但停治後兩組沒有持續出現額外的進展速度差。它不保證每位兒童的屈光軌跡，也不能由群組差額直接推出本人的唯一手術選擇。"
+      ],
+      "category": "小兒／斜弱視",
+      "unitIds": [
+        "bcsc-s06-ch005-u02",
+        "bcsc-s06-ch005-u03",
+        "bcsc-s06-ch008-u01"
+      ],
+      "curriculumLinks": [
+        {
+          "unitId": "bcsc-s06-ch005-u02",
+          "label": "屈光矯正、patch與atropine如何選"
+        },
+        {
+          "unitId": "bcsc-s06-ch005-u03",
+          "label": "停滯、復發與binocular療法證據界線"
+        },
+        {
+          "unitId": "bcsc-s06-ch008-u01",
+          "label": "Intermittent XT：控制、sensory與遠近分類"
+        }
+      ],
+      "bookId": "bcsc-s06",
+      "sourceRefs": [
+        {
+          "pdfPages": [
+            81,
+            83,
+            84,
+            85
+          ],
+          "printedPages": [
+            "58",
+            "60",
+            "61",
+            "62"
+          ],
+          "chapterHeading": "Amblyopia",
+          "bookId": "bcsc-s06"
+        },
+        {
+          "pdfPages": [
+            85,
+            86,
+            87
+          ],
+          "printedPages": [
+            "62",
+            "63",
+            "64"
+          ],
+          "chapterHeading": "Amblyopia",
+          "bookId": "bcsc-s06"
+        },
+        {
+          "pdfPages": [
+            128,
+            129,
+            130,
+            131
+          ],
+          "printedPages": [
+            "105",
+            "106",
+            "107",
+            "108"
+          ],
+          "chapterHeading": "Exodeviations",
+          "bookId": "bcsc-s06"
+        }
+      ],
+      "status": "source-checked",
+      "batchId": "deep-dives-20261028",
+      "authoredAt": "2026-10-28"
+    }
+  ],
+  "deepDiveBatchId": "deep-dives-20261028",
+  "reviewedOn": "2026-10-28"
 }
