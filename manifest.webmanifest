@@ -1,0 +1,18 @@
+{
+  "id": "/ophthalmology-interview-public/",
+  "name": "眼科甄選練習室",
+  "short_name": "眼科練習室",
+  "description": "眼科筆試、臨床推理與面試練習。",
+  "lang": "zh-Hant",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f2f5fa",
+  "theme_color": "#132743",
+  "prefer_related_applications": false,
+  "icons": [
+    {"src": "assets/icons/app-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+    {"src": "assets/icons/app-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+    {"src": "assets/icons/app-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ]
+}
