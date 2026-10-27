@@ -1,1 +1,14 @@
 .advanced-modes{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0}.advanced-filter{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:22px 0}.advanced-filter label{font-size:.85rem;font-weight:650}.advanced-filter select{min-width:180px}.advanced-question-list{padding:0;list-style:none;margin:0}.advanced-question-list li{display:flex;gap:20px;align-items:center;padding:22px 0;border-top:1px solid #d3dee5}.advanced-question-list li>div{flex:1;min-width:0}.advanced-question-list p{line-height:1.8;margin-top:8px}.advanced-review-title{margin-top:30px}.advanced-review{border-top:1px solid #d3dee5;margin-top:20px;padding:22px 0}.advanced-review summary{cursor:pointer;line-height:1.8}.advanced-review h4{margin:10px 0}.advanced-review>div{padding-top:14px}.advanced-review p,.advanced-review li,.advanced-native-reasoning li{line-height:1.85;margin:10px 0}.advanced-native-reasoning{border-top:1px solid #d3dee5;margin-top:24px;padding-top:24px}.advanced-sheet .primary{background:#167d8d;border-color:#167d8d}@media(max-width:650px){.advanced-question-list li{align-items:start;flex-direction:column;gap:12px}.advanced-filter{display:block}.advanced-filter select{width:100%;margin-top:10px}.advanced-modes>.btn{width:100%}}
+
+/* Deep clinical reasoning: study mode remains separate from scored papers. */
+.advanced-deep-entry{margin:1.5rem 0 2rem;padding:1.25rem;border:1px solid var(--line,#ddd);border-radius:16px;background:var(--surface,#fff)}
+.advanced-deep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1rem}
+.advanced-deep-card{padding:1rem;border:1px solid var(--line,#ddd);border-radius:12px;min-width:0}
+.advanced-deep-card h3{font-size:1.1rem;line-height:1.5;margin:.6rem 0}
+.advanced-deep-card p{line-height:1.8;font-size:.95rem}
+.advanced-deep-sheet{max-width:1050px}.advanced-deep-intro,.advanced-deep-section p,.advanced-deep-section li{line-height:1.9}
+.advanced-deep-section{padding:1.2rem 0;border-top:1px solid var(--line,#ddd);margin-top:1.3rem}
+.advanced-deep-section h4{margin-bottom:.35rem}.advanced-deep-section td{vertical-align:top;min-width:150px;line-height:1.75}
+.advanced-evidence{padding:1.1rem;border-radius:12px;background:var(--soft,#f4f7fa)}
+.advanced-deep-library{border-left:4px solid var(--accent,#1f6d63)}
+@media(max-width:700px){.advanced-deep-grid{grid-template-columns:1fr}.advanced-deep-entry{padding:1rem}.advanced-deep-section td{min-width:135px}}

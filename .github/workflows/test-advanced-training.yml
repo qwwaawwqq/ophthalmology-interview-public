@@ -19,6 +19,8 @@ jobs:
         run: |
           python3 scripts/apply-advanced-training.py --check
           python3 scripts/validate-advanced.py
+          python3 scripts/validate-deep-dives.py
           python3 scripts/test-advanced-validation.py
           node scripts/test-advanced-training.cjs
+          node scripts/test-deep-dives.cjs
           node scripts/test-study-srs.cjs

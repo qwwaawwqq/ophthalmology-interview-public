@@ -162,6 +162,202 @@
       "hardness": "pass",
       "source": "pass",
       "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q040",
+      "contentSha256": "e63166f1e5e956e6bbaf2adc835cacf7a42be1eebdb1743fec7bf68364581c15",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q041",
+      "contentSha256": "b857b870019b097d19eed7792f984e94bade15391d36aa9bc2b961090b49484c",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q042",
+      "contentSha256": "8ea024c17ce1a4f66418c5f9cc1825a32f4087ff05ffecfcc16582a7c916829d",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q043",
+      "contentSha256": "c43b830e661fc5cddaf2562dc23a6f829552a3a5f4d890943697695015ba47cc",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q044",
+      "contentSha256": "859c69eb9afeb40ca17f789ffb48af50bc7f519964f77dc890eff855a57cf514",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q045",
+      "contentSha256": "de1ad1f5954faa49d2edc9652d4244161b8d98a083a227630a76585f5f84298b",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q046",
+      "contentSha256": "db6002fda55643b05e8012b66d14d6bf11bb54eb4f15065bc0873d209297f007",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q047",
+      "contentSha256": "aef92ac17fdd00fac8db6a171a6dd0462ee8f5c32704f7b0914647d97b4e3eb3",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q048",
+      "contentSha256": "04667cdea9dedf3001a0e2464a6d82a0418b7d72e853b5ab0f889b50968231c1",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q049",
+      "contentSha256": "c591114408f3a363faf42307a2f3bc6e3241ae94c00eddf01b6455e6e689e385",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q050",
+      "contentSha256": "fb48b6c5991ee5d03e5bfac4d513ed94a06b70843d4d1c6455b5c4a3753c5b9a",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q051",
+      "contentSha256": "5f5b75219ec792b27803609afaaef57e78f3c5fe243f98a924b8ff7c17fc8a4d",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q052",
+      "contentSha256": "2d8c115e8bf1b34b2ba40cd6e5ec15c27c37ea884f0469357f640c745e2e2e02",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q053",
+      "contentSha256": "cb080c00a639e9c32989dd8b80ca93e73142f59cb681c94594658a6ddbc6576e",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q054",
+      "contentSha256": "9a717916e42540aa436484523edff480413447c2be672a316ff7d412705f8347",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q055",
+      "contentSha256": "2986cea59bebeb782c1b5d0f587d40bd8a91c4eecb2cc3cafa2b6e85baf0cdf5",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
     }
-  ]
+  ],
+  "deepDives": [
+    {
+      "id": "deep-glaucoma",
+      "contentSha256": "43a71cf931e43aa99b89fe1282ecdd46e4eb635a27369c9fd726d3e79fb91a19",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "deep-cornea-20261028",
+      "contentSha256": "6f2f1b86050a3a2b509fd38dc0e56d88dec05ebe51bd78e928ca511a5b784e5a",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "deep-retina",
+      "contentSha256": "664170b3c3b6719b6599608400a54d956b86641850da0aece72b57e851c46fcf",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "deep-neuro",
+      "contentSha256": "79bc9a7a8943707251e184f44726f6892e3e6976de19ed92df356de7f9ce6f78",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "deep-uveitis-20261028",
+      "contentSha256": "f3458bba83e4c99ee4a465b7eddbc710bfbe235f306f8f52bed276ccc874e426",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "deep-lens-20261028",
+      "contentSha256": "ef36ebb7cc8d4f2bf06d7416b8afe95d60d7a8d597a976525760860970d533aa",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "deep-orbit",
+      "contentSha256": "fd6924104e66a0a5bfa5bedd8f7999554a5a662e1c57a736bfd680f1f442a4eb",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "deep-peds-20261028",
+      "contentSha256": "48921548f53d0b9aa995160e48cdbeddecabe69726b3719c94a3c8d1c9d33c51",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    }
+  ],
+  "deepDiveReviewedOn": "2026-10-28",
+  "deepDiveReviewScope": "16 original cases and 8 deep-dive modules; independent medical, reasoning, source and numeric-scope review matched canonical content hashes."
 }
