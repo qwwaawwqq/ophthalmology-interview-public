@@ -12,3 +12,7 @@
 .advanced-evidence{padding:1.1rem;border-radius:12px;background:var(--soft,#f4f7fa)}
 .advanced-deep-library{border-left:4px solid var(--accent,#1f6d63)}
 @media(max-width:700px){.advanced-deep-grid{grid-template-columns:1fr}.advanced-deep-entry{padding:1rem}.advanced-deep-section td{min-width:135px}}
+
+/* Navigation targets stay visible below the existing mobile header. */
+#advanced-deep-title,#advanced-home-title{scroll-margin-top:96px}
+@media(max-width:760px){#advanced-deep-title,#advanced-home-title{scroll-margin-top:145px}}
