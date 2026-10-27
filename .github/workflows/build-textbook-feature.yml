@@ -8,7 +8,7 @@ on:
         type: boolean
         default: false
   push:
-    branches: [content/additional-study-issue-10]
+    branches: [feature/volume-atlas-issue-39]
     paths:
       - content/textbook-manifest.json
       - content/textbook-depth/**
@@ -33,13 +33,13 @@ concurrency:
 
 jobs:
   build:
-    if: github.ref == 'refs/heads/content/additional-study-issue-10'
+    if: github.ref == 'refs/heads/feature/volume-atlas-issue-39'
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: content/additional-study-issue-10
+          ref: feature/volume-atlas-issue-39
       - name: Refuse default-branch or unexpected workspace writes
         shell: bash
         run: |
@@ -47,7 +47,7 @@ jobs:
           repo_root="$(git rev-parse --show-toplevel)"
           test "$repo_root" = "$GITHUB_WORKSPACE"
           test "$repo_root" != /Users/wangtingwei
-          test "$GITHUB_REF_NAME" = content/additional-study-issue-10
+          test "$GITHUB_REF_NAME" = feature/volume-atlas-issue-39
           test "$GITHUB_REF_NAME" != main
       - name: Validate authored scope and build only from small source files
         run: |
@@ -71,7 +71,7 @@ jobs:
           set -euo pipefail
           repo_root="$(git rev-parse --show-toplevel)"
           test "$repo_root" = "$GITHUB_WORKSPACE"
-          test "$GITHUB_REF_NAME" = content/additional-study-issue-10
+          test "$GITHUB_REF_NAME" = feature/volume-atlas-issue-39
           test "$GITHUB_REF_NAME" != main
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
@@ -80,5 +80,5 @@ jobs:
             echo 'Generated index already current.'
           else
             git commit -m 'Build textbook advanced study view'
-            git push origin HEAD:content/additional-study-issue-10
+            git push origin HEAD:feature/volume-atlas-issue-39
           fi
