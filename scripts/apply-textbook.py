@@ -16,6 +16,10 @@ def once(text, old, new):
 
 
 def build(html):
+    # Keep the existing study/depth adjacency used by study_hooks.
+    html = html.replace('<script src="scripts/textbook-atlas.js?v=volume-atlas-20261028" defer></script>\n', '')
+    # Normalize our versioned URLs before the existing idempotent hook pass.
+    html = html.replace('scripts/textbook-depth.js?v=volume-atlas-20261028', 'scripts/textbook-depth.js').replace('scripts/textbook-depth.css?v=volume-atlas-20261028', 'scripts/textbook-depth.css')
     result = html if '<script src="scripts/textbook-depth.js"' in html else once(html, '</head>', '<link rel="stylesheet" href="scripts/textbook-depth.css">\n<script src="scripts/textbook-depth.js" defer></script>\n</head>')
     if "['textbook','▥','原文書進階']" not in result: result = once(result, 'const navs=[', "const navs=[['textbook','▥','原文書進階'],")
     if "['閱讀',['study','textbook'" not in result: result = once(result, "['閱讀',['cram','notebook','learn','links']]", "['閱讀',['textbook','cram','notebook','learn','links']]")
@@ -29,7 +33,13 @@ def build(html):
         result = re.sub(r'/\* textbook-bridge:start \*/.*?/\* textbook-bridge:end \*/', lambda _: bridge, result, count=1, flags=re.S)
     else:
         result = once(result, 'function render(){', bridge + '\nfunction render(){')
-    return study_hooks(result)
+    result = study_hooks(result)
+    if 'scripts/textbook-atlas.css?v=volume-atlas-20261028' not in result:
+        result = once(result, '<link rel="stylesheet" href="scripts/textbook-depth.css">', '<link rel="stylesheet" href="scripts/textbook-depth.css">\n<link rel="stylesheet" href="scripts/textbook-atlas.css?v=volume-atlas-20261028">')
+    if 'scripts/textbook-atlas.js?v=volume-atlas-20261028' not in result:
+        anchor = '<link rel="stylesheet" href="scripts/advanced-training.css">' if '<link rel="stylesheet" href="scripts/advanced-training.css">' in result else '<script src="scripts/study-srs.js" defer></script>'
+        result = once(result, anchor, '<script src="scripts/textbook-atlas.js?v=volume-atlas-20261028" defer></script>\n' + anchor)
+    return result.replace('href="scripts/textbook-depth.css"', 'href="scripts/textbook-depth.css?v=volume-atlas-20261028"').replace('src="scripts/textbook-depth.js"', 'src="scripts/textbook-depth.js?v=volume-atlas-20261028"')
 
 
 def study_hooks(result):

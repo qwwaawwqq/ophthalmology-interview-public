@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "packId": "volume-atlas-20261028",
+  "conclusion": "pass",
+  "reviewer": "independent-clinical-review",
+  "reviewedAt": "2026-10-28",
+  "contentHashes": {
+    "atlas-s01-01": "c2288f7def09b065a9bf4d31dfd5e4c42de925aabf6b12cc65ece5e90ad79cb6",
+    "atlas-s01-02": "fb013035d6ef0c908ceb6aec33d51ee0d720f7d9f99e5d248fd92b021e5b6ce9",
+    "atlas-s02-01": "c8740bcfb570f1332fe885c9633604cc5b50dbd78f9cdbfa633cf66b2d84ae72",
+    "atlas-s02-02": "4d7b4a29a85d394ee96b09ff632f58e31869fac243c31208ecf3fb01953dcb0c",
+    "atlas-s03-01": "efb38ce57d03e571ba1be97c1fbb215161561fc5613689f2055cf335536018eb",
+    "atlas-s03-02": "199d04567fa064cfc2987e7ddfbb79c5a422db20c0ff15ececd6894bb8c4140b",
+    "atlas-s04-01": "283102600feb210f98c600f4c49724f15d391b433dad46e09369dc61523fc12b",
+    "atlas-s04-02": "416419a109f5317dd7a44b32f1129e6f32eafae226a3a68e9018779e7c238d4f",
+    "atlas-s05-01": "7fe3092d58bef3e6ea17b7f010d6ef3a70008eacfa4fef90d0e7b59356174408",
+    "atlas-s05-02": "9dc45b3ed6503418a11b887441eb3af4a5d06157a2aba41b5325e7d69a0108f9",
+    "atlas-s06-01": "812d06f5892a679d782858545cab6edc3fcd97b7e538615ac82a34f1555258a0",
+    "atlas-s06-02": "6a66e7ee2f15e95a42976fb5c144f7a51272036818b94d0ee1e99a29e16e20c9",
+    "atlas-s07-01": "2d8021daab69f65168f2970d8c5c0cfba12d8e05046cd1b7cc13d7e60fce6831",
+    "atlas-s07-02": "06028426006b10dabc65fe6a5cdc619866e06b1dc05a8a73548fc936dd2788e5",
+    "atlas-s08-01": "333b0fd3a95aa7f8c342cd18e0c499a952bf9d1eace5eef4794cdab9b54e07fe",
+    "atlas-s08-02": "1e6e80b7804c12aaa74e6f8ce319292381a337a04ba5076fe09a1ffbc7de374b",
+    "atlas-s09-01": "6c0ce703839dd7d1f80e3f4c9993ca7874fd2be439e2c86863a7d2153f1e46e1",
+    "atlas-s09-02": "97f783389190873d7511cd2c849a05ed36bb64edb17054f489c0d1c295abad10",
+    "atlas-s10-01": "f55572f4afd16927597db4cdefa489ea0a55fc5ebfb02d89a34e27c6999f770f",
+    "atlas-s10-02": "8a85b400e89dff8891057a5cee85f061922fe215cbce609b9f66d3864923368a",
+    "atlas-s11-01": "cd262c24f883866876bb96e1b30de1f901be242b6e1fd0d905402c6c252ec5e0",
+    "atlas-s11-02": "da3f055ddf8c704b81b005b0a6f38f751ee8a8e70625a1d775a309d8d789deee",
+    "atlas-s12-01": "8349a700b8716eb703c527bae7ccd69ef6043aead25e2cd90515c25fea54e629",
+    "atlas-s12-02": "8920d4d270ae6a37202c1f66960f3611e9cee477dd5602eb6f0d0bfdf6cf89ab",
+    "atlas-s13-01": "e64da0c4a281bc631b4204d60e8a6eac5715dd4ac679b08b21814a6300bcb095",
+    "atlas-s13-02": "3faf7ab08b52b5c3396074a357786524c1c579818d376e908190d0c23840dbf6"
+  },
+  "reviewNotes": [
+    "All 26 complete teaching units, original cases, tables, reasoning and counterfactuals reviewed independently of their authors.",
+    "All 26 production-renderer vector diagrams visually inspected; directions and tissue relationships cross-checked against data descriptors.",
+    "Corrected before approval: synechiae at anterior lens surface; empty capsular bag with anterior opening for vitreous prolapse; matched fixed-lens focal distance; pure PED retinal/RPE apposition; positive post-ablation stromal separation; explicit orthogonal Sturm projections.",
+    "Schematics are qualitative and non-patient examples. They are not quantitative operative plans or substitutes for clinical imaging.",
+    "Evidence review used official pages and relevant primary papers, including abstracts/indexed passages when publisher full text was inaccessible. No assertion that every linked full article was read.",
+    "Browser-specific SVG arrowhead rendering remains an integration QA item; the encoded arrow endpoints and intended directions were checked."
+  ]
+}

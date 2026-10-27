@@ -1,0 +1,58 @@
+#textbook-root .atlas-root{--atlas-blue:#366cb1;--atlas-teal:#187b78;--atlas-line:#ccdce1;color:#20324a;padding:0 0 48px}
+#textbook-root .atlas-back{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 20px}
+#textbook-root .atlas-back button{border-color:transparent;background:transparent;padding-left:0}
+#textbook-root .atlas-heading{max-width:76ch;scroll-margin-top:104px;outline:none;margin-bottom:24px}
+#textbook-root .atlas-heading h1{font-size:clamp(26px,3.4vw,38px);line-height:1.45;letter-spacing:-.025em;margin:10px 0 14px}
+#textbook-root .atlas-heading p{max-width:70ch;color:#4d687b}
+#textbook-root .atlas-scope{font-weight:650;color:#187b78!important}
+#textbook-root .atlas-selector{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin:16px 0 24px;font-size:14px}
+#textbook-root .atlas-selector select{margin:0;max-width:100%;white-space:normal}
+#textbook-root .atlas-library{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:34px 26px}
+#textbook-root .atlas-volume{border:1px solid var(--atlas-line);border-top:4px solid var(--atlas-teal);border-radius:6px;min-width:0;background:white;padding:20px}
+#textbook-root .atlas-volume-number{font-size:12px;color:#60758a;margin:0}
+#textbook-root .atlas-volume h2{font-size:21px;margin:5px 0 18px}
+#textbook-root .atlas-preview{border:1px solid #e0e9ee;background:#fff;aspect-ratio:900/460;overflow:hidden}
+#textbook-root .atlas-preview svg{width:100%;height:100%;display:block;font-family:inherit}
+#textbook-root .atlas-volume-units{display:grid;gap:10px;margin-top:16px}
+#textbook-root .atlas-volume-units button{text-align:left;font-size:14px;padding:12px;background:#f4f9f9;border-color:#c5dcde;line-height:1.7}
+#textbook-root .atlas-note{font-size:13px;max-width:80ch;color:#60758a;margin-top:30px}
+#textbook-root .atlas-unit-nav{display:flex;gap:10px;flex-wrap:wrap;border-bottom:1px solid var(--atlas-line);padding-bottom:22px;margin-bottom:28px}
+#textbook-root .atlas-unit-nav button{max-width:100%;text-align:left;line-height:1.7}
+#textbook-root .atlas-lesson{max-width:1000px;margin:0 auto}
+#textbook-root .atlas-lesson>section{margin-top:38px;max-width:78ch}
+#textbook-root .atlas-lesson>section h2{font-size:22px;margin:0 0 16px;padding-bottom:8px;border-bottom:1px solid var(--atlas-line)}
+#textbook-root .atlas-lesson p,#textbook-root .atlas-lesson li,#textbook-root .atlas-lesson dd{font-size:15px;line-height:1.95;overflow-wrap:anywhere}
+#textbook-root .atlas-goals{border-left:4px solid #187b78;padding:14px 22px;background:#f0f7f6;max-width:none!important}
+#textbook-root .atlas-goals h2{border:0!important;padding:0!important;font-size:18px!important}
+#textbook-root .atlas-clinical-question{font-weight:650;margin-top:18px!important}
+#textbook-root .atlas-figure{margin:34px 0 0;padding:20px;background:#fff;border:1px solid var(--atlas-line);border-radius:6px;min-width:0}
+#textbook-root .atlas-figure-toolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:16px}
+#textbook-root .atlas-figure-toolbar h2{font-size:19px;line-height:1.7;margin:0}
+#textbook-root .atlas-figure-toolbar button{flex-shrink:0}
+#textbook-root .atlas-svg-scroll{width:100%;overflow:auto;border:1px solid #e3ebee;overscroll-behavior-x:contain;background:white}
+#textbook-root .atlas-svg-scroll svg{display:block;width:100%;height:auto;min-width:650px;font-family:inherit}
+#textbook-root .atlas-figure[data-expanded=true] .atlas-svg-scroll svg{width:1500px;max-width:none}
+#textbook-root .atlas-figure figcaption{font-size:12px;line-height:1.8;color:#60758a;margin-top:14px;max-width:85ch}
+#textbook-root .atlas-reading dl>div,#textbook-root .atlas-counterfactuals>div{padding:12px 0;border-bottom:1px solid #dfe8ec}
+#textbook-root .atlas-reading dt,#textbook-root .atlas-counterfactuals dt{font-size:15px;line-height:1.8;font-weight:650;color:#225b68}
+#textbook-root .atlas-reading dd,#textbook-root .atlas-counterfactuals dd{margin:7px 0 0}
+#textbook-root .atlas-table-scroll{width:100%;overflow:auto}
+#textbook-root .atlas-table-scroll table{min-width:620px;background:white}
+#textbook-root .atlas-table-scroll th,#textbook-root .atlas-table-scroll td{font-size:14px;line-height:1.9}
+#textbook-root .atlas-decisions{padding-left:24px}
+#textbook-root .atlas-decisions li{margin-bottom:22px;padding-left:10px}
+#textbook-root .atlas-decisions h3{font-size:16px;margin-bottom:5px}
+#textbook-root .atlas-why{color:#536c80;padding-left:12px;border-left:2px solid #b7d0d7}
+#textbook-root .atlas-retrieval{margin-top:24px;padding:20px;border:1px solid var(--atlas-line);background:#f7fafb}
+#textbook-root .atlas-retrieval h3{font-size:15px;color:#366cb1;margin-bottom:8px}
+#textbook-root .atlas-retrieval details{margin-top:15px}
+#textbook-root .atlas-retrieval summary{font-weight:650;color:#187b78;font-size:14px}
+#textbook-root .atlas-links button{margin:5px 8px 5px 0;text-align:left;max-width:100%;line-height:1.7}
+#textbook-root .atlas-references{padding-left:22px}
+#textbook-root .atlas-references li{margin:12px 0}
+#textbook-root .atlas-references p{font-size:13px;color:#60758a;margin:4px 0}
+#textbook-root .atlas-error{padding:24px;background:#f1f7f7;border-left:4px solid #187b78}
+#textbook-root .atlas-svg-scroll:focus-visible,#textbook-root .atlas-table-scroll:focus-visible{outline:3px solid #366cb1;outline-offset:3px}
+@media(max-width:760px){#textbook-root .atlas-library{grid-template-columns:minmax(0,1fr);gap:24px}#textbook-root .atlas-volume{padding:16px}#textbook-root .atlas-heading{scroll-margin-top:154px}#textbook-root .atlas-heading h1{font-size:26px}#textbook-root .atlas-selector{display:block}#textbook-root .atlas-selector select{display:block;width:100%;margin-top:8px}#textbook-root .atlas-figure{padding:12px;margin-left:0;margin-right:0}#textbook-root .atlas-figure-toolbar{align-items:flex-start;flex-direction:column;gap:10px}#textbook-root .atlas-unit-nav{display:grid;grid-template-columns:minmax(0,1fr)}#textbook-root .atlas-goals{padding:14px 16px}#textbook-root .atlas-retrieval{padding:16px}#textbook-root .atlas-lesson>section{margin-top:30px}}
+
+#textbook-root .tb-chapter-heading{scroll-margin-top:104px}@media(max-width:760px){#textbook-root .tb-chapter-heading{scroll-margin-top:154px}}
