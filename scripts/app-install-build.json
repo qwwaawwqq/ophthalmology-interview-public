@@ -3,10 +3,10 @@
   "indexSha256": "9dddbce2e58dde7f14485306494500ba4d8119ad734d4cc6ecc45376f5cb80ba",
   "sources": {
     "manifest.webmanifest": "d7096bf183563ed058514b241d95a54a9559639ab3bec6e840108a79a8520bcf",
-    "scripts/app-install.js": "9e74692c8c6af0407d4b646a73d226a6cb08a7f0bc57640dabb0cf76724d4e39",
+    "scripts/app-install.js": "1a01c45407f6be2a0c432083152753d27f29b204e55be9171fc21ebb886ecb15",
     "scripts/app-install.css": "653da237029a578f21e13300c1db41e8acbbdfd502d66d516aefbd05c282cf8b",
     "scripts/apply-app-install.py": "38fd530ae3e84029ac63421a36723e7e62abc231ae88fb006cafe6d579108da8",
-    "scripts/test-app-install.cjs": "7837a26188c7c7476e2f9fa9593bb5d59421dcf68e17ee7c1330e8604a7570b2",
+    "scripts/test-app-install.cjs": "ed1e3cbb770bf9984042e45fb4a61560adfc6ac50ece12258b7d912173e1bb5a",
     "assets/icons/app-192.png": "662fae6b4f779b63b2c2b6377403d33b8b859c7ad95ab633bc54d72c95d4df7f",
     "assets/icons/app-512.png": "bcce05b3aa61fe15fbfdcbbe510a3972af3d72d05176649c66d88ef8c13497bc",
     "assets/icons/app-maskable-512.png": "e2c3a79a1e8a304f43beafa25bc4e297793c4526a89eabd204a215ab9515a82b",

@@ -26,7 +26,16 @@ async function test(name,fn){try{await fn();results.push({name,pass:true});}catc
   const f=fixture({ua:'Mozilla Chrome/141.0 Safari/537.36'});assert.equal(f.nodes.length,0);assert.equal(f.entry.textContent,'安裝App');assert.equal(f.api.state().ready,false);f.click();assert(f.dialog().open);assert(f.dialog().innerHTML.includes('目前尚未提供直接安裝視窗'));assert(f.dialog().innerHTML.includes('投放、儲存及分享'));
  });
  await test('offered prompt requires trusted click, is consumed once, and dismissal remains truthful',async()=>{
-  const f=fixture(),p=f.offer();assert(p.prevented());assert.equal(p.calls(),0);f.click('open',false);assert.equal(p.calls(),0);f.click('confirm');assert.equal(p.calls(),1);assert.equal(f.entry.disabled,true);await settle();assert.equal(f.entry.disabled,false);assert.equal(f.api.state().ready,false);assert(f.dialog().innerHTML.includes('這次未安裝'));f.click();assert.equal(p.calls(),1);
+  const f=fixture(),p=f.offer();assert(p.prevented());assert.equal(p.calls(),0);f.click('open',false);assert.equal(p.calls(),0);f.click('confirm');assert.equal(p.calls(),1);assert.equal(f.entry.disabled,false);assert.equal(f.entry.textContent,'查看安裝步驟');await settle();assert.equal(f.entry.disabled,false);assert.equal(f.api.state().ready,false);assert(f.dialog().innerHTML.includes('這次未安裝'));f.click();assert.equal(p.calls(),1);
+ });
+ await test('unsettled prompt and unsettled userChoice retain manual recovery without a second prompt',async()=>{
+  for(const phase of ['prompt','choice']){
+   const f=fixture();let calls=0;const never=new Promise(()=>{});
+   f.winEvents.beforeinstallprompt({preventDefault(){},prompt(){calls++;return phase==='prompt'?never:Promise.resolve();},userChoice:phase==='choice'?never:Promise.resolve({outcome:'dismissed'})});
+   f.click();await settle();assert.equal(calls,1);assert.equal(f.api.state().busy,true);assert.equal(f.entry.disabled,false);assert.equal(f.entry.textContent,'查看安裝步驟');
+   f.click();assert(f.dialog().open);assert(f.dialog().innerHTML.includes('瀏覽器的安裝視窗完成選擇'));assert(f.dialog().innerHTML.includes('app-install-steps'));assert(!f.dialog().innerHTML.includes('data-app-install-confirm'));
+   f.click('close');f.click();await settle();assert(f.dialog().open);assert.equal(calls,1);assert.equal(f.api.state().installed,false);
+  }
  });
  await test('acceptance does not claim installation until appinstalled or standalone is observed',async()=>{
   const f=fixture(),p=f.offer('accepted');f.click();await settle();assert.equal(p.calls(),1);assert.equal(f.api.state().installed,false);assert(f.dialog().innerHTML.includes('已送出安裝要求'));f.winEvents.appinstalled();assert.equal(f.api.state().installed,true);assert.equal(f.entry.textContent,'已安裝');assert.equal(fixture().api.state().installed,false,'installed flag must not be persisted as a guess');
