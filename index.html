@@ -491,11 +491,13 @@ footer span:first-child{max-width:70ch}
 </style>
 <link rel="stylesheet" href="scripts/cram-review.css?v=20261016">
 <script defer src="scripts/cram-review.js?v=20261016"></script>
-<link rel="stylesheet" href="scripts/textbook-depth.css">
+<link rel="stylesheet" href="scripts/textbook-depth.css?v=volume-atlas-20261028">
+<link rel="stylesheet" href="scripts/textbook-atlas.css?v=volume-atlas-20261028">
+<script src="scripts/textbook-atlas.js?v=volume-atlas-20261028" defer></script>
 <link rel="stylesheet" href="scripts/advanced-training.css">
 <script src="scripts/advanced-practice.js" defer></script>
 <script src="scripts/study-srs.js" defer></script>
-<script src="scripts/textbook-depth.js" defer></script>
+<script src="scripts/textbook-depth.js?v=volume-atlas-20261028" defer></script>
 <script src="scripts/advanced-training.js" defer></script>
 <link rel="stylesheet" href="scripts/learning-project.css">
 <script src="scripts/learning-project.js" defer></script>
@@ -755,6 +757,7 @@ function anchorValid(t,target){if(t.chapter&&typeof coverageTarget==='function'&
 function parseRoute(hash){
   if(typeof hash!=='string')return null;
   const h=hash.trim();let m;
+  if(/^#textbook-atlas(?:-bcsc-s(?:0[1-9]|1[0-3])(?:-atlas-s(?:0[1-9]|1[0-3])-0[12])?)?$/.test(h))return {kind:'tab',tab:'textbook',hash:h};
   if(/^#textbook(?:-extra(?:-extra-\d{8}-q\d{3})?|-bcsc-s(?:0[1-9]|1[0-3])(?:-(?:ch\d{3}(?:-iq\d{3}|-u\d{2})?|rq\d{3}))?)?$/.test(h))return {kind:'tab',tab:'textbook',hash:h};
   if((m=h.match(/^#([a-z0-9-]+?)-(section-\d+|coverage(?:-[a-z][a-z0-9-]*)?|u[1-3])$/))){const t=D.topics.find(x=>x.id===m[1]);if(t&&anchorValid(t,m[2]))return {kind:'anchor',topicId:t.id,target:m[2],hash:h};}
   if((m=h.match(/^#topic-([a-z0-9-]+)$/))&&D.topics.some(t=>t.id===m[1]))return {kind:'topic',id:m[1],hash:h};
@@ -1527,7 +1530,7 @@ function textbookEntry(key,v){
   if(!Number.isInteger(v.choice)||v.choice<0||v.choice>3)return null;
   return {version:1,choice:v.choice,revealed:v.revealed===true,confidence:[0,1,2,3].includes(v.confidence)?v.confidence:0,edition,at};
 }
-function textbookPage(){return '<p class="tb-small">原創教材與題目涵蓋原書主要主題與章節重點；可選取本機 PDF 查看原書全文與圖表。</p><section id="textbook-root" aria-label="原文書進階"><p role="status">正在開啟原文書書架…</p></section>';}
+function textbookPage(){return '<p class="tb-small">原創教材與題目涵蓋原書主要主題與章節重點；每卷另有原創圖解與進階推演。原書全文與圖表可選取自己的本機 PDF 查看。</p><section id="textbook-root" aria-label="原文書進階"><p role="status">正在開啟原文書書架…</p></section>';}
 window.OphTextbookBridge={
   read(kind,id){const key='textbook:'+kind+':'+id;return textbookEntry(key,entries[key])||null;},
   all(){return Object.fromEntries(Object.entries(entries).filter(([key])=>key.startsWith('textbook:')));},

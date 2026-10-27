@@ -6,6 +6,7 @@ on:
       - manifest.webmanifest
       - assets/icons/**
       - content/exam-schedule.json
+      - content/textbook-depth/visual-atlas*.json
       - scripts/**
       - .github/workflows/*learning-project.yml
 permissions:
@@ -30,5 +31,7 @@ jobs:
           node scripts/test-practice-sections.cjs
           node scripts/test-progress-sync.cjs
           node scripts/test-textbook-depth.cjs
+          python3 scripts/validate-atlas.py --strict
+          node scripts/test-textbook-atlas.cjs
           node scripts/test-study-srs.cjs
           node scripts/test-learning-project.cjs
