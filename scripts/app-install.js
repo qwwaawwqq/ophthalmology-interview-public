@@ -28,7 +28,7 @@
     if (!dialog) return;
     const help = guidance(), ready = !!deferred && !busy && !standalone();
     dialog.innerHTML = '<div class="app-install-heading"><h2 id="app-install-title">'+(standalone()?'App已就緒':'安裝眼科練習室')+'</h2><button type="button" class="btn small subtle" data-app-install-close aria-label="關閉安裝說明">關閉</button></div>'+
-      '<p class="app-install-message" role="status">'+esc(message || (standalone()?(installedHere?'瀏覽器已回報安裝完成，可從App圖示開啟。':'目前正以App模式開啟，不需要重複安裝。'):ready?'瀏覽器已提供安裝視窗，點擊下方按鈕繼續。':'此瀏覽器目前尚未提供直接安裝視窗，可依下列方式操作。'))+'</p>'+
+      '<p class="app-install-message" role="status">'+esc(message || (standalone()?(installedHere?'瀏覽器已回報安裝完成，可從App圖示開啟。':'目前正以App模式開啟，不需要重複安裝。'):busy?'請在瀏覽器的安裝視窗完成選擇；若未看到視窗，可依下方步驟操作。':ready?'瀏覽器已提供安裝視窗，點擊下方按鈕繼續。':'此瀏覽器目前尚未提供直接安裝視窗，可依下列方式操作。'))+'</p>'+
       (ready?'<button type="button" class="btn primary" data-app-install-confirm>開啟安裝視窗</button>':'')+
       (!standalone()?'<ol class="app-install-steps">'+help.steps.map(step=>'<li>'+esc(step)+'</li>').join('')+'</ol><p class="small">選單名稱可能隨版本不同；沒有看到安裝選項不代表以後都不支援。</p>':'')+
       '<div class="app-install-note"><p>安裝後仍需要網路。不同瀏覽器或Safari網頁App的資料可能分開；首次開啟請確認學習進度。</p><button type="button" class="btn small" data-action="tab" data-value="sync" data-app-install-close>查看保存與同步</button></div>'+
@@ -37,9 +37,9 @@
   function update() {
     const installed = standalone();
     doc.querySelectorAll('[data-app-install-open]').forEach(button => {
-      button.textContent = installed ? '已安裝' : busy ? '等待安裝選擇…' : '安裝App';
-      button.disabled = busy;
-      button.setAttribute('aria-label',installed?'查看App安裝狀態':'安裝App或查看安裝方式');
+      button.textContent = installed ? '已安裝' : busy ? '查看安裝步驟' : '安裝App';
+      button.disabled = false;
+      button.setAttribute('aria-label',installed?'查看App安裝狀態':busy?'查看安裝步驟（瀏覽器安裝仍在等待）':'安裝App或查看安裝方式');
       button.setAttribute('aria-busy',busy?'true':'false');
       button.setAttribute('data-installed',installed?'true':'false');
     });
@@ -71,7 +71,7 @@
   doc.addEventListener('click',event=>{
     const openButton=event.target.closest?.('[data-app-install-open]'),confirm=event.target.closest?.('[data-app-install-confirm]');
     if (event.target.closest?.('[data-app-install-close]')) { close(); return; }
-    if (confirm || openButton) { if (deferred && !standalone()) void prompt(event,openButton||opener); else open(openButton||opener); }
+    if (confirm || openButton) { if (busy) { open(openButton||opener); return; } if (deferred && !standalone()) void prompt(event,openButton||opener); else open(openButton||opener); }
   });
   g.OphInstall={open,close,state:()=>({installed:standalone(),ready:!!deferred,busy,platform:platform()})}; update();
 })(window);
