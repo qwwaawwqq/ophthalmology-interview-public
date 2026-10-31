@@ -18,6 +18,9 @@ function moduleBoot(progress=new Map(),hash='#textbook',volume=fixture,env={}){
  return {api:window.OphTextbook,root,calls,progress,window,windowHandlers,async mount(){await window.OphTextbook.mount(root);},async filter(value){handlers.get('change')({target:{matches:selector=>selector==='[data-tb-filter]',value}});for(let i=0;i<6;i++)await new Promise(r=>setImmediate(r));},async action(kind,value=''){handlers.get('click')({target:{closest:()=>({dataset:{tbAction:kind,value},disabled:false})}});for(let i=0;i<6;i++)await new Promise(r=>setImmediate(r));}};
 }
 (async()=>{
+ await test('phone layout keeps chapter pages within the viewport',async()=>{
+  const css=fs.readFileSync(path.join(__dirname,'textbook-depth.css'),'utf8');assert.match(css,/@media\(max-width:800px\)\{#textbook-root \.tb-reading\{grid-template-columns:minmax\(0,1fr\)/);assert.match(css,/\.tb-unit>header h2\{[^}]*overflow-wrap:anywhere/);
+ });
  await test('no book payload is fetched until the textbook view and a volume are opened',async()=>{
   const b=moduleBoot();assert.equal(b.calls.length,0);await b.mount();assert.equal(b.calls.length,1);assert(b.root.innerHTML.includes('原文書進階'));assert.equal((b.root.innerHTML.match(/class="tb-book"/g)||[]).length,13);await b.action('book','bcsc-s07');assert.equal(b.calls.length,2);assert(b.calls[1].endsWith('bcsc-s07.json'));assert(b.root.innerHTML.includes('機轉與因果'));
  });
