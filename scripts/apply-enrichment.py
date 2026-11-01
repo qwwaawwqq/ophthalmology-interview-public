@@ -514,6 +514,10 @@ def ensure_specialty_shells(html):
 
 def apply_practice(js):
     """Wire PBL, workflows and saved links into the base app. Each patch is skipped once present."""
+    expected_list = "[['oph','眼科','./']," + ",".join(f"['{sid}','{label}','./?s={sid}']" for sid, label in NON_OPH_SPECIALTIES) + "]"
+    js, n_spec = re.subn(r"const SPECIALTY_LIST=\[[^\n;]*\];", f"const SPECIALTY_LIST={expected_list};", js, count=1)
+    if n_spec != 1:
+        raise ValueError('SPECIALTY_LIST declaration not found')
     js = strip_block(js, PRACTICE_JS_START, PRACTICE_JS_END, '\x00PRACTICE\x00')
     patches = (
         ("['pbl','◈','PBL 情境']", "['workshop','◇','故事與證據']", "['pbl','◈','PBL 情境'],['workflow','▥','臨床流程'],['workshop','◇','故事與證據']", 'nav list'),
