@@ -100,6 +100,7 @@ PBL 與流程內容於 2026-10-13 由獨立審稿依 AAO／EyeWiki、AAP、ACR�
 - `content/interview-detailed.json`：46 題面試演練的詳細參考答案與追問回答。
 - `content/pbl-cases.json`、`content/clinical-workflows.json`：PBL 情境與臨床流程；來源 ID 必須是章節資源中已有的連結。
 - `scripts/progress-sync.js`：自動保存、回到上次畫面、GitHub 私人 repo 同步與裝置設定 QR，由建置腳本嵌入。
+- `scripts/specialty-registry.js`：科別登錄表，由 `apply-enrichment.py` 以 `<script id="specialty-boot">` 嵌入（必須帶屬性，建置會改寫所有無屬性的 `<script>`）。網址 `?s=ent|rad|radonc|nm` 切換科別，缺少或未知時為眼科；各科使用自己的本機保存前綴（`<科>-prep:`）、雲端檔案（`progress-<科>.json`）與進度格式（`<科>-prep-progress-v1`），彼此不能互相匯入。眼科維持原本的 `oph-prep:`、`progress.json` 與 v1／v2／v3 格式。
 - `scripts/vendor/qrcode.js`：[qrcode-generator](https://github.com/kazuhikoarase/qrcode-generator) 2.0.4（MIT，授權見 `scripts/vendor/qrcode-generator.LICENSE`），僅在顯示設定 QR code 時載入。
 - 建置會把產生的程式區塊放回原位，不移動其他工具（例如共筆考前衝刺）加入的程式。
 - `scripts/practice-ui.js`、`scripts/practice-ui.css`：PBL、流程、我的連結與網址路由的介面，由建置腳本嵌入。
@@ -114,6 +115,7 @@ node scripts/test-integrated-lessons.cjs
 node scripts/test-source-coverage.cjs
 node scripts/test-practice-sections.cjs
 node scripts/test-progress-sync.cjs
+node scripts/test-specialty.cjs
 ```
 
 建置會檢查原章節與深入解析的完整分配、來源 ID、圖解、跨章目標，以及頁面分區、教學與題目頁對應、主題單元和原檔限制。回歸測試涵蓋資料保留、搜尋與定位、回想、病例收合、進度匯入／匯出，以及自動保存與模擬 GitHub 的雙裝置同步、衝突重試、token 錯誤與公開 repo 拒絕；這些為模擬 DOM 測試，不能取代實際瀏覽器版面檢查。
