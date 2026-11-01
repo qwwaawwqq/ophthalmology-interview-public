@@ -20,8 +20,20 @@ function moduleBoot(progress=new Map(),hash='#textbook',volume=fixture,env={}){
  return {api:window.OphTextbook,root,calls,scrolled,progress,window,windowHandlers,async mount(){await window.OphTextbook.mount(root);},async filter(value){for(const fn of handlers.get('change')||[])fn({target:{matches:selector=>selector==='[data-tb-filter]',value}});for(let i=0;i<6;i++)await new Promise(r=>setImmediate(r));},async action(kind,value=''){for(const fn of handlers.get('click')||[])fn({target:{closest:sel=>!sel||sel==='[data-tb-action]'?({dataset:{tbAction:kind,value},disabled:false}):null}});for(let i=0;i<6;i++)await new Promise(r=>setImmediate(r));}};
 }
 (async()=>{
- await test('phone layout keeps chapter pages within the viewport',async()=>{
+ await test('phone layout keeps chapter pages within the viewport and styles extra entry cards like atlas entry',async()=>{
   const css=fs.readFileSync(path.join(__dirname,'textbook-depth.css'),'utf8');assert.match(css,/@media\(max-width:800px\)\{#textbook-root \.tb-reading\{grid-template-columns:minmax\(0,1fr\)/);assert.match(css,/\.tb-unit>header h2\{[^}]*overflow-wrap:anywhere/);
+  assert.match(css,/#textbook-root \.tb-atlas-entry,#textbook-root \.tb-extra-entry\{padding:24px;background:#eef6f7;border-left:4px solid #187b78;margin-bottom:26px\}/);
+ });
+ await test('extraHeader normalizes trailing full stops in extraPack.notice so 自編陌生病例 never renders 。。',async()=>{
+  const realExtra=JSON.parse(fs.readFileSync(path.join(__dirname,'../content/textbook-depth/additional-practice.json'),'utf8'));
+  const sample={...realExtra,questions:realExtra.questions.slice(0,2)};
+  for(const notice of [realExtra.notice,realExtra.notice+' 另有進階臨床推理題，訓練難度由作者設定，尚未對實際甄試校準。','全新原創練習，非原書題','測試重複句號。。',undefined]){
+   const pack={...sample};if(notice===undefined)delete pack.notice;else pack.notice=notice;
+   const b=moduleBoot(new Map(),'#textbook',fixture,{extra:pack});await b.mount();await b.action('extra','');
+   assert(b.root.innerHTML.includes('<h1>自編陌生病例</h1>'));
+   assert(b.root.innerHTML.includes('。本區額外 2 題，與原書540個題目概念分開記錄。'));
+   assert(!b.root.innerHTML.includes('。。'),'extraHeader must not produce doubled full stop for notice='+String(notice));
+  }
  });
  await test('BCSC Volume 1 (2024–2025) preserves deepened general medicine units, figure page clues and reviewed integrity',async()=>{
   const {execFileSync}=require('node:child_process');

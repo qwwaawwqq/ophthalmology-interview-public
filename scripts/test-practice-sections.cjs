@@ -295,6 +295,14 @@ test('all 46 interview items show a detailed answer pack, follow-up references a
   assert(!JSON.stringify(D.interview).includes('项'), 'simplified characters fixed in interview data');
 });
 
+test('mobile header save-status CSS prevents single-character orphan wrap while preserving exact status string', () => {
+  const practiceCss = fs.readFileSync(path.join(__dirname, 'practice-ui.css'), 'utf8');
+  for (const sheet of [practiceCss, html]) {
+    assert.match(sheet, /#save-status\{text-wrap:pretty\}/);
+    assert.match(sheet, /@media\(max-width:760px\)\{[^}]*\.topbar\{flex-wrap:wrap;gap:6px\}\.top-status\{flex:1 0 10\.25em;max-width:100%\}\.top-actions\{margin-left:auto\}/);
+  }
+});
+
 (async () => {
   // Await async checks registered through returned promises.
   for (const r of results) if (r.pending) { await r.pending; delete r.pending; }
