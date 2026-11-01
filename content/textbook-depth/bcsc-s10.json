@@ -6874,7 +6874,7 @@
             {
               "test": "急診裂隙燈前房積膿搜尋、散瞳間接眼底鏡與高頻率後節 B-scan 超音波",
               "purpose": "在任何紅痛濾過泡患者踏入診間的 10 分鐘內，精準畫出『Stage 1/2 濾泡炎』與『Stage 3 眼內炎』的生死界線。",
-              "interpretation": "務必請患者坐姿稍待片刻低倍細看下方房角有無極薄一層微前房積膿（microhypopyon），並必做 B-scan 確認玻璃體有無炎性點狀／膜狀混濁回音；只要任一項陽性即歸入第 3 期眼內炎！",
+              "interpretation": "務必請患者坐姿稍待片刻低倍細看下方房角有無極薄一層微前房積膿（microhypopyon），並必做 B-scan 確認玻璃體有無炎性點狀／膜狀混濁回音；只要任一項陽性即歸入第 3 期眼內炎（BCSC 採此分期；部分文獻把積膿而玻璃體清澈列為第 2 期，無論採哪種分期皆須詳查玻璃體）！",
               "limitation": "注意：在尚未侵犯玻璃體的單純第 1–2 期濾泡炎，『切忌冒然拿針刺穿玻璃體抽液』以免把原本只在外層的細菌人為帶進無菌玻璃體腔；但一旦懷疑第 3 期則必須立即抽玻璃體送染培養並注藥！"
             },
             {
@@ -9400,7 +9400,7 @@
       "bcsc-s10-ch013-u01": "8de32c2cd5f6585f6c7b2cab13cc2f757b94b82fc492cbfeb30934e52efec218",
       "bcsc-s10-ch013-u02": "cb34a519de938ec56616e739b488c3de8b7b86d38372da74cb035aefeecb010b",
       "bcsc-s10-ch013-u03": "ed2e3647f9cc756b6e5076e743fa3d6aea759b9a2ec20bfad092cc092cbd53c8",
-      "bcsc-s10-ch013-u04": "057a9d842626984c7a0fc5644872954900fd1f84dbb858f7c47fd4749b234624"
+      "bcsc-s10-ch013-u04": "4db1452dcd3805fdbd3d51c792555fea147767f148cdeb19549335cdba263044"
     },
     "questionContentHashes": {
       "bcsc-s10-rq001": "ac8ea9ccd0c54857c03eb34073f9dc726286d474fbcb088b8fe6b55818fdf52f",

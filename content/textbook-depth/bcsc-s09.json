@@ -5605,7 +5605,7 @@
             {
               "condition": "具治療適應症之活動性眼部弓漿蟲病（威脅黃斑／視盤、重度玻璃體炎、免疫不全、孕婦或新生兒）",
               "stage": "抗弓漿蟲全身／眼內殺蟲方案 ＋ 保護下口服類固醇 ＋ 高復發者次級預防",
-              "action": "（1）**一線全身抗寄生蟲方案（療程常為 4–6 週）**：經典三合一為 **Pyrimethamine（首日負荷後每日 `25–50 mg`）＋ Sulfadiazine（`1 g QID`）＋ 強制併用 Folinic acid（leucovorin，每週數次 `5–15 mg` 救援骨髓，切記不可錯開成一般葉酸 folic acid！）**；臨床最普及且療效相當的替代一線為複方口服 **TMP-SMX（`160 mg/800 mg` 每日 2 次）**！磺胺類過敏者可改選口服 **Clindamycin（`300 mg QID`）**、azithromycin 或 atovaquone；無法耐受全身藥或孕婦亦可採**玻璃體內注射 Clindamycin（`1 mg/0.1 mL`）合併短期地塞米松**（早期妊娠初次感染另用 spiramycin 阻斷胎盤傳播，避免致畸胎 pyrimethamine）；（2）**輔助抗炎**：僅在免疫正常且**已啟動有效抗弓漿蟲藥後（同時或 24–48 小時後）**加口服 prednisone 壓制玻璃體炎與黃斑水腫，且必須在停抗寄生蟲藥前先停類固醇；（3）**次級預防**：黃斑旁高風險頻繁復發或 AIDS（`CD4 < 200`）患者，長期每 2–3 天口服 1 錠 TMP-SMX 可大幅降低復發率！",
+              "action": "（1）**一線全身抗寄生蟲方案（療程常為 4–6 週）**：經典三合一為 **Pyrimethamine（首日負荷後每日 `25–50 mg`）＋ Sulfadiazine（`1 g QID`）＋ 強制併用 Folinic acid（leucovorin，每週數次 `5–15 mg` 救援骨髓，切記不可錯開成一般葉酸 folic acid！）**；臨床最普及且療效相當的替代一線為複方口服 **TMP-SMX（`160 mg/800 mg` 每日 2 次）**！磺胺類過敏者可改選口服 **Clindamycin（`300 mg QID`）**、azithromycin 或 atovaquone；無法耐受全身藥或孕婦亦可採**玻璃體內注射 Clindamycin（`1 mg/0.1 mL`）合併短期地塞米松**（早期妊娠初次感染另用 spiramycin 阻斷胎盤傳播，避免致畸胎 pyrimethamine）；（2）**輔助抗炎**：僅在免疫正常且**已啟動有效抗弓漿蟲藥後（同時或 24–48 小時後）**加口服 prednisone 壓制玻璃體炎與黃斑水腫，且必須在停抗寄生蟲藥前先停類固醇；（3）**次級預防**：黃斑旁高風險頻繁復發者，每 2–3 天口服 1 錠 TMP-SMX 可大幅降低復發率；AIDS 合併中樞神經弓漿蟲病者不可沿用此間歇劑量，須依 HIV 伺機感染指引給予慢性維持治療（首選 pyrimethamine＋sulfadiazine＋folinic acid，TMP-SMX 為替代，劑量依指引），直至 ART 使 `CD4+ > 200 cells/µL` 持續 ≥6 個月才評估停藥！",
               "rationale": "抗寄生蟲藥限制速殖子擴散縮小最終視網膜疤痕，保護性口服類固醇則迅速廓清「濃霧」並搶救中心凹旁光感受器。",
               "caution": "使用 pyrimethamine 每週必驗 CBC 防全血球低下；磺胺類須警覺 Stevens-Johnson 症候群；口服 clindamycin 若引發嚴重腹瀉須立即停藥排查困難梭狀桿菌偽膜性結腸炎；**嚴禁單用類固醇或注射長效眼周／眼內 depot 類固醇**！"
             },
@@ -10546,7 +10546,7 @@
       "bcsc-s09-ch011-u01": "9b0d4f1c2936d1d7f2cba6b481b264585a05a7f4c68846b0f888fbf4a5b029c5",
       "bcsc-s09-ch011-u02": "76daa9d63f3f37ec3c966a41adef7a01e0f471c6238de7e814a682f016df6117",
       "bcsc-s09-ch012-u01": "2540e60d89230572c43adcfd5ec62b4b7de462a1bd3ea873bde5bdd47f862ad0",
-      "bcsc-s09-ch012-u02": "470e33feaeaffcb450d5cce1b34b74ee5f48f45ed3aa5f4244d16793b3ce2cbe",
+      "bcsc-s09-ch012-u02": "1c2f29b1de4da0e669d097c718ca65643bc6fa03e950168128926114eea4ca24",
       "bcsc-s09-ch012-u03": "68c21c56eb382384b1852240a2f2c947fcc767dfbb7d12e1741a33442229b076",
       "bcsc-s09-ch013-u01": "41c6e56c0affd57e14c2b35426c21045d9f002252a9160644ef1d623bf4be55e",
       "bcsc-s09-ch013-u02": "5e0b0e9ac7917ea0b06cb797832340e7656e59d5f838e5b425e251316d3a65c0",
