@@ -1089,7 +1089,7 @@ def apply_specialties(html, specialties=None, content_root=DEFAULT_CONTENT_ROOT)
 
 def parse_args(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--s', '--specialty', dest='specialties', action='append', choices=SPECIALTY_ORDER, help='Specialty ID to build/check (ent, rad, radonc, nm, neuro). Repeatable.')
+    parser.add_argument('--s', '--specialty', dest='specialties', action='append', choices=SPECIALTY_ORDER, help=f'Specialty ID to build/check ({", ".join(SPECIALTY_ORDER)}). Repeatable.')
     parser.add_argument('--all', action='store_true', help='Process all non-ophthalmology specialties (default when --s is omitted).')
     parser.add_argument('--check', action='store_true', help='Validate content/<s>/ and verify index.html is up to date without writing.')
     parser.add_argument('--content-root', type=pathlib.Path, default=DEFAULT_CONTENT_ROOT, help='Root content directory (default: content/).')
