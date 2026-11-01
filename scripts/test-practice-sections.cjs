@@ -222,6 +222,8 @@ test('in-app links, section bookmarks and the hash open the matching view', () =
   action('link-save-current');
   assert(qa.linkItems().some(x => x.url === '#wf-gca'));
   action('tab', 'notebook');
+  assert.equal(context.window.location.hash, '#tab-notebook');
+  action('tab', 'today');
   assert.equal(context.window.location.hash, '');
 });
 

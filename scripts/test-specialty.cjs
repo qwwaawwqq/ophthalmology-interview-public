@@ -443,7 +443,7 @@ async function practise(app) {
     }
   });
 
-  await test('specialty picker renders all 27 links on home and sidebar with dynamic branding', async () => {
+  await test('specialty switcher renders all 27 links in the sidebar with dynamic branding', async () => {
     const expectedHrefs = ['./', ...Object.keys(OTHERS).map(id => './?s=' + id)];
     assert.equal(expectedHrefs.length, 27);
     const oph = boot();
@@ -451,11 +451,11 @@ async function practise(app) {
     assert.equal(oph.brand(), '眼科甄選練習室');
     assert(oph.footer().includes('眼科甄選練習室 · 公開練習版'));
     for (const href of expectedHrefs) {
-      assert(oph.main().includes(`href="${href}"`), 'home picker missing ' + href);
       assert(oph.nav().includes(`href="${href}"`), 'sidebar switcher missing ' + href);
     }
-    assert(oph.main().includes('href="./" aria-current="page"'));
+    assert(!oph.main().includes('specialty-picker'), 'the switcher lives in the sidebar, not on the home page');
     assert(oph.nav().includes('href="./" aria-current="page"'));
+    assert(oph.nav().includes('<span class="spec-current">眼科</span>'));
     wellFormed(oph.main());
     wellFormed(oph.nav());
 
@@ -466,11 +466,10 @@ async function practise(app) {
       assert(app.footer().includes(`${label}甄選練習室 · 公開練習版`));
       assert(!app.footer().includes('共筆'));
       for (const href of expectedHrefs) {
-        assert(app.main().includes(`href="${href}"`), `${id} home picker missing ${href}`);
         assert(app.nav().includes(`href="${href}"`), `${id} sidebar switcher missing ${href}`);
       }
-      assert(app.main().includes(`href="./?s=${id}" aria-current="page"`));
       assert(app.nav().includes(`href="./?s=${id}" aria-current="page"`));
+      assert(app.nav().includes(`<span class="spec-current">${label}</span>`));
     }
   });
 
@@ -490,7 +489,7 @@ async function practise(app) {
         assert(!app.nav().includes(`data-value="${ophTab}"`), `${id} nav leaked ${ophTab}`);
       }
       const visibleTabs = plain(app.qa.navs.filter(n => app.qa.tabAllowed(n[0])).map(n => n[0]));
-      assert.deepEqual(visibleTabs, ['study', 'notebook', 'quiz', 'learn', 'interview', 'pbl', 'workflow', 'workshop', 'plan', 'progress', 'links', 'sync']);
+      assert.deepEqual(visibleTabs, ['study', 'today', 'notebook', 'quiz', 'learn', 'interview', 'pbl', 'workflow', 'workshop', 'plan', 'progress', 'links', 'sync']);
 
       for (const tab of visibleTabs) {
         app.action('tab', tab);
@@ -544,7 +543,7 @@ async function practise(app) {
         assert.equal(app.location.hash, hash);
       }
 
-      app.action('tab', 'notebook');
+      app.action('tab', 'today');
       assert.equal(app.location.search, '?s=' + sid, `returning to home keeps ?s=${sid}`);
       assert.equal(app.location.hash, '');
 
@@ -554,7 +553,7 @@ async function practise(app) {
       }
 
       assert.equal(app.qa.normalizeLinkUrl(`https://qwwaawwqq.github.io/ophthalmology-interview-public/?s=${sid}#pbl`), '#pbl');
-      assert.equal(app.qa.normalizeLinkUrl(`https://qwwaawwqq.github.io/ophthalmology-interview-public/?s=${sid}`), '#tab-notebook');
+      assert.equal(app.qa.normalizeLinkUrl(`https://qwwaawwqq.github.io/ophthalmology-interview-public/?s=${sid}`), '#tab-today');
       assert.equal(app.qa.normalizeLinkUrl('https://qwwaawwqq.github.io/ophthalmology-interview-public/#notes-02-section-2'), 'https://qwwaawwqq.github.io/ophthalmology-interview-public/#notes-02-section-2');
 
       app.qa.openRoute('#pbl');
@@ -822,6 +821,9 @@ async function practise(app) {
       // Boot the built index.html with ?s=nm and exercise every populated feature!
       const app = boot({search: '?s=nm', blocks: builtBlocks});
       assert(!app.main().includes('specialty-pending'), 'populated nm home must not show 內容待補');
+      wellFormed(app.main());
+      app.action('tab', 'notebook');
+      assert(!app.main().includes('specialty-pending'), 'populated nm chapters must not show 內容待補');
       assert(app.main().includes('甲狀腺與全身代謝影像'));
       wellFormed(app.main());
 
