@@ -5,13 +5,7 @@ on:
       - index.html
       - manifest.webmanifest
       - assets/icons/**
-      - content/exam-schedule.json
-      - content/textbook-depth/visual-atlas*.json
-      - content/ent/**
-      - content/rad/**
-      - content/radonc/**
-      - content/nm/**
-      - content/neuro/**
+      - content/**
       - docs/specialty-content-schema.md
       - scripts/**
       - .github/workflows/*learning-project.yml
