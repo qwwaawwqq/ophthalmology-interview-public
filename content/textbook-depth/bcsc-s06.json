@@ -3360,8 +3360,8 @@
             }
           ],
           "memoryAid": {
-            "oneLiner": "內斜先散瞳：全矯收服正常 AC/A；瞳距（cm）加遠近差除 D 抓高 AC/A（平頂雙光切瞳下緣）；部分調節只開戴鏡殘角！",
-            "mnemonic": "IPD(cm)＋(近−遠)/3｜梯度＝Δ差/鏡D｜雙光切瞳下緣｜手術只開戴鏡殘餘角",
+            "oneLiner": "內斜先散瞳：全矯收服正常 AC/A；瞳距（cm）加遠近差除 D 抓高 AC/A（平頂雙光上緣平分瞳孔）；部分調節只開戴鏡殘角！",
+            "mnemonic": "IPD(cm)＋(近−遠)/3｜梯度＝Δ差/鏡D｜雙光上緣平分瞳孔｜手術只開戴鏡殘餘角",
             "visualFlow": [
               {
                 "step": "排除內眥假內斜",
@@ -3373,7 +3373,7 @@
               },
               {
                 "step": "雙公式驗算 AC/A",
-                "detail": "近比遠斜 ≥10Δ 且加 +3D 回正，配切瞳下緣平頂雙光"
+                "detail": "近比遠斜 ≥10Δ 且加 +3D 回正，配上緣平分瞳孔平頂雙光"
               },
               {
                 "step": "手術鎖定非調節",
@@ -17551,7 +17551,7 @@
       "bcsc-s06-ch006-u01": "7142b7666a957875368bf9d71c0eda3a2d7b73ada0c628a7725bef08dfc0ee2f",
       "bcsc-s06-ch006-u02": "500afd56af390ce9023ee3660a580cfdf455d84d6b6881c6e65b931f368a6499",
       "bcsc-s06-ch006-u03": "66738d766cd3b16a239bcb9109807b973a406e904b08e0ad7a0953598c27598d",
-      "bcsc-s06-ch007-u01": "4f2c5d784d15ef3a345c27f44ceeeae404681d80498fd3b00051dbea5b5024b6",
+      "bcsc-s06-ch007-u01": "a48007163d90362ab66ba0d96e02cb8afd8743ce1efcb865e26853dcd28d5716",
       "bcsc-s06-ch007-u02": "c5b13213fcba618d466431e8dbf205f91aaa63900b502ce170c12cc55eb53d61",
       "bcsc-s06-ch008-u01": "e03a6c3f0db1423710e58daa9bfde1842598cfcecd2bd990964bc6124f069b42",
       "bcsc-s06-ch008-u02": "ce8c9ff9fc5c579b72cd0761c8298c0759a7a6fd8330cd424fc87e64477ecdca",
