@@ -58,10 +58,30 @@
     "atlas-s10-02": "8a85b400e89dff8891057a5cee85f061922fe215cbce609b9f66d3864923368a",
     "atlas-s11-01": "cd262c24f883866876bb96e1b30de1f901be242b6e1fd0d905402c6c252ec5e0",
     "atlas-s11-02": "da3f055ddf8c704b81b005b0a6f38f751ee8a8e70625a1d775a309d8d789deee",
-    "atlas-s12-01": "8349a700b8716eb703c527bae7ccd69ef6043aead25e2cd90515c25fea54e629",
-    "atlas-s12-02": "8920d4d270ae6a37202c1f66960f3611e9cee477dd5602eb6f0d0bfdf6cf89ab",
-    "atlas-s13-01": "e64da0c4a281bc631b4204d60e8a6eac5715dd4ac679b08b21814a6300bcb095",
-    "atlas-s13-02": "3faf7ab08b52b5c3396074a357786524c1c579818d376e908190d0c23840dbf6"
+    "atlas-s12-01": "542c096e5a3dfd38620ec61cfea5a627a0eb3596b7a0c50f76df2ec600fdd41f",
+    "atlas-s12-02": "a7d56fac505c9c68d5b4530967af93a9200f1a3a18c7332c57cba8d2dbf3ad04",
+    "atlas-s12-03": "21aa2c86c6bb72cad863f716360b2206bad0cf7ca7d0d103cb05e91e9599d7a7",
+    "atlas-s12-04": "70d218591e48a3bba4d76a252fea8dc957fe55cca48808ce70c36e3b473180f4",
+    "atlas-s12-05": "e15bdb0312f724c59e97bc43f931ed8a6d2a955f8e0fea49567068f122320a9e",
+    "atlas-s12-06": "fefb71c888767adb2664f3c9430d6213e971330830bd916b883ff98a3cc23c53",
+    "atlas-s12-07": "6faa0b8075dc019d97030e876eb08e3920c3c3ee67bcbec52d3ed0ae42acd910",
+    "atlas-s12-08": "dd2f69cbb237bbe4d3166b4e51da64eb9edaf8c264ffbf04f2ca15e28e35dfc6",
+    "atlas-s12-09": "25e4e02a424dc9aa6670c8638b741aeaf0a13d5df435d5df62b20427324210d0",
+    "atlas-s12-10": "47d6fc3e741493b9b6095feaa66a0dc97df91c69904611d3f8ca0a4c805c09b9",
+    "atlas-s12-11": "fb3dbe51769aee028a01ca6630bfee80a92389f02b28498ae3803bf08cce759c",
+    "atlas-s12-12": "75d3ce22a9a632ae5b51a6746ee56648ee40078fa909acec7d4f1b616a65b98f",
+    "atlas-s12-13": "083ebec2113df299a87669b4f9d2d3ad1d2a83566e7e8b7aaffc579286c98add",
+    "atlas-s12-14": "4f01fdddf49eda07fcfe8f8684b7194f3e4517ce3b53816864ded32c9e79d186",
+    "atlas-s13-01": "e02093785deebf4ec85d6a3444ed71426f2a4dfbfdc06eac1d514d7ce8b5fb23",
+    "atlas-s13-02": "5661fc33ce8277394f87306d52299fa1a16d0cb14357cee9c30de0bdf087fc5a",
+    "atlas-s13-03": "74e7168e4b728d9368295d7b2d82085676d81b151eeb453a30af3f917d8e1f10",
+    "atlas-s13-04": "9ce92de96eb16cc57d9b21cd3e537ea3ae025b8da9306135d578e9ef622e9f9c",
+    "atlas-s13-05": "fcb7acc1daa98e3bde831f8ece79c094612c9165d543f80355e180db7f53e255",
+    "atlas-s13-06": "8ab6dd1f3c94f4a98902de0f0b6c0e1e3c737c1e4ba0042b08c29f3490f6ba5e",
+    "atlas-s13-07": "63d43f67eaba9ec731ee64234de74c9bedab26148d9bb50e12ef04dfa41985a5",
+    "atlas-s13-08": "be65574f7dcdab9d7b4f631ed8e673e1ab99804d37bf4f09652be80b90c66612",
+    "atlas-s13-09": "96ac5923e0bcff5b2b12f4e98782aceb4bd74c49573a292d96153cd04b24b5c3",
+    "atlas-s13-10": "0f863b24ffaa3276933d181b16fca96ef9b8d71442dd9b8fc30150470f209ba5"
   },
   "reviewNotes": [
     "All 26 complete teaching units, original cases, tables, reasoning and counterfactuals reviewed independently of their authors.",
@@ -71,6 +91,7 @@
     "Evidence review used official pages and relevant primary papers, including abstracts/indexed passages when publisher full text was inaccessible. No assertion that every linked full article was read.",
     "Browser-specific SVG arrowhead rendering remains an integration QA item; the encoded arrow endpoints and intended directions were checked.",
     "2026-11-01: Independently reviewed 20 new BCSC Vol 1 original vector illustrations (atlas-s01-03..22) across all 17 chapters for anatomical/spatial directionality, clinical thresholds, and zero text-bounds clipping.",
-    "2026-11-01: Programmatically verified Wave 1A (+11 new 900x460 SVGs atlas-s01-23..28 & atlas-s02-03..07, unitIds inline bindings across S01–S03, 1800px qlmanage raster check, 0 text-box overlaps, 0 textBoundsWarnings)."
+    "2026-11-01: Programmatically verified Wave 1A (+11 new 900x460 SVGs atlas-s01-23..28 & atlas-s02-03..07, unitIds inline bindings across S01–S03, 1800px qlmanage raster check, 0 text-box overlaps, 0 textBoundsWarnings).",
+    "2026-11-02: Independent attending & 4x WebKit visual audit PASS (20/20 diagrams atlas-s12-03..14 & atlas-s13-03..10 zero clipping/overlap; bcsc-s12 +21 & bcsc-s13 +15 PDF page offsets, 249 arithmetic checks, trial cutoffs, drug dosages/contraindications, optical formulas, and Module 14 practice/notes enrichments verified)."
   ]
 }
