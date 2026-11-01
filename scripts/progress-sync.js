@@ -2,20 +2,21 @@
 // Automatic saving. Every change is kept in this browser, and when the learner connects their own
 // private GitHub repo, progress.json in that repo is merged and updated automatically.
 // Injected by scripts/apply-enrichment.py; the export/import file format is unchanged (v3).
-const STORE={state:'oph-prep:progress-v3',cloud:'oph-prep:cloud',token:'oph-prep:cloud-token',settings:'oph-prep:settings'};
-const SYNC_FILE='progress.json',SYNC_DELAY=30000,PROGRESS_FORMATS=['ophthalmology-prep-progress-v1','ophthalmology-prep-progress-v2','ophthalmology-prep-progress-v3'];
+// Keys, sync file and formats come from the specialty registry (SPEC); oph keeps the original literals.
+const STORE={state:SPEC.stateKey,cloud:SPEC.storePrefix+'cloud',token:SPEC.storePrefix+'cloud-token',settings:SPEC.storePrefix+'settings'};
+const SYNC_FILE=SPEC.syncFile,SYNC_DELAY=30000,PROGRESS_FORMATS=[...SPEC.formats];
 const syncState={storage:false,restored:false,lastLocal:null,localError:false,busy:false,again:false,pending:false,verified:false,lastSync:null,error:'',authError:false,remoteUpdate:false};
 let localTimer=null,cloudTimer=null;
-S.syncDraft={owner:'',repo:'ophthalmology-progress',token:'',remember:true};
-{const c=(()=>{try{return JSON.parse(window.localStorage?.getItem('oph-prep:cloud')||'null');}catch{return null;}})();if(c?.owner)S.syncDraft.owner=c.owner;if(c?.repo)S.syncDraft.repo=c.repo;}
+S.syncDraft={owner:'',repo:SPEC.defaultRepo,token:'',remember:true};
+{const c=(()=>{try{return JSON.parse(window.localStorage?.getItem(STORE.cloud)||'null');}catch{return null;}})();if(c?.owner)S.syncDraft.owner=c.owner;if(c?.repo)S.syncDraft.repo=c.repo;}
 
-function storage(kind){try{const s=kind==='session'?window.sessionStorage:window.localStorage;if(!s)return null;s.setItem('oph-prep:probe','1');s.removeItem('oph-prep:probe');return s;}catch{return null;}}
+function storage(kind){try{const s=kind==='session'?window.sessionStorage:window.localStorage;if(!s)return null;s.setItem(SPEC.storePrefix+'probe','1');s.removeItem(SPEC.storePrefix+'probe');return s;}catch{return null;}}
 function readJSON(s,key){try{const v=s?.getItem(key);return v?JSON.parse(v):null;}catch{return null;}}
 function writeJSON(s,key,value){try{s.setItem(key,JSON.stringify(value));return true;}catch{return false;}}
 function removeKey(key){for(const s of [storage(),storage('session')])try{s?.removeItem(key);}catch{}}
 function deviceSettings(){return {autosave:true,autoSync:true,...(readJSON(storage(),STORE.settings)||{})};}
 function setDeviceSetting(key,value){const s=storage();if(s)writeJSON(s,STORE.settings,{...deviceSettings(),[key]:value});}
-function progressPayload(){return {format:'ophthalmology-prep-progress-v3',exportedAt:now(),entries,meta:exportMeta()};}
+function progressPayload(){return {format:SPEC.exportFormat,exportedAt:now(),entries,meta:exportMeta()};}
 function canonical(value){return JSON.stringify(value,(k,v)=>v&&typeof v==='object'&&!Array.isArray(v)?Object.keys(v).sort().reduce((o,key)=>(o[key]=v[key],o),{}):v);}
 // Compare the validated form of both copies, so stored defaults and older field layouts do not cause needless writes.
 function normalizedProgress(p){const out={entries:{},meta:{}};for(const [k,v] of Object.entries(p?.entries||{})){const x=validateEntry(k,v);if(x)out.entries[k]=x;}for(const [k,v] of Object.entries(p?.meta||{})){const x=validateMeta(k,v);if(x)out.meta[k]=x;}return out;}
@@ -162,7 +163,7 @@ function disconnectCloud(){S.syncShare=false;clearTimeout(shareTimer);removeKey(
    someone else cannot silently redirect their progress to a foreign repo. */
 const JOIN_PREFIX='#sync-join=',JOIN_RE=/^([A-Za-z0-9](?:[A-Za-z0-9-]{0,38}))\/([A-Za-z0-9._-]{1,100})\/([A-Za-z0-9_]{20,255})$/;
 let shareTimer=null;
-function joinLink(cfg){const base=typeof window.location?.href==='string'&&/^https?:/.test(window.location.href)?window.location.origin+window.location.pathname:'https://qwwaawwqq.github.io/ophthalmology-interview-public/';return base+JOIN_PREFIX+cfg.owner+'/'+cfg.repo+'/'+cfg.token;}
+function joinLink(cfg){const base=typeof window.location?.href==='string'&&/^https?:/.test(window.location.href)?window.location.origin+window.location.pathname:'https://qwwaawwqq.github.io/ophthalmology-interview-public/';return base+SPEC.query+JOIN_PREFIX+cfg.owner+'/'+cfg.repo+'/'+cfg.token;}
 function readJoinLink(){
   const hash=String(window.location?.hash||'');
   if(!hash.startsWith(JOIN_PREFIX))return false;
@@ -186,7 +187,7 @@ function sharePanel(cfg){
 
 /* Where you left off on this device: current screen, quiz round and position, open PBL stages.
    Kept beside the progress (not exported or synced), so reopening the app looks exactly as you left it. */
-const WORKSPACE_KEY='oph-prep:workspace-v1',CRAM_KEY='oph-prep:cram-review-v1',QUIZ_MODES=['all','new','safety','reserve','kaogu','wrong','uncertain'];
+const WORKSPACE_KEY=SPEC.storePrefix+'workspace-v1',CRAM_KEY=SPEC.storePrefix+'cram-review-v1',QUIZ_MODES=['all','new','safety','reserve','kaogu','wrong','uncertain'];
 let workspaceTimer=null;
 function workspaceSnapshot(){return {v:1,at:now(),hash:currentLocationHash(),quiz:{topic:S.topic,mode:S.mode,ids:S.ids,qi:S.qi,round:S.round},learn:S.learn,interview:S.interview,pbl:S.pbl,pblStage:S.pblStage,workflow:S.workflow,wfMode:S.wfMode,recall:S.recall,workshop:S.workshop,story:S.story,evidence:S.evidence};}
 function saveWorkspace(){clearTimeout(workspaceTimer);workspaceTimer=null;const s=storage();if(s&&deviceSettings().autosave)writeJSON(s,WORKSPACE_KEY,workspaceSnapshot());}

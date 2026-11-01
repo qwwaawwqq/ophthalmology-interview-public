@@ -22,9 +22,25 @@ def git_blob(data):
     return hashlib.sha1(b"blob " + str(len(data)).encode("ascii") + b"\0" + data).hexdigest()
 
 
+HOOK_SIGNATURES = (
+    "['cram','✦','共筆考前衝刺']",
+    "function cramPage(){",
+    "if(S.tab==='cram'&&window.OphCram)window.OphCram.mount(document.getElementById('cram-root'));",
+    'src="scripts/cram-review.js',
+)
+
+
+def hooks_present(data):
+    text = data.decode("utf-8", errors="replace")
+    return all(text.count(sig) == 1 for sig in HOOK_SIGNATURES)
+
+
 def patched(data):
     current = git_blob(data)
     if current == RESULT_BLOB:
+        return data, False
+    if current != BASE_BLOB and hooks_present(data):
+        # Later builds rewrote index.html around the already-applied hooks; nothing to do.
         return data, False
     if current != BASE_BLOB:
         raise ValueError(f"Refusing unknown index.html blob {current}; expected {BASE_BLOB} or already-patched {RESULT_BLOB}.")
