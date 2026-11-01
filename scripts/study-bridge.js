@@ -8,7 +8,7 @@ function studyEntry(key,v){
  if(!a||typeof a!=='object'||typeof a.id!=='string'||a.id.length>100||!a.id||!studyISO(a.at)||typeof a.correct!=='boolean'||typeof a.rated!=='boolean'||p!==null&&!studyPlanValid(p)||a.rated&&!p||!a.correct&&(!a.rated||p?.rating!=='again')||p&&p.reviewCount>v.answerCount)return null;
  return {version:1,at:v.at,answerCount:v.answerCount,attempt:{id:a.id,at:a.at,correct:a.correct,rated:a.rated},plan:p?{step:p.step,dueAt:p.dueAt,rating:p.rating,reviewCount:p.reviewCount,lapses:p.lapses}:null};
 }
-function studyPage(){return heading('SPACED REVIEW','今日複習','先有效作答，再評熟悉度。答錯提早重練，答對並熟悉才延長間隔；看過解析不等於已學會。')+'<section id="study-root" aria-label="間隔複習與學習進度"><p role="status">正在讀取複習清單…</p></section>';}
+function studyPage(){if(SPEC.id!=='oph'&&!D.questions.length)return heading('SPACED REVIEW','今日複習','先有效作答，再評熟悉度。答錯提早重練，答對並熟悉才延長間隔；看過解析不等於已學會。')+pendingCard('今日複習');return heading('SPACED REVIEW','今日複習','先有效作答，再評熟悉度。答錯提早重練，答對並熟悉才延長間隔；看過解析不等於已學會。')+'<section id="study-root" aria-label="間隔複習與學習進度"><p role="status">正在讀取複習清單…</p></section>';}
 window.OphStudyBridge={
  read(key){return studyEntry(key,entries[key])||null;},
  save(key,value){const valid=studyEntry(key,value);if(!valid)throw Error('複習紀錄格式無效');entries[key]=valid;changed();},

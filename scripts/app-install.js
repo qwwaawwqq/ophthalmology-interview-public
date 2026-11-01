@@ -27,7 +27,7 @@
   function renderDialog() {
     if (!dialog) return;
     const help = guidance(), ready = !!deferred && !busy && !standalone();
-    dialog.innerHTML = '<div class="app-install-heading"><h2 id="app-install-title">'+(standalone()?'App已就緒':'安裝眼科練習室')+'</h2><button type="button" class="btn small subtle" data-app-install-close aria-label="關閉安裝說明">關閉</button></div>'+
+    dialog.innerHTML = '<div class="app-install-heading"><h2 id="app-install-title">'+(standalone()?'App已就緒':(g.OphSpecialty&&g.OphSpecialty.id!=='oph'?'安裝'+g.OphSpecialty.appTitle:'安裝眼科練習室'))+'</h2><button type="button" class="btn small subtle" data-app-install-close aria-label="關閉安裝說明">關閉</button></div>'+
       '<p class="app-install-message" role="status">'+esc(message || (standalone()?(installedHere?'瀏覽器已回報安裝完成，可從App圖示開啟。':'目前正以App模式開啟，不需要重複安裝。'):busy?'請在瀏覽器的安裝視窗完成選擇；若未看到視窗，可依下方步驟操作。':ready?'瀏覽器已提供安裝視窗，點擊下方按鈕繼續。':'此瀏覽器目前尚未提供直接安裝視窗，可依下列方式操作。'))+'</p>'+
       (ready?'<button type="button" class="btn primary" data-app-install-confirm>開啟安裝視窗</button>':'')+
       (!standalone()?'<ol class="app-install-steps">'+help.steps.map(step=>'<li>'+esc(step)+'</li>').join('')+'</ol><p class="small">選單名稱可能隨版本不同；沒有看到安裝選項不代表以後都不支援。</p>':'')+
