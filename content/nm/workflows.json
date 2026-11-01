@@ -23,8 +23,8 @@
         },
         {
           "title": "確認停用咖啡因與甲基黃嘌呤類",
-          "detail": "核對受檢者過去 12–24 小時未飲用咖啡、茶、可樂、提神飲料、巧克力，亦未服用含咖啡因止痛藥、theophylline、aminophylline 或口服 dipyridamole。",
-          "why": "甲基黃嘌呤類競爭性阻斷腺苷 A2A 受體，會使冠脈擴張失效而造成嚴重偽陰性。",
+          "detail": "核對受檢者過去 12–24 小時未飲用咖啡、茶、可樂、提神飲料、巧克力，亦未服用含咖啡因止痛藥、theophylline 或 aminophylline；排 regadenoson 者另確認口服 dipyridamole 已儘可能停用至少 2 天。",
+          "why": "甲基黃嘌呤類競爭性阻斷腺苷 A2A 受體，會使冠脈擴張失效而造成嚴重偽陰性；口服 dipyridamole 機轉不同，會升高血中腺苷而可能增強 regadenoson 作用，故停藥時間另計。",
           "critical": true
         },
         {
@@ -42,7 +42,7 @@
         {
           "title": "副作用分級處置與 Aminophylline 逆轉時機",
           "detail": "若出現喘鳴支氣管痙攣、持續胸痛伴 ST 段壓低 ≥ 2 mm、二度以上房室阻滯或症狀性低血壓，於注射示蹤劑至少 1–2 分鐘後（危急生命時則立即）緩慢靜脈注射 aminophylline 50–100 mg 並給氧，必要時追加並會診心臟科／急診。",
-          "why": "多數輕微臉潮紅、頭暈無須給藥，但支氣管痙攣或嚴重缺血必須立即以受體拮抗劑逆轉（注意 aminophylline 半衰期短於 dipyridamole，逆轉後仍須留觀防反彈）。",
+          "why": "多數輕微臉潮紅、頭暈無須給藥，但支氣管痙攣或嚴重缺血必須立即以受體拮抗劑逆轉（dipyridamole 副作用可持續 15–25 分鐘，逆轉後仍須留觀，症狀未完全緩解可追加 aminophylline）。",
           "critical": true
         }
       ],
