@@ -66,7 +66,7 @@
     "atlas-s06-02": "3ba79aefd68b46ab2fd055189d1bc3246d54c6f0b72bc889282c9c27f9e95e81",
     "atlas-s06-03": "492030ab04a52f246003eeea3d4250ddac89a22f78404aae3182d44e2ab2f6ba",
     "atlas-s06-04": "e530ba293431329a273ae6f20d5a95d7c61d2a5b8485cb668bcc13539dad90d4",
-    "atlas-s06-05": "5cf3b5f222bdc69447f63aa213b2cde6afe664e18ac74d70c9f7c2fa0b42e066",
+    "atlas-s06-05": "1d32d41088671aefd6648eeb5ec967f6f7d52a0323b3cce290ea6c80ad22da49",
     "atlas-s06-06": "3545705fbb3dc1d361683fd87709514b579714dd04d42e91ff6d01ad998821f0",
     "atlas-s06-07": "a30ab954a9f81523e730d17497f06c3588f81a87e5ac64defbaa9137e5dfcf9a",
     "atlas-s06-08": "c6708a17be145ea416edadea5d4e3aece4e2a7b2096a8b76734acfd11ccbc5e7",
@@ -79,7 +79,7 @@
     "atlas-s07-05": "b510da94b6ad26aa935124f31de4ced6285e805a9e00af5893dbb4303c9e93bd",
     "atlas-s07-06": "742b0c4962721f35c71e0fc46ca40d1842c532397cda22455d1a3c652c083eee",
     "atlas-s07-07": "c5be5a14c983e5ff21da313a816a845f784dbc740fd10fa7e5e5a00cf9b33b70",
-    "atlas-s07-08": "a177c2d92bb7f160d4f91c67321e85b923e961dce82117ce824774862772f66a",
+    "atlas-s07-08": "7c291565fb43e6b37e198759183b54c0b8c3287dbff1f79d3d11ed60e965199f",
     "atlas-s07-09": "0c30d58a99c0fd03f8e0fe93e1e955bcd30518218b634ff2ed867790a1374370",
     "atlas-s07-10": "863d25694653e8cf13eec55de2a00645151178591237ee58af1e964d3bdf86ea",
     "atlas-s08-01": "333b0fd3a95aa7f8c342cd18e0c499a952bf9d1eace5eef4794cdab9b54e07fe",
@@ -104,6 +104,7 @@
     "Browser-specific SVG arrowhead rendering remains an integration QA item; the encoded arrow endpoints and intended directions were checked.",
     "2026-11-01: Independently reviewed 20 new BCSC Vol 1 original vector illustrations (atlas-s01-03..22) across all 17 chapters for anatomical/spatial directionality, clinical thresholds, and zero text-bounds clipping.",
     "2026-11-01: Programmatically verified Wave 1A (+11 new 900x460 SVGs atlas-s01-23..28 & atlas-s02-03..07, unitIds inline bindings across S01–S03, 1800px qlmanage raster check, 0 text-box overlaps, 0 textBoundsWarnings).",
-    "2026-11-02: Independent Iron Rule 2 attending & visual audit passed across Wave 2 (bcsc-s04–bcsc-s07 and all 32 900x460 Visual Atlas diagrams rendered via WebKit Retina PNGs): verified zero clipped CJK labels, zero line-or-border collisions, and accurate clinical trial cutoffs, drug contraindications, BCSC 2024–2025 page citations, yoke muscle pairings, and lacrimal gland ACC histologic subtype prognoses."
+    "2026-11-02: Independent Iron Rule 2 attending & visual audit passed across Wave 2 (bcsc-s04–bcsc-s07 and all 32 900x460 Visual Atlas diagrams rendered via WebKit Retina PNGs): verified zero clipped CJK labels, zero line-or-border collisions, and accurate clinical trial cutoffs, drug contraindications, BCSC 2024–2025 page citations, yoke muscle pairings, and lacrimal gland ACC histologic subtype prognoses.",
+    "2026-11-02 targeted correction, not a full re-review: atlas-s07-08 (retrobulbar hyaluronidase limited to trained clinicians, RANZCO 2024) and atlas-s06-05 (preschool bifocal top bisects the pupil, AAO Esotropia and Exotropia PPP). Hashes refreshed for these two units only."
   ]
 }
