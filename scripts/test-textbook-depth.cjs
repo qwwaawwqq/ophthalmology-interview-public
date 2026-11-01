@@ -226,6 +226,7 @@ assert all(not x['field'].startswith('source') for x in claims)
   const atlasPack=JSON.parse(fs.readFileSync(path.join(__dirname,'../content/textbook-depth/visual-atlas.json'),'utf8'));
   const s01Atlas=atlasPack.volumes.find(v=>v.bookId==='bcsc-s01');
   const au=s01Atlas.units[0],cid=au.chapterIds[0];
+  for(const u of s01Atlas.units)if(u.chapterIds.includes(cid))delete u.unitIds;
   const b=moduleBoot(new Map(),'#textbook-'+cid,s01,{atlas:atlasPack});
   await b.mount();
   assert.equal(typeof b.window.OphTextbookAtlas.unitsForChapter,'function');
@@ -254,6 +255,63 @@ assert all(not x['field'].startswith('source') for x in claims)
   await offline.mount();
   assert(offline.root.innerHTML.includes('原創醫學圖解'));
   assert(!offline.root.innerHTML.includes('class="tb-chapter-visuals"'));
+ });
+ await test('atlas figure with unitIds renders inline inside bcsc-s01-ch002-u01, stays expanded in digest mode and never duplicates at chapter top',async()=>{
+  const s01=JSON.parse(fs.readFileSync(path.join(__dirname,'../content/textbook-depth/bcsc-s01.json'),'utf8'));
+  const atlasPack=JSON.parse(fs.readFileSync(path.join(__dirname,'../content/textbook-depth/visual-atlas.json'),'utf8'));
+  const s01Atlas=atlasPack.volumes.find(v=>v.bookId==='bcsc-s01');
+  const unitBound=s01Atlas.units[0],chapterWide=s01Atlas.units[1];
+  for(const u of s01Atlas.units){
+   if(u!==unitBound&&u!==chapterWide)u.chapterIds=u.chapterIds.filter(id=>id!=='bcsc-s01-ch002');
+  }
+  unitBound.chapterIds=['bcsc-s01-ch002'];
+  unitBound.unitIds=['bcsc-s01-ch002-u01'];
+  chapterWide.chapterIds=['bcsc-s01-ch002'];
+  delete chapterWide.unitIds;
+  const ch2=s01.chapters.find(c=>c.id==='bcsc-s01-ch002');
+  ch2.units[0].memoryAid={
+   oneLiner:'臨床研究設計秒懂核心',
+   mnemonic:'RCT-BIAS',
+   visualFlow:[{step:'族群設定',detail:'納入排除'},{step:'隨機分派',detail:'平衡干擾'},{step:'結果判讀',detail:'信賴區間'}],
+   examTrigger:'看到觀察性研究先找混雜因子'
+  };
+  const b=moduleBoot(new Map(),'#textbook-bcsc-s01-ch002',s01,{atlas:atlasPack});
+  await b.mount();
+  const html=b.root.innerHTML;
+  const u01Start=html.indexOf('<article class="tb-unit" id="bcsc-s01-ch002-u01">');
+  const u02Start=html.indexOf('<article class="tb-unit" id="bcsc-s01-ch002-u02">');
+  assert(u01Start>0&&u02Start>u01Start,'expected ch002 u01 and u02 articles to render');
+  const beforeUnits=html.slice(0,u01Start);
+  const u01Block=html.slice(u01Start,u02Start);
+  const afterU01=html.slice(u02Start);
+  // Chapter-wide figure renders at chapter top; unit-bound figure does NOT render at chapter top
+  assert(beforeUnits.includes('class="tb-chapter-visuals"'));
+  assert(beforeUnits.includes('data-inline-atlas="'+chapterWide.id+'"'));
+  assert(!beforeUnits.includes('data-inline-atlas="'+unitBound.id+'"'),'unit-bound figure must not appear at chapter top');
+  // Unit-bound figure renders inside u01 right after memoryAid, and nowhere in u02+
+  assert(u01Block.includes('class="atlas-inline-wrap atlas-unit-inline-wrap"'));
+  assert(u01Block.includes('data-inline-atlas="'+unitBound.id+'"'));
+  assert(u01Block.includes('<svg xmlns="http://www.w3.org/2000/svg"'));
+  assert(u01Block.includes('讀圖重點與臨床決策步驟'));
+  assert(u01Block.includes('開啟完整圖解與臨床問答 →'));
+  assert(u01Block.indexOf('class="tb-memory-card"')<u01Block.indexOf('atlas-unit-inline-wrap'),'unit inline figure should follow memoryAid');
+  assert(!afterU01.includes('data-inline-atlas="'+unitBound.id+'"'),'unit-bound figure must not appear in other units');
+  assert.equal((html.match(new RegExp('data-inline-atlas="'+unitBound.id+'"','g'))||[]).length,1,'exact single render on page');
+  // Zoom works on unit-embedded card
+  await b.action('inline-atlas-zoom',unitBound.id);
+  assert(b.root.innerHTML.includes('data-inline-atlas="'+unitBound.id+'" data-expanded="true"'));
+  await b.action('inline-atlas-zoom',unitBound.id);
+  // Digest mode keeps unit-embedded SVG card expanded outside .tb-digest-fold
+  await b.action('read-style','digest');
+  const digestHtml=b.root.innerHTML;
+  const dU01=digestHtml.slice(digestHtml.indexOf('<article class="tb-unit" id="bcsc-s01-ch002-u01">'),digestHtml.indexOf('<article class="tb-unit" id="bcsc-s01-ch002-u02">'));
+  assert(dU01.includes('class="tb-digest-fold"'));
+  assert(dU01.indexOf('atlas-unit-inline-wrap')<dU01.indexOf('class="tb-digest-fold"'),'unit inline SVG stays visible before folded long-text sections in digest mode');
+  assert.equal((digestHtml.match(new RegExp('data-inline-atlas="'+unitBound.id+'"','g'))||[]).length,1);
+  // Open full atlas lesson from unit-embedded card
+  await b.action('open-atlas-unit',unitBound.id);
+  assert.equal(b.window.location.hash,'#textbook-atlas-bcsc-s01-'+unitBound.id);
+  assert(b.root.innerHTML.includes('class="atlas-lesson"'));
  });
  await test('chapter studyGuide, unit quick-jump pills, unit memoryAid flowchart and digest reading toggle render and escape HTML safely',async()=>{
   const enriched=JSON.parse(JSON.stringify(fixture));

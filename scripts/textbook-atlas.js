@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  if (window.OphTextbookAtlas) return;
+  if (window.OphTextbookAtlas) { window.TextbookAtlas ||= window.OphTextbookAtlas; return; }
   const base = new URL('../', document.currentScript.src);
   const version = 'volume-atlas-20261028';
   const palette = {ink:'#20324a',muted:'#60758a',teal:'#187b78',blue:'#366cb1',red:'#bf4f5b',amber:'#9d6c15','pale-teal':'#dcefed','pale-blue':'#e2ecf8','pale-red':'#f6e2e5','pale-amber':'#f6edce',white:'#ffffff',none:'none'};
@@ -32,7 +32,7 @@
     return '';
   }
   function svg(unit, preview=false) {
-    const d=unit.diagram||unit, uid=esc(unit.id||'figure'), suffix=preview===true?'-preview':typeof preview==='string'&&preview?'-'+preview:'';
+    const d=unit.diagram||unit, uid=esc(unit.id||'figure'), suffix=preview===true?'-preview':typeof preview==='string'&&preview?'-'+esc(preview):'';
     const prefix='atlas-arrow-'+uid+suffix;
     const title=uid+suffix+'-title', description=uid+suffix+'-description';
     const markers=Object.entries(palette).filter(([key])=>key!=='none').map(([key,fill])=>'<marker id="'+prefix+'-'+key+'" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M 0 0 L 8 4 L 0 8 Z" fill="'+fill+'"/></marker>').join('');
@@ -43,7 +43,7 @@
     pending ||= fetch(new URL('content/textbook-depth/visual-atlas.json?v='+version,base)).then(async response=>{
       if(!response.ok) throw Error('圖解教材載入失敗');
       const data=await response.json();
-      if(data.schemaVersion!==1||data.id!==version||!Array.isArray(data.volumes)||data.volumes.length!==13||data.volumes.some(v=>!/^bcsc-s(?:0[1-9]|1[0-3])$/.test(v.bookId)||!Array.isArray(v.units)||v.units.length<2||v.units.some(u=>!/^atlas-s(?:0[1-9]|1[0-3])-(?:0[1-9]|[1-9]\d)$/.test(u.id)||!Array.isArray(u.diagram?.elements)))) throw Error('圖解教材格式不符');
+      if(data.schemaVersion!==1||data.id!==version||!Array.isArray(data.volumes)||data.volumes.length!==13||data.volumes.some(v=>!/^bcsc-s(?:0[1-9]|1[0-3])$/.test(v.bookId)||!Array.isArray(v.units)||v.units.length<2||v.units.some(u=>!/^atlas-s(?:0[1-9]|1[0-3])-(?:0[1-9]|[1-9]\d)$/.test(u.id)||!Array.isArray(u.diagram?.elements)||(u.unitIds!==undefined&&(!Array.isArray(u.unitIds)||u.unitIds.some(id=>typeof id!=='string')))))) throw Error('圖解教材格式不符');
       pack=data; return data;
     }).catch(error=>{pending=null;throw error;});
     return pending;
@@ -53,30 +53,66 @@
     const volume=pack.volumes.find(v=>v.bookId===bookId);
     return volume?volume.units.filter(u=>Array.isArray(u.chapterIds)&&u.chapterIds.includes(chapterId)):[];
   }
-  function inlineChapterHtml(bookId, chapterId, zoomedSet) {
-    const units=unitsForChapter(bookId,chapterId);
-    if(!units.length) return '';
-    return '<section class="tb-chapter-visuals" aria-label="本章原創醫學圖解">'+units.map(u=>{
-      const zoomed=Boolean(zoomedSet&&typeof zoomedSet.has==='function'&&zoomedSet.has(u.id));
-      const readings=Array.isArray(u.figureReading)?u.figureReading:[];
-      const steps=Array.isArray(u.decisionSteps)?u.decisionSteps:[];
-      return '<figure class="tb-inline-atlas-card" data-inline-atlas="'+esc(u.id)+'" data-expanded="'+zoomed+'">' +
-        '<div class="tb-inline-atlas-head"><span class="tb-inline-atlas-badge">原創醫學圖解</span><h3>'+esc(u.title)+'</h3><p class="tb-small">'+esc(u.clinicalQuestion)+'</p></div>' +
-        '<div class="atlas-svg-scroll'+(zoomed?' is-zoomed':'')+'" tabindex="0" aria-label="'+esc(u.diagram.title)+'，可橫向捲動檢視圖解">'+svg(u,'inline')+'</div>' +
-        '<figcaption class="tb-small">原創醫學示意，非患者影像、非按比例。'+esc(u.diagram.alt)+'</figcaption>' +
-        '<div class="tb-inline-atlas-actions">' +
-          '<button type="button" data-tb-action="inline-atlas-zoom" data-value="'+esc(u.id)+'" aria-pressed="'+zoomed+'">'+(zoomed?'標準尺寸':'放大圖解')+'</button>' +
-          '<button type="button" data-tb-action="open-atlas-unit" data-value="'+esc(u.id)+'">開啟完整圖解與臨床問答</button>' +
-        '</div>' +
-        '<details class="tb-inline-atlas-key"><summary>讀圖標記與決策步驟（'+readings.length+' 項標記 · '+steps.length+' 步決策）</summary>' +
-          '<div class="tb-inline-atlas-key-body">' +
-            '<div><h4>讀圖標記</h4><dl class="tb-inline-atlas-dl">'+readings.map(r=>'<div><dt>'+esc(r.label)+'</dt><dd>'+esc(r.meaning)+'</dd></div>').join('')+'</dl></div>' +
-            '<div><h4>決策步驟</h4><ol class="tb-inline-atlas-steps">'+steps.map(s=>'<li><strong>'+esc(s.condition)+'</strong><span> → '+esc(s.action)+'</span></li>').join('')+'</ol></div>' +
-          '</div>' +
-        '</details>' +
-      '</figure>';
-    }).join('')+'</section>';
+  function unitsForUnit(bookId, unitId) {
+    if(!pack||!bookId||!unitId) return [];
+    const volume=pack.volumes.find(v=>v.bookId===bookId);
+    return volume?volume.units.filter(u=>Array.isArray(u.unitIds)&&u.unitIds.includes(unitId)):[];
   }
+  function renderInlineCard(u, opts) {
+    const zoomed=Boolean(opts.zoomed);
+    const readings=Array.isArray(u.figureReading)?u.figureReading:[];
+    const steps=Array.isArray(u.decisionSteps)?u.decisionSteps:[];
+    return '<figure class="tb-inline-atlas-card'+(opts.extraClass||'')+'" data-inline-atlas="'+esc(u.id)+'" data-expanded="'+zoomed+'">' +
+      '<div class="tb-inline-atlas-head"><span class="tb-inline-atlas-badge">'+opts.badge+'</span><h3>'+esc(u.title)+'</h3><p class="tb-small">'+esc(u.clinicalQuestion)+'</p></div>' +
+      '<div class="atlas-svg-scroll'+(zoomed?' is-zoomed':'')+'" tabindex="0" aria-label="'+esc(u.diagram.title)+'，可橫向捲動檢視圖解">'+svg(u,opts.suffix)+'</div>' +
+      '<figcaption class="tb-small">原創醫學示意，非患者影像、非按比例。'+esc(u.diagram.alt)+'</figcaption>' +
+      '<div class="tb-inline-atlas-actions">' +
+        '<button type="button" data-tb-action="inline-atlas-zoom" data-value="'+esc(u.id)+'" aria-pressed="'+zoomed+'">'+(zoomed?'標準尺寸':'放大圖解')+'</button>' +
+        '<button type="button" data-tb-action="open-atlas-unit" data-value="'+esc(u.id)+'">'+opts.openLabel+'</button>' +
+      '</div>' +
+      '<details class="tb-inline-atlas-key"><summary>'+opts.summaryLabel+'（'+readings.length+' 項標記 · '+steps.length+' 步決策）</summary>' +
+        '<div class="tb-inline-atlas-key-body">' +
+          '<div><h4>'+opts.readingHeading+'</h4><dl class="tb-inline-atlas-dl">'+readings.map(r=>'<div><dt>'+esc(r.label)+'</dt><dd>'+esc(r.meaning)+'</dd></div>').join('')+'</dl></div>' +
+          '<div><h4>'+opts.stepsHeading+'</h4><ol class="tb-inline-atlas-steps">'+steps.map(s=>'<li><strong>'+esc(s.condition)+'</strong><span> → '+esc(s.action)+'</span></li>').join('')+'</ol></div>' +
+        '</div>' +
+      '</details>' +
+    '</figure>';
+  }
+  function renderInlineChapterCards(bookId, chapterId, chapterUnitIds, zoomedSet) {
+    let unitIdsArg=chapterUnitIds, zoom=zoomedSet;
+    if(unitIdsArg&&!Array.isArray(unitIdsArg)&&typeof unitIdsArg.has==='function'&&zoom===undefined){zoom=unitIdsArg;unitIdsArg=undefined;}
+    const unitSet=Array.isArray(unitIdsArg)&&unitIdsArg.length?new Set(unitIdsArg):null;
+    const units=unitsForChapter(bookId,chapterId).filter(u=>{
+      if(!Array.isArray(u.unitIds)||!u.unitIds.length)return true;
+      return !u.unitIds.some(id=>typeof id==='string'&&(unitSet?unitSet.has(id):id.startsWith(chapterId+'-')));
+    });
+    if(!units.length) return '';
+    return '<section class="tb-chapter-visuals" aria-label="本章原創醫學圖解">'+units.map(u=>renderInlineCard(u,{
+      zoomed:Boolean(zoom&&typeof zoom.has==='function'&&zoom.has(u.id)),
+      suffix:'inline',
+      badge:'原創醫學圖解',
+      summaryLabel:'讀圖標記與決策步驟',
+      readingHeading:'讀圖標記',
+      stepsHeading:'決策步驟',
+      openLabel:'開啟完整圖解與臨床問答',
+      extraClass:''
+    })).join('')+'</section>';
+  }
+  function renderInlineUnitCards(bookId, unitId, zoomedSet) {
+    const units=unitsForUnit(bookId,unitId);
+    if(!units.length) return '';
+    return '<div class="atlas-inline-wrap atlas-unit-inline-wrap" data-unit-atlas="'+esc(unitId)+'" aria-label="本單元原創醫學圖解">'+units.map(u=>renderInlineCard(u,{
+      zoomed:Boolean(zoomedSet&&typeof zoomedSet.has==='function'&&zoomedSet.has(u.id)),
+      suffix:'unit-'+unitId,
+      badge:'單元專屬圖解',
+      summaryLabel:'讀圖重點與臨床決策步驟',
+      readingHeading:'讀圖重點',
+      stepsHeading:'臨床決策步驟',
+      openLabel:'開啟完整圖解與臨床問答 →',
+      extraClass:' tb-unit-atlas-card'
+    })).join('')+'</div>';
+  }
+  const inlineChapterHtml=renderInlineChapterCards;
   function selector(context, value='') {
     return '<label class="atlas-selector">選擇卷別<select data-atlas-volume><option value="">全部圖解卷別</option>'+context.manifest.books.map(b=>'<option value="'+esc(b.bookId)+'" '+(value===b.bookId?'selected':'')+'>第 '+b.section+' 卷　'+esc(b.title)+'</option>').join('')+'</select></label>';
   }
@@ -133,4 +169,6 @@
     catch(error){if(contexts.get(root)!==context||!root.isConnected||!context.isCurrent())return;root.innerHTML='<div class="atlas-root atlas-error"><h1>圖解教材暫時無法載入</h1><p>請重新載入，或先回原有卷別閱讀。</p>'+button('重試圖解','retry')+button('返回全部卷別','back')+'</div>';}
   }
   window.OphTextbookAtlas={mount,load,unitsForChapter,inlineChapterHtml};
+  Object.assign(window.OphTextbookAtlas,{unitsForUnit,inlineUnitHtml:renderInlineUnitCards,renderInlineChapterCards,renderInlineUnitCards});
+  window.TextbookAtlas=window.OphTextbookAtlas;
 })();

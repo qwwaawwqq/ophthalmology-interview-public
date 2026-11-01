@@ -105,5 +105,70 @@ function boot({integrated=false,hash='#textbook',data=pack,fetchOverride=null}={
     const script=`import copy,importlib.util,json\nfrom pathlib import Path\np=Path('scripts/validate-atlas.py');s=importlib.util.spec_from_file_location('v',p);v=importlib.util.module_from_spec(s);s.loader.exec_module(v)\nd=json.loads(Path('content/textbook-depth/visual-atlas.json').read_text());r=json.loads(Path('content/textbook-depth/visual-atlas-review.json').read_text());v.validate(d,review=r)\nmulti=copy.deepcopy(d);u3=copy.deepcopy(multi['volumes'][0]['units'][0]);u3['id']=f"atlas-s01-{len(multi['volumes'][0]['units'])+1:02d}";multi['volumes'][0]['units'].append(u3);mr=copy.deepcopy(r);mr['contentHashes'][u3['id']]=v.reviewed_hash(u3);assert v.validate(multi,review=mr)['units']==len(r['contentHashes'])+1\ndef reject(f):\n b=copy.deepcopy(d);f(b)\n try:v.validate(b,review=r)\n except (ValueError,KeyError,TypeError):return\n raise AssertionError('invalid atlas was accepted')\nreject(lambda b:b['volumes'][0]['units'][0]['diagram']['elements'].append({'type':'script','text':'alert(1)'}))\nreject(lambda b:b['volumes'][0]['units'][0]['diagram']['elements'][0].update(onload='alert(1)'))\nreject(lambda b:b['volumes'][0]['units'][0]['references'][0].update(url='javascript:alert(1)'))\nreject(lambda b:b['volumes'][0]['units'][0]['chapterIds'].append('bcsc-s02-ch999'))\nreject(lambda b:b['volumes'][0]['units'][1].update(id=b['volumes'][0]['units'][0]['id']))\nreject(lambda b:b['volumes'][0]['units'][1].update(id='atlas-s01-99'))\nreject(lambda b:b['volumes'][0].update(units=[b['volumes'][0]['units'][0]]))\nreject(lambda b:b['volumes'].pop())\nreject(lambda b:b['volumes'][0]['units'][0]['mechanism'].append('Changed after independent medical review.'))\n`;
     execFileSync('python3',['-c',script],{cwd:base});
   });
+  await test('validate-atlas.py accepts valid optional unitIds and rejects empty, duplicate, unknown or cross-chapter mismatched unitIds',async()=>{
+    const script=`import copy,importlib.util,json
+from pathlib import Path
+p=Path('scripts/validate-atlas.py');s=importlib.util.spec_from_file_location('v',p);v=importlib.util.module_from_spec(s);s.loader.exec_module(v)
+d=json.loads(Path('content/textbook-depth/visual-atlas.json').read_text());r=json.loads(Path('content/textbook-depth/visual-atlas-review.json').read_text())
+# Existing hashes remain untouched when unitIds is omitted
+res0=v.validate(d,review=r)
+assert res0['contentHashes']==r['contentHashes']
+# Valid single and multi unitIds within declared chapterIds pass when reviewed
+good=copy.deepcopy(d);gr=copy.deepcopy(r)
+u=good['volumes'][0]['units'][0]
+u['chapterIds']=['bcsc-s01-ch002','bcsc-s01-ch003']
+u['unitIds']=['bcsc-s01-ch002-u01','bcsc-s01-ch003-u01']
+try:
+ v.validate(good,review=r)
+ raise AssertionError('unhashed unitIds change was accepted')
+except ValueError:
+ pass
+gr['contentHashes'][u['id']]=v.reviewed_hash(u)
+assert v.validate(good,review=gr)['units']==len(gr['contentHashes'])
+def reject_unit_ids(mut):
+ bad=copy.deepcopy(d);br=copy.deepcopy(r)
+ target=bad['volumes'][0]['units'][0]
+ target['chapterIds']=['bcsc-s01-ch002']
+ mut(target)
+ br['contentHashes'][target['id']]=v.reviewed_hash(target)
+ try:
+  v.validate(bad,review=br)
+ except (ValueError,KeyError,TypeError):
+  return
+ raise AssertionError('invalid unitIds was accepted: '+repr(target.get('unitIds')))
+reject_unit_ids(lambda t:t.update(unitIds=[]))
+reject_unit_ids(lambda t:t.update(unitIds='bcsc-s01-ch002-u01'))
+reject_unit_ids(lambda t:t.update(unitIds=['']))
+reject_unit_ids(lambda t:t.update(unitIds=['bcsc-s01-ch002-u01','bcsc-s01-ch002-u01']))
+reject_unit_ids(lambda t:t.update(unitIds=['bcsc-s01-ch002-u99']))
+reject_unit_ids(lambda t:t.update(unitIds=['bcsc-s02-ch001-u01']))
+reject_unit_ids(lambda t:t.update(unitIds=['bcsc-s01-ch003-u01']))
+reject_unit_ids(lambda t:t.update(unitIds=['bcsc-s01-ch002-u01'],unexpectedKey=True))
+`;
+    execFileSync('python3',['-c',script],{cwd:base});
+  });
+  await test('renderInlineUnitCards and renderInlineChapterCards route unit-bound figures exclusively to their target unit',async()=>{
+    const custom=JSON.parse(JSON.stringify(pack));
+    const s01=custom.volumes.find(v=>v.bookId==='bcsc-s01');
+    const unitFig=s01.units[0],chapFig=s01.units[1];
+    s01.units=[unitFig,chapFig];
+    unitFig.chapterIds=['bcsc-s01-ch002'];
+    unitFig.unitIds=['bcsc-s01-ch002-u01'];
+    chapFig.chapterIds=['bcsc-s01-ch002'];
+    delete chapFig.unitIds;
+    const b=boot({data:custom});
+    await b.start();
+    assert.equal(b.window.TextbookAtlas,b.window.OphTextbookAtlas);
+    const u01Html=b.window.TextbookAtlas.renderInlineUnitCards('bcsc-s01','bcsc-s01-ch002-u01');
+    const u02Html=b.window.TextbookAtlas.renderInlineUnitCards('bcsc-s01','bcsc-s01-ch002-u02');
+    const chHtml=b.window.TextbookAtlas.renderInlineChapterCards('bcsc-s01','bcsc-s01-ch002',['bcsc-s01-ch002-u01','bcsc-s01-ch002-u02']);
+    assert(u01Html.includes('class="atlas-inline-wrap atlas-unit-inline-wrap"'));
+    assert(u01Html.includes('data-inline-atlas="'+unitFig.id+'"'));
+    assert(u01Html.includes('讀圖重點與臨床決策步驟'));
+    assert(u01Html.includes('開啟完整圖解與臨床問答 →'));
+    assert.equal(u02Html,'');
+    assert(chHtml.includes('data-inline-atlas="'+chapFig.id+'"'));
+    assert(!chHtml.includes('data-inline-atlas="'+unitFig.id+'"'),'unit-bound SVG must not duplicate in chapter header');
+  });
   const failed=results.filter(r=>!r.pass);console.log(JSON.stringify({passed:results.length-failed.length,failed:failed.length,results},null,2));if(failed.length)process.exitCode=1;
 })();
