@@ -52,12 +52,12 @@
     "atlas-s07-02": "06028426006b10dabc65fe6a5cdc619866e06b1dc05a8a73548fc936dd2788e5",
     "atlas-s08-01": "601d6a2f1b06198228037401d84e4e0578c67a90a470cbbbb5d0ac7222a0bce4",
     "atlas-s08-02": "03aa1966c574a98dc8817c9238b2ecc173bcae6877ec69690e1fa7e38efe3c3a",
-    "atlas-s08-03": "eb61b5e0be4890b09d3b41f152c698353f2b05c0f0ac73daf31fa0806aeb4cdd",
+    "atlas-s08-03": "7127389a744aa06b202d1326d2ad81778e95e63e650b4461dd531254932dcd2e",
     "atlas-s08-04": "c57052c8c3ef6a9dc6bf9eeede80a8f73120a499b439c7880c31d9e3d0ccb2c0",
     "atlas-s08-05": "4fa5bcd0cd927f82c4c782d5ae6f8699f095ac3761be07709482db69bf77fd93",
     "atlas-s08-06": "f6abc69cc27be3525d6b75e9e5f2f356df232bc83fe6ba79105a267a8e60972d",
     "atlas-s08-07": "08dc8f29336fd3b8b8a4a324cdc61d3b6e736ec2d0098a3e3e181bd68efc034b",
-    "atlas-s08-08": "df1713bf9bc5f276e17d02c5f1b7ccafd25a0ccf1a2a6eb38939dded13f3802d",
+    "atlas-s08-08": "39369296c26cac0cfc2c0c88663e8c83b535c0c37db2550d7c0aa296e77a9e77",
     "atlas-s08-09": "95bccb148c1698e5e323a1ff56cfbbc5a7fcc195e3f0375a4e0e5435d7dbf6d2",
     "atlas-s08-10": "fd3d92a3b208a719abdb364caa348f7d22369538432f02013ecff296d1f74aad",
     "atlas-s09-01": "4d8cce1fbd0a6e5f4c7c61a91e05550e128dd6597a401f1f0aad83fc5b4eded2",
@@ -79,7 +79,7 @@
     "atlas-s10-07": "d1a318ebbd5768449cf93ece70177ce40ca4ac5d71745f400fd672eac78c8800",
     "atlas-s10-08": "d2254b29c1f150d5d793e267921af4692b41c9d2c8ed8746bcae55f1a12ec06c",
     "atlas-s10-09": "1d1eecbc8b87bc3e0ec39b27d41ff866c485d4967a49d3f0b3f81e0d6b44f679",
-    "atlas-s10-10": "3660ddbf98dae190fbd0735bb69faee63cc2605ebed670f7cff15337026a6a2a",
+    "atlas-s10-10": "e5d9194e9e24449730f8df0e607dbd6813c23e9fca6c68c295fa41fd0280f840",
     "atlas-s11-01": "02451ca99c4adb3d311677e55a2312e7e015207f273848d0184728ffac16a490",
     "atlas-s11-02": "dafe166152ecb4b0d99c45fb19c340a9d5eb25aa85d0e2732efbeebdfe6d3f31",
     "atlas-s11-03": "c53e7c2a5a2d1ab7ac8bc2385af7ef1224033a04f7dc8f169e16abc45878c2d2",
@@ -105,6 +105,6 @@
     "2026-11-01: Independently reviewed 20 new BCSC Vol 1 original vector illustrations (atlas-s01-03..22) across all 17 chapters for anatomical/spatial directionality, clinical thresholds, and zero text-bounds clipping.",
     "2026-11-01: Programmatically verified Wave 1A (+11 new 900x460 SVGs atlas-s01-23..28 & atlas-s02-03..07, unitIds inline bindings across S01–S03, 1800px qlmanage raster check, 0 text-box overlaps, 0 textBoundsWarnings).",
     "2026-11-02: Independent attending clinical and 4x Retina WebKit PNG visual audit passed across bcsc-s08..s11 and all 32 Wave 3 diagrams (atlas-s08-03..10, atlas-s09-03..10, atlas-s10-03..10, atlas-s11-03..10): verified zero clipped characters, zero line-through-text or label overlaps after 10 targeted coordinate/padding refinements, and 100% accuracy across corneal/uveitis/glaucoma/cataract landmark trials, drug contraindications, biometry/optical rules, and BCSC PDF/printed page citations.",
-    "2026-11-02 targeted correction, not a full re-review: atlas-s08-03 (FECD posterior depression, Patel 2018), atlas-s08-08 (Mooren topical corticosteroids) and atlas-s10-10 (staging labels aligned with BCSC Section 10). Hashes refreshed for these three units only."
+    "2026-11-02 targeted correction, not a full re-review: atlas-s08-03 (FECD posterior depression, Sun 2019), atlas-s08-08 (Mooren topical corticosteroids) and atlas-s10-10 (staging labels aligned with BCSC Section 10). Hashes refreshed for these three units only."
   ]
 }

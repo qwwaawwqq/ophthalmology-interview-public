@@ -4725,7 +4725,7 @@
             {
               "test": "前節光學相干斷層掃描（AS-OCT）與角膜厚度／斷層地圖（Pachymetry & Tomography）",
               "purpose": "非侵入性量化混濁深度、前彈力層界面形態與全角膜厚度分布，直接引導 PTK 切削深度或層次角膜移植術式選擇。",
-              "interpretation": "前層高反射鋸齒波確認 TBCD；量化前基質混濁深度評估 PTK 後剩餘基質安全厚度與遠視偏移風險；全角膜變薄支持 MCD／PACD，清晨角膜增厚、厚度圖等厚線失規則、最薄點偏位或後表面局灶凹陷則提示內皮失代償。",
+              "interpretation": "前層高反射鋸齒波確認 TBCD；量化前基質混濁深度評估 PTK 後剩餘基質安全厚度與遠視偏移風險；全角膜變薄支持 MCD／PACD，清晨角膜增厚、厚度圖等厚線失去平行、最薄點偏位或後表面局灶凹陷則提示內皮失代償。",
               "limitation": "極濃厚前基質混濁或水腫會產生後方光學遮蔽，且無法直接判定沉積物的生化分子組成。"
             },
             {
@@ -4892,7 +4892,7 @@
               "diagnosis": "Fuchs 氏內皮角膜失養症（FECD）",
               "for": "多於 40–50 歲後發病，雙側中央起病向周邊擴散之 cornea guttae（敲擊金屬外觀），伴晨間加重之角膜水腫、眩光與後期上皮大泡。",
               "against": "嬰幼兒期雙側乳白厚角膜，或單側合併進行性虹膜穿孔與高位跨越 Schwalbe 氏線之寬基底 PAS 皆不符典型 FECD。",
-              "discriminator": "發病年齡、中央融合 guttae 形態，以及 Scheimpflug 斷層掃描追蹤晨間角膜增厚，並判讀等厚線失規則、最薄點偏位與後表面局灶凹陷（比單看鏡面顯微鏡細胞數更能反映真實失代償）。"
+              "discriminator": "發病年齡、中央融合 guttae 形態，以及 Scheimpflug 斷層掃描追蹤晨間角膜增厚，並判讀等厚線失去平行、最薄點偏位與後表面局灶凹陷（比單看鏡面顯微鏡細胞數更能反映真實失代償）。"
             },
             {
               "diagnosis": "後多形性角膜失養症（PPCD）vs 虹膜角膜內皮症候群（ICE）vs Axenfeld-Rieger 症候群",
@@ -4911,7 +4911,7 @@
             {
               "test": "角膜厚度測量與三維斷層掃描（Scheimpflug Tomography / AS-OCT / 超音波測厚）",
               "purpose": "客觀量化內皮幫浦儲備功能與日夜水腫波動，作為 FECD 白內障術式選擇（單純超音波乳化 vs 三合一聯合 EK）的核心依據。",
-              "interpretation": "在廣泛融合 guttae 遮蔽下，比較清晨與午後角膜厚度差值、追蹤中央與周邊厚度比，並判讀厚度圖等厚線失規則、最薄點偏位及後表面高度圖（posterior elevation）局灶凹陷，比鏡面顯微鏡更能精準抓出亞臨床內皮失代償。",
+              "interpretation": "在廣泛融合 guttae 遮蔽下，比較清晨與午後角膜厚度差值、追蹤中央與周邊厚度比，並判讀厚度圖等厚線失去平行、最薄點偏位及後表面高度圖（posterior elevation）局灶凹陷，比鏡面顯微鏡更能精準抓出亞臨床內皮失代償。",
               "limitation": "單次午後門診測得 CCT 介於 560–590 µm 未必代表代償安全，若天生薄角膜患者已水腫增厚 80 µm 仍可能落入假正常區間。"
             },
             {
@@ -8997,7 +8997,7 @@
             {
               "condition": "Mooren 潰瘍階梯式控制",
               "stage": "局部＋全身免疫抑制結合鄰近發炎結膜切除",
-              "action": "除全身類固醇與免疫抑制劑（cyclophosphamide、methotrexate、cyclosporine 或生物製劑）及局部 cyclosporine／tacrolimus 外，對潰瘍後方緊鄰之高度發炎球結膜施行「結膜切除後退術（conjunctival resection，退離角膜緣 3–4 mm）」並搭配繃帶鏡或組織膠／板層移植；若合併 HCV 則轉介抗病毒治療。",
+              "action": "排除感染後先用局部類固醇（基質明顯變薄須審慎），無效再升階；除全身類固醇與免疫抑制劑（cyclophosphamide、methotrexate、cyclosporine 或生物製劑）及局部 cyclosporine／tacrolimus 外，對潰瘍後方緊鄰之高度發炎球結膜施行「結膜切除後退術（conjunctival resection，退離角膜緣 3–4 mm）」並搭配繃帶鏡或組織膠／板層移植；若合併 HCV 則轉介抗病毒治療。",
               "rationale": "切除緊貼潰瘍邊緣的球結膜可暫時截斷角膜緣抗體、補體與膠原酶的局部輸送來源，爭取全身免疫抑制藥起效時間（此法亦可用於部分難治 PUK）。",
               "caution": "切勿在未控制全身與局部免疫風暴前只單純縫上一塊角膜補片，否則新補片也會在數週內被同樣融解吃掉！"
             },
@@ -14734,8 +14734,8 @@
       "bcsc-s08-ch007-u01": "bad57ed67c517d016dfd9a4ae3de0b2b15ead5296b83d8748b6bf427e8e644ab",
       "bcsc-s08-ch007-u02": "293dfc02bb4bc7ed2346fa50eb4c1b1375565a544ba7f4a29639cfb5ce3682ef",
       "bcsc-s08-ch007-u03": "223c6a5edb84e0d94580959750a3785e36d697e4b7eb1f2335ea7686e17c46d8",
-      "bcsc-s08-ch008-u01": "cadfd6c44e3ae69f4fb96d9a7f4a64eddeacf699025fcc35f2fbb31b4b5ad674",
-      "bcsc-s08-ch008-u02": "06fd9cb8b1221b7f6d890e9e5809557bf7902eec729fa5010c935b7d60be8a68",
+      "bcsc-s08-ch008-u01": "89d4c15e1d2d95cf56c2226cc1ecad76190184571ac2a304f325a11b2402ada2",
+      "bcsc-s08-ch008-u02": "85f0da3634d4df99e0326073e57309bed811dbd25e8eeb0cca05cbab925079ca",
       "bcsc-s08-ch008-u03": "ea7bab2af7a5aaba794ee1436f5e4466598e6388d0c77b0a7712e8a6bd78666f",
       "bcsc-s08-ch008-u04": "cde3ebede23351f89ace89fb9894e022199b7ec1bd29fcf3ffa45d8e2cb116da",
       "bcsc-s08-ch009-u01": "2a426532244fd95a3b422283370e19548fb742c1a0efd5439dfe803fa09ae763",
@@ -14751,7 +14751,7 @@
       "bcsc-s08-ch012-u04": "97e48a44f36dc3ba8e8f1b8378acda5980797142aa954776c7b85fd15adfc767",
       "bcsc-s08-ch013-u01": "2c1127041eb82ed78b65ca3f42b91264f320218543e5606f2d6f17c1168af05b",
       "bcsc-s08-ch013-u02": "b832952f1ddad4985898d3b7bd9dc3f254510252437e5b3eca99fbc351da4dc1",
-      "bcsc-s08-ch013-u03": "b8a6b049103a1112082c72a3cfc8eb126475a6176c67229fb69fa326c98c4330",
+      "bcsc-s08-ch013-u03": "e4482898179b3e165fd6287fa1f1f3b460d25ba477d4cbcfa81d64e2740e17ef",
       "bcsc-s08-ch013-u04": "10ad78605459325ac4701b781167f692ec53edccc9919c7ecf8ec31f43623246",
       "bcsc-s08-ch014-u01": "6044e6263b8b11fdb535d77aaf81df3c825b7d84448be7e57af2b85d02454f25",
       "bcsc-s08-ch014-u02": "26787312d243143f0bc5b1d8cb71e63d02f9e71253ebcf92bb0a86535edc9f21",
