@@ -295,6 +295,32 @@ test('all 46 interview items show a detailed answer pack, follow-up references a
   assert(!JSON.stringify(D.interview).includes('项'), 'simplified characters fixed in interview data');
 });
 
+test('mobile header save-status CSS prevents single-character orphan wrap while preserving exact status string', () => {
+  const practiceCss = fs.readFileSync(path.join(__dirname, 'practice-ui.css'), 'utf8');
+  const extractMediaBlocks = (css, query) => {
+    const blocks = [];
+    let pos = 0;
+    while ((pos = css.indexOf(query, pos)) !== -1) {
+      let depth = 0;
+      for (let i = css.indexOf('{', pos); i < css.length; i++) {
+        if (css[i] === '{') depth++;
+        else if (css[i] === '}' && --depth === 0) {
+          blocks.push(css.slice(pos, i + 1));
+          pos = i + 1;
+          break;
+        }
+      }
+    }
+    return blocks;
+  };
+  const expectedRule = '.topbar{flex-wrap:wrap;gap:6px}.top-status{flex:1 0 10.25em;max-width:100%}.top-actions{margin-left:auto}.top-actions .btn{white-space:nowrap;padding:8px 6px}';
+  for (const sheet of [practiceCss, html]) {
+    assert.match(sheet, /#save-status\{text-wrap:pretty\}/);
+    const blocks = extractMediaBlocks(sheet, '@media(max-width:760px)');
+    assert(blocks.some(b => b.includes(expectedRule)));
+  }
+});
+
 (async () => {
   // Await async checks registered through returned promises.
   for (const r of results) if (r.pending) { await r.pending; delete r.pending; }
