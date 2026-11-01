@@ -27,6 +27,12 @@ PRACTICE_CSS = ROOT / 'scripts/practice-ui.css'
 SYNC_JS = ROOT / 'scripts/progress-sync.js'
 SPECIALTY_JS = ROOT / 'scripts/specialty-registry.js'
 SPECIALTY_BOOT = '<script id="specialty-boot">'
+NON_OPH_SPECIALTIES = (
+    ('ent', '耳鼻喉科'),
+    ('rad', '放射診斷科'),
+    ('radonc', '放射腫瘤科'),
+    ('nm', '核子醫學科'),
+)
 KINDS = {'圖譜', '影片', '期刊', '指南'}
 JS_START = '/* enrichment-ui:start */'
 JS_END = '/* enrichment-ui:end */'
@@ -375,6 +381,134 @@ def apply_specialty_boot(html):
     if SPECIALTY_BOOT in html:
         return re.sub(re.escape(SPECIALTY_BOOT) + r'.*?</script>\n', lambda _: block, html, count=1, flags=re.S)
     return replace_once(html, '<title>', block + '<title>', 'specialty boot script')
+
+
+def default_specialty_shell(sid, label):
+    return {
+        'version': 1,
+        'title': f'{label}甄試準備',
+        'language': 'zh-TW',
+        'timezone': 'Asia/Taipei',
+        'exam': {
+            'official_url': '', 'date': '', 'location': '', 'time': '', 'deadline': '',
+            'written_weight': '', 'interview_weight': '', 'capacity': '',
+            'status': '依各訓練單位正式公告自行確認。',
+            'registrationNote': '自行確認報名、報到與所需文件。',
+        },
+        'topics': [],
+        'questions': [],
+        'interview': [],
+        'plan': [
+            {
+                'date': '2026-11-01', 'topicIds': [],
+                'goals': ['完成 60 秒自介初稿與報考動機架構', '盤點個人臨床、團隊與研究真實素材'],
+                'normalDayMinutes': [60, 90], 'onCallMinimumMinutes': [20, 30],
+                'workloadNote': '建議練習量，非官方要求。值班日優先整理個人素材與短版口述。',
+                'courseTask': {'target': 'stories', 'text': '列出真實臨床或合作片段，先完成一張故事卡並確認本人角色。'},
+            },
+            {
+                'date': '2026-11-02', 'topicIds': [],
+                'goals': ['核對履歷中的研究或專題方法、結果與限制', '準備被追問時承認未知與求助的說法'],
+                'normalDayMinutes': [60, 90], 'onCallMinimumMinutes': [20, 30],
+                'workloadNote': '建議練習量，非官方要求。',
+                'courseTask': {'target': 'evidence', 'text': '核對一項研究或經歷的本人貢獻、正式結果與目前狀態。'},
+            },
+            {
+                'date': '2026-11-03', 'topicIds': [],
+                'goals': ['完成第二張故事卡（接受回饋或團隊溝通）', '整理目標訓練醫院公告與報到需求'],
+                'normalDayMinutes': [60, 90], 'onCallMinimumMinutes': [20, 30],
+                'workloadNote': '建議練習量，非官方要求。',
+                'courseTask': {'target': 'stories', 'text': '記錄一次接受指導後具體調整做法的真實經驗。'},
+            },
+            {
+                'date': '2026-11-04', 'topicIds': [],
+                'goals': ['檢視考前準備清單與證件文具', '不看稿順過自介與研究摘要各一輪'],
+                'normalDayMinutes': [45, 60], 'onCallMinimumMinutes': [15, 25],
+                'workloadNote': '建議練習量，非官方要求。',
+                'courseTask': {'target': 'evidence', 'text': '再次確認履歷數字、日期與角色皆有可核對依據。'},
+            },
+        ],
+        'notes': {
+            'scope': f'公開{label}練習版，僅收錄經核對之真實教材與歷屆考點，整理完成後公開。不是官方考綱。',
+            'questionDisclaimer': '題庫內容待補；僅收錄經核對出處與正解之練習題。',
+            'interviewDisclaimer': '通用模板供使用者自行填寫，不含任何人的私人申請資料、個人經歷或研究結果。',
+            'personalFacts': [],
+            'skool': {'url': '', 'status': '公開版不提供私人課程附件或連結。'},
+            'sources': [],
+        },
+        'dayBeforeChecklist': [
+            '查看正式報到時間與地點',
+            '備妥證件、通知與文具',
+            '確認交通安排',
+            '只複習重點筆記與個人事實清單',
+            '自介和研究各演練一輪',
+            '維持可行的睡眠安排',
+            '確認服裝、交通緩衝與聯絡方式；如為線上面試再檢查設備',
+            '核對學位、任職日期與研究狀態；準備一至兩個反問',
+        ],
+        'examDayChecklist': [
+            '依正式通知報到',
+            '先看題幹是否問最優先處置',
+            '先答有把握題目，難題標記',
+            '面試先聽完題目，再直接回答',
+            '不確定時清楚說明已知範圍及如何求助',
+        ],
+        'courseSources': [],
+        'personalSources': [],
+        'originals': [],
+        'storySeeds': [
+            {'id': 'clinical', 'title': '臨床工作與求助', 'cue': '選一段真實工作經驗，說明情境、自己的角色、行動與反思。', 'interviewIds': [], 'defaults': {}},
+            {'id': 'team', 'title': '團隊合作', 'cue': '選一段合作經驗，區分自己的工作與團隊貢獻。', 'interviewIds': [], 'defaults': {}},
+            {'id': 'research', 'title': '研究或專題困難', 'cue': '選一項熟悉的專題，說明問題、處理方法與仍存在的限制。', 'interviewIds': [], 'defaults': {}},
+            {'id': 'feedback', 'title': '接受回饋', 'cue': '記錄一項具體回饋，以及自己之後調整的做法。', 'interviewIds': [], 'defaults': {}},
+            {'id': 'teaching', 'title': '教學與溝通', 'cue': '選一段真實溝通或分享經驗，說明如何確認對方理解。', 'interviewIds': [], 'defaults': {}},
+        ],
+        'evidenceSeeds': [
+            {'id': 'study-1', 'title': '研究或專題一', 'cue': '自行填寫研究問題、自己的角色、方法、結果與限制。', 'interviewId': '', 'defaults': {}},
+            {'id': 'study-2', 'title': '研究或專題二', 'cue': '自行填寫另一項可核對的成果，分清個人與團隊貢獻。', 'interviewId': '', 'defaults': {}},
+            {'id': 'training', 'title': '學習與工作經歷', 'cue': '自行核對期間、正式身分、責任與可支持的經歷。', 'interviewId': '', 'defaults': {}},
+            {'id': 'output', 'title': '成果與目前狀態', 'cue': '自行填寫成果名稱、目前狀態、核對日期與依據。', 'interviewId': '', 'defaults': {}},
+        ],
+        'notebook': {
+            'title': f'{label}章節教材',
+            'sourceTitle': '經核對教材與考點整理',
+            'sourceUrl': '',
+            'scope': f'{label}教材與題庫整理中；僅收錄經核對來源與正解之內容。',
+            'imageScope': '未附原檔圖片或未經核對之影像題不臆測補造答案。',
+            'extensions': [],
+            'originalCoverage': '公開版不包含未授權共筆全文或私人申請附件。',
+        },
+        'enrichment': {'version': 1, 'reviewedDate': '', 'chapters': {}, 'learningPaths': []},
+        'coverage': {'reviewedDate': '', 'scopeNote': '', 'chapters': {}},
+        'interviewSamples': {'note': '', 'clinicalNote': '', 'versions': [], 'answers': {}},
+        'workflows': {'version': 1, 'reviewedDate': '', 'intro': '', 'disclaimer': '', 'categories': [], 'workflows': []},
+        'pbl': {'version': 1, 'reviewedDate': '', 'intro': '', 'method': [], 'disclaimer': '', 'cases': []},
+        'interviewDetailed': {'version': 1, 'reviewedDate': '', 'note': '', 'clinicalNote': '', 'answers': {}},
+    }
+
+
+def ensure_specialty_shells(html):
+    """Ensure every non-oph specialty has a valid <script type="application/json" id="course-data-<s>"> block.
+
+    Existing blocks (for example populated by scripts/apply-specialty.py) are validated and preserved intact,
+    and ophthalmology's id="course-data" payload is never modified."""
+    oph_tag = '<script type="application/json" id="course-data">'
+    if html.count(oph_tag) != 1:
+        raise ValueError('Expected exactly one course-data block')
+    for sid, label in NON_OPH_SPECIALTIES:
+        open_tag = f'<script type="application/json" id="course-data-{sid}">'
+        found = re.findall(re.escape(open_tag) + r'(.*?)</script>', html, flags=re.S)
+        if len(found) > 1:
+            raise ValueError(f'Duplicate course-data-{sid} block')
+        if found:
+            parsed = json.loads(found[0])
+            if not isinstance(parsed, dict) or not all(k in parsed for k in ('title', 'topics', 'questions', 'interview')):
+                raise ValueError(f'Malformed course-data-{sid} JSON shell')
+        else:
+            shell = default_specialty_shell(sid, label)
+            payload = json.dumps(shell, ensure_ascii=False).replace('</', '<\\/').replace('\u2028', '\\u2028').replace('\u2029', '\\u2029')
+            html = replace_once(html, oph_tag, f'{open_tag}{payload}</script>\n{oph_tag}', f'course-data-{sid} shell')
+    return html
 
 
 def apply_practice(js):
@@ -1002,12 +1136,15 @@ def build():
     html=html.replace('</style>',PRACTICE_CSS.read_text(encoding='utf-8').strip()+'\n</style>',1)
     html=apply_practice_html(html)
     html=apply_specialty_boot(html)
+    html=ensure_specialty_shells(html)
     after=json.loads(re.search(r'<script type="application/json" id="course-data">(.*?)</script>',html,re.S).group(1))
     if {k:v for k,v in after.items() if k not in GENERATED_KEYS} != preserved:
         raise ValueError('Existing app data changed')
     assert html.count(JS_START)==1 and html.count(CSS_START)==1
     assert html.count(PRACTICE_JS_START)==1 and html.count(PRACTICE_CSS_START)==1 and html.count(SYNC_JS_START)==1
     assert html.count(SPECIALTY_BOOT)==1
+    for sid, _ in NON_OPH_SPECIALTIES:
+        assert html.count(f'<script type="application/json" id="course-data-{sid}">') == 1
     return html, after
 
 

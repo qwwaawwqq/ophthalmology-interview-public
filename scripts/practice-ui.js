@@ -9,16 +9,17 @@ function wfList(){return D.workflows?.workflows||[];}
 function pblCase(){return pblCases().find(c=>c.id===S.pbl)||pblCases()[0];}
 function wfCurrent(){return wfList().find(w=>w.id===S.workflow)||wfList()[0];}
 function wfCategory(w){return (D.workflows?.categories||[]).find(c=>c.id===w.category)||{id:w.category,label:w.category};}
-function topicLabel(t){return (t.chapter?'共筆 '+String(t.chapter).padStart(2,'0')+' · ':'')+t.title.split('：')[0];}
+function topicLabel(t){return (t.chapter?(SPEC.id==='oph'?'共筆 ':'第 ')+String(t.chapter).padStart(2,'0')+(SPEC.id==='oph'?' · ':' 章 · '):'')+t.title.split('：')[0];}
 function allResources(){if(!resourceCache){resourceCache=new Map();for(const c of Object.values(D.enrichment?.chapters||{}))for(const r of c.resources||[])resourceCache.set(r.id,r);}return resourceCache;}
 function practiceSources(ids){const items=(ids||[]).map(id=>allResources().get(id)).filter(r=>r&&/^https:\/\//.test(r.url));return items.length?`<details class="refs"><summary>延伸來源</summary><ul>${items.map(r=>`<li><a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.title)}</a><span class="small"> · ${esc(r.provider)}</span></li>`).join('')}</ul></details>`:'';}
 function practiceRelated(topicIds,extra=''){return `<div class="practice-related"><span class="small">相關內容</span>${(topicIds||[]).filter(id=>D.topics.some(t=>t.id===id)).map(id=>btn(esc(shortTitle(id)),'learn-topic',id,'small subtle')).join('')}${extra}</div>`;}
 
 /* Routes: every view and lesson anchor can be expressed as a hash so it can be saved and shared. */
-function anchorValid(t,target){if(t.chapter&&typeof coverageTarget==='function'&&chapterCoverage(t))return coverageTarget(t,target);const m=target.match(/^section-(\d+)$/);return !!m&&Number(m[1])<t.sections.length;}
+function anchorValid(t,target){if(t.chapter&&typeof coverageTarget==='function'&&chapterCoverage(t))return coverageTarget(t,target);if(/^u[1-3]$/.test(target))return !!chapterEnrichment(t)?.integrated?.units.some(u=>u.id===target);const m=target.match(/^section-(\d+)$/);return !!m&&Number(m[1])<t.sections.length;}
 function parseRoute(hash){
   if(typeof hash!=='string')return null;
   const h=hash.trim();let m;
+  if(SPEC.id!=='oph'&&h.startsWith('#textbook'))return null;
   if(/^#textbook-atlas(?:-bcsc-s(?:0[1-9]|1[0-3])(?:-atlas-s(?:0[1-9]|1[0-3])-0[12])?)?$/.test(h))return {kind:'tab',tab:'textbook',hash:h};
   if(/^#textbook(?:-extra(?:-extra-\d{8}-q\d{3})?|-bcsc-s(?:0[1-9]|1[0-3])(?:-(?:ch\d{3}(?:-iq\d{3}|-u\d{2})?|rq\d{3}))?)?$/.test(h))return {kind:'tab',tab:'textbook',hash:h};
   if((m=h.match(/^#([a-z0-9-]+?)-(section-\d+|coverage(?:-[a-z][a-z0-9-]*)?|u[1-3])$/))){const t=D.topics.find(x=>x.id===m[1]);if(t&&anchorValid(t,m[2]))return {kind:'anchor',topicId:t.id,target:m[2],hash:h};}
@@ -29,7 +30,7 @@ function parseRoute(hash){
   if(/^#wf-[a-z0-9-]+$/.test(h)&&wfList().some(w=>'#'+w.id===h))return {kind:'workflow',id:h.slice(1),hash:h};
   if(h==='#links')return {kind:'tab',tab:'links',hash:h};
   if((m=h.match(/^#interview-([a-z0-9-]+)$/))&&D.interview.some(i=>i.id===m[1]))return {kind:'interview',id:m[1],hash:h};
-  if((m=h.match(/^#tab-([a-z]+)$/))&&navs.some(n=>n[0]===m[1]))return {kind:'tab',tab:m[1],hash:h};
+  if((m=h.match(/^#tab-([a-z]+)$/))&&navs.some(n=>n[0]===m[1])&&tabAllowed(m[1]))return {kind:'tab',tab:m[1],hash:h};
   return null;
 }
 function routeLabel(route){
@@ -57,7 +58,7 @@ function routeMatchesView(route){
   if(route.kind==='interview')return S.tab==='interview'&&S.interview===route.id;
   return S.tab===route.tab;
 }
-function currentViewHash(){return S.tab==='learn'?'#topic-'+S.learn:S.tab==='pbl'?'#'+S.pbl:S.tab==='workflow'?'#'+S.workflow:S.tab==='interview'?'#interview-'+S.interview:S.tab==='links'?'#links':S.tab==='notebook'?'':'#tab-'+S.tab;}
+function currentViewHash(){return S.tab==='learn'?(S.learn?'#topic-'+S.learn:'#tab-learn'):S.tab==='pbl'?(S.pbl?'#'+S.pbl:'#pbl'):S.tab==='workflow'?(S.workflow?'#'+S.workflow:'#workflow'):S.tab==='interview'?(S.interview?'#interview-'+S.interview:'#tab-interview'):S.tab==='links'?'#links':S.tab==='notebook'?'':'#tab-'+S.tab;}
 function currentLocationHash(){const route=parseRoute(window.location?.hash||'');return route&&routeMatchesView(route)?route.hash:(currentViewHash()||'#tab-notebook');}
 function syncPracticeHash(){
   rememberWorkspace();
@@ -104,7 +105,10 @@ function normalizeLinkUrl(raw){
   if(typeof window.location?.href==='string'&&/^https?:/.test(window.location.href))bases.push(window.location.origin+window.location.pathname);
   for(const base of bases){
     const root=base.replace(/index\.html$/,'');
-    if(s===root||s===root.replace(/\/$/,'')||s.startsWith(root+'#')||s.startsWith(root+'index.html')){const i=s.indexOf('#');if(i<0)return '#tab-notebook';const hash=s.slice(i);return parseRoute(hash)?hash:null;}
+    if(SPEC.query){
+      const trimmed=root.replace(/\/$/,'');
+      if(s===root+SPEC.query||s===trimmed+SPEC.query||s.startsWith(root+SPEC.query+'#')||s.startsWith(trimmed+SPEC.query+'#')||s.startsWith(root+'index.html'+SPEC.query)){const i=s.indexOf('#');if(i<0)return '#tab-notebook';const hash=s.slice(i);return parseRoute(hash)?hash:null;}
+    }else if(s===root||s===root.replace(/\/$/,'')||s.startsWith(root+'#')||s.startsWith(root+'index.html')){const i=s.indexOf('#');if(i<0)return '#tab-notebook';const hash=s.slice(i);return parseRoute(hash)?hash:null;}
   }
   let url;
   try{url=new URL(/^[a-z][a-z0-9+.-]*:/i.test(s)?s:'https://'+s);}catch{return null;}
@@ -169,7 +173,7 @@ function pblStageMarkup(c,stage,n,notes){
 }
 function pblPage(){
   const cases=pblCases();
-  if(!cases.length)return heading('','PBL 情境討論','目前沒有可用的情境。');
+  if(!cases.length)return heading('','PBL 情境討論','逐幕揭露臨床情境：整理事實、提出假說、列出還需要的資訊。')+pendingCard('PBL 情境討論');
   const c=pblCase(),n=cases.indexOf(c),shown=Math.min(c.stages.length,S.pblStage[c.id]||1),v=pblNotes(c.id),done=cases.filter(x=>entries['pbl:'+x.id]?.done).length;
   const flows=(c.workflowIds||[]).map(id=>wfList().find(w=>w.id===id)).filter(Boolean).map(w=>btn('流程：'+esc(w.title.split('：')[0]),'workflow-open',w.id,'small subtle')).join('');
   const finished=shown>=c.stages.length;
@@ -216,10 +220,11 @@ function wfOrderPractice(w){
 }
 function workflowPage(){
   const all=wfList();
-  if(!all.length)return heading('','臨床流程','目前沒有可用的流程。');
+  if(!all.length)return heading('','臨床流程','急症處置、操作安全與照會流程排序練習。')+pendingCard('臨床流程');
   const w=wfCurrent(),cat=wfCategory(w),practiced=all.filter(x=>wfEntry(x)?.practiced).length,mode=['read','recall','order'].includes(S.wfMode)?S.wfMode:'read',e=wfEntry(w);
   const cases=pblCases().filter(c=>(c.workflowIds||[]).includes(w.id)).map(c=>btn('PBL：'+esc(c.title),'pbl-open',c.id,'small subtle')).join('');
-  const menu=(D.workflows.categories||[]).map(category=>{const items=all.filter(x=>x.category===category.id);return items.length?`<p class="menu-category">${esc(category.label)}</p>${items.map(x=>`<button class="topic-button ${x.id===w.id?'active':''}" data-action="workflow-open" data-value="${x.id}" ${x.id===w.id?'aria-current="true"':''}><span class="index">${String(all.indexOf(x)+1).padStart(2,'0')}</span><span>${esc(x.title)}<small class="menu-note">${esc(x.urgency)}</small></span>${wfEntry(x)?.practiced?'<span class="done">✓</span>':''}</button>`).join('')}`:'';}).join('');
+  const categories=D.workflows.categories?.length?D.workflows.categories:[...new Set(all.map(x=>x.category))].map(id=>({id,label:id}));
+  const menu=categories.map(category=>{const items=all.filter(x=>x.category===category.id);return items.length?`<p class="menu-category">${esc(category.label)}</p>${items.map(x=>`<button class="topic-button ${x.id===w.id?'active':''}" data-action="workflow-open" data-value="${x.id}" ${x.id===w.id?'aria-current="true"':''}><span class="index">${String(all.indexOf(x)+1).padStart(2,'0')}</span><span>${esc(x.title)}<small class="menu-note">${esc(x.urgency)}</small></span>${wfEntry(x)?.practiced?'<span class="done">✓</span>':''}</button>`).join('')}`:'';}).join('');
   const handoff=w.handoff.split(/；(?=[SBAR]：)/).join('\n');
   return heading('','臨床流程',esc(D.workflows.intro),`<div class="heading-stat"><strong>${practiced}<i> / ${all.length}</i></strong><span>個流程已練習</span></div>`)
   +`<div class="two-col"><aside class="card topic-menu" aria-label="臨床流程">${menu}</aside>
@@ -252,14 +257,15 @@ function linkListMarkup(){
 }
 function linksPage(){
   const d=S.linkDraft,count=linkItems().length,editing=S.linkEdit&&meta['link:'+S.linkEdit]&&!meta['link:'+S.linkEdit].deleted;
+  const exAnchor=SPEC.id==='oph'?'#notes-02-section-2':'#tab-learn',exHint=SPEC.id==='oph'?'#notes-02-section-2、#pbl-dr、#wf-chemical':'#tab-learn、#pbl、#workflow';
   return heading('','我的連結','收藏 App 內的章節段落、PBL、流程，或任何外部網址並加上備註。連結和其他進度一樣會自動保存；連上雲端後也會同步到你的其他裝置。',`<div class="heading-stat"><strong>${count}</strong><span>個連結</span></div>`)
   +`<section class="card link-form" aria-label="${editing?'編輯連結':'新增連結'}"><h2 class="full">${editing?'編輯連結':'新增連結'}</h2>
-  <div class="full"><label class="field-label" for="link-url">網址</label><input class="select" id="link-url" type="text" inputmode="url" autocomplete="off" maxlength="2000" value="${esc(d.url)}" placeholder="https://… 或 App 內位置，例如 #notes-02-section-2"></div>
+  <div class="full"><label class="field-label" for="link-url">網址</label><input class="select" id="link-url" type="text" inputmode="url" autocomplete="off" maxlength="2000" value="${esc(d.url)}" placeholder="https://… 或 App 內位置，例如 ${exAnchor}"></div>
   <div><label class="field-label" for="link-title">標題</label><input class="select" id="link-title" type="text" maxlength="120" value="${esc(d.title)}" placeholder="留空時自動使用頁面名稱或網域"></div>
   <div><label class="field-label" for="link-topic">分類</label><select class="select" id="link-topic"><option value="">未分類</option>${orderedTopics().map(t=>`<option value="${t.id}" ${d.topicId===t.id?'selected':''}>${esc(topicLabel(t))}</option>`).join('')}</select></div>
   <div class="full"><label class="field-label" for="link-note">備註</label><textarea class="input" id="link-note" maxlength="1000" placeholder="為什麼收藏、下次要看哪一段">${esc(d.note)}</textarea></div>
   <div class="full actions">${btn(editing?'儲存修改':'儲存連結','link-add','','primary')}${editing?btn('取消編輯','link-cancel','','subtle'):''}${btn('收藏目前位置','link-save-current','','subtle')}</div>
-  <p class="full small">App 內位置以 # 開頭，例如 #notes-02-section-2、#pbl-dr、#wf-chemical；也可直接貼上本站完整網址。外部網址會在新分頁開啟。</p></section>
+  <p class="full small">App 內位置以 # 開頭，例如 ${exHint}；也可直接貼上本站完整網址。外部網址會在新分頁開啟。</p></section>
   <section class="link-list-wrap" aria-label="已收藏的連結"><div class="section-heading"><h2>已收藏</h2><label class="vh" for="link-filter">篩選連結</label><input class="select link-filter" id="link-filter" type="search" value="${esc(S.linkFilter)}" placeholder="篩選標題、網址或備註" autocomplete="off"></div><div id="link-list">${linkListMarkup()}</div></section>`;
 }
 
@@ -310,19 +316,19 @@ function practiceAction(a,v,b){if(window.OphAdvanced?.action(a,v,b))return true;
   if(syncAction(a))return;
   switch(a){
   case'pbl-open':if(pblCases().some(c=>c.id===v)){S.pbl=v;switchTab('pbl');}break;
-  case'pbl-stage':{const c=pblCase(),next=Math.min(c.stages.length,(S.pblStage[c.id]||1)+1);S.pblStage[c.id]=next;render();document.getElementById('pbl-stage-'+next)?.scrollIntoView?.({block:'start'});break;}
-  case'pbl-all':{const c=pblCase();S.pblStage[c.id]=c.stages.length;render();break;}
-  case'pbl-restart':{const c=pblCase();S.pblStage[c.id]=1;render();window.scrollTo?.({top:0,behavior:'instant'});break;}
-  case'pbl-done':{const c=pblCase();put('pbl:'+c.id,{done:!entries['pbl:'+c.id]?.done});render();break;}
-  case'pbl-next':{const cases=pblCases();S.pbl=cases[(cases.indexOf(pblCase())+1)%cases.length].id;switchTab('pbl');break;}
+  case'pbl-stage':{const c=pblCase();if(!c)break;const next=Math.min(c.stages.length,(S.pblStage[c.id]||1)+1);S.pblStage[c.id]=next;render();document.getElementById('pbl-stage-'+next)?.scrollIntoView?.({block:'start'});break;}
+  case'pbl-all':{const c=pblCase();if(!c)break;S.pblStage[c.id]=c.stages.length;render();break;}
+  case'pbl-restart':{const c=pblCase();if(!c)break;S.pblStage[c.id]=1;render();window.scrollTo?.({top:0,behavior:'instant'});break;}
+  case'pbl-done':{const c=pblCase();if(!c)break;put('pbl:'+c.id,{done:!entries['pbl:'+c.id]?.done});render();break;}
+  case'pbl-next':{const cases=pblCases();if(!cases.length)break;S.pbl=cases[(cases.indexOf(pblCase())+1)%cases.length].id;switchTab('pbl');break;}
   case'workflow-open':if(wfList().some(w=>w.id===v)){S.workflow=v;switchTab('workflow');}break;
-  case'wf-mode':if(['read','recall','order'].includes(v)){S.wfMode=v;if(v==='order')ensureShuffle(wfCurrent());render();}break;
-  case'wf-pick':{const w=wfCurrent(),i=Number(v),picked=S.wfPicked[w.id]||(S.wfPicked[w.id]=[]);if(Number.isInteger(i)&&i>=0&&i<w.steps.length&&!picked.includes(i)&&!S.wfChecked[w.id]){picked.push(i);render();}break;}
-  case'wf-undo':{const w=wfCurrent();if(!S.wfChecked[w.id]){(S.wfPicked[w.id]||[]).pop();render();}break;}
-  case'wf-reshuffle':{const w=wfCurrent();S.wfShuffle[w.id]=shuffledOrder(w.steps.length);S.wfPicked[w.id]=[];S.wfChecked[w.id]=false;render();break;}
-  case'wf-check':{const w=wfCurrent(),picked=S.wfPicked[w.id]||[];if(picked.length!==w.steps.length||S.wfChecked[w.id])break;S.wfChecked[w.id]=true;const right=inOrderPositions(picked).size,prior=wfEntry(w);put('workflow:'+w.id,{practiced:true,best:Math.max(prior?.best||0,right),total:w.steps.length});render();break;}
-  case'wf-done':{const w=wfCurrent(),prior=wfEntry(w);put('workflow:'+w.id,{practiced:!prior?.practiced,best:prior?.best||0,total:w.steps.length});render();break;}
-  case'wf-next':{const all=wfList();S.workflow=all[(all.indexOf(wfCurrent())+1)%all.length].id;switchTab('workflow');break;}
+  case'wf-mode':if(['read','recall','order'].includes(v)&&wfCurrent()){S.wfMode=v;if(v==='order')ensureShuffle(wfCurrent());render();}break;
+  case'wf-pick':{const w=wfCurrent();if(!w)break;const i=Number(v),picked=S.wfPicked[w.id]||(S.wfPicked[w.id]=[]);if(Number.isInteger(i)&&i>=0&&i<w.steps.length&&!picked.includes(i)&&!S.wfChecked[w.id]){picked.push(i);render();}break;}
+  case'wf-undo':{const w=wfCurrent();if(!w)break;if(!S.wfChecked[w.id]){(S.wfPicked[w.id]||[]).pop();render();}break;}
+  case'wf-reshuffle':{const w=wfCurrent();if(!w)break;S.wfShuffle[w.id]=shuffledOrder(w.steps.length);S.wfPicked[w.id]=[];S.wfChecked[w.id]=false;render();break;}
+  case'wf-check':{const w=wfCurrent();if(!w)break;const picked=S.wfPicked[w.id]||[];if(picked.length!==w.steps.length||S.wfChecked[w.id])break;S.wfChecked[w.id]=true;const right=inOrderPositions(picked).size,prior=wfEntry(w);put('workflow:'+w.id,{practiced:true,best:Math.max(prior?.best||0,right),total:w.steps.length});render();break;}
+  case'wf-done':{const w=wfCurrent();if(!w)break;const prior=wfEntry(w);put('workflow:'+w.id,{practiced:!prior?.practiced,best:prior?.best||0,total:w.steps.length});render();break;}
+  case'wf-next':{const all=wfList();if(!all.length)break;S.workflow=all[(all.indexOf(wfCurrent())+1)%all.length].id;switchTab('workflow');break;}
   case'link-save':{const url=normalizeLinkUrl(v);if(!url)break;if(findLink(url)){toast('這個位置已在「我的連結」。');break;}if(saveLink({url,title:'',note:'',topicId:linkTopicOf(url)})){if(b){b.textContent='★ 已收藏';b.setAttribute?.('aria-pressed','true');}toast('已收藏：'+linkDefaultTitle(url)+'。可到「我的連結」加上備註。');}break;}
   case'link-save-current':{const url=currentLocationHash();if(findLink(url)){toast('這個位置已在「我的連結」。');break;}if(saveLink({url,title:'',note:'',topicId:linkTopicOf(url)})){toast('已收藏：'+linkDefaultTitle(url)+'。');if(S.tab==='links')render();}break;}
   case'link-add':{const d=S.linkDraft,url=normalizeLinkUrl(d.url);if(!url){toast('請輸入 http(s):// 網址，或 App 內位置（例如 #notes-02-section-2）。');break;}const existing=findLink(url);if(existing&&existing.id!==S.linkEdit){toast('這個網址已收藏為「'+existing.title+'」。');break;}const id=saveLink({...d,url},S.linkEdit);if(id){toast(S.linkEdit?'已更新連結。':'已儲存連結。');S.linkEdit=null;S.linkDraft={title:'',url:'',note:'',topicId:''};render();}break;}
