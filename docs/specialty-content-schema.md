@@ -1,6 +1,6 @@
 # 跨科別教材與題庫資料規格（`content/<s>/`）
 
-本文件說明耳鼻喉科（`ent`）、放射診斷科（`rad`）、放射腫瘤科（`radonc`）與核子醫學科（`nm`）各科教材資料夾 `content/<s>/` 的 JSON 規格、欄位驗證規則與建置流程。
+本文件說明耳鼻喉科（`ent`）、放射診斷科（`rad`）、放射腫瘤科（`radonc`）、核子醫學科（`nm`）與神經內科（`neuro`）各科教材資料夾 `content/<s>/` 的 JSON 規格、欄位驗證規則與建置流程。
 
 - **建置工具**：`scripts/apply-specialty.py`
 - **目標區塊**：`<script type="application/json" id="course-data-<s>">`（位於 `index.html`）
@@ -12,7 +12,7 @@
 ## 1. 指令用法
 
 ```bash
-# 驗證並嵌入全部四個非眼科科別（ent, rad, radonc, nm）
+# 驗證並嵌入全部五個非眼科科別（ent, rad, radonc, nm, neuro）
 python3 scripts/apply-specialty.py
 
 # 只建置單一科別（可重複指定 --s）
@@ -44,7 +44,7 @@ python3 scripts/apply-app-install.py
 
 ## 2. 目錄結構與可選檔案
 
-每個科別 `<s>`（`ent`、`rad`、`radonc`、`nm`）對應 `content/<s>/`。若該目錄不存在或尚無檔案，建置會維持預設空殼，前端對應頁面顯示「內容待補」。
+每個科別 `<s>`（`ent`、`rad`、`radonc`、`nm`、`neuro`）對應 `content/<s>/`。若該目錄不存在或尚無檔案，建置會維持預設空殼，前端對應頁面顯示「內容待補」。
 
 支援的頂層 JSON 檔案如下（皆為選用；頂層若出現未列於下表且非 `_` 開頭的 `.json` 檔會直接報錯，避免檔名拼字錯誤被忽略）：
 

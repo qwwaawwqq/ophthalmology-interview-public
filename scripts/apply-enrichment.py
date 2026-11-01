@@ -32,6 +32,7 @@ NON_OPH_SPECIALTIES = (
     ('rad', '放射診斷科'),
     ('radonc', '放射腫瘤科'),
     ('nm', '核子醫學科'),
+    ('neuro', '神經內科'),
 )
 KINDS = {'圖譜', '影片', '期刊', '指南'}
 JS_START = '/* enrichment-ui:start */'

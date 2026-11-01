@@ -100,12 +100,12 @@ PBL 與流程內容於 2026-10-13 由獨立審稿依 AAO／EyeWiki、AAP、ACR�
 - `content/interview-detailed.json`：46 題面試演練的詳細參考答案與追問回答。
 - `content/pbl-cases.json`、`content/clinical-workflows.json`：PBL 情境與臨床流程；來源 ID 必須是章節資源中已有的連結。
 - `scripts/progress-sync.js`：自動保存、回到上次畫面、GitHub 私人 repo 同步與裝置設定 QR，由建置腳本嵌入。
-- `scripts/specialty-registry.js`：科別登錄表，由 `apply-enrichment.py` 以 `<script id="specialty-boot">` 嵌入（必須帶屬性，建置會改寫所有無屬性的 `<script>`），並為耳鼻喉科、放射診斷科、放射腫瘤科與核子醫學科嵌入獨立的 `<script type="application/json" id="course-data-<科>">` 資料區塊。首頁與左側欄皆可切換科別（眼科 `./`、其他科 `./?s=ent|rad|radonc|nm`）；尚未匯入教材的段落會顯示「內容待補」，不混入眼科題目或章節。各科使用自己的本機保存前綴（`<科>-prep:`）、雲端檔案（`progress-<科>.json`）與進度格式（`<科>-prep-progress-v1`），彼此不能互相匯入。眼科維持原本的 `course-data`、`oph-prep:`、`progress.json` 與 v1／v2／v3 格式。
+- `scripts/specialty-registry.js`：科別登錄表，由 `apply-enrichment.py` 以 `<script id="specialty-boot">` 嵌入（必須帶屬性，建置會改寫所有無屬性的 `<script>`），並為耳鼻喉科、放射診斷科、放射腫瘤科、核子醫學科與神經內科嵌入獨立的 `<script type="application/json" id="course-data-<科>">` 資料區塊。首頁與左側欄皆可切換科別（眼科 `./`、其他科 `./?s=ent|rad|radonc|nm|neuro`）；尚未匯入教材的段落會顯示「內容待補」，不混入眼科題目或章節。各科使用自己的本機保存前綴（`<科>-prep:`）、雲端檔案（`progress-<科>.json`）與進度格式（`<科>-prep-progress-v1`），彼此不能互相匯入。眼科維持原本的 `course-data`、`oph-prep:`、`progress.json` 與 v1／v2／v3 格式。
 - `scripts/vendor/qrcode.js`：[qrcode-generator](https://github.com/kazuhikoarase/qrcode-generator) 2.0.4（MIT，授權見 `scripts/vendor/qrcode-generator.LICENSE`），僅在顯示設定 QR code 時載入。
 - 建置會把產生的程式區塊放回原位，不移動其他工具（例如共筆考前衝刺）加入的程式。
 - `scripts/practice-ui.js`、`scripts/practice-ui.css`：PBL、流程、我的連結與網址路由的介面，由建置腳本嵌入。
 - `scripts/apply-enrichment.py`：驗證並將深入教材嵌入 `index.html`，同時保留題庫與進度資料格式。
-- `scripts/apply-specialty.py`：驗證各科 `content/<ent|rad|radonc|nm>/` 教材與題庫（強制檢查每題正解與每個項目的 `source` 來源依據），嵌入對應的 `course-data-<科>` 區塊且完全不動眼科 `course-data`；規格見 `docs/specialty-content-schema.md`。
+- `scripts/apply-specialty.py`：驗證各科 `content/<ent|rad|radonc|nm|neuro>/` 教材與題庫（強制檢查每題正解與每個項目的 `source` 來源依據），嵌入對應的 `course-data-<科>` 區塊且完全不動眼科 `course-data`；規格見 `docs/specialty-content-schema.md`。
 
 更新內容後執行：
 

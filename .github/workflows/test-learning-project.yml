@@ -11,6 +11,7 @@ on:
       - content/rad/**
       - content/radonc/**
       - content/nm/**
+      - content/neuro/**
       - docs/specialty-content-schema.md
       - scripts/**
       - .github/workflows/*learning-project.yml
