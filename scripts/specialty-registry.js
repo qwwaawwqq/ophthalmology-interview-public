@@ -12,7 +12,8 @@
     other('ent','耳鼻喉科','ENT_Progress_'),
     other('rad','放射診斷科','Radiology_Progress_'),
     other('radonc','放射腫瘤科','RadiationOncology_Progress_'),
-    other('nm','核子醫學科','NuclearMedicine_Progress_')
+    other('nm','核子醫學科','NuclearMedicine_Progress_'),
+    other('neuro','神經內科','Neurology_Progress_')
   ];
   const REG=Object.create(null);
   for(const s of list){Object.freeze(s.formats);REG[s.id]=Object.freeze(s);}

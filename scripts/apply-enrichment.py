@@ -32,6 +32,7 @@ NON_OPH_SPECIALTIES = (
     ('rad', '放射診斷科'),
     ('radonc', '放射腫瘤科'),
     ('nm', '核子醫學科'),
+    ('neuro', '神經內科'),
 )
 KINDS = {'圖譜', '影片', '期刊', '指南'}
 JS_START = '/* enrichment-ui:start */'
@@ -513,6 +514,10 @@ def ensure_specialty_shells(html):
 
 def apply_practice(js):
     """Wire PBL, workflows and saved links into the base app. Each patch is skipped once present."""
+    expected_list = "[['oph','眼科','./']," + ",".join(f"['{sid}','{label}','./?s={sid}']" for sid, label in NON_OPH_SPECIALTIES) + "]"
+    js, n_spec = re.subn(r"const SPECIALTY_LIST=\[[^\n;]*\];", f"const SPECIALTY_LIST={expected_list};", js, count=1)
+    if n_spec != 1:
+        raise ValueError('SPECIALTY_LIST declaration not found')
     js = strip_block(js, PRACTICE_JS_START, PRACTICE_JS_END, '\x00PRACTICE\x00')
     patches = (
         ("['pbl','◈','PBL 情境']", "['workshop','◇','故事與證據']", "['pbl','◈','PBL 情境'],['workflow','▥','臨床流程'],['workshop','◇','故事與證據']", 'nav list'),

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Specialty registry, namespaced storage, picker/pending UI, and per-specialty build pipeline checks (issues #48, #49, #50).
+// Specialty registry, namespaced storage, picker/pending UI, and per-specialty build pipeline checks (issues #48, #49, #50, #73).
 // Usage: node scripts/test-specialty.cjs [index.html]
 const fs = require('node:fs');
 const os = require('node:os');
@@ -31,7 +31,8 @@ const OPH = {
   exportFormat: 'ophthalmology-prep-progress-v3', defaultRepo: 'ophthalmology-progress', exportName: 'Ophthalmology_Progress_',
   dataId: 'course-data', contentBase: 'content/', query: '',
 };
-const OTHERS = {ent: '耳鼻喉科', rad: '放射診斷科', radonc: '放射腫瘤科', nm: '核子醫學科'};
+const OTHERS = {ent: '耳鼻喉科', rad: '放射診斷科', radonc: '放射腫瘤科', nm: '核子醫學科', neuro: '神經內科'};
+const EXPORT_NAMES = {ent: 'ENT_Progress_', rad: 'Radiology_Progress_', radonc: 'RadiationOncology_Progress_', nm: 'NuclearMedicine_Progress_', neuro: 'Neurology_Progress_'};
 const OPH_ONLY_TABS = ['textbook', 'cram', 'advanced', 'schedule', 'project'];
 const OPH_LEAK_TERMS = ['BCSC', 'RAPD', '白瞳', '共筆', '急性視力喪失', '糖尿病黃斑水腫', '#pbl-dr', '#wf-chemical', '#notes-02'];
 
@@ -177,7 +178,7 @@ async function practise(app) {
 }
 
 (async () => {
-  await test('course-data sha256 is untouched and all four non-oph course-data-<s> blocks exist once', async () => {
+  await test('course-data sha256 is untouched and all five non-oph course-data-<s> blocks exist once', async () => {
     const counts = {};
     for (const m of blockMatches) counts[m[1]] = (counts[m[1]] || 0) + 1;
     assert.equal(counts['course-data'], 1);
@@ -196,11 +197,11 @@ async function practise(app) {
   });
 
   await test('the registry defaults to oph; only known ?s= values switch specialty', async () => {
-    for (const [search, id] of [['', 'oph'], ['?s=oph', 'oph'], ['?s=nm', 'nm'], ['?s=ent', 'ent'], ['?s=rad', 'rad'], ['?s=radonc', 'radonc'], ['?s=NM', 'oph'], ['?s=xyz', 'oph'], ['?s=__proto__', 'oph'], ['?s=constructor', 'oph'], ['?s=toString', 'oph'], ['?x=1&s=nm', 'nm']]) {
+    for (const [search, id] of [['', 'oph'], ['?s=oph', 'oph'], ['?s=nm', 'nm'], ['?s=ent', 'ent'], ['?s=rad', 'rad'], ['?s=radonc', 'radonc'], ['?s=neuro', 'neuro'], ['?s=NM', 'oph'], ['?s=NEURO', 'oph'], ['?s=xyz', 'oph'], ['?s=__proto__', 'oph'], ['?s=constructor', 'oph'], ['?s=toString', 'oph'], ['?x=1&s=nm', 'nm'], ['?x=1&s=neuro', 'neuro']]) {
       assert.equal(runRegistry(search).OphSpecialty.id, id, search);
     }
     const w = runRegistry('');
-    assert.deepEqual(Object.keys(w.OphSpecialties).sort(), ['ent', 'nm', 'oph', 'rad', 'radonc']);
+    assert.deepEqual(Object.keys(w.OphSpecialties).sort(), ['ent', 'neuro', 'nm', 'oph', 'rad', 'radonc']);
     assert(Object.isFrozen(w.OphSpecialty) && Object.isFrozen(w.OphSpecialty.formats), 'registry entries are frozen');
   });
 
@@ -217,11 +218,13 @@ async function practise(app) {
     for (const [id, label] of Object.entries(OTHERS)) {
       const s = plain(reg[id]);
       assert.equal(s.label, label);
+      assert.equal(s.appTitle, label + '甄選練習室');
       assert.equal(s.storePrefix, id + '-prep:');
       assert(s.stateKey.startsWith(s.storePrefix));
       assert.equal(s.syncFile, 'progress-' + id + '.json');
       assert.deepEqual(s.formats, [id + '-prep-progress-v1']);
       assert.equal(s.exportFormat, s.formats[0]);
+      assert.equal(s.exportName, EXPORT_NAMES[id]);
       assert.equal(s.dataId, 'course-data-' + id);
       assert.equal(s.contentBase, 'content/' + id + '/');
       assert.equal(s.query, '?s=' + id);
@@ -276,17 +279,53 @@ async function practise(app) {
     assert.equal(Object.keys(oph.qa.entries).length, 0, 'oph does not see nm progress');
   });
 
+  await test('?s=neuro writes only neuro-prep:* keys and progress-neuro.json, and its links keep ?s=neuro', async () => {
+    const local = new MemoryStorage();
+    local.setItem('oph-prep:cloud', JSON.stringify({owner: 'someone', repo: 'oph-only'}));
+    local.setItem('nm-prep:cloud', JSON.stringify({owner: 'someone', repo: 'nm-only'}));
+    local.written.clear();
+    const app = boot({search: '?s=neuro', local}), github = app.github;
+    github.add('me/ophthalmology-progress', 'github_pat_SPECIALTYTOKEN1234567890');
+    assert.equal(app.qa.SPEC.id, 'neuro');
+    assert.notEqual(app.qa.S.syncDraft.repo, 'oph-only', 'oph cloud settings are not read in neuro');
+    assert.notEqual(app.qa.S.syncDraft.repo, 'nm-only', 'nm cloud settings are not read in neuro');
+    await practise(app);
+    const keys = [...local.written, ...keysOf(app.session)];
+    assert(keys.includes('neuro-prep:progress-v1') && keys.includes('neuro-prep:cloud') && keys.includes('neuro-prep:cloud-token') && keys.includes('neuro-prep:workspace-v1'), keys.join(','));
+    assert(keys.every(k => k.startsWith('neuro-prep:')), keys.join(','));
+    assert.equal(local.getItem('oph-prep:progress-v3'), null);
+    assert.equal(local.getItem('nm-prep:progress-v1'), null);
+    const files = github.calls.map(c => c.file).filter(Boolean);
+    assert(files.length && files.every(f => f === 'progress-neuro.json'), files.join(','));
+    assert.equal(JSON.parse(github.repos.get('me/ophthalmology-progress').files.get('progress-neuro.json').text).format, 'neuro-prep-progress-v1');
+    app.qa.exportProgress();
+    assert.match(app.anchor.download, /^Neurology_Progress_\d{4}-\d{2}-\d{2}\.json$/);
+    assert.equal(JSON.parse(await app.blobs.at(-1).text()).format, 'neuro-prep-progress-v1');
+    app.action('sync-copy-link'); await app.settle();
+    assert.equal(app.clipboard.at(-1), 'https://qwwaawwqq.github.io/ophthalmology-interview-public/?s=neuro#sync-join=me/ophthalmology-progress/github_pat_SPECIALTYTOKEN1234567890');
+    const again = boot({search: '?s=neuro', local, github});
+    assert(Object.keys(again.qa.entries).length > 0, 'neuro progress restores after a reload');
+    const oph = boot({local, github});
+    assert.equal(Object.keys(oph.qa.entries).length, 0, 'oph does not see neuro progress');
+    const nm = boot({search: '?s=nm', local, github});
+    assert.equal(Object.keys(nm.qa.entries).length, 0, 'nm does not see neuro progress');
+  });
+
   await test('importing one specialty\u2019s file into another is rejected; oph v1/v2/v3 still import', async () => {
-    const oph = boot(), nm = boot({search: '?s=nm'}), ent = boot({search: '?s=ent'});
+    const oph = boot(), nm = boot({search: '?s=nm'}), ent = boot({search: '?s=ent'}), neuro = boot({search: '?s=neuro'});
     const q = oph.qa.D.questions[0], at = '2026-10-01T00:00:00.000Z';
     const ophFile = format => ({format, exportedAt: at, entries: {['q:' + q.id]: {choice: q.correctIndex, at}}, meta: {}});
     const srsEntry = {version: 1, at, answerCount: 1, attempt: {id: 't1', at, correct: false, rated: true}, plan: {step: -1, dueAt: at, rating: 'again', reviewCount: 1, lapses: 1}};
     const sharedFile = format => ({format, exportedAt: at, entries: {'study:srs:shared:smoke-1': srsEntry}, meta: {}});
     for (const v of ['v1', 'v2', 'v3']) assert.equal(oph.qa.mergeProgress(ophFile('ophthalmology-prep-progress-' + v)).count, 1, v);
-    for (const format of ['ophthalmology-prep-progress-v1', 'ophthalmology-prep-progress-v2', 'ophthalmology-prep-progress-v3', 'ent-prep-progress-v1']) assert.throws(() => nm.qa.mergeProgress(sharedFile(format)), /進度 JSON/, format);
+    for (const format of ['ophthalmology-prep-progress-v1', 'ophthalmology-prep-progress-v2', 'ophthalmology-prep-progress-v3', 'ent-prep-progress-v1', 'neuro-prep-progress-v1']) assert.throws(() => nm.qa.mergeProgress(sharedFile(format)), /進度 JSON/, format);
+    for (const format of ['ophthalmology-prep-progress-v1', 'ophthalmology-prep-progress-v2', 'ophthalmology-prep-progress-v3', 'ent-prep-progress-v1', 'nm-prep-progress-v1']) assert.throws(() => neuro.qa.mergeProgress(sharedFile(format)), /進度 JSON/, format);
     assert.throws(() => oph.qa.mergeProgress(sharedFile('nm-prep-progress-v1')), /進度 JSON/);
+    assert.throws(() => oph.qa.mergeProgress(sharedFile('neuro-prep-progress-v1')), /進度 JSON/);
     assert.throws(() => ent.qa.mergeProgress(sharedFile('nm-prep-progress-v1')), /進度 JSON/);
+    assert.throws(() => ent.qa.mergeProgress(sharedFile('neuro-prep-progress-v1')), /進度 JSON/);
     assert.equal(nm.qa.mergeProgress(sharedFile('nm-prep-progress-v1')).count, 1);
+    assert.equal(neuro.qa.mergeProgress(sharedFile('neuro-prep-progress-v1')).count, 1);
   });
 
   await test('a remote progress file of another specialty is not merged', async () => {
@@ -296,10 +335,15 @@ async function practise(app) {
     await practise(oph);
     const repo = github.repos.get('me/ophthalmology-progress');
     repo.files.set('progress-nm.json', {sha: 'x1', text: repo.files.get('progress.json').text});
+    repo.files.set('progress-neuro.json', {sha: 'x2', text: repo.files.get('progress.json').text});
     const nm = boot({search: '?s=nm', github});
     await practise(nm);
     assert.notEqual(nm.qa.syncState.error, '', 'an oph-format file in progress-nm.json is refused');
     assert.equal(JSON.parse(repo.files.get('progress-nm.json').text).format, 'ophthalmology-prep-progress-v3', 'the foreign file is left untouched');
+    const neuro = boot({search: '?s=neuro', github});
+    await practise(neuro);
+    assert.notEqual(neuro.qa.syncState.error, '', 'an oph-format file in progress-neuro.json is refused');
+    assert.equal(JSON.parse(repo.files.get('progress-neuro.json').text).format, 'ophthalmology-prep-progress-v3', 'the foreign file is left untouched');
   });
 
   await test('cram-review.js stores under the active specialty prefix', async () => {
@@ -307,10 +351,11 @@ async function practise(app) {
     assert.equal(vm.runInNewContext(line, {window: {}}), 'oph-prep:cram-review-v1');
     assert.equal(vm.runInNewContext(line, {window: runRegistry('')}), 'oph-prep:cram-review-v1');
     assert.equal(vm.runInNewContext(line, {window: runRegistry('?s=nm')}), 'nm-prep:cram-review-v1');
+    assert.equal(vm.runInNewContext(line, {window: runRegistry('?s=neuro')}), 'neuro-prep:cram-review-v1');
   });
 
-  await test('specialty picker renders on home and sidebar across all 5 specialties with dynamic branding', async () => {
-    const expectedHrefs = ['./', './?s=ent', './?s=rad', './?s=radonc', './?s=nm'];
+  await test('specialty picker renders on home and sidebar across all 6 specialties with dynamic branding', async () => {
+    const expectedHrefs = ['./', './?s=ent', './?s=rad', './?s=radonc', './?s=nm', './?s=neuro'];
     const oph = boot();
     assert.equal(oph.title(), '眼科甄選練習室 · 公開練習版');
     assert.equal(oph.brand(), '眼科甄選練習室');
@@ -379,45 +424,59 @@ async function practise(app) {
       wellFormed(app.main());
       for (const leak of OPH_LEAK_TERMS) assert(!app.main().includes(leak), `${id} workshop sources leaked ${leak}`);
     }
+
+    // Explicitly verify empty-shell 內容待補 rendering on ?s=neuro (remains valid even once content/neuro/ is populated later).
+    const emptyNeuro = JSON.parse(jsonBlocks['course-data-neuro']);
+    Object.assign(emptyNeuro, {topics: [], questions: [], interview: [], pbl: {...emptyNeuro.pbl, cases: []}, workflows: {...emptyNeuro.workflows, workflows: []}});
+    const emptyNeuroApp = boot({search: '?s=neuro', blocks: {...jsonBlocks, 'course-data-neuro': JSON.stringify(emptyNeuro)}});
+    for (const tab of ['notebook', 'study', 'learn', 'quiz', 'interview', 'pbl', 'workflow', 'progress']) {
+      emptyNeuroApp.action('tab', tab);
+      const markup = emptyNeuroApp.main();
+      wellFormed(markup);
+      assert(markup.includes('內容待補') && markup.includes('specialty-pending'), `empty neuro ${tab} should show 內容待補 card`);
+      for (const leak of OPH_LEAK_TERMS) assert(!markup.includes(leak), `empty neuro ${tab} leaked ${leak}`);
+    }
   });
 
-  await test('hash navigation and saved links preserve ?s=nm and reject ophthalmology-only routes', async () => {
-    const app = boot({search: '?s=nm', hash: '#tab-quiz'});
-    app.windowHandlers.get('load')?.();
-    assert.equal(app.qa.S.tab, 'quiz');
-    assert.equal(app.location.search, '?s=nm');
-    assert.equal(app.location.hash, '#tab-quiz');
+  await test('hash navigation and saved links preserve ?s=<specialty> and reject ophthalmology-only routes', async () => {
+    for (const sid of ['nm', 'neuro']) {
+      const app = boot({search: '?s=' + sid, hash: '#tab-quiz'});
+      app.windowHandlers.get('load')?.();
+      assert.equal(app.qa.S.tab, 'quiz');
+      assert.equal(app.location.search, '?s=' + sid);
+      assert.equal(app.location.hash, '#tab-quiz');
 
-    for (const [hash, expectedTab] of [['#tab-learn', 'learn'], ['#pbl', 'pbl'], ['#workflow', 'workflow'], ['#links', 'links'], ['#tab-interview', 'interview']]) {
-      assert.equal(app.qa.openRoute(hash), true, hash);
-      assert.equal(app.qa.S.tab, expectedTab);
-      assert.equal(app.location.search, '?s=nm', `${hash} must keep ?s=nm`);
-      assert.equal(app.location.hash, hash);
+      for (const [hash, expectedTab] of [['#tab-learn', 'learn'], ['#pbl', 'pbl'], ['#workflow', 'workflow'], ['#links', 'links'], ['#tab-interview', 'interview']]) {
+        assert.equal(app.qa.openRoute(hash), true, `${sid} ${hash}`);
+        assert.equal(app.qa.S.tab, expectedTab);
+        assert.equal(app.location.search, '?s=' + sid, `${hash} must keep ?s=${sid}`);
+        assert.equal(app.location.hash, hash);
+      }
+
+      app.action('tab', 'notebook');
+      assert.equal(app.location.search, '?s=' + sid, `returning to home keeps ?s=${sid}`);
+      assert.equal(app.location.hash, '');
+
+      for (const blocked of ['#textbook', '#textbook-bcsc-s01', '#textbook-atlas', '#tab-cram', '#tab-advanced', '#tab-schedule', '#tab-project']) {
+        assert.equal(app.qa.parseRoute(blocked), null, `${blocked} must be rejected in ${sid}`);
+        assert.equal(app.qa.openRoute(blocked), false);
+      }
+
+      assert.equal(app.qa.normalizeLinkUrl(`https://qwwaawwqq.github.io/ophthalmology-interview-public/?s=${sid}#pbl`), '#pbl');
+      assert.equal(app.qa.normalizeLinkUrl(`https://qwwaawwqq.github.io/ophthalmology-interview-public/?s=${sid}`), '#tab-notebook');
+      assert.equal(app.qa.normalizeLinkUrl('https://qwwaawwqq.github.io/ophthalmology-interview-public/#notes-02-section-2'), 'https://qwwaawwqq.github.io/ophthalmology-interview-public/#notes-02-section-2');
+
+      app.qa.openRoute('#pbl');
+      app.action('link-save-current');
+      app.action('tab', 'links');
+      assert(app.main().includes('#pbl'));
+      const linkKey = Object.keys(app.qa.meta).find(k => k.startsWith('link:'));
+      assert(linkKey, 'current route saved in meta');
+      app.action('link-open', linkKey.slice(5));
+      assert.equal(app.qa.S.tab, 'pbl');
+      assert.equal(app.location.search, '?s=' + sid);
+      assert.equal(app.location.hash, '#pbl');
     }
-
-    app.action('tab', 'notebook');
-    assert.equal(app.location.search, '?s=nm', 'returning to home keeps ?s=nm');
-    assert.equal(app.location.hash, '');
-
-    for (const blocked of ['#textbook', '#textbook-bcsc-s01', '#textbook-atlas', '#tab-cram', '#tab-advanced', '#tab-schedule', '#tab-project']) {
-      assert.equal(app.qa.parseRoute(blocked), null, `${blocked} must be rejected in nm`);
-      assert.equal(app.qa.openRoute(blocked), false);
-    }
-
-    assert.equal(app.qa.normalizeLinkUrl('https://qwwaawwqq.github.io/ophthalmology-interview-public/?s=nm#pbl'), '#pbl');
-    assert.equal(app.qa.normalizeLinkUrl('https://qwwaawwqq.github.io/ophthalmology-interview-public/?s=nm'), '#tab-notebook');
-    assert.equal(app.qa.normalizeLinkUrl('https://qwwaawwqq.github.io/ophthalmology-interview-public/#notes-02-section-2'), 'https://qwwaawwqq.github.io/ophthalmology-interview-public/#notes-02-section-2');
-
-    app.qa.openRoute('#pbl');
-    app.action('link-save-current');
-    app.action('tab', 'links');
-    assert(app.main().includes('#pbl'));
-    const linkKey = Object.keys(app.qa.meta).find(k => k.startsWith('link:'));
-    assert(linkKey, 'current route saved in meta');
-    app.action('link-open', linkKey.slice(5));
-    assert.equal(app.qa.S.tab, 'pbl');
-    assert.equal(app.location.search, '?s=nm');
-    assert.equal(app.location.hash, '#pbl');
   });
 
   await test('populated non-oph course-data-nm renders real quiz, learn, interview, PBL and workflow items instead of 內容待補', async () => {
@@ -665,7 +724,7 @@ async function practise(app) {
       const builtHtml = fs.readFileSync(tmpIndex, 'utf8');
       const builtBlocks = Object.fromEntries([...builtHtml.matchAll(/<script type="application\/json" id="([^"]+)">([\s\S]*?)<\/script>/g)].map(m => [m[1], m[2]]));
       assert.equal(builtBlocks['course-data'], jsonBlocks['course-data']);
-      for (const otherId of ['ent', 'rad', 'radonc']) {
+      for (const otherId of ['ent', 'rad', 'radonc', 'neuro']) {
         assert.equal(builtBlocks['course-data-' + otherId], jsonBlocks['course-data-' + otherId], otherId + ' block untouched');
       }
 
