@@ -113,13 +113,14 @@ def validate(data, root=ROOT, partial=False, review=None):
     hashes={};warnings=[];diagram_counts={};case_count=0;shape_count=0
     for volume in data['volumes']:
         bid=volume['bookId'];items=volume.get('units')
-        require(isinstance(items,list) and (len(items)>=1 if partial else len(items)==2),bid+': expected two units')
+        require(isinstance(items,list) and (len(items)>=1 if partial else len(items)>=2),f'{bid}: expected at least two atlas units')
         source=json.loads((root/('content/textbook-depth/'+bid+'.json')).read_text())
         chapters={c['id'] for c in source['chapters']}
         non_relationship=0
+        prefix=bid.replace('bcsc-','')
         for unit in items:
             uid=unit.get('id');where=str(uid)
-            require(uid in {'atlas-'+bid.replace('bcsc-','')+'-01','atlas-'+bid.replace('bcsc-','')+'-02'},bid+': wrong unit id')
+            require(isinstance(uid,str) and bool(re.fullmatch(rf'atlas-{re.escape(prefix)}-(?:0[1-9]|[1-9]\d)',uid)),bid+': wrong unit id')
             require(uid not in hashes,uid+': duplicate unit')
             require(set(unit)==UNIT_KEYS,uid+': unexpected or missing unit keys')
             text(unit['title'],uid+' title');text(unit['clinicalQuestion'],uid+' clinical question')
@@ -160,7 +161,9 @@ def validate(data, root=ROOT, partial=False, review=None):
             shapes=sum(e.get('type')!='text' for e in diagram['elements']);require(shapes>=8,uid+': needs at least 8 nontext shapes');shape_count+=shapes
             for i,e in enumerate(diagram['elements']):validate_element(e,uid+' element '+str(i),warnings)
             hashes[uid]=reviewed_hash(unit)
-        if not partial:require(non_relationship>=1,bid+': needs a spatial/anatomical/optical diagram')
+        if not partial:
+            require([u.get('id') for u in items]==[f'atlas-{prefix}-{i:02d}' for i in range(1,len(items)+1)],bid+': unit ids must be sequential from 01')
+            require(non_relationship>=1,bid+': needs a spatial/anatomical/optical diagram')
     if review is not None:
         require(review.get('schemaVersion')==1 and review.get('packId')==PACK_ID and review.get('conclusion')=='pass','review: independent pass receipt required')
         text(review.get('reviewer'),'reviewer');text(review.get('reviewedAt'),'review date')

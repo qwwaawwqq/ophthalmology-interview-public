@@ -91,6 +91,7 @@ def numeric_claims(book):
     result, calculations = [], []
     collect_numeric(book, 'book', book['bookId'], result, calculations)
     for chapter in book['chapters']:
+        collect_numeric(chapter, 'chapter', chapter['id'], result, calculations)
         records = [(u, 'unit', u['id']) for u in chapter['units']]
         for item, kind, identity in records:
             collect_numeric(item, kind, identity, result, calculations)
@@ -100,7 +101,7 @@ def numeric_claims(book):
 
 
 def collect_numeric(item, kind, identity, output, calculations):
-    fields = ['title', 'mechanism', 'clinicalClues', 'differential', 'investigations', 'management', 'imageClues', 'pitfalls', 'recall', 'clinicalUpdates'] if kind == 'unit' else ['clinicalUpdates'] if kind == 'book' else ['stem', 'options', 'explanation', 'clinicalUpdates']
+    fields = ['title', 'memoryAid', 'mechanism', 'clinicalClues', 'differential', 'investigations', 'management', 'imageClues', 'pitfalls', 'recall', 'clinicalUpdates'] if kind == 'unit' else ['studyGuide'] if kind == 'chapter' else ['clinicalUpdates'] if kind == 'book' else ['stem', 'options', 'explanation', 'clinicalUpdates']
     for field in fields:
         for path, value in walk_strings(item.get(field), field):
             if path.endswith(('.url', '.checkedAt', '.figureId', '.status')) or '.source.title' in path: continue
@@ -152,6 +153,20 @@ def validate_book(book, expected, complete=False):
         src = expected_ch[cid]
         require(ch.get('number') == src['number'] and ch.get('title') == src['title'], cid + ': source chapter title/number drift')
         refs(ch.get('sourceRefs'), book['source']['pdfPageCount'], cid)
+        if 'studyGuide' in ch:
+            sg = ch['studyGuide']
+            require(isinstance(sg, dict) and set(sg) == {'chapterTagline', 'masterMnemonics', 'quickContrasts'}, cid + ': invalid studyGuide structure')
+            text(sg.get('chapterTagline'), cid + ': studyGuide.chapterTagline')
+            require(isinstance(sg.get('masterMnemonics'), list) and len(sg['masterMnemonics']) >= 1, cid + ': studyGuide.masterMnemonics required')
+            for m in sg['masterMnemonics']:
+                require(isinstance(m, dict) and set(m) == {'label', 'formula', 'meaning'}, cid + ': invalid studyGuide.masterMnemonics item')
+                for k in ('label', 'formula', 'meaning'):
+                    text(m.get(k), cid + ': studyGuide.masterMnemonics.' + k)
+            require(isinstance(sg.get('quickContrasts'), list) and len(sg['quickContrasts']) >= 1, cid + ': studyGuide.quickContrasts required')
+            for qc in sg['quickContrasts']:
+                require(isinstance(qc, dict) and set(qc) == {'pair', 'rule'}, cid + ': invalid studyGuide.quickContrasts item')
+                for k in ('pair', 'rule'):
+                    text(qc.get(k), cid + ': studyGuide.quickContrasts.' + k)
         if complete: require(ch.get('units'), cid + ': heading alone is not teaching')
         for u in ch.get('units', []):
             uid = u.get('id', '')
@@ -160,6 +175,16 @@ def validate_book(book, expected, complete=False):
             text(u.get('title'), uid + ': title')
             refs(u.get('sourceRefs'), book['source']['pdfPageCount'], uid)
             require(u.get('status') in STATUSES, uid + ': review status required')
+            if 'memoryAid' in u:
+                ma = u['memoryAid']
+                require(isinstance(ma, dict) and set(ma) == {'oneLiner', 'mnemonic', 'visualFlow', 'examTrigger'}, uid + ': invalid memoryAid structure')
+                for k in ('oneLiner', 'mnemonic', 'examTrigger'):
+                    text(ma.get(k), uid + ': memoryAid.' + k)
+                require(isinstance(ma.get('visualFlow'), list) and len(ma['visualFlow']) >= 3, uid + ': memoryAid.visualFlow needs at least 3 steps')
+                for vf in ma['visualFlow']:
+                    require(isinstance(vf, dict) and set(vf) == {'step', 'detail'}, uid + ': invalid memoryAid.visualFlow item')
+                    for k in ('step', 'detail'):
+                        text(vf.get(k), uid + ': memoryAid.visualFlow.' + k)
             for domain, keys in DOMAINS.items():
                 values = u.get(domain, [])
                 require(isinstance(values, list), uid + ': ' + domain + ' must be a list')

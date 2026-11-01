@@ -13,7 +13,7 @@
 #textbook-root .atlas-volume h2{font-size:21px;margin:5px 0 18px}
 #textbook-root .atlas-preview{border:1px solid #e0e9ee;background:#fff;aspect-ratio:900/460;overflow:hidden}
 #textbook-root .atlas-preview svg{width:100%;height:100%;display:block;font-family:inherit}
-#textbook-root .atlas-volume-units{display:grid;gap:10px;margin-top:16px}
+#textbook-root .atlas-volume-units{display:grid;gap:10px;margin-top:16px;max-height:320px;overflow-y:auto;padding-right:2px}
 #textbook-root .atlas-volume-units button{text-align:left;font-size:14px;padding:12px;background:#f4f9f9;border-color:#c5dcde;line-height:1.7}
 #textbook-root .atlas-note{font-size:13px;max-width:80ch;color:#60758a;margin-top:30px}
 #textbook-root .atlas-unit-nav{display:flex;gap:10px;flex-wrap:wrap;border-bottom:1px solid var(--atlas-line);padding-bottom:22px;margin-bottom:28px}
@@ -56,3 +56,22 @@
 @media(max-width:760px){#textbook-root .atlas-library{grid-template-columns:minmax(0,1fr);gap:24px}#textbook-root .atlas-volume{padding:16px}#textbook-root .atlas-heading{scroll-margin-top:154px}#textbook-root .atlas-heading h1{font-size:26px}#textbook-root .atlas-selector{display:block}#textbook-root .atlas-selector select{display:block;width:100%;margin-top:8px}#textbook-root .atlas-figure{padding:12px;margin-left:0;margin-right:0}#textbook-root .atlas-figure-toolbar{align-items:flex-start;flex-direction:column;gap:10px}#textbook-root .atlas-unit-nav{display:grid;grid-template-columns:minmax(0,1fr)}#textbook-root .atlas-goals{padding:14px 16px}#textbook-root .atlas-retrieval{padding:16px}#textbook-root .atlas-lesson>section{margin-top:30px}}
 
 #textbook-root .tb-chapter-heading{scroll-margin-top:104px}@media(max-width:760px){#textbook-root .tb-chapter-heading{scroll-margin-top:154px}}
+#textbook-root .tb-chapter-visuals{display:grid;grid-template-columns:minmax(0,1fr);gap:20px;margin:0 0 26px;min-width:0}
+#textbook-root .tb-inline-atlas-card{margin:0;padding:20px;background:#fff;border:1px solid #bdd8da;border-top:4px solid #187b78;border-radius:8px;min-width:0}
+#textbook-root .tb-inline-atlas-card[data-expanded=true] .atlas-svg-scroll svg,#textbook-root .atlas-svg-scroll.is-zoomed svg{width:1500px;max-width:none}
+#textbook-root .tb-inline-atlas-head{min-width:0;margin-bottom:12px}
+#textbook-root .tb-inline-atlas-badge{display:inline-block;font-size:11px;font-weight:650;color:#187b78;background:#e4f3f2;padding:3px 9px;border-radius:999px;margin-bottom:6px}
+#textbook-root .tb-inline-atlas-head h3{font-size:18px;line-height:1.5;margin:4px 0;overflow-wrap:anywhere}
+#textbook-root .tb-inline-atlas-card figcaption{margin-top:10px;overflow-wrap:anywhere}
+#textbook-root .tb-inline-atlas-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;min-width:0}
+#textbook-root .tb-inline-atlas-key{margin-top:14px;border-top:1px solid #e2ecef;padding-top:8px;min-width:0}
+#textbook-root .tb-inline-atlas-key summary{font-size:13px;font-weight:650;color:#187b78}
+#textbook-root .tb-inline-atlas-key-body{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:10px;min-width:0}
+#textbook-root .tb-inline-atlas-key-body>*{min-width:0;overflow-wrap:anywhere}
+#textbook-root .tb-inline-atlas-dl{margin:0}
+#textbook-root .tb-inline-atlas-dl>div{padding:6px 0;border-bottom:1px solid #edf3f5}
+#textbook-root .tb-inline-atlas-dl dt{font-size:13px;font-weight:650;color:#225b68}
+#textbook-root .tb-inline-atlas-dl dd{margin:3px 0 0;font-size:13px;color:#476072;overflow-wrap:anywhere}
+#textbook-root .tb-inline-atlas-steps{padding-left:1.25em;margin:0;font-size:13px}
+#textbook-root .tb-inline-atlas-steps li{margin-bottom:8px;overflow-wrap:anywhere}
+@media(max-width:800px){#textbook-root .tb-inline-atlas-card{padding:14px}#textbook-root .tb-inline-atlas-key-body{grid-template-columns:minmax(0,1fr);gap:12px}}

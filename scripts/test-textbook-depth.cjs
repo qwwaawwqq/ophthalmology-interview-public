@@ -2,6 +2,7 @@ const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),asse
 const results=[];
 async function test(name,fn){try{await fn();results.push({name,pass:true});}catch(e){results.push({name,pass:false,error:e.stack});}}
 const source=fs.readFileSync(path.join(__dirname,'textbook-depth.js'),'utf8');
+const atlasSource=fs.readFileSync(path.join(__dirname,'textbook-atlas.js'),'utf8');
 const manifest=JSON.parse(fs.readFileSync(path.join(__dirname,'../content/textbook-manifest.json'),'utf8'));
 const fixture=JSON.parse(fs.readFileSync(path.join(__dirname,'../content/textbook-depth/bcsc-s07.json'),'utf8'));
 assert(fixture.questions.length,'The module tests require one real authored volume, not an invented empty book.');
@@ -10,12 +11,13 @@ for(const row of fixture.coverage.chapterRows){row.teachingStatus='draft';row.co
 fixture.coverage.summary.taughtChapters=0;
 fixture.questions=fixture.questions.slice(0,4).map(q=>({...q,readiness:'ready'}));
 function moduleBoot(progress=new Map(),hash='#textbook',volume=fixture,env={}){
- const calls=[],handlers=new Map(),windowHandlers=new Map(),root={isConnected:true,dataset:{},innerHTML:'',querySelector(){return null;},addEventListener(n,fn){handlers.set(n,fn);}};
+ const calls=[],scrolled=[],handlers=new Map(),windowHandlers=new Map(),root={isConnected:true,dataset:{},innerHTML:'',querySelector(sel){if(typeof sel==='string'&&sel.startsWith('#')&&root.innerHTML.includes('id="'+sel.slice(1)+'"'))return {scrollIntoView(opts){scrolled.push({sel,opts});},focus(){},setAttribute(){}};return null;},addEventListener(n,fn){if(!handlers.has(n))handlers.set(n,[]);handlers.get(n).push(fn);}};
  const window={location:{hash},history:{replaceState(_a,_b,value){window.location.hash=value;}},addEventListener(name,fn){windowHandlers.set(name,fn);},OphTextbookBridge:{read(k,id){return progress.get(k+':'+id)||null;},write(k,id,v){progress.set(k+':'+id,{...v,at:new Date().toISOString()});},rememberLocation(){}}};
- const context={window,document:{currentScript:{src:'https://example.test/scripts/textbook-depth.js'},getElementById(){return null;}},URL:env.URL||URL,Blob,Map,Promise,console,fetch:async url=>{calls.push(String(url));const data=String(url).endsWith('textbook-manifest.json')?manifest:String(url).endsWith('additional-practice.json')?env.extra:volume;if(!data)return {ok:false,json:async()=>null};return {ok:true,json:async()=>JSON.parse(JSON.stringify(data))};}};
+ const context={window,document:{currentScript:{src:'https://example.test/scripts/textbook-depth.js'},getElementById(){return null;}},URL:env.URL||URL,Blob,Map,Set,WeakMap,Promise,console,fetch:async url=>{calls.push(String(url));const u=String(url),data=u.endsWith('textbook-manifest.json')?manifest:u.endsWith('additional-practice.json')?env.extra:u.includes('visual-atlas.json')?env.atlas:volume;if(!data)return {ok:false,json:async()=>null};return {ok:true,json:async()=>JSON.parse(JSON.stringify(data))};}};
  vm.createContext(context);
+ if(env.atlas!==undefined){context.document.currentScript={src:'https://example.test/scripts/textbook-atlas.js'};vm.runInContext(atlasSource,context);context.document.currentScript={src:'https://example.test/scripts/textbook-depth.js'};}
  vm.runInContext(source.replace('window.OphTextbook={mount};','window.OphTextbook={mount,__test:{optionOrder,route,choosePdf,localPdfs}};'),context);
- return {api:window.OphTextbook,root,calls,progress,window,windowHandlers,async mount(){await window.OphTextbook.mount(root);},async filter(value){handlers.get('change')({target:{matches:selector=>selector==='[data-tb-filter]',value}});for(let i=0;i<6;i++)await new Promise(r=>setImmediate(r));},async action(kind,value=''){handlers.get('click')({target:{closest:()=>({dataset:{tbAction:kind,value},disabled:false})}});for(let i=0;i<6;i++)await new Promise(r=>setImmediate(r));}};
+ return {api:window.OphTextbook,root,calls,scrolled,progress,window,windowHandlers,async mount(){await window.OphTextbook.mount(root);},async filter(value){for(const fn of handlers.get('change')||[])fn({target:{matches:selector=>selector==='[data-tb-filter]',value}});for(let i=0;i<6;i++)await new Promise(r=>setImmediate(r));},async action(kind,value=''){for(const fn of handlers.get('click')||[])fn({target:{closest:sel=>!sel||sel==='[data-tb-action]'?({dataset:{tbAction:kind,value},disabled:false}):null}});for(let i=0;i<6;i++)await new Promise(r=>setImmediate(r));}};
 }
 (async()=>{
  await test('phone layout keeps chapter pages within the viewport',async()=>{
@@ -218,6 +220,135 @@ assert all(not x['field'].startswith('source') for x in claims)
  })()`;
  await test('v1/v2/v3 imports, device reload and private cloud sync preserve unloaded-volume progress',async()=>{
   const context={require,__dirname,process:{argv:[],exit(){throw Error('unexpected exit');}},console:{log(){}},Buffer,setImmediate,URL,Blob,TextEncoder,TextDecoder,Uint8Array,atob,btoa,setTimeout,clearTimeout};vm.createContext(context);await vm.runInContext(setup+checks,context);
+ });
+ await test('inline SVG diagrams render inside chapter reading mode with zoom and deep-link navigation',async()=>{
+  const s01=JSON.parse(fs.readFileSync(path.join(__dirname,'../content/textbook-depth/bcsc-s01.json'),'utf8'));
+  const atlasPack=JSON.parse(fs.readFileSync(path.join(__dirname,'../content/textbook-depth/visual-atlas.json'),'utf8'));
+  const s01Atlas=atlasPack.volumes.find(v=>v.bookId==='bcsc-s01');
+  const au=s01Atlas.units[0],cid=au.chapterIds[0];
+  const b=moduleBoot(new Map(),'#textbook-'+cid,s01,{atlas:atlasPack});
+  await b.mount();
+  assert.equal(typeof b.window.OphTextbookAtlas.unitsForChapter,'function');
+  assert.equal(typeof b.window.OphTextbookAtlas.inlineChapterHtml,'function');
+  assert(b.window.OphTextbookAtlas.unitsForChapter('bcsc-s01',cid).some(x=>x.id===au.id));
+  assert(b.root.innerHTML.includes('原創圖解 '+s01Atlas.units.length+' 個'));
+  assert(b.root.innerHTML.includes('class="tb-chapter-visuals"'));
+  assert(b.root.innerHTML.includes('data-inline-atlas="'+au.id+'" data-expanded="false"'));
+  assert(b.root.innerHTML.includes('<svg xmlns="http://www.w3.org/2000/svg"'));
+  assert(b.root.innerHTML.includes(au.title));
+  assert(b.root.innerHTML.includes('讀圖標記與決策步驟'));
+  assert(b.root.innerHTML.includes(au.figureReading[0].label));
+  assert(b.root.innerHTML.includes(au.decisionSteps[0].condition));
+  await b.action('inline-atlas-zoom',au.id);
+  assert(b.root.innerHTML.includes('data-inline-atlas="'+au.id+'" data-expanded="true"'));
+  assert(b.root.innerHTML.includes('class="atlas-svg-scroll is-zoomed"'));
+  assert(b.root.innerHTML.includes('標準尺寸'));
+  await b.action('inline-atlas-zoom',au.id);
+  assert(b.root.innerHTML.includes('data-inline-atlas="'+au.id+'" data-expanded="false"'));
+  await b.action('open-atlas-unit',au.id);
+  assert.equal(b.window.location.hash,'#textbook-atlas-bcsc-s01-'+au.id);
+  assert(b.root.innerHTML.includes('class="atlas-lesson"'));
+  assert(b.root.innerHTML.includes(au.title));
+  // Graceful fallback when visual-atlas.json is unavailable
+  const offline=moduleBoot(new Map(),'#textbook-'+cid,s01,{atlas:false});
+  await offline.mount();
+  assert(offline.root.innerHTML.includes('原創醫學圖解'));
+  assert(!offline.root.innerHTML.includes('class="tb-chapter-visuals"'));
+ });
+ await test('chapter studyGuide, unit quick-jump pills, unit memoryAid flowchart and digest reading toggle render and escape HTML safely',async()=>{
+  const enriched=JSON.parse(JSON.stringify(fixture));
+  const ch=enriched.chapters[0];
+  if(ch.units.length<2){
+   const u2=JSON.parse(JSON.stringify(ch.units[0]));u2.id=ch.id+'-u02';u2.title='第二單元快速跳轉測試';ch.units.push(u2);
+  }
+  ch.studyGuide={
+   chapterTagline:'全章一句話總結 <script>alert(1)</script>',
+   masterMnemonics:[{label:'核心口訣 <b>標籤</b>',formula:'A + B → C',meaning:'把機轉濃縮成秒記公式'}],
+   quickContrasts:[{pair:'情況甲 vs 情況乙',rule:'看瞳孔與眼底秒分 <img src=x onerror=alert(2)>'}]
+  };
+  ch.units[0].memoryAid={
+   oneLiner:'一句話秒懂核心概念 <svg onload=alert(3)>',
+   mnemonic:'FAST-EYE 口訣',
+   visualFlow:[
+    {step:'起始誘因 <script>x</script>',detail:'血管或壓力變化'},
+    {step:'關鍵轉折',detail:'組織缺血或水腫'},
+    {step:'臨床表徵',detail:'出現典型視力與視野變化'}
+   ],
+   examTrigger:'題幹出現關鍵轉折詞時優先考慮此診斷'
+  };
+  const b=moduleBoot(new Map(),'#textbook-'+ch.id,enriched);
+  await b.mount();
+  assert(b.root.innerHTML.includes('學習視圖：'));
+  assert(b.root.innerHTML.includes('class="tb-study-guide"'));
+  assert(b.root.innerHTML.includes('全章一句話總結 &lt;script&gt;alert(1)&lt;/script&gt;'));
+  assert(b.root.innerHTML.includes('A + B → C'));
+  assert(b.root.innerHTML.includes('看瞳孔與眼底秒分 &lt;img src=x onerror=alert(2)&gt;'));
+  assert(b.root.innerHTML.includes('class="tb-memory-card"'));
+  assert(b.root.innerHTML.includes('一句話秒懂核心概念 &lt;svg onload=alert(3)&gt;'));
+  assert(b.root.innerHTML.includes('FAST-EYE 口訣'));
+  assert(b.root.innerHTML.includes('class="tb-visual-flow"'));
+  assert((b.root.innerHTML.match(/class="tb-vf-node"/g)||[]).length>=3);
+  assert(b.root.innerHTML.includes('起始誘因 &lt;script&gt;x&lt;/script&gt;'));
+  assert(b.root.innerHTML.includes('題幹出現關鍵轉折詞時優先考慮此診斷'));
+  assert(!b.root.innerHTML.includes('<script>'));
+  assert(!b.root.innerHTML.includes('<img src=x'));
+  assert(!b.root.innerHTML.includes('<svg onload='));
+  assert(!b.root.innerHTML.includes('class="tb-digest-fold"'),'full mode keeps all domains expanded');
+  // Quick-jump pill updates hash and scrolls unit into view
+  const secondUnit=ch.units[1];
+  assert(b.root.innerHTML.includes('2. '+secondUnit.title));
+  await b.action('jump-unit',secondUnit.id);
+  assert.equal(b.window.location.hash,'#textbook-'+secondUnit.id);
+  assert(b.scrolled.some(s=>s.sel==='#'+secondUnit.id));
+  // Switch to 圖解速記 (digest) mode
+  await b.action('read-style','digest');
+  assert(b.root.innerHTML.includes('data-tb-action="read-style" data-value="digest" aria-pressed="true"'));
+  assert(b.root.innerHTML.includes('class="tb-digest-fold"'));
+  assert(b.root.innerHTML.includes('展開詳讀：機轉與因果'));
+  assert(b.root.innerHTML.includes('展開詳讀：看到什麼，代表什麼'));
+  assert(b.root.innerHTML.includes('展開詳讀：分層處置與理由'));
+  assert(!b.root.innerHTML.includes('展開詳讀：鑑別與分辨線索'),'differential stays open in digest mode');
+  assert(b.root.innerHTML.includes('class="tb-memory-card"'),'memoryAid stays open in digest mode');
+  assert(b.root.innerHTML.includes('class="tb-recall"'),'active recall stays open in digest mode');
+  await b.action('read-style','full');
+  assert(!b.root.innerHTML.includes('class="tb-digest-fold"'));
+ });
+ await test('validate-textbook.py validates optional studyGuide and memoryAid schemas, hashes and numeric claims',async()=>{
+  const {execFileSync}=require('node:child_process');
+  const check=`import copy,importlib.util,json
+from pathlib import Path
+p=Path('scripts/validate-textbook.py');sp=importlib.util.spec_from_file_location('v',p);v=importlib.util.module_from_spec(sp);sp.loader.exec_module(v)
+m=json.loads(Path('content/textbook-manifest.json').read_text());original=json.loads(Path('content/textbook-depth/bcsc-s13.json').read_text());ex=m['books'][12]
+b=copy.deepcopy(original)
+b['chapters'][0]['studyGuide']={'chapterTagline':'屈光核心 193 nm 準分子雷射','masterMnemonics':[{'label':'波長','formula':'ArF = 193 nm','meaning':'角膜基質切削'}],'quickContrasts':[{'pair':'LASIK vs PRK','rule':'基質床厚度至少 250 μm'}]}
+u=b['chapters'][0]['units'][0]
+u['memoryAid']={'oneLiner':'術前殘餘基質床門檻 >= 250 μm','mnemonic':'RSB-250','visualFlow':[{'step':'測量角膜全厚','detail':'確認中央厚度'},{'step':'扣除瓣厚與切削量','detail':'計算殘餘厚度'},{'step':'決定術式','detail':'不足時改選表層或晶體手術'}],'examTrigger':'角膜薄或曲率不規則時避開過深切削'}
+# Must fail before updating unitContentHashes (proves hash protection covers memoryAid)
+try:
+ v.validate_book(copy.deepcopy(b),ex,True)
+ raise AssertionError('unhashed memoryAid change should fail')
+except ValueError as err:
+ assert 'teaching changed after independent review' in str(err)
+b['review']['unitContentHashes'][u['id']]=v.reviewed_item_hash(u)
+assert v.validate_book(copy.deepcopy(b),ex,True)['taughtChapters']==len(b['chapters'])
+claims,_=v.numeric_claims(b)
+assert any(c['kind']=='chapter' and c['field'].startswith('studyGuide') and '250' in c['statement'] for c in claims)
+assert any(c['kind']=='unit' and c['field'].startswith('memoryAid') and '250' in c['statement'] for c in claims)
+for mutate in [
+ lambda x:x['chapters'][0]['studyGuide'].pop('quickContrasts'),
+ lambda x:x['chapters'][0]['studyGuide'].update(masterMnemonics=[]),
+ lambda x:x['chapters'][0]['units'][0]['memoryAid'].update(visualFlow=[{'step':'1','detail':'a'},{'step':'2','detail':'b'}]),
+ lambda x:x['chapters'][0]['units'][0]['memoryAid'].update(extraKey='nope'),
+]:
+ bad=copy.deepcopy(b);mutate(bad)
+ if 'unitContentHashes' in bad.get('review',{}):bad['review']['unitContentHashes'][u['id']]=v.reviewed_item_hash(bad['chapters'][0]['units'][0])
+ try:
+  v.validate_book(bad,ex,True)
+  raise AssertionError('malformed studyGuide/memoryAid should fail')
+ except ValueError:
+  pass
+`;
+  execFileSync('python3',['-c',check],{cwd:path.join(__dirname,'..')});
  });
  const failed=results.filter(x=>!x.pass);console.log(JSON.stringify({passed:results.length-failed.length,failed:failed.length,results},null,2));if(failed.length)process.exitCode=1;
 })();
