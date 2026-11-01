@@ -34,7 +34,7 @@
           "heading": "臨床遮蔽（Masking）與影子曲線：為何單側全聾不遮蔽會被誤判為傳導性聽損？",
           "paragraphs": [
             "在純音與音叉聽力檢查中，「跨顱傳導（crossover）」是最容易導致住院醫師誤判手術適應症的陷阱。壓耳式氣導耳機的耳間衰減量（interaural attenuation, IA）約為 40 dB（插入式耳機可提高至 55–60 dB），而乳突骨導振盪器的耳間衰減量幾乎為 0 dB——意即無論將骨導振盪器放在哪一側乳突，兩側耳蝸都會同時接收到幾乎相同強度的振動。",
-            "假設患者右耳正常（0 dB HL）、左耳因迷路炎完全全聾：若未開啟遮蔽噪音直接測試左耳，當左耳氣導音量調升至 45–50 dB HL 時，聲波便跨越頭顱讓正常右耳聽見；測試左耳骨導時更在 0–5 dB HL 即由右耳回應，畫出一條「左耳骨導 5 dB、氣導 50 dB、氣骨導差高達 45 dB」的影子曲線（shadow curve），連床邊林納氏音叉試驗也會呈現假陰性（BC > AC）！若未施予右耳窄頻遮蔽噪音即誤診為左耳耳硬化症而開刀打開足板，將釀成嚴重醫療疏失。因此只要兩耳氣導差距 >=40 dB，或未遮蔽骨導與同側氣導出現 >=15 dB 氣骨導差，皆須嚴格執行臨床遮蔽。"
+            "假設患者右耳正常（0 dB HL）、左耳因迷路炎完全失聰：若未開啟遮蔽噪音直接測試左耳，當左耳氣導音量調升至 45–50 dB HL 時，聲波便跨越頭顱讓正常右耳聽見；測試左耳骨導時更在 0–5 dB HL 即由右耳回應，畫出一條「左耳骨導 5 dB、氣導 50 dB、氣骨導差高達 45 dB」的影子曲線（shadow curve），連床邊林納氏音叉試驗也會呈現假陰性（BC > AC）！若未施予右耳窄頻遮蔽噪音即誤診為左耳耳硬化症而開刀打開足板，將釀成嚴重醫療疏失。因此只要兩耳氣導差距 >=40 dB，或未遮蔽骨導與同側氣導出現 >=15 dB 氣骨導差，皆須嚴格執行臨床遮蔽。"
           ],
           "sourceIds": [
             "ent-res-01-asha-audiogram"
@@ -172,7 +172,7 @@
         {
           "id": "ent-res-02-aaohns-ome",
           "title": "AAO-HNS Clinical Practice Guideline: Otitis Media with Effusion (Update)",
-          "url": "https://www.entnet.org/quality-practice/quality-products/clinical-practice-guidelines/otitis-media-with-effusion-update/",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/26832942/",
           "kind": "指南",
           "provider": "American Academy of Otolaryngology–Head and Neck Surgery (AAO-HNS)",
           "note": "兒童積液性中耳炎三個月觀察期、充氣式耳鏡與鼓室圖評估及中耳通氣管置入適應症"
@@ -180,7 +180,7 @@
         {
           "id": "ent-res-02-aaohns-aoe",
           "title": "AAO-HNS Clinical Practice Guideline: Acute Otitis Externa",
-          "url": "https://www.entnet.org/quality-practice/quality-products/clinical-practice-guidelines/acute-otitis-externa/",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/24491310/",
           "kind": "指南",
           "provider": "American Academy of Otolaryngology–Head and Neck Surgery (AAO-HNS)",
           "note": "急性外耳道炎局部抗生素處置、鼓膜穿孔時嚴禁耳毒性耳滴劑（僅用 quinolone）與惡性外耳道炎高危辨識"
@@ -341,7 +341,7 @@
         {
           "id": "ent-res-03-aaohns-bppv",
           "title": "AAO-HNS Clinical Practice Guideline: Benign Paroxysmal Positional Vertigo (Update)",
-          "url": "https://www.entnet.org/quality-practice/quality-products/clinical-practice-guidelines/benign-paroxysmal-positional-vertigo-bppv/",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/28248609/",
           "kind": "指南",
           "provider": "American Academy of Otolaryngology–Head and Neck Surgery (AAO-HNS)",
           "note": "後半規管與水平半規管 BPPV 之 Dix-Hallpike／Supine Roll 診斷準則、Epley 復位步驟與免常規影像／止暈藥建議"
@@ -349,7 +349,7 @@
         {
           "id": "ent-res-03-aaohns-ssnhl",
           "title": "AAO-HNS Clinical Practice Guideline: Sudden Hearing Loss (Update)",
-          "url": "https://www.entnet.org/quality-practice/quality-products/clinical-practice-guidelines/sudden-hearing-loss/",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/31369359/",
           "kind": "指南",
           "provider": "American Academy of Otolaryngology–Head and Neck Surgery (AAO-HNS)",
           "note": "突發性感音神經性聽損 3-3-3 診斷定義、全身與鼓室內類固醇黃金期治療及內聽道 MRI／ABR 排除聽神經瘤規範"
@@ -504,7 +504,7 @@
         {
           "id": "ent-res-04-aaohns-sinusitis",
           "title": "AAO-HNS Clinical Practice Guideline: Adult Sinusitis (Update)",
-          "url": "https://www.entnet.org/quality-practice/quality-products/clinical-practice-guidelines/adult-sinusitis-update/",
+          "url": "https://www.entnet.org/quality-practice/quality-products/clinical-practice-guidelines/cpg-adult-sinusitis/",
           "kind": "指南",
           "provider": "American Academy of Otolaryngology–Head and Neck Surgery (AAO-HNS)",
           "note": "成人急性病毒性與細菌性鼻鼻竇炎（ABRS）診斷準則、抗生素時機與慢性鼻鼻竇炎內視鏡／CT 評估指引"
@@ -519,8 +519,8 @@
         },
         {
           "id": "ent-res-04-statpearls-fungal",
-          "title": "NCBI Bookshelf (StatPearls): Acute Invasive Fungal Rhinosinusitis",
-          "url": "https://www.ncbi.nlm.nih.gov/books/NBK557717/",
+          "title": "NCBI Bookshelf (StatPearls): Fungal Sinusitis",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK551496/",
           "kind": "期刊",
           "provider": "National Center for Biotechnology Information (NCBI)",
           "note": "免疫低下與糖尿病酮酸中毒患者急性暴發侵襲性黴菌性鼻竇炎之血管侵犯病理、黑痂警訊與緊急清創抗黴菌策略"
@@ -771,7 +771,7 @@
         ]
       },
       "integrated": {
-        "framing": "本章串聯鼻腔鼻竇與鼻咽腫塊從「門診紅旗症狀辨識与切片禁忌」到「病理分型、顱底神經定位、AJCC 分期與手術／放化療精準分工」的完整腫瘤決策鏈。",
+        "framing": "本章串聯鼻腔鼻竇與鼻咽腫塊從「門診紅旗症狀辨識與切片禁忌」到「病理分型、顱底神經定位、AJCC 分期與手術／放化療精準分工」的完整腫瘤決策鏈。",
         "objectives": [
           "辨識單側鼻腔鼻竇腫塊紅旗警訊，掌握倒生性乳突瘤附著骨磨除手術與青少年鼻咽血管纖維瘤（JNA）禁切片及術前栓塞原則",
           "比較上頜竇鱗狀上皮癌（Ohngren line）、木工篩竇腺癌、嗅神經母細胞瘤（Kadish 分期）、腺樣囊狀癌與鼻型 NK/T 細胞淋巴瘤之病理與治療分工",
@@ -1075,7 +1075,7 @@
         {
           "id": "ent-res-07-aaohns-hoarseness",
           "title": "AAO-HNS Clinical Practice Guideline: Hoarseness (Dysphonia) (Update)",
-          "url": "https://www.entnet.org/quality-practice/quality-products/clinical-practice-guidelines/hoarseness-dysphonia-update/",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/29494321/",
           "kind": "指南",
           "provider": "American Academy of Otolaryngology–Head and Neck Surgery (AAO-HNS)",
           "note": "持續超過四週（高危吸菸者立即）聲音沙啞之喉內視鏡評估、反對未做內視鏡即盲目開立類固醇／抗生素或 PPI，以及音聲治療與肉毒桿菌素實證"
@@ -1090,8 +1090,8 @@
         },
         {
           "id": "ent-res-07-statpearls-vfp",
-          "title": "NCBI Bookshelf (StatPearls): Vocal Fold Paralysis",
-          "url": "https://www.ncbi.nlm.nih.gov/books/NBK430868/",
+          "title": "NCBI Bookshelf (StatPearls): Unilateral Vocal Fold Paralysis",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK519060/",
           "kind": "期刊",
           "provider": "National Center for Biotechnology Information (NCBI)",
           "note": "左右喉返神經解剖路線、單側聲帶麻痺顱底至主動脈弓 CT 病因排查、注射喉成形／Isshiki 第一型甲狀軟骨成形術與雙側麻痺氣道處置"
@@ -1405,7 +1405,7 @@
         {
           "id": "ent-res-09-aaohns-tracheostomy",
           "title": "AAO-HNS Clinical Consensus Statement: Tracheostomy Care",
-          "url": "https://aaohnsfjournals.onlinelibrary.wiley.com/doi/10.1177/0194599812460377",
+          "url": "https://aaohnsfjournals.onlinelibrary.wiley.com/doi/10.1177/0194599812460376",
           "kind": "指南",
           "provider": "American Academy of Otolaryngology-Head and Neck Surgery (AAO-HNS)",
           "note": "成人與小兒氣管切開術標準解剖位置、氣囊壓力監測、意外滑脫與出血緊急處置共識"
@@ -1421,7 +1421,7 @@
         {
           "id": "ent-res-09-ipo-laryngomalacia",
           "title": "International Pediatric Otolaryngology Group (IPOG) Consensus Recommendations: Laryngomalacia",
-          "url": "https://www.sciencedirect.com/science/article/pii/S0165587616300830",
+          "url": "https://www.sciencedirect.com/science/article/pii/S0165587616300519",
           "kind": "指南",
           "provider": "International Pediatric Otolaryngology Group (IPOG)",
           "note": "新生兒軟喉症嚴重度分級、胃食道逆流共病管理與聲門上成形術適應症共識"
@@ -1578,7 +1578,7 @@
         {
           "id": "ent-res-10-icar-csf-leak",
           "title": "International Consensus Statement on Endoscopic Skull-Base Surgery: CSF Leak Diagnosis & Repair",
-          "url": "https://onlinelibrary.wiley.com/doi/10.1002/alr.22329",
+          "url": "https://onlinelibrary.wiley.com/doi/10.1002/alr.22326",
           "kind": "指南",
           "provider": "International Forum of Allergy & Rhinology (ICAR)",
           "note": "腦脊髓液鼻漏 β-2 轉鐵蛋白確診黃金標準、高解析薄切 CT 定位、外傷性漏保守治療與經鼻內視鏡顱底修補實證"
@@ -1709,7 +1709,7 @@
               ]
             },
             {
-              "newInfo": "FAST 超音波果真發現脾臟撕裂腹腔積血，經血管栓塞與輸血穩定生命徵象，腦部與全顏面 CT 排除顱內出血與頸椎骨折，顯示雙側 Le Fort II 骨折（骨折線經鼻額縫、眼眶下壁眶下孔與翼突板），眼科會診確認雙眼視力與眼球結構完整且無眼外肌嵌頓。",
+              "newInfo": "FAST 超音波果真發現脾臟撕裂腹腔積血，經血管栓塞與輸血穩定生命徵象，腦部與全顏面 CT 排除顱內出血與頸椎骨折，顯示雙側 Le Fort II 骨折（骨折線經鼻額縫、眼眶下壁、眶下孔與翼突板），眼科會診確認雙眼視力與眼球結構完整且無眼外肌嵌頓。",
               "prompt": "此患者之雙側 Le Fort II 骨折應在今晚半夜臉部極度腫脹時立刻推進刀房釘骨板，還是何時手術最理想？",
               "answer": "無須在半夜水腫高峰急開顏面骨！待脾臟出血與生命徵象完全穩定後，於傷後「第 5 至 8 天」急性顏面水腫消退且骨折線尚未纖維癒合之黃金窗口，施行開放式復位內固定（ORIF）並恢復上下顎正常咬合關係（intermaxillary fixation 對位）最為精準安全。",
               "rationale": "避開前 3–4 天水腫極期可看清眶緣與顴頷骨縫對稱，趕在 10–14 天骨痂沾黏前完成固定則可避免截骨重打。",
@@ -1746,7 +1746,7 @@
         {
           "id": "ent-res-11-aaohns-safety",
           "title": "AAO-HNS Patient Safety and Quality Improvement Clinical Statements",
-          "url": "https://www.entnet.org/quality-practice/patient-safety/",
+          "url": "https://www.entnet.org/quality-practice/quality-products/expert-consensus-statements/",
           "kind": "指南",
           "provider": "American Academy of Otolaryngology–Head and Neck Surgery",
           "note": "耳鼻喉頭頸外科門急診內視鏡、氣道管理與手術安全檢核原則"
