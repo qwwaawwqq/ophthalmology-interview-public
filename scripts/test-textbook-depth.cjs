@@ -21,6 +21,25 @@ function moduleBoot(progress=new Map(),hash='#textbook',volume=fixture,env={}){
  await test('phone layout keeps chapter pages within the viewport',async()=>{
   const css=fs.readFileSync(path.join(__dirname,'textbook-depth.css'),'utf8');assert.match(css,/@media\(max-width:800px\)\{#textbook-root \.tb-reading\{grid-template-columns:minmax\(0,1fr\)/);assert.match(css,/\.tb-unit>header h2\{[^}]*overflow-wrap:anywhere/);
  });
+ await test('BCSC Volume 1 (2024–2025) preserves deepened general medicine units, figure page clues and reviewed integrity',async()=>{
+  const {execFileSync}=require('node:child_process');
+  execFileSync('python3',[path.join(__dirname,'validate-textbook.py'),'--require-complete'],{stdio:'pipe'});
+  const s01=JSON.parse(fs.readFileSync(path.join(__dirname,'../content/textbook-depth/bcsc-s01.json'),'utf8'));
+  assert.equal(s01.chapters.length,17);assert.equal(s01.questions.length,38);
+  const units=s01.chapters.flatMap(c=>c.units);assert(units.length>=90,'BCSC S01 should retain deepened multi-unit chapter coverage');
+  for(const c of s01.chapters){assert(c.units.length>=4,c.id+' should contain at least 4 focused units');}
+  let imageClueCount=0;
+  for(const u of units){
+   assert.equal(u.status,'source-checked');assert(u.mechanism.length>=4,u.id+' mechanism depth');
+   assert(u.clinicalClues.length>=3,u.id+' clinicalClues depth');assert(u.differential.length>=3,u.id+' differential depth');
+   assert(u.investigations.length>=2,u.id+' investigations depth');assert(u.management.length>=3,u.id+' management depth');
+   assert(u.pitfalls.length>=2,u.id+' pitfalls depth');imageClueCount+=u.imageClues.length;
+  }
+  assert(imageClueCount>=40,'BCSC S01 should retain page-linked figure/table clues');
+  const b=moduleBoot(new Map(),'#textbook-bcsc-s01',s01);await b.mount();
+  assert(b.root.innerHTML.includes('BCSC 第 1 卷 · 2024–2025'));assert(b.root.innerHTML.includes('Update on General Medicine'));
+  assert(b.root.innerHTML.includes('data-tb-action="unit-figure"'),'BCSC S01 figure page clue button should render');
+ });
  await test('no book payload is fetched until the textbook view and a volume are opened',async()=>{
   const b=moduleBoot();assert.equal(b.calls.length,0);await b.mount();assert.equal(b.calls.length,1);assert(b.root.innerHTML.includes('原文書進階'));assert.equal((b.root.innerHTML.match(/class="tb-book"/g)||[]).length,13);await b.action('book','bcsc-s07');assert.equal(b.calls.length,2);assert(b.calls[1].endsWith('bcsc-s07.json'));assert(b.root.innerHTML.includes('機轉與因果'));
  });
