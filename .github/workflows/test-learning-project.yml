@@ -7,6 +7,11 @@ on:
       - assets/icons/**
       - content/exam-schedule.json
       - content/textbook-depth/visual-atlas*.json
+      - content/ent/**
+      - content/rad/**
+      - content/radonc/**
+      - content/nm/**
+      - docs/specialty-content-schema.md
       - scripts/**
       - .github/workflows/*learning-project.yml
 permissions:
@@ -20,6 +25,7 @@ jobs:
       - name: Validate hooks and run behavior checks
         run: |
           python3 scripts/apply-enrichment.py --check
+          python3 scripts/apply-specialty.py --check
           python3 scripts/apply-textbook.py --check
           python3 scripts/apply-learning-project.py --check
           python3 scripts/apply-exam-schedule.py --check

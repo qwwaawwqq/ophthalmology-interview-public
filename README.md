@@ -105,12 +105,15 @@ PBL 與流程內容於 2026-10-13 由獨立審稿依 AAO／EyeWiki、AAP、ACR�
 - 建置會把產生的程式區塊放回原位，不移動其他工具（例如共筆考前衝刺）加入的程式。
 - `scripts/practice-ui.js`、`scripts/practice-ui.css`：PBL、流程、我的連結與網址路由的介面，由建置腳本嵌入。
 - `scripts/apply-enrichment.py`：驗證並將深入教材嵌入 `index.html`，同時保留題庫與進度資料格式。
+- `scripts/apply-specialty.py`：驗證各科 `content/<ent|rad|radonc|nm>/` 教材與題庫（強制檢查每題正解與每個項目的 `source` 來源依據），嵌入對應的 `course-data-<科>` 區塊且完全不動眼科 `course-data`；規格見 `docs/specialty-content-schema.md`。
 
 更新內容後執行：
 
 ```bash
 python3 scripts/apply-enrichment.py --check
 python3 scripts/apply-enrichment.py
+python3 scripts/apply-specialty.py
+python3 scripts/apply-specialty.py --check
 node scripts/test-integrated-lessons.cjs
 node scripts/test-source-coverage.cjs
 node scripts/test-practice-sections.cjs

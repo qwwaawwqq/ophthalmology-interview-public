@@ -11,7 +11,7 @@ function wfCurrent(){return wfList().find(w=>w.id===S.workflow)||wfList()[0];}
 function wfCategory(w){return (D.workflows?.categories||[]).find(c=>c.id===w.category)||{id:w.category,label:w.category};}
 function topicLabel(t){return (t.chapter?(SPEC.id==='oph'?'共筆 ':'第 ')+String(t.chapter).padStart(2,'0')+(SPEC.id==='oph'?' · ':' 章 · '):'')+t.title.split('：')[0];}
 function allResources(){if(!resourceCache){resourceCache=new Map();for(const c of Object.values(D.enrichment?.chapters||{}))for(const r of c.resources||[])resourceCache.set(r.id,r);}return resourceCache;}
-function practiceSources(ids){const items=(ids||[]).map(id=>allResources().get(id)).filter(r=>r&&/^https:\/\//.test(r.url));return items.length?`<details class="refs"><summary>延伸來源</summary><ul>${items.map(r=>`<li><a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.title)}</a><span class="small"> · ${esc(r.provider)}</span></li>`).join('')}</ul></details>`:'';}
+function practiceSources(ids,src){const items=(ids||[]).map(id=>allResources().get(id)).filter(r=>r&&/^https:\/\//.test(r.url)),note=SPEC.id!=='oph'&&src?`<p class="small source-location">依據來源：${esc(Array.isArray(src)?src.join('；'):src)}</p>`:'';return note+(items.length?`<details class="refs"><summary>延伸來源</summary><ul>${items.map(r=>`<li><a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.title)}</a><span class="small"> · ${esc(r.provider)}</span></li>`).join('')}</ul></details>`:'');}
 function practiceRelated(topicIds,extra=''){return `<div class="practice-related"><span class="small">相關內容</span>${(topicIds||[]).filter(id=>D.topics.some(t=>t.id===id)).map(id=>btn(esc(shortTitle(id)),'learn-topic',id,'small subtle')).join('')}${extra}</div>`;}
 
 /* Routes: every view and lesson anchor can be expressed as a hash so it can be saved and shared. */
@@ -189,7 +189,7 @@ function pblPage(){
     <h3>考官可能追問</h3>${c.examinerFollowups.map(f=>`<details class="model"><summary>${esc(f.q)}</summary><div><p>${esc(f.a)}</p></div></details>`).join('')}
     <p class="practice-takeaway"><strong>帶走一句</strong>${esc(c.takeaway)}</p></section>`
   :`<div class="pbl-advance">${btn('進入'+esc(c.stages[shown].title.split(' · ')[0]),'pbl-stage','','primary')}${btn('一次展開全部','pbl-all','','subtle')}</div><p class="small">先寫下這一幕的事實、假說與還需要的資訊，再進入下一幕。</p>`}
-  ${practiceSources(c.sourceIds)}
+  ${practiceSources(c.sourceIds,c.source)}
   <div class="reading-actions">${btn(entries['pbl:'+c.id]?.done?'✓ 已完成（可取消）':'標記完成','pbl-done')}${shown>1?btn('從第一幕重來','pbl-restart','','subtle'):''}${btn('下一個情境','pbl-next','','primary')}</div>
   <p class="small practice-disclaimer">${esc(D.pbl.disclaimer)}</p></article></div>`;
 }
@@ -236,7 +236,7 @@ function workflowPage(){
   <section class="trap wf-pitfalls"><strong>常見錯誤與考官陷阱</strong>${list(w.pitfalls)}</section>
   <h3>考官可能問</h3>${w.examQuestions.map(q=>`<details class="model"><summary>${esc(q.q)}</summary><div><p>${esc(q.a)}</p></div></details>`).join('')}
   <details class="model wf-handoff"><summary>向主治醫師回報（SBAR 範例）</summary><div><p class="preline">${esc(handoff)}</p></div></details>
-  ${practiceSources(w.sourceIds)}
+  ${practiceSources(w.sourceIds,w.source)}
   <div class="reading-actions">${btn(e?.practiced?'✓ 已練習（可取消）':'標記已練習','wf-done')}${btn('下一個流程','wf-next','','primary')}</div>
   <p class="small practice-disclaimer">${esc(D.workflows.disclaimer)}</p></article></div>`;
 }

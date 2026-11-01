@@ -1,10 +1,12 @@
 #!/usr/bin/env node
-// Specialty registry, namespaced storage, specialty picker and shell/pending rendering checks (issues #48 & #49).
+// Specialty registry, namespaced storage, picker/pending UI, and per-specialty build pipeline checks (issues #48, #49, #50).
 // Usage: node scripts/test-specialty.cjs [index.html]
 const fs = require('node:fs');
+const os = require('node:os');
 const path = require('node:path');
 const vm = require('node:vm');
 const crypto = require('node:crypto');
+const {execFileSync} = require('node:child_process');
 const assert = require('node:assert/strict');
 
 const ROOT = path.join(__dirname, '..');
@@ -432,6 +434,365 @@ async function practise(app) {
       wellFormed(markup);
       assert(markup.includes(expectedText), `populated nm ${tab} missing ${expectedText}`);
       assert(!markup.includes('specialty-pending'), `populated nm ${tab} must not show 內容待補`);
+    }
+  });
+
+  await test('apply-specialty.py builds a full fixture specialty, preserves course-data sha256, and passes --check', async () => {
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'oph-spec-test-'));
+    try {
+      const tmpIndex = path.join(tmp, 'index.html');
+      const contentRoot = path.join(tmp, 'content');
+      const nmDir = path.join(contentRoot, 'nm');
+      fs.mkdirSync(nmDir, {recursive: true});
+      fs.copyFileSync(input, tmpIndex);
+
+      const writeJson = (name, obj) => fs.writeFileSync(path.join(nmDir, name), JSON.stringify(obj, null, 2), 'utf8');
+      writeJson('meta.json', {
+        title: '核子醫學科甄選練習室 · 測試題庫',
+        plan: [{date: '2026-11-01', topicIds: ['nm-thyroid'], goals: ['複習甲狀腺攝取機轉與輻射防護'], courseTask: {target: 'stories', text: '整理臨床溝通案例'}}],
+      });
+      writeJson('topics.json', [
+        {
+          id: 'nm-thyroid',
+          chapter: 1,
+          title: '甲狀腺核醫診斷與放射碘治療：攝取與判讀',
+          summary: '整合放射碘攝取率與甲狀腺掃描鑑別甲狀腺毒症。',
+          source: ['SNMMI Procedure Standard for Thyroid Scintigraphy 4.0'],
+          sourceUrl: 'https://www.snmmi.org/',
+          sections: [
+            {title: '放射碘攝取率判讀', points: ['瀰漫高攝取見於 Graves 病；低攝取考慮亞急性甲狀腺炎或含碘顯影劑干擾。'], recall: '低攝取合併甲狀腺毒症有哪些原因？', ref: 'Sec III'},
+            {title: '妊娠與哺乳禁忌', points: ['懷孕為放射碘檢查與治療絕對禁忌，給藥前須確認妊娠狀態。']},
+          ],
+          compare: [['Graves 病 vs 亞急性甲狀腺炎', '高攝取 vs 極低攝取', '避免對破壞性甲狀腺炎誤給抗甲狀腺藥']],
+          cases: [{prompt: '育齡女性安排碘-131 前必問事項？', answer: '排除懷孕與確認停止哺乳，並檢查近期含碘顯影劑暴露。'}],
+        },
+        {
+          id: 'nm-pet',
+          chapter: 2,
+          title: 'FDG PET/CT 腫瘤與發炎影像：生理分布與準備',
+          summary: '掌握血糖控制、胰島素間隔與棕色脂肪生理攝取。',
+          source: 'EANM FDG PET/CT Tumour Imaging Guideline v2.0',
+          sections: [{title: '受檢前準備', points: ['禁食 4–6 小時，避免劇烈運動與含糖輸液。']}],
+        },
+      ]);
+      writeJson('questions.json', [
+        {
+          id: 'nm-q001',
+          topicId: 'nm-thyroid',
+          stem: '34 歲女性頸部疼痛合併甲狀腺毒症，24 小時放射碘攝取率 1%，最可能為？',
+          options: ['Graves 病', '亞急性甲狀腺炎', '毒性多結節性甲狀腺腫', '毒性甲狀腺腺瘤'],
+          correctIndex: 1,
+          explanation: '考點：濾泡破壞釋放荷爾蒙導致低攝取率。\n\n常見陷阱：未看攝取率即投予抗甲狀腺藥物。',
+          source: 'SNMMI Procedure Standard for Thyroid Scintigraphy 4.0',
+          pastExam: true,
+          safety: true,
+        },
+        {
+          id: 'nm-q002',
+          topicId: 'nm-pet',
+          stem: 'FDG PET/CT 檢查前若剛注射速效胰島素，最典型會造成何種假影？',
+          options: ['腦部完全無攝取', '全身骨骼肌與心肌瀰漫性高攝取', '腎臟完全不顯影', '肺實質瀰漫高攝取'],
+          answer: '全身骨骼肌與心肌瀰漫性高攝取',
+          explanation: '胰島素促使 GLUT4 轉位至骨骼肌與心肌細胞膜，導致 FDG 大量進入肌肉而降低病灶對比。',
+          source: 'EANM FDG PET/CT Guideline v2.0',
+        },
+      ]);
+      writeJson('interview.json', [
+        {
+          id: 'nm-iv-01',
+          title: '放射碘安全衛教',
+          question: '病人詢問碘-131 治療後返家如何保護家人？',
+          durationSeconds: 150,
+          clinical: true,
+          topicId: 'nm-thyroid',
+          answer: '依時間、距離與個人衛生三原則說明分房睡覺、避免近距離接觸孕婦幼兒與沖水規範。',
+          followups: ['若受檢者正在哺乳應如何建議？'],
+          rubric: ['先講核心防護原則', '涵蓋時間與距離', '說明體液與衛浴清潔', '確認妊娠哺乳禁忌', '語氣清楚同理'],
+          source: 'ICRP Publication 105',
+        },
+        {
+          id: 'nm-iv-02',
+          title: '報考核醫動機',
+          question: '為什麼選擇核子醫學科作為住院醫師訓練方向？',
+          durationSeconds: 120,
+          clinical: false,
+          answer: '結合分子影像生理判讀與精準放射標靶治療（Theranostics），重視跨科討論與輻射安全。',
+          shortAnswer: '從分子影像定量與標靶治療整合談個人真實見習經驗。',
+          followups: ['分享一次跨科討論印象深刻的經驗。'],
+          rubric: ['直接回答動機', '連結真實經驗', '理解核醫日常工作', '誠實說明限制', '結尾拉回訓練目標'],
+          source: '核子醫學專科訓練公開架構',
+        },
+      ]);
+      writeJson('interviewSamples.json', {
+        note: '通用題三位示範',
+        clinicalNote: '臨床題三位示範',
+        versions: [
+          {label: 'A · PGY', hint: '先給結論', clinicalHint: '先講處置重點'},
+          {label: 'B · 見習生', hint: '守住角色', clinicalHint: '回報主治醫師'},
+          {label: 'C · 跨科醫師', hint: '連結臨床', clinicalHint: '補充機轉與紅旗'},
+        ],
+        answers: {
+          'nm-iv-01': ['PGY 版回答', '見習生版回答', '跨科版回答'],
+          'nm-iv-02': ['PGY 動機回答', '見習生動機回答', '跨科動機回答'],
+        },
+      });
+      writeJson('interviewDetailed.json', {
+        reviewedDate: '2026-11-01',
+        note: '通用題詳解說明',
+        clinicalNote: '臨床題詳解說明',
+        answers: {
+          'nm-iv-01': {
+            summary: '30 秒防護重點',
+            outline: ['先確認無懷孕哺乳', '距離與分房天數', '衛浴清潔與緊急聯絡'],
+            answer: '完整口述防護內容與返診追蹤安排。',
+            followupAnswers: ['碘-131 治療前須完全停止哺乳，不可於該胎次恢復哺乳。'],
+            moreFollowups: [{q: '何時需要住院隔離？', a: '依體內殘留活度與法規門檻評估。'}],
+            examinerFocus: ['輻射安全界線', '衛教可執行性'],
+            pitfalls: ['忽略哺乳禁忌', '只背數字未解釋原因'],
+            source: 'ICRP Publication 105',
+          },
+        },
+      });
+      writeJson('enrichment.json', {
+        reviewedDate: '2026-11-01',
+        chapters: {
+          'nm-thyroid': {
+            source: 'SNMMI Procedure Standard 4.0',
+            resources: [{id: 'nm-res-snmmi', title: 'SNMMI Thyroid Guideline', url: 'https://www.snmmi.org/', kind: '指南', provider: 'SNMMI', note: '攝取率與掃描標準'}],
+            deepDive: [{heading: '碘池擴張如何壓低攝取率', paragraphs: ['近期含碘顯影劑會競爭 NIS 轉運，造成假性低攝取。'], sourceIds: ['nm-res-snmmi']}],
+            oralChallenge: {question: '如何分辨亞急性甲狀腺炎與顯影劑干擾？', answer: '結合頸部壓痛、發炎指標、病史與尿碘或追蹤時序。', sourceIds: ['nm-res-snmmi']},
+            integrated: {
+              framing: '從 TSH 受抑走到正確核醫檢查與治療決策。',
+              objectives: ['區分高攝取與低攝取甲狀腺毒症', '落實放射碘給藥前妊娠核對'],
+              units: [{
+                id: 'u1',
+                title: '攝取機轉與鑑別',
+                sectionIndexes: [0, 1],
+                deepDiveIndexes: [0],
+                synthesis: ['先看臨床壓痛與病史，再解讀攝取率高低。'],
+                decisions: [{finding: 'TSH 低且 RAIU 1%', interpretation: '破壞性甲狀腺炎或碘干擾', nextStep: '症狀控制並避免誤用碘-131'}],
+                sourceIds: ['nm-res-snmmi'],
+              }],
+              case: {
+                title: '心悸與頸部疼痛的年輕女性',
+                stem: '34 歲女性上呼吸道感染後出現頸痛與心悸。',
+                steps: [{newInfo: 'RAIU 24h 為 1%。', prompt: '下一步處置？', answer: '支持性消炎止痛並追蹤甲狀腺功能演變。', rationale: '破壞期後可能進入甲狀腺低下期。', sourceIds: ['nm-res-snmmi']}],
+              },
+              connections: [{topicId: 'nm-pet', reason: '甲狀腺偶發高 FDG 攝取結節需進一步超音波評估'}],
+            },
+          },
+        },
+        learningPaths: [{title: '甲狀腺與全身代謝影像', question: '如何串連攝取機轉與全身分子影像？', topicIds: ['nm-thyroid', 'nm-pet']}],
+      });
+      writeJson('workflows.json', {
+        reviewedDate: '2026-11-01',
+        intro: '核醫關鍵安全流程',
+        disclaimer: '教學複習用途，依院內規範執行。',
+        workflows: [{
+          id: 'wf-nm-fdg',
+          category: 'safety',
+          title: 'FDG PET/CT 檢查前血糖與胰島素核對',
+          urgency: '給藥前必檢',
+          trigger: '受檢者報到準備注射 FDG 前。',
+          topicIds: ['nm-pet'],
+          steps: [
+            {title: '確認禁食時數與靜脈輸液種類', detail: '檢視是否含葡萄糖溶液或腸道外營養。', why: '避免內生性胰島素升高與葡萄糖競爭', critical: true},
+            {title: '詢問近期胰島素與降血糖藥時間', detail: '確認速效胰島素間隔是否足夠。', why: '避免肌肉瀰漫攝取假影', critical: true},
+            {title: '測定指尖血糖並安靜休息保溫', detail: '減少說話、咀嚼與寒冷刺激。', why: '降低喉部肌肉與棕色脂肪生理攝取', critical: false},
+          ],
+          redFlags: ['4 小時內曾施打速效胰島素', '嚴重高血糖或低血糖症狀'],
+          pitfalls: ['在檢查室自行補打速效胰島素後立即注射 FDG'],
+          examQuestions: [{q: '棕色脂肪活化常見於哪些受檢者？', a: '年輕、偏瘦或受寒受檢者。'}],
+          handoff: 'S：FDG 受檢者指尖血糖 245 mg/dL；B：第二型糖尿病；A：腫瘤對比可能下降；R：請核醫主治醫師評估是否延期檢查。',
+          sourceIds: ['nm-res-snmmi'],
+          source: 'EANM FDG PET/CT Guideline v2.0',
+        }],
+      });
+      writeJson('pbl.json', {
+        reviewedDate: '2026-11-01',
+        intro: '核醫多幕臨床推理',
+        disclaimer: '虛構教學情境。',
+        cases: [{
+          id: 'pbl-nm-dtc',
+          title: '分化型甲狀腺癌術後放射碘治療評估',
+          theme: 'Theranostics 與輻射防護',
+          trigger: '全甲狀腺切除術後病理顯示局部淋巴結轉移。',
+          topicIds: ['nm-thyroid'],
+          workflowIds: ['wf-nm-fdg'],
+          stages: [
+            {title: '第一幕 · 術後風險分層', info: '檢視手術紀錄與病理分期。', prompts: ['還需要哪些抽血與影像？'], facts: ['甲狀腺乳突癌伴頸部淋巴結轉移'], hypotheses: ['中度復發風險'], needToKnow: ['術後 Tg、Anti-Tg 與頸部超音波'], discussion: '整合結構與生化指標決定是否輔助碘-131。'},
+            {title: '第二幕 · 給藥前準備與衛教', info: '擬安排碘-131 治療。', prompts: ['如何完成促甲狀腺素刺激與防護衛教？'], facts: ['育齡女性受檢者'], hypotheses: ['需落實低碘飲食與驗孕'], needToKnow: ['妊娠檢驗結果與同住家庭成員'], discussion: '確認無懷孕哺乳並完成書面輻射安全衛教。'},
+          ],
+          learningIssues: [{issue: 'rhTSH 與停用甲狀腺素差異', why: '影響生活品質與清除效率評估'}],
+          humanities: {title: '跨團隊與家庭溝通', points: ['以具體天數與距離化解家屬對輻射的恐懼']},
+          examinerFollowups: [{q: '若 Tg 升高但碘掃描陰性（TENIS），下一步影像？', a: '考慮安排 FDG PET/CT 尋找去分化病灶。'}],
+          takeaway: '治療型核醫須同時兼顧腫瘤風險分層、TSH 刺激準備與輻射安全。',
+          sourceIds: ['nm-res-snmmi'],
+          source: 'ATA Differentiated Thyroid Cancer Guidelines',
+        }],
+      });
+
+      const scriptPath = path.join(ROOT, 'scripts/apply-specialty.py');
+      // Before building, --check must detect that tmpIndex is out of date with contentRoot/nm.
+      assert.throws(() => execFileSync('python3', [scriptPath, '--s', 'nm', '--content-root', contentRoot, '--index', tmpIndex, '--check'], {stdio: 'pipe'}));
+
+      const buildOut = JSON.parse(execFileSync('python3', [scriptPath, '--s', 'nm', '--content-root', contentRoot, '--index', tmpIndex], {encoding: 'utf8'}));
+      assert.equal(buildOut.course_data_sha256, COURSE_DATA_SHA256);
+      assert.equal(buildOut.specialties.nm.changed, true);
+      assert.equal(buildOut.specialties.nm.topics, 2);
+      assert.equal(buildOut.specialties.nm.questions, 2);
+      assert.equal(buildOut.specialties.nm.interview, 2);
+      assert.equal(buildOut.specialties.nm.pbl_cases, 1);
+      assert.equal(buildOut.specialties.nm.workflows, 1);
+
+      // Now --check passes and reports changed: false.
+      const checkOut = JSON.parse(execFileSync('python3', [scriptPath, '--s', 'nm', '--content-root', contentRoot, '--index', tmpIndex, '--check'], {encoding: 'utf8'}));
+      assert.equal(checkOut.course_data_sha256, COURSE_DATA_SHA256);
+      assert.equal(checkOut.specialties.nm.changed, false);
+
+      // Verify course-data and sibling non-oph blocks in tmpIndex are byte-identical to original.
+      const builtHtml = fs.readFileSync(tmpIndex, 'utf8');
+      const builtBlocks = Object.fromEntries([...builtHtml.matchAll(/<script type="application\/json" id="([^"]+)">([\s\S]*?)<\/script>/g)].map(m => [m[1], m[2]]));
+      assert.equal(builtBlocks['course-data'], jsonBlocks['course-data']);
+      for (const otherId of ['ent', 'rad', 'radonc']) {
+        assert.equal(builtBlocks['course-data-' + otherId], jsonBlocks['course-data-' + otherId], otherId + ' block untouched');
+      }
+
+      // Boot the built index.html with ?s=nm and exercise every populated feature!
+      const app = boot({search: '?s=nm', blocks: builtBlocks});
+      assert(!app.main().includes('specialty-pending'), 'populated nm home must not show 內容待補');
+      assert(app.main().includes('甲狀腺與全身代謝影像'));
+      wellFormed(app.main());
+
+      // Deep-link routes into integrated unit, PBL, workflow, and interview
+      assert.equal(app.qa.openRoute('#nm-thyroid-u1'), true);
+      assert.equal(app.qa.S.tab, 'learn');
+      assert(app.main().includes('碘池擴張如何壓低攝取率') && app.main().includes('心悸與頸部疼痛的年輕女性'));
+      wellFormed(app.main());
+
+      app.action('tab', 'quiz');
+      assert(app.main().includes('34 歲女性頸部疼痛合併甲狀腺毒症'));
+      app.qa.S.selected = 1;
+      app.action('submit');
+      assert(app.main().includes('SNMMI Procedure Standard for Thyroid Scintigraphy 4.0'));
+      wellFormed(app.main());
+
+      assert.equal(app.qa.openRoute('#interview-nm-iv-01'), true);
+      assert(app.main().includes('三位示範者') && app.main().includes('30 秒防護重點') && app.main().includes('ICRP Publication 105'));
+      app.action('use-sample', '0');
+      assert(app.qa.entries['interview:nm-iv-01'].draft.includes('PGY 版回答'));
+      wellFormed(app.main());
+
+      assert.equal(app.qa.openRoute('#interview-nm-iv-02'), true);
+      assert(app.main().includes('核子醫學專科訓練公開架構'));
+      wellFormed(app.main());
+
+      assert.equal(app.qa.openRoute('#pbl-nm-dtc'), true);
+      assert(app.main().includes('分化型甲狀腺癌術後放射碘治療評估') && app.main().includes('ATA Differentiated Thyroid Cancer Guidelines'));
+      app.action('pbl-stage');
+      assert(app.main().includes('rhTSH 與停用甲狀腺素差異'));
+      wellFormed(app.main());
+
+      assert.equal(app.qa.openRoute('#wf-nm-fdg'), true);
+      assert(app.main().includes('FDG PET/CT 檢查前血糖與胰島素核對') && app.main().includes('EANM FDG PET/CT Guideline v2.0'));
+      app.action('wf-mode', 'order');
+      wellFormed(app.main());
+    } finally {
+      fs.rmSync(tmp, {recursive: true, force: true});
+    }
+  });
+
+  await test('apply-specialty.py rejects items missing answer, missing source, bad IDs, or broken references', async () => {
+    const scriptPath = path.join(ROOT, 'scripts/apply-specialty.py');
+    const baseTopic = [{id: 'nm-t1', chapter: 1, title: '主題一', summary: '摘要', source: 'SNMMI 2024', sections: [{title: '重點', points: ['內容']}]}];
+    const validQuestion = {id: 'nm-q1', topicId: 'nm-t1', stem: '題幹？', options: ['選項A', '選項B', '選項C', '選項D'], correctIndex: 0, explanation: '解析文字', source: 'SNMMI 2024'};
+    const validInterview = {id: 'nm-iv1', title: '口試一', question: '問題？', clinical: true, topicId: 'nm-t1', answer: '參考回答', rubric: ['1', '2', '3', '4', '5'], source: 'ICRP 105'};
+
+    const badCases = [
+      ['question missing answer and correctIndex', {
+        'topics.json': baseTopic,
+        'questions.json': [{id: 'nm-q1', topicId: 'nm-t1', stem: '題幹？', options: ['A', 'B', 'C', 'D'], explanation: '解析', source: 'SNMMI'}],
+      }, /answer required/],
+      ['question out-of-range correctIndex', {
+        'topics.json': baseTopic,
+        'questions.json': [{...validQuestion, correctIndex: 4}],
+      }, /correctIndex/],
+      ['question boolean correctIndex', {
+        'topics.json': baseTopic,
+        'questions.json': [{...validQuestion, correctIndex: true}],
+      }, /correctIndex/],
+      ['question conflicting correctIndex and answer', {
+        'topics.json': baseTopic,
+        'questions.json': [{...validQuestion, correctIndex: 0, answer: '選項B'}],
+      }, /disagrees with answer/],
+      ['question missing source', {
+        'topics.json': baseTopic,
+        'questions.json': [{id: 'nm-q1', topicId: 'nm-t1', stem: '題幹？', options: ['A', 'B', 'C', 'D'], correctIndex: 0, explanation: '解析'}],
+      }, /source reference required/],
+      ['question blank source string', {
+        'topics.json': baseTopic,
+        'questions.json': [{...validQuestion, source: '   '}],
+      }, /source reference required/],
+      ['question missing explanation', {
+        'topics.json': baseTopic,
+        'questions.json': [{...validQuestion, explanation: ''}],
+      }, /explanation/],
+      ['question unknown topicId', {
+        'topics.json': baseTopic,
+        'questions.json': [{...validQuestion, topicId: 'nm-missing'}],
+      }, /unknown topicId/],
+      ['question wrong specialty prefix', {
+        'topics.json': baseTopic,
+        'questions.json': [{...validQuestion, id: 'ent-q1'}],
+      }, /must match nm-/],
+      ['topic missing source', {
+        'topics.json': [{id: 'nm-t1', title: '主題一', summary: '摘要', sections: [{title: '重點', points: ['內容']}]}],
+      }, /source reference required/],
+      ['interview missing source', {
+        'topics.json': baseTopic,
+        'interview.json': [{...validInterview, source: []}],
+      }, /source reference required/],
+      ['interview wrong rubric count', {
+        'topics.json': baseTopic,
+        'interview.json': [{...validInterview, rubric: ['1', '2', '3']}],
+      }, /rubric/],
+      ['workflow missing source', {
+        'topics.json': baseTopic,
+        'workflows.json': {reviewedDate: '2026-11-01', intro: '簡介', disclaimer: '聲明', workflows: [{id: 'wf-nm-1', category: 'safety', title: '流程', urgency: '立即', trigger: '觸發', topicIds: ['nm-t1'], steps: [{title: '步一', detail: '細節', why: '理由', critical: true}, {title: '步二', detail: '細節', why: '理由', critical: false}], redFlags: ['紅旗'], pitfalls: ['陷阱'], examQuestions: [{q: '問', a: '答'}], handoff: 'SBAR'}]},
+      }, /source reference required/],
+      ['pbl missing source', {
+        'topics.json': baseTopic,
+        'pbl.json': {reviewedDate: '2026-11-01', intro: '簡介', disclaimer: '聲明', cases: [{id: 'pbl-nm-1', title: '個案', theme: '主題', trigger: '觸發', topicIds: ['nm-t1'], stages: [{title: '第一幕', info: '資訊', prompts: ['提問'], facts: ['事實'], hypotheses: ['假說'], needToKnow: ['待補'], discussion: '討論'}, {title: '第二幕', info: '資訊', prompts: ['提問'], facts: ['事實'], hypotheses: ['假說'], needToKnow: ['待補'], discussion: '討論'}], learningIssues: [{issue: '議題', why: '原因'}], humanities: {title: '人文', points: ['重點']}, examinerFollowups: [{q: '問', a: '答'}], takeaway: '帶走一句'}]},
+      }, /source reference required/],
+      ['unknown json filename typo', {
+        'question.json': [validQuestion],
+      }, /unknown JSON file question\.json/],
+    ];
+
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'oph-spec-neg-'));
+    try {
+      const tmpIndex = path.join(tmp, 'index.html');
+      fs.copyFileSync(input, tmpIndex);
+      for (const [label, files, pattern] of badCases) {
+        const cRoot = path.join(tmp, 'case');
+        fs.rmSync(cRoot, {recursive: true, force: true});
+        fs.mkdirSync(path.join(cRoot, 'nm'), {recursive: true});
+        for (const [fname, data] of Object.entries(files)) {
+          fs.writeFileSync(path.join(cRoot, 'nm', fname), JSON.stringify(data), 'utf8');
+        }
+        let errOut = '';
+        try {
+          execFileSync('python3', [scriptPath, '--s', 'nm', '--content-root', cRoot, '--index', tmpIndex, '--check'], {encoding: 'utf8', stdio: 'pipe'});
+          assert.fail(`Expected validator to reject: ${label}`);
+        } catch (err) {
+          errOut = String(err.stderr || '') + String(err.stdout || '') + String(err.message || '');
+        }
+        assert.match(errOut, pattern, label);
+      }
+      // Reject --s oph explicitly
+      assert.throws(() => execFileSync('python3', [scriptPath, '--s', 'oph', '--check'], {stdio: 'pipe'}));
+    } finally {
+      fs.rmSync(tmp, {recursive: true, force: true});
     }
   });
 
