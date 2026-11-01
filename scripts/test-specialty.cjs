@@ -437,6 +437,17 @@ async function practise(app) {
     }
   });
 
+  await test('content JSON strings contain no control characters except newline', async () => {
+    const bad = [];
+    const walk = (value, where) => {
+      if (typeof value === 'string') { if (/[\u0000-\u0009\u000b-\u001f\u007f]/.test(value)) bad.push(where); }
+      else if (value && typeof value === 'object') for (const [key, item] of Object.entries(value)) { walk(key, where + ' key'); walk(item, where + '/' + key); }
+    };
+    const files = fs.readdirSync(path.join(ROOT, 'content'), {recursive: true}).filter(file => String(file).endsWith('.json'));
+    assert(files.length > 0, 'content JSON files must be found');
+    for (const file of files) walk(JSON.parse(fs.readFileSync(path.join(ROOT, 'content', String(file)), 'utf8')), String(file));
+    assert.deepEqual(bad, [], 'LaTeX written with single backslashes in JSON decodes to control characters (\\beta -> backspace + eta)');
+  });
   await test('apply-specialty.py builds a full fixture specialty, preserves course-data sha256, and passes --check', async () => {
     const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'oph-spec-test-'));
     try {
