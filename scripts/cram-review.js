@@ -2,7 +2,7 @@
 (function () {
   'use strict';
   if (window.OphCram) return;
-  const KEY = 'oph-prep:cram-review-v1';
+  const KEY = ((window.OphSpecialty && window.OphSpecialty.storePrefix) || 'oph-prep:') + 'cram-review-v1';
   const base = new URL('../', document.currentScript.src);
   let data, pending, root, states = {}, group = 'all', filter = 'all', saveError = false;
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));

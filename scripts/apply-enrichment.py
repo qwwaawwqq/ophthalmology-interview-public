@@ -25,6 +25,8 @@ WORKFLOWS = ROOT / 'content/clinical-workflows.json'
 PRACTICE_JS = ROOT / 'scripts/practice-ui.js'
 PRACTICE_CSS = ROOT / 'scripts/practice-ui.css'
 SYNC_JS = ROOT / 'scripts/progress-sync.js'
+SPECIALTY_JS = ROOT / 'scripts/specialty-registry.js'
+SPECIALTY_BOOT = '<script id="specialty-boot">'
 KINDS = {'圖譜', '影片', '期刊', '指南'}
 JS_START = '/* enrichment-ui:start */'
 JS_END = '/* enrichment-ui:end */'
@@ -357,6 +359,22 @@ def apply_practice_html(html):
     if 'data-action="link-save-current"' in html:
         return html
     return replace_once(html, '<div class="top-actions"><button class="btn subtle" data-action="import">', '<div class="top-actions"><button class="btn subtle bookmark-current" data-action="link-save-current" aria-label="收藏目前位置到我的連結">☆<span class="bookmark-label"> 收藏此頁</span></button><button class="btn subtle" data-action="import">', 'topbar bookmark')
+
+
+def apply_specialty_boot(html):
+    """Inline the specialty registry as <script id="specialty-boot"> just before <title>.
+
+    It keeps an attribute because build() rewrites every bare <script> block."""
+    code = SPECIALTY_JS.read_text(encoding='utf-8').strip()
+    if '</script' in code.lower():
+        raise ValueError('specialty-registry.js must not contain a closing script tag')
+    checked = subprocess.run(['node', '--check'], input=code, text=True, capture_output=True)
+    if checked.returncode:
+        raise ValueError('specialty-registry.js is invalid: ' + checked.stderr)
+    block = SPECIALTY_BOOT + '\n' + code + '\n</script>\n'
+    if SPECIALTY_BOOT in html:
+        return re.sub(re.escape(SPECIALTY_BOOT) + r'.*?</script>\n', lambda _: block, html, count=1, flags=re.S)
+    return replace_once(html, '<title>', block + '<title>', 'specialty boot script')
 
 
 def apply_practice(js):
@@ -983,11 +1001,13 @@ def build():
     html=re.sub(re.escape(PRACTICE_CSS_START)+r'.*?'+re.escape(PRACTICE_CSS_END)+r'\n?', '', html, flags=re.S)
     html=html.replace('</style>',PRACTICE_CSS.read_text(encoding='utf-8').strip()+'\n</style>',1)
     html=apply_practice_html(html)
+    html=apply_specialty_boot(html)
     after=json.loads(re.search(r'<script type="application/json" id="course-data">(.*?)</script>',html,re.S).group(1))
     if {k:v for k,v in after.items() if k not in GENERATED_KEYS} != preserved:
         raise ValueError('Existing app data changed')
     assert html.count(JS_START)==1 and html.count(CSS_START)==1
     assert html.count(PRACTICE_JS_START)==1 and html.count(PRACTICE_CSS_START)==1 and html.count(SYNC_JS_START)==1
+    assert html.count(SPECIALTY_BOOT)==1
     return html, after
 
 

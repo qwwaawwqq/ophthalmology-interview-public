@@ -30,6 +30,7 @@ jobs:
           node scripts/test-source-coverage.cjs
           node scripts/test-practice-sections.cjs
           node scripts/test-progress-sync.cjs
+          node scripts/test-specialty.cjs
           node scripts/test-textbook-depth.cjs
           python3 scripts/validate-atlas.py --strict
           node scripts/test-textbook-atlas.cjs
