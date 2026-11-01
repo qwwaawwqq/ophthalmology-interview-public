@@ -51,4 +51,6 @@
 #textbook-root .tb-digest-fold{margin-top:14px;border:1px solid #dfe8ec;border-radius:7px;padding:6px 14px;background:#fafcfd;min-width:0}
 #textbook-root .tb-digest-fold>summary{font-size:14px;font-weight:650;color:#275861}
 #textbook-root .tb-digest-fold>.tb-domain{margin-top:10px}
+#textbook-root .tb-unit .atlas-unit-inline-wrap{margin:16px 0 20px;min-width:0}
+#textbook-root .tb-memory-card+.atlas-unit-inline-wrap{margin-top:14px}
 @media(max-width:800px){#textbook-root .tb-atlas-link-btn{margin-left:0}#textbook-root .tb-sg-mnemonics,#textbook-root .tb-sg-contrasts dl,#textbook-root .tb-ma-grid{grid-template-columns:minmax(0,1fr)}#textbook-root .tb-visual-flow{display:grid;grid-template-columns:minmax(0,1fr);gap:22px}#textbook-root .tb-vf-node:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-19px;transform:translateX(-50%)}}

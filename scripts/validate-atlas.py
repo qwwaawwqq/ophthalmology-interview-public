@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PACK_ID = 'volume-atlas-20261028'
 COLORS = {'ink','muted','teal','blue','red','amber','pale-teal','pale-blue','pale-red','pale-amber','white','none'}
 UNIT_KEYS = {'id','title','chapterIds','learningGoals','clinicalQuestion','mechanism','diagram','figureReading','comparison','decisionSteps','pitfalls','counterfactuals','retrieval','references'}
+OPTIONAL_UNIT_KEYS = {'unitIds'}
 STYLE_KEYS = {'fill','stroke','strokeWidth','opacity','dash'}
 SHAPES = {
     'rect': ({'x','y','width','height'}, {'rx'}),
@@ -116,15 +117,22 @@ def validate(data, root=ROOT, partial=False, review=None):
         require(isinstance(items,list) and (len(items)>=1 if partial else len(items)>=2),f'{bid}: expected at least two atlas units')
         source=json.loads((root/('content/textbook-depth/'+bid+'.json')).read_text())
         chapters={c['id'] for c in source['chapters']}
+        unit_to_chapter={u['id']:c['id'] for c in source['chapters'] for u in c.get('units',[])}
         non_relationship=0
         prefix=bid.replace('bcsc-','')
         for unit in items:
+            require(isinstance(unit,dict),bid+': atlas unit must be an object')
             uid=unit.get('id');where=str(uid)
             require(isinstance(uid,str) and bool(re.fullmatch(rf'atlas-{re.escape(prefix)}-(?:0[1-9]|[1-9]\d)',uid)),bid+': wrong unit id')
             require(uid not in hashes,uid+': duplicate unit')
-            require(set(unit)==UNIT_KEYS,uid+': unexpected or missing unit keys')
+            require(UNIT_KEYS<=set(unit)<=(UNIT_KEYS|OPTIONAL_UNIT_KEYS),uid+': unexpected or missing unit keys')
             text(unit['title'],uid+' title');text(unit['clinicalQuestion'],uid+' clinical question')
             texts(unit['chapterIds'],uid+' chapterIds');require(len(set(unit['chapterIds']))==len(unit['chapterIds']) and set(unit['chapterIds'])<=chapters,uid+': invalid/duplicate chapter link')
+            if 'unitIds' in unit:
+                texts(unit['unitIds'],uid+' unitIds')
+                require(len(set(unit['unitIds']))==len(unit['unitIds']),uid+': duplicate unitIds')
+                require(set(unit['unitIds'])<=set(unit_to_chapter),uid+': unknown textbook unitId')
+                require(all(unit_to_chapter[target_uid] in unit['chapterIds'] for target_uid in unit['unitIds']),uid+': unitIds chapter must be in chapterIds')
             texts(unit['learningGoals'],uid+' goals',2);texts(unit['mechanism'],uid+' mechanism',3,20)
             texts(unit['pitfalls'],uid+' pitfalls',2)
             for key,minimum,fields in [('figureReading',2,{'label','meaning'}),('decisionSteps',3,{'condition','action','why'}),('counterfactuals',2,{'change','consequence'})]:
