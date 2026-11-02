@@ -14269,12 +14269,12 @@
       "stem": "在規劃複雜斜視或眼眶手術並評估眼外肌動脈供應時，眼動脈（ophthalmic artery）分出之「外側肌支（lateral muscular branch）」主要負責供應下列哪一組眼外肌群？",
       "options": [
         {
-          "text": "偏眼眶下內側象限之IR與IO肌群（由內側肌支主供）",
+          "text": "偏眼眶下內側象限之IR與IO肌群（位於眼球下方與下斜肌交叉處）",
           "rationale": "下直肌（IR）與下斜肌（IO）位於眼眶偏下內側象限，解剖上主要由眼動脈之「內側肌支（medial muscular branch，常為較粗大分支）」合併眶下動脈分支負責灌流，並非外側肌支主供區。",
           "whenTrue": "題目改問眼動脈「內側肌支（medial muscular branch）」所負責灌流之下方與內側眼外肌群（內直肌、下直肌與下斜肌）時。"
         },
         {
-          "text": "同屬內側肌支經典供血範圍之MR及IO兩條眼外肌",
+          "text": "位於眼眶內側與前下方之MR及IO兩條眼外肌（鄰近內側眶壁與淚囊窩）",
           "rationale": "內直肌（MR）與下斜肌（IO）同屬眼動脈內側肌支（medial muscular branch）之經典供血範圍；且須區分肌肉腹本身供血與穿出直肌止端供應眼前段之「前睫狀動脈」條數概念。",
           "whenTrue": "評估眼眶內下壁手術或內側肌支血管分布（供應內直肌、下直肌與下斜肌）時。"
         },
@@ -17611,7 +17611,7 @@
     },
     "questionContentHashes": {
       "bcsc-s06-rq001": "c31de06c1d0e19ff948bbec084bc1a5c6893cd94f111c6d95d85dc1cfddf1669",
-      "bcsc-s06-rq002": "2232abf6cc68b5663b2080442871be72af6af7698dff271a64c7f3c8a18fc8e7",
+      "bcsc-s06-rq002": "79b25850c0e8de303c1ac498fe9428dd862beb14f8c4548e4914062cef426ae7",
       "bcsc-s06-rq003": "74aaabe77671f0eaeee9b7700a10e140a131e9a89ee1a7dc09f2f510ef78bce0",
       "bcsc-s06-rq004": "4def22102f4d896d2cc4ad08f9fa9a6fb0d190b75345989d10c6ad4c6debcafe",
       "bcsc-s06-rq005": "9955ca6ab210d747e4da65886e55b6ae2ccc60137bc0bf231379ea0e79435f61",
