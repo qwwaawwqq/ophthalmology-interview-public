@@ -70,6 +70,7 @@ python3 scripts/apply-app-install.py
    - `source` 可為單一非空字串（例如 `"SNMMI Procedure Standard for Thyroid Scintigraphy 4.0 (2019)"`）或非空字串陣列（例如 `["ICRP Publication 105", "核子醫學專科醫師甄審歷屆考點整理"]`）。缺少或空白一律拒絕建置。
 2. **選擇題必須具備有效正解與解析**：
    - 每題必須提供 `correctIndex`（整數 `0 <= correctIndex < len(options)`，不可為 `bool`）或 `answer`（與 `options` 其中一個選項完全相符的字串）；若兩者同時提供，必須一致（`options[correctIndex] == answer`），建置後統一輸出 `correctIndex`。
+   - 正解不可靠長度猜出：全題庫中正解是最長選項（含並列最長）的比例不得超過 40%（機率約 25%），`scripts/test-specialty.cjs` 會檢查。
    - 缺少正解、索引越界、選項重複或缺少 `explanation` 一律拒絕建置。
 3. **科別 ID 命名空間前綴**：
    - `topics.json`、`questions.json`、`interview.json`、`enrichment.json` 資源 ID：必須符合 `^<s>-[a-z0-9-]+$`（例如 `nm-thyroid`、`nm-q001`、`nm-iv-01`）。
