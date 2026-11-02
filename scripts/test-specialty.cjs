@@ -27,7 +27,7 @@ const bootScript = new vm.Script(bootSource);
 const hookedScript = new vm.Script(hooked);
 
 // 2026-11-02 (#122): chapter synthesis, deep dives and explainers lost 151 repeated sentences.
-const COURSE_DATA_SHA256 = '15033cc7daad22d31aa197dbde43245d2be679a7c75e53d5208e8bfd5048aabf';
+const COURSE_DATA_SHA256 = 'd963672127cf2e219ba2c79385499e071049fc19cac767e9d630680616b5c377';
 const OPH = {
   id: 'oph', label: '眼科', appTitle: '眼科甄選練習室', storePrefix: 'oph-prep:', stateKey: 'oph-prep:progress-v3', syncFile: 'progress.json',
   formats: ['ophthalmology-prep-progress-v1', 'ophthalmology-prep-progress-v2', 'ophthalmology-prep-progress-v3'],
@@ -923,18 +923,38 @@ async function practise(app) {
   });
 
   await test('a specialty bank must not give the key away by option length', async () => {
-    // Chance is about 25%. rad and nm predate this check and are known to fail it (77%, 59%).
-    const KNOWN_FAILING = new Set(['rad', 'nm']);
+    const checkOptionLengths = (label, questions) => {
+      assert.ok(Array.isArray(questions) && questions.length > 0, `${label}: expected non-empty questions`);
+      const text = o => (o && typeof o === 'object' ? o.text : String(o));
+      const cidx = q => Number.isInteger(q.correctIndex) ? q.correctIndex : q.options.indexOf(q.answer);
+      const longest = questions.filter(q => {
+        const lens = q.options.map(o => text(o).length);
+        return lens[cidx(q)] === Math.max(...lens);
+      }).length;
+      const percent = 100 * longest / questions.length;
+      assert.ok(percent <= 40, `${label}: the keyed option is the longest in ${percent.toFixed(1)}% of ${questions.length} MCQs (limit 40%)`);
+
+      const ratios = questions.map(q => {
+        const idx = cidx(q);
+        const lens = q.options.map(o => text(o).length);
+        const others = lens.filter((_, i) => i !== idx);
+        return lens[idx] / (others.reduce((a, b) => a + b, 0) / others.length);
+      }).sort((a, b) => a - b);
+      const mid = Math.floor(ratios.length / 2);
+      const median = ratios.length % 2 ? ratios[mid] : (ratios[mid - 1] + ratios[mid]) / 2;
+      assert.ok(median <= 1.2, `${label}: median keyed-to-other option length ratio is ${median.toFixed(2)} (limit 1.2)`);
+    };
+
     for (const id of fs.readdirSync(path.join(ROOT, 'content'))) {
       const file = path.join(ROOT, 'content', id, 'questions.json');
-      if (KNOWN_FAILING.has(id) || !fs.existsSync(file)) continue;
+      if (!fs.existsSync(file)) continue;
       const questions = JSON.parse(fs.readFileSync(file, 'utf8'));
       if (!questions.length) continue;
-      const key = q => Number.isInteger(q.correctIndex) ? q.options[q.correctIndex] : q.answer;
-      const longest = questions.filter(q => key(q).length === Math.max(...q.options.map(o => o.length))).length;
-      const percent = 100 * longest / questions.length;
-      assert.ok(percent <= 40, `${id}: the keyed option is the longest in ${percent.toFixed(1)}% of ${questions.length} MCQs (limit 40%)`);
+      checkOptionLengths(id, questions);
     }
+
+    const pastExamQuestions = JSON.parse(fs.readFileSync(path.join(ROOT, 'content', 'past-exam-questions.json'), 'utf8'));
+    checkOptionLengths('past-exam-questions.json', pastExamQuestions);
 
     const depthDir = path.join(ROOT, 'content', 'textbook-depth');
     const depthBanks = [
@@ -944,23 +964,7 @@ async function practise(app) {
     ];
     for (const name of depthBanks) {
       const questions = JSON.parse(fs.readFileSync(path.join(depthDir, name), 'utf8')).questions;
-      assert.ok(Array.isArray(questions) && questions.length > 0, `${name}: expected non-empty questions`);
-      const text = o => (o && typeof o === 'object' ? o.text : String(o));
-      const longest = questions.filter(q => {
-        const lens = q.options.map(o => text(o).length);
-        return lens[q.correctIndex] === Math.max(...lens);
-      }).length;
-      const percent = 100 * longest / questions.length;
-      assert.ok(percent <= 40, `${name}: the keyed option is the longest in ${percent.toFixed(1)}% of ${questions.length} MCQs (limit 40%)`);
-
-      const ratios = questions.map(q => {
-        const lens = q.options.map(o => text(o).length);
-        const others = lens.filter((_, i) => i !== q.correctIndex);
-        return lens[q.correctIndex] / (others.reduce((a, b) => a + b, 0) / others.length);
-      }).sort((a, b) => a - b);
-      const mid = Math.floor(ratios.length / 2);
-      const median = ratios.length % 2 ? ratios[mid] : (ratios[mid - 1] + ratios[mid]) / 2;
-      assert.ok(median <= 1.2, `${name}: median keyed-to-other option length ratio is ${median.toFixed(2)} (limit 1.2)`);
+      checkOptionLengths(name, questions);
     }
   });
 
