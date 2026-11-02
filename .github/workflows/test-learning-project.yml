@@ -1,5 +1,6 @@
 name: Test learning project without repository writes
 on:
+  push: {branches: [main]}
   pull_request:
     paths:
       - index.html
