@@ -290,6 +290,294 @@
       "hardness": "pass",
       "source": "pass",
       "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q056",
+      "contentSha256": "eabe1265fa9831ead2dbc6df6e4042b4811af77eba1463333bca6fba79c6d0ae",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q057",
+      "contentSha256": "dd8404700bcd7de8342804ca3f0e15d91a8be157f5a48da18d3920b58459bc01",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q058",
+      "contentSha256": "9407bcbad807206b17c5aca2159fdb8c127cf7817eadac8c99716d36d7e75548",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q059",
+      "contentSha256": "9332b40bae9551f421c16f89131b5d73d05acd777361a15e3371c22999af2bbe",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q060",
+      "contentSha256": "30ad18d4242e9439399c46b81efd29763e75a212ef10395eb8d784b552d0f14e",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q061",
+      "contentSha256": "a36b07e0e4b7c980f515cada43f7da4568bc55a87b94a447da27c19ca673f358",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q062",
+      "contentSha256": "5b277ff89de05c0faf3b41cf2d47776c7cfee4d912ad9151ba037cbc42499a96",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q063",
+      "contentSha256": "b447791c004b816011c64f6790399915bda55746026d0e76dcc98a6c4a02f63a",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q064",
+      "contentSha256": "b92f31d694461a294c0be99e8b0a3ef47791fbbbecd6d1c470556224617c5101",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q065",
+      "contentSha256": "3451500565007a11f5b0a19d6f5b277e56fd9ee4d317ad4615667840d583f504",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q066",
+      "contentSha256": "ff52e1fe46c4290d38c5d020690d577a686edf44450d4d97746b12ec8ca38c12",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q067",
+      "contentSha256": "bfe2cec21a1c31cf93e057fa88b4d1a20792b7eb8e6408c96454f665a74ade88",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q068",
+      "contentSha256": "73969f3e3fcd96129b3a2b46c28905ae7d6de6236ae27958090b5decfcb3fa05",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q069",
+      "contentSha256": "62d03ba08ee1bf00cac29c488732635794c82c41157f0622bd428399b435fd28",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q070",
+      "contentSha256": "8f103b3e711c2efcef72eddf12d28beb2ff27c5aed1bbb1d93673264a9b9c323",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q071",
+      "contentSha256": "9a08ee8515d2e0ed1fffa8214651032268b6488af7a77e02f1dd295da61c782a",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q072",
+      "contentSha256": "0672f235065a79c42dd29279be9989e810c2297dbad5e512c5d49121c1c7903d",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q073",
+      "contentSha256": "70ccb39a8a853268c4d1e8e7893c5162ad19da5262c99955abfa5c286574de38",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q074",
+      "contentSha256": "cae196a9ddebdfc99cc0b21f481e4ba8a13b6a034c08a4e16df5b55bb75db2c8",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q075",
+      "contentSha256": "114367a982e1c36edc0d66091fc5e01d64310721d987b2d6666915b400e7eca6",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q076",
+      "contentSha256": "8dd13a9953d62dda4b41ccdabcd7e3a0f0a8550b853df8d910e6bd4516144a77",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q077",
+      "contentSha256": "cd84c722e68a4cbf9919d260ce31487e78b02245ec931ff0dc2e2fb965dd847e",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q078",
+      "contentSha256": "f2502d7df6792c218a90d62e988d54be439ddefe5ec7134eb4766eaeddced801",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q079",
+      "contentSha256": "623bcd320f058f3279d1b174b7b5fe9e6b48bfd78c42a20263c31a1920ae968b",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q080",
+      "contentSha256": "60105a9ae3f3d968804fca1412f0e7b10d1b0cca34218c0f0aa51596fb9f5f95",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q081",
+      "contentSha256": "cb5a250488d1a2c74d648dc968f36d897983cc3310b3e27030c1bfff11fa25eb",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q082",
+      "contentSha256": "96e29cea66416137a99c9e7bd0930413f25745cd27502f4e6cc963eb682e52ef",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q083",
+      "contentSha256": "c08b56c4d927df2ed97bf6e5fd541eee0de1cd6fea7ba351b3705a590c80ae7d",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q084",
+      "contentSha256": "a0ce168370a6e6ca231424d0ca663acac98d42f08749b2ec39678ba081704994",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q085",
+      "contentSha256": "adb0fc2b67ab8d951e0fc9a24b1bd2a040d42b7b81fe2952896ed44b0f46faf3",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q086",
+      "contentSha256": "26cb59a5fdbacc90fa71a5cfaf0eedf7dcbc4b5dae98727ba572d6db65222129",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q087",
+      "contentSha256": "c51129431bca72e116eb4dc1df5acae57ef97ddc51aa499db48ff44014d03381",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q088",
+      "contentSha256": "9c297dd3f80566f8f5d78bc6e1bfdc0e198f93c5afb194a90b03c09fae2e086f",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "not-applicable"
+    },
+    {
+      "id": "extra-20261022-q089",
+      "contentSha256": "0cd729953e968d2d06c5bbc05e5cc4248f2fd6ec9b202af09ecd19eb8dfb565e",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q090",
+      "contentSha256": "3ece0f072a625820dd6ffe29e52214991208802643fc50733fc26e14f639f523",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q091",
+      "contentSha256": "91e26eba7c6a702a700acb1afd93b112bb1d60e11b00cd874a42257aa416c5c2",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass"
     }
   ],
   "deepDives": [

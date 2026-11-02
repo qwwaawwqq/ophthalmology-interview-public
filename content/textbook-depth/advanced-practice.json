@@ -4815,6 +4815,3072 @@
       "syntheticCase": true,
       "status": "source-checked",
       "readiness": "ready"
+    },
+    {
+      "id": "extra-20261022-q056",
+      "questionScope": "original-practice",
+      "bookId": "bcsc-s10",
+      "chapterIds": [
+        "bcsc-s10-ch002",
+        "bcsc-s10-ch004"
+      ],
+      "unitIds": [
+        "bcsc-s10-ch002-u01",
+        "bcsc-s10-ch004-u01"
+      ],
+      "stem": "62歲患者因單眼慢性高眼壓轉診，球結膜與鞏膜表層血管呈螺旋狀怒張（corkscrew vessels），GAT眼壓28 mmHg，視盤下方盤緣變薄伴對應弓狀視野缺損。暗室動態隅角鏡見全周開放，但Schlemm管自發性充滿鮮血。以最大限度局部房水生成抑制劑與前列腺素治療後眼壓仍停留於24 mmHg，團隊設定目標眼壓為14 mmHg並評估手術。若依修正版Goldmann穩態方程式分析其流體力學限制，下列哪項處置策略最合理？",
+      "options": [
+        {
+          "text": "選擇結膜下濾過或房水引流裝置繞過鞏膜上靜脈，並評估靜脈回流異常",
+          "rationale": "鞏膜上靜脈壓（Pv）升高時，傳統小樑—Schlemm管路徑的下游壓力地板即為Pv；唯有繞過鞏膜上靜脈的濾過或引流手術才能將眼壓降至Pv以下，且須注意術中脈絡膜滲液風險。",
+          "whenTrue": "高眼壓由鞏膜上靜脈壓升高主導、且目標眼壓低於下游靜脈壓地板時。"
+        },
+        {
+          "text": "優先施行Schlemm管內壁切開或小樑網微創旁路支架（MIGS），直接消除近管小樑組織（JCT）的最大流出阻力以達標",
+          "rationale": "小樑網切開或Schlemm管支架雖能消除小樑阻力，但無法使眼壓低於下游鞏膜上靜脈壓（Pv），且在Schlemm管充血高壓下易誘發前房逆流積血（hyphema）。",
+          "whenTrue": "高眼壓主因為近管小樑組織流出易度（C）下降，且鞏膜上靜脈壓正常、目標眼壓在中段範圍時。"
+        },
+        {
+          "text": "針對全周360度施打高能量選擇性雷射小樑網成形術（SLT），藉由重塑小樑細胞外基質將流出易度倍增以突破靜脈壓限制",
+          "rationale": "在修正版Goldmann方程式P0 = (F - U)/C + Pv中，提升流出易度C只能縮減(F - U)/C項，無法降低線性相加的Pv基數。",
+          "whenTrue": "原發性開放隅角青光眼或小樑網阻力上升為主因，且下游鞏膜上靜脈回流壓力正常時。"
+        },
+        {
+          "text": "開立高濃度毛果芸香鹼（pilocarpine）強力收縮縱走睫狀肌拉開鞏膜突，並於睡前加點β阻斷劑壓制夜間房水生成",
+          "rationale": "縮瞳劑雖可拉開小樑網但同時減少葡萄膜鞏膜流出，對靜脈回流受阻所致高眼壓效果不佳；且夜間房水生成本已減半，睡前β阻斷劑效益有限。",
+          "whenTrue": "瞳孔阻滯或特殊房角構型需短期縮瞳拉平周邊虹膜，且無靜脈壓升高或葡萄膜炎禁忌時。"
+        }
+      ],
+      "correctIndex": 0,
+      "closestDistractorIndex": 1,
+      "decisiveDiscriminator": "修正版Goldmann方程式中鞏膜上靜脈壓（Pv）為1:1線性疊加的下限地板；當螺旋血管與Schlemm管充血指向Pv顯著升高時，單純切開小樑網或置入Schlemm管支架無法把眼壓降到Pv以下。",
+      "counterfactual": "若隅角鏡無Schlemm管充血與表層螺旋血管，且高眼壓確認源於近管小樑組織（JCT）阻力上升而鞏膜上靜脈壓正常、目標眼壓設在16–18 mmHg，則優先施行Schlemm管內壁切開或小樑網微創旁路支架即屬合理分支。",
+      "explanation": "先從球結膜螺旋血管與隅角鏡Schlemm管自發充血辨識鞏膜上靜脈壓（Pv）升高 → 再代入修正版Goldmann方程式P0 = (F - U)/C + Pv，確認傳統小樑流出路徑的最低眼壓受限於Pv → 整合目標眼壓14 mmHg與靜脈壓地板，排除僅作用於小樑網的MIGS或SLT，選擇繞過鞏膜上靜脈的濾過／引流手術並查明靜脈高壓病因。",
+      "testConcept": "鞏膜上靜脈壓升高會鎖定小樑路徑的眼壓下限，手術必須繞過下游靜脈阻力",
+      "questionType": "clinical-integration",
+      "difficulty": "advanced",
+      "domain": "glaucoma",
+      "reasoningSteps": [
+        "由螺旋狀鞏膜表層血管與隅角鏡Schlemm管充血，定位高眼壓主因為鞏膜上靜脈壓（Pv）升高",
+        "依據修正版Goldmann方程式P0 = (F - U)/C + Pv，判定小樑網路徑的眼壓無法降至Pv以下",
+        "對照14 mmHg的低目標眼壓需求，排除Schlemm管內路微創手術，選擇結膜下濾過或引流管手術並同步排查血管病灶"
+      ],
+      "sourceRefs": [
+        {
+          "bookId": "bcsc-s10",
+          "pdfPages": [
+            38,
+            39,
+            40,
+            41,
+            42
+          ],
+          "chapterHeading": "Intraocular Pressure and Aqueous Humor Dynamics"
+        },
+        {
+          "bookId": "bcsc-s10",
+          "pdfPages": [
+            62,
+            66,
+            69
+          ],
+          "chapterHeading": "Clinical Evaluation and Imaging of the Anterior Segment"
+        }
+      ],
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "extra-20261022-q057",
+      "questionScope": "original-practice",
+      "bookId": "bcsc-s10",
+      "chapterIds": [
+        "bcsc-s10-ch005",
+        "bcsc-s10-ch006"
+      ],
+      "unitIds": [
+        "bcsc-s10-ch005-u02",
+        "bcsc-s10-ch006-u02"
+      ],
+      "stem": "69歲重度原發性開放隅角青光眼患者，右眼近兩年盤周平均RNFL厚度連續三次穩定停留於47 μm、無新發分層錯誤。然而同期24-2標準自動視野（FP 2%、固視穩定）之平均偏差（MD）由-16.5 dB降至-23.8 dB，Total Deviation顯示全區敏感度進一步沉降，但模式標準差（PSD）卻由13.8 dB降至8.9 dB且Pattern Deviation黑格數減少。門診IOP維持15 mmHg。下列整合判讀與調整何者最恰當？",
+      "options": [
+        {
+          "text": "依據盤周RNFL厚度穩定無變化及PSD數值下降，判定視神經結構與局部視野同步趨緩，維持目前眼壓目標與24-2追蹤",
+          "rationale": "盤周RNFL在約45–50 μm即達殘餘血管與膠質組織構成的底限（floor effect），而重度視野全區陷落會使PSD反常下降，不能誤判為病情穩定。",
+          "whenTrue": "早期至中度青光眼、RNFL遠高於底限且MD與Total Deviation同步改善或穩定，確認無全區沉降時。"
+        },
+        {
+          "text": "判定為晚期惡化（RNFL觸底且全區陷落致PSD假性下降）；下調目標眼壓並改用GCIPL與10-2追蹤",
+          "rationale": "重度青光眼盤周RNFL觸底後不再隨軸突流失而變薄，且全視野連殘存健康區一併惡化會壓低第85百分位參考點，造成PSD假性下降；必須整合MD與Total Deviation調降眼壓並改用晚期監測工具。",
+          "whenTrue": "盤周RNFL已觸及45–50 μm底限且MD／Total Deviation持續惡化，呈現晚期PSD假性好轉時。"
+        },
+        {
+          "text": "將MD惡化伴PSD下降完全歸咎於白內障進行性混濁造成的均勻光學衰減，不調整青光眼治療而直接排程單純白內障摘除術",
+          "rationale": "雖然白內障會影響Total Deviation，但在重度青光眼（MD由-16.5降至-23.8 dB）中，最後健康參考區的青光眼性陷落同樣會拉平Pattern Deviation與PSD，不能未檢查中心視野與GCIPL就直接排除青光眼進展。",
+          "whenTrue": "輕度青光眼RNFL與GCIPL均遠高於底限且穩定、10-2中心敏感度未出現階梯缺損，而裂隙燈確認顯著白內障時。"
+        },
+        {
+          "text": "認定24-2視野在重度期因假陰性率（FN）偏高而失去臨床判讀價值，立即停做所有自動視野檢查，改以單純眼底攝影與盤周OCT斜率作為唯一指標",
+          "rationale": "重度受損視野區的反應變異本就會使FN升高，只要FP低仍具高度價值；反之盤周OCT在晚期已觸底，單靠盤周OCT反而會漏掉真實惡化。",
+          "whenTrue": "病人因嚴重認知或肢體障礙完全無法配合任何視野檢查，且結構評估改採尚未觸底之指標與臨床視盤觀察時。"
+        }
+      ],
+      "correctIndex": 1,
+      "closestDistractorIndex": 0,
+      "decisiveDiscriminator": "盤周RNFL在45–50 μm已達膠質血管底限（floor effect），且晚期全視野陷落會拉垮Pattern Deviation的參考基準導致PSD假性下降；MD與Total Deviation的大幅滑落才是真實惡化證據。",
+      "counterfactual": "若病人屬早期青光眼（盤周RNFL為86 μm遠高於底限），且MD與Total Deviation均穩定維持在-2.5 dB附近、僅因學習效應消退使PSD下降，則判定結構與視野同步穩定並維持目前治療即成立。",
+      "explanation": "先辨識盤周RNFL在47 μm已觸及膠質與大血管構成的底限效應（floor effect），不能用「厚度不變」排除惡化 → 再解析24-2視野中MD由-16.5掉到-23.8 dB伴PSD下降的矛盾，確認為晚期最後健康參考點陷落所致的PSD與Pattern Deviation假性好轉 → 綜合判定為真實晚期進展，應進一步壓低目標眼壓並改用黃斑GCIPL與10-2或Size V視標監測殘存中心功能。",
+      "testConcept": "晚期青光眼需同時識破盤周OCT的底限效應與視野PSD的假性下降陷阱",
+      "questionType": "clinical-integration",
+      "difficulty": "advanced",
+      "domain": "glaucoma",
+      "reasoningSteps": [
+        "識別盤周RNFL停留在47 μm屬於45–50 μm的結構底限效應（floor effect），無法反映晚期軸突持續流失",
+        "對比Total Deviation／MD惡化與PSD下降，確認為晚期全區視野陷落拉低參考點所造成的Pattern Deviation與PSD假性改善",
+        "判定15 mmHg對該眼仍不夠低，下調目標眼壓並改用黃斑GCIPL及10-2或Size V視標追蹤"
+      ],
+      "sourceRefs": [
+        {
+          "bookId": "bcsc-s10",
+          "pdfPages": [
+            82,
+            83,
+            84,
+            85,
+            86,
+            87
+          ],
+          "chapterHeading": "Clinical Evaluation and Imaging of the Posterior Segment: Optic Nerve Head, Ret i nal Nerve Fiber Layer, and Macula"
+        },
+        {
+          "bookId": "bcsc-s10",
+          "pdfPages": [
+            104,
+            106,
+            107,
+            108,
+            109,
+            110
+          ],
+          "chapterHeading": "Perimetry"
+        }
+      ],
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "extra-20261022-q058",
+      "questionScope": "original-practice",
+      "bookId": "bcsc-s10",
+      "chapterIds": [
+        "bcsc-s10-ch007",
+        "bcsc-s10-ch003"
+      ],
+      "unitIds": [
+        "bcsc-s10-ch007-u01",
+        "bcsc-s10-ch007-u02",
+        "bcsc-s10-ch003-u01"
+      ],
+      "stem": "64歲正常眼壓青光眼（NTG）患者，基線未治療GAT眼壓15 mmHg（CCT 535 μm），單點前列腺素後門診眼壓維持13 mmHg（僅降約13%）。近一年視盤下方出現新火焰狀出血，10-2視野中心旁暗點擴大。病史顯示患者因高血壓於每晚睡前服用強化劑量鈣離子通道阻斷劑，24小時動態血壓監測見夜間舒張壓跌至46 mmHg。為保護殘存視神經，下列哪項整合處置最符合實證與灌流生理？",
+      "options": [
+        {
+          "text": "加點睡前0.5% timolol與brimonidine雙重壓制夜間房水生成，並請患者維持睡前強效降血壓藥以保護全身心血管",
+          "rationale": "睡眠時房水生成本已自然減半，睡前點timolol幾乎無法再降夜間眼壓，反而與brimonidine一樣可能進一步拉低夜間血壓與心率，加劇視神經夜間低灌流壓缺血。",
+          "whenTrue": "日間高眼壓為主、無夜間低血壓或血管自動調節脆弱性，且β阻斷劑排於晨間給藥並已排除心肺禁忌時。"
+        },
+        {
+          "text": "認定基線眼壓15 mmHg已屬正常生理範圍、跨篩板壓力差非致病因子，停用降眼壓藥物並單純改以口服銀杏葉萃取物治療",
+          "rationale": "CNTGS實證顯示即使基線眼壓在正常範圍，將眼壓自基線再調降≥30%仍能顯著降低視野惡化率（校正白內障後由35%降至12%），不可放棄降壓靶點。",
+          "whenTrue": "已徹底排除青光眼性視神經病變，視野缺損證實為非進行性既往缺血事件且無跨篩板應變風險時。"
+        },
+        {
+          "text": "依CNTGS將目標眼壓再降至少30%（選SLT或晨間用藥），並會診內科調整睡前降血壓藥以防夜間低灌流",
+          "rationale": "同時解決兩個獨立惡化推手：第一，目前眼壓僅自15降至13 mmHg（未達CNTGS之≥30%降幅），且新視盤出血證實跨篩板負荷仍過高；第二，平躺使夜間IOP上升而睡前降壓藥致夜間DBP深跌，雙向夾擊眼灌流壓（OPP），需避開睡前β阻斷劑並協同內科避開夜間過度低血壓。",
+          "whenTrue": "NTG出現視盤出血與中心旁進展、降壓幅度尚未達標，且合併夜間低血壓導致夜間眼灌流壓不足時。"
+        },
+        {
+          "text": "維持目前13 mmHg眼壓不變，僅請內科停用所有降血壓藥物使日間與夜間收縮壓回升至160 mmHg以上以拉高眼動脈灌流壓",
+          "rationale": "完全停用降血壓藥放任全身持續性高血壓會增加腦血管與心血管風險，且長期高血壓造成的微血管硬化反而破壞視神經血管自動調節；同時13 mmHg對已出血惡化的NTG仍未達≥30%降幅。",
+          "whenTrue": "患者並無真性高血壓而是因藥物誤用導致全日嚴重低血壓休克傾向，且眼壓已透過濾過手術穩定降至極低目標時。"
+        }
+      ],
+      "correctIndex": 2,
+      "closestDistractorIndex": 0,
+      "decisiveDiscriminator": "夜間睡眠時房水生成已減半且平躺使鞏膜上靜脈壓墊高眼壓；在夜間舒張壓跌至46 mmHg的NTG患者身上，睡前點timolol非但難降夜間IOP，更會壓低夜間血壓使眼灌流壓（OPP）崩跌。",
+      "counterfactual": "若24小時血壓確認無夜間低血壓、心肺功能正常，且目標是控制日間眼壓峰值而將β阻斷劑安排於晨間點用，則加入局部房水生成抑制劑以協助達成≥30%降壓幅度即屬合理。",
+      "explanation": "先檢視跨篩板壓力軸：基線15 mmHg僅降至13 mmHg（降幅約13%），遠未達CNTGS證實有效的≥30%降幅（約10–11 mmHg），且視盤出血與10-2惡化證實目前眼壓仍過高 → 再檢視視神經微循環灌流軸：夜間平躺IOP上升加上睡前強效降血壓藥致DBP跌至46 mmHg，使夜間眼灌流壓跌破自動調節下限 → 整合兩軸：透過SLT或晨間適當藥物將IOP再下調至≥30%降幅，避開睡前timolol／brimonidine，並會診內科調整睡前降壓藥時機與強度。",
+      "testConcept": "正常眼壓青光眼進展需同時落實CNTGS的30%降壓幅度並矯治夜間低眼灌流壓",
+      "questionType": "clinical-integration",
+      "difficulty": "advanced",
+      "domain": "glaucoma",
+      "reasoningSteps": [
+        "核算目前眼壓由15降至13 mmHg僅降低約13%，未達CNTGS對NTG要求的≥30%降壓目標，且視盤出血證實持續進展",
+        "結合平躺IOP上升與夜間DBP 46 mmHg，辨識夜間眼灌流壓（OPP）過低為第二項獨立惡化機轉",
+        "排除無助夜間降壓且會惡化夜間低血壓的睡前timolol，改採SLT或合適藥物將IOP壓至10–11 mmHg並會診內科調整睡前降血壓處方"
+      ],
+      "sourceRefs": [
+        {
+          "bookId": "bcsc-s10",
+          "pdfPages": [
+            126,
+            129,
+            130,
+            131,
+            132,
+            133
+          ],
+          "chapterHeading": "Primary Open- Angle Glaucoma"
+        },
+        {
+          "bookId": "bcsc-s10",
+          "pdfPages": [
+            58,
+            59,
+            60,
+            61
+          ],
+          "chapterHeading": "Clinical Evaluation: History"
+        }
+      ],
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "extra-20261022-q059",
+      "questionScope": "original-practice",
+      "bookId": "bcsc-s10",
+      "chapterIds": [
+        "bcsc-s10-ch008",
+        "bcsc-s10-ch004"
+      ],
+      "unitIds": [
+        "bcsc-s10-ch008-u02",
+        "bcsc-s10-ch008-u03",
+        "bcsc-s10-ch004-u01"
+      ],
+      "stem": "74歲患者因右眼突發劇痛、紅眼與視力降至光感求診，眼壓52 mmHg。裂隙燈見角膜微水腫但後表面無角膜後沉積物（KP），前房極深且充滿閃亮白點與濃重乳白色懸浮反應，水晶體呈全白過熟白內障伴前囊表面皺縮，囊膜無外傷破裂史。暗室隅角鏡見全周廣開、無周邊前黏連（PAS）或新生血管。下列哪項整合診斷與處置規劃最恰當？",
+      "options": [
+        {
+          "text": "診斷為晶體膨脹性青光眼（phacomorphic glaucoma）；立即施打雷射周邊虹膜穿孔術（LPI）並點用毛果芸香鹼縮瞳以拉開房角",
+          "rationale": "晶體膨脹性青光眼為腫脹白內障往前推擠虹膜造成淺前房與續發性隅角閉鎖；本例前房極深且隅角全周廣開，並無瞳孔阻滯，施打LPI無效且點毛果芸香鹼會惡化發炎。",
+          "whenTrue": "白內障吸水膨脹推擠虹膜導致前房明顯變淺、隅角鏡見周圍房角閉鎖之續發性閉角高壓時。"
+        },
+        {
+          "text": "診斷為晶體抗原性葡萄膜炎（phacoantigenic uveitis）；因小樑網已遭肉芽腫永久破壞，急診直接施行白內障合併小樑切除聯合濾過手術",
+          "rationale": "晶體抗原性眼炎通常發生於囊膜破裂或白內障術後殘留皮質，且具肉芽腫性大型羊脂狀KP；此外在急性發炎充血期直接做小樑切除術極易因纖維化而失敗。",
+          "whenTrue": "有明確水晶體囊膜破裂史伴羊脂狀KP之肉芽腫發炎，且經摘除殘留晶體與抗炎後慢性期確認小樑功能永久喪失時。"
+        },
+        {
+          "text": "診斷為Posner-Schlossman症候群合併過熟白內障；僅給予局部類固醇與降眼壓藥物門診追蹤，待數月後眼壓完全正常再考慮常規白內障手術",
+          "rationale": "Posner-Schlossman好發於青壯年，前房細胞極少而有少數細小KP；本例為過熟液化皮質外滲阻塞小樑網，若不儘速摘除白內障清除蛋白來源，單靠藥物無法根除病因。",
+          "whenTrue": "青壯年反覆單眼高眼壓伴極少前房細胞與少數細小KP、水晶體清澈無過熟液化徵象時。"
+        },
+        {
+          "text": "診斷為晶體溶解性青光眼；先以降壓藥、類固醇與睫狀肌麻痺劑穩定眼壓，隨即儘速摘除白內障並沖洗前房",
+          "rationale": "深前房、開放隅角、無KP、全白過熟白內障伴前房閃亮膽固醇結晶／高分子蛋白與巨噬細胞，為典型晶體溶解性青光眼；其小樑網僅為暫時性機械阻塞，先以降壓抗炎過渡後執行單純白內障摘除與前房沖洗即可治癒，無須冒高失敗風險同期行小樑切除術。",
+          "whenTrue": "過熟白內障經完整囊膜微孔滲出高分子晶體蛋白與巨噬細胞阻塞開放房角，需先藥物降壓並儘速移除晶體根源時。"
+        }
+      ],
+      "correctIndex": 3,
+      "closestDistractorIndex": 1,
+      "decisiveDiscriminator": "前房極深且隅角開放直接排除晶體膨脹閉角；而完整無破裂囊膜、無肉芽腫KP加上小樑網僅為高分子蛋白與巨噬細胞暫時阻塞，決定了單純摘除白內障與前房沖洗即可根治，不必在急性發炎期併行小樑切除術。",
+      "counterfactual": "若病史改為兩週前穿透性外傷刺破水晶體前囊，裂隙燈見大型羊脂狀肉芽腫KP與瞳孔後黏連，則診斷轉為晶體抗原性（或晶體顆粒性）眼炎。",
+      "explanation": "先由「前房極深、隅角全周廣開」排除瞳孔阻滯與晶體膨脹性閉角（故不打LPI、禁點縮瞳劑） → 再由「過熟白內障、囊膜無外傷破裂、前房閃亮蛋白結晶與巨噬細胞且無KP」確立為晶體溶解性青光眼（phacolytic glaucoma），與具羊脂狀KP的晶體抗原性眼炎區分 → 最後依其小樑網結構原本健康的特性，先以藥物降壓與抗炎（含cycloplegic）控制急性危機，隨即儘速施行單純白內障摘除與前房沖洗，避免急性期不必要且易失敗的小樑切除聯合手術。",
+      "testConcept": "晶體溶解性青光眼具深前房與開放房角，摘除過熟白內障即可解除小樑暫時阻塞",
+      "questionType": "clinical-integration",
+      "difficulty": "advanced",
+      "domain": "glaucoma",
+      "reasoningSteps": [
+        "以深前房與開放隅角排除晶體膨脹性閉角（phacomorphic），確認不可施打LPI或使用pilocarpine",
+        "結合過熟白內障、無囊膜破裂史、前房高分子蛋白／閃亮結晶與無KP，定位為晶體溶解性青光眼（phacolytic glaucoma）",
+        "認識小樑網僅為巨噬細胞與蛋白暫時阻塞，先以降壓與抗炎藥物穩定後儘速行白內障摘除與前房沖洗，不需同期做小樑切除術"
+      ],
+      "sourceRefs": [
+        {
+          "bookId": "bcsc-s10",
+          "pdfPages": [
+            146,
+            147,
+            148,
+            149,
+            150
+          ],
+          "chapterHeading": "Secondary Open- Angle Glaucoma"
+        },
+        {
+          "bookId": "bcsc-s10",
+          "pdfPages": [
+            62,
+            66,
+            69
+          ],
+          "chapterHeading": "Clinical Evaluation and Imaging of the Anterior Segment"
+        }
+      ],
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "extra-20261022-q060",
+      "questionScope": "original-practice",
+      "bookId": "bcsc-s08",
+      "chapterIds": [
+        "bcsc-s08-ch004",
+        "bcsc-s08-ch005"
+      ],
+      "unitIds": [
+        "bcsc-s08-ch004-u02",
+        "bcsc-s08-ch005-u02"
+      ],
+      "stem": "61歲患者曾患帶狀疱疹眼病（HZO），近兩週因中央角膜持續性上皮缺損接受每天8次含防腐劑人工淚液、局部抗病毒藥膏與外院開立之0.1% diclofenac眼藥水治療。今日來診主訴「眼睛完全不痛，但視力越來越模糊」；裂隙燈見中央3.5 mm橢圓形上皮缺損，邊緣灰白平滑且增厚捲曲（rolled edges），下方無膿性浸潤但前基質已變薄約40%，Cochet-Bonnet角膜知覺計讀數為5 mm。下列哪項整合處置最關鍵？",
+      "options": [
+        {
+          "text": "立即停用局部NSAID、抗病毒藥與含防腐劑藥水；改用無防腐劑潤滑、自體血清或羊膜並評估瞼縫合",
+          "rationale": "平滑灰白捲邊加上角膜知覺幾近喪失且「越薄越不痛」，確診為Mackie第2至第3期神經營養性角膜病變（NK）；局部NSAID（diclofenac）與抗病毒藥／BAK防腐劑具強烈上皮毒性並會加速無菌性角膜融解穿孔，必須立即停毒並改採神經營養修復與眼表保護。",
+          "whenTrue": "三叉神經受損後出現無痛性平滑捲邊持續上皮缺損與基質變薄，且正在使用具上皮毒性或促融解藥物時。"
+        },
+        {
+          "text": "將基質變薄視為活動性病毒複製轉強，立即把局部抗病毒藥增至每2小時一次，並加點高強度prednisolone壓制基質金屬蛋白酶",
+          "rationale": "邊緣平滑捲曲的橢圓缺損屬於無活病毒的疱疹後神經營養性潰瘍（metaherpetic ulcer），加密局部抗病毒藥只會加重上皮毒性，而在大片上皮缺損伴變薄時直接點高強度類固醇極易誘發穿孔。",
+          "whenTrue": "完整上皮下出現免疫性基質角膜炎或內皮炎、無上皮缺損與無菌融解風險，且以口服或適當抗病毒保護配合類固醇時。"
+        },
+        {
+          "text": "在門診顯微鏡下使用30G針頭於中央缺損區及周圍施行密集前基質穿刺術（ASP），並繼續點用diclofenac維持患者無痛舒適度",
+          "rationale": "前基質穿刺術（ASP）僅適用於創傷或前彈力層失養症所致之周邊反覆角膜糜爛（RCE），絕對不適用於神經營養性潰瘍基質變薄區（會造成穿孔與中央視軸疤痕），且持續點用NSAID會引爆角膜融解。",
+          "whenTrue": "角膜知覺正常、無基質變薄之非視軸周邊外傷後反覆角膜糜爛，且已停用所有抑制上皮修復藥物時。"
+        },
+        {
+          "text": "直接將氰基丙烯酸酯組織膠（cyanoacrylate glue）厚塗於3.5 mm捲邊上皮缺損表面，不戴治療型隱形眼鏡並預約一個月後回診",
+          "rationale": "本例目前尚有平滑捲曲上皮邊緣與40%變薄，應先去毒並以自體血清、羊膜移植或瞼縫合促進上皮跨過；若真需使用氰基丙烯酸酯膠（通常用於嚴重融解瀕臨穿孔或小穿孔），也必須先清除壞死鬆動上皮並強制配戴繃帶型隱形眼鏡以防巨大乳突摩擦與膠塊脫落。",
+          "whenTrue": "角膜基質重度融解瀕臨穿孔或已有≤2 mm小穿孔，且經清創後點膠並同步配戴治療型軟式隱形眼鏡密集追蹤時。"
+        }
+      ],
+      "correctIndex": 0,
+      "closestDistractorIndex": 1,
+      "decisiveDiscriminator": "「無痛、角膜知覺喪失、邊緣灰白平滑捲曲」鎖定為Mackie中重度神經營養性角膜病變（而非活動性病毒感染）；此時局部NSAID與局部抗病毒藥／防腐劑正是導致基質加速變薄融解的醫源性推手，必須優先停除。",
+      "counterfactual": "若檢查改為角膜上皮完全癒合完整，但基質出現盤狀水腫（disciform edema）與後表面KP，則屬免疫性疱疹基質／內皮炎，以抗病毒保護配合局部類固醇治療即屬正當。",
+      "explanation": "先結合HZO病史、Cochet-Bonnet知覺極低、「基質變薄40%卻完全不痛」及灰白平滑捲曲邊緣（rolled edges），確立為Mackie第2–3期神經營養性角膜病變（metaherpetic ulcer） → 再檢視目前用藥，辨識局部NSAID（diclofenac）會誘發無菌性角膜融解（corneal melt），而局部抗病毒藥膏與含防腐劑淚液會毒殺再生上皮 → 立即停除所有眼表毒性與NSAID藥物（若需防疱疹復發應改用無眼表毒性的口服抗病毒藥），啟動無防腐劑潤滑、自體血清／羊膜或cenegermin，並視需要行瞼縫合保護。",
+      "testConcept": "神經營養性角膜潰瘍必須立即停除局部NSAID與毒性眼藥並啟動神經眼表修復",
+      "questionType": "clinical-integration",
+      "difficulty": "advanced",
+      "domain": "cornea-uveitis",
+      "reasoningSteps": [
+        "由HZO後角膜知覺喪失、症狀與病灶嚴重度背離（越薄越不痛）及平滑捲邊，確診為神經營養性角膜潰瘍（NK）",
+        "辨識現用0.1% diclofenac（局部NSAID）、局部抗病毒藥與防腐劑為阻礙上皮癒合並誘發基質融解的危險因子",
+        "立即停用所有眼表毒性與NSAID點眼液，改採無防腐劑潤滑、自體血清／羊膜或cenegermin及瞼縫合保護"
+      ],
+      "sourceRefs": [
+        {
+          "bookId": "bcsc-s08",
+          "pdfPages": [
+            106,
+            107,
+            109,
+            110,
+            111,
+            112
+          ],
+          "chapterHeading": "Eyelid, Conjunctival, and Corneal Conditions Associated With Ocular Surface Disorders"
+        },
+        {
+          "bookId": "bcsc-s08",
+          "pdfPages": [
+            126,
+            127,
+            128
+          ],
+          "chapterHeading": "Therapeutic Interventions for Ocular Surface Disorders"
+        }
+      ],
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "extra-20261022-q061",
+      "questionScope": "original-practice",
+      "bookId": "bcsc-s08",
+      "chapterIds": [
+        "bcsc-s08-ch007",
+        "bcsc-s08-ch008",
+        "bcsc-s08-ch002"
+      ],
+      "unitIds": [
+        "bcsc-s08-ch007-u03",
+        "bcsc-s08-ch008-u02",
+        "bcsc-s08-ch002-u03"
+      ],
+      "stem": "38歲女性因右眼近半年晨間霧視與眼脹就診，無外傷或手術史。右眼BCVA 20/40、GAT眼壓30 mmHg，角膜呈細緻銀鎚狀（beaten-bronze）內皮反光伴輕度基質水腫，虹膜表面尚無明顯破洞但瞳孔輕度向鼻上方偏移；左眼裂隙燈、眼壓與鏡面顯微鏡（specular microscopy）完全正常。右眼隅角鏡見多處跨越鞏膜突並延伸至Schwalbe線前方的寬基底周邊前黏連（high PAS）。下列哪項整合判斷與處置最恰當？",
+      "options": [
+        {
+          "text": "診斷為早發性Fuchs角膜內皮失養症合併原發性隅角閉鎖；立即開立局部碳酸酐酶抑制劑（dorzolamide）作為首選降壓藥並施打LPI",
+          "rationale": "Fuchs失養症為雙側性，不會出現對側眼鏡面顯微鏡完全正常且單側跨越Schwalbe線的高位PAS；此外對瀕臨失代償的角膜內皮使用局部CAI會抑制內皮碳酸氫根脫水幫浦而加重水腫，且ICE的收縮膜並非瞳孔阻滯，施打LPI無效。",
+          "whenTrue": "雙側對稱性中央guttae、對側眼亦見內皮病變，且窄角確認源於瞳孔阻滯而非異常內皮膜拉扯時（仍應避開局部CAI）。"
+        },
+        {
+          "text": "診斷為後多形性角膜失養症（PPCD）；安排體染色體顯性家族篩檢，並針對右眼施行深前板層角膜移植術（DALK）置換病變層",
+          "rationale": "PPCD雖可伴發高位虹膜沾黏與青光眼，但典型為雙側體染色體顯性遺傳，在鏡面顯微鏡下呈現囊泡或鐵軌帶狀病變；更重要的是內皮病變做保留內皮的DALK完全無法解決水腫。",
+          "whenTrue": "雙側角膜後表面見囊泡或鐵軌帶狀病變且具家族顯性遺傳傾向時（若需角膜移植亦應選擇內皮移植EK而非DALK）。"
+        },
+        {
+          "text": "診斷為Chandler型ICE症候群；以非CAI降壓藥控制IOP並規畫內皮移植，預告青光眼較水腫更難控制",
+          "rationale": "中年女性、單側發病、對側眼完全正常、角膜銀鎚狀內皮反光（突出角膜水腫而虹膜萎縮較輕）加上跨越Schwalbe線的高位PAS，精準符合Chandler症候群（最常見的ICE亞型）；治療需避開抑制內皮幫浦的局部CAI，且因異常上皮化內皮膜會持續爬行覆蓋房角（甚至阻塞濾過口），長期青光眼控制是視力預後的最大挑戰。",
+          "whenTrue": "單側獲得性異常內皮伴高位PAS與高眼壓、對側眼正常，且以角膜水腫為主要前節表現時。"
+        },
+        {
+          "text": "診斷為Cogan-Reese症候群轉化之瀰漫性虹膜惡性黑色素瘤；禁止任何降眼壓濾過手術並立即轉介眼腫瘤科安排眼球摘除術",
+          "rationale": "Cogan-Reese雖同屬ICE家族並出現虹膜表面色素結節，但其本質為良性增生內皮膜包夾虹膜基質而非惡性黑色素瘤，本例亦無虹膜結節，絕不可誤行眼球摘除。",
+          "whenTrue": "經UBM、前節影像與細胞病理學確切證實為無法局部切除且具鞏膜外侵犯之真正惡性黑色素瘤時。"
+        }
+      ],
+      "correctIndex": 2,
+      "closestDistractorIndex": 0,
+      "decisiveDiscriminator": "「對側眼鏡面顯微鏡完全正常」加上「單側跨越Schwalbe線的高位PAS與瞳孔偏移」，將單側異常內皮鎖定為獲得性Chandler型ICE症候群，排除雙側遺傳性的Fuchs與PPCD；同時內皮失代償眼應避免局部CAI。",
+      "counterfactual": "若對側眼鏡面顯微鏡同樣呈現雙側融合性中央guttae、隅角無跨越Schwalbe線的收縮膜PAS，則診斷轉向Fuchs角膜內皮失養症。",
+      "explanation": "先利用「38歲女性、嚴格單側發病、左眼鏡面顯微鏡完全正常」排除雙側遺傳性內皮失養症（Fuchs與PPCD） → 再結合「銀鎚狀內皮、輕度瞳孔偏移、跨越Schwalbe線的高位PAS且以角膜水腫為主」，確立為ICE症候群中最常見的Chandler亞型 → 處置上須同時兼顧角膜內皮與房角：降眼壓應避開抑制內皮碳酸氫根幫浦的局部CAI，角膜失代償需評估內皮移植（EK），並預期異常內皮膜持續爬行會使青光眼比角膜水腫更難長期控制。",
+      "testConcept": "單側銀鎚狀內皮配高位PAS與正常對側眼為Chandler型ICE，治療需避開局部CAI並嚴控青光眼",
+      "questionType": "clinical-integration",
+      "difficulty": "advanced",
+      "domain": "cornea-uveitis",
+      "reasoningSteps": [
+        "由中年女性、嚴格單側發病且對側眼鏡面顯微鏡完全正常，排除雙側遺傳性的Fuchs與PPCD",
+        "結合銀鎚狀內皮、輕度瞳孔移位與跨越Schwalbe線的高位PAS，定位為Chandler型ICE症候群",
+        "選擇不抑制內皮脫水幫浦的非CAI降壓治療（及後續濾過／引流與內皮移植），並認知異常內皮膜推進使青光眼控制最為棘手"
+      ],
+      "sourceRefs": [
+        {
+          "bookId": "bcsc-s08",
+          "pdfPages": [
+            177,
+            178,
+            179,
+            180,
+            182,
+            183
+          ],
+          "chapterHeading": "Clinical Approach to Degenerations and Depositions of the Conjunctiva, Cornea, and Sclera"
+        },
+        {
+          "bookId": "bcsc-s08",
+          "pdfPages": [
+            202,
+            203,
+            204,
+            205
+          ],
+          "chapterHeading": "Diagnosis and Management of Corneal Dystrophies"
+        },
+        {
+          "bookId": "bcsc-s08",
+          "pdfPages": [
+            38,
+            45
+          ],
+          "chapterHeading": "The Approach, Techniques, and Devices for Examination of the External Eye and Cornea"
+        }
+      ],
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "extra-20261022-q062",
+      "questionScope": "original-practice",
+      "bookId": "bcsc-s09",
+      "chapterIds": [
+        "bcsc-s09-ch007",
+        "bcsc-s09-ch006"
+      ],
+      "unitIds": [
+        "bcsc-s09-ch007-u01",
+        "bcsc-s09-ch007-u02",
+        "bcsc-s09-ch006-u01"
+      ],
+      "stem": "66歲患者6年前曾於鼻側施行翼狀贅肉切除併用術中絲裂黴素C（MMC）。近兩週右眼鼻側劇痛並放射至同側額顳部，夜間痛醒；外院當作手術誘發壞死性鞏膜炎（SINS）給予口服prednisolone 60 mg/day一週後，疼痛與結膜下黃白化膿壞死反而擴大，中央露出一塊無血管灰白鞏膜伴表層鈣化斑與周圍鞏膜變薄，一般表面結膜拭子細菌培養回報「無菌生長」。下列哪項整合決策最恰當？",
+      "options": [
+        {
+          "text": "認定口服類固醇局部穿透力不足，立即於鼻側病灶旁施行結膜下triamcinolone注射以迅速壓制壞死性鞏膜炎",
+          "rationale": "壞死性鞏膜炎（無論感染或非感染）絕對禁止眼周或結膜下類固醇注射，因為高濃度局部類固醇會抑制膠原合成並誘發鞏膜瞬間融解穿孔；且本例高度疑似感染性鞏膜炎，注射類固醇將釀成災難。",
+          "whenTrue": "此選項在任何壞死性鞏膜炎或疑似感染性鞏膜炎情境下皆屬絕對禁忌，僅非壞死、非感染性後部眼炎在排除禁忌後方可評估眼周治療。"
+        },
+        {
+          "text": "根據表面結膜拭子培養陰性排除微生物感染，確立為難治型SINS並立即加用靜脈注射cyclophosphamide脈衝治療",
+          "rationale": "感染性鞏膜炎的病原深埋於緻密鞏膜板層內，表面棉棒拭子極常呈偽陰性；在既往MMC無血管區化膿且全身類固醇治療下惡化時，盲目升級免疫抑制劑會導致感染失控穿孔。",
+          "whenTrue": "經深層鞏膜活檢與廣譜微生物培養確切排除感染，且合併全身性血管炎（如GPA或類風濕血管炎）之真正非感染性壞死性鞏膜炎時。"
+        },
+        {
+          "text": "因翼狀贅肉手術已逾6年而排除術後關聯，改依單純表層鞏膜炎（episcleritis）停用口服類固醇並單純改服口服NSAID觀察",
+          "rationale": "翼狀贅肉併用MMC留下的永久無血管鞏膜與鈣化斑，可在術後數月至十數年後才爆發遲發性感染性鞏膜炎（最常見為Pseudomonas aeruginosa）；且劇痛痛醒與鞏膜變薄壞死絕非表層鞏膜炎。",
+          "whenTrue": "無劇烈放射痛與鞏膜變薄壞死、10% phenylephrine點眼後充血血管明顯退白之單純特發性表層鞏膜炎時。"
+        },
+        {
+          "text": "懷疑MMC區遲發性感染性鞏膜炎；行手術室深層鞏膜清創活檢與多元培養，啟動強化抗感染治療並減停類固醇",
+          "rationale": "既往翼狀贅肉併用MMC是感染性鞏膜炎最典型的危險溫床（即使相隔多年），且類固醇下化膿惡化是核心警訊；表面拭子不足採信，必須在顯微鏡下做深層鞏膜刮取／切片（移除鈣化斑與壞死組織）送多元染色培養，並立即給予覆蓋Pseudomonas等病原之強化治療。",
+          "whenTrue": "有翼狀贅肉併用MMC或眼手術史、出現無血管區化膿性壞死性鞏膜炎且對類固醇反應惡化時。"
+        }
+      ],
+      "correctIndex": 3,
+      "closestDistractorIndex": 1,
+      "decisiveDiscriminator": "既往翼狀贅肉併用MMC留下的無血管鈣化鞏膜可在多年後引發遲發性感染性鞏膜炎（尤以Pseudomonas最常見），且病原深藏鞏膜板層使表面棉棒拭子常為偽陰性；「類固醇下化膿惡化」要求立即深層取樣清創而非升級cyclophosphamide。",
+      "counterfactual": "若患者無任何眼部手術或外傷史，深層鞏膜活檢與完整微生物檢查均為陰性，且血液c-ANCA（PR3）強陽性伴肺腎血管炎表現，則確立為非感染性壞死性鞏膜炎並啟動全身免疫抑制劑（如cyclophosphamide或rituximab）即成立。",
+      "explanation": "先破除時程迷思：翼狀贅肉切除併用MMC造成的無血管缺血鞏膜與鈣化斑，可在術後數年後才誘發遲發性感染性鞏膜炎（頭號致病菌為Pseudomonas aeruginosa） → 再解析檢驗與治療反應：緻密鞏膜板層內的感染無法靠表面結膜拭子排除，而「口服類固醇後化膿壞死反而擴大」強烈指向未受控的微生物感染 → 立即拒絕結膜下類固醇注射（絕對禁忌）與盲目升級cyclophosphamide，改進手術室行深層鞏膜清創活檢（送細菌、真菌、抗酸菌培養）、啟動強化抗感染治療並減停類固醇。",
+      "testConcept": "MMC翼狀贅肉術後鞏膜壞死在類固醇下惡化時，須跨過表面陰性拭子執行深層鞏膜取樣與抗感染治療",
+      "questionType": "clinical-integration",
+      "difficulty": "advanced",
+      "domain": "cornea-uveitis",
+      "reasoningSteps": [
+        "連結6年前翼狀贅肉併用MMC病史與鼻側無血管鈣化斑壞死，識破遲發性感染性鞏膜炎（尤以綠膿桿菌）的高風險背景",
+        "判定表面結膜棉棒拭子無法排除深層鞏膜板層感染，且類固醇治療下化膿惡化推翻單純自體免疫SINS假設",
+        "嚴守壞死性鞏膜炎禁用眼周類固醇注射原則，安排深層鞏膜活檢清創、多元微生物培養與強化抗感染治療"
+      ],
+      "sourceRefs": [
+        {
+          "bookId": "bcsc-s09",
+          "pdfPages": [
+            140,
+            141,
+            142,
+            143
+          ],
+          "chapterHeading": "Scleritis"
+        },
+        {
+          "bookId": "bcsc-s09",
+          "pdfPages": [
+            114,
+            115,
+            116,
+            117,
+            118,
+            119
+          ],
+          "chapterHeading": "Therapy for Uveitis"
+        }
+      ],
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "extra-20261022-q063",
+      "questionScope": "original-practice",
+      "bookId": "bcsc-s09",
+      "chapterIds": [
+        "bcsc-s09-ch008",
+        "bcsc-s09-ch006",
+        "bcsc-s09-ch005"
+      ],
+      "unitIds": [
+        "bcsc-s09-ch008-u03",
+        "bcsc-s09-ch006-u02",
+        "bcsc-s09-ch005-u02"
+      ],
+      "stem": "29歲女性因雙眼持續飛蚊與視力模糊就診，最佳矯正視力雙眼皆為20/50。前房僅見微量細胞，玻璃體有2+細胞、下方玻璃體雪球（snowballs）與平坦部雪堤（snowbanks），視網膜周邊靜脈有節段性血管鞘，黃斑OCT顯示雙眼明顯囊樣黃斑水腫（CME）。梅毒血清學、IGRA結核檢驗、胸部影像與ACE皆為陰性；但詳細病史問出患者去年曾有持續兩週的單側下肢麻木與Lhermitte徵象，腦部MRI見多處垂直腦室周圍白質之Dawson手指樣脫髓鞘病灶。若為控制頑固發炎與雙眼CME而規畫全身免疫調節治療（IMT），下列哪項決策最正確？",
+      "options": [
+        {
+          "text": "直接命名為特發性平坦部炎（pars planitis），並立即啟動皮下注射adalimumab作為第一線全身生物製劑",
+          "rationale": "Pars planitis的定義必須先排除多發性硬化症（MS）與類肉瘤病等全身關聯疾病；更關鍵的是，抗TNF-α生物製劑（如adalimumab、infliximab）會誘發或嚴重惡化中樞神經系統脫髓鞘病變，在本例屬絕對禁忌。",
+          "whenTrue": "已徹底排除多發性硬化症、視神經炎與潛伏感染（TB、B型肝炎）之非感染性中間型或後部葡萄膜炎，需升級生物製劑時。"
+        },
+        {
+          "text": "診斷為MS關聯中間型葡萄膜炎；治療雙眼CME時嚴禁使用抗TNF-α製劑，轉介神經內科並選用安全IMT",
+          "rationale": "下方雪球／雪堤伴周邊靜脈鞘雖呈現pars planitis形態，但合併Lhermitte徵象與腦室周圍典型脫髓鞘MRI病灶，應診斷為MS關聯中間型葡萄膜炎；處置雙眼CME須全身或局部類固醇與IMT，但必須嚴格避開會誘發脫髓鞘惡化的抗TNF-α製劑。",
+          "whenTrue": "中間型葡萄膜炎合併中樞神經脫髓鞘病史或MRI證據，且因雙眼囊樣黃斑水腫需規劃全身免疫調節治療時。"
+        },
+        {
+          "text": "因前房僅有微量細胞且無瞳孔後黏連，判定眼內發炎已自然靜止，將視力20/50歸因於既往視神經炎後遺症而不治療黃斑囊腔",
+          "rationale": "中間型葡萄膜炎的主戰場在玻璃體而非前房，前房安靜絕不代表疾病緩解；黃斑囊樣水腫（CME）正是中間型眼炎最常見的視力喪失主因，必須積極治療水腫與玻璃體發炎。",
+          "whenTrue": "玻璃體完全清澈無活性細胞、黃斑OCT確認無水腫且結構正常，而OCT顯示GCIPL變薄與VEP潛伏期延長證實為陳舊視神經炎時。"
+        },
+        {
+          "text": "針對下方平坦部雪堤立即施行全周強能量經鞏膜冷凍治療（cryotherapy），完全不需給予任何類固醇或全身免疫調節藥物",
+          "rationale": "周邊冷凍或雷射僅在少數合併周邊新生血管或反覆玻璃體出血且藥物控制後考慮，對雙眼活動性玻璃體炎伴中心CME單做冷凍不僅無法消除黃斑水腫，反而可能加劇血視網膜屏障破壞與水腫。",
+          "whenTrue": "中間型葡萄膜炎經充分抗發炎控制後，仍存在平坦部新生血管導致反覆玻璃體出血或牽引風險需局部消融輔助時。"
+        }
+      ],
+      "correctIndex": 1,
+      "closestDistractorIndex": 0,
+      "decisiveDiscriminator": "特發性pars planitis必須排除多發性硬化症（MS）；當患者具備Lhermitte徵象與腦室旁脫髓鞘病灶時，不僅診斷應修正為MS關聯中間型葡萄膜炎，更直接觸發「抗TNF-α生物製劑（如adalimumab）絕對禁忌」的安全鐵律。",
+      "counterfactual": "若神經學病史與腦部MRI完全正常、且已排除梅毒、結核與類肉瘤病，則診斷為特發性pars planitis並於類固醇依賴時選用adalimumab即屬標準實證方案。",
+      "explanation": "先辨識解剖與視力威脅：前房細胞少符合中間型葡萄膜炎特性，而雙眼視力20/50的直接元兇為黃斑囊樣水腫（CME），必須積極控制發炎 → 再進行病因學收斂：雖然眼底有雪球與雪堤，但合併Lhermitte徵象、周邊靜脈鞘與腦部MRI脫髓鞘病灶，屬於多發性硬化症（MS）關聯中間型葡萄膜炎，不能稱為特發性pars planitis → 最後套用藥物安全禁忌：抗TNF-α生物製劑（adalimumab、infliximab）會誘發或惡化CNS脫髓鞘，在MS關聯眼炎中嚴禁使用，必須與神經內科協同選擇安全的類固醇與非抗TNF免疫調節方案。",
+      "testConcept": "中間型葡萄膜炎合併脫髓鞘病變時，既不屬特發性pars planitis，亦絕對禁用抗TNF-α生物製劑",
+      "questionType": "clinical-integration",
+      "difficulty": "advanced",
+      "domain": "cornea-uveitis",
+      "reasoningSteps": [
+        "確認中間型葡萄膜炎即使前房反應輕微，其雙眼20/50視力下降仍由活動性玻璃體炎與黃斑囊樣水腫（CME）主導，需全身抗炎治療",
+        "整合Lhermitte徵象、周邊視網膜靜脈鞘與腦室周圍MRI病灶，排除特發性pars planitis並確立為多發性硬化症（MS）關聯中間型葡萄膜炎",
+        "套用生物製劑安全準則：MS或中樞脫髓鞘病變絕對禁用抗TNF-α製劑（如adalimumab），改與神經內科協同選用安全IMT方案"
+      ],
+      "sourceRefs": [
+        {
+          "bookId": "bcsc-s09",
+          "pdfPages": [
+            155,
+            162,
+            166,
+            167,
+            170
+          ],
+          "chapterHeading": "Noninfectious Anterior and Intermediate Uveitis"
+        },
+        {
+          "bookId": "bcsc-s09",
+          "pdfPages": [
+            114,
+            115,
+            116,
+            117,
+            118,
+            119
+          ],
+          "chapterHeading": "Therapy for Uveitis"
+        },
+        {
+          "bookId": "bcsc-s09",
+          "pdfPages": [
+            84,
+            85,
+            86,
+            87,
+            88,
+            90
+          ],
+          "chapterHeading": "Diagnostic Considerations in Uveitis"
+        }
+      ],
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "extra-20261022-q064",
+      "questionScope": "original-practice",
+      "bookId": "bcsc-s12",
+      "chapterIds": [
+        "bcsc-s12-ch003",
+        "bcsc-s12-ch002"
+      ],
+      "unitIds": [
+        "bcsc-s12-ch003-u01",
+        "bcsc-s12-ch003-u02",
+        "bcsc-s12-ch002-u02"
+      ],
+      "stem": "34歲患者因雙眼中心視力漸進性降至20/60求診，散瞳眼底與自發螢光（FAF）在外觀上未見明顯大片萎縮斑。全視野網膜電圖（ffERG）之暗適應與明適應a波、b波及30 Hz閃爍反應完全正常；眼電圖（EOG）之Arden比值為2.1。然而多焦網膜電圖（mfERG）顯示雙眼中心環帶振幅顯著壓平且潛伏期延長，圖形網膜電圖（PERG）見P50波幅重挫並連帶使N95等比例下降。下列哪項整合定位與判讀最正確？",
+      "options": [
+        {
+          "text": "因ffERG與EOG完全正常且眼底外觀無明顯大病灶，判定為非器質性功能性視力喪失（malingering）並轉介身心科",
+          "rationale": "全視野ffERG反映全視網膜總和反應（逾90%錐細胞位於中心凹以外），單純侷限於黃斑部的感光細胞病變本來就會呈現完全正常的ffERG；mfERG與PERG P50的客觀異常已確鑿證實黃斑器質性病變。",
+          "whenTrue": "ffERG、mfERG、PERG（P50與N95）及高解析SD-OCT外四高反射帶全部正常，且視力檢查表現符合功能性矛盾時。"
+        },
+        {
+          "text": "依據PERG之N95波幅下降，將原發病灶定位於視神經節細胞或視交叉前視神經傳導束，優先安排腦部與眼眶增強MRI",
+          "rationale": "PERG的N95雖源自視網膜神經節細胞，但其訊號仰賴上游黃斑外中層驅動；當P50先重挫並造成N95「等比例次發下降」（N95/P50比值未選擇性倒置）且mfERG中心壓平時，原發病灶在黃斑外層而非視神經。",
+          "whenTrue": "mfERG與PERG P50完全正常，唯獨PERG N95選擇性壓平且伴隨RAPD或紅綠色覺異常之原發性視神經節細胞病變時。"
+        },
+        {
+          "text": "定位為雙眼局部黃斑外視網膜／錐細胞功能障礙，進一步精查高解析黃斑OCT之橢圓體帶（EZ）與相關基因",
+          "rationale": "正常ffERG排除全視網膜廣泛桿錐失養，正常EOG（Arden比值2.1 ≥ 1.5）排除BEST1瀰漫RPE氯離子通道障礙；而mfERG中心環壓平與PERG P50重挫一致鎖定局部黃斑外中層錐細胞功能受損，需對照高解析OCT外層帶（ELM/EZ/IZ）與基因檢測。",
+          "whenTrue": "ffERG與EOG正常，但mfERG中心振幅顯著下降且PERG由P50主導減損，指向局部黃斑外視網膜病變時。"
+        },
+        {
+          "text": "根據mfERG異常搭配正常ffERG，直接確診為體染色體顯性Best卵黃樣黃斑失養症（BEST1突變）之卵黃破裂吸收期",
+          "rationale": "Best卵黃樣黃斑失養症的核心電生理特徵是「ffERG正常但EOG Arden比值顯著下降（通常<1.5）」；本例Arden比值為正常的2.1，不符典型BEST1全RPE功能異常。",
+          "whenTrue": "ffERG正常而EOG Arden比值小於1.5，且FAF／OCT見卵黃樣視網膜下高自發螢光沉積或其吸收後改變時。"
+        }
+      ],
+      "correctIndex": 2,
+      "closestDistractorIndex": 1,
+      "decisiveDiscriminator": "全視野ffERG正常僅能排除全視網膜廣泛病變，不能排除黃斑局部病變；而mfERG中心振幅壓平加上PERG由P50先重挫（而非單獨N95選擇性受損），將病灶精準鎖定於黃斑外中層錐細胞而非視神經。",
+      "counterfactual": "若mfERG中心各環振幅與PERG P50完全正常，僅見PERG N95選擇性顯著壓平並伴隨VEP潛伏期延長，則原發病灶改定位於視網膜神經節細胞／視神經傳導路徑。",
+      "explanation": "先解讀全視野測試：ffERG正常代表全視網膜絕大多數周邊錐桿細胞功能良好，但因中心凹僅佔極小比例，正常ffERG絕不能排除局部黃斑病變；同時EOG Arden比值2.1正常，排除BEST1失養症 → 再交叉比對局部電生理：mfERG中心環帶壓平證實黃斑錐細胞／雙極細胞受損，而PERG的P50重挫（連帶使下游N95次發減低）進一步確認病源在黃斑外中層而非原發性視神經節細胞病變 → 整合定位為局部黃斑外視網膜病變（如occult macular dystrophy等），應細查高解析OCT之EZ/IZ微結構與基因。",
+      "testConcept": "正常ffERG不排除黃斑病變；需結合mfERG中心振幅與PERG P50／N95關係定位局部黃斑外層受損",
+      "questionType": "clinical-integration",
+      "difficulty": "advanced",
+      "domain": "retina",
+      "reasoningSteps": [
+        "認識全視野ffERG反映全網膜總和（>90%錐細胞在中心凹外），因此ffERG與EOG正常僅排除廣泛網膜變性與Best病，不能當作裝病依據",
+        "利用mfERG中心環壓平與PERG P50波幅重挫（N95僅為次發等比例下降），區分黃斑外中層病變與原發性視神經節細胞病變",
+        "定位為雙眼局部黃斑外視網膜／錐細胞功能障礙，安排高解析度黃斑OCT檢查外四高反射帶（特別是EZ/IZ）與基因檢測"
+      ],
+      "sourceRefs": [
+        {
+          "bookId": "bcsc-s12",
+          "pdfPages": [
+            64,
+            65,
+            66,
+            67,
+            68,
+            69
+          ],
+          "chapterHeading": "Ret i nal Physiology and Psychophysics"
+        },
+        {
+          "bookId": "bcsc-s12",
+          "pdfPages": [
+            42,
+            43,
+            44,
+            45
+          ],
+          "chapterHeading": "Diagnostic Approach to Ret i nal and Choroidal Disease"
+        }
+      ],
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "extra-20261022-q065",
+      "questionScope": "original-practice",
+      "bookId": "bcsc-s12",
+      "chapterIds": [
+        "bcsc-s12-ch006",
+        "bcsc-s12-ch001"
+      ],
+      "unitIds": [
+        "bcsc-s12-ch006-u02",
+        "bcsc-s12-ch006-u03",
+        "bcsc-s12-ch001-u03"
+      ],
+      "stem": "77歲女性因右眼1小時前突發無痛性視力改變求診。由於患者恰有一條發自視盤顳側的睫狀視網膜動脈（cilioretinal artery）供應黃斑中心小凹，右眼中心最佳矯正視力仍維持20/25，但中心小凹以外後極部網膜泛白，SD-OCT見中心凹外內視網膜各層（NFL至INL內半）呈高反射增厚，外核層與RPE正常。問診發現患者近兩週有咀嚼時雙側下顎痠痛疲乏（jaw claudication）、顳部觸痛與體重減輕。下列哪項急診整合處置最正確？",
+      "options": [
+        {
+          "text": "因中心視力高達20/25且眼底未見典型孤立櫻桃紅點，判定缺血程度輕微，開立口服阿斯匹靈並預約一週後門診追蹤視野",
+          "rationale": "睫狀視網膜動脈源自後睫狀動脈循環，雖保住中心凹20/25視力，但本質仍是完整的急性視網膜中央動脈阻塞（CRAO）；且合併顎跛行高度指向巨細胞動脈炎（GCA），延遲一週將導致對側眼甚至雙眼永久失明與中風。",
+          "whenTrue": "無任何急性視網膜動脈阻塞徵象、OCT內層完全正常，且已徹底排除巨細胞動脈炎與頸動脈栓塞事件時。"
+        },
+        {
+          "text": "將主要治療寄託於立即前房穿刺放液與眼球按摩以求打通中央視網膜動脈，待兩週後顳動脈切片病理報告出爐再決定是否給予全身類固醇",
+          "rationale": "前房穿刺與眼球按摩對CRAO視力預後並無實證效益；更致命的是，懷疑動脈炎性CRAO（GCA）時絕對不可等待顳動脈切片結果才給藥，必須在抽血後第一時間啟動高劑量全身類固醇以挽救對側眼與睫狀視網膜動脈。",
+          "whenTrue": "在任何疑似巨細胞動脈炎所致之急性視覺缺血事件中，等待切片報告而延遲類固醇皆屬嚴重醫療失誤。"
+        },
+        {
+          "text": "診斷為慢性眼缺血症候群（OIS）；因內層網膜高反射代表微血管滲漏，立即施打玻璃體內抗VEGF注射並安排一個月後頸動脈超音波",
+          "rationale": "OIS為同側頸動脈≥90%重度狹窄所致之慢性低灌流（表現為中周邊斑點出血與NVI），而非1小時突發的後極部內視網膜高反射水腫；且抗VEGF對急性CRAO或GCA毫無治療作用。",
+          "whenTrue": "慢性單眼視力模糊伴光壓力恢復延長、中周邊點狀出血與虹膜新生血管，且已排除急性CRAO與GCA後處理新生血管併發症時。"
+        },
+        {
+          "text": "判定為睫狀視網膜動脈保留型CRAO疑GCA；急抽ESR／CRP／CBC並即刻給高劑量類固醇與中風評估",
+          "rationale": "雙重血供解剖解釋了為何中央視網膜動脈阻塞時（OCT內層NFL–INL高反射水腫），源自後睫狀動脈的睫狀視網膜動脈仍能維持中心20/25視力；但顎跛行與顳部觸痛直指GCA，一旦GCA侵犯後睫狀動脈，連僅存的睫狀視網膜動脈與對側眼都會瞬間梗死，必須立刻抽血並給予高劑量全身類固醇，同時執行急性中風與GCA確診流程。",
+          "whenTrue": "≥50歲患者發生急性CRAO（含睫狀視網膜動脈保留型）且具顎跛行等GCA警訊時。"
+        }
+      ],
+      "correctIndex": 3,
+      "closestDistractorIndex": 0,
+      "decisiveDiscriminator": "睫狀視網膜動脈源自後睫狀動脈，雖使CRAO患者暫保20/25中心視力，但顎跛行代表巨細胞動脈炎（GCA）隨時會連後睫狀動脈與對側眼一併阻斷；絕不能因視力20/25而放鬆，必須立刻給高劑量全身類固醇並急診處置。",
+      "counterfactual": "若患者無任何GCA症狀且ESR、CRP與血小板均正常，則屬非動脈炎性（栓塞性）睫狀視網膜動脈保留型CRAO，此時不給予高劑量類固醇，但仍須立即轉送急診中風中心完成腦部MRI-DWI、頸動脈與心臟評估。",
+      "explanation": "先結合視網膜雙重血供與OCT層次：後極部內視網膜（NFL至INL內半）高反射增厚確立為急性CRAO，而源自後睫狀動脈的睫狀視網膜動脈（見於約15%–32%人口）保住了中心小凹20/25視力 → 再識別致命病因警訊：77歲伴隨咀嚼顎跛行（jaw claudication）與顳部觸痛，高度指向動脈炎性CRAO（巨細胞動脈炎GCA） → 由於GCA最常侵犯後睫狀動脈，若不立即給藥，僅存的睫狀視網膜動脈與對側眼將在數小時至數日內失明，故須立即抽ESR/CRP/CBC並即刻給予高劑量全身類固醇，同步安排顳動脈評估與急性腦血管檢查。",
+      "testConcept": "睫狀視網膜動脈保留使CRAO維持好視力，但合併顎跛行時必須立即啟動GCA高劑量類固醇急救與中風評估",
+      "questionType": "clinical-integration",
+      "difficulty": "advanced",
+      "domain": "retina",
+      "reasoningSteps": [
+        "由OCT中心凹外內視網膜（NFL–INL）高反射水腫搭配中心20/25視力，辨識為睫狀視網膜動脈保留型急性CRAO",
+        "根據77歲高齡與高特異性的咀嚼顎跛行（jaw claudication），鎖定潛在巨細胞動脈炎（GCA）隨時會阻斷後睫狀動脈與對側眼血供",
+        "拒絕因視力20/25而延遲或等待切片，立即急驗ESR／CRP／血小板並即刻投予高劑量全身類固醇，同步進行急診中風與顳動脈評估"
+      ],
+      "sourceRefs": [
+        {
+          "bookId": "bcsc-s12",
+          "pdfPages": [
+            155,
+            156,
+            157,
+            158,
+            159,
+            160
+          ],
+          "chapterHeading": "Ret i nal Vascular Diseases Associated With Cardiovascular Disease"
+        },
+        {
+          "bookId": "bcsc-s12",
+          "pdfPages": [
+            26,
+            27,
+            28,
+            29
+          ],
+          "chapterHeading": "Basic Anatomy"
+        }
+      ],
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "extra-20261022-q066",
+      "questionScope": "original-practice",
+      "bookId": "bcsc-s12",
+      "chapterIds": [
+        "bcsc-s12-ch007",
+        "bcsc-s12-ch002"
+      ],
+      "unitIds": [
+        "bcsc-s12-ch007-u02",
+        "bcsc-s12-ch007-u03",
+        "bcsc-s12-ch002-u03"
+      ],
+      "stem": "58歲女性因雙眼緩慢進行性閱讀困難與字體局部缺損就診，雙眼BCVA 20/40。眼底見中心凹顳側灰白透明度下降、一條小靜脈呈直角彎折潛入深層，無硬性脂質滲出或出血。SD-OCT見中心凹內層低反射空腔伴上方內界膜懸垂（ILM drape）及外層橢圓體帶（EZ）局部中斷，中心凹總厚度反而偏薄；眼底螢光血管攝影（FA）在中心凹顳側呈現晚期微血管染色但完全不隨囊腔輪廓蓄水膨脹，OCTA亦未見黃斑新生血管。下列哪項診斷與治療決策最合理？",
+      "options": [
+        {
+          "text": "診斷為糖尿病囊樣黃斑水腫（center-involved DME）；立即排程每月連續3針玻璃體內抗VEGF注射以消除中心凹內層空腔",
+          "rationale": "本例OCT空腔伴ILM懸垂與組織變薄屬於Müller細胞退化造成的萎縮性腔隙（atrophic cavitation），而非血管滲漏水腫；在無繼發性新生血管時施打抗VEGF無法消除退化腔隙，甚至可能加速神經視網膜退化。",
+          "whenTrue": "糖尿病視網膜病變患者OCT見視網膜增厚蓄水囊腔、FA呈花瓣狀滲漏填充，且中心涉及伴視力下降（≤20/32）時。"
+        },
+        {
+          "text": "診斷為非增殖期MacTel 2；認清OCT為退化腔而非滲漏水腫，避免常規抗VEGF或手術並監測次發CNV",
+          "rationale": "雙眼中心凹顳側灰白化、直角彎折靜脈、OCT內界膜懸垂（ILM drape）低反射萎縮腔伴EZ中斷，為典型MacTel 2；其空腔源於Müller細胞退化支撐喪失而非血管滲漏或玻璃體牽引，抗VEGF僅保留給併發次發性視網膜下新生血管者，內界膜剝除手術亦無助於閉合退化腔。",
+          "whenTrue": "中老年雙眼中心凹顳側直角靜脈、OCT見ILM懸垂退化腔與EZ缺損，且OCTA／FA確認無繼發性新生血管出血滲出時。"
+        },
+        {
+          "text": "診斷為白內障術後Irvine-Gass囊樣黃斑水腫；開立局部NSAID與強效類固醇雙聯點眼，無效時直接於後Tenon囊下注射triamcinolone",
+          "rationale": "Irvine-Gass為白內障術後血視網膜屏障破壞所致之真性滲漏水腫，FA典型呈現花瓣狀囊腔滲漏填充配視盤晚期高螢光（hot disc），且OCT視網膜顯著增厚，與本例之薄型ILM懸垂退化腔截然不同。",
+          "whenTrue": "白內障術後數週出現視網膜增厚囊腔、FA見典型花瓣狀滲漏與視盤染亮，且已排除慢性囊袋感染時。"
+        },
+        {
+          "text": "診斷為玻璃體黃斑牽引症候群（VMT）合併板層黃斑裂孔；立即安排平坦部玻璃體切除術（PPV）併用內界膜剝除與長效氣體填塞",
+          "rationale": "MacTel 2的內界膜懸垂是內層組織流失後僅剩基底膜跨在空腔上方，表面並無異常玻璃體皮質牽引；若誤當成牽引性黃斑裂孔施行內界膜剝除術，反而會扯破脆弱的中心凹屋頂釀成醫源性全層黃斑裂孔。",
+          "whenTrue": "OCT明確見到後玻璃體皮質局部緊咬中心凹造成結構變形拉扯、視力顯著下降且經觀察未自行鬆脫時。"
+        }
+      ],
+      "correctIndex": 1,
+      "closestDistractorIndex": 0,
+      "decisiveDiscriminator": "中心凹顳側直角靜脈加上OCT「內界膜懸垂（ILM drape）、視網膜變薄伴EZ缺損」且FA不隨囊腔蓄水，證明此空腔為MacTel 2之Müller細胞退化萎縮腔而非血管滲漏水腫，在無繼發性新生血管時不應施打抗VEGF。",
+      "counterfactual": "若追蹤期間該名MacTel 2患者突發視物變形惡化，眼底出現視網膜下出血與脂質滲出，且OCTA與FA證實中心凹旁長出次發性視網膜下新生血管伴活動性滲出，則啟動玻璃體內抗VEGF注射即轉為正確處置。",
+      "explanation": "先從結構與血管特徵定性：雙眼中心凹顳側灰白化、直角彎折靜脈，搭配OCT特徵性的「內界膜懸垂（ILM drape）低反射空腔、EZ中斷且中心凹整體偏薄」，確立為第2型黃斑部毛細血管擴張症（MacTel 2） → 再區分「退化腔隙」與「滲漏水腫」：FA雖有顳側微血管晚期染色，但空腔本身不蓄水膨脹，代表是Müller細胞退化造成的組織流失腔隙而非DME或Irvine-Gass水腫 → 治療上，非增殖期MacTel 2打抗VEGF無效，做PPV剝除ILM更會撕破懸垂屋頂；唯有日後併發次發性新生血管時才需抗VEGF治療。",
+      "testConcept": "MacTel 2的內界膜懸垂空腔屬Müller細胞退化而非滲漏水腫，無繼發新生血管時避免抗VEGF與手術",
+      "questionType": "clinical-integration",
+      "difficulty": "advanced",
+      "domain": "retina",
+      "reasoningSteps": [
+        "由雙眼中心凹顳側灰白化、直角潛入靜脈與OCT內界膜懸垂（ILM drape）伴EZ中斷，確立為第2型黃斑部毛細血管擴張症（MacTel 2）",
+        "結合視網膜厚度偏薄與FA無囊腔蓄水填充，將OCT空腔定性為Müller細胞退化萎縮腔，排除滲漏性CME與牽引性裂孔",
+        "在OCTA與眼底確認無次發性新生血管的前提下，避免無效的抗VEGF注射與高風險ILM剝除手術，採取支持與定期監測"
+      ],
+      "sourceRefs": [
+        {
+          "bookId": "bcsc-s12",
+          "pdfPages": [
+            188,
+            189,
+            190,
+            191,
+            192,
+            193
+          ],
+          "chapterHeading": "Other Ret i nal Vascular Diseases"
+        },
+        {
+          "bookId": "bcsc-s12",
+          "pdfPages": [
+            42,
+            43,
+            44,
+            45
+          ],
+          "chapterHeading": "Diagnostic Approach to Ret i nal and Choroidal Disease"
+        }
+      ],
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "extra-20261022-q067",
+      "questionScope": "original-practice",
+      "bookId": "bcsc-s12",
+      "chapterIds": [
+        "bcsc-s12-ch008"
+      ],
+      "unitIds": [
+        "bcsc-s12-ch008-u01",
+        "bcsc-s12-ch008-u02",
+        "bcsc-s12-ch008-u03"
+      ],
+      "stem": "出生胎齡24週、出生體重640 g之早產兒，於矯正胎齡（PMA）33週時因雙眼Zone I Stage 3合併Plus disease（ETROP第1型ROP）接受雙眼玻璃體內bevacizumab 0.625 mg注射（距輪部1.5 mm進針），1週後複查Plus與嵴顯著消退。現嬰兒達PMA 45週準備出院，眼底檢查見後極部無Plus、先前分界嵴已完全平復，但視網膜血管僅長至Zone II中段，周邊仍有寬廣無血管視網膜。家屬詢問出院後是否可比照一般45週標準停止ROP眼科追蹤。下列哪項整合處置最正確？",
+      "options": [
+        {
+          "text": "告知抗VEGF後仍有晚期再活化風險，不可於PMA 45週停檢；須落實轉銜並持續追蹤至少逾PMA 65週",
+          "rationale": "「PMA 45週且無高危病變即可停檢」的規則僅適用於從未接受抗VEGF治療之早產兒；玻璃體內抗VEGF（特別是bevacizumab）會拉長血管生長時程，晚期再活化常在PMA 50–65週甚至更晚發生，只要周邊仍有大片持續性無血管網膜（PAR），就必須長期追蹤逾PMA 65週或對無血管區補足雷射。",
+          "whenTrue": "曾接受玻璃體內抗VEGF治療之ROP早產兒，雖達PMA 45週且急性病變消退，但周邊仍存在未完全血管化之視網膜時。"
+        },
+        {
+          "text": "依據標準停檢條件，因患兒已滿PMA 45週且眼底完全無第1型ROP或Stage 3病變，今日即可正式結案停止所有ROP散瞳篩檢",
+          "rationale": "將「未接受抗VEGF者之PMA 45週停檢切點」誤套用於打過bevacizumab且周邊仍未完全血管化的嬰兒，會漏掉PMA 50–65週無聲襲來的晚期增殖再活化與牽引性視網膜剝離。",
+          "whenTrue": "從未接受過玻璃體內抗VEGF治療、已達PMA 45週且從未出現預閾值或更嚴重病變，或雙眼已真正完全血管化抵鋸齒緣時。"
+        },
+        {
+          "text": "為預防出院後失聯，立即於今日在門診按成人標準距角膜緣3.5–4.0 mm經平坦部追加施打第二針全劑量bevacizumab 1.25 mg",
+          "rationale": "目前眼底無Plus與再活化徵象，不需盲目追加抗VEGF；更嚴重的是，嬰兒睫狀體平坦部尚未發育且水晶體佔比極大，若按成人距輪部3.5–4.0 mm進針且用成人全劑量，會直接刺穿視網膜或水晶體。",
+          "whenTrue": "此成人進針位置（3.5–4.0 mm）在早產兒玻璃體注射中屬絕對解剖錯誤；嬰兒即使因真性再活化需注射，亦須距輪部≤1.0–1.5 mm進針。"
+        },
+        {
+          "text": "因鼻側血管已超過Zone I邊界且顳側分界嵴平復，將殘存周邊無血管區直接改列為低風險Zone III，改為每半年門診看一次視力即可",
+          "rationale": "在鼻側視網膜血管尚未真正長抵鼻側鋸齒緣（ora serrata）之前，解剖上不存在Zone III（最高僅能歸為Zone II）；且抗VEGF後的持續性無血管網膜隨時可能晚期再活化，每半年檢查一次將延誤救治。",
+          "whenTrue": "從未打過抗VEGF、鼻側血管已確認長達鼻側鋸齒緣，且完全血管化並通過急性ROP停檢標準後之常規兒童屈光弱視追蹤時。"
+        }
+      ],
+      "correctIndex": 0,
+      "closestDistractorIndex": 1,
+      "decisiveDiscriminator": "「PMA 45週無高危病變即可停檢」僅適用於未打過抗VEGF的早產兒；接受玻璃體內bevacizumab後若周邊仍有未血管化視網膜，晚期再活化高峰可延後至PMA 50–65週以後，必須追蹤至少逾PMA 65週。",
+      "counterfactual": "若該名早產兒從未接受過任何抗VEGF注射，且在PMA 45週時眼底從未出現type 1或prethreshold ROP（或雙眼血管已完全長抵360度鋸齒緣），則依規準正式停止急性ROP篩檢即成立。",
+      "explanation": "先區分兩套停檢邏輯：AAP指引中「PMA 45週且無高危病變可停檢」的前提是「未曾接受抗VEGF藥物治療」 → 再評估抗VEGF後的獨特自然史：玻璃體內bevacizumab雖在PMA 33週迅速消退Zone I第1型ROP，但隨著藥物洗出，周邊殘存的持續性無血管視網膜（persistent avascular retina）極易在PMA 50–65週甚至更晚爆發晚期再活化與視網膜剝離 → 因此在周邊尚未完全血管化（或未以雷射完整消融無血管區）前，絕不可在PMA 45週停診，必須完成出院書面轉銜並密集追蹤至少超過PMA 65週。",
+      "testConcept": "接受抗VEGF治療之ROP早產兒不適用PMA 45週停檢規則，周邊未完全血管化前須追蹤逾PMA 65週防晚期再活化",
+      "questionType": "clinical-integration",
+      "difficulty": "advanced",
+      "domain": "retina",
+      "reasoningSteps": [
+        "識別患兒雖已達PMA 45週且後極部Plus消退，但曾接受玻璃體內bevacizumab且視網膜血管僅長至Zone II中段",
+        "套用ROP停檢分流規則：PMA 45週停檢標準不適用於打過抗VEGF之嬰兒，因抗VEGF晚期再活化常延遲至PMA 50–65週以後發生",
+        "拒絕在PMA 45週結案停檢，安排嚴密出院轉銜並持續散瞳追蹤至少逾PMA 65週（或評估周邊無血管區雷射消融）"
+      ],
+      "sourceRefs": [
+        {
+          "bookId": "bcsc-s12",
+          "pdfPages": [
+            214,
+            215,
+            216,
+            217,
+            218,
+            219
+          ],
+          "chapterHeading": "Retinopathy of Prematurity"
+        }
+      ],
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "extra-20261022-q068",
+      "questionScope": "original-practice",
+      "domain": "neuro-pupils",
+      "bookId": "bcsc-s05",
+      "chapterIds": [
+        "bcsc-s05-ch001",
+        "bcsc-s05-ch002"
+      ],
+      "unitIds": [
+        "bcsc-s05-ch001-u02",
+        "bcsc-s05-ch002-u01"
+      ],
+      "difficulty": "advanced",
+      "questionType": "clinical-reasoning",
+      "status": "source-checked",
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "correctIndex": 0,
+      "sourceRefs": [
+        {
+          "bookId": "bcsc-s05",
+          "chapterId": "bcsc-s05-ch001",
+          "unitId": "bcsc-s05-ch001-u02",
+          "pdfPages": [
+            22,
+            23
+          ],
+          "printedPages": [
+            "3",
+            "56"
+          ],
+          "chapterHeading": "Neuro- Ophthalmic Anatomy"
+        },
+        {
+          "bookId": "bcsc-s05",
+          "chapterId": "bcsc-s05-ch002",
+          "unitId": "bcsc-s05-ch002-u01",
+          "pdfPages": [
+            76,
+            77
+          ],
+          "printedPages": [
+            "57",
+            "86"
+          ],
+          "chapterHeading": "Imaging in Neuro- Ophthalmology"
+        }
+      ],
+      "reasoningSteps": [
+        "高齡女性雙側慢性紅眼、螺旋開瓶器狀上鞏膜血管動脈化、外展受限與眼壓30 mmHg，定位於間接型硬腦膜海綿竇瘻管（Barrow B–D型）致上眼靜脈與上鞏膜靜脈高壓",
+        "院外常規腦部平掃MRI（5 mm切厚、無脂肪抑制、無顯影與血管序列）無法排除海綿竇微細分流或上眼靜脈早期顯影，屬典型錯誤影像處方假陰性",
+        "應補開含顯影與脂肪抑制之眼眶／海綿竇薄切MRI合併CTA或MRA評估上眼靜脈擴張，並以房水抑制劑控制眼壓，必要時轉介經靜脈海綿竇栓塞"
+      ],
+      "stem": "69歲高血壓停經女性因右眼慢性充血、眼脹與水平複視就診，外院曾以慢性結膜炎與隅角開放性青光眼治療兩個月無效，並攜帶一份外院「常規腦部無顯影平掃MRI（切厚5 mm）」報告顯示大腦實質無異常。今日檢查見右眼最佳矯正視力20/25，眼壓31 mmHg（左眼15 mmHg），裂隙燈見右眼360度螺旋開瓶器狀上鞏膜血管充血曲張，右眼外展輕度受限，眼眶聽診未聞及明顯雜音。針對此患之病因定位、外院影像判讀與下一步處置，何者最合理？",
+      "options": [
+        {
+          "text": "高度懷疑間接型硬腦膜海綿竇瘻管（Barrow B–D型）；外院常規腦部平掃MRI不足以排除，應安排CTA／MRA及薄切抑脂對比眼眶與海綿竇MRI，並給予房水抑制劑降壓",
+          "rationale": "停經後高血壓女性出現螺旋狀上鞏膜血管動脈化、CN VI外展受限與次發性高眼壓，為典型低流量間接型dural CCF；常規5 mm無顯影腦部MRI無法看清海綿竇與上眼靜脈提早顯影，須改開CTA/MRA與薄切抑脂顯影MRI，並以房水抑制劑降壓。",
+          "whenTrue": "本題臨床表現、檢查數據與病理機轉完全符合此正選之適應症與判讀條件。"
+        },
+        {
+          "text": "高度懷疑直接型高流量頸動脈海綿竇瘻管（Barrow A型）；因外院常規腦部MRI已排除顱內實質腫塊，應立即安排緊急開顱海綿竇內頸動脈夾閉手術並點用前列腺素類藥水降壓",
+          "rationale": "直接型Barrow A型多見於外傷或海綿竇ICA動脈瘤破裂，表現為急性劇烈搏動性突眼與明顯眼眶雜音，且治療以血管內線圈或覆膜支架栓塞為主而非開顱夾閉；此外前列腺素類藥物可能加劇眼表充血發炎，且無法克服上鞏膜靜脈背壓。",
+          "whenTrue": "僅當臨床表現改為符合下列條件時方成立：直接型Barrow A型多見於外傷或海綿竇ICA動脈瘤破裂，表現為急性劇烈搏動性突眼與明顯眼眶雜音，且治療以血管內線圈或覆膜支架栓塞為主而非開顱夾閉；此外前列腺素類藥物可能加劇眼表充血發炎，"
+        },
+        {
+          "text": "診斷為甲狀腺眼病變合併上鞏膜靜脈壓升高；既然外院腦部MRI已確認海綿竇無腫瘤，下一步應立即開立注射含碘顯影劑之眼眶電腦斷層（Orbital CT with contrast）評估眼外肌",
+          "rationale": "螺旋狀開瓶器上鞏膜血管充血至角膜緣與單側高眼壓、外展受限並非典型甲狀腺眼病表現；且即使評估甲狀腺眼病，天然眼眶脂肪對比已足夠，無故注射含碘顯影劑反而可能誘發甲狀腺機能亢進危象或干擾後續碘治療。",
+          "whenTrue": "僅當臨床表現改為符合下列條件時方成立：螺旋狀開瓶器上鞏膜血管充血至角膜緣與單側高眼壓、外展受限並非典型甲狀腺眼病表現；且即使評估甲狀腺眼病，天然眼眶脂肪對比已足夠，無故注射含碘顯影劑反而可能誘發甲狀腺機能亢進危象或干擾後續碘治療"
+        },
+        {
+          "text": "診斷為後短睫狀動脈（SPCAs）與Zinn-Haller氏動脈環慢性缺血伴原發性青光眼；因外院腦部MRI已排除海綿竇病灶，僅需加開高頻率局部類固醇與選擇性雷射小樑網成形術（SLT）",
+          "rationale": "SPCAs與Zinn-Haller氏動脈環缺血引起的是前部缺血性視神經病變（AION），不會造成螺旋狀上鞏膜血管動脈化與外展神經麻痺；且常規腦部平掃MRI完全不能排除海綿竇瘻管，SLT亦無法解決上鞏膜靜脈壓升高所致之高眼壓。",
+          "whenTrue": "僅當臨床表現改為符合下列條件時方成立：SPCAs與Zinn-Haller氏動脈環缺血引起的是前部缺血性視神經病變（AION），不會造成螺旋狀上鞏膜血管動脈化與外展神經麻痺；且常規腦部平掃MRI完全不能排除海綿竇瘻管，SLT亦無法"
+        }
+      ],
+      "explanation": "本題整合BCSC Section 5第一章「腦眼動靜脈路徑與海綿竇瘻管」與第二章「神經眼科影像檢查處方原則」。第一步，停經後高血壓女性出現慢性紅眼、螺旋開瓶器狀（corkscrew）上鞏膜血管動脈化直達角膜緣、同側外展神經（CN VI）輕癱與次發性高眼壓，且無外傷史與明顯眼眶雜音，臨床定位指向低流量間接型硬腦膜海綿竇瘻管（dural CCF，Barrow Types B–D），其高眼壓源於海綿竇動脈血逆流入上眼靜脈（SOV）導致上鞏膜靜脈壓攀升。第二步，院外「常規腦部平掃MRI」採5 mm厚切且無釓顯影、無眼眶脂肪抑制亦無血管造影，極易漏診海綿竇與上眼靜脈異常，屬於典型影像處方假陰性。因此最合理的整合決策為補開CTA／MRA與薄切抑脂對比眼眶／海綿竇MRI（必要時行黃金標準DSA及經靜脈栓塞），眼部則以房水抑制劑控制眼壓。",
+      "readiness": "ready",
+      "testConcept": "Arterial與venous pathways：供血分段、aneurysm與fistula × CT/MRI選擇與處方：影像要回答具體問題 之跨單元多步驟臨床推論與鑑別處置",
+      "closestDistractorIndex": 3,
+      "decisiveDiscriminator": "應補開含顯影與脂肪抑制之眼眶／海綿竇薄切MRI合併CTA或MRA評估上眼靜脈擴張，並以房水抑制劑控制眼壓，必要時轉介經靜脈海綿竇栓塞",
+      "counterfactual": "若臨床情境改變（SPCAs與Zinn-Haller氏動脈環缺血引起的是前部缺血性視神經病變（AION），不會造成螺旋狀上鞏膜血管動脈化與外展神經麻痺；且常規腦部平掃MRI完全不能排除海綿竇瘻管，S），則「診斷為後短睫狀動脈（SPCAs）與Zinn-Haller氏動脈環慢性缺血…」方為合理處置或診斷方向。"
+    },
+    {
+      "id": "extra-20261022-q069",
+      "questionScope": "original-practice",
+      "domain": "neuro-pupils",
+      "bookId": "bcsc-s05",
+      "chapterIds": [
+        "bcsc-s05-ch001",
+        "bcsc-s05-ch002"
+      ],
+      "unitIds": [
+        "bcsc-s05-ch001-u02",
+        "bcsc-s05-ch002-u02"
+      ],
+      "difficulty": "advanced",
+      "questionType": "clinical-reasoning",
+      "status": "source-checked",
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "correctIndex": 1,
+      "sourceRefs": [
+        {
+          "bookId": "bcsc-s05",
+          "chapterId": "bcsc-s05-ch001",
+          "unitId": "bcsc-s05-ch001-u02",
+          "pdfPages": [
+            22,
+            23
+          ],
+          "printedPages": [
+            "3",
+            "56"
+          ],
+          "chapterHeading": "Neuro- Ophthalmic Anatomy"
+        },
+        {
+          "bookId": "bcsc-s05",
+          "chapterId": "bcsc-s05-ch002",
+          "unitId": "bcsc-s05-ch002-u02",
+          "pdfPages": [
+            76,
+            77
+          ],
+          "printedPages": [
+            "57",
+            "86"
+          ],
+          "chapterHeading": "Imaging in Neuro- Ophthalmology"
+        }
+      ],
+      "reasoningSteps": [
+        "患者突發右眼眼瞼下垂、外下斜視伴瞳孔散大與劇烈雙顳額部頭痛，定位於蝶鞍／海綿竇旁急性壓迫病灶（需鑑別後交通動脈瘤與腦下垂體中風）",
+        "平掃T1已呈亮白高訊號代表病灶內含亞急性出血之正鐵血紅素（methemoglobin）或高蛋白囊液，直接肉眼判讀打顯影後的T1影像會將血塊誤認為實質腫瘤強烈顯影",
+        "必須加做顯影前後抑脂T1數位相減處理（digital subtraction）區分真性腫瘤強化與出血，同時確認CTA／MRA排除IC–PComA動脈瘤並緊急會診處理垂體中風"
+      ],
+      "stem": "58歲男性突發劇烈前額眼眶後疼痛、右眼眼瞼下垂、眼球外下斜且右瞳孔散大（6.5 mm，對光遲鈍），合併左眼顳側視野缺損。急診CTA未見後交通動脈與內頸動脈交界處（IC–PComA）囊狀動脈瘤，隨即安排蝶鞍與海綿竇MRI：在「未注射顯影劑之平掃T1加權影像」上，蝶鞍擴大並向右側海綿竇延伸之團塊已呈現明顯高訊號（亮白），注射釓顯影劑後之T1影像該團塊依然呈現亮白；此外該團塊於DWI與ADC圖上均呈高訊號。下列何項影像物理判讀與臨床處置最正確？",
+      "options": [
+        {
+          "text": "DWI與ADC同時呈高訊號代表超急性細胞毒性水腫與真性擴散受限，且顯影後T1亮白證實為高血管密度腦膜瘤，應立即安排術前經動脈腫瘤供血分支栓塞術、高劑量甘露醇降腦壓及立體定位伽瑪刀放射手術治療",
+          "rationale": "真性急性擴散受限（細胞毒性水腫）必須是「DWI亮且ADC黑」；DWI與ADC同時發亮屬於T2穿透效應（T2 shine-through）而非超急性梗塞，且平掃T1已亮不可直接當成顯影強化腦膜瘤。",
+          "whenTrue": "僅當臨床表現改為符合下列條件時方成立：真性急性擴散受限（細胞毒性水腫）必須是「DWI亮且ADC黑」；DWI與ADC同時發亮屬於T2穿透效應（T2 shine-through）而非超急性梗塞，且平掃T1已亮不可直接當成顯影強化腦膜"
+        },
+        {
+          "text": "平掃T1高訊號源於亞急性出血之正鐵血紅素（腦下垂體中風侵入海綿竇），DWI與ADC同亮屬T2穿透效應；應以顯影前後抑脂T1數位相減辨別真強化，並急予壓力劑量類固醇與神經外科會診",
+          "rationale": "腦下垂體中風（pituitary apoplexy）向側方海綿竇擴張可壓迫CN III（含縮瞳纖維）並向上壓迫視交叉；出血產物methemoglobin在平掃T1天生呈高訊號，需靠數位相減影像區分真強化與血塊，且DWI/ADC同亮為T2 shine-through。",
+          "whenTrue": "本題臨床表現、檢查數據與病理機轉完全符合此正選之適應症與判讀條件。"
+        },
+        {
+          "text": "平掃T1亮白代表病灶內含大量鈣化與緻密皮質骨碎屑，且DWI高訊號證實右側後短睫狀動脈（SPCAs）與Zinn-Haller氏動脈環發生急性栓塞，應立即啟動全身靜脈血栓溶解劑（IV alteplase）再灌流治療",
+          "rationale": "鈣化與緻密皮質骨在T1與T2加權影像上均為全黑無訊號（signal void），絕不會在平掃T1呈亮白高訊號；且本例為鞍區壓迫視交叉與海綿竇CN III之垂體中風，若誤打血栓溶解劑將導致災難性顱內出血。",
+          "whenTrue": "僅當臨床表現改為符合下列條件時方成立：鈣化與緻密皮質骨在T1與T2加權影像上均為全黑無訊號（signal void），絕不會在平掃T1呈亮白高訊號；且本例為鞍區壓迫視交叉與海綿竇CN III之垂體中風，若誤打血栓溶解劑將導致災難"
+        },
+        {
+          "text": "平掃T1與顯影後T1皆亮白證明釓顯影劑因眼球轉動偽影完全失效，應改開立無脂肪抑制之常規軸位FLAIR序列來定量評估海綿竇內動眼神經鞘膜與眼眶內脂肪之邊界強化程度",
+          "rationale": "平掃T1亮白是內源性順磁性物質（如正鐵血紅素、黑色素、高蛋白黏液或脂肪）的物理特性而非顯影劑失效；此外FLAIR是壓抑自由水（CSF）的T2序列，對後顱窩與海綿竇微細腦神經及含脂肪眼眶之顯影強化毫無診斷優勢。",
+          "whenTrue": "僅當臨床表現改為符合下列條件時方成立：平掃T1亮白是內源性順磁性物質（如正鐵血紅素、黑色素、高蛋白黏液或脂肪）的物理特性而非顯影劑失效；此外FLAIR是壓抑自由水（CSF）的T2序列，對後顱窩與海綿竇微細腦神經及含脂肪眼眶之顯影"
+        }
+      ],
+      "explanation": "本題綜合考驗BCSC Section 5第一章「動眼神經與海綿竇解剖定位」及第二章「MRI序列物理特性、T1高訊號鑑別與DWI/ADC判讀」。患者表現為急性痛性瞳孔受累之右側CN III麻痺合併對側顳側偏盲（前視交叉／蝶鞍旁症候群），在CTA排除IC–PComA動脈瘤後，鞍區向海綿竇擴張之病灶最典型為腦下垂體中風（pituitary apoplexy）。影像判讀有兩大關鍵陷阱：（1）未打顯影劑的平掃T1呈現高訊號，代表病灶含亞急性出血之正鐵血紅素（methemoglobin）或高蛋白黏液，肉眼直接看打顯影後的T1片子會誤把血塊當成實質腫瘤強化，必須執行「顯影後抑脂T1減去顯影前平掃抑脂T1」之數位相減處理（digital subtraction）；（2）DWI發亮但ADC圖亦為高訊號，代表是T2穿透效應（T2 shine-through）而非「DWI亮＋ADC黑」之真性細胞毒性擴散受限。臨床上應立即給予壓力劑量氫化可體松（防範急性腎上腺危象）並會診神經外科評估減壓。",
+      "readiness": "ready",
+      "testConcept": "Arterial與venous pathways：供血分段、aneurysm與fistula × MRI sequences與DWI/ADC：亮不代表同一病理 之跨單元多步驟臨床推論與鑑別處置",
+      "closestDistractorIndex": 3,
+      "decisiveDiscriminator": "必須加做顯影前後抑脂T1數位相減處理（digital subtraction）區分真性腫瘤強化與出血，同時確認CTA／MRA排除IC–PComA動脈瘤並緊急會診處理垂體中風",
+      "counterfactual": "若臨床情境改變（平掃T1亮白是內源性順磁性物質（如正鐵血紅素、黑色素、高蛋白黏液或脂肪）的物理特性而非顯影劑失效；此外FLAIR是壓抑自由水（CSF）的T2序列，對後顱窩與海綿竇微細腦神經及含脂肪），則「平掃T1與顯影後T1皆亮白證明釓顯影劑因眼球轉動偽影完全失效，應改開立無…」方為合理處置或診斷方向。"
+    },
+    {
+      "id": "extra-20261022-q070",
+      "questionScope": "original-practice",
+      "domain": "neuro-pupils",
+      "bookId": "bcsc-s05",
+      "chapterIds": [
+        "bcsc-s05-ch001",
+        "bcsc-s05-ch002"
+      ],
+      "unitIds": [
+        "bcsc-s05-ch001-u02",
+        "bcsc-s05-ch002-u03"
+      ],
+      "difficulty": "advanced",
+      "questionType": "clinical-reasoning",
+      "status": "source-checked",
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "correctIndex": 2,
+      "sourceRefs": [
+        {
+          "bookId": "bcsc-s05",
+          "chapterId": "bcsc-s05-ch001",
+          "unitId": "bcsc-s05-ch001-u02",
+          "pdfPages": [
+            22,
+            23
+          ],
+          "printedPages": [
+            "3",
+            "56"
+          ],
+          "chapterHeading": "Neuro- Ophthalmic Anatomy"
+        },
+        {
+          "bookId": "bcsc-s05",
+          "chapterId": "bcsc-s05-ch002",
+          "unitId": "bcsc-s05-ch002-u03",
+          "pdfPages": [
+            76,
+            77
+          ],
+          "printedPages": [
+            "57",
+            "86"
+          ],
+          "chapterHeading": "Imaging in Neuro- Ophthalmology"
+        }
+      ],
+      "reasoningSteps": [
+        "41歲無血管危險因子病患出現急性痛性不完全動眼神經麻痺（即使初期瞳孔看似未完全散大），仍須當日急排IC–PComA動脈瘤等顱內病灶",
+        "急診無顯影CT與CTA已高敏感度（>95%–98%）排除囊狀動脈瘤，但CTA對海綿竇軟組織浸潤、腦幹微小梗塞與頸動脈壁內血腫解析力有限",
+        "若發病逾6小時伴雷擊頭痛應考慮腰椎穿刺查黃變症（xanthochromia），且下一步必須安排腦部＋海綿竇／眼眶薄切抑脂對比MRI排查非動脈瘤性病因"
+      ],
+      "stem": "41歲無糖尿病或高血壓病史之女性，因突發右側劇烈眼眶額部疼痛12小時合併右眼上轉、下轉與內收部分受限及眼瞼下垂就診；急診初步檢查見右眼瞳孔3.5 mm、左眼3.0 mm，對光反應尚存。急診醫師立即安排無顯影頭部CT與頭頸部至Willis環之次毫米薄切CTA，經神經放射專科醫師確認無蜘蛛網膜下腔出血且無後交通動脈或內頸動脈囊狀動脈瘤。針對此患目前的解剖風險與下一步影像／臨床決策，何者最正確？",
+      "options": [
+        {
+          "text": "因為瞳孔對光反應尚存且高解析度CTA已排除囊狀動脈瘤，可確診為良性微血管缺血性動眼神經麻痺（供應篩板前區之Zinn-Haller氏動脈環暫時性低灌流），給予口服阿斯匹靈後於門診定期觀察三個月即可",
+          "rationale": "Zinn-Haller氏動脈環由後短睫狀動脈構成，供應的是視神經乳頭篩板區而非動眼神經；此外，年輕無血管危險因子之「不完全性外眼肌CN III麻痺」即使瞳孔初期看似保留，也絕不可直接當成微血管病變放走，且CTA陰性仍未排除海綿竇與腦幹軟組織病灶。",
+          "whenTrue": "僅當臨床表現改為符合下列條件時方成立：Zinn-Haller氏動脈環由後短睫狀動脈構成，供應的是視神經乳頭篩板區而非動眼神經；此外，年輕無血管危險因子之「不完全性外眼肌CN III麻痺」即使瞳孔初期看似保留，也絕不可直接當成微血"
+        },
+        {
+          "text": "CTA對顱底海綿竇段病灶易受骨皮質干擾，應立即改開立無顯影飛時法磁振靜脈攝影（TOF-MRV）檢查是否因左側橫竇先天發育不全或蜘蛛網膜顆粒壓迫動眼神經背內側副交感纖維",
+          "rationale": "橫竇與蜘蛛網膜顆粒位於硬腦膜靜脈竇系統，與動眼神經行經之腳間池、海綿竇及眶上裂毫無解剖壓迫關聯；且無顯影TOF-MRV是用於篩檢腦靜脈竇血栓（常受慢流偽影干擾），並非評估痛性動眼神經麻痺的目標序列。",
+          "whenTrue": "僅當臨床表現改為符合下列條件時方成立：橫竇與蜘蛛網膜顆粒位於硬腦膜靜脈竇系統，與動眼神經行經之腳間池、海綿竇及眶上裂毫無解剖壓迫關聯；且無顯影TOF-MRV是用於篩檢腦靜脈竇血栓（常受慢流偽影干擾），並非評估痛性動眼神經麻痺的目"
+        },
+        {
+          "text": "CTA雖已排除多數致麻痺性囊狀動脈瘤，但對海綿竇實質浸潤或腦幹小梗塞解析不足；下一步應安排腦部與海綿竇／眼眶薄切抑脂對比MRI，若伴雷擊頭痛則加做腰椎穿刺查黃變症",
+          "rationale": "壓迫早期（前5–7天）或僅波及部分分支時瞳孔可能尚未完全散大；急診CTA陰性雖能初步排除大多數≥3–4 mm動脈瘤，但不能結案，緊接著必須以薄切抑脂對比MRI排查垂體中風、海綿竇發炎／腫瘤或腦幹梗塞，且發病>6小時伴劇痛應考慮LP查xanthochromia。",
+          "whenTrue": "本題臨床表現、檢查數據與病理機轉完全符合此正選之適應症與判讀條件。"
+        },
+        {
+          "text": "無顯影飛時法MRA（TOF-MRA）對慢速亂流與亞急性正鐵血紅素血栓完全不會產生去相位或高訊號偽影，故應在CTA陰性後立即改做單純無顯影TOF-MRA並同時啟動高劑量全身低分子量肝素抗凝血治療",
+          "rationale": "無顯影TOF-MRA有兩大物理缺陷：高度狹窄後渦流會因自旋去相位（spin dephasing）誇大狹窄，且亞急性血栓內的正鐵血紅素在TOF-MRA天生發亮，易造成假通暢或偽影；在未確診靜脈竇血栓前更不應盲目給予治療劑量抗凝血劑。",
+          "whenTrue": "僅當臨床表現改為符合下列條件時方成立：無顯影TOF-MRA有兩大物理缺陷：高度狹窄後渦流會因自旋去相位（spin dephasing）誇大狹窄，且亞急性血栓內的正鐵血紅素在TOF-MRA天生發亮，易造成假通暢或偽影；在未確診靜脈"
+        }
+      ],
+      "explanation": "本題整合BCSC Section 5第一章「動眼神經微血管與動脈瘤解剖關係」及第二章「血管造影（CTA/MRA）與階梯式影像決策」。首先，41歲無血管危險因子患者發生急性痛性「不完全性動眼神經麻痺」，即使就診時瞳孔尚未完全散大（動脈瘤壓迫早期前5–7天若尚未全面波及背內側表淺副交感縮瞳纖維，瞳孔可能暫時看似相對保留），仍屬必須當日排除後交通動脈與內頸動脈交界處（IC–PComA）動脈瘤之急症。其次，急診無顯影CT＋薄切CTA雖能以>95%–98%敏感度快速排除多數致麻痺性動脈瘤，但CTA對海綿竇軟組織浸潤（如Tolosa-Hunt症候群、淋巴瘤、腦膜瘤、神經鞘瘤）、腦下垂體中風及腦幹中腦微小梗塞之解析度遠不及MRI。因此「CTA陰性不等於結案」，標準下一步是安排腦部＋海綿竇／眼眶薄切脂肪抑制對比增強MRI；若臨床高度懷疑前哨微出血且發病逾6小時，則應加做腰椎穿刺檢驗黃變症（xanthochromia）並評估是否需DSA。",
+      "readiness": "ready",
+      "testConcept": "Arterial與venous pathways：供血分段、aneurysm與fistula × Vascular imaging：artery、vein與DSA各自的限制 之跨單元多步驟臨床推論與鑑別處置",
+      "closestDistractorIndex": 0,
+      "decisiveDiscriminator": "若發病逾6小時伴雷擊頭痛應考慮腰椎穿刺查黃變症（xanthochromia），且下一步必須安排腦部＋海綿竇／眼眶薄切抑脂對比MRI排查非動脈瘤性病因",
+      "counterfactual": "若臨床情境改變（Zinn-Haller氏動脈環由後短睫狀動脈構成，供應的是視神經乳頭篩板區而非動眼神經；此外，年輕無血管危險因子之「不完全性外眼肌CN III麻痺」即使瞳孔初期看似保留，也絕不可直），則「因為瞳孔對光反應尚存且高解析度CTA已排除囊狀動脈瘤，可確診為良性微血管…」方為合理處置或診斷方向。"
+    },
+    {
+      "id": "extra-20261022-q071",
+      "questionScope": "original-practice",
+      "domain": "neuro-pupils",
+      "bookId": "bcsc-s05",
+      "chapterIds": [
+        "bcsc-s05-ch001",
+        "bcsc-s05-ch002"
+      ],
+      "unitIds": [
+        "bcsc-s05-ch001-u02",
+        "bcsc-s05-ch002-u04"
+      ],
+      "difficulty": "advanced",
+      "questionType": "clinical-reasoning",
+      "status": "source-checked",
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "correctIndex": 3,
+      "sourceRefs": [
+        {
+          "bookId": "bcsc-s05",
+          "chapterId": "bcsc-s05-ch001",
+          "unitId": "bcsc-s05-ch001-u02",
+          "pdfPages": [
+            22,
+            23
+          ],
+          "printedPages": [
+            "3",
+            "56"
+          ],
+          "chapterHeading": "Neuro- Ophthalmic Anatomy"
+        },
+        {
+          "bookId": "bcsc-s05",
+          "chapterId": "bcsc-s05-ch002",
+          "unitId": "bcsc-s05-ch002-u04",
+          "pdfPages": [
+            76,
+            77
+          ],
+          "printedPages": [
+            "57",
+            "86"
+          ],
+          "chapterHeading": "Imaging in Neuro- Ophthalmology"
+        }
+      ],
+      "reasoningSteps": [
+        "62歲患者突發單眼無痛性下半側視野缺損（respecting horizontal meridian）與節段性視盤蒼白水腫，定位於後短睫狀動脈（SPCAs）與Zinn-Haller氏動脈環分水嶺缺血所致之前部缺血性視神經病變（AION）",
+        "急性期顯著視乳頭水腫外溢至鼻側黃斑會扭曲視網膜內層結構，導致OCT自動分層演算法錯切（segmentation failure），印出假性黃斑GC-IPL嚴重變薄（<40 μm）",
+        "應親自檢視黃斑原始灰階B-scan確認分層線脫軌並手動修正，不可在發病第3天將假性GC-IPL缺損誤判為不可逆神經節細胞死亡（真實逆行性GC-IPL萎縮需2–4週才會顯現）"
+      ],
+      "stem": "62歲高血壓患者3天前早晨醒來發現右眼無痛性視力下降（20/60），自動視野呈現跨越水平中線之完整下半側視野缺損（inferior altitudinal defect），右眼RAPD陽性，眼底見右眼視神經乳頭上半部顯著蒼白水腫伴視盤邊緣火焰狀出血。今日執行OCT見右眼pRNFL平均厚度達245 μm，但機器自動產出之黃斑部GC-IPL厚度圖卻於鼻側與上半側呈現大片深紅色極度變薄（顯示<38 μm）。針對此患之血管解剖病機與OCT報表判讀，下列何者最合理？",
+      "options": [
+        {
+          "text": "視野下半側缺損源於中央視網膜動脈（CRA）上半分支栓塞，且發病第3天之黃斑GC-IPL極度變薄證實視網膜內層神經節細胞已發生不可逆壞死，應立即施行前房穿刺降壓與高壓氧治療",
+          "rationale": "前部缺血性視神經病變（AION）之目標病變血管為供應篩板前區與篩板區的後短睫狀動脈（SPCAs）及Zinn-Haller氏動脈環，而非供應視網膜內層的中央視網膜動脈（CRA）；且發病第3天逆行性軸突退化尚未發生，GC-IPL極薄為水腫所致之分層錯切偽影。",
+          "whenTrue": "僅當臨床表現改為符合下列條件時方成立：前部缺血性視神經病變（AION）之目標病變血管為供應篩板前區與篩板區的後短睫狀動脈（SPCAs）及Zinn-Haller氏動脈環，而非供應視網膜內層的中央視網膜動脈（CRA）；且發病第3天逆"
+        },
+        {
+          "text": "病變源於視神經管內段單一軟腦膜微血管網（pial plexus）低灌流梗塞，且OCT顯示之GC-IPL變薄為高度近視長眼軸所致之光學放大假性紅病（red disease），無須調整分層線即可直接作為長期預後依據",
+          "rationale": "管內段軟腦膜微血管網缺血引起的是急性期眼底視盤完全正常的後部缺血性視神經病變（PION），通常發生於嚴重低血壓或長時間俯臥脊椎手術後；本例初診即有顯著視盤水腫與出血，屬於SPCAs供血區之AION，且GC-IPL驟降源於水腫外溢造成之分層演算法脫軌。",
+          "whenTrue": "僅當臨床表現改為符合下列條件時方成立：管內段軟腦膜微血管網缺血引起的是急性期眼底視盤完全正常的後部缺血性視神經病變（PION），通常發生於嚴重低血壓或長時間俯臥脊椎手術後；本例初診即有顯著視盤水腫與出血，屬於SPCAs供血區之A"
+        },
+        {
+          "text": "視盤水腫邊緣於OCT下若伴隨高反射卵圓團塊（PHOMS）即代表確診埋藏型視盤結石（ODD），可直接排除後短睫狀動脈缺血，且黃斑GC-IPL跌破40 μm代表已觸及膠質血管地板效應（floor effect）",
+          "rationale": "PHOMS本質為篩板邊緣膨出鬱積之軸突纖維，在真性視盤水腫（包含AION與高顱壓視乳頭水腫）皆常出現，絕非視盤結石（ODD）獨有之診斷標記；且急性發病第3天出現之GC-IPL低數值是演算法切丟邊界的偽影，並非慢性萎縮之地板效應。",
+          "whenTrue": "僅當臨床表現改為符合下列條件時方成立：PHOMS本質為篩板邊緣膨出鬱積之軸突纖維，在真性視盤水腫（包含AION與高顱壓視乳頭水腫）皆常出現，絕非視盤結石（ODD）獨有之診斷標記；且急性發病第3天出現之GC-IPL低數值是演算法切"
+        },
+        {
+          "text": "下半側視野缺損源於上下組後短睫狀動脈（SPCAs）與Zinn-Haller氏環分水嶺缺血；急性水腫外溢易致OCT自動分層錯切而印出假性GC-IPL缺損，應檢視原始B-scan核實描線",
+          "rationale": "視神經乳頭篩板與篩板前區仰賴SPCAs與Zinn-Haller氏環供血，上下分水嶺缺血典型造成跨越水平中線之半側視野缺損；急性顯著視盤水腫外溢至鼻側黃斑會扭曲層次導致segmentation failure（假性GC-IPL缺損），加上急性前視路損傷需2–4週才會出現真實GC-IPL逆行性萎縮，故必先查原始B-scan。",
+          "whenTrue": "本題臨床表現、檢查數據與病理機轉完全符合此正選之適應症與判讀條件。"
+        }
+      ],
+      "explanation": "本題整合BCSC Section 5第一章「視神經分段微循環供應」與第二章「OCT偽影排查與水腫／萎縮時序」。第一，視神經乳頭（ONH）篩板前區與篩板區完全由眼動脈分出的後短睫狀動脈（SPCAs）及Zinn-Haller氏動脈環供血（而非中央視網膜動脈CRA），由於上下兩組SPCAs吻合分水嶺橫越視盤水平中線，故前部缺血性視神經病變（AION）最典型呈現跨越水平中線的上下半側（altitudinal）視野缺損。第二，急性前視路損傷在發病第1–2週內逆行性軸突退化尚未傳導至視網膜神經節細胞胞體（真實GC-IPL變薄需2–4週、pRNFL萎縮需1–3個月）；本例在發病第3天pRNFL高達245 μm（顯著水腫），此時黃斑GC-IPL卻突然顯示<38 μm，是因視盤水腫與視網膜下液外溢至鼻側黃斑扭曲視網膜內層線條，導致OCT自動分層演算法脫軌（segmentation error，Figure 2-22），必須點開原始灰階B-scan檢視分層描線，切勿誤判為急性不可逆神經節細胞死亡。",
+      "readiness": "ready",
+      "testConcept": "Arterial與venous pathways：供血分段、aneurysm與fistula × OCT先查artifact，再分swelling與neural loss 之跨單元多步驟臨床推論與鑑別處置",
+      "closestDistractorIndex": 0,
+      "decisiveDiscriminator": "應親自檢視黃斑原始灰階B-scan確認分層線脫軌並手動修正，不可在發病第3天將假性GC-IPL缺損誤判為不可逆神經節細胞死亡（真實逆行性GC-IPL萎縮需2–4週才會顯現）",
+      "counterfactual": "若臨床情境改變（前部缺血性視神經病變（AION）之目標病變血管為供應篩板前區與篩板區的後短睫狀動脈（SPCAs）及Zinn-Haller氏動脈環，而非供應視網膜內層的中央視網膜動脈（CRA）；且發），則「視野下半側缺損源於中央視網膜動脈（CRA）上半分支栓塞，且發病第3天之黃…」方為合理處置或診斷方向。"
+    },
+    {
+      "id": "extra-20261022-q072",
+      "questionScope": "original-practice",
+      "domain": "peds-strabismus",
+      "bookId": "bcsc-s06",
+      "chapterIds": [
+        "bcsc-s06-ch001",
+        "bcsc-s06-ch002"
+      ],
+      "unitIds": [
+        "bcsc-s06-ch001-u02",
+        "bcsc-s06-ch002-u02"
+      ],
+      "difficulty": "advanced",
+      "questionType": "clinical-reasoning",
+      "status": "source-checked",
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "correctIndex": 0,
+      "sourceRefs": [
+        {
+          "bookId": "bcsc-s06",
+          "chapterId": "bcsc-s06-ch001",
+          "unitId": "bcsc-s06-ch001-u02",
+          "pdfPages": [
+            27,
+            28
+          ],
+          "printedPages": [
+            "4",
+            "5"
+          ],
+          "chapterHeading": "The Pediatric Eye Evaluation"
+        },
+        {
+          "bookId": "bcsc-s06",
+          "chapterId": "bcsc-s06-ch002",
+          "unitId": "bcsc-s06-ch002-u02",
+          "pdfPages": [
+            40,
+            48
+          ],
+          "printedPages": [
+            "17",
+            "25"
+          ],
+          "chapterHeading": "Anatomy of the Extraocular Muscles"
+        }
+      ],
+      "reasoningSteps": [
+        "5歲女童暗室Brückner同時紅反射見右眼反光較左眼明亮，代表右眼偏斜使光線落於色素較淡之周邊視網膜，且先完成瞳孔與眼位檢查後必須以1% Cyclopentolate執行睫狀肌麻痺檢影驗光",
+        "散瞳驗光排除調節性遠視因素後，確診為完全性右眼第六腦神經麻痺伴重度大角度內斜視，且病患幼時右眼曾因上、下直肌病變接受過兩條垂直直肌切斷後退術（已永久中斷4條前睫狀動脈）",
+        "由於被切斷之直肌前睫狀動脈終身不會在重接處再生，若本次再切斷右眼內直肌與外直肌將累計切斷4條直肌而引爆前節缺血（ASI），故手術必須採用肉毒桿菌素注射、直肌摺疊術（plication）或保留血管術式"
+      ],
+      "stem": "5歲足月健康女童因右眼大角度向內偏斜就診，病史顯示其2歲時曾因先天性垂直斜視於外院接受過右眼上直肌與下直肌全肌腱切斷後退手術。今日門診暗室Brückner雙眼同時紅反射檢查見右眼瞳孔橘紅反光明顯比左眼更亮，右眼外展完全無法越過中線。醫師擬先執行完整屈光評估以排除調節性內斜視成分，隨後規劃右眼水平斜視矯正手術。下列關於術前驗光藥物選擇與手術前節缺血（ASI）防範之整合策略，何者最正確？",
+      "options": [
+        {
+          "text": "先測妥瞳孔與眼位後點1% Cyclopentolate行檢影驗光；因右眼過去已切斷上、下直肌且已切斷之前睫狀動脈不會再生，本次矯正水平斜視應採內直肌肉毒桿菌素注射或外直肌摺疊術等保留血管策略",
+          "rationale": "偏斜眼在Brückner試驗呈較亮反光；5歲兒童評估內斜視須以1% Cyclopentolate達成充分睫狀肌麻痺；更重要的是右眼2歲時已切斷SR與IR（耗去4條ACAs且終身不會在附著處再生），若再同次切斷MR與LR將使四條直肌ACAs全斷而招致嚴重前節缺血（ASI），必須改用肉毒桿菌素或plication等保留血管方式。",
+          "whenTrue": "本題臨床表現、檢查數據與病理機轉完全符合此正選之適應症與判讀條件。"
+        },
+        {
+          "text": "為求快速散瞳僅需點用2.5% Phenylephrine等待15分鐘後直接電腦驗光；且因右眼上、下直肌手術已間隔超過3年，鞏膜附著處之前睫狀動脈早已完全再生接通，本次可安全同時切斷右眼內直肌與外直肌行後退與截除術",
+          "rationale": "2.5% Phenylephrine僅興奮虹膜開大肌而完全無睫狀肌麻痺作用，無法排除調節性內斜視；此外，一旦將直肌自鞏膜附著點完全剪斷，伴行之前睫狀動脈便永久中斷，即使相隔數年也絕不會在重接處再生相通，再切斷內外直肌極易引發前節缺血。",
+          "whenTrue": "僅當臨床表現改為符合下列條件時方成立：2.5% Phenylephrine僅興奮虹膜開大肌而完全無睫狀肌麻痺作用，無法排除調節性內斜視；此外，一旦將直肌自鞏膜附著點完全剪斷，伴行之前睫狀動脈便永久中斷，即使相隔數年也絕不會在重接"
+        },
+        {
+          "text": "應給予10%高濃度Phenylephrine合併2% Cyclopentolate連續點眼三次以壓制調節；若術中決定不切斷水平直肌而改做右眼下斜肌與上斜肌減弱術，則仍會切斷斜肌伴行之4條前睫狀動脈而引發急性前節缺血與低眼壓",
+          "rationale": "10% Phenylephrine在兒童具嚴重高血壓與心血管毒性風險，不作為常規兒科驗光用藥；且解剖學上「上斜肌與下斜肌攜帶0條前睫狀動脈」，斜肌手術完全不消耗前節動脈配額（雖然單靠斜肌手術亦無法矯正第六腦神經麻痺之大角度水平內斜視）。",
+          "whenTrue": "僅當臨床表現改為符合下列條件時方成立：10% Phenylephrine在兒童具嚴重高血壓與心血管毒性風險，不作為常規兒科驗光用藥；且解剖學上「上斜肌與下斜肌攜帶0條前睫狀動脈」，斜肌手術完全不消耗前節動脈配額（雖然單靠斜肌手術"
+        },
+        {
+          "text": "Brückner試驗右眼反光較亮代表右眼為正位固視眼、左眼為偏斜眼，故應在未散瞳下直接配戴負鏡片誘發調節性聚合，並安排左眼上直肌、下直肌與內直肌同次全肌腱切斷移位手術以平衡雙眼張力",
+          "rationale": "Brückner試驗中「偏斜眼」因光線照射於色素較淡的周邊視網膜，反光反而比中心凹固視眼「更明亮」；對內斜視患童誤配近視負鏡片會加劇調節性內斜，且單眼同次全肌腱切斷3條直肌（SR、IR、MR共攜帶6條ACAs）違反前節缺血預防原則。",
+          "whenTrue": "僅當臨床表現改為符合下列條件時方成立：Brückner試驗中「偏斜眼」因光線照射於色素較淡的周邊視網膜，反光反而比中心凹固視眼「更明亮」；對內斜視患童誤配近視負鏡片會加劇調節性內斜，且單眼同次全肌腱切斷3條直肌（SR、IR、MR"
+        }
+      ],
+      "explanation": "本題串聯BCSC Section 6第一章「兒科眼科紅反射與睫狀肌麻痺驗光」及第二章「眼外肌血管解剖與前節缺血（ASI）風險管理」。首先，在暗室Brückner同時紅反射試驗中，正位固視眼光線落在色素濃密的黃斑中心凹而呈暗橘紅色，偏斜眼（右眼）光線落在色素較淡的周邊視網膜，故呈現「偏斜眼反光更亮（brighter reflex in the deviated eye）」；評估5歲內斜視女童必須在檢查完自然瞳孔與眼位後，使用1% Cyclopentolate等待30–45分鐘執行睫狀肌麻痺檢影驗光（單用Phenylephrine無麻痺作用，單用Tropicamide對內斜視幼兒殘餘調節過多）。其次，四條直肌攜帶7條前睫狀動脈（MR、IR、SR各2條，LR 1條；斜肌0條）供應眼前節70%–80%血流，且「直肌一旦自鞏膜附著點剪斷，其前睫狀動脈終身不會在重接處再生」。本患右眼過去已切斷SR與IR，若本次再切斷MR與LR將導致四條直肌ACAs全數斷絕，極易爆發角膜水腫、低眼壓與前房發炎之前節缺血（ASI），故必須採用內直肌肉毒桿菌素注射或直肌摺疊術（plication）等保留血管策略。",
+      "readiness": "ready",
+      "testConcept": "完整兒眼檢查：紅反射、瞳孔與屈光麻痺 × 肌肉血供與前節缺血風險 之跨單元多步驟臨床推論與鑑別處置",
+      "closestDistractorIndex": 2,
+      "decisiveDiscriminator": "由於被切斷之直肌前睫狀動脈終身不會在重接處再生，若本次再切斷右眼內直肌與外直肌將累計切斷4條直肌而引爆前節缺血（ASI），故手術必須採用肉毒桿菌素注射、直肌摺疊術（plication）或保留血管術式",
+      "counterfactual": "若臨床情境改變（10% Phenylephrine在兒童具嚴重高血壓與心血管毒性風險，不作為常規兒科驗光用藥；且解剖學上「上斜肌與下斜肌攜帶0條前睫狀動脈」，斜肌手術完全不消耗前節動脈配額（雖然單），則「應給予10%高濃度Phenylephrine合併2% Cyclopent…」方為合理處置或診斷方向。"
+    },
+    {
+      "id": "extra-20261022-q073",
+      "questionScope": "original-practice",
+      "domain": "peds-strabismus",
+      "bookId": "bcsc-s06",
+      "chapterIds": [
+        "bcsc-s06-ch001",
+        "bcsc-s06-ch003"
+      ],
+      "unitIds": [
+        "bcsc-s06-ch001-u02",
+        "bcsc-s06-ch003-u01"
+      ],
+      "difficulty": "advanced",
+      "questionType": "clinical-reasoning",
+      "status": "source-checked",
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "correctIndex": 1,
+      "sourceRefs": [
+        {
+          "bookId": "bcsc-s06",
+          "chapterId": "bcsc-s06-ch001",
+          "unitId": "bcsc-s06-ch001-u02",
+          "pdfPages": [
+            27,
+            28
+          ],
+          "printedPages": [
+            "4",
+            "5"
+          ],
+          "chapterHeading": "The Pediatric Eye Evaluation"
+        },
+        {
+          "bookId": "bcsc-s06",
+          "chapterId": "bcsc-s06-ch003",
+          "unitId": "bcsc-s06-ch003-u01",
+          "pdfPages": [
+            54,
+            55
+          ],
+          "printedPages": [
+            "31",
+            "32"
+          ],
+          "chapterHeading": "Motor Physiology"
+        }
+      ],
+      "reasoningSteps": [
+        "6歲男童因左眼內斜視就診，未散瞳驗光呈假性近視（−0.50 D），經1% Cyclopentolate充分睫狀肌麻痺檢影驗光後雙眼為＋1.00 D輕度遠視，排除屈光調節性內斜視",
+        "交替遮蓋稜鏡檢查見「右眼固視時左眼內斜20Δ（第一斜視角），左眼固視時右眼內斜暴增至42Δ（第二斜視角）」，依Hering雙眼配偶肌等量神經支配定律，確診為左眼外直肌輕癱之非共同性斜視",
+        "因患童右眼具弱視（20/60）而習慣以最佳矯正視力20/20之左眼（麻痺眼）作為日常優勢固視眼，持續表現出42Δ之第二斜視角，故手術劑量設計必須以日常固視眼所展現之第二斜視角為矯正目標"
+      ],
+      "stem": "6歲男童因雙眼水平斜視就診。門診未散瞳電腦驗光顯示雙眼皆為−0.50 D，左眼最佳矯正視力20/20，右眼最佳矯正視力20/60（自幼右眼弱視，日常皆習慣以左眼固視）。先執行交替遮蓋稜鏡定量：當請男童勉強以右眼固視時，左眼向內偏斜20Δ；當恢復以日常慣用之左眼固視（稜鏡置於左眼前）時，右眼向內偏斜高達42Δ，且向左側注視時內斜角度最大。點用1% Cyclopentolate 40分鐘後檢影鏡測得雙眼皆為＋1.00 D。下列整合判讀與處置原則何者最正確？",
+      "options": [
+        {
+          "text": "左眼固視時偏斜角（42Δ）大於右眼固視時偏斜角（20Δ）是由Sherrington單眼交互神經支配定律所直接決定，證實病灶為右眼內直肌與外直肌於內收時發生異常共收縮（co-contraction）之Duane後縮症候群",
+          "rationale": "Sherrington定律規範的是「同一隻眼」主動肌收縮時同眼拮抗肌等比例放鬆（違反時見於Duane症候群之共收縮與眼球後縮）；而麻痺眼固視時「第二斜視角（42Δ）＞第一斜視角（20Δ）」完全是由規範「雙眼配偶肌（yoke muscles）接收等量神經衝動」的Hering定律所決定。",
+          "whenTrue": "僅當臨床表現改為符合下列條件時方成立：Sherrington定律規範的是「同一隻眼」主動肌收縮時同眼拮抗肌等比例放鬆（違反時見於Duane症候群之共收縮與眼球後縮）；而麻痺眼固視時「第二斜視角（42Δ）＞第一斜視角（20Δ）」完"
+        },
+        {
+          "text": "未散瞳−0.50 D屬調節性假性近視；第二斜視角（42Δ）大於第一斜視角（20Δ）符合Hering定律之左外直肌輕癱，且因患童日常以優勢左眼固視，未來若需手術時應依第二斜視角設計目標劑量",
+          "rationale": "1% Cyclopentolate揭露雙眼實為+1.00 D，證實未散瞳−0.50 D為調節造成的假性近視；依Hering定律，以麻痺眼（左眼）固視時需發放超常衝動給左外直肌，該衝動同步傳給配偶肌（右內直肌）而產生42Δ之第二斜視角；因左眼為視力20/20之日常固視優勢眼，手術須按日常展現的第二斜視角規劃。",
+          "whenTrue": "本題臨床表現、檢查數據與病理機轉完全符合此正選之適應症與判讀條件。"
+        },
+        {
+          "text": "既然未散瞳電腦驗光測得雙眼−0.50 D近視，應立即配戴−0.50 D負鏡片以放鬆集合張力，且因第一斜視角僅20Δ，穩定後手術僅需針對左眼按20Δ之第一斜視角計算矯正量，術後右眼42Δ大角度偏斜自然會完全消失",
+          "rationale": "兒童未散瞳驗光之近視讀數常源於調節介入，必須以Cyclopentolate睫狀肌麻痺驗光（實為+1.00 D）為準，誤配負鏡片反而誘發更多調節性內聚；此外患童右眼弱視而日常固定用左眼（麻痺眼）看東西，若只按20Δ第一斜視角開刀，術後左眼一固視仍會因Hering定律把右眼推向明顯殘餘內斜。",
+          "whenTrue": "僅當臨床表現改為符合下列條件時方成立：兒童未散瞳驗光之近視讀數常源於調節介入，必須以Cyclopentolate睫狀肌麻痺驗光（實為+1.00 D）為準，誤配負鏡片反而誘發更多調節性內聚；此外患童右眼弱視而日常固定用左眼（麻痺眼"
+        },
+        {
+          "text": "交替遮蓋時左眼與右眼分別出現20Δ與42Δ之不對稱偏斜，代表違反Hering定律之分離性水平斜視，應立即以不透光黑眼罩全天24小時固定遮蓋視力較佳之左眼長達6個月，以同時消除複視並治療右眼弱視",
+          "rationale": "麻痺性斜視之第二斜視角大於第一斜視角正是「嚴格遵守Hering定律」的經典表現（違反Hering定律的是雙眼交替遮蓋僅見各自上飄而無對側下斜之DVD）；且對6歲兒童連續6個月全天24小時固定遮蓋優勢左眼，將造成嚴重的醫源性遮蓋性弱視（occlusion amblyopia）。",
+          "whenTrue": "僅當臨床表現改為符合下列條件時方成立：麻痺性斜視之第二斜視角大於第一斜視角正是「嚴格遵守Hering定律」的經典表現（違反Hering定律的是雙眼交替遮蓋僅見各自上飄而無對側下斜之DVD）；且對6歲兒童連續6個月全天24小時固定"
+        }
+      ],
+      "explanation": "本題結合BCSC Section 6第一章「兒科睫狀肌麻痺驗光判讀」與第三章「雙眼運動生理學：Hering定律、第一／第二斜視角與固視優勢眼手術規劃」。第一，6歲兒童未散瞳電腦驗光顯示−0.50 D，但點用1% Cyclopentolate麻痺睫狀肌40分鐘後檢影驗光實為＋1.00 D，證明未散瞳之近視讀數為兒童調節張力所致之假性近視，同時＋1.00 D輕度遠視亦排除了屈光調節性內斜視。第二，當健眼（右眼）固視時測得之偏斜為第一斜視角（20Δ），當麻痺眼（左眼）固視時測得之偏斜為第二斜視角（42Δ）；根據Hering等量神經支配定律（Law of Equal Innervation），大腦為迫使輕癱的左外直肌維持正位而發出超常神經衝動，該衝動等量傳遞至右眼配偶肌（右內直肌），導致第二斜視角顯著大於第一斜視角（切勿與規範單眼主動肌／拮抗肌的Sherrington定律混淆）。第三，由於患童右眼弱視（20/60），日常固定以視力20/20的左眼（麻痺眼）固視，平時外觀恆常表現出42Δ之第二斜視角，故待病況穩定設計手術時，必須以日常慣用固視眼之第二斜視角作為矯正目標並常結合對側配偶肌減弱術。",
+      "readiness": "ready",
+      "testConcept": "完整兒眼檢查：紅反射、瞳孔與屈光麻痺 × 單眼與雙眼運動：Sherrington、Hering與yoke 之跨單元多步驟臨床推論與鑑別處置",
+      "closestDistractorIndex": 2,
+      "decisiveDiscriminator": "因患童右眼具弱視（20/60）而習慣以最佳矯正視力20/20之左眼（麻痺眼）作為日常優勢固視眼，持續表現出42Δ之第二斜視角，故手術劑量設計必須以日常固視眼所展現之第二斜視角為矯正目標",
+      "counterfactual": "若臨床情境改變（兒童未散瞳驗光之近視讀數常源於調節介入，必須以Cyclopentolate睫狀肌麻痺驗光（實為+1.00 D）為準，誤配負鏡片反而誘發更多調節性內聚；此外患童右眼弱視而日常固定用左），則「既然未散瞳電腦驗光測得雙眼−0.50 D近視，應立即配戴−0.50 D負…」方為合理處置或診斷方向。"
+    },
+    {
+      "id": "extra-20261022-q074",
+      "questionScope": "original-practice",
+      "domain": "peds-strabismus",
+      "bookId": "bcsc-s06",
+      "chapterIds": [
+        "bcsc-s06-ch001",
+        "bcsc-s06-ch003"
+      ],
+      "unitIds": [
+        "bcsc-s06-ch001-u02",
+        "bcsc-s06-ch003-u02"
+      ],
+      "correctIndex": 2,
+      "difficulty": "advanced",
+      "difficultyCalibration": "editor-rated-hard; not exam-validated",
+      "questionType": "clinical-reasoning",
+      "status": "source-checked",
+      "readiness": "ready",
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "testConcept": "結合Brückner紅反射與睫狀肌麻痺前運動檢查，區分機械限制與神經麻痺並遵循正確檢查順序",
+      "cognitiveTags": [
+        "multi-step",
+        "test-interpretation",
+        "management-sequencing"
+      ],
+      "reasoningSteps": [
+        "暗室Brückner同時紅反射見右眼反光比左眼更亮，提示右眼偏斜使光線落於色素較淡的周邊視網膜，而非注視眼異常",
+        "未點散瞳藥前先評估眼外肌運動：右眼由下往上掃視初段速度正常卻在水平線急停，且外展23度位上轉受限最明顯，指向右下直肌機械性限制而非上直肌麻痺",
+        "完成瞳孔、聚合與自然眼位檢查後再點1% Cyclopentolate行睫狀肌麻痺驗光，且後續若需手術應以鬆解後退緊繃下直肌為主"
+      ],
+      "stem": "一名4歲男童因家長發現右眼偶爾偏斜且經歷眼眶鈍挫傷後向上看受限就診。暗室雙眼Brückner同時紅反射顯示右眼瞳孔反光比左眼明顯更亮；請男童將右眼外展約23度再向上注視時，上轉受限最為顯著，但由下往正中做小幅度向上掃視時初段速度俐落正常，僅在越過水平線瞬間突兀急停。門診同時欲排查潛伏遠視。下列整合判讀與處置順序何者最合理？",
+      "options": [
+        {
+          "text": "較亮的右眼紅反射代表右眼為正位注視眼，且外展23度上轉受限證實右上斜肌第一作用喪失，應立即先點2.5% Phenylephrine完成睫狀肌麻痺驗光後再測瞳孔與眼位",
+          "rationale": "Brückner試驗中偏斜眼因光線落在色素較淡的周邊視網膜而呈現較亮反光；外展23度為測試上下直肌純垂直力量之眼位，且2.5% Phenylephrine完全無睫狀肌麻痺作用，更不可在測瞳孔與眼位前先點散瞳藥。",
+          "whenTrue": "無此臨床情境；散瞳驗光永遠應排在自然瞳孔、立體感與眼位運動檢查之後。"
+        },
+        {
+          "text": "掃視初段速度正常後急停屬典型右上直肌完全神經麻痺，應直接點1% Tropicamide等待15分鐘自動驗光，並規劃單獨施行右上直肌截除縮短術以矯正垂直斜視",
+          "rationale": "初段掃視速度正常而中途急停是機械性限制（右下直肌嵌頓或纖維化）的特徵，純神經麻痺自起始段即呈慢速漂浮掃視；此外在對側限制未解除前嚴禁強行截除上直肌，且幼兒驗光應使用1% Cyclopentolate而非單用Tropicamide。",
+          "whenTrue": "無此臨床情境；機械性限制不可當作純麻痺行拮抗肌截除術。"
+        },
+        {
+          "text": "右眼反光較亮屬偏斜眼徵象，外展位上轉急停支持右下直肌限制；應先測妥瞳孔與眼位，再點1% Cyclopentolate驗光",
+          "rationale": "偏斜眼在Brückner試驗呈現較亮反射；外展23度時視軸對齊垂直直肌平面，配合掃視急停可定位右下直肌機械性限制；門診流程須先測完自然瞳孔與眼位再以1% Cyclopentolate充分麻痺睫狀肌。",
+          "whenTrue": "合併眼位偏斜、疑似外傷後下直肌機械限制且需標準學齡前睫狀肌麻痺驗光時。"
+        },
+        {
+          "text": "外展23度時下斜肌轉為純上轉肌，故掃視急停代表右下斜肌麻痺合併上斜肌攣縮；應於門診直接將眼球向外拉提執行被動牽引試驗，並點10% Phenylephrine散瞳",
+          "rationale": "外展23度是上下直肌（SR/IR）成為純升降肌的角度，斜肌與視軸夾51度；做直肌FDT時將眼球往眶外拉提會人為繃緊所有直肌造成假陽性，且兒科嚴禁使用10% Phenylephrine以免引發嚴重全身心血管副作用。",
+          "whenTrue": "無此臨床情境；測試斜肌鬆緊才需將眼球向後壓入眶內（誇張FDT），且兒童禁用10% Phenylephrine。"
+        }
+      ],
+      "explanation": "本題串聯兒科基礎光學檢查（BCSC Section 6 Chapter 1）與眼外肌力學及限制／麻痺鑑別（Chapter 3）。第一，Brückner雙眼同時紅反射中，正位注視眼光線聚焦於色素濃密的中心凹而呈略暗橘紅光，偏斜眼光線落於色素較淡的周邊視網膜，因此偏斜眼（右眼）反光反而更明亮。第二，上直肌與下直肌力學平面與正位視軸夾23度，當眼球外展23度時視軸轉入直肌平面，成為純粹上轉與下轉肌；患童在外展位上轉受限最明顯，且向上小幅掃視初段速度正常、越過水平線瞬間急停，屬於典型右下直肌機械性限制（如眼眶底骨折嵌頓），而非上直肌神經麻痺（慢速漂浮掃視）。第三，學齡前兒童驗光必須先完成自然瞳孔、聚合、立體感與眼位遮蓋檢查，再點1% Cyclopentolate並壓迫淚囊等待30–45分鐘行檢影鏡驗光，避免過早散瞳掩蓋瞳孔與調節反射。",
+      "closestDistractorIndex": 1,
+      "decisiveDiscriminator": "向上掃視初段速度正常而瞬間急停為下直肌機械性限制而非上直肌麻痺，且兒科驗光須先完成瞳孔與眼位評估再使用1% Cyclopentolate。",
+      "counterfactual": "若向上掃視自起始段即呈慢速漂浮（floating saccade）且被動牽引試驗完全無阻力，則支持右上直肌神經麻痺。",
+      "sourceRefs": [
+        {
+          "bookId": "bcsc-s06",
+          "chapterId": "bcsc-s06-ch001",
+          "unitId": "bcsc-s06-ch001-u02",
+          "pdfPages": [
+            27,
+            28
+          ],
+          "printedPages": [
+            "4",
+            "5"
+          ],
+          "chapterHeading": "The Pediatric Eye Evaluation"
+        },
+        {
+          "bookId": "bcsc-s06",
+          "chapterId": "bcsc-s06-ch003",
+          "unitId": "bcsc-s06-ch003-u02",
+          "pdfPages": [
+            54,
+            55
+          ],
+          "printedPages": [
+            "31",
+            "32"
+          ],
+          "chapterHeading": "Motor Physiology"
+        }
+      ]
+    },
+    {
+      "id": "extra-20261022-q075",
+      "questionScope": "original-practice",
+      "domain": "peds-strabismus",
+      "bookId": "bcsc-s06",
+      "chapterIds": [
+        "bcsc-s06-ch001",
+        "bcsc-s06-ch004"
+      ],
+      "unitIds": [
+        "bcsc-s06-ch001-u02",
+        "bcsc-s06-ch004-u01"
+      ],
+      "correctIndex": 3,
+      "difficulty": "advanced",
+      "difficultyCalibration": "editor-rated-hard; not exam-validated",
+      "questionType": "clinical-reasoning",
+      "status": "source-checked",
+      "readiness": "ready",
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "testConcept": "整合生理性複視之視網膜空間投射機制與兒童散瞳前雙眼視覺及假性近視評估",
+      "cognitiveTags": [
+        "multi-step",
+        "test-interpretation",
+        "conflict-resolution"
+      ],
+      "reasoningSteps": [
+        "注視遠方目標時近端物體光線投射於雙眼顳側視網膜，向對側空間投射產生交叉性生理複視（遮右眼時左側虛影消失），屬正常無抑制之雙眼單一視覺現象",
+        "未散瞳電腦驗光顯示輕度近視但偶有內斜與視疲勞，提示兒童調節痙攣導致假性近視，不可單憑Tropicamide或未散瞳數據配戴負鏡片",
+        "應在點散瞳藥前先完成遮蓋試驗、立體感與生理複視衛教，再以1% Cyclopentolate充分麻痺睫狀肌後行檢影鏡驗光揭露潛藏遠視"
+      ],
+      "stem": "一名7歲學童因閱讀時偶爾抱怨字跡重影與眼疲勞就診。未散瞳電腦驗光顯示雙眼皆為-0.75 D。檢查發現他專心注視遠方視力表單一字母時完全清楚無重影，但偶然注意到眼前近處的遮蓋棒變成兩支，且遮住右眼時「左邊」那支遮蓋棒虛影消失；遠近交替遮蓋試驗呈正位，立體感正常。家長要求直接按電腦驗光配戴近視眼鏡。下列何項整合判斷最正確？",
+      "options": [
+        {
+          "text": "注視遠方時近處遮蓋棒呈雙影且遮右眼左影消失，屬於病理性同側複視，代表學童有失代償性內斜視，應立即先點1% Atropine散瞳後再補測立體感與聚合近點",
+          "rationale": "近處物體落在雙眼顳側視網膜並向對側鼻方投射，遮右眼左影消失屬於「交叉性生理複視（crossed physiologic diplopia）」，而非病理性同側複視；且散瞳藥會麻痺調節與縮瞳，立體感與聚合近點必須在點藥前測畢。",
+          "whenTrue": "連正在專心注視的遠方單一目標本身也裂成兩個，且交替遮蓋證實內斜視時，才屬病理性同側複視。"
+        },
+        {
+          "text": "遮右眼左影消失代表右眼鼻側視網膜受刺激並跨越經驗雙眼單視界後方，應診斷為中樞感覺融合瓦解（horror fusionis），並直接依未散瞳驗光處方-0.75 D近視鏡片",
+          "rationale": "比注視點更近的物體位於雙眼單視界（horopter）與Panum融像區「前方」，刺激雙眼「顳側」視網膜而非鼻側；且患童立體感正常，直接配戴未散瞳-0.75 D負鏡片會加重調節痙攣與視疲勞。",
+          "whenTrue": "無此臨床情境；中樞感覺融合障礙在稜鏡或同視機對齊影像後仍無法融合，且不會有正常立體視。"
+        },
+        {
+          "text": "近端物體雙影源自垂直視網膜視差超出Panum融像區，應先點2.5% Phenylephrine等待15分鐘完成睫狀肌麻痺驗光，以確認是否存在高達25%之光學性不等像",
+          "rationale": "近端生理複視源自水平視差超出Panum融像區，而非垂直視差；且2.5% Phenylephrine僅擴張瞳孔、完全不具睫狀肌麻痺效力，無法消除兒童調節痙攣。",
+          "whenTrue": "無此臨床情境；Phenylephrine不可用於睫狀肌麻痺驗光。"
+        },
+        {
+          "text": "近處雙影為刺激雙眼顳側視網膜之正常交叉性生理複視；未散瞳-0.75 D疑調節痙攣，應以1% Cyclopentolate驗光",
+          "rationale": "盯遠方時近端物體落於Panum融像區前方並刺激雙眼顳側視網膜，向對側投射產生交叉性生理複視（遮右眼左影消失），證明雙眼具正常同時視與融像；學童眼疲勞伴未散瞳輕度近視常為調節痙攣掩蓋遠視，須用1% Cyclopentolate驗光。",
+          "whenTrue": "注視目標本身單一清晰、遮蓋正位且需鑑別兒童假性近視與潛伏遠視時。"
+        }
+      ],
+      "explanation": "本題整合雙眼視覺生理（BCSC Section 6 Chapter 4）與兒童睫狀肌麻痺驗光原則（Chapter 1）。當雙眼注視遠方目標時，通過注視點的雙眼單視界（horopter）與Panum融像區內的物體可融為單一影像；位於注視點「前方（更近處）」的遮蓋棒，其光線發散落於雙眼「顳側」視網膜，依主觀視覺方向往對側（鼻側空間）投射，形成正常的「近端交叉性生理複視（crossed physiologic diplopia）」，故遮住右眼時左側虛影消失。這不僅不是斜視病變，反而證明患童雙眼皆有注視能力且無病理性抑制。另一方面，7歲兒童主訴閱讀視疲勞而未散瞳自動驗光呈-0.75 D，極可能為調節痙攣造成的假性近視（背後常隱藏遠視）；若直接配戴近視負鏡片將迫使睫狀肌更劇烈收縮。正確做法是在完成未散瞳眼位與立體視檢查後，點用1% Cyclopentolate等待30–45分鐘執行睫狀肌麻痺檢影鏡驗光。",
+      "closestDistractorIndex": 0,
+      "decisiveDiscriminator": "所注視的遠方目標本身單一清晰、僅近端非注視物呈交叉雙影（遮右眼左影消失），屬正常交叉性生理複視而非病理性斜視複視。",
+      "counterfactual": "若學童連正在專心注視的單一目標也變成兩個，且遮蓋—去遮蓋試驗出現外斜復位移動，則屬病理性雙眼交叉複視。",
+      "sourceRefs": [
+        {
+          "bookId": "bcsc-s06",
+          "chapterId": "bcsc-s06-ch001",
+          "unitId": "bcsc-s06-ch001-u02",
+          "pdfPages": [
+            27,
+            28
+          ],
+          "printedPages": [
+            "4",
+            "5"
+          ],
+          "chapterHeading": "The Pediatric Eye Evaluation"
+        },
+        {
+          "bookId": "bcsc-s06",
+          "chapterId": "bcsc-s06-ch004",
+          "unitId": "bcsc-s06-ch004-u01",
+          "pdfPages": [
+            66,
+            67
+          ],
+          "printedPages": [
+            "43",
+            "44"
+          ],
+          "chapterHeading": "Sensory Physiology and Pathology"
+        }
+      ]
+    },
+    {
+      "id": "extra-20261022-q076",
+      "questionScope": "original-practice",
+      "domain": "orbit-trauma",
+      "bookId": "bcsc-s07",
+      "chapterIds": [
+        "bcsc-s07-ch001",
+        "bcsc-s07-ch002"
+      ],
+      "unitIds": [
+        "bcsc-s07-ch001-u02",
+        "bcsc-s07-ch002-u01"
+      ],
+      "correctIndex": 0,
+      "difficulty": "advanced",
+      "difficultyCalibration": "editor-rated-hard; not exam-validated",
+      "questionType": "clinical-reasoning",
+      "status": "source-checked",
+      "readiness": "ready",
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "testConcept": "結合眶尖骨性通道解剖（視神經支柱與眶上裂／視神經管）與眼眶影像學脂肪抑制協議選擇",
+      "cognitiveTags": [
+        "multi-step",
+        "anatomy-correlation",
+        "test-interpretation"
+      ],
+      "reasoningSteps": [
+        "患者先出現CN III、IV、VI全眼肌麻痺與CN V1前額角膜麻木（眶上裂症候群），繼而出現視力驟降與同側RAPD（CN II受損），代表病變已跨越視神經支柱（optic strut）累及視神經管，演變為眶尖症候群",
+        "劇烈疼痛伴隨數日內快速進展之眶尖症候群，須高度警覺侵襲性黴菌、非特異性眼眶發炎或惡性腫瘤嗜神經侵犯",
+        "開立眼眶MRI評估眶尖與視神經管軟組織病灶時，必須指定脂肪抑制（fat-suppressed）T1顯影序列，否則釓強化病灶會隱沒於高訊號眼眶脂肪中"
+      ],
+      "stem": "一名58歲糖尿病患者因右眼劇烈深部疼痛與複視3天就診，初診見右側上瞼下垂、眼球各方向運動受限及右側前額與角膜感覺減退，但右眼視力20/20且無RAPD；48小時後右眼視力驟降至20/400並出現明顯同側RAPD。外院常規未加脂肪抑制之腦部T1顯影MRI報告稱「眼眶未見明顯異常強化」。下列何項解剖定位與影像修正決策最正確？",
+      "options": [
+        {
+          "text": "病變已跨過視神經支柱同時侵犯眶上裂與視神經管成眶尖症候群；應重排指定脂肪抑制T1顯影之專用眼眶MRI",
+          "rationale": "初期CN III/IV/VI與V1受損為眶上裂症候群，後續合併視力驟降與RAPD代表病變跨越分隔眶上裂與視神經管的視神經支柱（optic strut），構成眶尖症候群；正常眶脂在T1呈極亮訊號，必須加上脂肪抑制（fat suppression）才能凸顯釓強化之眶尖浸潤病灶。",
+          "whenTrue": "眶上裂症候群進展合併視神經病變，且常規無脂抑MRI因眶脂亮訊號掩蓋深部強化病灶時。"
+        },
+        {
+          "text": "病變係由眶下裂經翼腭窩向上壓迫顴神經所致之單純眶上裂症候群；應立即在未做CT排除金屬異物前直接改排高磁場腦血管MRA與清醒功能性核磁共振檢查",
+          "rationale": "一旦合併CN II視力喪失與RAPD即已升級為眶尖症候群，不再是單純眶上裂症候群；且顴神經穿過外壁支配臉頰與顳部感覺，並非造成V1角膜麻木與RAPD的構造。",
+          "whenTrue": "無此臨床情境；出現RAPD與視力下降即代表視神經管或眶尖視神經受累。"
+        },
+        {
+          "text": "病變侷限於前眶緣邊緣弓與下斜肌起始部之間，常規T1顯影MRI即可完全排除深部病變，應改診斷為對側眼球內陷造成的假性突眼並門診定期觀察",
+          "rationale": "邊緣弓與下斜肌起始部皆位於前眶緣，完全無法解釋CN II、III、IV、VI與V1同時受損的深部眶尖症候群；且未加脂肪抑制的常規腦部T1顯影MRI極易漏診眶內強化腫塊或黴菌浸潤。",
+          "whenTrue": "無此臨床情境；急性眶尖症候群合併糖尿病屬眼科急症，絕不可當成假性突眼觀察。"
+        },
+        {
+          "text": "視神經孔正常直徑大於12 mm且直接容納第III、IV、VI腦神經通過，故無脂抑T1陰性代表純微血管性動眼神經麻痺，僅需控制血糖並三個月後追蹤",
+          "rationale": "成人視神經孔正常直徑小於6.5 mm，且視神經管內僅有視神經（CN II）、眼動脈與交感神經纖維通過，第III、IV、VI腦神經與V1則是穿過眶上裂；微血管性腦神經麻痺不會同時造成多重腦神經麻痺合併RAPD與劇烈視力喪失。",
+          "whenTrue": "無此臨床情境；多重運動神經麻痺合併視神經病變必須立即徹查眶尖與海綿竇病灶。"
+        }
+      ],
+      "explanation": "本題結合眶尖骨性通道解剖（BCSC Section 7 Chapter 1）與眼眶疾病評估及影像判讀陷阱（Chapter 2）。第一，眶上裂位於蝶骨大翼與小翼之間，傳遞CN III、IV、VI、CN V1與上眼靜脈，病變侷限於此處時稱為眶上裂症候群（保留正常CN II視力與瞳孔傳入反射）；視神經管則穿行於蝶骨小翼內（內含CN II、眼動脈與交感纖維），兩通道之間由「視神經支柱（optic strut）」骨橋分隔。當患者在48小時內由眶上裂症候群新增視力驟降與同側RAPD，代表感染或浸潤病變已跨過視神經支柱同時侵犯眶上裂與視神經管，演變為「眶尖症候群（orbital apex syndrome）」。第二，在糖尿病患者出現急性疼痛性眶尖症候群，必須緊急排除侵襲性黴菌（如毛黴菌或麴菌）或嚴重發炎／腫瘤；然而正常眼眶脂肪在T1加權影像呈現極亮高訊號，若僅開立未加脂肪抑制（fat suppression）的常規腦部T1顯影MRI，注射釓對比劑後的亮白強化病灶會完全隱沒在亮白眶脂背景中導致假陰性。因此必須重新執行專用眼眶協議（dedicated orbital protocol with fat-suppressed postcontrast T1）並視需要搭配薄切骨窗CT評估骨壁與鼻竇。",
+      "closestDistractorIndex": 3,
+      "decisiveDiscriminator": "新增視力驟降與RAPD代表病變跨越視神經支柱累及視神經管（眶尖症候群），且眼眶顯影T1 MRI必須加上脂肪抑制才能避免亮白眶脂掩蓋強化病灶。",
+      "counterfactual": "若患者始終維持正常視力、正常色覺且無RAPD，則病變仍侷限於眶上裂而未侵犯視神經管。",
+      "sourceRefs": [
+        {
+          "bookId": "bcsc-s07",
+          "chapterId": "bcsc-s07-ch001",
+          "unitId": "bcsc-s07-ch001-u02",
+          "pdfPages": [
+            26,
+            29
+          ],
+          "printedPages": [
+            "7",
+            "10"
+          ],
+          "chapterHeading": "Orbital Anatomy"
+        },
+        {
+          "bookId": "bcsc-s07",
+          "chapterId": "bcsc-s07-ch002",
+          "unitId": "bcsc-s07-ch002-u01",
+          "pdfPages": [
+            42,
+            44
+          ],
+          "printedPages": [
+            "23",
+            "25"
+          ],
+          "chapterHeading": "Evaluation of Orbital Disorders"
+        }
+      ]
+    },
+    {
+      "id": "extra-20261022-q077",
+      "questionScope": "original-practice",
+      "domain": "orbit-trauma",
+      "bookId": "bcsc-s07",
+      "chapterIds": [
+        "bcsc-s07-ch001",
+        "bcsc-s07-ch002"
+      ],
+      "unitIds": [
+        "bcsc-s07-ch001-u02",
+        "bcsc-s07-ch002-u02"
+      ],
+      "correctIndex": 1,
+      "difficulty": "advanced",
+      "difficultyCalibration": "editor-rated-hard; not exam-validated",
+      "questionType": "clinical-reasoning",
+      "status": "source-checked",
+      "readiness": "ready",
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "testConcept": "結合外側眼眶壁顴神經解剖定位、外眶緣後移對Hertel突眼計之假性誤差與外眥重建固定點",
+      "cognitiveTags": [
+        "multi-step",
+        "test-interpretation",
+        "anatomy-correlation"
+      ],
+      "reasoningSteps": [
+        "患者僅有顴骨外側臉頰與同側太陽穴麻木，而上唇與上排牙齒感覺正常，代表穿過外側壁顴面孔與顴顳孔的顴神經受損，而非眶底眶下神經主幹病變",
+        "外側眶緣骨折向後移位使Hertel突眼計支點後退，造成患眼讀數比健眼假性凸出2 mm，須改以額骨與上頷骨為支點的Naugle突眼計配蟲視角校正",
+        "若合併外眥韌帶鬆脫需行外側瞼板條懸吊，必須將瞼板條向後上方固定於外側眶緣內側面的Whitnall結節骨膜，以貼合眼球表面"
+      ],
+      "stem": "一名34歲男性因右側臉部鈍挫傷就診，檢查見右側顴骨外側臉頰與同側太陽穴皮膚麻木，但右側上唇與上排齒齦感覺完全正常。由下往上仰視（worm's-eye view）明顯可見右眼較左眼後縮下沉，但住院醫師以Hertel突眼計量測卻回報右眼18 mm、左眼16 mm。後續擬矯正外傷後下瞼外翻。下列何項整合判讀與手術原則最正確？",
+      "options": [
+        {
+          "text": "麻木分布證實眶底眶下管主幹斷裂，且Hertel讀數18 mm未達20 mm故無真性突眼或內陷；下瞼重建時應將外側瞼板條直接縫合於外側眶緣前表面骨膜",
+          "rationale": "眶下神經主幹受損會導致上唇與上牙齒麻木，本例僅外側臉頰與顳部麻木屬顴神經（zygomaticofacial與zygomaticotemporal分支）受損；且將瞼板條縫在眶緣前外側骨膜會使下瞼脫離球面。",
+          "whenTrue": "無此臨床情境；外側瞼板條懸吊永遠須固定於眶緣內側的Whitnall結節而非前表面。"
+        },
+        {
+          "text": "麻木源於穿過外壁之顴神經受損，外眶緣後移致Hertel假性高讀數應改用Naugle突眼計；外眥重建須錨定於眶緣內側Whitnall結節",
+          "rationale": "顴神經由眶下裂分出後穿過外壁顴面孔與顴顳孔支配外側臉頰與顳部；外側眶緣後縮會使依賴外眶緣支點的Hertel突眼計產生假性突眼讀數，應改用上下眶緣支點的Naugle突眼計；外眥固定則須縫合於眶緣內側面Whitnall結節。",
+          "whenTrue": "外側眶壁／顴骨複合體骨折合併顴神經感覺異常、Hertel支點移位及需重建外眥後上方張力向量時。"
+        },
+        {
+          "text": "太陽穴麻木代表病變已跨過視神經支柱侵犯眶上裂V1分支，Hertel兩眼差2 mm證實球後血腫；應立即於下眶緣正下方1 cm處切開引流並離斷下斜肌起始部",
+          "rationale": "太陽穴（顳窩）與顴部皮膚感覺由CN V2之顴神經分支支配，而非CN V1；且下眶緣正下方1 cm處為眶下神經穿出之眶下孔，前內側眶底則有下斜肌起始部，手術剝離時皆須嚴格避開保護。",
+          "whenTrue": "無此臨床情境；下眶緣下1 cm為眶下孔禁區，不可盲目切開或離斷下斜肌。"
+        },
+        {
+          "text": "蟲視角與Hertel衝突代表存在可擴張性眼眶靜脈曲張，應請患者閉氣用力重測Hertel，並將切下之眼眶骨折碎片全數泡入大量蒸餾水中急送流式細胞儀分析",
+          "rationale": "本例為外傷導致外側眶緣支點後移的機械性量測偏差，而非Valsalva誘發之靜脈曲張；流式細胞儀僅用於疑似淋巴增生疾病（且須用生理食鹽水微濕紗布包裹新鮮組織，禁泡大量蒸餾水）。",
+          "whenTrue": "無此臨床情境；外傷骨折不適用流式細胞儀，且蒸餾水會使細胞水腫溶解。"
+        }
+      ],
+      "explanation": "本題串聯眼眶神經與外眥骨性解剖（BCSC Section 7 Chapter 1）及突眼定量量測誤差（Chapter 2）。第一，上頷神經（CN V2）經眶下裂入眶後分出顴神經，再經外側壁的顴面孔（zygomaticofacial foramen）與顴顳孔（zygomaticotemporal foramen）穿出，支配顴骨外側臉頰與太陽穴皮膚；而眶下神經主幹則穿過眶底出眶下孔支配上唇與上排牙齒。患者上唇與牙齒感覺正常，精準定位於外側眶壁／顴骨複合體骨折傷及顴神經。第二，Hertel突眼計以雙側外側眶緣為支點，當外側眶緣因顴骨骨折向後移位時，尺規基準點後退，導致明明眼球內陷（蟲視角已證實），Hertel讀數卻反常偏高；此時必須改用以上眶緣（額骨）與下眶緣（上頷骨）為支點的Naugle突眼計。第三，重建外眥或施行外側瞼板條懸吊術時，必須將瞼板條向後上方固定於外側眶緣「內側面」的Whitnall結節骨膜，才能讓下瞼緊貼眼球曲率。",
+      "closestDistractorIndex": 0,
+      "decisiveDiscriminator": "上唇與上牙齒感覺保留可排除眶下神經主幹受損而定位於外壁顴神經；外眶緣後移使Hertel支點失效，須改用Naugle突眼計。",
+      "counterfactual": "若患者合併同側上唇、鼻翼與上排齒齦麻木，且外眶緣骨壁完整無移位，則支持單純眶底骨折累及眶下神經。",
+      "sourceRefs": [
+        {
+          "bookId": "bcsc-s07",
+          "chapterId": "bcsc-s07-ch001",
+          "unitId": "bcsc-s07-ch001-u02",
+          "pdfPages": [
+            26,
+            29
+          ],
+          "printedPages": [
+            "7",
+            "10"
+          ],
+          "chapterHeading": "Orbital Anatomy"
+        },
+        {
+          "bookId": "bcsc-s07",
+          "chapterId": "bcsc-s07-ch002",
+          "unitId": "bcsc-s07-ch002-u02",
+          "pdfPages": [
+            42,
+            44
+          ],
+          "printedPages": [
+            "23",
+            "25"
+          ],
+          "chapterHeading": "Evaluation of Orbital Disorders"
+        }
+      ]
+    },
+    {
+      "id": "extra-20261022-q078",
+      "questionScope": "original-practice",
+      "domain": "orbit-trauma",
+      "bookId": "bcsc-s07",
+      "chapterIds": [
+        "bcsc-s07-ch001",
+        "bcsc-s07-ch003"
+      ],
+      "unitIds": [
+        "bcsc-s07-ch001-u02",
+        "bcsc-s07-ch003-u01"
+      ],
+      "correctIndex": 2,
+      "difficulty": "advanced",
+      "difficultyCalibration": "editor-rated-hard; not exam-validated",
+      "questionType": "clinical-reasoning",
+      "status": "source-checked",
+      "readiness": "ready",
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "testConcept": "結合先天性小眼症合併眼眶囊腫之胚胎發生／保留擴張策略與眼外肌起始點解剖",
+      "cognitiveTags": [
+        "multi-step",
+        "embryology-anatomy",
+        "management-sequencing"
+      ],
+      "reasoningSteps": [
+        "滿月嬰兒單側下瞼見藍灰色平滑透光囊狀隆起、上方藏有微小殘餘眼球，T2 MRI見囊腫與微小球腔連通，為胚胎脈絡膜裂閉合不全所致之小眼症合併眼眶囊腫",
+        "影像同時顯示四條直肌起自眶尖Zinn氏總腱環，而下斜肌獨立起源於前內側眶底（淚囊窩外側上頷骨），結膜囊與眼外肌架構尚存",
+        "適度大小的原生眼眶囊腫是嬰兒期最佳天然組織擴張器，應優先保留以刺激骨眶與瞼裂對稱發育，切忌於嬰兒早期倉促挖除導致醫源性小眼眶畸形"
+      ],
+      "stem": "一名6週大足月嬰兒因出生起左眼下瞼呈平滑無紅熱之藍灰色微透光隆起就診。翻開眼瞼見上下瞼緣與睫毛完整，結膜穹窿深處有一微小殘餘眼球；T2加權MRI顯示微小眼球後方連通一顆中度均質高訊號液體囊腫，四條直肌起自Zinn氏總腱環，前內側眶底另見一條眼外肌附著。家屬詢問是否應立即手術挖除囊腫。下列整合判斷何者最正確？",
+      "options": [
+        {
+          "text": "此為前額皮膚跨過眼眶之隱眼畸形（Fraser症候群），前內側眶底附著之肌肉為異常移位的上斜肌；應等到患童滿6歲能配合時再首次置入塑形片擴張眼眶",
+          "rationale": "隱眼畸形完全缺乏上下瞼裂與睫毛；前內側眶底（淚囊窩外側）是正常下斜肌唯一的解剖起始點；且無囊腫之小眼症必須在出生後數週內儘早啟動序列塑形片擴張，拖延至6歲將造成不可逆骨眶萎縮。",
+          "whenTrue": "無此臨床情境；眼眶發育依賴嬰兒早期容積張力，絕不可拖延至學齡前才開始擴張。"
+        },
+        {
+          "text": "此為三胚層畸胎瘤壓迫全部六條起源於Zinn氏總腱環的眼外肌，應立即於滿月時將囊腫與殘餘眼球徹底剜除，並同時離斷前眶緣邊緣弓血管以防大出血",
+          "rationale": "均質液體囊腫與微小球腔相通為脈絡膜裂閉合不全之小眼症合併囊腫，而非含鈣化毛髮的畸胎瘤；且六條眼外肌中僅四條直肌起自Zinn氏總腱環（下斜肌起自前內側眶底），邊緣弓則是纖維骨膜融合界線而非血管弓。",
+          "whenTrue": "無此臨床情境；嬰兒期過早挖除小眼症囊腫會抽空眼眶生長張力。"
+        },
+        {
+          "text": "屬脈絡膜裂閉合不全之小眼症合併眼眶囊腫，前內側眶底肌肉為正常下斜肌；適度囊腫可作天然擴張器促進骨眶發育，嬰兒期應優先保留觀察",
+          "rationale": "胚胎脈絡膜裂未能閉合使視網膜組織與液體疝出形成小眼症合併囊腫；下斜肌正常即起源於淚囊窩外側之前內側眶底；大小適中的囊腫能有效撐張促進嬰幼兒骨性眼眶發育，應保留至骨眶接近成人規模再視義眼配戴需求處理。",
+          "whenTrue": "嬰兒先天性小眼症合併中度無症狀眼眶囊腫，且囊腫正發揮天然骨眶擴張作用時。"
+        },
+        {
+          "text": "屬視泡未從前腦芽生之原發性無眼症，前內側眶底肌肉為提上瞼肌異位附著；應立即於門診用粗針穿刺抽乾囊液並一次塞入成人尺寸硬質壓克力義眼片",
+          "rationale": "MRI既已見微小殘餘眼球與連通囊腫，即屬脈絡膜裂閉合不全之小眼症而非視泡未芽生的原發性無眼症；提上瞼肌起自蝶骨小翼；且一次塞入過大硬片會導致結膜壓迫壞死與肉芽增生脫出。",
+          "whenTrue": "無此臨床情境；塑形片擴張必須循序漸進，且中度原生囊腫不宜在嬰兒早期抽乾破壞。"
+        }
+      ],
+      "explanation": "本題結合先天性小眼症合併眼眶囊腫之胚胎機轉與擴張策略（BCSC Section 7 Chapter 3）及眼外肌起始點解剖（Chapter 1）。第一，當胚胎期脈絡膜裂（embryonic choroidal fissure）未能正常閉合時，眼杯內層神經上皮與液體經裂口向眶內外翻疝出，形成「小眼症合併眼眶囊腫（microphthalmia with orbital cyst）」，臨床表現為微小殘餘眼球伴隨下瞼藍灰色透光囊腫，且保有正常眼瞼緣與結膜穹窿（不同於無瞼裂的隱眼畸形cryptophthalmos）。第二，眼眶解剖上僅四條直肌直接起源於眶尖Zinn氏總腱環，提上瞼肌與上斜肌起自總腱環上方與內側的蝶骨小翼，唯獨「下斜肌」起源於前內側眶底（淚囊窩外側上頷骨），因此MRI所見前內側眶底肌肉為正常下斜肌。第三，嬰幼兒眼眶骨骼發育高度依賴眶內容物體積張力，適度大小的眼眶囊腫是極佳的天然組織擴張器，過早手術挖除會瞬間喪失撐張力導致重度半邊小眼眶畸形，故嬰兒期應優先保留觀察，待骨眶充分發育後再視義眼裝配需求減積或切除。",
+      "closestDistractorIndex": 3,
+      "decisiveDiscriminator": "T2 MRI連通微小球腔的液體囊腫源於胚胎脈絡膜裂閉合不全，在嬰幼兒快速生長期應保留適度囊腫作為天然骨眶擴張器，且前內側眶底肌肉為正常下斜肌起始部。",
+      "counterfactual": "若新生兒為重度小眼症且完全無眼眶囊腫支撐，則必須在出生後數週內儘早置入序列遞增塑形片（serial conformers）或水凝膠擴張器。",
+      "sourceRefs": [
+        {
+          "bookId": "bcsc-s07",
+          "chapterId": "bcsc-s07-ch001",
+          "unitId": "bcsc-s07-ch001-u02",
+          "pdfPages": [
+            26,
+            29
+          ],
+          "printedPages": [
+            "7",
+            "10"
+          ],
+          "chapterHeading": "Orbital Anatomy"
+        },
+        {
+          "bookId": "bcsc-s07",
+          "chapterId": "bcsc-s07-ch003",
+          "unitId": "bcsc-s07-ch003-u01",
+          "pdfPages": [
+            56,
+            57
+          ],
+          "printedPages": [
+            "37",
+            "38"
+          ],
+          "chapterHeading": "Congenital Orbital Anomalies"
+        }
+      ]
+    },
+    {
+      "id": "extra-20261022-q079",
+      "questionScope": "original-practice",
+      "domain": "orbit-trauma",
+      "bookId": "bcsc-s07",
+      "chapterIds": [
+        "bcsc-s07-ch001",
+        "bcsc-s07-ch003"
+      ],
+      "unitIds": [
+        "bcsc-s07-ch001-u02",
+        "bcsc-s07-ch003-u02"
+      ],
+      "correctIndex": 3,
+      "difficulty": "advanced",
+      "difficultyCalibration": "editor-rated-hard; not exam-validated",
+      "questionType": "clinical-reasoning",
+      "status": "source-checked",
+      "readiness": "ready",
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "testConcept": "鑑別咀嚼誘發搏動性突眼之跨外壁啞鈴型皮樣囊腫與內眥上方腦膜腦膨出，並掌握完整雙葉手術切除原則",
+      "cognitiveTags": [
+        "multi-step",
+        "differential-diagnosis",
+        "surgical-planning"
+      ],
+      "reasoningSteps": [
+        "患者僅在用力咀嚼時出現同側節律性搏動性突眼、停止咀嚼即消失且無血管雜音，為跨額顴／蝶顴骨縫穿過外側眶壁之「啞鈴型皮樣囊腫（dumbbell dermoid cyst）」，因顳肌收縮壓迫顳窩分葉將囊液推向眶內所致",
+        "鑑別診斷上，位於內眥韌帶上方、隨哭鬧閉氣膨大且常合併牽牛花視盤者才屬於前型先天性腦膜腦膨出，兩者解剖位置與誘發機轉截然不同",
+        "手術切除啞鈴型皮樣囊腫時，嚴禁先抽吸刺破囊壁或僅剪斷眶內葉，必須經外側開眶充分暴露穿骨通道，將眶內葉、骨隧道段與顳窩葉連同完整包膜一併剝離，並保護外壁深面構造"
+      ],
+      "stem": "一名15歲青少年因家屬發現他吃耐嚼食物時左眼會隨咀嚼動作出現節律性向前跳動（pulsating proptosis）就診；停止咀嚼時眼球無搏動，聽診器於眼眶與顳部聽診完全無血管雜音，左眼視力、視神經盤與上唇感覺皆正常，僅左太陽穴偶有緊繃感。CT見左側外側眶壁蝶顴縫有一穿骨啞鈴狀低密度囊性病灶連通眶內與顳窩。下列處置何者最正確？",
+      "options": [
+        {
+          "text": "此為篩板骨缺損所致之前型腦膜腦膨出合併牽牛花視神經盤異常，應立即於門診由內眥韌帶上方直接穿刺抽吸囊液以減輕顱內壓力傳導",
+          "rationale": "前型腦膜腦膨出位於內眥韌帶上方或鼻根部、隨啼哭閉氣（Valsalva）鼓起且嚴禁門診穿刺（會致腦脊髓液外漏與腦膜炎）；本例位於外側壁蝶顴縫且由咀嚼誘發，為跨外壁之啞鈴型皮樣囊腫。",
+          "whenTrue": "無此臨床情境；即使真是腦膜腦膨出，也絕對禁止在門診穿刺抽吸。"
+        },
+        {
+          "text": "為求微創美觀，應先以粗針將囊腫內油脂液體徹底抽乾使囊壁塌陷，再經由下眶緣下方1 cm眶下孔切口僅夾出眶內分葉，將顳窩分葉留置原處自行吸收",
+          "rationale": "主動刺破抽吸皮樣囊腫會使塌陷薄囊壁殘留於骨縫內，且外溢角質皮脂會引發劇烈脂肉芽腫性發炎；此外若將顳窩分葉遺留於骨孔外必致深部復發與慢性瘻管，且下眶緣下1 cm為眶下神經穿出處而非外壁手術路徑。",
+          "whenTrue": "無此臨床情境；皮樣囊腫必須保持包膜完整整塊摘除，且啞鈴型囊腫須同步清除雙葉。"
+        },
+        {
+          "text": "咀嚼搏動代表高流量頸動脈海綿竇瘻管壓迫眶上裂與視神經支柱，應緊急安排經眼眶前緣邊緣弓動脈栓塞術，並將外側瞼板條縫合於眶緣前外側骨膜",
+          "rationale": "高流量動靜脈瘻管具有持續性與脈搏同步的搏動及聽診雜音（bruit），不會僅在咀嚼時因顳肌收縮才出現搏動；邊緣弓亦非動脈血管弓。",
+          "whenTrue": "無此臨床情境；無雜音且僅於咀嚼時出現的搏動性突眼為跨外壁啞鈴型皮樣囊腫之特徵。"
+        },
+        {
+          "text": "屬跨外壁之啞鈴型皮樣囊腫，由顳肌收縮擠壓顳窩葉傳導搏動；應經外側開眶適度擴大骨通道，保持包膜完整同步摘除眶內葉與顳窩葉",
+          "rationale": "跨越外側眶壁骨縫的啞鈴型皮樣囊腫同時佔據眼眶與顳窩，咀嚼時顳肌收縮壓迫顳窩葉使液體湧入眶內葉造成搏動性突眼；手術必須經外側開眶暴露骨孔，在不刺破包膜下將眶內葉、骨隧道段與顳窩葉完整剝離清除。",
+          "whenTrue": "CT證實跨外側眶壁蝶顴／額顴縫之啞鈴型皮樣囊腫伴咀嚼誘發性突眼時。"
+        }
+      ],
+      "explanation": "本題整合先天性眼眶皮樣囊腫／腦膨出鑑別與手術邊界（BCSC Section 7 Chapter 3）及外側眼眶壁解剖（Chapter 1）。第一，搏動性突眼（pulsating proptosis）若聽診無血管雜音，常見於蝶骨大翼發育不全（NF1）或後眼眶腦膨出傳導腦脊髓液脈搏；但若「僅在用力咀嚼時出現節律性搏動，停止咀嚼即消失」，則是跨越外側眶壁（額顴縫或蝶顴縫）的「啞鈴型皮樣囊腫（dumbbell dermoid cyst）」最具代表性的臨床徵象——因為囊腫一葉在眶內、一葉穿過外壁骨孔延伸至顳窩（此處亦有穿出外壁的顴顳神經分支），當咀嚼時顳肌收縮擠壓顳窩分葉，囊液瞬間湧向眶內分葉而推頂眼球向前跳動。第二，手術切除皮樣囊腫的核心鐵律是「保持包膜完整（intact capsular excision）」以避免角質與皮脂外溢引發嚴重化學性肉芽腫發炎；針對跨外壁的啞鈴型皮樣囊腫，更必須經外側開眶適度擴大穿骨通道或暫時移除外眶緣骨瓣，將眶內葉、骨隧道段與顳窩葉一併徹底剝離，切忌僅剪斷眶內葉而把顳窩囊壁遺留在外導致復發。",
+      "closestDistractorIndex": 1,
+      "decisiveDiscriminator": "僅於咀嚼時出現的無雜音搏動性突眼源於顳肌壓迫跨外壁啞鈴型皮樣囊腫之顳窩分葉，手術須經外側開眶保持包膜完整並同步摘除眶內與顳窩雙葉。",
+      "counterfactual": "若為嬰兒內眥韌帶上方隨啼哭閉氣膨大的柔軟透光腫塊且眼底見牽牛花視盤，則為前型先天性腦膜腦膨出，嚴禁門診穿刺。",
+      "sourceRefs": [
+        {
+          "bookId": "bcsc-s07",
+          "chapterId": "bcsc-s07-ch001",
+          "unitId": "bcsc-s07-ch001-u02",
+          "pdfPages": [
+            26,
+            29
+          ],
+          "printedPages": [
+            "7",
+            "10"
+          ],
+          "chapterHeading": "Orbital Anatomy"
+        },
+        {
+          "bookId": "bcsc-s07",
+          "chapterId": "bcsc-s07-ch003",
+          "unitId": "bcsc-s07-ch003-u02",
+          "pdfPages": [
+            56,
+            59
+          ],
+          "printedPages": [
+            "37",
+            "40"
+          ],
+          "chapterHeading": "Congenital Orbital Anomalies"
+        }
+      ]
+    },
+    {
+      "id": "extra-20261022-q080",
+      "questionScope": "original-practice",
+      "bookId": "bcsc-s03",
+      "chapterIds": [
+        "bcsc-s03-ch001",
+        "bcsc-s03-ch002"
+      ],
+      "unitIds": [
+        "bcsc-s03-ch001-u02",
+        "bcsc-s03-ch002-u01"
+      ],
+      "stem": "一位佩戴 −10.00 D 框架眼鏡（頂點距離 12 mm）的高度近視患者於門診評估視力：若直接摘除眼鏡裸眼加 1.2 mm 針孔板，視力僅由 20/400 微幅升至 20/100；戴回原眼鏡疊加 1.2 mm 針孔後進步至 20/25，但若改換自製 0.3 mm 極細針孔，視標卻反轉惡化至 20/80。若後續欲將該 −10.00 D 框架眼鏡改配為角膜平面的軟式隱形眼鏡，下列何項整合光學推演與處方換算最正確？",
+      "options": [
+        {
+          "text": "裸眼高度離焦逾針孔景深極限，0.3 mm 針孔則因 Airy 盤角半徑擴大四倍受繞射擊穿；隱形眼鏡應改配約 −8.93 D",
+          "rationale": "依 U + D = V，−10.00 D 眼鏡第二主焦點在鏡前 10 cm，退至角膜平面離遠點變為 11.2 cm，故 D_c = 1 / (−0.10 − 0.012) ≈ −8.93 D；且裸眼 −8.93 D 離焦超出 1.2 mm 針孔約 4 至 5 D 的幾何攔截上限，而 0.3 mm 孔徑使 θ = 1.22 λ/D 擴大 4 倍導致夫朗和斐繞射模糊。",
+          "whenTrue": "同時考量大離焦需先戴原鏡再測針孔、極小孔徑觸發繞射模糊，以及負鏡後移至角膜有效度數絕對值變小時。"
+        },
+        {
+          "text": "裸眼加 1.2 mm 針孔僅達 20/100 證實合併黃斑部感光病變，0.3 mm 針孔純粹因進光量不足而惡化；隱形眼鏡應改配約 −11.36 D 以補償頂點距離",
+          "rationale": "戴原鏡加 1.2 mm 針孔已達 20/25，排除嚴重黃斑病變；0.3 mm 除進光量下降外，主因是 Airy 盤角半徑隨孔徑縮小而成反比擴大；且 −11.36 D 是把正透鏡後移公式誤套用於負透鏡的結果。",
+          "whenTrue": "戴上完整屈光矯正再加 1.2 mm 針孔仍無法進步，且原鏡為 +10.00 D 高度遠視退至角膜平面時。"
+        },
+        {
+          "text": "0.3 mm 極細針孔會縮小 Airy 盤直徑但放大球面像差，故須搭配角膜平面 −8.93 D 隱形眼鏡與長波長紅光照明方能改善視網膜解析度",
+          "rationale": "根據 θ = 1.22 λ/D，縮小孔徑 D 會使 Airy 盤變大而非縮小，且小孔會阻擋周邊光線而減少球面像差；長波長紅光更會進一步擴大 Airy 盤。",
+          "whenTrue": "在無像差較大孔徑系統中改用短波長藍綠光照明以縮小 Airy 盤時。"
+        },
+        {
+          "text": "裸眼 −10.00 D 離焦在空氣中抵達鏡面聚散度為 +10.00 D，加上 0.3 mm 針孔會因孔徑過小誘發旁軸色差；隱形眼鏡應維持 −10.00 D 不變",
+          "rationale": "實物發散光波為負聚散度，且 −10.00 D 高度近視在 12 mm 頂點距離下具有逾 1.00 D 的聚散度推進差，不可直接維持原度數配戴於角膜。",
+          "whenTrue": "球鏡度數小於 ±4.00 D 時頂點距離效應微弱可忽略不計。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "本題串聯幾何光學聚散度推進（U + D = V）與物理光學夫朗和斐繞射（θ = 1.22 λ/D）。第一，1.2 mm 針孔雖能截斷周邊失焦光束並壓制約 4 至 5 D 內的屈光不正，但面對 −10.00 D 高度近視的巨大模糊圓仍力有未逮，必須「戴上原鏡先消除大部分球鏡離焦」再疊加 1.2 mm 針孔，才能測出 20/25 的真實潛力。第二，當針孔縮至 0.3 mm 時，孔徑 D 在 θ = 1.22 λ/D 分母，Airy 盤角半徑瞬間擴大 4 倍且進光量銳減，視力被繞射極限擊穿。第三，將 −10.00 D 眼鏡由 d = 0.012 m 退至角膜平面時，遠點位於角膜前 10 + 1.2 = 11.2 cm（u = −0.112 m），故隱形眼鏡度數為 −8.93 D。",
+      "testConcept": "整合聚散度頂點距離推進換算與小孔景深及夫朗和斐繞射極限（1.22 λ/D）",
+      "difficulty": "advanced",
+      "difficultyCalibration": "editor-rated-hard; not exam-validated",
+      "questionType": "clinical-reasoning",
+      "domain": "optics-biometry",
+      "cognitiveTags": [
+        "multi-step",
+        "test-interpretation",
+        "calculation"
+      ],
+      "reasoningSteps": [
+        "先由針孔測試表現區辨幾何離焦與波動繞射：裸眼約 9 D 離焦超出 1.2 mm 針孔景深補償上限，戴原鏡消除大離焦後 1.2 mm 針孔可達 20/25；但縮至 0.3 mm 時 θ = 1.22 λ/D 暴增 4 倍，轉由繞射模糊主導",
+        "再利用聚散度推進公式將頂點距離 d = 0.012 m 的 −10.00 D 負透鏡退至角膜平面：D_c = 1 / (1/D_s − d) = 1 / (−0.10 − 0.012) = 1 / (−0.112) ≈ −8.93 D"
+      ],
+      "closestDistractorIndex": 1,
+      "decisiveDiscriminator": "戴原鏡加 1.2 mm 針孔可達 20/25 證明視網膜功能良好，而負透鏡向角膜後移時離遠點距離拉長為 11.2 cm，所需負屈折力絕對值必減小為 −8.93 D。",
+      "counterfactual": "若患者原佩戴 +10.00 D 高度遠視眼鏡（d = 12 mm）退至角膜平面，剩餘焦距縮短為 8.8 cm，隱形眼鏡度數則須增至 +11.36 D。",
+      "sourceRefs": [
+        {
+          "bookId": "bcsc-s03",
+          "chapterId": "bcsc-s03-ch001",
+          "unitId": "bcsc-s03-ch001-u02",
+          "pdfPages": [
+            81,
+            82
+          ],
+          "printedPages": [
+            "62",
+            "63"
+          ],
+          "chapterHeading": "Geometric Optics"
+        },
+        {
+          "bookId": "bcsc-s03",
+          "chapterId": "bcsc-s03-ch002",
+          "unitId": "bcsc-s03-ch002-u01",
+          "pdfPages": [
+            129,
+            130
+          ],
+          "printedPages": [
+            "110",
+            "111"
+          ],
+          "chapterHeading": "Physical Optics"
+        }
+      ],
+      "sourceRefProvenance": "Curriculum links copied from the existing verified catalog; synthesized across paired BCSC units.",
+      "localFieldLinks": [
+        "content/textbook-depth/bcsc-s03.json#/chapters/bcsc-s03-ch001/units/bcsc-s03-ch001-u02",
+        "content/textbook-depth/bcsc-s03.json#/chapters/bcsc-s03-ch002/units/bcsc-s03-ch002-u01"
+      ],
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "extra-20261022-q081",
+      "questionScope": "original-practice",
+      "bookId": "bcsc-s03",
+      "chapterIds": [
+        "bcsc-s03-ch001",
+        "bcsc-s03-ch002"
+      ],
+      "unitIds": [
+        "bcsc-s03-ch001-u02",
+        "bcsc-s03-ch002-u02"
+      ],
+      "stem": "光學實驗室建置一套雙薄透鏡光學同調斷層掃描（OCT）前導聚光模組：第一片 +5.00 D 正透鏡左方 50 cm 處放置一發光點源，第二片 +4.00 D 正透鏡置於第一片透鏡右方 20 cm 處，且兩片透鏡表面皆蒸鍍折射率 n_film 的抗反射鍍膜；系統以中心波長 λ₀、頻譜寬度 Δλ 的超發光二極體（SLD）作為探測光源。關於第二片透鏡的成像性質、抗反射鍍膜厚度與 OCT 軸向解析度的整合敘述，下列何者正確？",
+      "options": [
+        {
+          "text": "第一片透鏡在第二片透鏡後方形成 +12.50 D 虛物，經第二片透鏡聚光後於鏡右 6.06 cm 成倒立實像；抗反射鍍膜光學厚度須為 λ/2 以產生破壞性干涉，且應縮窄光源頻譜寬度 Δλ 以拉長同調長度來提升軸向切層解析度",
+          "rationale": "抗反射鍍膜因光在膜內來回走兩趟，光學厚度必須為 λ/4 才能湊成 λ/2 光程差達成破壞性干涉；且 OCT 需加寬 Δλ 以縮短同調長度 l_c ≈ λ₀²/Δλ，才能提升微米級軸向解析度。",
+          "whenTrue": "設計螢光眼底攝影干涉濾光片（厚度為 λ/2 整數倍以產生建設性穿透）並使用窄頻雷射跨越全眼測量眼軸長時。"
+        },
+        {
+          "text": "第一鏡會聚光於交會前被第二鏡攔截為 u₂ = +0.133 m 虛物（U₂ = +7.50 D），於第二鏡右 8.70 cm 成實像；抗反射膜厚為 λ/4，且加寬 Δλ 可縮短同調長度強化解析",
+          "rationale": "物點 u₁ = −0.50 m 入射 U₁ = −2.00 D，過 +5.00 D 得 V₁ = +3.00 D（v₁ = +0.333 m）；扣去鏡間距 d = 0.20 m 得 u₂ = +0.333 − 0.20 = +0.1333 m（虛物 U₂ = +7.50 D），再過 +4.00 D 得 V₂ = +11.50 D（v₂ = +0.087 m = 8.70 cm）；配合 λ/4 破壞性干涉鍍膜與寬頻低同調光學原理完全吻合。",
+          "whenTrue": "前級正鏡實像距離大於鏡間距（v₁ > d）形成正值入射聚散度虛物，且結合四分之一波長消反射鍍膜與寬頻低同調干涉定位時。"
+        },
+        {
+          "text": "兩片正透鏡可直接將屈折力相加為 +9.00 D，對左方 50 cm 實物於第二鏡右方 14.29 cm 成實像；抗反射鍍膜光學厚度須設為 λ/4 以促成建設性反射，並改用單色窄頻雷射將時間同調長度極大化以消除介質散射",
+          "rationale": "兩透鏡分離 d = 20 cm 時絕不可直接把度數相加（必須逐鏡平移 u₂ = v₁ − d）；抗反射鍍膜是讓前後表面反射光發生破壞性干涉而非建設性反射；單色高同調雷射會喪失微米級軸向切層能力。",
+          "whenTrue": "兩片薄透鏡緊密貼合（d = 0）且不作為低同調軸向斷層掃描時。"
+        },
+        {
+          "text": "第一片透鏡左方 50 cm 物點代入正值聚散度 U₁ = +2.00 D，算出第二鏡入射聚散度為 −3.50 D 實物；抗反射鍍膜厚度應設為 λ/4，但須拉長中心波長 λ₀ 並縮小 Δλ 方能壓縮同調窗寬度",
+          "rationale": "鏡左實物發散光波必代負號 U₁ = −2.00 D；且同調長度 l_c ≈ λ₀²/Δλ，拉長 λ₀ 並縮小 Δλ 會讓同調窗大幅變寬，反而劣化軸向解析度。",
+          "whenTrue": "欲減少白內障介質散射而改採 1050 nm 掃頻光源，但必須同步加寬掃頻頻譜 Δλ 以維持解析度時。"
+        }
+      ],
+      "correctIndex": 1,
+      "explanation": "本題整合多透鏡逐段聚散度推演與波動干涉同調原理。第一，依笛卡兒符號慣例，鏡左 50 cm 實物 u₁ = −0.50 m，入射聚散度 U₁ = −2.00 D；通過 D₁ = +5.00 D 後出射 V₁ = +3.00 D，原本將在第一鏡右方 v₁ = +0.333 m 聚成實像。因第二鏡置於 d = 0.20 m 處提前攔截會聚光束，座標平移 u₂ = v₁ − d = +0.3333 − 0.20 = +0.1333 m（虛物，U₂ = +7.50 D），通過 D₂ = +4.00 D 後 V₂ = +11.50 D，最終於第二鏡右方 1/11.50 ≈ 8.70 cm 處成實像。第二，抗反射鍍膜光學厚度須為 λ/4（來回兩趟湊足 λ/2 相位反轉破壞性干涉）；而 OCT 仰賴寬頻光源（大 Δλ）將同調長度 l_c ≈ λ₀²/Δλ 壓縮至數微米，方能達成高軸向解析度。",
+      "testConcept": "結合雙透鏡座標平移虛物聚散度計算（u₂ = v₁ − d）與薄膜干涉（λ/4）及 OCT 時間同調長度（λ₀²/Δλ）",
+      "difficulty": "advanced",
+      "difficultyCalibration": "editor-rated-hard; not exam-validated",
+      "questionType": "clinical-reasoning",
+      "domain": "optics-biometry",
+      "cognitiveTags": [
+        "multi-step",
+        "calculation",
+        "mechanism"
+      ],
+      "reasoningSteps": [
+        "先算第一透鏡成像：u₁ = −0.50 m → U₁ = −2.00 D，經 D₁ = +5.00 D 後 V₁ = +3.00 D（v₁ = +0.333 m）；平移 d = 0.20 m 得 u₂ = +0.333 − 0.20 = +0.1333 m > 0，成為第二鏡的虛物（U₂ = +7.50 D），再加 D₂ = +4.00 D 得 V₂ = +11.50 D（v₂ ≈ +8.70 cm）",
+        "再核對薄膜干涉與同調光學：抗反射膜厚為 λ/4 使來回光程差達 λ/2 產生破壞性干涉消光；OCT 時間同調長度 l_c ≈ λ₀²/Δλ，加寬 Δλ 才能縮短同調長度、提升軸向切層解析度"
+      ],
+      "closestDistractorIndex": 0,
+      "decisiveDiscriminator": "前級會聚光束在交會前被第二鏡攔截（v₁ = 33.3 cm > d = 20 cm），故 u₂ = +13.33 cm 為正聚散度虛物（U₂ = +7.50 D）；且抗反射膜來回走兩趟必為 λ/4、OCT 必選大 Δλ 短同調長度。",
+      "counterfactual": "若兩鏡距離拉開至 d = 53.3 cm（大於 v₁ = 33.3 cm），光束先在鏡間聚成實像再發散入第二鏡，則 u₂ = −0.20 m 轉為負聚散度實物（U₂ = −5.00 D）。",
+      "sourceRefs": [
+        {
+          "bookId": "bcsc-s03",
+          "chapterId": "bcsc-s03-ch001",
+          "unitId": "bcsc-s03-ch001-u02",
+          "pdfPages": [
+            81,
+            82
+          ],
+          "printedPages": [
+            "62",
+            "63"
+          ],
+          "chapterHeading": "Geometric Optics"
+        },
+        {
+          "bookId": "bcsc-s03",
+          "chapterId": "bcsc-s03-ch002",
+          "unitId": "bcsc-s03-ch002-u02",
+          "pdfPages": [
+            137,
+            138
+          ],
+          "printedPages": [
+            "118",
+            "119"
+          ],
+          "chapterHeading": "Physical Optics"
+        }
+      ],
+      "sourceRefProvenance": "Curriculum links copied from the existing verified catalog; synthesized across paired BCSC units.",
+      "localFieldLinks": [
+        "content/textbook-depth/bcsc-s03.json#/chapters/bcsc-s03-ch001/units/bcsc-s03-ch001-u02",
+        "content/textbook-depth/bcsc-s03.json#/chapters/bcsc-s03-ch002/units/bcsc-s03-ch002-u02"
+      ],
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "extra-20261022-q082",
+      "questionScope": "original-practice",
+      "bookId": "bcsc-s03",
+      "chapterIds": [
+        "bcsc-s03-ch001",
+        "bcsc-s03-ch002"
+      ],
+      "unitIds": [
+        "bcsc-s03-ch001-u02",
+        "bcsc-s03-ch002-u03"
+      ],
+      "stem": "進行視網膜雷射光凝固與模擬眼聚焦測試時：先在空氣中將一 +10.00 D 聚光透鏡置於雷射擴束測試物右方 25 cm 處觀察逐段聚散度；接著於臨床糖尿病患者發現輕度玻璃體積血遮擋眼底，且醫師先用廣角反轉接觸鏡（雷射光斑放大倍率 2.0 倍）完成周邊全網膜光凝固後，換成黃斑部接觸鏡（雷射光斑放大倍率 1.0 倍）並將面板光斑直徑由 200 μm 調小為 100 μm。下列哪項光學與雷射參數決策最安全正確？",
+      "options": [
+        {
+          "text": "測試物經 +10.00 D 透鏡後於鏡右 7.14 cm 成倒立實像；穿透薄玻璃體積血應改選單光子能量最高的 193 nm 準分子雷射，且換鏡縮斑後功率僅需調降為原本的二分之一即可維持相同網膜功率密度",
+          "rationale": "鏡左 25 cm 實物 U = −4.00 D（而非 +4.00 D），經 +10.00 D 後 V = +6.00 D（v = 16.7 cm）；193 nm 遠紫外線會被角膜完全吸收無法進入眼底；且光斑直徑縮為 1/4（接觸鏡 1/2 × 面板 1/2）時面積變 1/16，功率絕非只降 1/2。",
+          "whenTrue": "使用 193 nm ArF 準分子雷射執行角膜表層光消融（photoablation）切斷分子共價鍵時。"
+        },
+        {
+          "text": "測試物經 +10.00 D 透鏡後於鏡右 16.7 cm 成放大率 +0.67 的正立實像；穿透薄血層應改用 460 nm 藍光雷射以避開血紅素吸收，且換用黃斑鏡縮斑時因網膜光斑面積縮小為 1/4，功率應降為四分之一",
+          "rationale": "M_T = U/V = −4.00 / +6.00 = −0.67（負號代表倒立實像而非正立）；460 nm 藍光既被血紅素與黃斑葉黃素強烈吸收，嚴禁用於黃斑區；且換鏡（光斑縮 1/2）加上面板縮斑（再縮 1/2）使網膜直徑變 1/4、面積變 1/16。",
+          "whenTrue": "僅在相同接觸鏡下單純將面板光斑直徑由 200 μm 改為 100 μm（面積縮為 1/4），且不涉及接觸鏡倍率切換時。"
+        },
+        {
+          "text": "測試物（U = −4.00 D）於鏡右 16.7 cm 成 M_T = −0.67 倒立實像；薄血層改用 810 nm 雷射，且換鏡縮斑使網膜光斑面積變 1/16，須先大降功率",
+          "rationale": "u = −0.25 m 得 U = −4.00 D，V = −4.00 + 10.00 = +6.00 D（v = +16.7 cm），橫向放大率 M_T = U/V = −0.67 成縮小倒立實像；810 nm 避開血紅素吸收且散射少可穿透薄血層；廣角鏡（2.0x）換黃斑鏡（1.0x）且面板 200→100 μm 使網膜光斑由 400 μm 縮至 100 μm（面積變 1/16），不降瓦數功率密度將暴增 16 倍。",
+          "whenTrue": "整合聚散度放大率符號推演、血紅素色團吸收光譜選擇，以及前置鏡倍率與面板光斑面積平方反比換算時。"
+        },
+        {
+          "text": "測試物經 +10.00 D 透鏡後出射聚散度為 +6.00 D、橫向放大率 −1.50；穿透薄玻璃體積血應選用 532 nm 綠光並拉長曝光至數百秒啟動光化學交聯，換用黃斑鏡時反而應調高功率補償接觸鏡損耗",
+          "rationale": "橫向放大率 M_T = U/V = −4 / +6 = −0.67（−1.50 是誤算成 V/U）；532 nm 綠光會被血紅素強烈吸收無法穿透血層；且廣角鏡換黃斑鏡會使光斑集中，調高功率將引發脈絡膜爆裂出血。",
+          "whenTrue": "由黃斑鏡（1.0x）切換至廣角反轉鏡（2.0x）導致網膜光斑放大稀釋功率密度、需要適度上調功率時。"
+        }
+      ],
+      "correctIndex": 2,
+      "explanation": "本題結合幾何聚散度放大率（U + D = V, M_T = U/V）與眼底雷射生物物理。第一，位於鏡左 25 cm 的實物 u = −0.25 m，入射聚散度 U = −4.00 D；通過 +10.00 D 正鏡後 V = +6.00 D，於鏡右 16.7 cm 成像，橫向放大率 M_T = U/V = −0.67（負號表上下左右顛倒的實像）。第二，玻璃體積血富含血紅素，會強烈吸收 532 nm 綠光與 577 nm 黃光，改用 810 nm 近紅外二極體雷射可穿透薄血層直達深部 RPE 黑色素（且黃斑區嚴禁用藍光以免葉黃素吸收灼傷內層網膜）。第三，網膜真實光斑直徑 ＝ 面板設定 × 前置鏡雷射放大率：由 200 μm × 2.0 = 400 μm 換成 100 μm × 1.0 = 100 μm，直徑縮為 1/4、面積 A = πr² 縮為 1/16，若未先把瓦數調降，功率密度（W/cm²）瞬間暴增 16 倍將炸破 Bruch 膜。",
+      "testConcept": "結合聚散度橫向放大率（M_T = U/V）與雷射色團吸收光譜及網膜光斑功率密度平方反比律",
+      "difficulty": "advanced",
+      "difficultyCalibration": "editor-rated-hard; not exam-validated",
+      "questionType": "clinical-reasoning",
+      "domain": "optics-biometry",
+      "cognitiveTags": [
+        "multi-step",
+        "calculation",
+        "conflict-resolution"
+      ],
+      "reasoningSteps": [
+        "先算測試透鏡聚散度與放大率：u = −0.25 m → U = −4.00 D，加 D = +10.00 D 得 V = +6.00 D（v = +16.7 cm），M_T = U/V = −4.00/+6.00 = −0.67（倒立縮小實像）",
+        "再判定雷射波長與功率密度：血紅素對 810 nm 近紅外光吸收極低，可穿透薄血層到達 RPE 黑色素；由 2.0 倍廣角鏡（200×2.0 = 400 μm）換成 1.0 倍黃斑鏡並縮面板至 100 μm（100×1.0 = 100 μm），網膜光斑直徑變 1/4、面積變 1/16，功率密度暴增 16 倍，必先大幅降功率"
+      ],
+      "closestDistractorIndex": 1,
+      "decisiveDiscriminator": "M_T = U/V = −0.67 為倒立實像；薄血層須用血紅素不吸收的 810 nm 穿透；且接觸鏡倍率減半疊加面板光斑減半使網膜光斑直徑變 1/4、面積變 1/16。",
+      "counterfactual": "若由 1.0 倍黃斑鏡改換成 2.0 倍廣角反轉鏡且面板直徑維持不變，網膜光斑面積擴大 4 倍使功率密度稀釋為 1/4，此時才需適度調高雷射功率。",
+      "sourceRefs": [
+        {
+          "bookId": "bcsc-s03",
+          "chapterId": "bcsc-s03-ch001",
+          "unitId": "bcsc-s03-ch001-u02",
+          "pdfPages": [
+            81,
+            82
+          ],
+          "printedPages": [
+            "62",
+            "63"
+          ],
+          "chapterHeading": "Geometric Optics"
+        },
+        {
+          "bookId": "bcsc-s03",
+          "chapterId": "bcsc-s03-ch002",
+          "unitId": "bcsc-s03-ch002-u03",
+          "pdfPages": [
+            147,
+            148
+          ],
+          "printedPages": [
+            "128",
+            "129"
+          ],
+          "chapterHeading": "Physical Optics"
+        }
+      ],
+      "sourceRefProvenance": "Curriculum links copied from the existing verified catalog; synthesized across paired BCSC units.",
+      "localFieldLinks": [
+        "content/textbook-depth/bcsc-s03.json#/chapters/bcsc-s03-ch001/units/bcsc-s03-ch001-u02",
+        "content/textbook-depth/bcsc-s03.json#/chapters/bcsc-s03-ch002/units/bcsc-s03-ch002-u03"
+      ],
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "extra-20261022-q083",
+      "questionScope": "original-practice",
+      "bookId": "bcsc-s03",
+      "chapterIds": [
+        "bcsc-s03-ch001",
+        "bcsc-s03-ch002"
+      ],
+      "unitIds": [
+        "bcsc-s03-ch001-u02",
+        "bcsc-s03-ch002-u04"
+      ],
+      "stem": "一位佩戴 +10.00 D 框架眼鏡的高度遠視合併青光眼長者，平時習慣把眼鏡往鼻尖推遠以不換老花鏡閱讀藥袋；近期因改點毛果芸香鹼（pilocarpine）使瞳孔直徑由 3.0 mm 縮小至 1.5 mm，回診自動視野計（背景固定 10 cd/m²）出現整片瀰漫性敏感度壓低，且長者抱怨在家閱讀藥袋變暗。治療師將其閱讀檯燈由距離藥袋 60 cm 拉近至 20 cm。下列何項整合光學與光度量學判讀最正確？",
+      "options": [
+        {
+          "text": "正透鏡推遠使剩餘焦距拉長而產生人工遠視化；檯燈拉近至三分之一距離使藥袋表面輝度（cd/m²）與照度（lux）同步隨距離平方反比增加 9 倍，且視野計碗面輝度會因瞳孔縮小而減半導致瀰漫性視野壓低",
+          "rationale": "+10.00 D 正鏡離角膜距離 d 拉長時，剩餘焦距（f₂ − d）縮短，抵達角膜的有效正聚散度變大，產生人工近視化而非遠視化；且視野碗面本身的輝度（cd/m²）是儀器校準常數，不會隨患者瞳孔大小而改變。",
+          "whenTrue": "負透鏡（近視眼鏡）往鼻尖下滑離角膜變遠，使有效負屈折力減弱而協助老花患者看近時。"
+        },
+        {
+          "text": "正透鏡推遠使抵達角膜的有效正聚散度減小；瞳孔直徑由 3.0 mm 縮至 1.5 mm 使視網膜照度（Troland）等比例減為二分之一，而檯燈拉近至 20 cm 僅改變入射光通量（lm）卻不改變藥袋表面照度（lux）",
+          "rationale": "正鏡推遠使有效正聚散度變大；網膜照度 Troland = L × A 正比於瞳孔面積（πr²），直徑減半時面積與 Troland 縮為 1/4 而非 1/2；且檯燈拉近至 1/3 距離會使藥袋表面照度（lux）暴增 9 倍。",
+          "whenTrue": "燈泡總發光強度不變時，總發光通量（lm）雖固定，但被照表面照度（lux）隨距離縮短按平方反比急遽上升。"
+        },
+        {
+          "text": "正透鏡推遠會把入射發散光轉為虛物（U > 0）進入角膜；檯燈拉近至 20 cm 使藥袋照度增加 3 倍，而自動視野計瀰漫性壓低代表毛果芸香鹼引發急性視神經缺血，與瞳孔面積或網膜 Troland 無關",
+          "rationale": "閱讀檯燈距離由 60 cm 縮至 20 cm（縮為 1/3），依平方反比律 E = I / d²，表面照度應增加 3² = 9 倍而非 3 倍；且小瞳孔（< 2.5 mm）造成 Troland 縮減為 1/4 是自動視野瀰漫性壓低的經典光學偽影。",
+          "whenTrue": "排除小瞳孔與白內障介質混濁後，自動視野計模式偏差圖（Pattern Deviation）仍出現典型弓形或鼻側階梯缺損時。"
+        },
+        {
+          "text": "+10.00 D 正鏡推遠使剩餘焦距縮短、有效正聚散度變大助看近；瞳孔減半使網膜 Troland 縮為 1/4 致視野壓低，檯燈縮為 1/3 距離則使照度增為 9 倍",
+          "rationale": "正鏡送出會聚光束，頂點距離 d 增加使 f₂ − d 縮短、角膜端有效正度數上升（人工近視化）故能看近；瞳孔直徑由 3.0 mm 縮至 1.5 mm 使面積與網膜照度 Troland 降至 1/4 造成視野瀰漫性壓低；檯燈由 60 cm 移至 20 cm 使照度 E ∝ 1/d² 提升 9 倍。",
+          "whenTrue": "整合正透鏡頂點距離推進效應、小瞳孔網膜 Troland 面積效應與點光源照度平方反比律時。"
+        }
+      ],
+      "correctIndex": 3,
+      "explanation": "本題串聯幾何聚散度推進與臨床光度量學。第一，+10.00 D 高度遠視正鏡將光束會聚向鏡後焦點，當眼鏡往鼻尖下滑使離角膜距離 d 拉長時，剩餘焦距（f₂ − d）變短，抵達角膜的有效正聚散度變大（人工近視化效應），使老花患者免戴老花鏡即可看近。第二，Humphrey 視野計碗面輝度雖固定為 10 cd/m²（31.5 asb），但視網膜真實照度 Troland = 輝度 L × 瞳孔面積 A；點用毛果芸香鹼使瞳孔直徑由 3.0 mm 縮至 1.5 mm（半徑變 1/2），瞳孔面積與 Troland 暴跌為 1/4，引發整片瀰漫性敏感度壓低偽影。第三，閱讀檯燈屬近似點光源，距離由 60 cm 移近至 20 cm（縮為 1/3），依照度距離平方反比律 E = I / d²，藥袋表面照度（lux）瞬間暴增為 3² = 9 倍。",
+      "testConcept": "整合正透鏡頂點距離推進（人工近視化）與網膜照度（Troland ∝ r²）及表面照度平方反比律（E = I/d²）",
+      "difficulty": "advanced",
+      "difficultyCalibration": "editor-rated-hard; not exam-validated",
+      "questionType": "clinical-reasoning",
+      "domain": "optics-biometry",
+      "cognitiveTags": [
+        "multi-step",
+        "calculation",
+        "test-interpretation"
+      ],
+      "reasoningSteps": [
+        "先解析眼鏡推遠看近機轉：+10.00 D 正透鏡送出會聚光束，往鼻尖推遠使頂點距離 d 拉長、剩餘焦距（f₂ − d）縮短，抵達角膜的有效正聚散度變大，產生人工近視化而幫助閱讀",
+        "再計算瞳孔與檯燈的光度量變化：瞳孔直徑由 3.0 mm 縮至 1.5 mm（減半），面積與視網膜照度 Troland（= L × A）縮為 1/4，導致自動視野瀰漫性壓低；檯燈距離由 60 cm 縮至 20 cm（1/3），依 E = I/d² 使藥袋照度（lux）提升 9 倍"
+      ],
+      "closestDistractorIndex": 1,
+      "decisiveDiscriminator": "正鏡遠離角膜使有效正聚散度變大；網膜照度 Troland 與瞳孔半徑平方成正比（直徑減半則縮為 1/4）；被照面照度（lux）與點光源距離平方成反比（距離變 1/3 則增為 9 倍）。",
+      "counterfactual": "若患者是從 60 cm 走近至 20 cm 觀察一面均勻發光的 ETDRS 視力表燈箱，燈箱表面的輝度（luminance, cd/m²）則因立體角與取樣面積抵消而不隨距離改變。",
+      "sourceRefs": [
+        {
+          "bookId": "bcsc-s03",
+          "chapterId": "bcsc-s03-ch001",
+          "unitId": "bcsc-s03-ch001-u02",
+          "pdfPages": [
+            81,
+            82
+          ],
+          "printedPages": [
+            "62",
+            "63"
+          ],
+          "chapterHeading": "Geometric Optics"
+        },
+        {
+          "bookId": "bcsc-s03",
+          "chapterId": "bcsc-s03-ch002",
+          "unitId": "bcsc-s03-ch002-u04",
+          "pdfPages": [
+            146,
+            147
+          ],
+          "printedPages": [
+            "127",
+            "128"
+          ],
+          "chapterHeading": "Physical Optics"
+        }
+      ],
+      "sourceRefProvenance": "Curriculum links copied from the existing verified catalog; synthesized across paired BCSC units.",
+      "localFieldLinks": [
+        "content/textbook-depth/bcsc-s03.json#/chapters/bcsc-s03-ch001/units/bcsc-s03-ch001-u02",
+        "content/textbook-depth/bcsc-s03.json#/chapters/bcsc-s03-ch002/units/bcsc-s03-ch002-u04"
+      ],
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "extra-20261022-q084",
+      "questionScope": "original-practice",
+      "bookId": "bcsc-s13",
+      "chapterIds": [
+        "bcsc-s13-ch001",
+        "bcsc-s13-ch002"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch001-u02",
+        "bcsc-s13-ch002-u01"
+      ],
+      "stem": "一位 45 歲長期配戴硬式透氣隱形眼鏡（RGP）15 年的會計師求診諮詢 LASIK：自述僅停戴 RGP 3 天，今日顯性驗光雙眼皆為 −4.50 D，且強烈要求「雙眼完全消融至 0.00 D 正視眼，術後不想戴老花鏡看報表」。同日 Placido 角膜地形圖見下方局部偏陡，但反射環原圖完整無破環，Scheimpflug 斷層顯示最薄點厚度 552 μm、後表面高度貼合正常球面，前節 OCT 上皮厚度圖於下方偏陡區反而變厚。下列哪項整合處置與溝通最正確？",
+      "options": [
+        {
+          "text": "優先懷疑 RGP 接觸鏡壓痕，須停戴至少 3 至 4 週改戴眼鏡複驗至穩定；並示範雙眼正視看近必老花，單眼視留 −1.25 D 則治療量為 −3.25 D",
+          "rationale": "配戴 RGP 15 年僅停 3 天極易殘留接觸鏡壓痕（後表面正常、最薄點豐厚且下方陡處上皮增厚而非圓錐的甜甜圈變薄）；待停戴穩定後，45 歲雙眼削至 0 D 必立即需要老花鏡，若選單眼視保留 −1.25 D，治療量 ＝ (−4.50) − (−1.25) = −3.25 D。",
+          "whenTrue": "整合接觸鏡壓痕與真性圓錐的上皮／後表面鑑別、足期停戴穩定原則，以及老花單眼視治療量扣減算式時。"
+        },
+        {
+          "text": "反射環完整加上下方變陡即可確診早期圓錐角膜，應立即改排表層 PRK 並直接滿足患者雙眼全矯需求；若非優勢眼欲設計單眼視保留 −1.25 D，則該眼雷射消融目標治療量應加深設定為 −5.75 D",
+          "rationale": "後表面正常且陡峭區上皮變厚支持接觸鏡壓痕而非真性圓錐（且若真為圓錐連 PRK 亦禁忌）；此外單眼視治療量 ＝ 原度數 (−4.50) − 目標 (−1.25) = −3.25 D，誤算成 −5.75 D 將造成 +1.25 D 遠視過矯。",
+          "whenTrue": "術前不具任何外膨風險且患者為遠視眼或計算符號相反時（但本例 −5.75 D 純屬符號加反錯誤）。"
+        },
+        {
+          "text": "停戴 RGP 滿 3 天已足以排除角膜壓痕，為求完美消除下方不對稱高階像差應立即安排全眼波前導引 LASIK 雙眼全矯至 0.00 D；術後 45 歲患者可藉由晶狀體核性硬化自動補償近距離閱讀需求",
+          "rationale": "硬式 RGP 至少需停戴 3–4 週（甚至依每戴十年多停 1 週延長）並連續複測穩定方可排刀；且高度不規則或未穩定壓痕絕不可直接取樣做波前導引，45 歲雙眼正視亦會立即面臨老花失焦。",
+          "whenTrue": "從未配戴隱形眼鏡之年輕透明規則角膜患者，欲精修微幅全眼高階像差而選用波前導引雷射時。"
+        },
+        {
+          "text": "應將地形圖切換為自動正規化色階（normalized scale）與 2.0 D 寬步進確認正常後當日手術；並告知 45 歲雙眼 −4.50 D 本就具備老花免疫力，雙眼全矯為 0.00 D 後遠近皆可無鏡清晰閱讀",
+          "rationale": "屈光篩檢必須固定絕對色階與細步進（0.5 或 1.0 D），用寬步進會掩蓋異常；且近視患者未手術前能摘鏡看近是因為遠點在眼前 22.2 cm，一旦雙眼雷射削成 0.00 D 正視眼，原本的近距離對焦優勢立即消失。",
+          "whenTrue": "患者決定不接受任何屈光手術，繼續維持 −4.50 D 近視並在閱讀時摘下眼鏡利用近距離遠點看近時。"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "本題結合角膜地形斷層鑑別與老花期屈光手術決策。第一，患者配戴硬式 RGP 達 15 年卻僅停戴 3 天，雖然 Placido 地形圖見下方變陡，但斷層最薄點豐厚（552 μm）、後表面無外突，且 OCT 上皮圖在陡區呈現增厚（真性圓錐錐頂上皮會代償性變薄呈甜甜圈狀），高度指向接觸鏡壓痕變形；必須嚴格停戴 RGP 至少 3 至 4 週以上（每配戴十年可多停 1 週），改戴框架眼鏡每 2–3 週複測直至曲率與驗光穩定（差值 ≤ 0.50 D）。第二，45 歲近視患者平時摘鏡或少調節能看近是靠近視焦點，一旦雙眼削成 0.00 D 隔天看報表必老花模糊；術前須實境模擬雙眼正視或試戴單眼視，若非優勢眼原 −4.50 D 欲保留 −1.25 D 看近，雷射消融量為 (−4.50) − (−1.25) = −3.25 D。",
+      "testConcept": "整合硬式隱形眼鏡壓痕（Contact Lens Warpage）斷層上皮鑑別與老花年齡屈光手術目標及單眼視度數計算",
+      "difficulty": "advanced",
+      "difficultyCalibration": "editor-rated-hard; not exam-validated",
+      "questionType": "clinical-reasoning",
+      "domain": "optics-biometry",
+      "cognitiveTags": [
+        "multi-step",
+        "conflict-resolution",
+        "management"
+      ],
+      "reasoningSteps": [
+        "先鑑別地形圖下方變陡病因：長期 RGP 史僅停 3 天，且後表面正常、最薄點 552 μm 正常、OCT 上皮於陡峭區增厚（非圓錐錐頂上皮變薄），指向可逆性接觸鏡壓痕，須停戴至少 3–4 週以上複驗至差值 ≤ 0.50 D",
+        "再處理 45 歲老花溝通與單眼視計算：雙眼 −4.50 D 全矯至 0 D 後看近必失焦需戴老花鏡；若試戴單眼視成功並設定非優勢眼保留 −1.25 D，雷射治療量 ＝ (−4.50) − (−1.25) = −3.25 D"
+      ],
+      "closestDistractorIndex": 1,
+      "decisiveDiscriminator": "陡峭區上皮增厚伴正常後表面支持接觸鏡壓痕而非真性圓錐，必須足期停戴；且單眼視保留 −1.25 D 的治療量為 (−4.50) − (−1.25) = −3.25 D。",
+      "counterfactual": "若停戴 RGP 數月後下方變陡持續存在，且 Scheimpflug 見後表面正高度島與 OCT 錐頂上皮甜甜圈變薄，則確診真性早期圓錐角膜，須全面禁止角膜消融。",
+      "sourceRefs": [
+        {
+          "bookId": "bcsc-s13",
+          "chapterId": "bcsc-s13-ch001",
+          "unitId": "bcsc-s13-ch001-u02",
+          "pdfPages": [
+            28,
+            29
+          ],
+          "printedPages": [
+            "13",
+            "14"
+          ],
+          "chapterHeading": "The Science of Refractive Surgery"
+        },
+        {
+          "bookId": "bcsc-s13",
+          "chapterId": "bcsc-s13-ch002",
+          "unitId": "bcsc-s13-ch002-u01",
+          "pdfPages": [
+            57,
+            58
+          ],
+          "printedPages": [
+            "42",
+            "43"
+          ],
+          "chapterHeading": "Patient Evaluation"
+        }
+      ],
+      "sourceRefProvenance": "Curriculum links copied from the existing verified catalog; synthesized across paired BCSC units.",
+      "localFieldLinks": [
+        "content/textbook-depth/bcsc-s13.json#/chapters/bcsc-s13-ch001/units/bcsc-s13-ch001-u02",
+        "content/textbook-depth/bcsc-s13.json#/chapters/bcsc-s13-ch002/units/bcsc-s13-ch002-u01"
+      ],
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "extra-20261022-q085",
+      "questionScope": "original-practice",
+      "bookId": "bcsc-s13",
+      "chapterIds": [
+        "bcsc-s13-ch001",
+        "bcsc-s13-ch002"
+      ],
+      "unitIds": [
+        "bcsc-s13-ch001-u02",
+        "bcsc-s13-ch002-u02"
+      ],
+      "stem": "一位 20 歲從未配戴隱形眼鏡的大學生求診評估雙眼 LASIK（顯性驗光雙眼 −6.50 D，最佳矯正視力 20/20）：傳統自動角膜曲率計讀數似屬規則散光，超音波中央點測角膜厚度（US pachymetry）為 500 μm，預估製作角膜瓣並消融後殘餘基質床（RSB）為 292 μm；然而標準絕對色階 Placido 地形圖與 Scheimpflug 斷層卻顯示下方明顯變陡伴歪斜放射軸（SRAX 25°），最薄點（478 μm）向下方偏位且與後表面正高度島、OCT 錐頂上皮甜甜圈變薄共位。下列何項整合風險評分與處置最正確？",
+      "options": [
+        {
+          "text": "因預估 RSB 292 μm 遠高於 250 μm 傳統安全底線且超音波中央厚度達 500 μm，Randleman 外膨風險評分屬低風險（2 分），可安全施行薄瓣飛秒 LASIK 並搭配角膜地形圖導引消融",
+          "rationale": "依 Randleman ERSS：20 歲（3 分）＋ 中央厚度 500 μm（2 分）＋ RSB 292 μm（1 分）＋ 下方變陡／SRAX 或異常地形（3–4 分），總分高達 9–10 分（≥ 4 分即屬高風險）；且斷層已證實亞臨床圓錐，即使 RSB > 250 μm 亦嚴禁 LASIK。",
+          "whenTrue": "年齡 ≥ 30 歲、CCT > 510 μm、RSB ≥ 300 μm 且雙眼前後表面地形與上皮厚度圖完全正常對稱時。"
+        },
+        {
+          "text": "傳統曲率計與中央測厚漏診偏心最薄點與後表面外突；Randleman 評分 ≥ 9 分且屬亞臨床圓錐，應全面禁止 LASIK、PRK 與 SMILE 等基質切削手術",
+          "rationale": "自動曲率計僅取樣 3.2 mm 環帶兩對點、中央超音波測厚僅測幾何中心，皆會漏掉下方偏心圓錐（478 μm）；Randleman 評分中年輕 20 歲（3 分）、CCT 500 μm（2 分）、RSB 292 μm（1 分）加上異常地形（3–4 分）遠超 4 分紅線，且亞臨床圓錐連 PRK 與 SMILE 皆有誘發外膨風險，必須全面禁止角膜切削並衛教禁揉眼與序列斷層追蹤。",
+          "whenTrue": "整合傳統曲率計／中央點測厚度的取樣盲區、Randleman 多因子加權評分，以及亞臨床圓錐對一切角膜消融術式的絕對禁忌時。"
+        },
+        {
+          "text": "患者屬 Randleman 高風險群而不宜施行掀瓣 LASIK，但因最佳矯正視力仍達 20/20 且裂隙燈無 Vogt 條紋，改行無瓣表層 PRK 或小切口透鏡取出術（SMILE）即可完全消除術後角膜外膨風險",
+          "rationale": "後表面高度島、最薄點偏位 478 μm 與錐頂上皮甜甜圈變薄已構成頓挫型／亞臨床圓錐角膜（FFKC），代表角膜固有膠原生物力學缺陷；文獻已證實 FFKC 在 PRK 與 SMILE 後同樣可發生進行性醫源性外膨。",
+          "whenTrue": "雙眼地形圖、後表面高度與上皮厚度圖完全正常，僅因中低度近視合併角膜稍薄而選擇表層 PRK 節省基質時。"
+        },
+        {
+          "text": "下方變陡伴最薄點偏位屬於透明邊緣變性（PMD）而非圓錐角膜；只要將切線曲率圖（tangential map）改換為平滑的軸向曲率圖（axial map）確認錐頂外移消失，即可直接植入角膜基質環或行波前導引 LASIK",
+          "rationale": "本例最薄點（478 μm）與後表面高度島及錐頂上皮甜甜圈變薄共位，屬典型早期／亞臨床圓錐角膜（PMD 最薄帶位在下方角膜緣上方 1–2 mm 處且呈蟹爪樣高度逆規散光）；且無論圓錐或 PMD 皆為 LASIK 絕對禁忌。",
+          "whenTrue": "軸向圖呈下方蟹爪型態、高度逆規散光，且大範圍 OCT 厚度圖確認最薄帶位於下方周邊近輪部 1–2 mm 時方診斷為 PMD（但同樣禁用 LASIK）。"
+        }
+      ],
+      "correctIndex": 1,
+      "explanation": "本題整合角膜生物測量儀器學與屈光手術外膨風險評估。第一，傳統自動曲率計僅量測中央約 3.2 mm 環帶上的兩對反射點，且超音波中央點測（US pachymetry）僅提供幾何中心單點厚度（500 μm），兩者皆會漏掉下方偏心的真正最薄點（478 μm）；唯有結合 Placido 地形圖、Scheimpflug 全角膜斷層（後表面高度島與厚度空間遞增異常）及前節 OCT 上皮厚度圖（錐頂上皮代償變薄、周圍增厚之甜甜圈型態），才能揪出頓挫型／亞臨床圓錐角膜（FFKC）。第二，即使預估 RSB 292 μm 高於舊式 250 μm 經驗法則，依 Randleman ERSS 計算：年輕 20 歲（3 分）＋ CCT 500 μm（2 分）＋ RSB 292 μm（1 分）＋ 異常地形（3–4 分）總分高達 9–10 分（≥ 4 分即高風險）。因角膜存在固有結構病變，必須全面拒絕 LASIK、PRK 與 SMILE 等所有削薄基質之手術，衛教嚴禁揉眼並安排序列斷層追蹤。",
+      "testConcept": "結合角膜曲率計與中央測厚盲區、全角膜斷層上皮共位判讀與 Randleman 外膨風險評分（ERSS）及手術禁忌",
+      "difficulty": "advanced",
+      "difficultyCalibration": "editor-rated-hard; not exam-validated",
+      "questionType": "clinical-reasoning",
+      "domain": "optics-biometry",
+      "cognitiveTags": [
+        "multi-step",
+        "test-interpretation",
+        "management"
+      ],
+      "reasoningSteps": [
+        "先剖析傳統檢查盲區與斷層證據：曲率計僅測 3.2 mm 四點、US 測厚僅測中央（500 μm），而 Scheimpflug 與 OCT 抓出下方偏心最薄點（478 μm）與後表面正高度島、錐頂上皮甜甜圈變薄共位，確立亞臨床圓錐角膜",
+        "再核算 Randleman 外膨風險與決策：20 歲（3 分）＋ CCT 500 μm（2 分）＋ RSB 292 μm（1 分）＋ 下方陡／SRAX 異常地形（3–4 分）＝ 9–10 分（遠超 ≥ 4 分高風險門檻），必須全面禁止 LASIK、PRK 與 SMILE，衛教禁揉眼並追蹤斷層"
+      ],
+      "closestDistractorIndex": 2,
+      "decisiveDiscriminator": "亞臨床圓錐角膜具有固有膠原生物力學缺陷，異常地形／斷層具備一票否決權，不僅禁止 LASIK，亦不可改做削薄基質的 PRK 或 SMILE。",
+      "counterfactual": "若雙眼地形、後表面高度與上皮圖完全正常對稱，僅因 25 歲且高度近視（如 −10 D）致角膜切削量過大，則可於前房深度與內皮達標下轉軌評估後房型有晶體眼人工水晶體（ICL）。",
+      "sourceRefs": [
+        {
+          "bookId": "bcsc-s13",
+          "chapterId": "bcsc-s13-ch001",
+          "unitId": "bcsc-s13-ch001-u02",
+          "pdfPages": [
+            28,
+            29
+          ],
+          "printedPages": [
+            "13",
+            "14"
+          ],
+          "chapterHeading": "The Science of Refractive Surgery"
+        },
+        {
+          "bookId": "bcsc-s13",
+          "chapterId": "bcsc-s13-ch002",
+          "unitId": "bcsc-s13-ch002-u02",
+          "pdfPages": [
+            63,
+            64
+          ],
+          "printedPages": [
+            "48",
+            "49"
+          ],
+          "chapterHeading": "Patient Evaluation"
+        }
+      ],
+      "sourceRefProvenance": "Curriculum links copied from the existing verified catalog; synthesized across paired BCSC units.",
+      "localFieldLinks": [
+        "content/textbook-depth/bcsc-s13.json#/chapters/bcsc-s13-ch001/units/bcsc-s13-ch001-u02",
+        "content/textbook-depth/bcsc-s13.json#/chapters/bcsc-s13-ch002/units/bcsc-s13-ch002-u02"
+      ],
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "status": "source-checked",
+      "readiness": "ready"
+    },
+    {
+      "id": "extra-20261022-q086",
+      "domain": "diagnostics-systemic",
+      "bookId": "bcsc-s01",
+      "chapterIds": [
+        "bcsc-s01-ch001",
+        "bcsc-s01-ch002"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch001-u03",
+        "bcsc-s01-ch002-u01"
+      ],
+      "correctIndex": 2,
+      "sourceRefs": [
+        {
+          "bookId": "bcsc-s01",
+          "chapterId": "bcsc-s01-ch001",
+          "unitId": "bcsc-s01-ch001-u03",
+          "pdfPages": [
+            24,
+            25
+          ],
+          "printedPages": [
+            "5",
+            "11"
+          ],
+          "chapterHeading": "Social Determinants of Health"
+        },
+        {
+          "bookId": "bcsc-s01",
+          "chapterId": "bcsc-s01-ch002",
+          "unitId": "bcsc-s01-ch002-u01",
+          "pdfPages": [
+            32,
+            33
+          ],
+          "printedPages": [
+            "13",
+            "41"
+          ],
+          "chapterHeading": "Using Research to Improve Clinical Practice"
+        }
+      ],
+      "difficulty": "advanced",
+      "status": "source-checked",
+      "questionScope": "original-practice",
+      "questionType": "clinical-reasoning",
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "readiness": "ready",
+      "reasoningSteps": [
+        "先辨識語言隔閡與低功能性健康識能需啟用合格認證醫療口譯，並請患者以自己的話重述每瓶藥用法（teach-back），避免依賴未成年家屬翻譯或封閉式詢問。",
+        "再判定問卷單題 1 至 5 分屬序位類別變數（ordinal variable），相鄰分數間距未證實相等，應採用無母數檢定或序位邏輯斯迴歸而非單純等距算術平均檢定。",
+        "最後考量每位受試者雙眼眼壓具高度個人內相關（dependent data），不可將 120 隻眼直接視為獨立樣本進行傳統雙樣本 t 檢定，以免低估標準誤並造成假陽性。"
+      ],
+      "stem": "某醫學中心針對60位母語非主流語言且雙眼皆罹患隅角開放型青光眼之高齡患者（共120隻眼）進行臨床品質改善研究，評估「專業醫療口譯搭配回授確認（teach-back）與簡化處方」對點藥依從性及眼壓控制的成效。研究以視覺功能問卷單一題項（1分代表點藥毫無困難、5分代表因困難而停用）及雙眼眼壓變化作為結局指標。關於此介入措施之溝通執行原則與研究統計方法學配對，下列哪一項整合判讀最為正確？",
+      "options": [
+        {
+          "text": "由隨行成年家屬全程代譯以降低焦慮，以「是否都聽懂了」確認理解，並將1至5分問卷視為等距連續變數、120隻眼直接投入獨立樣本t檢定比較組間差異",
+          "rationale": "非專業家屬口譯易遺漏醫療風險細節，封閉式提問無法偵測功能性識能落差；且單題李克特量表屬序位變數、雙眼資料具相依性，不可直接作獨立樣本參數檢定。",
+          "whenTrue": "僅當臨床表現改為符合下列條件時方成立：非專業家屬口譯易遺漏醫療風險細節，封閉式提問無法偵測功能性識能落差；且單題李克特量表屬序位變數、雙眼資料具相依性，不可直接作獨立樣本參數檢定。"
+        },
+        {
+          "text": "若患者具大學學歷即可免除回授確認與視覺化日曆輔具，統計時將1至3分與4至5分強制切為二元變數，並把每位患者左右眼拆成兩筆獨立觀測值做卡方檢定",
+          "rationale": "高學歷不等同於面對複雜眼科處方時的功能性健康識能；且將序位資料硬切成二元會損失層級資訊量，把雙眼當獨立觀測值更違反獨立性假設。",
+          "whenTrue": "僅當臨床表現改為符合下列條件時方成立：高學歷不等同於面對複雜眼科處方時的功能性健康識能；且將序位資料硬切成二元會損失層級資訊量，把雙眼當獨立觀測值更違反獨立性假設。"
+        },
+        {
+          "text": "啟用合格醫療口譯並請患者親口重述點藥方式，統計將問卷等級視為序位變數且校正雙眼相依性",
+          "rationale": "合格口譯搭配回授確認（teach-back）能確保跨語言與低識能處方傳遞無誤；將 1–5 分等級視為序位變數並校正同一患者雙眼相關性，完全符合生物統計規範。",
+          "whenTrue": "本題臨床表現、檢查數據與病理機轉完全符合此正選之適應症與判讀條件。"
+        },
+        {
+          "text": "僅依藥瓶瓶蓋顏色口頭叮囑每日點藥次數而不需核對實體藥瓶，統計分析時直接將5分制序位分數取算術平均數與標準差，並以120隻眼作為獨立分母計算P值",
+          "rationale": "不同學名藥廠瓶蓋顏色未必統一，須請患者攜帶實體藥瓶當面核對；此外序位變數不宜直接假設常態等距，雙眼未校正相依性亦會膨脹第一型錯誤。",
+          "whenTrue": "僅當臨床表現改為符合下列條件時方成立：不同學名藥廠瓶蓋顏色未必統一，須請患者攜帶實體藥瓶當面核對；此外序位變數不宜直接假設常態等距，雙眼未校正相依性亦會膨脹第一型錯誤。"
+        }
+      ],
+      "explanation": "本題整合健康識能醫病溝通（BCSC Section 1 Chapter 1）與眼科臨床研究統計設計（Chapter 2）。第一，面對語言隔閡與複雜眼藥水處方，一般學歷或點頭微笑不能代表功能性健康識能充足，必須啟用合格認證醫療口譯（而非家屬代譯），並透過回授確認（teach-back）請患者親自說出每瓶藥點哪隻眼、一天幾次，同時簡化處方與核對實體藥瓶。第二，問卷中 1 至 5 分困難度等級具有高低排序但相鄰等級距離未必相等，屬序位類別變數（ordinal variable），應配對 Mann-Whitney U／Wilcoxon 等無母數檢定或序位邏輯斯迴歸。第三，60 位患者共 120 隻眼的雙眼數據具高度個人內相關（dependent data），若直接當作 N=120 做獨立樣本檢定會低估變異數而產生偽陽性 P 值。",
+      "testConcept": "健康識能、語言隔閡與醫病溝通：專業醫療口譯、回授確認（Teach-Back）與點藥依從性 × 臨床研究提問架構、變數尺度、雙眼相關性與統計檢定配對 之跨單元多步驟臨床推論與鑑別處置",
+      "closestDistractorIndex": 0,
+      "decisiveDiscriminator": "最後考量每位受試者雙眼眼壓具高度個人內相關（dependent data），不可將 120 隻眼直接視為獨立樣本進行傳統雙樣本 t 檢定，以免低估標準誤並造成假陽性。",
+      "counterfactual": "若臨床情境改變（非專業家屬口譯易遺漏醫療風險細節，封閉式提問無法偵測功能性識能落差；且單題李克特量表屬序位變數、雙眼資料具相依性，不可直接作獨立樣本參數檢定。），則「由隨行成年家屬全程代譯以降低焦慮，以「是否都聽懂了」確認理解，並將1至5…」方為合理處置或診斷方向。"
+    },
+    {
+      "id": "extra-20261022-q087",
+      "domain": "diagnostics-systemic",
+      "bookId": "bcsc-s01",
+      "chapterIds": [
+        "bcsc-s01-ch001",
+        "bcsc-s01-ch002"
+      ],
+      "unitIds": [
+        "bcsc-s01-ch001-u03",
+        "bcsc-s01-ch002-u02"
+      ],
+      "correctIndex": 3,
+      "sourceRefs": [
+        {
+          "bookId": "bcsc-s01",
+          "chapterId": "bcsc-s01-ch001",
+          "unitId": "bcsc-s01-ch001-u03",
+          "pdfPages": [
+            24,
+            25
+          ],
+          "printedPages": [
+            "5",
+            "11"
+          ],
+          "chapterHeading": "Social Determinants of Health"
+        },
+        {
+          "bookId": "bcsc-s01",
+          "chapterId": "bcsc-s01-ch002",
+          "unitId": "bcsc-s01-ch002-u02",
+          "pdfPages": [
+            46,
+            47
+          ],
+          "printedPages": [
+            "27",
+            "34"
+          ],
+          "chapterHeading": "Using Research to Improve Clinical Practice"
+        }
+      ],
+      "difficulty": "advanced",
+      "status": "source-checked",
+      "questionScope": "original-practice",
+      "questionType": "clinical-reasoning",
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "readiness": "ready",
+      "reasoningSteps": [
+        "先以二乘二表重算社區篩檢陽性預測值（PPV）：假設 1000 人受檢、盛行率 2%（20 人有病、980 人無病），90% 敏感度得真陽性 TP=18，90% 特異度得偽陽性 FP=98，故 PPV = 18/(18+98) ≈ 15.5%。",
+        "辨識將「敏感度 90%」直接等同於「陽性者患病機率 90%」是混淆敏感度與 PPV 的典型謬誤；在低盛行率社區中，超過八成篩檢陽性實為偽陽性。",
+        "針對語言隔閡長者，立即停止讓未成年孫輩翻譯醫療風險，改請合格醫療口譯介入，以圖像化母語媒材說明需轉介完整眼科檢查確立診斷並使用回授確認。"
+      ],
+      "stem": "某醫院計畫將一台在三級青光眼轉診中心（疾病盛行率20%）驗證具90%敏感度與90%特異度的視神經篩檢儀，直接移至新住民社區健康日（真實青光眼盛行率2%）進行大規模篩檢。活動當日一位不諳主流語言的長者篩檢呈陽性，由十歲孫子代為翻譯，長者焦急詢問：「儀器準確率九成，是否代表我有九成機率會失明？」下列哪一項流行病學數據推算與現場醫病溝通處置最為適當？",
+      "options": [
+        {
+          "text": "請十歲孫子直接轉告長者陽性預測值仍維持在轉診中心的69.2%，因為敏感度與特異度皆高達90%，檢驗後患病機率不會隨社區盛行率改變，並當場開立降眼壓藥水",
+          "rationale": "敏感度與特異度雖為檢驗工具固有特性，但陽性預測值（PPV）高度受盛行率支配；在 2% 盛行率下 PPV 並非 69.2%，且絕不可讓未成年家屬翻譯壞消息或未確診即用藥。",
+          "whenTrue": "僅當臨床表現改為符合下列條件時方成立：敏感度與特異度雖為檢驗工具固有特性，但陽性預測值（PPV）高度受盛行率支配；在 2% 盛行率下 PPV 並非 69.2%，且絕不可讓未成年家屬翻譯壞消息或未確診即用藥。"
+        },
+        {
+          "text": "向家屬解釋儀器整體準確度高達90%故長者確實有90%機率罹患青光眼，但為顧及長者情緒可請孫子簡化翻譯為一般眼睛退化，先發給英文衛教單張請其自行回診",
+          "rationale": "把敏感度或整體準確度（accuracy）當成 PPV 是嚴重統計誤解；且隱瞞病情、依賴幼童翻譯及發放不符語言與閱讀程度的衛教單張皆違反醫療溝通原則。",
+          "whenTrue": "僅當臨床表現改為符合下列條件時方成立：把敏感度或整體準確度（accuracy）當成 PPV 是嚴重統計誤解；且隱瞞病情、依賴幼童翻譯及發放不符語言與閱讀程度的衛教單張皆違反醫療溝通原則。"
+        },
+        {
+          "text": "推算社區陽性預測值因偽陰性增加而降至33.0%，懷疑儀器在社區操作時發生硬體故障導致特異度大幅下跌，遂請隨行鄰居幫忙口譯請長者不必接受後續眼科複查",
+          "rationale": "儀器並未故障，PPV 下降是因為低盛行率下健康分母龐大導致偽陽性（FP=98）遠多於真陽性（TP=18），計算值應約為 15.5%，且篩檢陽性者仍須確保轉介確診管道。",
+          "whenTrue": "僅當臨床表現改為符合下列條件時方成立：儀器並未故障，PPV 下降是因為低盛行率下健康分母龐大導致偽陽性（FP=98）遠多於真陽性（TP=18），計算值應約為 15.5%，且篩檢陽性者仍須確保轉介確診管道。"
+        },
+        {
+          "text": "重算社區陽性預測值約為15.5%，啟用合格醫療口譯向長者澄清多數陽性為偽陽性，並以回授確認安排轉介確診",
+          "rationale": "盛行率由 20% 降至 2% 時，PPV 由 69.2% 驟降至 18/(18+98) ≈ 15.5%；改用合格醫療口譯取代未成年孫輩並以回授確認（teach-back）銜接確診照護，兼顧實證與倫理。",
+          "whenTrue": "本題臨床表現、檢查數據與病理機轉完全符合此正選之適應症與判讀條件。"
+        }
+      ],
+      "explanation": "本題結合診斷試驗盛行率對預測值的重塑（BCSC Section 1 Chapter 2）與跨語言健康識能溝通（Chapter 1）。第一，敏感度（TP/[TP+FN] = 90%）與特異度（TN/[TN+FP] = 90%）以真實疾病狀態為分母，但臨床解釋陽性報告必須看陽性預測值（PPV = TP/[TP+FP]）。在盛行率 20% 的轉診門診（100 人中 20 人有病），TP=18、FP=8，PPV ≈ 69.2%；移至盛行率 2% 的社區（1000 人中 20 人有病、980 人無病），TP=18，但偽陽性暴增為 980 × 10% = 98 人，PPV 驟降至 18/(18+98) ≈ 15.5%，即超過八成陽性者並無青光眼。第二，面對語言不通之長者，嚴禁由未成年孫輩翻譯失明風險，應立即啟用合格認證醫療口譯，澄清篩檢陽性不等於確診，並以回授確認落實後續轉介檢查。",
+      "testConcept": "健康識能、語言隔閡與醫病溝通：專業醫療口譯、回授確認（Teach-Back）與點藥依從性 × 診斷與篩檢試驗判讀：敏感度、特異度、似然比（LR）、ROC曲線與盛行率對預測值的重塑 之跨單元多步驟臨床推論與鑑別處置",
+      "closestDistractorIndex": 0,
+      "decisiveDiscriminator": "針對語言隔閡長者，立即停止讓未成年孫輩翻譯醫療風險，改請合格醫療口譯介入，以圖像化母語媒材說明需轉介完整眼科檢查確立診斷並使用回授確認。",
+      "counterfactual": "若臨床情境改變（敏感度與特異度雖為檢驗工具固有特性，但陽性預測值（PPV）高度受盛行率支配；在 2% 盛行率下 PPV 並非 69.2%，且絕不可讓未成年家屬翻譯壞消息或未確診即用藥。），則「請十歲孫子直接轉告長者陽性預測值仍維持在轉診中心的69.2%，因為敏感度…」方為合理處置或診斷方向。"
+    },
+    {
+      "id": "extra-20261022-q088",
+      "domain": "diagnostics-systemic",
+      "bookId": "bcsc-s02",
+      "chapterIds": [
+        "bcsc-s02-ch001",
+        "bcsc-s02-ch002"
+      ],
+      "unitIds": [
+        "bcsc-s02-ch001-u03",
+        "bcsc-s02-ch002-u01"
+      ],
+      "correctIndex": 0,
+      "sourceRefs": [
+        {
+          "bookId": "bcsc-s02",
+          "chapterId": "bcsc-s02-ch001",
+          "unitId": "bcsc-s02-ch001-u03",
+          "pdfPages": [
+            26,
+            27
+          ],
+          "printedPages": [
+            "5",
+            "46"
+          ],
+          "chapterHeading": "Orbit and Ocular Adnexa"
+        },
+        {
+          "bookId": "bcsc-s02",
+          "chapterId": "bcsc-s02-ch002",
+          "unitId": "bcsc-s02-ch002-u01",
+          "pdfPages": [
+            68,
+            69
+          ],
+          "printedPages": [
+            "47",
+            "106"
+          ],
+          "chapterHeading": "The Eye"
+        }
+      ],
+      "difficulty": "advanced",
+      "status": "source-checked",
+      "questionScope": "original-practice",
+      "questionType": "clinical-reasoning",
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "readiness": "ready",
+      "reasoningSteps": [
+        "先確立眼瞼全層撕裂傷修補原則：以瞼緣灰線、瞼板腺開口與睫毛線對位，優先縫合由緻密纖維結締組織構成的瞼板（tarsus）承受張力，且絕對禁止縫合眼眶隔膜（orbital septum）。",
+        "同時辨識上眼瞼解剖陷阱：上瞼僅有內側與中央兩團眼眶脂肪墊，外上方為淚腺眼眶葉，術中切勿誤將外上方淚腺當作第三團脂肪切除。",
+        "再針對深及 Bowman 層的角膜刮傷：無細胞膠原層 Bowman 層破壞後無法再生、將留下基質疤痕，且絕對禁止處方局部麻醉眼藥水（如 proparacaine）讓患者帶回家止痛。"
+      ],
+      "stem": "一名患者因車禍玻璃割傷右眼，急診檢查排除眼球破裂後，發現右上眼瞼距內眥淚點外側處有一道垂直全層瞼緣撕裂傷並伴隨眼眶脂肪脫出，同時右眼角膜中央有一處深達前基質層（突破Bowman層）的刮傷且患者劇烈疼痛。在進行急診眼瞼顯微修補與角膜傷口處置時，下列哪一項解剖對位與術後給藥決策最為正確？",
+      "options": [
+        {
+          "text": "以瞼緣灰線精準對位並縫合緻密纖維瞼板，開放眼眶隔膜不予縫合，告知Bowman層受損將留疤且禁開局部麻醉劑外帶",
+          "rationale": "瞼板為緻密纖維結締組織支撐結構，灰線對齊可防瞼緣凹陷；不縫眼眶隔膜可避免術後眼瞼退縮與兔眼；Bowman 層不再生且局部麻醉藥外帶會致角膜融解穿孔。",
+          "whenTrue": "本題臨床表現、檢查數據與病理機轉完全符合此正選之適應症與判讀條件。"
+        },
+        {
+          "text": "將含軟骨細胞的瞼板與眼眶隔膜一併緊密縫合以防脂肪再度脫出，順手剪除上瞼外上方第三團脂肪墊，並開立tetracaine眼藥水讓患者返家每兩小時點用止痛",
+          "rationale": "瞼板不含軟骨，縫死眼眶隔膜會造成嚴重瘢痕性眼瞼退縮，上瞼外上方是主淚腺而非第三團脂肪，且處方局部麻醉劑外帶會引發毒性角膜病變與穿孔。",
+          "whenTrue": "僅當臨床表現改為符合下列條件時方成立：瞼板不含軟骨，縫死眼眶隔膜會造成嚴重瘢痕性眼瞼退縮，上瞼外上方是主淚腺而非第三團脂肪，且處方局部麻醉劑外帶會引發毒性角膜病變與穿孔。"
+        },
+        {
+          "text": "僅縫合眼瞼表皮與眼輪匝肌而不必縫合瞼板，術中將眼眶隔膜縫回骨性眶緣加強固定，並向患者保證無細胞的Bowman層屬於真性基底膜故兩週內可完全再生不留疤",
+          "rationale": "未縫合瞼板會導致永久性瞼緣凹陷（notching）與倒睫，縫合眼眶隔膜會限制眼瞼閉合；此外 Bowman 層並非真性基底膜（Descemet 膜與上皮基底膜才是），受損後永不再生。",
+          "whenTrue": "僅當臨床表現改為符合下列條件時方成立：未縫合瞼板會導致永久性瞼緣凹陷（notching）與倒睫，縫合眼眶隔膜會限制眼瞼閉合；此外 Bowman 層並非真性基底膜（Descemet 膜與上皮基底膜才是），受損後永不再生。"
+        },
+        {
+          "text": "先將上眼瞼內、中、外三團眼眶脂肪全數切除後再把眼眶隔膜與提上眼瞼肌腱膜縫死固定，角膜刮傷處則給予高濃度proparacaine藥水請患者於疼痛發作時自行點用",
+          "rationale": "上眼瞼僅有內、中兩團脂肪墊（外側為淚腺），將眼眶隔膜縫死會導致嚴重兔眼暴露，再疊加局部麻醉劑上皮與神經毒性將迅速造成角膜基質浸潤融解。",
+          "whenTrue": "僅當臨床表現改為符合下列條件時方成立：上眼瞼僅有內、中兩團脂肪墊（外側為淚腺），將眼眶隔膜縫死會導致嚴重兔眼暴露，再疊加局部麻醉劑上皮與神經毒性將迅速造成角膜基質浸潤融解。"
+        }
+      ],
+      "explanation": "本題整合眼瞼解剖外傷修補（BCSC Section 2 Chapter 1）與角膜層次修復機制（Chapter 2）。第一，瞼板（tarsus）由緻密纖維結締組織構成（完全不含軟骨），全層瞼緣撕裂傷必須以灰線、睫毛線與瞼板腺開口為地標精密對齊並縫合瞼板；眼眶隔膜（orbital septum）絕對不可縫合，否則會將眼瞼拴在眶緣導致瘢痕性眼瞼退縮與閉合不全；且上瞼僅有內側與中央兩團脂肪墊，外上方為主淚腺，切勿誤切。第二，角膜 Bowman 層為 8–15 μm 無細胞膠原編織層（非真性基底膜），受損後無法再生而由不規則第 III 型膠原疤痕取代；為緩解角膜刮傷疼痛，絕對禁止開立局部麻醉眼藥水（proparacaine/tetracaine）外帶，以免抑制上皮遷移、破壞微絨毛與神經而招致難治性角膜融解穿孔。",
+      "testConcept": "眼瞼、結膜與淚路：分清開閉、支持和分泌/排出 × 角膜、limbus與鞏膜的層次：屏障、透明與修復 之跨單元多步驟臨床推論與鑑別處置",
+      "closestDistractorIndex": 2,
+      "decisiveDiscriminator": "再針對深及 Bowman 層的角膜刮傷：無細胞膠原層 Bowman 層破壞後無法再生、將留下基質疤痕，且絕對禁止處方局部麻醉眼藥水（如 proparacaine）讓患者帶回家止痛。",
+      "counterfactual": "若臨床情境改變（未縫合瞼板會導致永久性瞼緣凹陷（notching）與倒睫，縫合眼眶隔膜會限制眼瞼閉合；此外 Bowman 層並非真性基底膜（Descemet 膜與上皮基底膜才是），受損後永不再生。），則「僅縫合眼瞼表皮與眼輪匝肌而不必縫合瞼板，術中將眼眶隔膜縫回骨性眶緣加強固…」方為合理處置或診斷方向。"
+    },
+    {
+      "id": "extra-20261022-q089",
+      "domain": "diagnostics-systemic",
+      "bookId": "bcsc-s02",
+      "chapterIds": [
+        "bcsc-s02-ch001",
+        "bcsc-s02-ch002"
+      ],
+      "unitIds": [
+        "bcsc-s02-ch001-u03",
+        "bcsc-s02-ch002-u02"
+      ],
+      "correctIndex": 1,
+      "sourceRefs": [
+        {
+          "bookId": "bcsc-s02",
+          "chapterId": "bcsc-s02-ch001",
+          "unitId": "bcsc-s02-ch001-u03",
+          "pdfPages": [
+            26,
+            27
+          ],
+          "printedPages": [
+            "5",
+            "46"
+          ],
+          "chapterHeading": "Orbit and Ocular Adnexa"
+        },
+        {
+          "bookId": "bcsc-s02",
+          "chapterId": "bcsc-s02-ch002",
+          "unitId": "bcsc-s02-ch002-u02",
+          "pdfPages": [
+            68,
+            69
+          ],
+          "printedPages": [
+            "47",
+            "106"
+          ],
+          "chapterHeading": "The Eye"
+        }
+      ],
+      "difficulty": "advanced",
+      "status": "source-checked",
+      "questionScope": "original-practice",
+      "questionType": "clinical-reasoning",
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "readiness": "ready",
+      "reasoningSteps": [
+        "先由上瞼皺褶異常墊高（>10–12 mm）且提瞼肌功能良好（>12 mm）確立為腱膜性眼瞼下垂（aponeurotic ptosis），前路手術切開眼眶隔膜後應以隔後眼眶脂肪墊（preaponeurotic fat pad）作為尋找提上眼瞼肌腱膜正前方的恆定解剖路標。",
+        "再辨識水晶體後極囊膜僅厚 2–4 μm 為全晶體最薄弱處，且先天後極白內障常與後囊緊密融合甚至伴先天缺損。",
+        "因此在白內障手術中絕對禁止執行標準水分離（hydrodissection），必須改採溫和水分層（hydrodelineation）保留外層皮質緩衝墊以防後囊瞬間爆裂掉核。"
+      ],
+      "stem": "一名68歲患者右眼視力模糊且上眼瞼遮蔽瞳孔上緣，檢查見右上眼瞼皺褶墊高至13 mm、提上眼瞼肌功能（levator function）為15 mm，裂隙燈下右眼水晶體後極部中央有一處緻密圓盤狀混濁緊貼後囊（congenital posterior polar cataract）。醫師規劃分階段施行右眼白內障超音波乳化手術與前路提上眼瞼肌腱膜推進修復術，下列哪一項術中解剖指標與操作組合最為安全正確？",
+      "options": [
+        {
+          "text": "白內障術中在後囊下快速注入大量平衡鹽水執行徹底水分離以利晶體核旋轉，眼瞼手術則直接切斷Whitnall上橫韌帶以釋放提上眼瞼肌張力並縫閉眼眶隔膜",
+          "rationale": "先天後極白內障執行標準水分離（hydrodissection）會瞬間撐破僅 2–4 μm 的脆弱後囊導致晶體核掉入玻璃體；且切斷 Whitnall 韌帶會破壞提瞼吊床支點。",
+          "whenTrue": "僅當臨床表現改為符合下列條件時方成立：先天後極白內障執行標準水分離（hydrodissection）會瞬間撐破僅 2–4 μm 的脆弱後囊導致晶體核掉入玻璃體；且切斷 Whitnall 韌帶會破壞提瞼吊床支點。"
+        },
+        {
+          "text": "白內障術中禁行標準水分離而改採水分層保護極薄後囊，眼瞼手術則以隔後脂肪墊作為尋找提上眼瞼肌腱膜之前方路標",
+          "rationale": "後極囊膜僅 2–4 μm 且易與後極白內障沾黏，改用水分層（hydrodelineation）可防破囊；前路提瞼肌手術以隔後眼眶脂肪墊定位腱膜並保護外上方淚腺最安全。",
+          "whenTrue": "本題臨床表現、檢查數據與病理機轉完全符合此正選之適應症與判讀條件。"
+        },
+        {
+          "text": "因水晶體後囊比前囊厚且內襯完整單層上皮細胞具強韌保護力，可調高超音波乳化負壓直接吸除後極斑塊，眼瞼手術則將外上方第三團脂肪墊一併切除",
+          "rationale": "正常水晶體僅前囊下方有單層上皮，後囊完全無上皮且後極僅 2–4 μm 為最薄處；此外上眼瞼外上方為主淚腺眼眶葉而非第三團脂肪，誤切將致嚴重乾眼。",
+          "whenTrue": "僅當臨床表現改為符合下列條件時方成立：正常水晶體僅前囊下方有單層上皮，後囊完全無上皮且後極僅 2–4 μm 為最薄處；此外上眼瞼外上方為主淚腺眼眶葉而非第三團脂肪，誤切將致嚴重乾眼。"
+        },
+        {
+          "text": "白內障術前先以散瞳劑收縮環行睫狀肌拉緊懸韌帶以穩定後囊，術中強力水分離轉核，眼瞼手術則切除交感神經支配的提上眼瞼肌腱膜並縫縮眼眶隔膜",
+          "rationale": "散瞳（睫狀肌麻痺）才會拉緊懸韌帶，睫狀肌收縮反而放鬆懸韌帶；後極白內障禁做標準水分離，且提上眼瞼肌由動眼神經支配（Müller 肌才由交感神經支配）。",
+          "whenTrue": "僅當臨床表現改為符合下列條件時方成立：散瞳（睫狀肌麻痺）才會拉緊懸韌帶，睫狀肌收縮反而放鬆懸韌帶；後極白內障禁做標準水分離，且提上眼瞼肌由動眼神經支配（Müller 肌才由交感神經支配）。"
+        }
+      ],
+      "explanation": "本題整合上眼瞼縮肌解剖手術路標（BCSC Section 2 Chapter 1）與水晶體囊膜分層及白內障術中風險控制（Chapter 2）。第一，高齡患者出現上瞼下垂、瞼皺褶升高（>10–12 mm）且提瞼肌功能良好（>12 mm），屬典型提上眼瞼肌腱膜脫離退縮（aponeurotic ptosis）；前路修復切開眼眶隔膜後，恆定覆蓋於腱膜前方的隔後眼眶脂肪墊（preaponeurotic fat pad）是辨識提上眼瞼肌腱膜的黃金地標，同時須保護 Whitnall 韌帶與外上方淚腺。第二，水晶體僅前囊下有上皮，後極部後囊僅 2–4 μm 為全晶體最薄處；面對後極白內障（posterior polar cataract），絕對禁止執行標準水分離（hydrodissection），必須改採水分層（hydrodelineation）保留外層皮質緩衝墊，以免高速水波直接衝破後囊導致晶體核墜入玻璃體腔。",
+      "testConcept": "眼瞼、結膜與淚路：分清開閉、支持和分泌/排出 × 前後房、ciliary body、lens與zonule的連續路徑 之跨單元多步驟臨床推論與鑑別處置",
+      "closestDistractorIndex": 0,
+      "decisiveDiscriminator": "因此在白內障手術中絕對禁止執行標準水分離（hydrodissection），必須改採溫和水分層（hydrodelineation）保留外層皮質緩衝墊以防後囊瞬間爆裂掉核。",
+      "counterfactual": "若臨床情境改變（先天後極白內障執行標準水分離（hydrodissection）會瞬間撐破僅 2–4 μm 的脆弱後囊導致晶體核掉入玻璃體；且切斷 Whitnall 韌帶會破壞提瞼吊床支點。），則「白內障術中在後囊下快速注入大量平衡鹽水執行徹底水分離以利晶體核旋轉，眼瞼…」方為合理處置或診斷方向。"
+    },
+    {
+      "id": "extra-20261022-q090",
+      "domain": "diagnostics-systemic",
+      "bookId": "bcsc-s04",
+      "chapterIds": [
+        "bcsc-s04-ch001",
+        "bcsc-s04-ch002"
+      ],
+      "unitIds": [
+        "bcsc-s04-ch001-u03",
+        "bcsc-s04-ch002-u01"
+      ],
+      "correctIndex": 2,
+      "sourceRefs": [
+        {
+          "bookId": "bcsc-s04",
+          "chapterId": "bcsc-s04-ch001",
+          "unitId": "bcsc-s04-ch001-u03",
+          "pdfPages": [
+            24,
+            25
+          ],
+          "printedPages": [
+            "5",
+            "18"
+          ],
+          "chapterHeading": "Introduction to Part I"
+        },
+        {
+          "bookId": "bcsc-s04",
+          "chapterId": "bcsc-s04-ch002",
+          "unitId": "bcsc-s04-ch002-u01",
+          "pdfPages": [
+            38,
+            39
+          ],
+          "printedPages": [
+            "19",
+            "42"
+          ],
+          "chapterHeading": "Quick- Start Guide: Specimen Handling and Special Tests and Procedures in Pathology"
+        }
+      ],
+      "difficulty": "advanced",
+      "status": "source-checked",
+      "questionScope": "original-practice",
+      "questionType": "clinical-reasoning",
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "readiness": "ready",
+      "reasoningSteps": [
+        "先掌握疑似結膜淋巴增生病變之術中標本分流（specimen triage）：一旦整塊組織全數浸泡 10% 福馬林即殺死活細胞，故必須在固定前分流新鮮標本置於 RPMI 培養液送流式細胞儀（flow cytometry），另一部分入福馬林供組織學與免疫染色。",
+        "再辨識漿細胞內的 Russell bodies（胞質內）與 Dutcher bodies（核內）本質為免疫球蛋白堆積，而非真菌孢子或寄生蟲包涵體（GMS 銀染為陰性）。",
+        "最後藉由免疫球蛋白 κ 與 λ 輕鏈限制性（light-chain restriction）檢測（流式細胞儀、IHC 或原位雜交），區分多株反應性浸潤與單株 B 細胞／淋巴漿細胞惡性腫瘤。"
+      ],
+      "stem": "一名62歲女性因雙側結膜穹窿出現無痛性鮭魚肉色（salmon-patch）隆起腫塊接受診斷性切取生檢。病理切片在H&E染色下可見瀰漫性小淋巴球與大量成熟漿細胞浸潤（具偏心車輪狀核與核旁淡染空暈），且部分細胞內出現均質亮粉紅色球狀胞質包涵體（Russell bodies）及核內包涵體（Dutcher bodies）。為精準鑑別反應性淋巴漿細胞增生與黏膜相關淋巴組織（MALT）淋巴瘤，下列哪一項術中標本分流與病理判讀最為正確？",
+      "options": [
+        {
+          "text": "將整塊結膜標本全數浸入10%中性緩衝福馬林固定24小時後，再請病理科取出部分福馬林組織補做流式細胞儀分析活細胞表面標記，並開立GMS銀染證實Russell小體為深部黴菌孢子",
+          "rationale": "福馬林交聯蛋白質會立即殺死細胞，固定後無法再做需要活細胞的流式細胞儀（flow cytometry）；且 Russell bodies 是免疫球蛋白堆積而非真菌，GMS 染色呈陰性。",
+          "whenTrue": "僅當臨床表現改為符合下列條件時方成立：福馬林交聯蛋白質會立即殺死細胞，固定後無法再做需要活細胞的流式細胞儀（flow cytometry）；且 Russell bodies 是免疫球蛋白堆積而非真菌，GMS 染色呈陰性。"
+        },
+        {
+          "text": "將全部結膜標本投入無水乙醇以保存淋巴球內水溶性免疫球蛋白結晶，病理下只要見到偏心車輪狀核漿細胞與Russell小體即可直接確診為高惡性度T細胞淋巴瘤而不必檢測輕鏈",
+          "rationale": "無水乙醇專用於保存痛風尿酸結晶而非淋巴瘤分流；此外慢性反應性發炎（如砂眼）亦可出現豐富漿細胞與 Russell bodies，必須靠 κ/λ 輕鏈單株性才能確立 B 細胞腫瘤。",
+          "whenTrue": "僅當臨床表現改為符合下列條件時方成立：無水乙醇專用於保存痛風尿酸結晶而非淋巴瘤分流；此外慢性反應性發炎（如砂眼）亦可出現豐富漿細胞與 Russell bodies，必須靠 κ/λ 輕鏈單株性才能確立 B 細胞腫瘤。"
+        },
+        {
+          "text": "術中分流新鮮組織入RPMI培養液供流式細胞儀並留福馬林標本，辨識包涵體為免疫球蛋白並檢測κ與λ輕鏈單株限制性",
+          "rationale": "疑似淋巴增生病變須於固定前分流新鮮組織至 RPMI 液以維持活細胞供流式細胞儀檢測；Russell/Dutcher 小體為免疫球蛋白，透過 κ/λ 輕鏈限制性可精準定性單株惡性增生。",
+          "whenTrue": "本題臨床表現、檢查數據與病理機轉完全符合此正選之適應症與判讀條件。"
+        },
+        {
+          "text": "術中將微小結膜標本以電燒刀重度燒灼止血並反覆用力鑷夾後全數泡入戊二醛，病理下因未見Langhans多核巨細胞故可直接排除所有慢性發炎並診斷為原發性類澱粉變性",
+          "rationale": "過度鑷夾與電燒會造成嚴重壓碎與焦化偽影（crush/cautery artifact）毀損淋巴球形態，戊二醛用於電子顯微鏡而非流式細胞儀；且無巨細胞完全不能排除慢性非肉芽腫性發炎。",
+          "whenTrue": "僅當臨床表現改為符合下列條件時方成立：過度鑷夾與電燒會造成嚴重壓碎與焦化偽影（crush/cautery artifact）毀損淋巴球形態，戊二醛用於電子顯微鏡而非流式細胞儀；且無巨細胞完全不能排除慢性非肉芽腫性發炎。"
+        }
+      ],
+      "explanation": "本題整合眼病理標本分流固定原則（BCSC Section 4 Chapter 2）與慢性發炎漿細胞形態及單株性鑑別（Chapter 1）。第一，面對結膜鮭魚肉色腫塊等疑似淋巴增生病變，術前必須聯繫病理科備妥粉紅色 RPMI 組織培養液，術中將新鮮未固定標本分流一部分入 RPMI 送流式細胞儀（需活細胞檢測表面抗原與輕鏈），另一部分入 10% 中性緩衝福馬林做常規 H&E 與免疫染色；若把整塊標本先丟進福馬林，活細胞全數死亡即無法回頭做流式細胞儀。第二，漿細胞具偏心車輪狀核（clockface chromatin）與核旁高基氏體空暈（perinuclear hof），其內質網過度堆積免疫球蛋白會形成亮粉紅色胞質包涵體（Russell bodies）或核內假包涵體（Dutcher bodies）；兩者在慢性反應性發炎與低惡性度邊緣區 B 細胞淋巴瘤（MALT lymphoma）皆可見（Dutcher bodies 尤提示惡性增生），必須驗證免疫球蛋白 κ 與 λ 輕鏈是否具單株限制性（light-chain restriction）方能確診。",
+      "testConcept": "急慢性、granuloma與dystrophy/degeneration不是同一分類軸 × 標本分流與fixation：不能先固定再要求活細胞 之跨單元多步驟臨床推論與鑑別處置",
+      "closestDistractorIndex": 0,
+      "decisiveDiscriminator": "最後藉由免疫球蛋白 κ 與 λ 輕鏈限制性（light-chain restriction）檢測（流式細胞儀、IHC 或原位雜交），區分多株反應性浸潤與單株 B 細胞／淋巴漿細胞惡性腫瘤。",
+      "counterfactual": "若臨床情境改變（福馬林交聯蛋白質會立即殺死細胞，固定後無法再做需要活細胞的流式細胞儀（flow cytometry）；且 Russell bodies 是免疫球蛋白堆積而非真菌，GMS 染色呈陰性），則「將整塊結膜標本全數浸入10%中性緩衝福馬林固定24小時後，再請病理科取出…」方為合理處置或診斷方向。"
+    },
+    {
+      "id": "extra-20261022-q091",
+      "domain": "diagnostics-systemic",
+      "bookId": "bcsc-s04",
+      "chapterIds": [
+        "bcsc-s04-ch001",
+        "bcsc-s04-ch002"
+      ],
+      "unitIds": [
+        "bcsc-s04-ch001-u03",
+        "bcsc-s04-ch002-u02"
+      ],
+      "correctIndex": 3,
+      "sourceRefs": [
+        {
+          "bookId": "bcsc-s04",
+          "chapterId": "bcsc-s04-ch001",
+          "unitId": "bcsc-s04-ch001-u03",
+          "pdfPages": [
+            24,
+            25
+          ],
+          "printedPages": [
+            "5",
+            "18"
+          ],
+          "chapterHeading": "Introduction to Part I"
+        },
+        {
+          "bookId": "bcsc-s04",
+          "chapterId": "bcsc-s04-ch002",
+          "unitId": "bcsc-s04-ch002-u02",
+          "pdfPages": [
+            38,
+            39
+          ],
+          "printedPages": [
+            "19",
+            "42"
+          ],
+          "chapterHeading": "Quick- Start Guide: Specimen Handling and Special Tests and Procedures in Pathology"
+        }
+      ],
+      "difficulty": "advanced",
+      "status": "source-checked",
+      "questionScope": "original-practice",
+      "questionType": "clinical-reasoning",
+      "requiresImage": false,
+      "imageStatus": "not-applicable",
+      "readiness": "ready",
+      "reasoningSteps": [
+        "先剖析案例甲（FFPE 眼瞼切片）：石蠟包埋過程的梯度酒精與二甲苯早已將細胞內中性脂肪洗脫殆盡，對 FFPE 蠟塊補開 Oil Red O 染色必然出現偽陰性；FFPE 應改用 Adipophilin 或 EMA 等免疫組織化學染色（Oil Red O 僅能用於未固定新鮮冷凍切片）。",
+        "再剖析案例乙（眼眶切片）：肉芽腫性發炎的診斷基準為「類上皮組織細胞聚集」，即使未見多核巨細胞仍屬肉芽腫性發炎。",
+        "因案例乙具中央壞死區（necrotizing granuloma），在開立高劑量全身免疫抑制劑前，必須先對蠟塊加做抗酸染色（Ziehl-Neelsen/Fite）與真菌銀染（GMS）並配合全身檢查排除結核與深部黴菌感染。"
+      ],
+      "stem": "眼科病理晨會討論兩例已完成10%福馬林固定與石蠟包埋（FFPE）的切片：案例甲為75歲患者同位置反覆復發、伴睫毛脫落與瞼板瀰漫增厚的上眼瞼腫塊（臨床高度懷疑皮脂腺癌偽裝成慢性霰粒腫）；案例乙為眼眶深部腫塊切片，H&E下可見粉紅類上皮組織細胞（epithelioid histiocytes）團塊伴中央壞死區，但未見典型多核巨細胞。針對這兩份FFPE蠟塊的後續特殊染色與臨床處置，下列哪一項決策最為正確？",
+      "options": [
+        {
+          "text": "對案例甲的石蠟切片直接加做Oil Red O脂肪染色，若呈陰性即可完全排除皮脂腺癌；案例乙因未見Langhans多核巨細胞故不屬於肉芽腫性發炎，可直接給予高劑量全身類固醇",
+          "rationale": "石蠟包埋之酒精與二甲苯已洗去脂質，FFPE 做 Oil Red O 必呈偽陰性；且肉芽腫性發炎以類上皮組織細胞聚集為準（不一定要有巨細胞），壞死性肉芽腫未排感染前禁單用高劑量類固醇。",
+          "whenTrue": "僅當臨床表現改為符合下列條件時方成立：石蠟包埋之酒精與二甲苯已洗去脂質，FFPE 做 Oil Red O 必呈偽陰性；且肉芽腫性發炎以類上皮組織細胞聚集為準（不一定要有巨細胞），壞死性肉芽腫未排感染前禁單用高劑量類固醇。"
+        },
+        {
+          "text": "對案例甲石蠟切片開立Alcian blue染色以將皮脂腺癌胞質內中性脂質染成鮮紅色；案例乙則因見到類上皮組織細胞即可直接等同於非感染性類肉瘤病，無須加做任何微生物特殊染色",
+          "rationale": "Alcian blue 是將酸性黏多醣（如斑塊狀角膜失養症）染成鮮藍色，並非染中性脂質；而病理報告的肉芽腫性發炎絕非類肉瘤病代名詞，尤其中央壞死強烈提示結核或黴菌。",
+          "whenTrue": "僅當臨床表現改為符合下列條件時方成立：Alcian blue 是將酸性黏多醣（如斑塊狀角膜失養症）染成鮮藍色，並非染中性脂質；而病理報告的肉芽腫性發炎絕非類肉瘤病代名詞，尤其中央壞死強烈提示結核或黴菌。"
+        },
+        {
+          "text": "對案例甲石蠟切片施行Congo red染色並在一般白光顯微鏡下見到橘紅色即確診類澱粉變性；案例乙則開立Masson trichrome染色以直接把分枝桿菌與真菌細胞壁染成特異性蘋果綠色",
+          "rationale": "Congo red 必須在正交偏光顯微鏡下呈現蘋果綠雙折射（apple-green birefringence）才能確診類澱粉；且分枝桿菌與真菌應分別使用抗酸染色與 GMS/PAS，而非 Masson trichrome。",
+          "whenTrue": "僅當臨床表現改為符合下列條件時方成立：Congo red 必須在正交偏光顯微鏡下呈現蘋果綠雙折射（apple-green birefringence）才能確診類澱粉；且分枝桿菌與真菌應分別使用抗酸染色與 GMS/PAS，而非 M"
+        },
+        {
+          "text": "案例甲FFPE已脫脂故改用免疫染色而非Oil Red O；案例乙屬壞死性肉芽腫，上免疫抑制劑前須先做抗酸與GMS染色排除感染",
+          "rationale": "FFPE 已在脫水透明化步驟流失脂質，須改用 Adipophilin 等 IHC（或另取新鮮冷凍組織染 Oil Red O）；類上皮組織細胞聚集即構成肉芽腫，伴壞死時必先以抗酸與 GMS 染色排除結核與真菌。",
+          "whenTrue": "本題臨床表現、檢查數據與病理機轉完全符合此正選之適應症與判讀條件。"
+        }
+      ],
+      "explanation": "本題整合眼病理特殊染色原理與石蠟包埋限制（BCSC Section 4 Chapter 2）以及肉芽腫性發炎病理判讀軸線（Chapter 1）。第一，案例甲高齡單側復發瞼板增厚伴睫毛脫落須高度懷疑皮脂腺癌（sebaceous carcinoma）；然而常規福馬林固定石蠟包埋（FFPE）經歷酒精與二甲苯處理，細胞內中性脂質早已被徹底洗脫，此時對 FFPE 補開 Oil Red O 必然偽陰性（Oil Red O 必須在術中留新鮮未固定組織做冷凍切片），針對 FFPE 蠟塊應改開 Adipophilin 或 EMA 等免疫組織化學標記。第二，案例乙中肉芽腫性發炎的必要組織學基準是「類上皮組織細胞（epithelioid histiocytes）聚集」，多核巨細胞並非絕對必要條件；且一旦出現中央壞死區（乾酪樣或化膿壞死），強烈指向結核分枝桿菌或深部黴菌等感染，必須先完成 Ziehl-Neelsen/Fite 抗酸染色、GMS 銀染與全身感染排查，絕不可直接當成類肉瘤病而單上高劑量類固醇。",
+      "testConcept": "急慢性、granuloma與dystrophy/degeneration不是同一分類軸 × 染色選擇：材料、病原與lineage各問不同問題 之跨單元多步驟臨床推論與鑑別處置",
+      "closestDistractorIndex": 2,
+      "decisiveDiscriminator": "因案例乙具中央壞死區（necrotizing granuloma），在開立高劑量全身免疫抑制劑前，必須先對蠟塊加做抗酸染色（Ziehl-Neelsen/Fite）與真菌銀染（GMS）並配合全身檢查排除結核與深部黴菌感染。",
+      "counterfactual": "若臨床情境改變（Congo red 必須在正交偏光顯微鏡下呈現蘋果綠雙折射（apple-green birefringence）才能確診類澱粉；且分枝桿菌與真菌應分別使用抗酸染色與 GMS/PAS），則「對案例甲石蠟切片施行Congo red染色並在一般白光顯微鏡下見到橘紅色…」方為合理處置或診斷方向。"
     }
   ],
   "readiness": "ready",
