@@ -67,7 +67,7 @@
     "atlas-s04-10": "0ca2cc5a8a5b64a588f310ccf86d5939071e15bfdec0d6e573cdc6ce869273bd",
     "atlas-s05-01": "564971461322c338b696404f33c2bd21a21ee01c35fda73e56a070c96c2dc7d5",
     "atlas-s05-02": "252106bc839a6156ba854993cacbae7b1182ee821ddc1f987ff09daaecf85d8b",
-    "atlas-s05-03": "da657808c81a16303a72f96e0e05363789391c7ba2d75b8011854d886996b831",
+    "atlas-s05-03": "df9c7aaf03f5ecefba1e57bb0be5239ccea86906e5b2464720a4686970a12112",
     "atlas-s05-04": "c5e0a74918e8f5d760917323a8ca72897d7ae6d7e0654246794931399e2fbfc1",
     "atlas-s05-05": "7044034bc465b1f2983483067f289fadeeaf576d80fed5ff141d14f10ec6e13e",
     "atlas-s05-06": "2c8d27fa6b080c925718cf593efe0ae4991cfa8f3ff2aaad6b7beed3b8cba129",
@@ -79,7 +79,7 @@
     "atlas-s06-02": "3ba79aefd68b46ab2fd055189d1bc3246d54c6f0b72bc889282c9c27f9e95e81",
     "atlas-s06-03": "7cdc13e569670b0f7ca824d4fb7d067733cf9fc5e3ae94a6e232206a11a944dd",
     "atlas-s06-04": "2fb928e7784a6d6d261a579aa5ad03a33630cbd17ddac6848a607ee402e5aa82",
-    "atlas-s06-05": "8f27eb853b2ef047de5174450bc46358f9405a806b532aa7a08c6bfdfd40cf0a",
+    "atlas-s06-05": "2affee6a1e5cef5bf34432356a3e49aa08ab147aec4674bad36c985b192dd48d",
     "atlas-s06-06": "0532a93b37588049f65d566dde4564bbce4642fdc9469409791817a8053ab848",
     "atlas-s06-07": "a30ab954a9f81523e730d17497f06c3588f81a87e5ac64defbaa9137e5dfcf9a",
     "atlas-s06-08": "701d44d965bbfdd63b54357b0b5c9d6d4b1ba41424f0269c48572c65bb4c762c",
@@ -93,7 +93,7 @@
     "atlas-s07-06": "87c63a53dd03176bf5a6ac11f228433e4c9a221595666a5c0ec3c9f01ca3fabf",
     "atlas-s07-07": "34dc4f1ef912612e6fa9530aa0df44600444f0d58bb19d2522fd6da951e4df82",
     "atlas-s07-08": "6562f3e036977140621bb083a1b3e0f28a96e8716a19448ea88950323fb777db",
-    "atlas-s07-09": "0c30d58a99c0fd03f8e0fe93e1e955bcd30518218b634ff2ed867790a1374370",
+    "atlas-s07-09": "3ff9e2aac97ac884bde0ad895fb7f737fcb6fa6eaf64bc73339ac1591e3af923",
     "atlas-s07-10": "863d25694653e8cf13eec55de2a00645151178591237ee58af1e964d3bdf86ea",
     "atlas-s08-01": "601d6a2f1b06198228037401d84e4e0578c67a90a470cbbbb5d0ac7222a0bce4",
     "atlas-s08-02": "03aa1966c574a98dc8817c9238b2ecc173bcae6877ec69690e1fa7e38efe3c3a",
@@ -158,6 +158,7 @@
     "2026-11-02: Independent clinical, optical-formula, and full-frame 1800x920 WebKit visual sign-off completed across all 13 Wave 1B SVGs (atlas-s02-08..12, atlas-s03-03..10) and BCSC S02/S03 chapters & 127 questions after verifying sulcus-IOL Table 7-1 powers, toric 2C·sinθ inputs, and zero text/border collisions.",
     "2026-11-02 targeted correction, not a full re-review: atlas-s02-12 (no CT for suspected retinoblastoma, ERIC guideline) and atlas-s03-07 (residual toric axis at 30 degrees misalignment). Hashes refreshed for these two units only.",
     "2026-11-02 targeted correction, not a full re-review: references replaced in atlas-s02-08, atlas-s02-09, atlas-s02-10, atlas-s02-12, atlas-s03-03, atlas-s03-05, atlas-s03-06, atlas-s03-07, atlas-s03-08, atlas-s03-09 (wrong articles and dead links; titles, years and notes matched to the linked source); teaching text corrected in atlas-s02-11 (netarsudil epithelial oedema, FDA label 5.1) and atlas-s02-12 (no CT for suspected retinoblastoma). Hashes refreshed for these units only.",
-    "2026-11-02 targeted correction, not a full re-review: atlas-s04-09, atlas-s06-06. Hashes refreshed for these units only."
+    "2026-11-02 targeted correction, not a full re-review: atlas-s04-09, atlas-s06-06. Hashes refreshed for these units only.",
+    "2026-11-02 targeted correction, not a full re-review: atlas-s05-03, atlas-s06-05, atlas-s07-09. Hashes refreshed for these units only."
   ]
 }
