@@ -275,7 +275,7 @@ test('PBL and workflow cross-links point at existing items', () => {
   assert(main().includes('data-action="pbl-open" data-value="pbl-gca"'));
 });
 
-test('all 46 interview items show a detailed answer pack, follow-up references and can seed the draft', () => {
+test('all 45 interview items show a detailed answer pack, follow-up references and can seed the draft', () => {
   const detailed = D.interviewDetailed.answers;
   assert.equal(Object.keys(detailed).length, D.interview.length);
   for (const i of D.interview) {

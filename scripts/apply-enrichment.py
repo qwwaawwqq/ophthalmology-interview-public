@@ -30,30 +30,8 @@ SPECIALTY_BOOT = '<script id="specialty-boot">'
 NON_OPH_SPECIALTIES = (
     ('ent', '耳鼻喉科'),
     ('rad', '放射診斷科'),
-    ('radonc', '放射腫瘤科'),
     ('nm', '核子醫學科'),
     ('neuro', '神經內科'),
-    ('gs', '一般外科'),
-    ('prs', '整形外科'),
-    ('ortho', '骨科'),
-    ('uro', '泌尿外科'),
-    ('ns', '神經外科'),
-    ('gm', '一般內科'),
-    ('cv', '心臟內科'),
-    ('pulm', '胸腔內科'),
-    ('gi', '胃腸肝膽科'),
-    ('nephro', '腎臟內科'),
-    ('endo', '內分泌新陳代謝科'),
-    ('hemeonc', '血液腫瘤內科'),
-    ('id', '感染科'),
-    ('rheu', '風濕免疫科'),
-    ('ped', '小兒科'),
-    ('obgyn', '婦產科'),
-    ('derm', '皮膚科'),
-    ('psych', '精神科'),
-    ('pmr', '復健科'),
-    ('anes', '麻醉科'),
-    ('fm', '家庭醫學科'),
 )
 KINDS = {'圖譜', '影片', '期刊', '指南'}
 JS_START = '/* enrichment-ui:start */'
@@ -513,10 +491,14 @@ def ensure_specialty_shells(html):
     """Ensure every non-oph specialty has a valid <script type="application/json" id="course-data-<s>"> block.
 
     Existing blocks (for example populated by scripts/apply-specialty.py) are validated and preserved intact,
-    and ophthalmology's id="course-data" payload is never modified."""
+    blocks for specialties no longer registered are removed, and ophthalmology's id="course-data" payload is
+    never modified."""
     oph_tag = '<script type="application/json" id="course-data">'
     if html.count(oph_tag) != 1:
         raise ValueError('Expected exactly one course-data block')
+    registered = {sid for sid, _ in NON_OPH_SPECIALTIES}
+    html = re.sub(r'<script type="application/json" id="course-data-([a-z0-9]+)">.*?</script>\n?',
+                  lambda m: m.group(0) if m.group(1) in registered else '', html, flags=re.S)
     for sid, label in NON_OPH_SPECIALTIES:
         open_tag = f'<script type="application/json" id="course-data-{sid}">'
         found = re.findall(re.escape(open_tag) + r'(.*?)</script>', html, flags=re.S)
@@ -1173,6 +1155,7 @@ def build():
     assert html.count(SPECIALTY_BOOT)==1
     for sid, _ in NON_OPH_SPECIALTIES:
         assert html.count(f'<script type="application/json" id="course-data-{sid}">') == 1
+    assert set(re.findall(r'<script type="application/json" id="course-data-([a-z0-9]+)">', html)) == {sid for sid, _ in NON_OPH_SPECIALTIES}
     return html, after
 
 

@@ -11,30 +11,8 @@
     {id:'oph',label:'眼科',appTitle:'眼科甄選練習室',storePrefix:'oph-prep:',stateKey:'oph-prep:progress-v3',syncFile:'progress.json',formats:['ophthalmology-prep-progress-v1','ophthalmology-prep-progress-v2','ophthalmology-prep-progress-v3'],exportFormat:'ophthalmology-prep-progress-v3',defaultRepo:'ophthalmology-progress',exportName:'Ophthalmology_Progress_',dataId:'course-data',contentBase:'content/',query:''},
     other('ent','耳鼻喉科','ENT_Progress_'),
     other('rad','放射診斷科','Radiology_Progress_'),
-    other('radonc','放射腫瘤科','RadiationOncology_Progress_'),
     other('nm','核子醫學科','NuclearMedicine_Progress_'),
-    other('neuro','神經內科','Neurology_Progress_'),
-    other('gs','一般外科','GeneralSurgery_Progress_'),
-    other('prs','整形外科','PlasticSurgery_Progress_'),
-    other('ortho','骨科','Orthopedics_Progress_'),
-    other('uro','泌尿外科','Urology_Progress_'),
-    other('ns','神經外科','Neurosurgery_Progress_'),
-    other('gm','一般內科','InternalMed_Progress_'),
-    other('cv','心臟內科','Cardiology_Progress_'),
-    other('pulm','胸腔內科','Pulmonology_Progress_'),
-    other('gi','胃腸肝膽科','Gastroenterology_Progress_'),
-    other('nephro','腎臟內科','Nephrology_Progress_'),
-    other('endo','內分泌新陳代謝科','Endocrinology_Progress_'),
-    other('hemeonc','血液腫瘤內科','HemeOnc_Progress_'),
-    other('id','感染科','InfectiousDisease_Progress_'),
-    other('rheu','風濕免疫科','Rheumatology_Progress_'),
-    other('ped','小兒科','Pediatrics_Progress_'),
-    other('obgyn','婦產科','OBGYN_Progress_'),
-    other('derm','皮膚科','Dermatology_Progress_'),
-    other('psych','精神科','Psychiatry_Progress_'),
-    other('pmr','復健科','PMR_Progress_'),
-    other('anes','麻醉科','Anesthesiology_Progress_'),
-    other('fm','家庭醫學科','FamilyMed_Progress_')
+    other('neuro','神經內科','Neurology_Progress_')
   ];
   const REG=Object.create(null);
   for(const s of list){Object.freeze(s.formats);REG[s.id]=Object.freeze(s);}

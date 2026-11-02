@@ -26,7 +26,8 @@ const hooked = source.replace(end, 'globalThis.__qa={D,S,SPEC,get entries(){retu
 const bootScript = new vm.Script(bootSource);
 const hookedScript = new vm.Script(hooked);
 
-const COURSE_DATA_SHA256 = 'd58be38d9cd8594696560123694dfd988b221300dec9b91f3e0f7d9c27c4ef02';
+// 2026-11-02 (#122): chapter synthesis, deep dives and explainers lost 151 repeated sentences.
+const COURSE_DATA_SHA256 = '794cae9ad1baefe465bb2ebe4ab78f98584dd66ce3a029c5b91ea9e0af604163';
 const OPH = {
   id: 'oph', label: '眼科', appTitle: '眼科甄選練習室', storePrefix: 'oph-prep:', stateKey: 'oph-prep:progress-v3', syncFile: 'progress.json',
   formats: ['ophthalmology-prep-progress-v1', 'ophthalmology-prep-progress-v2', 'ophthalmology-prep-progress-v3'],
@@ -36,61 +37,19 @@ const OPH = {
 const OTHERS = {
   ent: '耳鼻喉科',
   rad: '放射診斷科',
-  radonc: '放射腫瘤科',
   nm: '核子醫學科',
   neuro: '神經內科',
-  gs: '一般外科',
-  prs: '整形外科',
-  ortho: '骨科',
-  uro: '泌尿外科',
-  ns: '神經外科',
-  gm: '一般內科',
-  cv: '心臟內科',
-  pulm: '胸腔內科',
-  gi: '胃腸肝膽科',
-  nephro: '腎臟內科',
-  endo: '內分泌新陳代謝科',
-  hemeonc: '血液腫瘤內科',
-  id: '感染科',
-  rheu: '風濕免疫科',
-  ped: '小兒科',
-  obgyn: '婦產科',
-  derm: '皮膚科',
-  psych: '精神科',
-  pmr: '復健科',
-  anes: '麻醉科',
-  fm: '家庭醫學科',
 };
 const EXPORT_NAMES = {
   ent: 'ENT_Progress_',
   rad: 'Radiology_Progress_',
-  radonc: 'RadiationOncology_Progress_',
   nm: 'NuclearMedicine_Progress_',
   neuro: 'Neurology_Progress_',
-  gs: 'GeneralSurgery_Progress_',
-  prs: 'PlasticSurgery_Progress_',
-  ortho: 'Orthopedics_Progress_',
-  uro: 'Urology_Progress_',
-  ns: 'Neurosurgery_Progress_',
-  gm: 'InternalMed_Progress_',
-  cv: 'Cardiology_Progress_',
-  pulm: 'Pulmonology_Progress_',
-  gi: 'Gastroenterology_Progress_',
-  nephro: 'Nephrology_Progress_',
-  endo: 'Endocrinology_Progress_',
-  hemeonc: 'HemeOnc_Progress_',
-  id: 'InfectiousDisease_Progress_',
-  rheu: 'Rheumatology_Progress_',
-  ped: 'Pediatrics_Progress_',
-  obgyn: 'OBGYN_Progress_',
-  derm: 'Dermatology_Progress_',
-  psych: 'Psychiatry_Progress_',
-  pmr: 'PMR_Progress_',
-  anes: 'Anesthesiology_Progress_',
-  fm: 'FamilyMed_Progress_',
 };
-// Full 12-tab + 3-workshop-mode DOM sweeps run on populated + representative surgical/medical/maternal-child/empty shells to stay fast (<15s).
-const FULL_TAB_SPECIALTIES = ['ent', 'rad', 'radonc', 'nm', 'neuro', 'gs', 'gm', 'obgyn', 'fm'];
+// Full 12-tab + 3-workshop-mode DOM sweeps run on every registered non-oph specialty (populated and empty shells).
+const FULL_TAB_SPECIALTIES = ['ent', 'rad', 'nm', 'neuro'];
+// Specialties without a 甄選面試 that were removed from the registry/picker on 2026-11-02 (old ?s= links fall back to oph).
+const REMOVED_SPECIALTIES = ['radonc', 'gs', 'prs', 'ortho', 'uro', 'ns', 'gm', 'cv', 'pulm', 'gi', 'nephro', 'endo', 'hemeonc', 'id', 'rheu', 'ped', 'obgyn', 'derm', 'psych', 'pmr', 'anes', 'fm'];
 const OPH_ONLY_TABS = ['textbook', 'cram', 'advanced', 'schedule', 'project'];
 const OPH_LEAK_TERMS = ['BCSC', 'RAPD', '白瞳', '共筆', '急性視力喪失', '糖尿病黃斑水腫', '#pbl-dr', '#wf-chemical', '#notes-02'];
 
@@ -236,14 +195,16 @@ async function practise(app) {
 }
 
 (async () => {
-  await test('course-data sha256 is untouched and all 26 non-oph course-data-<s> blocks exist once', async () => {
+  await test('course-data sha256 is untouched and all 4 non-oph course-data-<s> blocks exist once', async () => {
     const counts = {};
     for (const m of blockMatches) counts[m[1]] = (counts[m[1]] || 0) + 1;
     assert.equal(counts['course-data'], 1);
     const sha = crypto.createHash('sha256').update(jsonBlocks['course-data'], 'utf8').digest('hex');
     assert.equal(sha, COURSE_DATA_SHA256, 'ophthalmology course-data payload must remain byte-identical');
-    assert.equal(Object.keys(OTHERS).length, 26);
-    assert.equal(Object.keys(EXPORT_NAMES).length, 26);
+    assert.equal(Object.keys(OTHERS).length, 4);
+    assert.equal(Object.keys(EXPORT_NAMES).length, 4);
+    assert.deepEqual(Object.keys(OTHERS), ['ent', 'rad', 'nm', 'neuro']);
+    assert.deepEqual(Object.keys(counts).filter(k => k.startsWith('course-data-')).sort(), Object.keys(OTHERS).map(id => 'course-data-' + id).sort(), 'no course-data blocks for removed specialties');
     for (const [id, label] of Object.entries(OTHERS)) {
       const blockId = 'course-data-' + id;
       assert.equal(counts[blockId], 1, blockId + ' must appear once');
@@ -256,7 +217,7 @@ async function practise(app) {
     }
   });
 
-  await test('the registry defaults to oph; only known ?s= values switch specialty across all 27 specialties', async () => {
+  await test('the registry defaults to oph; only known ?s= values switch specialty across all 5 specialties', async () => {
     const cases = [
       ['', 'oph'], ['?s=oph', 'oph'], ['?s=xyz', 'oph'], ['?s=__proto__', 'oph'], ['?s=constructor', 'oph'], ['?s=toString', 'oph'],
       ...Object.keys(OTHERS).flatMap(id => [['?s=' + id, id], ['?x=1&s=' + id, id], ['?s=' + id.toUpperCase(), 'oph']]),
@@ -266,7 +227,7 @@ async function practise(app) {
     }
     const w = runRegistry('');
     assert.deepEqual(Object.keys(w.OphSpecialties).sort(), ['oph', ...Object.keys(OTHERS)].sort());
-    assert.equal(Object.keys(w.OphSpecialties).length, 27);
+    assert.equal(Object.keys(w.OphSpecialties).length, 5);
     assert(Object.isFrozen(w.OphSpecialty) && Object.isFrozen(w.OphSpecialty.formats), 'registry entries are frozen');
   });
 
@@ -376,27 +337,29 @@ async function practise(app) {
     assert.equal(Object.keys(nm.qa.entries).length, 0, 'nm does not see neuro progress');
   });
 
-  await test('newly registered PGY2 specialty (?s=gs) writes only gs-prep:* keys and progress-gs.json', async () => {
-    const local = new MemoryStorage();
-    local.setItem('oph-prep:cloud', JSON.stringify({owner: 'someone', repo: 'oph-only'}));
-    local.written.clear();
-    const app = boot({search: '?s=gs', local}), github = app.github;
-    github.add('me/ophthalmology-progress', 'github_pat_SPECIALTYTOKEN1234567890');
-    assert.equal(app.qa.SPEC.id, 'gs');
-    assert.notEqual(app.qa.S.syncDraft.repo, 'oph-only', 'oph cloud settings are not read in gs');
-    await practise(app);
-    const keys = [...local.written, ...keysOf(app.session)];
-    assert(keys.includes('gs-prep:progress-v1') && keys.includes('gs-prep:cloud') && keys.includes('gs-prep:cloud-token') && keys.includes('gs-prep:workspace-v1'), keys.join(','));
-    assert(keys.every(k => k.startsWith('gs-prep:')), keys.join(','));
-    assert.equal(local.getItem('oph-prep:progress-v3'), null);
-    const files = github.calls.map(c => c.file).filter(Boolean);
-    assert(files.length && files.every(f => f === 'progress-gs.json'), files.join(','));
-    assert.equal(JSON.parse(github.repos.get('me/ophthalmology-progress').files.get('progress-gs.json').text).format, 'gs-prep-progress-v1');
-    app.qa.exportProgress();
-    assert.match(app.anchor.download, /^GeneralSurgery_Progress_\d{4}-\d{2}-\d{2}\.json$/);
-    assert.equal(JSON.parse(await app.blobs.at(-1).text()).format, 'gs-prep-progress-v1');
-    app.action('sync-copy-link'); await app.settle();
-    assert.equal(app.clipboard.at(-1), 'https://qwwaawwqq.github.io/ophthalmology-interview-public/?s=gs#sync-join=me/ophthalmology-progress/github_pat_SPECIALTYTOKEN1234567890');
+  await test('removed specialties (?s=pmr, ?s=radonc, ...) fall back to the oph view and are absent from the picker', async () => {
+    assert.equal(REMOVED_SPECIALTIES.length, 22);
+    const reg = runRegistry('').OphSpecialties;
+    const picker = boot().nav();
+    for (const id of REMOVED_SPECIALTIES) {
+      assert(!Object.prototype.hasOwnProperty.call(reg, id), `${id} must not be registered`);
+      assert.equal(jsonBlocks['course-data-' + id], undefined, `course-data-${id} must be removed`);
+      assert(!picker.includes(`href="./?s=${id}"`), `picker must not link ?s=${id}`);
+      assert.equal(runRegistry('?s=' + id).OphSpecialty.id, 'oph', `?s=${id} falls back to oph`);
+    }
+    for (const id of ['pmr', 'radonc', 'gs', 'obgyn', 'fm']) {
+      const app = boot({search: '?s=' + id});
+      assert.equal(app.qa.SPEC.id, 'oph', `?s=${id} boots the oph app`);
+      assert.equal(app.title(), '眼科甄選練習室 · 公開練習版');
+      assert(app.nav().includes('href="./" aria-current="page"'));
+      assert(app.qa.D.questions.length > 0, `?s=${id} shows ophthalmology content`);
+      for (const tab of ['today', 'quiz', 'interview']) {
+        app.action('tab', tab);
+        const markup = app.main();
+        wellFormed(markup);
+        assert(!markup.includes('specialty-pending') && !markup.includes('內容待補'), `?s=${id} ${tab} must not show a 內容待補 placeholder`);
+      }
+    }
   });
 
   await test('importing one specialty\u2019s file into another is rejected; oph v1/v2/v3 still import', async () => {
@@ -434,7 +397,7 @@ async function practise(app) {
     assert.equal(JSON.parse(repo.files.get('progress-neuro.json').text).format, 'ophthalmology-prep-progress-v3', 'the foreign file is left untouched');
   });
 
-  await test('cram-review.js stores under the active specialty prefix across all 27 specialties', async () => {
+  await test('cram-review.js stores under the active specialty prefix across all 5 specialties', async () => {
     const line = fs.readFileSync(path.join(ROOT, 'scripts/cram-review.js'), 'utf8').match(/const KEY = ([^;]+);/)[1];
     assert.equal(vm.runInNewContext(line, {window: {}}), 'oph-prep:cram-review-v1');
     assert.equal(vm.runInNewContext(line, {window: runRegistry('')}), 'oph-prep:cram-review-v1');
@@ -443,9 +406,9 @@ async function practise(app) {
     }
   });
 
-  await test('specialty switcher renders all 27 links in the sidebar with dynamic branding', async () => {
+  await test('specialty switcher renders all 5 links in the sidebar with dynamic branding', async () => {
     const expectedHrefs = ['./', ...Object.keys(OTHERS).map(id => './?s=' + id)];
-    assert.equal(expectedHrefs.length, 27);
+    assert.equal(expectedHrefs.length, 5);
     const oph = boot();
     assert.equal(oph.title(), '眼科甄選練習室 · 公開練習版');
     assert.equal(oph.brand(), '眼科甄選練習室');
@@ -529,7 +492,7 @@ async function practise(app) {
   });
 
   await test('hash navigation and saved links preserve ?s=<specialty> and reject ophthalmology-only routes', async () => {
-    for (const sid of ['nm', 'neuro', 'gs', 'obgyn']) {
+    for (const sid of ['nm', 'neuro', 'ent', 'rad']) {
       const app = boot({search: '?s=' + sid, hash: '#tab-quiz'});
       app.windowHandlers.get('load')?.();
       assert.equal(app.qa.S.tab, 'quiz');

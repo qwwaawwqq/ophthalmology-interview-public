@@ -139,10 +139,12 @@ function chapterTree(id, recall = false) {
 
 test('original course, question, interview, workshop, and study-plan payloads stay unchanged', () => {
   const expected = {
-    topics: '8bb67cf1ecef50889eff81a7a7ca5f12ee1c451316dcba0893ade78af0b7a0ee',
-    questions: 'f5da0c4a369964ddbdb01da2c4c3879069deac19721c20c23cedc66f263af917',
+    // 2026-11-02 (issue #117): topics, questions and interview changed only by removing the
+    // duplicate topiramate case (notes-13 case 2) and the duplicate questions q9 and notes-07-15.
+    topics: 'c595686ad7c876b4004e8c3a2e56cd1732f59cb2ce76ddc190f134cca8c9da44',
+    questions: '80d569b609408ce5f5fca31757d08035ef0b6221b21873e68832c7e08059109d',
     // 2026-10-14: only change is the simplified 项 → 項 typo fix in 29 interview strings.
-    interview: 'd0d19b39244cf68e0d82393e5edea81ba0ffdcc34389a5e76aa4caecc79c7b78',
+    interview: '0c6669a1f0939c29f760933c35af71826f61619a11179657a0431b091109422a',
     storySeeds: '52c68a1ef5578a6ebbd66e945a15a168e0b93a0a7a6cccfc6e2593e62cd0b9e5',
     evidenceSeeds: 'a7b8b10d16a2608a638b8449214533371698079e454e871fe3d35b6b5757f111',
     plan: '64ca7c5bede8966a3f8ab9f049486a40c75523e841070ae82bf468e3919d7f06',
@@ -152,12 +154,12 @@ test('original course, question, interview, workshop, and study-plan payloads st
     assert.equal(crypto.createHash('sha256').update(JSON.stringify(value)).digest('hex'), hash, key + ' content changed');
   }
   assert.equal(qa.D.topics.length, 26);
-  assert.equal(qa.D.questions.filter(q => !q.pastExam).length, 294);
-  assert.equal(qa.D.interview.length, 46);
+  assert.equal(qa.D.questions.filter(q => !q.pastExam).length, 292);
+  assert.equal(qa.D.interview.length, 45);
 });
 test('past-exam concept questions are complete and reachable through their own practice filter', () => {
   const pastExam = qa.D.questions.filter(q => q.pastExam);
-  assert.equal(pastExam.length, 245);
+  assert.equal(pastExam.length, 243);
   for (const q of pastExam) assert(q.options.length === 4 && q.options[q.correctIndex] && q.explanation.startsWith('考點：'), q.id + ': malformed');
   for (let n = 1; n <= 14; n++) assert(pastExam.some(q => q.topicId === 'notes-' + String(n).padStart(2, '0')), 'chapter ' + n + ' has no past-exam question');
   qa.startQuiz('all', 'kaogu');
@@ -204,7 +206,7 @@ test('chapter quiz filters questions and records correct and wrong answers', () 
   qa.startQuiz('notes-07');
   // The folded quick-review topic 青光眼 (glaucoma) practises with its chapter (issue #114).
   const folded = new Set(qa.D.questions.filter(q => q.topicId === 'glaucoma').map(q => q.id));
-  assert.equal(qa.S.ids.length, 56 + folded.size);
+  assert.equal(qa.S.ids.length, 55 + folded.size);
   assert(qa.S.ids.every(id => id.startsWith('notes-07-') || folded.has(id)));
   let question = qa.question();
   change({name: 'answer', value: String(question.correctIndex)});
@@ -236,7 +238,7 @@ test('malformed imports and invalid IDs remain rejected', () => {
   const result = qa.mergeProgress({format: 'ophthalmology-prep-progress-v3', entries: {'q:unknown': {choice: 0, at}, 'q:q1': {choice: 999, at}, bad: {}}, meta: {'recall:notes-13:999': {mastered: true, at}}});
   assert.equal(result.skipped, 4);
 });
-test('all 46 existing interviews render and clinical rehearsal completion persists', () => {
+test('all 45 existing interviews render and clinical rehearsal completion persists', () => {
   for (const interview of qa.D.interview) {
     action('interview', interview.id);
     assert(decode(main()).includes(interview.title));
@@ -448,6 +450,31 @@ test('search interaction finds newly written integrated content', () => {
   element('#notebook-search').value = query; element('#notebook-chapter').value = 'all';
   action('notebook-search');
   assert(decode(main()).includes(query), 'New integrated prose not returned by search action');
+});
+
+test('no chapter page states the same teaching sentence twice', () => {
+  const sentences = text => String(text).match(/[^。！？；]+[。！？；]?/g) || [];
+  const norm = text => text.replace(/[\s，。、；：:,.()（）「」『』【】!?！？\-—·/／]+/g, '').toLowerCase();
+  for (const [id, chapter] of chapters()) {
+    const topic = qa.D.topics.find(item => item.id === id);
+    const coverage = qa.D.coverage.chapters[id];
+    assert(coverage, id + ': explainer coverage missing');
+    const blocks = [];
+    topic.sections.forEach((section, i) => section.points.forEach(point => blocks.push(['key point ' + i, false, point])));
+    for (const unit of chapter.integrated.units) unit.synthesis.forEach((p, k) => blocks.push([unit.id + ' synthesis ' + k, true, p]));
+    chapter.deepDive.forEach((dive, i) => dive.paragraphs.forEach((p, k) => blocks.push(['deep dive ' + i + '.' + k, true, p])));
+    for (const entry of coverage.entries) [...entry.keyPoints, entry.clinicalLink, entry.pitfall].forEach((p, k) => blocks.push([entry.id + ' explainer ' + k, true, p]));
+    const seen = new Map();
+    for (const [label, written, text] of blocks) {
+      for (const sentence of sentences(text)) {
+        const key = norm(sentence);
+        if (key.length < 12) continue;
+        const first = seen.get(key);
+        if (first && first[0] !== label) assert(!(written || first[1]), `${id}: "${sentence}" in ${label} repeats ${first[0]}`);
+        if (!first) seen.set(key, [label, written]);
+      }
+    }
+  }
 });
 
 async function finish() {
