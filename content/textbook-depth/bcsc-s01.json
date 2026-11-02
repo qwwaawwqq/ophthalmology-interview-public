@@ -12780,7 +12780,7 @@
             },
             {
               "finding": "黑色素瘤或尿路上皮癌患者接受trametinib／cobimetinib或erdafitinib後輕度視物變形模糊，OCT見雙眼中心凹下與多灶圓頂狀視網膜下積液，但FA無脈絡膜新生血管滲漏且眼內無發炎細胞",
-              "meaning": "符合MEKAR或FGFR抑制劑漿液性視網膜病變，機轉為RPE液體幫浦障礙而非發炎或脈絡膜轉移；輕度無症狀或微症狀者多可在密集OCT監測下續用救命標靶藥。"
+              "meaning": "符合MEKAR或FGFR抑制劑漿液性視網膜病變，機轉為RPE液體幫浦障礙而非發炎或脈絡膜轉移；是否暫停須依各藥仿單並會診腫瘤科（erdafitinib 任何程度 CSR 先停藥評估；pemigatinib 無症狀且穩定可續藥；trametinib、cobimetinib 確診後先停藥），並密切 OCT 追蹤。"
             },
             {
               "finding": "使用vemurafenib單藥患者短期內於眼瞼邊緣長出快速增大的火山口狀角化結節，或新發畏光虹彩炎",
@@ -12815,7 +12815,7 @@
             {
               "test": "基準與週期性黃斑部SD-OCT及Amsler方格表監測（針對MEK與FGFR抑制劑）",
               "purpose": "定量追蹤視網膜下積液高度與光受器橢圓體帶（EZ）完整性，並排除視網膜靜脈阻塞",
-              "interpretation": "單純無症狀或輕度中心凹下積液（Grade 1–2）通常不需永久停藥；若視力顯著下降或合併RVO則須依藥物仿單暫停並會診腫瘤科",
+              "interpretation": "單純無症狀或輕度中心凹下積液（Grade 1–2）通常不需永久停藥，但是否暫停須依各藥仿單並會診腫瘤科（erdafitinib 任何程度 CSR 先停藥評估）；合併RVO時 trametinib、cobimetinib、binimetinib 仿單皆永久停藥",
               "limitation": "單靠病患主觀症狀可能漏診周邊或傍中心凹多灶積液，建議於erdafitinib等高發生率藥物前數月安排規律OCT檢查。"
             },
             {
@@ -12849,7 +12849,7 @@
             {
               "condition": "MEK／FGFR抑制劑漿液性視網膜病變與BTK抑制劑圍術期出血風險",
               "stage": "跨專科風險權衡期",
-              "action": "輕度MEKAR採密切OCT觀察而不輕易中斷抗癌治療，重度影響視力者暫停數週待積液吸收後可考慮降階重啟；使用ibrutinib等BTK抑制劑患者若需接受眼窩、青光眼濾過或玻璃體視網膜等高出血風險手術，術前須會診血液腫瘤科評估短暫停藥天數",
+              "action": "先排除視網膜靜脈阻塞（trametinib、cobimetinib、binimetinib 仿單遇 RVO 皆永久停藥），再與腫瘤科依個別藥物仿單決定，不可跨藥一律續藥：erdafitinib 任何程度 CSR 先停藥並於 2 週內眼科評估（14 天內改善以原劑量重啟，否則待改善後降階）；pemigatinib 無症狀且連續檢查穩定可續藥，有症狀或惡化則停藥；trametinib 確診 RPED 先停藥最長 3 週；cobimetinib 先停藥最長 4 週；binimetinib 有症狀者先停藥最長 10 天；使用ibrutinib等BTK抑制劑患者若需接受眼窩、青光眼濾過或玻璃體視網膜等高出血風險手術，術前須會診血液腫瘤科評估短暫停藥天數",
               "rationale": "MEKAR多具可逆性且無抗炎類固醇適應症；而ibrutinib抑制血小板聚集會引發嚴重術中眼內或眼窩出血",
               "caution": "切勿將MEKAR誤認為發炎性葡萄膜炎而給予全身或眼內高劑量類固醇（類固醇本身反而可能誘發或惡化CSCR樣漿液性剝離）。"
             }
@@ -12867,7 +12867,7 @@
           "pitfalls": [
             {
               "mistake": "看到MEK抑制劑（trametinib）或FGFR抑制劑（erdafitinib）引起雙眼視網膜下積液，就立即給予高劑量口服類固醇或要求永久停用標靶藥",
-              "correction": "MEKAR源於RPE液體轉運異常而非免疫發炎，類固醇不僅無效更可能加重漿液積液；多數輕中度個案具自限性，重度者短暫停藥吸收後常可減量續用。"
+              "correction": "MEKAR源於RPE液體轉運異常而非免疫發炎，類固醇不僅無效更可能加重漿液積液；多數輕中度個案具自限性，但是否暫停須依各藥仿單並會診腫瘤科（erdafitinib 任何程度 CSR 先停藥評估）。"
             },
             {
               "mistake": "未在ADC（如belantamab mafodotin）每週期輸注前執行裂隙燈與屈光矯正視力檢查，等到重度角膜潰瘍才轉介眼科",
@@ -12890,7 +12890,7 @@
               },
               {
                 "step": "MEK 積水莫驚慌",
-                "detail": "RPE 幫浦障礙致雙眼圓頂積液，輕度續藥觀察、禁給類固醇"
+                "detail": "RPE 幫浦障礙致雙眼圓頂積液，是否續藥依各藥仿單並會診腫瘤科、禁給類固醇"
               },
               {
                 "step": "BRAF 眼瞼長腫瘤",
@@ -12901,7 +12901,7 @@
                 "detail": "巨胞飲致向心微囊角膜病變，依裂隙燈與 BCVA 暫緩減量"
               }
             ],
-            "examTrigger": "看到「黑色素瘤患者服用 Trametinib（MEK 抑制劑）後雙眼中心凹下出現圓頂狀視網膜下積液，無發炎細胞且視力輕微模糊」→ 秒選「MEK 相關漿液性視網膜病變（MEKAR），多具自限性可在密集 OCT 追蹤下續用標靶藥」（避開陷阱：「誤當葡萄膜炎給予全身類固醇反而惡化積液，或貿然永久停藥」）"
+            "examTrigger": "看到「黑色素瘤患者服用 Trametinib（MEK 抑制劑）後雙眼中心凹下出現圓頂狀視網膜下積液，無發炎細胞且視力輕微模糊」→ 秒選「MEK 相關漿液性視網膜病變（MEKAR），多具自限性；trametinib 仿單為確診 RPED 先停藥最長 3 週、改善後以相同或較低劑量重啟，並會診腫瘤科、密切 OCT 追蹤」（避開陷阱：「誤當葡萄膜炎給予全身類固醇反而惡化積液，或貿然永久停藥」）"
           }
         },
         {
@@ -13081,7 +13081,7 @@
           },
           {
             "pair": "MEK/FGFR 抑制劑漿液性視網膜病變（MEKAR） vs ICI 誘發 VKH 樣全葡萄膜炎",
-            "rule": "MEKAR 為無發炎細胞之 RPE 液體幫浦障礙，輕度續藥觀察且嚴禁給類固醇；ICI 之 VKH 樣剝離伴濃重脈絡膜發炎，排除感染後須停 ICI 並給高劑量類固醇。"
+            "rule": "MEKAR 為無發炎細胞之 RPE 液體幫浦障礙，是否續藥依各藥仿單並會診腫瘤科，且嚴禁給類固醇；ICI 之 VKH 樣剝離伴濃重脈絡膜發炎，排除感染後須停 ICI 並給高劑量類固醇。"
           },
           {
             "pair": "紫杉醇類（Paclitaxel/Docetaxel）囊樣黃斑水腫 vs 糖尿病／葡萄膜炎囊樣黃斑水腫",
@@ -19746,7 +19746,7 @@
       "bcsc-s01-ch014-u01": "03a6ca07f3f74d0f6079037ed66fc472ef454ac555d2fb17e44e171fd40d2571",
       "bcsc-s01-ch014-u02": "dfa654440dd4f4fa2bd533f861a3d717b3c313dd421785ea7d93f32957c86f05",
       "bcsc-s01-ch014-u03": "502fe697840cdbae14db3123f79589ec23333203ce7a7c2ab21235b93b6841ae",
-      "bcsc-s01-ch014-u04": "6e4dd06bc484f7731f70e57362ed35666491bb9d3101ca8fdb3ab0261f450088",
+      "bcsc-s01-ch014-u04": "7ebc2b99a112dfb511e52a5e9ed4e9bc328a9ed37f9c366c3e8728c269b48840",
       "bcsc-s01-ch014-u05": "f19aee4ed0383d07b6004b8589d588d5dd9298af907450b4846e49de200c9e68",
       "bcsc-s01-ch015-u01": "3c409177ed035b824a3767cdf033e77d51f4e0b5d2701345a4070702fa45ea19",
       "bcsc-s01-ch015-u02": "80723b17fdeb63e1b72ecf258b1eacd16c073c17ea1d9d7ce38e7f7d1e92158b",

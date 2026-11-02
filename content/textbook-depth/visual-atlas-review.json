@@ -22,7 +22,7 @@
     "atlas-s01-15": "a926f4959684fbd2993d774809af27a83b5049b0f0f6d759630b8d87d532fa2b",
     "atlas-s01-16": "b7512ce006f76d801ba02e48ad8c84e47b33836102bcc5ec753c8fc1e2c8a085",
     "atlas-s01-17": "7bfb88eb9f7968fe83be06e4b581b689ae4738f159cf182cdc11e73c0a711b2b",
-    "atlas-s01-18": "6157797bb85f81058e38f659ec0b476eec7294afe3c0ff657d411052805debde",
+    "atlas-s01-18": "86d53873cb43ce9c105b32d82f144bedbf8749a077f7298458bce3b76cce96fe",
     "atlas-s01-19": "8f71c4c76e19e6b91f817dce49f770e005ac09c7c0132e0a485e2444ba6b72f2",
     "atlas-s01-20": "d347330321cd8e45d3f9d153b73eeb25898600df5d5ae3ff28993a8bf14861ac",
     "atlas-s01-21": "3330204b0c09f9fe1740699b058a60fca76c54b9ec36622c7e86240b0c35c967",
@@ -159,6 +159,7 @@
     "2026-11-02 targeted correction, not a full re-review: atlas-s02-12 (no CT for suspected retinoblastoma, ERIC guideline) and atlas-s03-07 (residual toric axis at 30 degrees misalignment). Hashes refreshed for these two units only.",
     "2026-11-02 targeted correction, not a full re-review: references replaced in atlas-s02-08, atlas-s02-09, atlas-s02-10, atlas-s02-12, atlas-s03-03, atlas-s03-05, atlas-s03-06, atlas-s03-07, atlas-s03-08, atlas-s03-09 (wrong articles and dead links; titles, years and notes matched to the linked source); teaching text corrected in atlas-s02-11 (netarsudil epithelial oedema, FDA label 5.1) and atlas-s02-12 (no CT for suspected retinoblastoma). Hashes refreshed for these units only.",
     "2026-11-02 targeted correction, not a full re-review: atlas-s04-09, atlas-s06-06. Hashes refreshed for these units only.",
-    "2026-11-02 targeted correction, not a full re-review: atlas-s05-03, atlas-s06-05, atlas-s07-09. Hashes refreshed for these units only."
+    "2026-11-02 targeted correction, not a full re-review: atlas-s05-03, atlas-s06-05, atlas-s07-09. Hashes refreshed for these units only.",
+    "2026-11-02 targeted correction, not a full re-review: atlas-s01-18. Hashes refreshed for these units only."
   ]
 }
