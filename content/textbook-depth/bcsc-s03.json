@@ -11708,17 +11708,17 @@
           "whenTrue": null
         },
         {
-          "text": "0.51mm（十倍換算差）",
+          "text": "0.510mm（約510μm）",
           "rationale": "差十倍，常見於m和mm轉換。 0.51 mm 為十倍單位換算錯誤（誤將 4 m 寫成 400 mm）。",
           "whenTrue": "若 12 mm 視標移近至眼前 40 cm（400 mm）處閱讀時，網膜像高才會放大十倍成為 0.51 mm。"
         },
         {
-          "text": "5.1mm（百倍數量級差）",
+          "text": "5.10mm（約5100μm）",
           "rationale": "差百倍，未保持長度單位。 5.1 mm 已大於整個視神經盤直徑（約 1.5 mm）的三倍，屬百倍數量級錯誤。",
           "whenTrue": null
         },
         {
-          "text": "12mm（誤取物體原高度）",
+          "text": "12.0mm（約1.20cm）",
           "rationale": "把外界物高當成像高。 12 mm 為 4 公尺外視標實體高度，經眼屈光縮小約 235 倍後絕不可能等大成像於網膜。",
           "whenTrue": null
         }
@@ -15715,7 +15715,7 @@
       "bcsc-s03-ch002-iq004": "1853b20ca2d82d760529199f0a58402bbea3b4245c535f86ee7fa3d2aa9adeed",
       "bcsc-s03-ch002-iq005": "915fd1121a6d6b2cf20245f7177019d7df1d8beb83965a859230ab8d01c24245",
       "bcsc-s03-ch002-iq006": "b683d67a19b572ec8728342ee7268360bf9ccab2a3f47042dcbff3cabc189ec2",
-      "bcsc-s03-ch003-iq001": "c198f2c8cc6788322c7f2b615bda70119a5cded3409327010b858a9c456f574f",
+      "bcsc-s03-ch003-iq001": "81fa8d8fd0bbdd880b9511d0396b8eb275299dc5efd9fb2d4265e5d058a3aac1",
       "bcsc-s03-ch003-iq002": "1d350c935ba406d55cf67b9295d10298adf3ba98f65845877bb3b61f1be68d9b",
       "bcsc-s03-ch003-iq003": "ef81015d250094e43a71882c86c4be723b07686bb3870dce260a0653e01258e6",
       "bcsc-s03-ch003-iq004": "5f171e7dbf888b99ebf4ad5487d01688f7e7e3f6959b63adcf550a778b44759f",
