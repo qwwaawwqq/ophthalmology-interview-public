@@ -959,6 +959,21 @@ async function practise(app) {
     }
   });
 
+  await test('a specialty bank must not give the key away by option length', async () => {
+    // Chance is about 25%. rad and nm predate this check and are known to fail it (77%, 59%).
+    const KNOWN_FAILING = new Set(['rad', 'nm']);
+    for (const id of fs.readdirSync(path.join(ROOT, 'content'))) {
+      const file = path.join(ROOT, 'content', id, 'questions.json');
+      if (KNOWN_FAILING.has(id) || !fs.existsSync(file)) continue;
+      const questions = JSON.parse(fs.readFileSync(file, 'utf8'));
+      if (!questions.length) continue;
+      const key = q => Number.isInteger(q.correctIndex) ? q.options[q.correctIndex] : q.answer;
+      const longest = questions.filter(q => key(q).length === Math.max(...q.options.map(o => o.length))).length;
+      const percent = 100 * longest / questions.length;
+      assert.ok(percent <= 40, `${id}: the keyed option is the longest in ${percent.toFixed(1)}% of ${questions.length} MCQs (limit 40%)`);
+    }
+  });
+
   const failed = results.filter(r => !r.pass);
   console.log(JSON.stringify({input, results}, null, 2));
   process.exit(failed.length ? 1 : 0);
