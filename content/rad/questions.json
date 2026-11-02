@@ -442,7 +442,7 @@
       "肺臟（Lung）"
     ],
     "correctIndex": 0,
-    "explanation": "考點：高度分裂或對激素／突變敏感之器官（如性腺、紅骨髓、肺臟、女性乳房、結腸、胃）具有較高之組織權重因子；而成熟神經元幾乎不再分裂之腦部（Brain），其組織轉換／權重因子極低（課程講義數據腦部約 0.001，遠低於肺與乳房 0.012 及性腺 0.020；ICRP 103 權重亦為腦 0.01 遠低於肺與乳房 0.12）。\n\n常見陷阱：直覺以為大腦最重要就對輻射致癌最敏感，因此導致頭部 CT（約 2 mSv）與胸部 CT（約 7 mSv）有效劑量估計錯誤。",
+    "explanation": "考點：高度分裂或對激素／突變敏感之器官（如性腺、紅骨髓、肺臟、女性乳房、結腸、胃）具有較高之組織權重因子；而成熟神經元幾乎不再分裂之腦部（Brain），其組織轉換／權重因子極低（ICRP 103 權重腦 0.01，遠低於肺與乳房 0.12 及性腺 0.08）。\n\n常見陷阱：直覺以為大腦最重要就對輻射致癌最敏感，因此導致頭部 CT（約 2 mSv）與胸部 CT（約 7 mSv）有效劑量估計錯誤。",
     "source": "醫學系影像診斷學課程講義 A01 Part 1（組織轉換因子與考古題）",
     "pastExam": true,
     "safety": false
@@ -2074,7 +2074,7 @@
       "功能性胰島素瘤；因包繞動脈反而使手術剝離更容易"
     ],
     "correctIndex": 2,
-    "explanation": "考點：胰體尾部管腺癌因遠離總膽管，早期不會產生阻塞性黃疸，常在腫瘤向後腹腔侵犯腹腔神經叢（引起頑固上背痛）及大血管時才被發現。依國際胰臟癌可切除性標準，只要腫瘤包繞上腸繫膜動脈（SMA）、腹腔幹（celiac axis）或總肝動脈圓周「超過 180°（encasement >180°）」，即判定為局部晚期無法直接根治切除（locally advanced unresectable），應採全身化療（或前導治療）而非直接開刀。\n\n常見陷阱：忽略評估 SMA／腹腔幹與門脈／SMV 的接觸角度（<=180° 為 abutment 邊緣可切除，>180° 為 encasement 無法直接切除）。",
+    "explanation": "考點：胰體尾部管腺癌因遠離總膽管，早期不會產生阻塞性黃疸，常在腫瘤向後腹腔侵犯腹腔神經叢（引起頑固上背痛）及大血管時才被發現。依國際胰臟癌可切除性標準，只要腫瘤包繞上腸繫膜動脈（SMA）或腹腔幹（celiac axis）圓周「超過 180°（encasement >180°）」，或總肝動脈受侵延伸至腹腔幹或肝動脈分叉，即判定為局部晚期無法直接根治切除（locally advanced unresectable），應採全身化療（或前導治療）而非直接開刀。\n\n常見陷阱：忽略評估 SMA／腹腔幹與門脈／SMV 的接觸角度（<=180° 為 abutment 邊緣可切除，>180° 為 encasement 無法直接切除）。",
     "source": "醫學系影像診斷學課程講義 A09（肝膽胰影像診斷）；NCCN Pancreatic Adenocarcinoma Guidelines",
     "pastExam": true,
     "safety": false
@@ -2890,7 +2890,7 @@
       "右側輸卵管子宮外孕破裂合併腹膜腔內出血休克（ruptured ectopic pregnancy with hemoperitoneum）；須立即輸液備血並緊急婦產科手術止血"
     ],
     "correctIndex": 3,
-    "explanation": "考點：育齡女性「急性下腹痛＋β-hCG 陽性（高於經陰道超音波判別門檻 discriminatory zone 2,000–3,500 mIU/mL）＋子宮腔內無妊娠囊」在證實其他診斷前一律優先視為「子宮外孕（ectopic pregnancy，95% 位於輸卵管壺腹部）」！經陰道超音波見到獨立於卵巢之外的輸卵管高回音滋養層環（tubal ring sign），加上直腸子宮陷凹（Douglas pouch）出現非純黑而是「含低回音碎屑／血塊之高回音腹腔積血（echogenic free fluid）」與低血壓心搏過速，確診為子宮外孕破裂大出血，禁用藥物保守治療（MTX 絕對禁忌），必須立即緊急手術！\n\n常見陷阱：把骨盆腔帶有細碎回音的新鮮凝血塊（echogenic hemoperitoneum）誤認為單純排卵生理性少量清澈腹水而延誤搶救。",
+    "explanation": "考點：育齡女性「急性下腹痛＋β-hCG 陽性（高於經陰道超音波判別門檻 discriminatory zone 2,000–3,500 mIU/mL）＋子宮腔內無妊娠囊」在證實其他診斷前一律優先視為「子宮外孕（ectopic pregnancy，約 95% 位於輸卵管，其中以壺腹部最常見，約占全部子宮外孕 70%）」！經陰道超音波見到獨立於卵巢之外的輸卵管高回音滋養層環（tubal ring sign），加上直腸子宮陷凹（Douglas pouch）出現非純黑而是「含低回音碎屑／血塊之高回音腹腔積血（echogenic free fluid）」與低血壓心搏過速，確診為子宮外孕破裂大出血，禁用藥物保守治療（MTX 絕對禁忌），必須立即緊急手術！\n\n常見陷阱：把骨盆腔帶有細碎回音的新鮮凝血塊（echogenic hemoperitoneum）誤認為單純排卵生理性少量清澈腹水而延誤搶救。",
     "source": "ACR Appropriateness Criteria: First Trimester Vaginal Bleeding & Acute Pelvic Pain",
     "pastExam": false,
     "safety": true
