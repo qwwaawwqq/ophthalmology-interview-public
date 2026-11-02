@@ -40,8 +40,21 @@
     "atlas-s02-05": "388833ebf66834559db7f4d81fe8ac0b8bd92526ffc0fa7813a326678112a6ab",
     "atlas-s02-06": "5911d77dc213deb5b31cd35b1f509c2a4a6cc839bb5cead382f55ddd0b1e3bf5",
     "atlas-s02-07": "93667b8f8aecc799346d9872671301008d1d9a50276a8383892f5db52e413d10",
+    "atlas-s02-08": "96bea6588f4d59cea1321cbd0bf0cb97e53577736782ebc7560ac808615d9b95",
+    "atlas-s02-09": "566f12347e15ec5958814e772ae71565dce40f303723886cacb70aabe9cfe106",
+    "atlas-s02-10": "b0dadb63ebd97dc3c26b9a52ff7e88c14e730023c9c96a78cd47440a4a6e7552",
+    "atlas-s02-11": "02f9a4dc24bfc140e109c0b9d1074059a7087fe83ee365ece58f26779168c6fb",
+    "atlas-s02-12": "461336c5869cec7514d28dd191b2849ef4812297875b20e86830d10c87b6bba9",
     "atlas-s03-01": "716fd2cd7b10ee7d381467e99b58648fae518d13196bd05ff5116067336a70ba",
     "atlas-s03-02": "90683736aa97baa5fbbeb5ae74ca9d97166d2bbc1b194aa584518fe09df36de7",
+    "atlas-s03-03": "7104ae83c281accb9fdecef690768f80cd9ee0769373ea737bce08d17a6f4106",
+    "atlas-s03-04": "5423159bc1a53df005ae22e7f644bacd15a39db2cbb48540937d585720a68630",
+    "atlas-s03-05": "94f041c4ba942831044af552919527f31bbaa894642d3af7e414fa82b8652994",
+    "atlas-s03-06": "1905eddd1a23920eb47917a2538064b8aa209cacf6948ffeacce9f02733da3ea",
+    "atlas-s03-07": "e8421f8b91c92ff9914ac62d7f0a39cb7343fb0f4127268d52c1bc0068c325b2",
+    "atlas-s03-08": "ec7cf7b9d425195c199a32a56c0039e781b251571d0cef9bf291a12f49b19143",
+    "atlas-s03-09": "c42bd90d33b08d87e3ad17e79e08884cd4a973c97808bb428001d29e3e68467f",
+    "atlas-s03-10": "e1dbe81dadb6737e506a8829c360964ee4d39e44198ef96749a28f7c448e740c",
     "atlas-s04-01": "283102600feb210f98c600f4c49724f15d391b433dad46e09369dc61523fc12b",
     "atlas-s04-02": "416419a109f5317dd7a44b32f1129e6f32eafae226a3a68e9018779e7c238d4f",
     "atlas-s05-01": "7fe3092d58bef3e6ea17b7f010d6ef3a70008eacfa4fef90d0e7b59356174408",
@@ -92,6 +105,9 @@
     "Browser-specific SVG arrowhead rendering remains an integration QA item; the encoded arrow endpoints and intended directions were checked.",
     "2026-11-01: Independently reviewed 20 new BCSC Vol 1 original vector illustrations (atlas-s01-03..22) across all 17 chapters for anatomical/spatial directionality, clinical thresholds, and zero text-bounds clipping.",
     "2026-11-01: Programmatically verified Wave 1A (+11 new 900x460 SVGs atlas-s01-23..28 & atlas-s02-03..07, unitIds inline bindings across S01–S03, 1800px qlmanage raster check, 0 text-box overlaps, 0 textBoundsWarnings).",
-    "2026-11-02: Independent attending & 4x WebKit visual audit PASS (20/20 diagrams atlas-s12-03..14 & atlas-s13-03..10 zero clipping/overlap; bcsc-s12 +21 & bcsc-s13 +15 PDF page offsets, 249 arithmetic checks, trial cutoffs, drug dosages/contraindications, optical formulas, and Module 14 practice/notes enrichments verified)."
+    "2026-11-02: Independent attending & 4x WebKit visual audit PASS (20/20 diagrams atlas-s12-03..14 & atlas-s13-03..10 zero clipping/overlap; bcsc-s12 +21 & bcsc-s13 +15 PDF page offsets, 249 arithmetic checks, trial cutoffs, drug dosages/contraindications, optical formulas, and Module 14 practice/notes enrichments verified).",
+    "2026-11-02: Independent clinical, optical-formula, and full-frame 1800x920 WebKit visual sign-off completed across all 13 Wave 1B SVGs (atlas-s02-08..12, atlas-s03-03..10) and BCSC S02/S03 chapters & 127 questions after verifying sulcus-IOL Table 7-1 powers, toric 2C·sinθ inputs, and zero text/border collisions.",
+    "2026-11-02 targeted correction, not a full re-review: atlas-s02-12 (no CT for suspected retinoblastoma, ERIC guideline) and atlas-s03-07 (residual toric axis at 30 degrees misalignment). Hashes refreshed for these two units only.",
+    "2026-11-02 targeted correction, not a full re-review: references replaced in atlas-s02-08, atlas-s02-09, atlas-s02-10, atlas-s02-12, atlas-s03-03, atlas-s03-05, atlas-s03-06, atlas-s03-07, atlas-s03-08, atlas-s03-09 (wrong articles and dead links; titles, years and notes matched to the linked source); teaching text corrected in atlas-s02-11 (netarsudil epithelial oedema, FDA label 5.1) and atlas-s02-12 (no CT for suspected retinoblastoma). Hashes refreshed for these units only."
   ]
 }
