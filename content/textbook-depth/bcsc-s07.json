@@ -4342,7 +4342,7 @@
             },
             {
               "finding": "兒童輕度軸性突眼合併視力下降、相對性傳入瞳孔障礙（RAPD）、斜視或眼震，全身皮膚見 ≥6 處咖啡牛奶斑（café-au-lait spots）、腋窩雀斑與虹膜 Lisch 結節",
-              "meaning": "符合 NF1 合併視神經或視交叉前視覺路徑膠質瘤（ONG）；若腫瘤向後侵犯視交叉與下視丘，更可能引發腦水腫或性早熟等內分泌異常。"
+              "meaning": "符合 NF1 合併視神經或視交叉前視覺路徑膠質瘤（ONG）；若腫瘤向後侵犯視交叉與下視丘，更可能引發腦積水或性早熟等內分泌異常。"
             }
           ],
           "differential": [
@@ -9283,7 +9283,7 @@
               "diagnosis": "半側顏面痙攣（Hemifacial spasm, HFS）",
               "for": "單側眼輪匝肌與同側口角下臉肌肉同步陣發抽動，精神緊張時加劇。",
               "against": "絕非雙側對稱眨眼，且入睡後抽動不會停止。",
-              "discriminator": "單側全 CN VII 分布同步抽搐＋睡眠持續（強制要求後顱窩小腦橋腦角 MRI／MRA，根治選項含顯微血管減壓術 Janetta MVD）。"
+              "discriminator": "單側全 CN VII 分布同步抽搐＋睡眠持續（強制要求後顱窩小腦橋腦角 MRI／MRA，根治選項含顯微血管減壓術 Jannetta MVD）。"
             },
             {
               "diagnosis": "眼表反射性痙攣與眼瞼肌纖維顫動（Reflex blepharospasm / Eyelid myokymia）",
@@ -14041,7 +14041,7 @@
       "bcsc-s07-ch005-u04": "0bd242d3cb1ce6087b296e6e47430ca5437afd6364408719399e03e133c2e651",
       "bcsc-s07-ch005-u05": "e4ae79373484b50ba2cc3d819a4342a7ff6f0afc1baef88e37fd549ac2360ce2",
       "bcsc-s07-ch005-u06": "0ce8b0d4f69e904e1835750c29090e4b6b59b6ab780c070b1fb1e81be2ae9fe8",
-      "bcsc-s07-ch005-u07": "dfb757507e851ad0d7b240cedfcdbc0e0e738ccffb81c12dec32d1c54e42238d",
+      "bcsc-s07-ch005-u07": "d854428c3251a9ffa76dfa574f91564f94b4664af0101d5d2513bc8f30ba8fa0",
       "bcsc-s07-ch005-u08": "6606be1f024db606d28148b972eecb7eaa67ff9e3e07415c83de8814d1c7c2f4",
       "bcsc-s07-ch005-u09": "ed67890243d628d5038f296f4742de32176022fb9556d2beb6e1b220c13fe857",
       "bcsc-s07-ch006-u01": "1a3014b46f153f32eb692d34eaee9d25fc23ea604cc2eeee1c54f8d09b4fcc8f",
@@ -14065,7 +14065,7 @@
       "bcsc-s07-ch011-u03": "597ea16ee95b023f059e49993ddeddc2dadb466079bbb21e7b26353758f233c9",
       "bcsc-s07-ch012-u01": "05268726742125fe3023d1501c1beb0d6289b18d7d080ac46959a179aa9aa31a",
       "bcsc-s07-ch012-u02": "93488061645affe632a29ac189eb06f43fb9fd75c5101a3f28b8a12d15d4e999",
-      "bcsc-s07-ch012-u03": "a51bd578b508ff1e42ead5eae0dc7301367bda22713cee109d290cd2e1845762",
+      "bcsc-s07-ch012-u03": "0435a3494df80b996e0775989416b5939ef667c936430cc7a4c79d5bd7ac85ed",
       "bcsc-s07-ch012-u04": "a5ef8839a393e834ad209926a3cb9dd84fa398e736bae7275e596a4ba72fa08d",
       "bcsc-s07-ch012-u05": "8d7054f77f3d26e5aa48a6881ad500e837c381525236bb4f4b2189e81ca09020",
       "bcsc-s07-ch013-u01": "287f7a528b341ead6e1f774328eeaac46db0800611a1a8d2fe2a351cd4b926bc",

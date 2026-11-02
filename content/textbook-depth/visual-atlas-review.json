@@ -63,7 +63,7 @@
     "atlas-s04-06": "f38645b04aac89481bf4806e1f8fedaf59484d558a900c949cf52718c043fc7a",
     "atlas-s04-07": "1ffa7f916110eb640f1cff08e2418e42780b223380467e15c7ef386b17582802",
     "atlas-s04-08": "7d65a98f89c743fb422dce48cb7e5609242e46fdcc2e1a84d4c2c017a4bc3078",
-    "atlas-s04-09": "b6aa1a40b21bea42723c483ecd71a9d8fd86b99579aa373d04275554f0d157ee",
+    "atlas-s04-09": "6cc1ecca442329b9ea0c3fadaea7c6853544366ae8103dca880b7b6d5947287c",
     "atlas-s04-10": "0ca2cc5a8a5b64a588f310ccf86d5939071e15bfdec0d6e573cdc6ce869273bd",
     "atlas-s05-01": "564971461322c338b696404f33c2bd21a21ee01c35fda73e56a070c96c2dc7d5",
     "atlas-s05-02": "252106bc839a6156ba854993cacbae7b1182ee821ddc1f987ff09daaecf85d8b",
@@ -80,7 +80,7 @@
     "atlas-s06-03": "7cdc13e569670b0f7ca824d4fb7d067733cf9fc5e3ae94a6e232206a11a944dd",
     "atlas-s06-04": "2fb928e7784a6d6d261a579aa5ad03a33630cbd17ddac6848a607ee402e5aa82",
     "atlas-s06-05": "8f27eb853b2ef047de5174450bc46358f9405a806b532aa7a08c6bfdfd40cf0a",
-    "atlas-s06-06": "bda6a93a86d17d37c609e14b19e8552acf0bd900feefcc62514a4f41535000fc",
+    "atlas-s06-06": "0532a93b37588049f65d566dde4564bbce4642fdc9469409791817a8053ab848",
     "atlas-s06-07": "a30ab954a9f81523e730d17497f06c3588f81a87e5ac64defbaa9137e5dfcf9a",
     "atlas-s06-08": "701d44d965bbfdd63b54357b0b5c9d6d4b1ba41424f0269c48572c65bb4c762c",
     "atlas-s06-09": "7320bddd170b7f56c05bca8e35e8e93cb3d667535abd46cf7c9bd277e56df64c",
@@ -157,6 +157,7 @@
     "2026-11-02 targeted correction, not a full re-review: references replaced in atlas-s02-08, atlas-s02-09, atlas-s02-10, atlas-s02-12, atlas-s03-03, atlas-s03-05, atlas-s03-06, atlas-s03-07, atlas-s03-08, atlas-s03-09 (wrong articles and dead links; titles, years and notes matched to the linked source); teaching text corrected in atlas-s02-11 (netarsudil epithelial oedema, FDA label 5.1) and atlas-s02-12 (no CT for suspected retinoblastoma). Hashes refreshed for these units only.",
     "2026-11-02: Independent clinical, optical-formula, and full-frame 1800x920 WebKit visual sign-off completed across all 13 Wave 1B SVGs (atlas-s02-08..12, atlas-s03-03..10) and BCSC S02/S03 chapters & 127 questions after verifying sulcus-IOL Table 7-1 powers, toric 2C·sinθ inputs, and zero text/border collisions.",
     "2026-11-02 targeted correction, not a full re-review: atlas-s02-12 (no CT for suspected retinoblastoma, ERIC guideline) and atlas-s03-07 (residual toric axis at 30 degrees misalignment). Hashes refreshed for these two units only.",
-    "2026-11-02 targeted correction, not a full re-review: references replaced in atlas-s02-08, atlas-s02-09, atlas-s02-10, atlas-s02-12, atlas-s03-03, atlas-s03-05, atlas-s03-06, atlas-s03-07, atlas-s03-08, atlas-s03-09 (wrong articles and dead links; titles, years and notes matched to the linked source); teaching text corrected in atlas-s02-11 (netarsudil epithelial oedema, FDA label 5.1) and atlas-s02-12 (no CT for suspected retinoblastoma). Hashes refreshed for these units only."
+    "2026-11-02 targeted correction, not a full re-review: references replaced in atlas-s02-08, atlas-s02-09, atlas-s02-10, atlas-s02-12, atlas-s03-03, atlas-s03-05, atlas-s03-06, atlas-s03-07, atlas-s03-08, atlas-s03-09 (wrong articles and dead links; titles, years and notes matched to the linked source); teaching text corrected in atlas-s02-11 (netarsudil epithelial oedema, FDA label 5.1) and atlas-s02-12 (no CT for suspected retinoblastoma). Hashes refreshed for these units only.",
+    "2026-11-02 targeted correction, not a full re-review: atlas-s04-09, atlas-s06-06. Hashes refreshed for these units only."
   ]
 }
