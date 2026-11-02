@@ -1,0 +1,1928 @@
+{
+  "reviewedDate": "2026-11-01",
+  "chapters": {
+    "ent-01": {
+      "source": "醫學系耳鼻喉科學課程講義 01（Clinical Audiology）；ASHA Audiology Practice Portal；AAO-HNS Cochlear Implantation Clinical Consensus",
+      "resources": [
+        {
+          "id": "ent-res-01-asha-audiogram",
+          "title": "ASHA Practice Portal: Pure-Tone Testing & Audiogram Interpretation",
+          "url": "https://www.asha.org/public/hearing/audiogram/",
+          "kind": "指南",
+          "provider": "American Speech-Language-Hearing Association (ASHA)",
+          "note": "純音聽力圖標準符號（右紅圈 O、左藍叉 X）、頻率帶與傳導／感音／混合性聽損判讀準則"
+        },
+        {
+          "id": "ent-res-01-statpearls-abr",
+          "title": "NCBI Bookshelf (StatPearls): Auditory Brainstem Response",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK564321/",
+          "kind": "期刊",
+          "provider": "National Center for Biotechnology Information (NCBI)",
+          "note": "ABR 第 I 至 V 波解剖發源定位、聽神經瘤潛時延長判讀與聽覺神經病變（ANSD）電生理診斷"
+        },
+        {
+          "id": "ent-res-01-jcih-screening",
+          "title": "Joint Committee on Infant Hearing (JCIH): Early Hearing Detection and Intervention (1-3-6)",
+          "url": "https://www.asha.org/practice-portal/professional-issues/newborn-hearing-screening/",
+          "kind": "指南",
+          "provider": "ASHA / Joint Committee on Infant Hearing",
+          "note": "新生兒聽篩 1-3-6 時程、NICU 高危嬰兒採用 aABR 防漏診 ANSD 與早期助聽／人工耳蝸介入規範"
+        }
+      ],
+      "deepDive": [
+        {
+          "heading": "臨床遮蔽（Masking）與影子曲線：為何單側全聾不遮蔽會被誤判為傳導性聽損？",
+          "paragraphs": [
+            "在純音與音叉聽力檢查中，「跨顱傳導（crossover）」是最容易導致住院醫師誤判手術適應症的陷阱。壓耳式氣導耳機的耳間衰減量（interaural attenuation, IA）約為 40 dB（插入式耳機可提高至 55–60 dB），而乳突骨導振盪器的耳間衰減量幾乎為 0 dB——意即無論將骨導振盪器放在哪一側乳突，兩側耳蝸都會同時接收到幾乎相同強度的振動。",
+            "假設患者右耳正常（0 dB HL）、左耳因迷路炎完全失聰：若未開啟遮蔽噪音直接測試左耳，當左耳氣導音量調升至 45–50 dB HL 時，聲波便跨越頭顱讓正常右耳聽見；測試左耳骨導時更在 0–5 dB HL 即由右耳回應，畫出一條「左耳骨導 5 dB、氣導 50 dB、氣骨導差高達 45 dB」的影子曲線（shadow curve），連床邊林納氏音叉試驗也會呈現假陰性（BC > AC）！若未施予右耳窄頻遮蔽噪音即誤診為左耳耳硬化症而開刀打開足板，將釀成嚴重醫療疏失。因此只要兩耳氣導差距 >=40 dB，或未遮蔽骨導與同側氣導出現 >=15 dB 氣骨導差，皆須嚴格執行臨床遮蔽。"
+          ],
+          "sourceIds": [
+            "ent-res-01-asha-audiogram"
+          ]
+        },
+        {
+          "heading": "交叉比對（Cross-check Principle）：結合 OAE、鼓室圖、聽反射與 ABR 精準定位病灶",
+          "paragraphs": [
+            "現代臨床聽力學強調絕不單憑一項檢查下定論，而是運用鼓室圖（搭配等效外耳道容積 ECV）、鐙骨肌聽反射、耳聲傳射（OAE）與聽性腦幹反應（ABR）組成客觀交叉驗證網。舉例而言，同為平坦 B 型鼓室圖，搭配 ECV 即可一秒區分耳垢堵塞（ECV 極小）、中耳積液（ECV 正常）與鼓膜穿孔或通氣管暢通（ECV 顯著擴大）。",
+            "在感音神經系統定位上，OAE 專一反映內耳外毛細胞放大器活性，而 ABR 第 I–V 波則追蹤遠端聽神經一路至中腦下丘之軸突同步放電。耳蝸毛細胞損傷（如噪音或順鉑耳毒性）會先使高頻 DPOAE 消失，但高音量刺激下 ABR 波間潛時仍正常；小腦橋腦角聽神經瘤則因壓迫近端聽神經，使患側 ABR 第 I–V 波間潛時拉長、鐙骨肌反射快速衰減且語音辨識出現高音量回跌（rollover）；至於內毛細胞突觸或聽神經髓鞘病變之聽覺神經病變（ANSD），更呈現獨特的「OAE 正常保留、ABR 卻平坦消失」，突顯加護病房高危新生兒必須以 aABR 作為初篩工具的核心價值。"
+          ],
+          "sourceIds": [
+            "ent-res-01-statpearls-abr",
+            "ent-res-01-jcih-screening"
+          ]
+        }
+      ],
+      "oralChallenge": {
+        "question": "門診一位申請失能給付的 45 歲男性聲稱雙耳完全聽不見，純音聽力檢查在 95 dB HL 仍不按鈴；身為住院醫師，你會如何利用現有主客觀聽力檢查組合拆解並客觀估計其真實聽閾？",
+        "answer": "首先觀察晤談時有無不自覺轉頭或語音音量調節異常，接著安排語音聽覺閾值（SRT）與純音 PTA 比對——偽聾或誇大性聽損常出現 SRT 顯著優於純音閾值超過 15 dB 之矛盾。最關鍵則是啟動客觀電生理交叉驗證：先做鼓室圖確認中耳正常，再測鐙骨肌聽反射（若在 80 dB HL 即誘發正常反射，代表真實聽閾絕不可能達全聾）、耳聲傳射（OAE 正常代表外毛細胞聽閾通常優於 30–35 dB HL），最後以頻率特異性 tone-burst ABR 或聽性穩定狀態反應（ASSR）直接客觀定量各頻率真實電生理聽閾。",
+        "sourceIds": [
+          "ent-res-01-asha-audiogram",
+          "ent-res-01-statpearls-abr"
+        ]
+      },
+      "integrated": {
+        "framing": "本章從中耳阻抗匹配與床邊音叉出發，串聯純音與語音行為聽檢判讀，最終透過鼓室圖、OAE 與 ABR 客觀交叉驗證鎖定外中內耳與聽神經病灶。",
+        "objectives": [
+          "正確判讀林納氏與韋伯氏音叉試驗、純音聽力圖左右耳符號與氣導平均聽閾及遮蔽時機",
+          "運用 Jerger A／As／Ad／B／C 五型鼓室圖與等效外耳道容積（ECV）鑑別各類中耳傳導病變",
+          "結合語音回跌現象、鐙骨肌反射、OAE 與 ABR 區分耳蝸外毛細胞損傷、聽神經瘤與聽覺神經病變（ANSD）"
+        ],
+        "units": [
+          {
+            "id": "u1",
+            "title": "聲學傳導生理、床邊音叉與純音／語音行為聽力圖判讀",
+            "sectionIndexes": [
+              0,
+              1
+            ],
+            "deepDiveIndexes": [
+              0
+            ],
+            "synthesis": [
+              "純音聽力檢查為唯一須病患行為回應之主觀常規聽檢，平均聽閾以氣導（500、1k、2k、4k Hz）計算；當兩耳差距超過耳間衰減量時必須遮蔽非測試耳以消除影子曲線與假陰性 Rinne。",
+              "語音聽力學提供解剖定位關鍵：SRT 驗證純音信度，響度重振提示耳蝸外毛細胞病變，而高音量下 WRS 不升反降之回跌現象則強烈指向耳蝸後聽神經病變。"
+            ],
+            "decisions": [
+              {
+                "finding": "512 Hz 音叉檢查示 Weber 偏向右耳，右耳 Rinne 為骨導大於氣導（負向）、左耳氣導大於骨導（正向）",
+                "interpretation": "右側外耳或中耳阻抗傳導障礙造成右耳傳導性聽損（氣骨導差至少逾 15–20 dB）",
+                "nextStep": "執行耳鏡檢視右耳有無耳垢栓塞、鼓膜穿孔或積液，並安排純音聽力檢查與鼓室圖定量氣骨導差"
+              },
+              {
+                "finding": "未遮蔽純音聽力圖見左耳骨導 5 dB、左耳氣導 55 dB，右耳氣骨導皆為 5 dB，但左耳 Weber 卻明確偏向右耳",
+                "interpretation": "左耳實際為重度感音神經性聽損，未遮蔽左耳骨導與 55 dB 氣導皆為跨顱刺激正常右耳之影子曲線",
+                "nextStep": "於右耳施予窄頻遮蔽噪音重新測定左耳真實氣骨導閾值，切勿誤判為左耳傳導性聽損"
+              }
+            ],
+            "sourceIds": [
+              "ent-res-01-asha-audiogram"
+            ]
+          },
+          {
+            "id": "u2",
+            "title": "鼓室聲導抗、OAE 與 ABR 客觀電生理定位及新生兒 1-3-6 復健",
+            "sectionIndexes": [
+              2,
+              3
+            ],
+            "deepDiveIndexes": [
+              1
+            ],
+            "synthesis": [
+              "226 Hz（小於 6 個月嬰兒用 1000 Hz）鼓室圖搭配 ECV 精準反映中耳壓力與鼓膜完整性；鐙骨肌反射橫跨 CN VIII 與雙側 CN VII 腦幹弧。",
+              "OAE 監測外毛細胞而 ABR 追蹤聽神經至下丘（Wave V）；依循新生兒聽篩 1-3-6 時程與助聽器／人工耳蝸階梯轉介可守護大腦聽覺皮質發育黃金期。"
+            ],
+            "decisions": [
+              {
+                "finding": "4 歲兒童雙耳鼓室圖皆呈平坦 B 型曲線，右側等效外耳道容積（ECV）為 0.8 mL、左側之前曾裝通氣管且 ECV 達 2.9 mL",
+                "interpretation": "右耳鼓膜完整伴中耳腔積液（OME）；左耳通氣管暢通使探測容積連通中耳乳突氣腔",
+                "nextStep": "右耳持續追蹤積液消退與純音／遊戲聽檢閾值，左耳保持通氣管乾燥觀察即可"
+              },
+              {
+                "finding": "雙側極重度感音神經性聽損 11 個月大女嬰，已規律配戴高功率助聽器並接受聽語療育 5 個月仍無語音察覺進步，顳骨 CT 與內聽道 MRI 確認耳蝸管腔暢通且雙側聽神經發育正常",
+                "interpretation": "耳蝸毛細胞重度缺損致助聽器聲學放大無效，符合嬰幼兒人工耳蝸植入適應症",
+                "nextStep": "轉介人工耳蝸多專科團隊完成術前評估與肺炎鏈球菌疫苗接種，爭取於語言發展黃金期施行人工耳蝸植入術"
+              }
+            ],
+            "sourceIds": [
+              "ent-res-01-statpearls-abr",
+              "ent-res-01-jcih-screening"
+            ]
+          }
+        ],
+        "case": {
+          "title": "從不對稱耳鳴與語音辨識失真到客觀電生理定位",
+          "stem": "48 歲國中教師近八個月發現左耳接聽電話時常聽不清楚學生說話內容，即使把手機音量調到最大反而覺得字句糊成一團，無耳漏亦無耳痛。",
+          "steps": [
+            {
+              "newInfo": "耳鏡見雙側鼓膜正常完整；512 Hz 音叉檢查雙側 Rinne 均為 AC > BC，Weber 偏向右耳。",
+              "prompt": "床邊音叉結果指向哪一類聽損？接下來應開立哪兩項基礎主觀聽力檢查？",
+              "answer": "指向左側感音神經性聽損；應開立純音聽力檢查（PTA）與語音聽力檢查（含 SRT 與不同音量下之 WRS）。",
+              "rationale": "Weber 偏向健側右耳且左耳仍維持 AC > BC 為典型左側感音神經性障礙，語音辨識能進一步區分耳蝸與耳蝸後病灶。",
+              "sourceIds": [
+                "ent-res-01-asha-audiogram"
+              ]
+            },
+            {
+              "newInfo": "純音聽力圖示右耳平均 10 dB HL、左耳高頻漸降平均 40 dB HL（無氣骨導差）；鼓室圖雙側 A 型，但左耳高音量刺激時 WRS 自 52% 驟降至 16%，且左耳刺激之鐙骨肌反射在 5 秒內衰減逾七成。",
+              "prompt": "此語音與聽反射表現稱為什麼現象？若加做 ABR 預期見到何種異常，最終確診影像為何？",
+              "answer": "屬於典型語音回跌現象（rollover）合併鐙骨肌反射病態衰減（reflex decay），強烈提示左側耳蝸後聽神經病變；ABR 預期見左耳第 I–V 波間潛時延長或兩耳第 V 波潛時差拉大，最終應安排含釓顯影劑內聽道與小腦橋腦角 MRI 確診有無聽神經瘤。",
+              "rationale": "聽神經纖維受腫瘤壓迫時無法在高強度刺激下維持同步放電，造成高音量語音辨識反跌與反射早衰，MRI 為偵測微小管內型聽神經瘤之黃金標準。",
+              "sourceIds": [
+                "ent-res-01-statpearls-abr"
+              ]
+            }
+          ]
+        },
+        "connections": [
+          {
+            "topicId": "ent-02",
+            "reason": "中耳積液（B 型鼓室圖）、耳硬化症（As 型伴 2000 Hz Carhart notch）與聽小骨斷離（Ad 型）皆仰賴純音氣骨導差與鼓室圖精準定量"
+          },
+          {
+            "topicId": "ent-03",
+            "reason": "噪音性 4 kHz 凹陷、突發性耳聾 3-3-3 診斷準則及小腦橋腦角聽神經瘤篩檢均建構於本章聽力學基礎之上"
+          }
+        ]
+      }
+    },
+    "ent-02": {
+      "source": "醫學系耳鼻喉科學課程講義 02（Diseases of the External and Middle Ear）；醫學系耳鼻喉科學課程講義 07（Middle Ear Diseases）；AAO-HNS Clinical Practice Guidelines (Acute Otitis Externa & Otitis Media with Effusion)",
+      "resources": [
+        {
+          "id": "ent-res-02-aaohns-ome",
+          "title": "AAO-HNS Clinical Practice Guideline: Otitis Media with Effusion (Update)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/26832942/",
+          "kind": "指南",
+          "provider": "American Academy of Otolaryngology–Head and Neck Surgery (AAO-HNS)",
+          "note": "兒童積液性中耳炎三個月觀察期、充氣式耳鏡與鼓室圖評估及中耳通氣管置入適應症"
+        },
+        {
+          "id": "ent-res-02-aaohns-aoe",
+          "title": "AAO-HNS Clinical Practice Guideline: Acute Otitis Externa",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/24491310/",
+          "kind": "指南",
+          "provider": "American Academy of Otolaryngology–Head and Neck Surgery (AAO-HNS)",
+          "note": "急性外耳道炎局部抗生素處置、鼓膜穿孔時嚴禁耳毒性耳滴劑（僅用 quinolone）與惡性外耳道炎高危辨識"
+        },
+        {
+          "id": "ent-res-02-statpearls-cholesteatoma",
+          "title": "NCBI Bookshelf (StatPearls): Middle Ear Cholesteatoma",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK448108/",
+          "kind": "期刊",
+          "provider": "National Center for Biotechnology Information (NCBI)",
+          "note": "先天性與後天性（Prussak 間隙）膽脂瘤蝕骨病理、顱內外併發症及 CWU／CWD 乳突鼓室成形手術策略"
+        }
+      ],
+      "deepDive": [
+        {
+          "heading": "從鬆弛部負壓凹陷到顱底危機：膽脂瘤蝕骨機轉與 CWU vs CWD 手術抉擇",
+          "paragraphs": [
+            "鼓膜上方鬆弛部（pars flaccida，Shrapnell 膜）缺乏中間緻密纖維層，當耳咽管長期功能障礙導致中耳持續負壓時，鬆弛部極易向內上方陷入鎚骨頸與外耳道上壁（scutum）之間的 Prussak 間隙形成內縮囊袋。一旦囊袋頸部狹窄失去自潔排空能力，堆積的角質碎屑合併綠膿桿菌與厭氧菌生物膜感染，便會持續刺激周圍基質分泌基質金屬蛋白酶（MMPs）、RANKL 與介白素活化蝕骨細胞，由外向內依序侵蝕 scutum、砧骨長突、水平半規管骨迷路、顏面神經水平鼓室段骨管乃至中耳鼓室蓋（tegmen tympani）硬腦膜。",
+            "手術決策須在「根除復發風險」與「術後生活品質」間取得個人化平衡：保留外耳道後壁術式（CWU）藉由後鼓室切開（facial recess approach，界於顏面神經垂直段、鼓索神經與短突窩之間）清除病灶，術後保留完整耳道生理自潔功能且可正常游泳，但因上鼓室前隱窩與鼓室竇（sinus tympani）視野受限，殘留復發率較高，適用病變局限且能配合規律追蹤或非瀰漫擴散 MRI（non-echo planar DWI MRI）監測者；反之，若膽脂瘤已廣泛破壞後骨壁、合併水平半規管迷路瘻管、耳咽管嚴重失能無法通氣，或患耳為病患「唯一聽力耳」，則應果斷採取削低外耳道後壁術式（CWD）將病灶完全敞開外化。"
+          ],
+          "sourceIds": [
+            "ent-res-02-statpearls-cholesteatoma"
+          ]
+        },
+        {
+          "heading": "圓窗膜屏障漏洞與中耳傳導重建：耳滴劑安全鐵律與 Wullstein 五型精髓",
+          "paragraphs": [
+            "內耳外淋巴液與中耳腔之間僅隔著厚度不足 0.1 mm 的半透性圓窗膜（round window membrane）。在完整鼓膜阻隔下，外耳道滴劑不會接觸圓窗；但只要存在慢性中耳炎鼓膜穿孔、外傷性破裂或留置中耳通氣管，含胺基糖苷類（gentamicin、neomycin）、polymyxin B 或酒精溶劑之複方耳滴劑便會流入鼓室並穿透圓窗膜直達耳蝸底圈與前庭毛細胞，造成不可逆重度感音神經性聽損與雙側前庭失能。因此臨床開立耳滴劑前必須先確認鼓膜完整性，穿孔耳一律僅選用中耳安全無耳毒性之 fluoroquinolone 耳滴劑（如 ofloxacin）。",
+            "待中耳感染控制乾燥後，Wullstein 鼓室成形術的核心在於「尋找最接近卵圓窗且仍保持正常活動度之聽小骨構造」重建聲壓差（卵圓窗與圓窗不可同時直接承受同相聲波，否則相位抵消將損失近 30 dB）：三骨完整者將顳肌筋膜搭於鎚骨柄（Type I）；砧骨長突蝕斷但鐙骨上結構完好者將筋膜或 PORP 搭於鐙骨頭（Type III，臨床最常施作之聽小骨鏈重建型態）；連鐙骨弓亦缺損僅餘可動足板者，則以 TORP 架接新鼓膜與足板或建立圓窗聲屏蔽（Type IV）。"
+          ],
+          "sourceIds": [
+            "ent-res-02-aaohns-aoe",
+            "ent-res-02-statpearls-cholesteatoma"
+          ]
+        }
+      ],
+      "oralChallenge": {
+        "question": "一位 43 歲台灣男性因左耳悶塞感與聽力變差一個月就診，無發燒亦無耳痛，耳鏡見左耳鼓膜完整呈琥珀色伴氣液平面，右耳完全正常；若與一位 4 歲幼兒感冒後雙耳琥珀色中耳積液相比，兩者的處置流程有何本質差異？",
+        "answer": "兩者雖同屬積液性中耳炎（OME），但病因與處置截然不同！4 歲幼兒感冒後雙側 OME 九成源於耳咽管尚未發育成熟與急性中耳炎後遺留積液，約 90% 會在 3 個月內自然吸收，若無高危語言發展障礙，標準處置為觀察追蹤 3 個月（勿濫用抗生素或類固醇），滿 3 個月未退伴雙側聽損才評估放通氣管。反之，43 歲台灣成人無故出現「單側 OME」，必須優先當作鼻咽癌（NPC）侵犯或壓迫同側耳咽管咽口的警訊，當診即須施行軟式鼻咽內視鏡詳查左側咽隱窩（Rosenmüller fossa），必要時切片與安排 MRI，絕不可未看鼻咽就直接當一般積水觀察或貿然裝通氣管。",
+        "sourceIds": [
+          "ent-res-02-aaohns-ome"
+        ]
+      },
+      "integrated": {
+        "framing": "本章縱向貫穿外耳道感染與顱底骨髓炎防線、兒童與成人中耳積液雙軌分流，以及膽脂瘤、鼓室成形術、耳硬化症與顳骨外傷之外科重建邏輯。",
+        "objectives": [
+          "辨識急性外耳道炎與惡性（壞死性）外耳道炎之高危宿主、綠膿桿菌致病角色與核醫影像追蹤指標",
+          "區分 AOM、OME 與 COM 之鼓膜表現與菌相差異，嚴守鼓膜穿孔僅用 quinolone 耳滴劑之病安紅線",
+          "掌握膽脂瘤侵蝕併發症、CWU／CWD 抉擇、Wullstein 鼓室成形術五型、耳硬化症 Carhart notch 與顳骨縱／橫向骨折鑑別"
+        ],
+        "units": [
+          {
+            "id": "u1",
+            "title": "外耳道疾病、惡性外耳道炎顱底警戒與中耳炎年齡分流",
+            "sectionIndexes": [
+              0,
+              1
+            ],
+            "deepDiveIndexes": [
+              1
+            ],
+            "synthesis": [
+              "外耳道外 1/3 軟骨、內 2/3 硬骨，交界最窄處易卡異物且為老年糖尿病患者惡性外耳道炎肉芽好發處；劇烈夜間耳痛伴腦神經麻痺須立刻啟動顱底骨髓炎抗綠膿桿菌長療程治療。",
+              "中耳發炎須精準區分急性紅腫蓄膿之 AOM、完整鼓膜無急性發炎之 OME（小兒觀察三個月、成人單側必查鼻咽）與永久結構破損之 COM（穿孔耳嚴禁耳毒性耳滴劑）。"
+            ],
+            "decisions": [
+              {
+                "finding": "雙側耳廓反覆紅腫熱痛伴鼻樑軟骨壓痛，但雙側無軟骨之耳垂完全正常不紅腫",
+                "interpretation": "自體免疫介導之自體免疫復發型軟骨炎（RP），而非細菌性耳廓軟骨膜炎",
+                "nextStep": "檢查氣管喉部軟骨有無受累狹窄，並給予全身性類固醇與免疫調節治療而非單純抗生素"
+              },
+              {
+                "finding": "慢性中耳炎中央型鼓膜穿孔患者急性流膿耳漏，準備開立局部抗生素耳滴劑",
+                "interpretation": "鼓膜穿孔使藥液可直接經圓窗膜進入內耳，胺基糖苷類與 polymyxin B 具嚴重耳蝸前庭毒性",
+                "nextStep": "局部吸引清除膿液後，僅開立無耳毒性之 fluoroquinolone 耳滴劑（如 ofloxacin）"
+              }
+            ],
+            "sourceIds": [
+              "ent-res-02-aaohns-aoe",
+              "ent-res-02-aaohns-ome"
+            ]
+          },
+          {
+            "id": "u2",
+            "title": "膽脂瘤併發症、Wullstein 鼓室成形、耳硬化症與顳骨骨折",
+            "sectionIndexes": [
+              2,
+              3
+            ],
+            "deepDiveIndexes": [
+              0
+            ],
+            "synthesis": [
+              "原發後天膽脂瘤起自鬆弛部陷入 Prussak 間隙並侵蝕 scutum 與砧骨長突，一旦出現迷路瘻管眩暈、面癱、耳後膿瘍或 Gradenigo 三聯徵須緊急影像與手術清除。",
+              "傳導性聽損若鼓膜完整，須結合病史區分先天性膽脂瘤（鼓膜內白色珍珠團塊）、耳硬化症（As 型鼓室圖與 2 kHz Carhart notch）及頭部外傷後聽小骨脫臼（Ad 型鼓室圖）。"
+            ],
+            "decisions": [
+              {
+                "finding": "長期惡臭耳漏患者耳鏡見鼓膜鬆弛部上鼓室凹陷袋堆積白色角質碎屑，對外耳道加壓時誘發短暫眩暈與水平眼振",
+                "interpretation": "後天性中耳膽脂瘤侵蝕水平半規管骨壁形成迷路瘻管（瘻管試驗陽性）",
+                "nextStep": "立即安排高解析顳骨無顯影 CT 評估骨迷路與顏面神經管缺損，並排程乳突切除術小心保留骨迷路內膜"
+              },
+              {
+                "finding": "車禍後腦勺重擊患者右耳鼓膜完整呈紫藍色血鼓室，右耳重度感音神經性全聾伴快相向左眼振與立即右側完全面癱（HB VI）",
+                "interpretation": "右側顳骨橫向骨折（侵犯耳囊型）直接貫穿骨迷路／內聽道與顏面神經骨管",
+                "nextStep": "穩定生命徵象與頸椎後行高解析顳骨 CT，嚴禁外耳道灌洗，做好右眼角膜保護並評估顏面神經電生理與手術探查減壓"
+              }
+            ],
+            "sourceIds": [
+              "ent-res-02-statpearls-cholesteatoma"
+            ]
+          }
+        ],
+        "case": {
+          "title": "反覆惡臭耳漏合併突發眩暈與鼓室重建規劃",
+          "stem": "41 歲男性自幼左耳反覆流惡臭濃液但未規律就醫，近三天洗頭進水後出現左耳悶痛、天旋地轉與走路不穩，無高燒頸部僵硬。",
+          "steps": [
+            {
+              "newInfo": "顯微耳鏡吸除膿痂後見左耳鼓膜鬆弛部深陷伴外耳道上壁（scutum）骨缺損及白色鱗片狀角質團塊；輕壓左耳珠使外耳道增壓時患者瞬間眩暈並出現快相向左之水平眼振。",
+              "prompt": "此病灶診斷與壓耳誘發眼振之臨床意義為何？若此刻需給耳滴劑應遵守何項禁忌？",
+              "answer": "診斷為左側原發後天性中耳膽脂瘤合併水平半規管迷路瘻管（瘻管試驗陽性）；因鼓膜缺損且骨迷路已有瘻管直通內耳，絕對禁止使用任何含胺基糖苷類或耳毒性成分之耳滴劑，僅能使用無耳毒性 quinolone 製劑。",
+              "rationale": "迷路瘻管使中耳與外淋巴腔僅隔薄弱內膜，耳毒性藥物進入將直接摧毀全耳耳蝸與前庭功能。",
+              "sourceIds": [
+                "ent-res-02-aaohns-aoe",
+                "ent-res-02-statpearls-cholesteatoma"
+              ]
+            },
+            {
+              "newInfo": "高解析顳骨 CT 證實上鼓室與乳突竇充滿軟組織影、砧骨長突完全吸收消失、水平半規管外側壁有 2 mm 骨缺損，鎚骨部分侵蝕但鐙骨上部結構完整且顏面神經功能正常；術中考量病變廣泛且耳咽管嚴重塌陷，決定削低外耳道後壁並重建聽小骨。",
+              "prompt": "此乳突手術方式為何？若將新顳肌筋膜（或搭配 PORP 軟骨片）連接於完整可動之鐙骨頭上，屬於 Wullstein 第幾型鼓室成形術？",
+              "answer": "乳突術式為削低外耳道後壁乳突根除／改良根除術（Canal-wall-down mastoidectomy, CWD），可徹底外化病灶並安全處理半規管瘻管基質；將新鼓膜直接或經支撐柱連接於完整鐙骨（stapes）上部結構屬於 Wullstein 第三型鼓室成形術（Type III tympanoplasty）。",
+              "rationale": "CWD 降低耳咽管不良患者之膽脂瘤復發率，而砧骨缺損、鐙骨完整時架接於鐙骨頭即為經典 Wullstein Type III。",
+              "sourceIds": [
+                "ent-res-02-statpearls-cholesteatoma"
+              ]
+            }
+          ]
+        },
+        "connections": [
+          {
+            "topicId": "ent-01",
+            "reason": "中耳傳導病變之氣骨導差、耳硬化症 2 kHz Carhart notch 與 As／Ad／B 型鼓室圖皆須結合第 1 章聽力學判讀"
+          },
+          {
+            "topicId": "ent-03",
+            "reason": "膽脂瘤迷路瘻管、Ramsay Hunt 外耳水泡與顳骨橫向骨折皆會橫跨中耳與內耳前庭及第 VII 對顏面神經定位"
+          },
+          {
+            "topicId": "ent-05",
+            "reason": "成人不明原因單側積液性中耳炎必須立即連結第 5 章鼻咽癌咽隱窩內視鏡排查"
+          }
+        ]
+      }
+    },
+    "ent-03": {
+      "source": "醫學系耳鼻喉科學課程講義 04（Inner Ear Disease）；醫學系耳鼻喉科學課程講義 06（An Introduction to Otoneurology）；醫學系耳鼻喉科學課程講義 07（Middle Ear Diseases）；AAO-HNS Clinical Practice Guidelines (BPPV, Ménière's Disease, Sudden Hearing Loss, Bell's Palsy)",
+      "resources": [
+        {
+          "id": "ent-res-03-aaohns-bppv",
+          "title": "AAO-HNS Clinical Practice Guideline: Benign Paroxysmal Positional Vertigo (Update)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/28248609/",
+          "kind": "指南",
+          "provider": "American Academy of Otolaryngology–Head and Neck Surgery (AAO-HNS)",
+          "note": "後半規管與水平半規管 BPPV 之 Dix-Hallpike／Supine Roll 診斷準則、Epley 復位步驟與免常規影像／止暈藥建議"
+        },
+        {
+          "id": "ent-res-03-aaohns-ssnhl",
+          "title": "AAO-HNS Clinical Practice Guideline: Sudden Hearing Loss (Update)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/31369359/",
+          "kind": "指南",
+          "provider": "American Academy of Otolaryngology–Head and Neck Surgery (AAO-HNS)",
+          "note": "突發性感音神經性聽損 3-3-3 診斷定義、全身與鼓室內類固醇黃金期治療及內聽道 MRI／ABR 排除聽神經瘤規範"
+        },
+        {
+          "id": "ent-res-03-aaohns-bells",
+          "title": "AAO-HNS Clinical Practice Guideline: Bell's Palsy",
+          "url": "https://www.entnet.org/quality-practice/quality-products/clinical-practice-guidelines/bells-palsy/",
+          "kind": "指南",
+          "provider": "American Academy of Otolaryngology–Head and Neck Surgery (AAO-HNS)",
+          "note": "急性周邊型顏面神經麻痺 House-Brackmann 分級、角膜保護、72 小時內類固醇處置與完全麻痺電生理 ENoG 減壓評估"
+        }
+      ],
+      "deepDive": [
+        {
+          "heading": "急性前庭症候群生死判讀：為何甩頭試驗「正常」伴突發耳聾是 AICA 腦幹中風？",
+          "paragraphs": [
+            "急診面對持續數小時以上天旋地轉、噁心嘔吐且步態不穩之急性前庭症候群（AVS）患者時，傳統誤區是以為「沒有手腳無力口齒不清就不是中風」，甚至過度依賴發病首 24 小時偽陰性率可達 12–20% 之腦部擴散磁振造影（DWI MRI）。床邊 HINTS Plus 四步驟正是解開周邊前庭神經炎與後循環腦幹小腦梗塞的生理學鑰匙：在單純周邊前庭神經炎中，患側初級前庭神經輸入中斷使前庭眼反射（VOR）增益驟降，當檢查者將病患頭部快速轉向患側時，眼球無法等速反向留在檢查者鼻尖而隨頭偏移，必須靠大腦補上一次肉眼可見的「矯正性跳視（catch-up saccade，即甩頭試驗陽性異常）」。",
+            "反之，後下小腦動脈（PICA）梗塞若僅侵犯小腦絨球小結葉而未損及腦幹前庭神經核與初級反射弧，甩頭試驗會呈現「詭異的完全正常（無矯正跳視）」，同時常伴隨方向改變性凝視眼振或腦幹耳石通路失衡所致之垂直斜視偏位（skew deviation）。更需提高警覺的是前下小腦動脈（AICA）梗塞：由於支配內耳耳蝸與前庭迷路的唯一終末血管「內聽（迷路）動脈」逾八成直接發自 AICA，當 AICA 栓塞時，會同時引發橋腦外側小腦中腳缺血與內耳迷路梗塞——此時雖可能因迷路梗塞使甩頭試驗呈陽性，但患者會合併前庭神經炎絕不該出現的「新發單側感音神經性聽損與耳鳴」！因此 HINTS Plus 將「新發單側聽損」正式列為第四項中樞腦中風紅色警訊。"
+          ],
+          "sourceIds": [
+            "ent-res-03-aaohns-ssnhl"
+          ]
+        },
+        {
+          "heading": "顏面神經軸突變性時間窗：掌握 ENoG 第 3 至 14 天黃金期與 >90% 手術減壓門檻",
+          "paragraphs": [
+            "顏面神經全長於顳骨骨管（Fallopian canal）內穿行約 30 mm，其中以內聽道底進入迷路段（labyrinthine segment）處骨管管徑最窄，一旦病毒再活化（Bell's palsy 或 Ramsay Hunt）或外傷引發神經鞘內水腫，極易在此形成缺血性腔室壓迫。依 Sunderland 神經損傷分類，若僅為髓鞘局部傳導阻滯（neurapraxia），即使臨床初期表現臉部不動，軸突並未斷裂，數週內即可完全恢復而不留聯動症（synkinesis）；唯有當壓迫造成軸突斷裂（axonotmesis 以上）時，遠端軸突才會啟動華勒氏變性（Wallerian degeneration）。",
+            "神經電圖（Electroneuronography, ENoG）是在耳垂下方莖乳孔出口電刺激顏面神經主幹，並於鼻唇溝記錄表情肌複合肌肉動作電位（CMAP）振幅與健側百分比比較。若在完全麻痺（House-Brackmann Grade VI）發病 72 小時內過早施測，顳骨內雖已阻斷，但莖乳孔外遠端軸突尚未完成華勒氏變性仍可被電刺激興奮，會得出假性正常的結果；反之若拖過發病第 14–21 天後，神經再生與去神經重塑交錯，減壓手術亦已失去挽救殘存軸突的效益。因此臨床嚴守「僅針對完全麻痺 HB VI 病患、於發病第 3 天至第 14 天內追蹤 ENoG」：當患側振幅較健側衰減達 90% 以上（即殘存反應 <10%）且針極肌電圖（EMG）確認無自發運動單元電位時，方建議經中顱窩（針對迷路段與膝狀神經節）合併乳突入路施行顏面神經骨管減壓術。"
+          ],
+          "sourceIds": [
+            "ent-res-03-aaohns-bells"
+          ]
+        }
+      ],
+      "oralChallenge": {
+        "question": "一位 52 歲男性今早睡醒發現右耳突然像隔著牆壁聽不見伴高頻耳鳴，無耳痛亦無眩暈，耳鏡見雙側鼓膜正常透明，床邊 Weber 音叉偏向左耳；請問你的診斷準則、首選治療與為何必須安排 MRI 或 ABR？",
+        "answer": "臨床高度懷疑右側突發性感音神經性聽損（SSNHL）。首先應立即安排純音與語音聽力檢查，確認是否符合「3 天（72 小時）內發生、連續 3 個以上頻率、感音神經性聽損 >=30 dB」之 3-3-3 診斷定義（並抽血驗血糖與基本評估）。一旦確診，黃金治療期為發病 2 週內，立即給予全身性高劑量口服／靜脈類固醇（若患嚴重糖尿病、胃潰瘍等全身類固醇禁忌，或口服治療效果不佳時，施行鼓室內類固醇注射），並可討論輔助高壓氧治療。此外，約 1–3% 看似特發性 SSNHL 患者實為內聽道或小腦橋腦角聽神經瘤（vestibular schwannoma）以單側突發耳聾為初發表徵，故所有確診 SSNHL 病患皆須安排含釓顯影劑內聽道 MRI（若有 MRI 禁忌則以 ABR 篩檢）以排除耳蝸後腫瘤。",
+        "sourceIds": [
+          "ent-res-03-aaohns-ssnhl"
+        ]
+      },
+      "integrated": {
+        "framing": "本章以發作時間軸與前庭眼反射生理拆解眩暈疾病譜，串聯內耳毛細胞損傷與突發耳聾搶救，並建立周邊顏面神經麻痺解剖定位、護眼與電生理減壓準則。",
+        "objectives": [
+          "熟練運用 HINTS Plus 篩檢後循環中風，並正確判讀溫差試驗 COWS 快相方向與管麻痺率計算",
+          "依秒、小時、天之時間軸鑑別並處置後半規管／水平半規管 BPPV、梅尼爾氏症與前庭神經炎",
+          "掌握噪音性 4 kHz 凹陷、突發性耳聾 3-3-3 治療排瘤流程，以及顏面神經分支定位、HB 分級與 ENoG >90% 減壓時機"
+        ],
+        "units": [
+          {
+            "id": "u1",
+            "title": "前庭眼動電生理、HINTS Plus 中樞防線與三大眩暈症分流",
+            "sectionIndexes": [
+              0,
+              1
+            ],
+            "deepDiveIndexes": [
+              0
+            ],
+            "synthesis": [
+              "Romberg on foam 與 Fukuda 踏步評估平衡與前庭脊髓反射，溫差試驗（生理性眼振，COWS 快相）定量單側水平半規管功能，cVEMP／oVEMP 則分別檢測球囊與橢圓囊耳石通路及 SSCD 第三窗病變。",
+              "急性持續眩暈必做 HINTS Plus 排除腦幹小腦中風；陣發姿勢性數秒眩暈（85% 後半規管 BPPV）靠 Dix-Hallpike 診斷與 Epley 復位，數小時反覆眩暈伴波動低頻聽損（梅尼爾氏症）靠限鹽利尿劑與鼓室內治療。"
+            ],
+            "decisions": [
+              {
+                "finding": "溫差試驗測得右耳冷水眼振慢相角速度 20 度／秒、溫水 28 度／秒；左耳冷水 24 度／秒、溫水 14 度／秒",
+                "interpretation": "右耳反應總和 48、左耳反應總和 38，依 Jongkees 公式 (48 - 38) / (48 + 38) 算得左側管性麻痺率約 12%（未超過 20–25% 病態切點）",
+                "nextStep": "雙側水平半規管低頻溫差反應仍在對稱正常範圍內，結合高頻甩頭試驗與臨床病史綜合判讀"
+              },
+              {
+                "finding": "38 歲銀行員近兩年反覆發作每次持續 3 小時之劇烈旋轉眩暈，伴隨左耳低頻轟鳴、悶脹感及純音聽力圖左耳 250–1000 Hz 感音性聽損",
+                "interpretation": "符合典型左側梅尼爾氏症（膜迷路內淋巴積水症）",
+                "nextStep": "衛教嚴格低鹽飲食（每日鈉 <=1.5–2 g）與停用咖啡因菸酒，開立 betahistine 或 thiazide 利尿劑預防復發，難治時考慮鼓室內類固醇注射"
+              }
+            ],
+            "sourceIds": [
+              "ent-res-03-aaohns-bppv"
+            ]
+          },
+          {
+            "id": "u2",
+            "title": "耳蝸感音急慢性病變、CPA 聽神經瘤與周邊顏面神經麻痺處置",
+            "sectionIndexes": [
+              2,
+              3
+            ],
+            "deepDiveIndexes": [
+              1
+            ],
+            "synthesis": [
+              "4000 Hz V 型凹陷鎖定噪音性聽損；3 天 3 頻 30 dB 突發耳聾以 PTA 確診、黃金兩週內投予全身或鼓室內類固醇，並常規以內聽道顯影 MRI（或 ABR）排除小腦橋腦角聽神經瘤。",
+              "周邊面癱累及同側抬額與閉眼（HB IV 級起無法完全閉眼），首要預防暴露性角膜炎；合併耳殼水泡劇痛為 Ramsay Hunt 須加抗病毒藥，完全麻痺（HB VI）於第 3–14 天內 ENoG 退化 >90% 才評估骨管減壓。"
+            ],
+            "decisions": [
+              {
+                "finding": "29 歲男性昨日起左耳深處劇痛且外耳道與耳甲腔冒出成簇小水泡，今日出現左側額紋消失、用力閉眼仍留 3 mm 縫隙與嘴角右歪，伴輕微眩暈",
+                "interpretation": "水痘帶狀皰疹病毒（VZV）侵犯膝狀神經節引起左側 Ramsay Hunt 症候群，目前顏面神經功能屬 House-Brackmann 第 IV 級",
+                "nextStep": "立即同時開立口服高劑量類固醇與抗病毒藥物（valacyclovir／acyclovir），嚴格執行左眼人工淚液與夜間眼藥膏貼眼保護，並安排純音聽力檢查"
+              },
+              {
+                "finding": "創傷性或特發性右側完全顏面神經麻痺（HB Grade VI）患者於發病第 8 天接受 ENoG 顯示右側振幅較左側衰減 94%，針極 EMG 無自發運動單元電位",
+                "interpretation": "軸突華勒氏變性已超過 90% 臨界門檻且仍處於發病 14 天黃金時間窗內，自然完全恢復機率低",
+                "nextStep": "與患者詳盡說明風險效益後，安排緊急顏面神經骨管顯微手術減壓（涵蓋迷路段與膝狀神經節等受壓部位）"
+              }
+            ],
+            "sourceIds": [
+              "ent-res-03-aaohns-ssnhl",
+              "ent-res-03-aaohns-bells"
+            ]
+          }
+        ],
+        "case": {
+          "title": "從急性眩暈耳鳴到內聽道與顏面神經綜合評估",
+          "stem": "58 歲女性因兩天內左耳聽力急遽下降伴持續耳鳴與輕度步態不穩至門診，無耳痛亦無外耳水泡，四肢肌力正常。",
+          "steps": [
+            {
+              "newInfo": "耳鏡見雙側鼓膜正常；床邊無凝視誘發眼振、無垂直斜視偏位；純音聽力圖顯示左耳 500、1000、2000、4000 Hz 氣骨導皆落在 65 dB HL（右耳皆 15 dB HL），左耳語音辨識率僅 20%。",
+              "prompt": "此聽力表現符合哪一急症定義？第一線藥物治療為何？",
+              "answer": "符合左側突發性感音神經性聽損（SSNHL，72 小時內連續 >=3 個頻率感音聽損 >=30 dB）；第一線應立即給予高劑量全身性類固醇及／或鼓室內類固醇注射。",
+              "rationale": "把握發病兩週內黃金窗口給予類固醇抗發炎治療最能改善內耳毛細胞與血管紋微循環預後。",
+              "sourceIds": [
+                "ent-res-03-aaohns-ssnhl"
+              ]
+            },
+            {
+              "newInfo": "治療兩週後聽力部分進步，後續常規安排之含釓顯影劑內聽道 MRI 發現左側內聽道延伸至小腦橋腦角有一顆 1.6 公分均勻顯影腫塊（冰淇淋甜筒狀 ice-cream cone sign），目前左側眨眼與皺眉完全正常（HB Grade I）。",
+              "prompt": "MRI 最可能診斷為何？為何患者腫瘤已 1.6 公分卻無劇烈旋轉眩暈亦無顏面神經麻痺？後續有哪些處置選項？",
+              "answer": "診斷為左側前庭許旺細胞瘤（聽神經瘤 vestibular schwannoma）。因良性腫瘤生長緩慢，中樞小腦前庭核得以同步代償故少見急性天旋地轉；同時第七對顏面神經運動纖維對慢性緩慢機械牽拉耐受度遠高於第八對耳蝸感覺纖維，故早期鮮少面癱。後續可依患者年齡、聽力保留需求與追蹤生長速率，與神經外科共同討論立體定位放射手術（Gamma Knife）、顯微手術切除（術中搭配顏面神經監測儀）或密切 MRI 追蹤。",
+              "rationale": "聽神經瘤約佔 CPA 腫瘤八至九成，且少數會以急性 SSNHL 初發，印證 SSNHL 常規安排 MRI 排瘤之必要性。",
+              "sourceIds": [
+                "ent-res-03-aaohns-ssnhl"
+              ]
+            }
+          ]
+        },
+        "connections": [
+          {
+            "topicId": "ent-01",
+            "reason": "突發性耳聾之 PTA 確診、梅尼爾氏症低頻聽損及聽神經瘤語音回跌／ABR 篩檢均直接應用第 1 章聽力檢查工具"
+          },
+          {
+            "topicId": "ent-02",
+            "reason": "周邊顏面神經麻痺鑑別必須先以耳鏡排除第 2 章之惡性外耳道炎、急性化膿性中耳炎、中耳膽脂瘤與顳骨橫向骨折"
+          }
+        ]
+      }
+    },
+    "ent-04": {
+      "source": "醫學系耳鼻喉科學課程講義 05（Surgical Anatomy of Nose and Paranasal Sinuses）；醫學系耳鼻喉科學課程講義 11（Benign Diseases of Nose and Paranasal Sinusitis）；AAO-HNS Clinical Practice Guidelines (Adult Sinusitis & Epistaxis)",
+      "resources": [
+        {
+          "id": "ent-res-04-aaohns-sinusitis",
+          "title": "AAO-HNS Clinical Practice Guideline: Adult Sinusitis (Update)",
+          "url": "https://www.entnet.org/quality-practice/quality-products/clinical-practice-guidelines/cpg-adult-sinusitis/",
+          "kind": "指南",
+          "provider": "American Academy of Otolaryngology–Head and Neck Surgery (AAO-HNS)",
+          "note": "成人急性病毒性與細菌性鼻鼻竇炎（ABRS）診斷準則、抗生素時機與慢性鼻鼻竇炎內視鏡／CT 評估指引"
+        },
+        {
+          "id": "ent-res-04-aaohns-epistaxis",
+          "title": "AAO-HNS Clinical Practice Guideline: Nosebleed (Epistaxis)",
+          "url": "https://www.entnet.org/quality-practice/quality-products/clinical-practice-guidelines/nosebleed-epistaxis/",
+          "kind": "指南",
+          "provider": "American Academy of Otolaryngology–Head and Neck Surgery (AAO-HNS)",
+          "note": "前後鼻出血軟骨壓迫急救、鼻內視鏡電燒、填塞管理與蝶腭動脈結紮／血管栓塞適應症及禁忌"
+        },
+        {
+          "id": "ent-res-04-statpearls-fungal",
+          "title": "NCBI Bookshelf (StatPearls): Fungal Sinusitis",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK551496/",
+          "kind": "期刊",
+          "provider": "National Center for Biotechnology Information (NCBI)",
+          "note": "免疫低下與糖尿病酮酸中毒患者急性暴發侵襲性黴菌性鼻竇炎之血管侵犯病理、黑痂警訊與緊急清創抗黴菌策略"
+        }
+      ],
+      "deepDive": [
+        {
+          "heading": "FESS 術前斷層判讀守則：CLOSE 高風險解剖檢核與顱底眼眶保護",
+          "paragraphs": [
+            "功能性內視鏡鼻竇手術（FESS）的核心目標並非刮除全部鼻竇黏膜，而是精準打通竇口鼻道複合體（OMC）與各鼻竇自然引流通道，以恢復正常黏液纖毛清除功能。由於篩竇與蝶竇緊貼前顱窩底、眼眶內壁與海綿竇血管神經束，術前冠狀面與軸狀面無顯影鼻竇 CT 必須系統性檢視「CLOSE」五大解剖地雷：Cribriform plate（依 Keros 分類量測嗅窩深度，Type III 達 8–16 mm 者篩板外側板極薄，內側清創稍有不慎即致醫源性腦脊髓液鼻漏）、Lamina papyracea（檢視有無先天骨缺損或眶下篩房 Haller cell，避免損傷內直肌或引發球後血腫）、Onodi cell（後篩竇向蝶竇外上方氣化時，視神經與內頸動脈可能裸露於氣房側壁）、Sphenoid sinus（確認氣化型態與中隔是否偏位附著於內頸動脈骨管）以及 Ethmoidal artery（前篩動脈若懸空穿行於篩頂氣房中，截斷後斷端縮回眼眶內將引發急性球後血腫壓迫視神經）。",
+            "一旦術中不慎穿破紙樣板且傷及前篩動脈導致眼球急速突出堅硬、眼壓飆升並出現相對性傳入瞳孔障礙（Marcus Gunn pupil）與視力急遽惡化，代表發生危及視力之急性球後血腫（retrobulbar hematoma）；此時絕不可僅等待眼科會診或單靠降眼壓藥物，外科醫師須立即於床邊或手術檯施行外眥切開與外眥韌帶下支切斷減壓術（lateral canthotomy and inferior cantholysis），為視神經爭取黃金搶救時間。"
+          ],
+          "sourceIds": [
+            "ent-res-04-aaohns-sinusitis"
+          ]
+        },
+        {
+          "heading": "頑固性鼻出血的解剖定位：為何前／後篩動脈絕對禁止血管攝影栓塞？",
+          "paragraphs": [
+            "臨床面對大量鼻出血時，區分外頸動脈系統與內頸動脈系統是決定介入治療安全性的關鍵分水嶺。絕大多數後鼻腔大出血源自外頸動脈分支內上頜動脈所延續之蝶腭動脈（sphenopalatine artery），經由內視鏡於中鼻甲後端附著處（crista ethmoidalis）後方尋找並電燒／夾閉蝶腭動脈，或由放射科進行超選擇性內上頜動脈栓塞，皆能安全且高效地達成止血。",
+            "然而，鼻腔頂部與前上方鼻中隔的血流係由內頸動脈第一重要顱內外交通支——眼動脈（ophthalmic artery）穿經眼眶內側壁前後篩孔所發出之前篩動脈與後篩動脈供應。由於眼動脈同時發出供應視網膜內層唯一血源之中央視網膜動脈（central retinal artery，屬終末動脈無側枝循環），若針對篩動脈或眼動脈施行經導管微粒栓塞，栓塞物質極易順血流或逆流進入中央視網膜動脈引發不可逆失明，甚至逆流入內頸動脈造成大腦半球梗塞；同理，微整形於山根或鼻背注射填充物時若誤入鼻背動脈／角動脈並以高壓推注，填充物亦會逆流至眼動脈阻塞視網膜血流。因此，前／後篩動脈頑固出血必須透過內視鏡或眼眶內側外徑手術直接結紮電燒，嚴禁血管栓塞。"
+          ],
+          "sourceIds": [
+            "ent-res-04-aaohns-epistaxis"
+          ]
+        },
+        {
+          "heading": "從宿主免疫力切入黴菌性鼻竇炎四光譜與 Chandler 眼眶併發症手術升級時機",
+          "paragraphs": [
+            "黴菌孢子普遍存在於吸入空氣中，其致病型態完全取決於宿主免疫狀態：免疫正常者若纖毛清除受阻形成單側上頜竇真菌球（CT 呈局部金屬樣鈣化高密度影），僅需內視鏡清除團塊即可；若為異位性高免疫反應體質，對黴菌抗原產生 IgE 與嗜伊紅性發炎形成過敏性黴菌性鼻竇炎（AFRS，CT 雙重密度影伴花生醬樣黏蛋白），則需 FESS 減積搭配類固醇抑制過敏反應，兩者皆不需全身性抗黴菌毒性藥物。反之，當宿主處於糖尿病酮酸中毒（酸性高糖環境與游離鐵釋放促使白黴菌 Mucor / Rhizopus 爆發性繁殖）或白血病重度嗜中性球低下（麴菌 Aspergillus 為主），菌絲直接穿透血管壁造成血栓與組織梗塞壞死（AIFRS）；此時黏膜因缺血最早呈現蒼白與痛覺消失，繼而轉為黑色焦痂，臨床一旦懷疑須分秒必爭清創並給予靜脈 liposomal amphotericin B 或 voriconazole。",
+            "細菌性篩竇炎跨越紙樣板進入眼眶時，則依眼眶隔膜（orbital septum）與膿瘍位置按 Chandler I–V 期決定手術急迫度：隔前蜂窩組織炎（Group I）眼球運動與視力完全正常，可門診或住院抗生素治療；一旦出現凸眼與眼外肌轉動受限即進入隔膜後病變（Group II–V），須立即安排顯影眼眶鼻竇 CT。體積小且視力正常之骨膜下膿瘍（Group III）雖可嚴密觀察下試行 24–48 小時靜脈抗生素，但只要出現視力下降、辨色力減退、相對性傳入瞳孔障礙（Marcus Gunn pupil）、眼內膿瘍（Group IV）或抗生素治療無進展，即須緊急內視鏡切開紙樣板引流減壓。"
+          ],
+          "sourceIds": [
+            "ent-res-04-aaohns-sinusitis",
+            "ent-res-04-statpearls-fungal"
+          ]
+        }
+      ],
+      "oralChallenge": {
+        "question": "急診會診一位 62 歲糖尿病失控患者，主訴右側頭痛兩天，理學檢查見右側中鼻甲黏膜蒼白伴小片黑痂，但患者表示鼻子不太痛；請問你的首要鑑別診斷、不可遺漏的床邊檢查與前三小時處置順序為何？",
+        "answer": "首要診斷為急性暴發侵襲性黴菌性鼻竇炎（AIFRS，糖尿病酮酸中毒以白黴菌最常見）；「黏膜蒼白黑痂卻無痛感」正是黴菌侵犯血管致組織梗塞與三叉神經末梢壞死的危險警訊。床邊須立即檢查雙眼視力、瞳孔對光反射有無相對性傳入瞳孔障礙（Marcus Gunn pupil）、眼球外展等各方向運動、硬腭有無黑痂穿孔及中樞神經學狀態。前三小時處置：第一，立即抽血驗血糖、血氣分析與酮體並啟動胰島素與輸液矯正酸中毒；第二，緊急床邊內視鏡取壞死邊緣組織送冷凍切片與 KOH 鏡檢並安排急做顯影 CT／MRI；第三，不等培養結果立即靜脈給予 liposomal amphotericin B 並推進手術室施行廣泛壞死組織清創。",
+        "sourceIds": [
+          "ent-res-04-statpearls-fungal"
+        ]
+      },
+      "integrated": {
+        "framing": "本章由外鼻氣流閥門與鼻竇引流解剖出發，串聯鼻腔內外頸雙重血供之止血安全紅線，最終落實於鼻炎、急慢性／黴菌性鼻竇炎與眼眶顱內併發症的精準分流與手術時機。",
+        "objectives": [
+          "掌握內鼻閥、五層基板與各鼻道引流開口（含 OMC），並在術前鼻竇 CT 辨識 Onodi cell、Haller cell 與 Keros Type III 嗅窩風險",
+          "區分外頸（蝶腭動脈）與內頸（眼動脈分出之前／後篩動脈）鼻出血處置階梯，牢記篩動脈嚴禁栓塞之失明防線",
+          "整合 ARIA 過敏性鼻炎分級、血管運動性鼻炎與藥物性鼻炎之機轉及首選鼻噴劑選擇",
+          "精準判讀 ABRS 三大臨床指標、黴菌性鼻竇炎四亞型與 Chandler I–V 期眼眶併發症之內外科急症轉折點"
+        ],
+        "units": [
+          {
+            "id": "u1",
+            "title": "鼻腔閥門解剖、OMC 引流瓶頸與 FESS 顱底眼眶安全導航",
+            "sectionIndexes": [
+              0,
+              1,
+              2
+            ],
+            "deepDiveIndexes": [
+              0
+            ],
+            "synthesis": [
+              "前鼻塞結構性病因須同時評估鼻中隔彎曲（手術保留 >=1–1.5 cm L-strut）與內鼻閥夾角（Cottle maneuver 陽性提示上外側軟骨尾端狹窄塌陷），避免僅切鼻中隔卻遺漏內鼻閥重建。",
+              "中鼻道 OMC 為額竇、前篩竇與上頜竇共同排空樞紐，而第三基板（ground lamella）分隔前後篩竇並將後篩與蝶竇引流導向上鼻道與蝶篩隱窩；FESS 術前必先於 CT 確認 Keros 分級、紙樣板完整性與 Onodi cell，方能安全打開後篩與蝶竇。"
+            ],
+            "decisions": [
+              {
+                "finding": "單側慢性鼻塞患者將患側臉頰皮膚向外上方拉開後吸氣順暢度明顯改善（Cottle maneuver 陽性）",
+                "interpretation": "內鼻閥（鼻中隔與上外側軟骨尾端夾角 <10–15°）狹窄或吸氣性塌陷所致氣流高阻力",
+                "nextStep": "功能性鼻整形或內鼻閥撐開移植（如 spreader graft），而非單純下鼻甲縮減"
+              },
+              {
+                "finding": "FESS 術前冠狀面 CT 顯示嗅窩深度達 11 mm（Keros Type III）且右側後篩氣房延伸至蝶竇外上方（Onodi cell）",
+                "interpretation": "篩板外側板極長且薄易致腦脊髓液鼻漏，且右側視神經與內頸動脈極可能緊貼或裸露於該後篩變異氣房側壁",
+                "nextStep": "術中啟用立體定位導航系統，避免於中鼻甲基板內上方過度刮除，並由內下方安全定位真正蝶竇開口"
+              },
+              {
+                "finding": "內視鏡篩竇手術中誤穿紙樣板後，患側眼球迅速堅硬突出且出現相對性傳入瞳孔障礙（Marcus Gunn pupil）",
+                "interpretation": "前篩動脈斷端縮回眼眶引發急性球後血腫，造成眼眶腔室症候群壓迫視神經",
+                "nextStep": "立即停止鼻內填塞並緊急施行外眥切開與外眥韌帶下支切斷減壓術（lateral canthotomy and cantholysis）及眼眶減壓"
+              }
+            ],
+            "sourceIds": [
+              "ent-res-04-aaohns-sinusitis"
+            ]
+          },
+          {
+            "id": "u2",
+            "title": "鼻出血雙系統止血階梯、鼻炎分型與鼻竇炎急重症決策",
+            "sectionIndexes": [
+              3,
+              4,
+              5
+            ],
+            "deepDiveIndexes": [
+              1,
+              2
+            ],
+            "synthesis": [
+              "鼻出血處置依解剖深度與動脈源頭分級：前下方 Kiesselbach 叢靠軟骨鼻翼捏壓與局部燒灼；後外側蝶腭動脈靠氣球壓迫、內視鏡結紮或外頸分支栓塞；上鼻腔前／後篩動脈因源於內頸—眼動脈系統，嚴禁栓塞而須採內視鏡或外徑手術結紮。",
+              "慢性鼻炎與鼻竇炎治療須對準免疫與自主神經機轉（AR 用鼻內類固醇、血管運動性流涕用 ipratropium、藥物性鼻炎停去充血劑改類固醇），並隨時以宿主免疫力與眼眶隔膜後徵象篩出 AIFRS 與 Chandler III–V 期急症。"
+            ],
+            "decisions": [
+              {
+                "finding": "長期自行購買血管收縮鼻噴劑每日噴用 2 個月後鼻塞愈發嚴重，內視鏡見雙側下鼻甲暗紅肥厚腫脹",
+                "interpretation": "連續使用局部 α-促效劑超過 3–5 天引發受體下調與反彈性充血之藥物性鼻炎（rhinitis medicamentosa）",
+                "nextStep": "立即停用局部血管收縮噴劑，改用鼻內類固醇噴劑與等張生理食鹽水洗鼻協助度過反彈期"
+              },
+              {
+                "finding": "60 歲免疫健全女性健檢鼻竇 CT 見右側上頜竇完全混濁，中央夾雜點狀與塊狀高密度鈣化影，無骨壁侵蝕且無發燒",
+                "interpretation": "非侵襲性黴菌性鼻竇炎之真菌球（fungus ball / mycetoma）典型影像表現",
+                "nextStep": "安排功能性內視鏡鼻竇手術打開右上頜竇自然開口並徹底清除真菌團塊，術後無須給予全身性抗黴菌藥"
+              },
+              {
+                "finding": "急性鼻竇炎病童高燒伴雙側眼瞼水腫、雙側眼球突出及雙眼第 VI 與第 III 對腦神經麻痺",
+                "interpretation": "感染經無瓣膜角靜脈／眼靜脈逆流擴散至顱底引發 Chandler Group V 海綿竇血栓（cavernous sinus thrombosis）",
+                "nextStep": "立即緊急顱底眼眶顯影 MRI／MRV、給予穿透血腦障壁之廣效靜脈抗生素、內視鏡鼻竇引流感染源並會診神經科／感染科評估抗凝血與重症照護"
+              }
+            ],
+            "sourceIds": [
+              "ent-res-04-aaohns-epistaxis",
+              "ent-res-04-statpearls-fungal"
+            ]
+          }
+        ],
+        "case": {
+          "title": "從反覆上呼吸道症狀到單側鼻竇混濁與眼眶急性惡化的整合判讀",
+          "stem": "34 歲具長年塵蟎過敏性鼻炎病史之男性，近三週因自行每日噴用市售去充血鼻噴劑緩解鼻塞，十天前感冒後出現左臉頰脹痛與黃綠膿涕，前五天稍緩解後近兩日再度高燒至 39.2°C 並伴左眼周紅腫。",
+          "steps": [
+            {
+              "newInfo": "門診詢問發現患者過去半年每週超過 5 天鼻癢打噴嚏且嚴重影響睡眠；此次感冒第 6 天原本退燒，第 8 天卻再度高燒伴濃稠惡臭左鼻膿涕。",
+              "prompt": "如何判讀患者底層鼻炎之 ARIA 分級、近期鼻噴劑併發問題，以及此次急性惡化之診斷？",
+              "answer": "底層屬中重度持續型過敏性鼻炎（>4 天／週且 >4 週，合併睡眠障礙），近期連續使用去充血劑 >3–5 天已疊加藥物性鼻炎；此次感冒改善後再度高燒膿涕符合「雙重惡化（double sickening）」，診斷為急性細菌性鼻鼻竇炎（ABRS）。",
+              "rationale": "ARIA 以頻率與四大生活指標分級；ABRS 三大診斷準則包含症狀 >=10 天、重度高燒膿涕 >=3–4 天起病或 double sickening，且上排臼齒齒源性感染亦須列入單側惡臭膿涕鑑別。",
+              "sourceIds": [
+                "ent-res-04-aaohns-sinusitis"
+              ]
+            },
+            {
+              "newInfo": "急診理學檢查發現左眼球向外下方突出移位、內轉與上轉明顯受限疼痛，左眼視力降至 0.4 且出現相對性傳入瞳孔障礙（Marcus Gunn pupil）。",
+              "prompt": "此時眼眶併發症屬於 Chandler 第幾期？應立即安排何種影像與治療決策？",
+              "answer": "已進展至 Chandler Group III 骨膜下膿瘍或 Group IV 眼眶內膿瘍合併視神經受壓；應立即安排顯影鼻竇與眼眶 CT、啟動廣效靜脈抗生素，並緊急推進手術室施行內視鏡篩竇切除與紙樣板減壓引流膿瘍。",
+              "rationale": "凸眼、眼外肌運動受限代表感染跨越眼眶隔膜進入隔膜後空間，而視力下降與相對性傳入瞳孔障礙（Marcus Gunn pupil）為緊急手術減壓之絕對適應症，不可單靠抗生素等待觀察。",
+              "sourceIds": [
+                "ent-res-04-aaohns-sinusitis"
+              ]
+            },
+            {
+              "newInfo": "緊急術前鼻竇 CT 除見左側紙樣板內側梭形骨膜下膿瘍與左側 OMC 嚴重阻塞外，亦顯示雙側嗅窩深度達 10 mm，且左側後篩氣房延伸至蝶竇外上方。",
+              "prompt": "術前 CT 揭示了哪兩項關鍵解剖變異？術中與出院後長期鼻炎控制應注意哪些重點？",
+              "answer": "CT 顯示 Keros Type III 深嗅窩（篩板外側板極薄易腦脊髓液鼻漏）與左側 Onodi cell（視神經與內頸動脈緊鄰後篩側壁）；術中打開前篩與紙樣板引流骨膜下膿瘍時須嚴格保持器械平行篩頂、避免侵入後上 Onodi cell 外側壁，術後嚴禁擤鼻，出院後停用血管收縮噴劑並改以規律鼻內類固醇噴劑與生理食鹽水洗鼻控制中重度持續型過敏性鼻炎。",
+              "rationale": "結合術前 CT 解剖風險辨識可預防致命性顱底與視神經醫源性損傷，而長期以鼻內類固醇控制底層過敏發炎才能防止 OMC 再度阻塞復發。",
+              "sourceIds": [
+                "ent-res-04-aaohns-sinusitis"
+              ]
+            }
+          ]
+        },
+        "connections": [
+          {
+            "topicId": "ent-05",
+            "reason": "單側慢性鼻竇混濁、單側息肉樣腫塊或反覆單側涕血，必須與倒生性乳突瘤、青少年鼻咽血管纖維瘤（JNA）、上頜竇癌及鼻咽癌進行嚴謹鑑別"
+          },
+          {
+            "topicId": "ent-02",
+            "reason": "兒童腺樣體肥大與過敏性／感染性鼻鼻竇炎會阻塞鼻咽耳咽管開口，為誘發小兒急性化膿性與中耳積液病變之重要上游病因"
+          },
+          {
+            "topicId": "ent-10",
+            "reason": "外鼻鼻骨骨折復位、Le Fort 上頜骨骨折及眼眶內下壁骨折皆直接涉及鼻腔鼻竇骨性支架與腦脊髓液鼻漏評估"
+          }
+        ]
+      }
+    },
+    "ent-05": {
+      "source": "醫學系耳鼻喉科學課程講義 03（Tumor of Nose and Paranasal Sinuses）；醫學系耳鼻喉科學課程講義 08（Disease of Nasopharynx and Related Area）；NCCN Clinical Practice Guidelines in Oncology: Head and Neck Cancers",
+      "resources": [
+        {
+          "id": "ent-res-05-nccn-headneck",
+          "title": "NCCN Clinical Practice Guidelines in Oncology: Head and Neck Cancers",
+          "url": "https://www.nccn.org/guidelines/guidelines-detail?category=1&id=1437",
+          "kind": "指南",
+          "provider": "National Comprehensive Cancer Network (NCCN)",
+          "note": "鼻咽癌（IMRT、誘導化療與同步放化療 CCRT、血漿 EBV DNA 追蹤）及上頜竇／篩竇惡性腫瘤多專科治療標準"
+        },
+        {
+          "id": "ent-res-05-statpearls-npc",
+          "title": "NCBI Bookshelf (StatPearls): Nasopharyngeal Cancer",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK459256/",
+          "kind": "期刊",
+          "provider": "National Center for Biotechnology Information (NCBI)",
+          "note": "鼻咽癌咽隱窩解剖、WHO 第 I–III 型病理、腦神經侵犯路徑與 AJCC 第 8 版 TNM 分期綜論"
+        },
+        {
+          "id": "ent-res-05-statpearls-jna",
+          "title": "NCBI Bookshelf (StatPearls): Nasopharyngeal Angiofibroma",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK545240/",
+          "kind": "圖譜",
+          "provider": "National Center for Biotechnology Information (NCBI)",
+          "note": "青少年鼻咽血管纖維瘤（JNA）蝶腭孔起源、Holman-Miller 影像徵象、禁切片原則與術前動脈栓塞流程"
+        }
+      ],
+      "deepDive": [
+        {
+          "heading": "單側鼻腔腫塊的診斷陷阱：發炎性鼻息肉、倒生性乳突瘤與 JNA 的切片決策",
+          "paragraphs": [
+            "門診鼻內視鏡發現「單側鼻腔腫塊」時，首要原則是絕不可直接視為單純慢性鼻竇炎鼻息肉而草率處置或盲目夾取。典型慢性鼻竇炎鼻息肉（CRSwNP）絕大多數呈雙側對稱、灰白半透明水腫狀；反之，單側中鼻道分葉狀不規則腫塊在中老年男性須高度警覺倒生性乳突瘤（Inverted papilloma）或上頜竇鱗狀上皮癌，在兒童或嬰幼兒須先以影像排除腦膜腦膨出（meningoencephalocele，切片將致腦脊髓液鼻漏與腦膜炎），而在青春期男性後鼻腔見暗紅色充血腫塊更須優先排除青少年鼻咽血管纖維瘤（JNA）。由于 JNA 血管壁缺乏平滑肌收縮層且承受內上頜動脈高壓血流，門診任何切片動作皆可能誘發無法加壓控制的致命大出血，必須先安排顯影 CT／MRI（確認翼腭窩擴大與上頜竇後壁前彎之 Holman-Miller sign），並於術前 24–72 小時完成供血動脈栓塞後再行內視鏡完整切除。",
+            "針對已切片證實為倒生性乳突瘤之非高血管性單側腫塊，手術成敗關鍵則在於「根部附著處的骨膜與骨質處理」。由於腫瘤上皮會向下方基質甚至骨小管縫隙內翻生長，術前冠狀面鼻竇 CT 上出現的錐狀局部骨質增生硬化（focal hyperostosis）往往精準指向腫瘤真正的生長蒂部（pedicle）；內視鏡手術不能僅將肉眼可見腫瘤刮除，必須剝離附著區骨膜並以鑽石磨頭磨除該處增生骨質，同時將全部標本徹底送檢排除 5–15% 同步共存之鱗狀上皮癌。"
+          ],
+          "sourceIds": [
+            "ent-res-05-nccn-headneck",
+            "ent-res-05-statpearls-jna"
+          ]
+        },
+        {
+          "heading": "鼻咽癌顱底與咽旁侵犯的雙路徑神經定位：岩蝶海綿竇路徑 vs 莖突後頸靜脈孔路徑",
+          "paragraphs": [
+            "鼻咽癌（NPC）最好發於耳咽管圓枕後上方的咽隱窩（Fossa of Rosenmüller），此解剖熱點恰位於顱底破裂孔（foramen lacerum）正下方、咽顱底筋膜（pharyngobasilar fascia）薄弱處內側，因此腫瘤極易沿低阻力解剖通道雙向擴散。當腫瘤向上方穿經破裂孔或卵圓孔進入海綿竇（岩蝶路徑，臨床稱 Jacod 症候群），因第 VI 對外展神經並非貼附於海綿竇外側硬腦膜壁，而是直接穿行於海綿竇腔內緊鄰內頸動脈外側，故成為海綿竇侵犯時最早出現麻痺的眼球運動神經，導致患眼外轉受限與內斜水平複視；與此同時，三叉神經半月神經節及 V1、V2、V3 分支受壓會引發頑固性單側深部頭痛與臉頰麻木，晚期再波及海綿竇外側壁的第 III、IV 對腦神經與眶尖第 II 對視神經。",
+            "相對地，當腫瘤或腫大的咽後淋巴結向後外側突破咽顱底筋膜侵入莖突後咽旁間隙（post-styloid parapharyngeal space，臨床稱 Villaret 症候群），該空間內包含內頸動脈、內頸靜脈、穿出頸靜脈孔的第 IX、X、XI 對腦神經、穿出舌下神經管的第 XII 對腦神經以及頸交感神經鏈；患者將表現出軟腭麻痺嗆咳、聲帶麻痺沙啞、斜方肌無力、伸舌偏向患側伴萎縮，以及瞳孔縮小合併輕度眼瞼下垂之 Horner 症候群。在 AJCC 第 8 版分期中，單純咽旁間隙或翼內外肌侵犯屬 T2，顱底骨質破壞屬 T3，而一旦臨床或影像出現任何腦神經麻痺或海綿竇顱內侵犯則一律升級為 T4。"
+          ],
+          "sourceIds": [
+            "ent-res-05-nccn-headneck",
+            "ent-res-05-statpearls-npc"
+          ]
+        },
+        {
+          "heading": "血漿 EBV DNA 液態生物標記與鼻咽癌分期導向放化療及長期毒性防護",
+          "paragraphs": [
+            "在台灣與華南流行區，逾 95% 鼻咽癌屬於潛伏性 EBV 驅動之非角化癌（WHO 第 II、III 型），腫瘤細胞凋亡壞死釋入血液的游離病毒片段使「定量血漿 EBV DNA（real-time PCR）」成為頭頸腫瘤中最成熟的液態生物標記。治療前高濃度血漿 EBV DNA 與較高遠端轉移風險顯著相關；同步放化療結束後若血漿 EBV DNA 迅速歸零預後極佳，反之若持續可測得則強烈暗示潛伏微轉移；追蹤期間若血漿 EBV DNA 由陰轉陽或連續攀升，往往比傳統影像提早數月預警復發，需立即啟動鼻咽內視鏡與全身 FDG-PET/CT 搜尋病灶。",
+            "治療策略上，NPC 因緊鄰顱底重要神經血管且對放射線高度敏感，第一期（T1N0M0）單用強度調控放射治療（IMRT）局部控制率已逾 90%；第二期採順鉑同步化學放射治療（CCRT）；第三期至第四 A 期（局部晚期，含顱底侵犯 T3–4 或雙側／大於 6 cm／低位頸部 N2–3）則以誘導化學治療（如 gemcitabine + cisplatin）縮小腫瘤並清除微轉移後再接續 CCRT 為國際標準。由於療程長達數月且高劑量放射線會永久減損腮腺分泌與下顎骨微血管灌流，放療前強制完成拔牙與牙科治療是預防日後下顎骨放射性骨壞死（ORN）不可妥協的安全關卡，同時須於化療前篩檢 B 型肝炎表面抗原與核心抗體並給予預防性抗病毒藥，杜絕化療免疫抑制誘發致命性猛爆性肝炎。"
+          ],
+          "sourceIds": [
+            "ent-res-05-nccn-headneck",
+            "ent-res-05-statpearls-npc"
+          ]
+        }
+      ],
+      "oralChallenge": {
+        "question": "門診遇到一位 48 歲男性，因左耳持續悶塞與聽力變差兩個月、左上頸摸到一顆 3 公分無痛硬塊就醫；外院曾建議先安排門診局部麻醉切開頸部硬塊做病理切片，請問你是否同意？為什麼？正確的標準診斷與分期流程為何？",
+        "answer": "絕對不同意直接切開或切除頸部硬塊切片！48 歲華人男性同時出現「成人單側積液性中耳炎（耳咽管受壓）」與「左上頸 Level II 無痛淋巴結腫大」，最優先必須排除鼻咽癌（NPC）。若未先檢查原發灶即冒然開放式切開頸部淋巴結，會破壞頸部筋膜屏障導致腫瘤播散、傷口癒合不良，並增加後續頸部復發與遠端轉移風險。正確標準流程：第一，立即施行鼻咽內視鏡檢查，針對咽隱窩（Fossa of Rosenmüller）腫塊或可疑黏膜直接做經鼻切片確診（若鼻咽切片陰性而仍需查頸部腫塊，亦應採細針抽吸細胞學 FNAC 而非開放切開）；第二，安排純音聽力與鼓室圖記錄傳導性聽損；第三，確診後以頭頸顯影 MRI、全身 FDG-PET/CT（或骨骼掃描＋胸部影像＋腹部超音波）與血漿定量 EBV DNA 完成 AJCC 第 8 版分期。",
+        "sourceIds": [
+          "ent-res-05-nccn-headneck",
+          "ent-res-05-statpearls-npc"
+        ]
+      },
+      "integrated": {
+        "framing": "本章串聯鼻腔鼻竇與鼻咽腫塊從「門診紅旗症狀辨識與切片禁忌」到「病理分型、顱底神經定位、AJCC 分期與手術／放化療精準分工」的完整腫瘤決策鏈。",
+        "objectives": [
+          "辨識單側鼻腔鼻竇腫塊紅旗警訊，掌握倒生性乳突瘤附著骨磨除手術與青少年鼻咽血管纖維瘤（JNA）禁切片及術前栓塞原則",
+          "比較上頜竇鱗狀上皮癌（Ohngren line）、木工篩竇腺癌、嗅神經母細胞瘤（Kadish 分期）、腺樣囊狀癌與鼻型 NK/T 細胞淋巴瘤之病理與治療分工",
+          "連結咽隱窩、耳咽管圓枕與破裂孔解剖，推導鼻咽癌四大症狀群及海綿竇（CN VI／V）與莖突後咽旁（CN IX–XII／Horner）腦神經麻痺",
+          "精熟鼻咽癌 WHO 分型、血漿 EBV DNA 角色、AJCC 第 8 版 T／N 關鍵界線、各期別 IMRT／CCRT 標準療法與放療前牙科及 B 肝防護"
+        ],
+        "units": [
+          {
+            "id": "u1",
+            "title": "鼻腔鼻竇良惡性腫瘤：切片安全紅線、職業病理關聯與手術主導原則",
+            "sectionIndexes": [
+              0,
+              1,
+              2
+            ],
+            "deepDiveIndexes": [
+              0
+            ],
+            "synthesis": [
+              "單側鼻腔鼻竇病灶評估須先做內視鏡與雙模態影像（CT 看骨重塑／focal hyperostosis／Holman-Miller sign，MRI 看軟組織與神經擴散）：青春期男性後鼻腔高血管腫塊（JNA）嚴禁切片，而倒生性乳突瘤則須切片並於術中磨除附著骨質以防復發與遺漏合併鱗癌。",
+              "鼻腔鼻竇惡性腫瘤中，除鼻腔鼻竇淋巴瘤（尤其亞洲 EBV 相關鼻型 NK/T 細胞淋巴瘤）採放療合併化療不開刀外，其餘可切除之鱗狀上皮癌、木工篩竇腺癌、沿神經擴散之 ACC 與跨篩板之嗅神經母細胞瘤皆以根治性手術切除（± 術後放化療）為治癒基石。"
+            ],
+            "decisions": [
+              {
+                "finding": "62 歲退休木工師傅單側鼻塞涕血半年，內視鏡與 MRI 見右側篩竇與鼻腔頂部腫塊伴局部篩板骨侵蝕",
+                "interpretation": "長期硬木粉塵職業暴露高度指向篩竇腸型腺癌（亦須鑑別篩板起源之嗅神經母細胞瘤）",
+                "nextStep": "經鼻內視鏡切片進行病理與免疫組織化學染色確診，評估可切除性後施行內視鏡顱底手術切除並追加術後放射治療"
+              },
+              {
+                "finding": "45 歲男性持續鼻塞、發燒與惡臭黃膿涕，內視鏡見鼻中隔廣泛潰瘍壞死穿孔但無明顯外突腫瘤團塊，切片呈血管中心性壞死與 EBV 陽性非典型淋巴細胞",
+                "interpretation": "鼻型結外 NK/T 細胞淋巴瘤（extranodal NK/T-cell lymphoma, nasal type）",
+                "nextStep": "不施行根除性上頜骨或鼻切除手術；完成全身 PET/CT 分期後轉介血液腫瘤與放射腫瘤科施行放射治療合併含 L-asparaginase 化學治療"
+              },
+              {
+                "finding": "上頜竇鱗狀上皮癌影像顯示腫瘤位於內眥至下頷角連線（Ohngren line）之後上方，並侵入翼腭窩與眼眶底後段",
+                "interpretation": "屬 Ohngren line 後上區（suprastructure）病灶，鄰近顱底與眼眶尖，局部侵犯廣且預後顯著較前下區差",
+                "nextStep": "多專科團隊評估廣泛手術切除（上頜骨切除 ± 顱顏切除重建）合併術後同步化學放射治療"
+              }
+            ],
+            "sourceIds": [
+              "ent-res-05-nccn-headneck",
+              "ent-res-05-statpearls-jna"
+            ]
+          },
+          {
+            "id": "u2",
+            "title": "鼻咽癌（NPC）：咽隱窩解剖轉移鏈、AJCC 8th 分期與放化療整合照護",
+            "sectionIndexes": [
+              3,
+              4,
+              5
+            ],
+            "deepDiveIndexes": [
+              1,
+              2
+            ],
+            "synthesis": [
+              "咽隱窩（Fossa of Rosenmüller）的立體解剖位置直接決定 NPC 四大臨床表現：向前外壓迫耳咽管致成人單側積液性中耳炎、向內破潰致回吸涕血、沿豐富淋巴網轉移至咽後與上頸 Level II／VA 淋巴結，向上經破裂孔入海綿竇傷及 CN VI／V（T4），向後外入莖突後咽旁傷及 CN IX–XII 與交感神經（T4）。",
+              "台灣逾 95% NPC 為 EBV 相關非角化癌（WHO Type II／III），治療全依賴精準分期導向之放射與化學治療（Stage I 單用 IMRT、Stage II CCRT、Stage III–IVA 誘導化療＋CCRT），並以血漿定量 EBV DNA 貫穿預後分層與復發監測，將外科手術保留於放化療後局部／頸部復發救援。"
+            ],
+            "decisions": [
+              {
+                "finding": "52 歲男性右眼新發內斜視與向右看時水平複視加劇，合併右臉頰麻木與右側深部偏頭痛",
+                "interpretation": "右側第 VI 對外展神經與第 V2 三叉神經同時受損，定位於右側海綿竇／破裂孔區病變，在台灣須高度警覺鼻咽癌顱底侵犯（T4）",
+                "nextStep": "立即施行鼻咽內視鏡檢查咽隱窩並切片，同時安排顱底鼻咽顯影 MRI 評估海綿竇與顱神經受侵範圍"
+              },
+              {
+                "finding": "初診斷鼻咽癌患者 MRI 見腫瘤限於鼻咽黏膜（T1），無頸部或咽後淋巴結腫大（N0），全身檢查無遠端轉移（M0），但口內有兩顆嚴重殘根齲齒",
+                "interpretation": "AJCC 第 8 版 Stage I（T1N0M0）早期鼻咽癌，但殘根齲齒若留至放療後拔除極易引發下顎骨放射性骨壞死",
+                "nextStep": "先會診牙科拔除無法保留之殘根待傷口初步癒合並建立塗氟照護後，單獨施行根治性強度調控放射治療（IMRT alone）"
+              },
+              {
+                "finding": "Stage IVA 鼻咽癌完成誘導化療與 CCRT 後一年，追蹤血漿 EBV DNA 由未檢出連續兩次上升，MRI 與內視鏡切片證實右側鼻咽局部小範圍復發（rT1N0M0）",
+                "interpretation": "放化療後侷限性鼻咽局部復發，再照射易累積顱底與顳葉神經毒性，為外科救援手術適應症",
+                "nextStep": "評估施行內視鏡救援性鼻咽切除術（salvage endoscopic nasopharyngectomy），注意保護破裂孔與咽旁內頸動脈"
+              }
+            ],
+            "sourceIds": [
+              "ent-res-05-nccn-headneck",
+              "ent-res-05-statpearls-npc"
+            ]
+          }
+        ],
+        "case": {
+          "title": "從成人單側中耳積水與複視揭開局部晚期鼻咽癌之多專科診治",
+          "stem": "43 歲父親罹患鼻咽癌之台灣男性，近三個月右耳持續悶脹耳鳴，於診所反覆當作外耳或感冒治療未癒；近兩週發現清晨回吸痰液帶暗紅血絲，且向右側注視時物體變成兩個影像。",
+          "steps": [
+            {
+              "newInfo": "耳鏡見右耳鼓膜琥珀色積液氣泡，純音聽力檢查示右耳 30 dB 氣骨導差合併 B 型平坦鼓室圖；眼球檢查見右眼外轉受限，右臉頰輕觸覺減退，右上頸胸鎖乳突肌前深處觸及一顆 4.5 cm 無痛固定硬塊，左下頸環狀軟骨下緣下方另觸及一顆 2.5 cm 硬塊。",
+              "prompt": "請完整連結患者的耳部、眼部、顏面與頸部表徵背後的解剖病理機轉，並決定確診檢查？",
+              "answer": "右側咽隱窩腫瘤阻塞耳咽管致成人單側積液性中耳炎與傳導性聽損，表面潰瘍致回吸涕血，淋巴轉移至雙側頸部（含環狀軟骨下緣以下低位頸部），且向上穿經破裂孔侵入右側海綿竇壓迫第 VI 對外展神經（外轉受限複視）與第 V2 三叉神經（右臉麻）；應立即施行鼻咽內視鏡檢查並對咽隱窩病灶直接切片確診（嚴禁切開頸部淋巴結）。",
+              "rationale": "成人單側積液性中耳炎合併海綿竇第 VI／V 對腦神經麻痺與頸部腫塊為鼻咽癌典型進展四聯徵，確診唯一依據為鼻咽原發處組織切片。",
+              "sourceIds": [
+                "ent-res-05-statpearls-npc"
+              ]
+            },
+            {
+              "newInfo": "鼻咽切片病理報告為 WHO 第 III 型非角化未分化癌（EBER 陽性）；頭頸顯影 MRI 確認右側海綿竇侵犯與雙側頸部淋巴結轉移（最低達左側環狀軟骨下緣下方），骨骼掃描、胸部 CT 與腹部超音波皆無遠端轉移；抽血 HBsAg 陽性，血漿 EBV DNA 為 18,500 copies/mL。",
+              "prompt": "請判定 AJCC 第 8 版 TNM 分期與總期別，並列出開始抗癌治療前不可遺漏的兩項關鍵安全性處置？",
+              "answer": "海綿竇與腦神經侵犯屬 T4，雙側頸部淋巴結延伸至環狀軟骨下緣以下屬 N3，無遠端轉移為 M0，總期別為 Stage IVA（T4N3M0）。治療前兩大關鍵安全處置：（1）會診牙科完成全口檢查、洗牙塗氟與拔除不良牙齒以預防下顎骨放射性骨壞死；（2）因 HBsAg 陽性，必須於化療前啟動預防性抗 B 型肝炎病毒藥物以防猛爆性肝炎再活化（同時評估腎功能與基準聽力）。",
+              "rationale": "AJCC 第 8 版將海綿竇／腦神經列為 T4，並以環狀軟骨下緣及 >6 cm 定義 N3（T4 或 N3 且 M0 皆歸為 Stage IVA）；放療前牙科處理與 B 肝抗病毒預防為台灣頭頸放化療核心安全準則。",
+              "sourceIds": [
+                "ent-res-05-nccn-headneck",
+                "ent-res-05-statpearls-npc"
+              ]
+            },
+            {
+              "newInfo": "患者順利完成誘導化學治療（gemcitabine + cisplatin）接續順鉑同步化學放射治療（CCRT with IMRT），治療結束後一個月 MRI 顯示腫瘤完全消退，血漿 EBV DNA 降至未檢出（0 copies/mL）。",
+              "prompt": "後續門診追蹤應如何運用血漿 EBV DNA 與內分泌／腦神經評估？",
+              "answer": "每 3–6 個月定期追蹤鼻咽內視鏡與定量血漿 EBV DNA，並定期追蹤頭頸 MRI；若追蹤中血漿 EBV DNA 再度升高，須立即安排全身 FDG-PET/CT 與內視鏡切片排查早期局部復發或骨／肺／肝轉移，同時每年監測甲狀腺功能（TSH、free T4）、聽力與吞嚥口腔照護。",
+              "rationale": "放化療後血漿 EBV DNA 歸零代表良好預後，動態回升則是復發最靈敏的生物標記；頸部與顱底照射後亦需長期追蹤放射性甲狀腺功能低下與聽神經／中耳後遺症。",
+              "sourceIds": [
+                "ent-res-05-nccn-headneck"
+              ]
+            }
+          ]
+        },
+        "connections": [
+          {
+            "topicId": "ent-04",
+            "reason": "鼻腔鼻竇腫瘤與 JNA 手術仰賴蝶腭孔、翼腭窩、篩板與蝶竇海綿竇精細解剖，且須與良性慢性鼻竇炎鼻息肉及黴菌性鼻竇炎鑑別"
+          },
+          {
+            "topicId": "ent-01",
+            "reason": "鼻咽癌阻塞耳咽管常以傳導性聽損與 B 型鼓室圖為首發聽力學表現，且順鉑（cisplatin）化療與耳蝸放射劑量皆須定期純音聽力圖監測高頻感音神經性聽損"
+          },
+          {
+            "topicId": "ent-08",
+            "reason": "鼻咽癌為台灣成人 Level II 與 Level V 無痛頸部腫塊核心病因之一，須納入頸部淋巴結分區鑑別並嚴守禁止冒然開放式切開切片原則"
+          }
+        ]
+      }
+    },
+    "ent-06": {
+      "source": "醫學系耳鼻喉科學課程講義 09（Disease of Oropharynx and Neck Mass）；醫學系耳鼻喉科學課程講義 12（Diseases of Oral Cavity）；NCCN Guidelines: Head and Neck Cancers；AAO-HNS Guideline: Tonsillectomy in Children",
+      "resources": [
+        {
+          "id": "ent-res-06-nccn-oral-opscc",
+          "title": "NCCN Clinical Practice Guidelines in Oncology: Oral Cavity & HPV-Mediated Oropharyngeal Cancer",
+          "url": "https://www.nccn.org/guidelines/guidelines-detail?category=1&id=1437",
+          "kind": "指南",
+          "provider": "National Comprehensive Cancer Network (NCCN)",
+          "note": "口腔癌 AJCC 第八版侵襲深度（DOI）與包膜外侵犯（ENE）手術輔助放化療準則，以及 p16 陽性口咽癌分期治療規範"
+        },
+        {
+          "id": "ent-res-06-aaohns-tonsillectomy",
+          "title": "AAO-HNS Clinical Practice Guideline: Tonsillectomy in Children (Update)",
+          "url": "https://www.entnet.org/quality-practice/quality-products/clinical-practice-guidelines/tonsillectomy-in-children-update/",
+          "kind": "指南",
+          "provider": "American Academy of Otolaryngology–Head and Neck Surgery (AAO-HNS)",
+          "note": "兒童反覆扁桃腺感染 Paradise 準則、睡眠呼吸障礙適應症與術後疼痛及次發性出血風險管理"
+        },
+        {
+          "id": "ent-res-06-aasm-osa",
+          "title": "American Academy of Sleep Medicine (AASM): Clinical Practice Guideline for Adult Obstructive Sleep Apnea",
+          "url": "https://aasm.org/clinical-resources/practice-standards/practice-guidelines/",
+          "kind": "指南",
+          "provider": "American Academy of Sleep Medicine (AASM)",
+          "note": "成人睡眠多項生理檢查（PSG）AHI 分級、減重與正壓呼吸器（CPAP）第一線治療定位"
+        }
+      ],
+      "deepDive": [
+        {
+          "heading": "口腔鱗癌分期革命：為何 AJCC 第八版引入侵襲深度（DOI）與包膜外侵犯（ENE）？",
+          "paragraphs": [
+            "過去口腔癌 T 分期僅看表面最大橫徑，臨床卻屢屢發現一顆表面僅 1.5 公分但向舌肌深層垂直鑽入 12 mm 的內生潰瘍型舌癌，其隱匿性頸部轉移率與致死率遠高於一顆表面 3 公分但外生淺表僅 2 mm 的疣狀腫瘤。AJCC 第八版因此正式以「鄰近正常黏膜基底膜水平連線（horizon line）垂直向下量至最深癌巢之侵襲深度（DOI）」重塑 T1–T3 切點（5 mm 與 10 mm）：不僅精準反映腫瘤接觸深層淋巴血管網之機率，更直接指導臨床 cN0 舌癌當 DOI 超過 3–4 mm 時即須同步執行選擇性頸部淋巴廓清術。",
+            "在頸部 N 分期與術後輔助治療決策上，淋巴結癌細胞突破淋巴結纖維包膜浸潤周圍脂肪軟組織之「包膜外侵犯（ENE）」與「原發手術切緣陽性（positive margin）」並列為兩大最高危復發因子。根據 EORTC 22931 與 RTOG 9501 兩大第三期隨機試驗聯合分析，單純具多顆淋巴結或神經血管侵犯者給予術後單獨放療即可，但只要病理出現切緣陽性或 ENE 陽性，唯有升級為「術後含順鉑同步化學放射治療（adjuvant CCRT）」才能顯著降低局部區域復發並延長整體存活期。"
+          ],
+          "sourceIds": [
+            "ent-res-06-nccn-oral-opscc"
+          ]
+        },
+        {
+          "heading": "成人睡眠呼吸中止症的多專科階梯：破除手術迷思與善用睡眠內視鏡（DISE）",
+          "paragraphs": [
+            "臨床面對打鼾與白天嗜睡病患時，首要任務是以整夜睡眠多項生理檢查（PSG）確認客觀 AHI 與低血氧負荷，區分單純打鼾（AHI <5）與中重度阻塞性睡眠呼吸中止症（AHI >=15）。由於成人咽腔塌陷往往合併肥胖脂肪堆積、舌根肥厚後墜、顎骨後縮與神經肌肉張力減退等多重機轉，單純切除軟腭懸雍垂之傳統 UPPP 長期成功率僅約四至五成；因此成人 OSA 標準治療第一線永遠是減重生活型態調整與經鼻持續正壓呼吸器（nasal CPAP）氣流支架。",
+            "針對確實無法耐受 CPAP 且渴望外科介入之患者，現代睡眠外科強調「先精準定位動態塌陷層級再開刀」：透過藥物誘導睡眠期內視鏡（DISE），依 VOTE 分類系統直接觀察模擬睡眠狀態下軟腭（Velum，同心圓塌陷或前後向塌陷）、口咽側壁（Oropharynx）、舌根（Tongue base）與會厭（Epiglottis）之阻塞比重，進而量身選擇扁桃腺咽側壁懸吊成形、經口機械手臂舌根縮減、上下顎前移手術或舌下神經電刺激器（若 Velum 呈完全同心圓塌陷則為傳統舌下神經刺激禁忌）。"
+          ],
+          "sourceIds": [
+            "ent-res-06-aasm-osa",
+            "ent-res-06-aaohns-tonsillectomy"
+          ]
+        }
+      ],
+      "oralChallenge": {
+        "question": "一位 49 歲從不抽菸、不喝酒、不嚼檳榔的男性主管，因右上頸部（Level II）出現一顆 3.5 公分無痛囊性腫塊就診，口咽檢查見右側顎扁桃腺隱窩有一處 1.2 公分微硬結節，切片為鱗狀細胞癌且免疫染色 p16 強陽性，全身無遠端轉移；請問此疾病與台灣傳統檳榔口腔癌在致病機轉、AJCC 第八版期別及預後治療上有何關鍵差異？",
+        "answer": "此患者為典型人類乳突病毒（HPV-16 為主）驅動之 p16 陽性口咽鱗狀細胞癌（OPSCC），常在年輕不菸不酒族群以「小扁桃腺／舌根原發灶合併上頸部囊性（cystic）淋巴結轉移」表現（切勿把成人上頸囊性腫塊直接當成良性腮裂囊腫切除！）。在 AJCC 第八版獨立分期中，T1（<=2 cm）伴單側 <=6 cm 淋巴結（cN1）僅歸為 Stage I（若套用傳統 p16 陰性分期則為 Stage III），反映其對放化療或經口機械手臂手術（TORS）反應極佳、五年存活率高達約 80–85% 之優異預後；與台灣菸酒檳榔驅動、TP53 突變為主且一律以廣泛手術切除為首選之口腔鱗癌截然不同。",
+        "sourceIds": [
+          "ent-res-06-nccn-oral-opscc"
+        ]
+      },
+      "integrated": {
+        "framing": "本章由口腔舌部精細神經解剖與紅白斑癌前篩檢切入，連結口腔鱗癌手術切緣與 DOI／ENE 輔助放化療準則，並橫跨口咽扁桃腺、睡眠呼吸中止症及 HPV 口咽癌。",
+        "objectives": [
+          "精準對應舌部絲狀乳突無味蕾特性與 CN V3／VII／IX／XII 分工，並篩檢超過兩週未癒之 OPMD 紅白斑與潰瘍",
+          "運用 AJCC 第八版 DOI 與 ENE 規劃口腔鱗癌根治手術、選擇性頸部廓清與術後同步放化療（CCRT）",
+          "掌握扁桃腺切除適應症與出血衛教、OSA 之 PSG 黃金標準與減重／CPAP 第一線地位，以及 p16+ 口咽癌特性"
+        ],
+        "units": [
+          {
+            "id": "u1",
+            "title": "口腔舌部解剖神經支配、潛在惡性病變與口腔鱗癌手術輔助治療",
+            "sectionIndexes": [
+              0,
+              1
+            ],
+            "deepDiveIndexes": [
+              0
+            ],
+            "synthesis": [
+              "口腔與口咽以硬軟腭交界、前扁桃腺柱及輪廓乳突為界；壓舌板刮不掉之白斑、紅斑（惡性率最高）與逾兩週潰瘍在菸酒檳榔（123 倍協同風險）族群必須立即切片。",
+              "口腔癌各期別可切除者皆以手術為首選（DOI >3–4 mm 之 cN0 舌癌須加做選擇性頸部廓清），術後見切緣陽性或 ENE+ 則強制升級同步放化療。"
+            ],
+            "decisions": [
+              {
+                "finding": "55 歲長期嚼檳榔患者雙頰黏膜蒼白僵硬伴張口僅兩指幅寬，左頰後方另見一片 1.5 公分無法刮除之天鵝絨鮮紅斑塊（erythroplakia）",
+                "interpretation": "檳榔引起口腔黏膜下纖維化合併惡性轉變率最高（逾五至八成已具重度異生或侵襲癌）之口腔紅斑",
+                "nextStep": "立即針對左頰鮮紅斑塊與硬結處執行深達固有層之切開組織病理切片，嚴禁僅塗口內膏觀察"
+              },
+              {
+                "finding": "左舌鱗狀細胞癌完成部分舌切除與左側頸部廓清術，病理報告示 pT2（最大徑 2.2 cm、DOI 7 mm），陰性切緣 6 mm，但 Level II 一顆轉移淋巴結見腫瘤穿破包膜浸潤周圍脂肪（ENE+）",
+                "interpretation": "病理出現淋巴結包膜外侵犯（ENE+），於 AJCC 第八版升級為 pN2a 且屬術後局部區域復發最高危群",
+                "nextStep": "安排牙科術前整頓後，於術後 6 週內啟動含順鉑之術後同步化學放射治療（adjuvant CCRT）"
+              }
+            ],
+            "sourceIds": [
+              "ent-res-06-nccn-oral-opscc"
+            ]
+          },
+          {
+            "id": "u2",
+            "title": "口咽扁桃腺手術實證、睡眠呼吸中止症（OSA）與 p16+ 口咽癌",
+            "sectionIndexes": [
+              2,
+              3
+            ],
+            "deepDiveIndexes": [
+              1
+            ],
+            "synthesis": [
+              "腺樣體位於鼻咽、顎扁桃腺位於口咽（無傳入淋巴管，傳出至 Level II／III）；扁桃腺切除不會削弱整體免疫力，但須嚴防術後第 5–10 天痂皮脫落次發性出血。",
+              "PSG 為診斷 OSA 客觀黃金標準，小兒 OSA 首選 T&A 手術，成人 OSA 則以減重與 CPAP 為首選；成人口咽癌務必檢測 p16 區分 HPV 狀態。"
+            ],
+            "decisions": [
+              {
+                "finding": "6 歲男童夜間張口呼吸打鼾伴呼吸暫停，檢查見雙側顎扁桃腺第 4 度肥大幾乎相碰（kissing tonsils）且鼻咽腺樣體阻塞後鼻孔八成，體重正常",
+                "interpretation": "腺樣體與扁桃腺肥大為兒童阻塞性睡眠呼吸中止症最主要解剖病因",
+                "nextStep": "建議施行腺樣體併扁桃腺切除術（T&A，兒童 OSA 第一線首選治療），並向家長說明術後不會降低免疫力但需注意兩週內軟涼飲食防出血"
+              },
+              {
+                "finding": "22 歲大學生健檢意外發現左扁桃腺第 2 度、右扁桃腺第 1 度，雙側表面黏膜光滑柔軟、無潰瘍硬塊、無吞嚥痛亦無頸部淋巴腫大",
+                "interpretation": "單純無症狀輕度扁桃腺大小不對稱多屬良性生理差異，惡性腫瘤機率極低",
+                "nextStep": "詳細觸診確認無潛藏硬結後予以衛教安心並門診定期觀察即可，無須立即恐慌性摘除雙側扁桃腺"
+              }
+            ],
+            "sourceIds": [
+              "ent-res-06-aaohns-tonsillectomy",
+              "ent-res-06-aasm-osa"
+            ]
+          }
+        ],
+        "case": {
+          "title": "長期菸酒檳榔患者口腔潰瘍、同步食道篩檢與術後高危決策",
+          "stem": "54 歲具菸、酒、檳榔習慣 30 年男性，因右側頰黏膜與下齒齦交界處潰瘍腫塊一個半月不癒且微滲血就診，右上頸摸到一顆 2.5 公分硬塊。",
+          "steps": [
+            {
+              "newInfo": "門診切片確診為右頰鱗狀細胞癌；頭頸顯影 MRI 見腫瘤最大徑 3.2 公分、侵襲深度（DOI）12 mm，尚未穿破下頜骨皮質，右側 Level IB 與 IIA 有兩顆疑似轉移淋巴結。",
+              "prompt": "依 AJCC 第八版其臨床 cT 期別為何？在推進手術室前，因「區域癌化（field cancerization）」概念還應常規排查哪些部位之同步第二原發癌？",
+              "answer": "因侵襲深度 DOI >10 mm，即使最大徑未超過 4 公分，依 AJCC 第八版仍直接歸為 cT3！由於菸酒檳榔會使整個上呼吸消化道黏膜承受區域癌化風險，治療前須完成全咽喉內視鏡、食道胃十二指腸內視鏡（EGD，窄頻影像 NBI 篩檢同步早期食道鱗癌）與胸部 CT（篩檢肺轉移與肺癌）。",
+              "rationale": "DOI >10 mm 是 T3 的獨立升級條件；台灣檳榔菸酒頭頸癌患者合併同步或異時食道癌比例高，早期內視鏡偵測直接決定整體存活。",
+              "sourceIds": [
+                "ent-res-06-nccn-oral-opscc"
+              ]
+            },
+            {
+              "newInfo": "患者接受右頰癌廣泛切除、同側頸部淋巴廓清術與大腿前外側游離皮瓣（ALT free flap）重建；病理報告顯示腫瘤深部切緣僅距癌細胞 1 mm 且右側 Level IIA 一顆淋巴結呈包膜外侵犯（ENE+）。",
+              "prompt": "術後輔助治療應如何規劃？",
+              "answer": "因病理出現淋巴結包膜外侵犯（ENE+）及近／陽性切緣高風險特徵，待皮瓣傷口癒合與牙科完成拔牙塗氟準備後（術後 6 週內），應給予含順鉑之術後同步化學放射治療（adjuvant CCRT），並強制戒除菸酒檳榔。",
+              "rationale": "ENE+ 與切緣陽性是頭頸口腔鱗癌術後必須由單純放療升級為同步放化療之兩大高等級實證適應症。",
+              "sourceIds": [
+                "ent-res-06-nccn-oral-opscc"
+              ]
+            }
+          ]
+        },
+        "connections": [
+          {
+            "topicId": "ent-08",
+            "reason": "口腔癌優先轉移至頸部 Level I–III，而 p16 陽性口咽癌好發 Level II 囊性轉移，須與先天性腮裂囊腫嚴密鑑別"
+          },
+          {
+            "topicId": "ent-10",
+            "reason": "中晚期舌癌與頰癌廣泛切除及下頜骨截除後，必須仰賴第 10 章游離皮瓣（如橈側前臂、大腿前外側或腓骨皮瓣）重建吞嚥與外觀"
+          }
+        ]
+      }
+    },
+    "ent-07": {
+      "source": "醫學系耳鼻喉科學課程講義 10（Speech Pathology and Voice Disorders）；醫學系耳鼻喉科學課程講義 15（Diseases of Larynx, Hypopharynx, and Bronchoesophagology）；AAO-HNS Guideline: Hoarseness (Dysphonia)；NCCN Guidelines: Laryngeal & Hypopharyngeal Cancers",
+      "resources": [
+        {
+          "id": "ent-res-07-aaohns-hoarseness",
+          "title": "AAO-HNS Clinical Practice Guideline: Hoarseness (Dysphonia) (Update)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/29494321/",
+          "kind": "指南",
+          "provider": "American Academy of Otolaryngology–Head and Neck Surgery (AAO-HNS)",
+          "note": "持續超過四週（高危吸菸者立即）聲音沙啞之喉內視鏡評估、反對未做內視鏡即盲目開立類固醇／抗生素或 PPI，以及音聲治療與肉毒桿菌素實證"
+        },
+        {
+          "id": "ent-res-07-nccn-larynx",
+          "title": "NCCN Clinical Practice Guidelines in Oncology: Glottic, Supraglottic & Hypopharyngeal Cancers",
+          "url": "https://www.nccn.org/guidelines/guidelines-detail?category=1&id=1437",
+          "kind": "指南",
+          "provider": "National Comprehensive Cancer Network (NCCN)",
+          "note": "早期聲門癌雷射／放療選擇、T3 喉器官保留同步放化療與 T4a 軟骨穿破全喉切除術適應症，以及下咽癌多模式治療"
+        },
+        {
+          "id": "ent-res-07-statpearls-vfp",
+          "title": "NCBI Bookshelf (StatPearls): Unilateral Vocal Fold Paralysis",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK519060/",
+          "kind": "期刊",
+          "provider": "National Center for Biotechnology Information (NCBI)",
+          "note": "左右喉返神經解剖路線、單側聲帶麻痺顱底至主動脈弓 CT 病因排查、注射喉成形／Isshiki 第一型甲狀軟骨成形術與雙側麻痺氣道處置"
+        }
+      ],
+      "deepDive": [
+        {
+          "heading": "從 Cover-Body 微觀力學看喉顯微手術與頻閃喉鏡的臨床精髓",
+          "paragraphs": [
+            "人類之所以能發出清亮圓潤的嗓音，並非靠甲杓肌肌肉本身高速拍打，而是靠氣流通過閉合聲門產生白努利負壓效應（myoelastic-aerodynamic theory），驅動表層上皮與「極度鬆軟富含玻尿酸之固有層淺層（Reinke 間隙）」組成的被覆層（Cover），在深層聲帶韌帶與甲杓肌本體（Body）上方產生流暢如海浪般的黏膜波（mucosal wave）。一旦手術器械過深刮傷中深層聲帶韌帶引發纖維化疤痕，上皮便會死死黏附在韌帶上（adynamic segment），即使外觀聲帶看似平直，病患仍會終生飽受嚴重氣息粗糙失聲之苦。",
+            "這正是頻閃喉鏡（videolaryngostroboscopy）不可取代的價值：當一般白光內視鏡看到聲帶上一片白色斑塊時，頻閃喉鏡能觀察底層黏膜波是否完整滑過——若黏膜波完全正常保留，提示病灶尚侷限於表皮或固有層極淺層；若黏膜波局部僵硬消失（absence of mucosal wave），則強烈警示病變已向下浸潤跨越基底膜侵犯聲帶韌帶或肌肉！惟須謹記，發炎疤痕或聲帶溝同樣會使黏膜波消失，故最終判定是否為惡性鱗癌仍須透過冷器械微瓣技術（microflap phonomicrosurgery）或雷射切片送病理確認。"
+          ],
+          "sourceIds": [
+            "ent-res-07-aaohns-hoarseness"
+          ]
+        },
+        {
+          "heading": "單側 vs 雙側聲帶麻痺的相反臨床陷阱，以及喉癌器官保留的邊界",
+          "paragraphs": [
+            "臨床住院醫師最需銘記的悖論是「單側聲帶麻痺壞嗓音、易嗆水；雙側聲帶麻痺嗓音可能不錯、卻會窒息死人」！單側喉返神經麻痺時，患側聲帶失去張力停在偏離中線之旁正中位，發聲與吞嚥時關不緊導致嚴重漏氣沙啞（MPT 常低於 5–8 秒）與流質吸入嗆咳，但因健側後環杓肌仍能正常外展，平靜呼吸多無喘鳴；處置重點是「安排顱底至胸腔主動脈弓（尤其左側麻痺必含上縱膈肺尖）之顯影 CT 找出壓迫腫瘤」，並以聲帶注射填充或 Isshiki 第一型甲狀軟骨成形內移術（medialization thyroplasty）協助聲帶閉合防肺炎。反之，雙側甲狀腺全切除或顱底放療後發生「雙側喉返神經麻痺」時，雙側唯一的聲門外展肌（後環杓肌）同時癱瘓，兩條聲帶受被動張力聚攏在近中線，故患者講話聲音反而洪亮清晰，但吸氣時白努利負壓將雙聲帶吸閉成一線狹縫引發高調吸氣喘鳴與急性窒息，治療方向完全相反——必須做氣管切開或雷射後聲門外展擴大術犧牲部分音質以換取呼吸空間！",
+            "在晚期喉癌與下咽癌決策上，「器官保留（organ preservation）」絕不等於「只留解剖構造卻失去吞嚥保護與呼吸功能」。針對聲帶固定但喉軟骨未遭廣泛穿透之 T3 喉癌，同步放化療（CCRT）能保留具發聲與防嗆功能之喉部；然而一旦腫瘤已大量穿破甲狀軟骨外皮質浸潤頸前帶狀肌（T4a），或治療前已嚴重軟骨壞死、長期依賴氣切與鼻胃管伴反覆吸入性肺炎，強行放化療不僅局部復發率高（救援全喉切除併發咽皮瘻管風險倍增），留下的也是毫無吞嚥安全之硬化殘喉，此時果斷施行全喉切除術搭配氣管食道發聲瓣（TEP）才是兼顧存活率與無管進食生活品質的正途。"
+          ],
+          "sourceIds": [
+            "ent-res-07-nccn-larynx",
+            "ent-res-07-statpearls-vfp"
+          ]
+        }
+      ],
+      "oralChallenge": {
+        "question": "一位 59 歲老菸槍因持續一個半月聲音沙啞與左側耳朵隱隱刺痛就診，外耳道與鼓膜檢查完全正常；請問為何喉咽部腫瘤會引起耳朵痛？接下來門診內視鏡檢查應特別聚焦哪些解剖死角，並遵守什麼處置原則？",
+        "answer": "正常耳鏡下出現持續單側耳痛，在吸菸飲酒中老年人是極度危險的「轉移性耳痛（referred otalgia）」警訊！其解剖機轉為下咽梨狀窩、聲門上喉部與喉咽黏膜感覺由迷走神經（CN X）內喉支支配，痛覺訊號傳入迷走神經節時大腦誤判為同源之迷走神經耳支（Arnold's nerve，支配外耳道後下壁與鼓膜外層）傳來（若為舌根扁桃腺口咽病灶則經舌咽神經 CN IX 鼓室支 Jacobson's nerve 反射至耳部）。門診必須立即執行經鼻軟式咽喉內視鏡（搭配窄頻影像 NBI 與請病人鼓腮吹氣撐開梨狀窩），仔細檢視聲門上區、真聲帶活動度、下咽梨狀窩內外側壁與舌根，切忌在未做內視鏡排除喉癌／下咽癌前盲目開立抗生素、類固醇或胃酸藥拖延診斷！",
+        "sourceIds": [
+          "ent-res-07-aaohns-hoarseness",
+          "ent-res-07-nccn-larynx"
+        ]
+      },
+      "integrated": {
+        "framing": "本章從喉內肌神經支配與聲帶 Reinke 間隙微觀振動出發，串聯音聲科學評估與良性嗓音復健，最終落實於單雙側聲帶麻痺病因氣道管理及喉癌／下咽癌精準治療。",
+        "objectives": [
+          "熟記環甲肌（SLN 外支）與後環杓肌（RLN，唯一外展肌）分工、左右喉返神經繞行血管與 Reinke 間隙（固有層淺層）生理",
+          "正確運用男 100 Hz／女 200 Hz 基頻、GRBAS 聽知覺量表、最長發聲時間與頻閃喉鏡黏膜波判讀",
+          "鑑別處置聲帶結節、息肉、LPR、痙攣性失聲症、單雙側聲帶麻痺，以及聲門／聲門上喉癌與下咽梨狀窩癌"
+        ],
+        "units": [
+          {
+            "id": "u1",
+            "title": "喉神經肌肉解剖、五層微觀結構、頻閃喉鏡與良性音聲疾患",
+            "sectionIndexes": [
+              0,
+              1,
+              2
+            ],
+            "deepDiveIndexes": [
+              0
+            ],
+            "synthesis": [
+              "除環甲肌由上喉神經外支支配拉緊聲帶調高音調外，後環杓肌（外展）等其餘喉內肌全歸喉返神經；吞嚥咽期喉部必須「上提」閉鎖氣道並放鬆環咽肌。",
+              "固有層淺層（Reinke 間隙）提供黏膜波滑動；聲帶結節首選音聲休息與語言治療，LPR 多無火燒心，內收型痙攣性失聲症則靠肌電圖導引注射肉毒桿菌素。"
+            ],
+            "decisions": [
+              {
+                "finding": "45 歲女性長期說話感覺喉頭卡痰異物感、頻繁清喉嚨與晨間輕度沙啞，但從無胸骨後火燒心灼熱感；喉內視鏡見杓間區黏膜紅腫肥厚與聲帶後段水腫",
+                "interpretation": "典型咽喉逆流症（LPR），超過半數患者不伴隨典型胃食道逆流火燒心症狀",
+                "nextStep": "衛教睡前 3 小時禁食、戒咖啡甜食宵夜與抬高床頭，並給予氫離子幫浦阻斷劑（PPI）抗逆流治療"
+              },
+              {
+                "finding": "39 歲客服人員講話時每逢母音開頭就出現不受控的擠壓中斷與顫抖憋氣聲，但開懷大笑與哼歌時嗓音卻相當順暢；內視鏡見聲帶外觀無結節腫塊但發音時過度痙攣內收",
+                "interpretation": "中樞局部肌張力不全引起之內收型痙攣性失聲症（adductor spasmodic dysphonia），非單純發聲濫用",
+                "nextStep": "安排喉肌電圖（laryngeal EMG）確認異常痙攣放電並導引於雙側或單側甲杓肌注射微量肉毒桿菌素"
+              }
+            ],
+            "sourceIds": [
+              "ent-res-07-aaohns-hoarseness"
+            ]
+          },
+          {
+            "id": "u2",
+            "title": "單雙側聲帶麻痺病因氣道對策、喉癌三區分型與下咽癌",
+            "sectionIndexes": [
+              3
+            ],
+            "deepDiveIndexes": [
+              1
+            ],
+            "synthesis": [
+              "左側喉返神經繞行主動脈弓路徑長，不明原因左側聲帶麻痺必掃描顱底至上縱膈肺門 CT；單側麻痺做內移成形防嗆改善漏氣，雙側麻痺則須優先打開氣道防窒息。",
+              "聲門癌早期沙啞且無淋巴轉移預後最佳，T4a 廣泛穿破軟骨行全喉切除；下咽梨狀窩癌早期無症狀、頸轉移與同步食道癌率極高，預後最差。"
+            ],
+            "decisions": [
+              {
+                "finding": "65 歲男性無頸部手術史，近三週突發氣息性沙啞與喝水嗆咳，最長發聲時間僅 4 秒，內視鏡見左側聲帶完全固定於旁正中位且無黏膜腫塊",
+                "interpretation": "左側喉返神經麻痺，因左側神經深入胸腔繞過主動脈弓，高度懷疑肺尖縱膈腫瘤、食道癌、甲狀腺病變或主動脈弓動脈瘤壓迫",
+                "nextStep": "立即安排涵蓋顱底、全頸部一路至胸腔主動脈弓肺門（aortopulmonary window）之顯影 CT 查明病因，並評估聲帶注射填充改善閉合防吸入性肺炎"
+              },
+              {
+                "finding": "58 歲重度菸酒檳榔男性因吞嚥卡痛伴右側耳痛與右頸 Level III 4 公分硬塊就診，內視鏡見右側梨狀窩蓄滿唾液（pooling of saliva）且內壁有一潰瘍腫塊固定右半喉，頸部 CT 見甲狀軟骨板大片穿透破壞（cT4aN2bM0）",
+                "interpretation": "局部晚期下咽梨狀窩鱗狀細胞癌廣泛穿破甲狀軟骨（T4a），單純放化療器官保留局部失敗與無功能殘喉風險極高",
+                "nextStep": "先完成食道胃鏡排除同步食道第二原發癌與全身分期後，建議施行全喉併部分／全下咽切除術、頸部淋巴廓清與游離皮瓣咽食道重建，術後追加同步放化療"
+              }
+            ],
+            "sourceIds": [
+              "ent-res-07-nccn-larynx",
+              "ent-res-07-statpearls-vfp"
+            ]
+          }
+        ],
+        "case": {
+          "title": "甲狀腺全切除術後拔管喘鳴與單雙側喉神經損傷判讀",
+          "stem": "52 歲女性因雙側巨大甲狀腺結節接受全甲狀腺切除術，於麻醉恢復室拔除氣管內管後，立即出現高調吸氣性喘鳴（inspiratory stridor）、胸骨上窩凹陷與血氧下降，但呼喊護理師時說話聲音卻意外清晰洪亮，頸部傷口平坦柔軟無腫脹血腫。",
+          "steps": [
+            {
+              "newInfo": "床邊確認頸部傷口無張力性血腫後，立即以經鼻軟式喉內視鏡檢視喉部，見雙側真聲帶皆停留在正中線旁僅留約 1.5 mm 狹縫，深吸氣時雙側聲帶完全無法向外側張開反而向內吸合。",
+              "prompt": "造成此危急表現的解剖神經損傷為何？為何患者說話聲音反而清楚卻會窒息？當下首要處置為何？",
+              "answer": "診斷為醫源性「雙側喉返神經麻痺」，導致全身唯一負責外展打開聲門之雙側後環杓肌（PCA）同時癱瘓；因雙側聲帶被動停靠在近中線，發聲時聲門閉合良好故嗓音清晰，但吸氣時氣道極度狹窄加上白努利負壓吸合引發急性上呼吸道阻塞。當下首要處置為立即確保安全氣道（先給予正壓氧氣輔助，若持續喘鳴缺氧則重新清醒／鎮靜插管或施行氣管切開術），不可單純觀察等待。",
+              "rationale": "頸部傷口無血腫排除壓迫後，拔管立即高調喘鳴伴清晰嗓音即為雙側喉返神經損傷之經典表現。",
+              "sourceIds": [
+                "ent-res-07-statpearls-vfp"
+              ]
+            },
+            {
+              "newInfo": "患者經建立安全氣切並觀察追蹤 9 個月後，喉肌電圖與內視鏡確認雙側聲帶仍永久性固定近中線無法外展，患者希望能移除氣切管恢復自然口鼻呼吸。",
+              "prompt": "此時外科手術應採取「聲帶內移術（Isshiki Type I）」還是「後聲門擴大外展術」？術前必須向患者坦誠說明哪一項功能取捨（trade-off）？",
+              "answer": "應採取「經口內視鏡雷射後段聲帶切開術（posterior transverse cordotomy）或內側杓狀軟骨部分切除／聲帶外移固定術」以擴大後聲門呼吸截面積，絕對禁止做會把氣道關得更緊的聲帶內移術！術前必須清楚溝通「呼吸暢通與發聲音質之必然取捨」：將後聲門擴大讓患者順利拔除氣切管後，聲音必然會變得較為漏氣沙啞且喝水初期需小心微嗆。",
+              "rationale": "單側麻痺要把聲帶往內推（改善聲音防嗆），雙側麻痺要把後聲門往外開（救呼吸拔氣切），兩者手術方向截然相反。",
+              "sourceIds": [
+                "ent-res-07-statpearls-vfp"
+              ]
+            }
+          ]
+        },
+        "connections": [
+          {
+            "topicId": "ent-06",
+            "reason": "下咽癌與聲門上喉癌同受菸酒檳榔區域癌化驅動，極常與口腔癌及食道癌形成多重原發腫瘤"
+          },
+          {
+            "topicId": "ent-09",
+            "reason": "雙側聲帶麻痺、晚期喉下咽腫瘤阻塞及插管後聲門下狹窄皆直接銜接第 9 章困難氣道與氣管切開處置"
+          }
+        ]
+      }
+    },
+    "ent-08": {
+      "source": "醫學系耳鼻喉科學課程講義 09（Disease of Oropharynx and Neck Mass）；醫學系耳鼻喉科學課程講義 14（Salivary Gland Disease, Deep Neck Infection and Upper Airway Management）；AAO-HNS Clinical Practice Guideline: Evaluation of the Neck Mass in Adults；NCCN Guidelines: Salivary Gland Tumors & Occult Primary",
+      "resources": [
+        {
+          "id": "ent-res-08-aaohns-neck-mass",
+          "title": "AAO-HNS Clinical Practice Guideline: Evaluation of the Neck Mass in Adults",
+          "url": "https://aaohnsfjournals.onlinelibrary.wiley.com/doi/10.1177/0194599817722550",
+          "kind": "指南",
+          "provider": "American Academy of Otolaryngology-Head and Neck Surgery (AAO-HNS)",
+          "note": "成人持續性頸部腫塊惡性風險分層、軟式內視鏡優先檢查、細針抽吸（FNA）與嚴禁貿然開放式切片準則"
+        },
+        {
+          "id": "ent-res-08-nccn-salivary-cup",
+          "title": "NCCN Clinical Practice Guidelines in Oncology: Head and Neck Cancers (Salivary Gland & Occult Primary)",
+          "url": "https://www.nccn.org/guidelines/guidelines-detail?category=1&id=1437",
+          "kind": "指南",
+          "provider": "National Comprehensive Cancer Network (NCCN)",
+          "note": "唾液腺惡性腫瘤手術與神經周圍侵犯術後放療適應症，以及原發不明頸轉移癌 p16／EBER 檢測流程"
+        },
+        {
+          "id": "ent-res-08-radiopaedia-neck-levels",
+          "title": "Radiopaedia: Cervical Lymph Node Levels (Imaging-Based Nodal Classification)",
+          "url": "https://radiopaedia.org/articles/cervical-lymph-node-levels",
+          "kind": "圖譜",
+          "provider": "Radiopaedia",
+          "note": "頸部 Level I 至 VI 解剖分界標記（舌骨、環狀軟骨下緣、胸鎖乳突肌後緣與脊副神經）橫切面圖譜"
+        }
+      ],
+      "deepDive": [
+        {
+          "heading": "成人頸部腫塊的第一鐵律：為何嚴禁在內視鏡與 FNA 前施行開放式頸部切片？",
+          "paragraphs": [
+            "面對 40 歲以上成人出現持續超過 2 週、無急性感染紅熱痛之側頸腫塊（特別是質地偏硬、大於 1.5 公分或固定於深部組織者），惡性轉移癌之事前機率高達七至八成（台灣尤須警覺鼻咽癌、口腔下咽癌與 p16+ 口咽癌）。標準診斷動線必須先以軟式鼻咽喉內視鏡徹底檢視鼻咽 Rosenmüller 隱窩、扁桃腺、舌根及梨狀窩黏膜；若當場發現原發腫瘤，直接針對「原發黏膜病灶」切片即可確立診斷與期別，完全不必切開頸部皮膚。",
+            "倘若內視鏡未見明顯原發腫塊，下一步亦應選擇微創之超音波導引細針抽吸細胞學（FNA，對囊性腫塊應針對實質壁抽吸並加驗 p16 與 EBV），搭配顯影 CT 或 MRI。過去研究反覆證實，未經完整頭頸評估便貿然將轉移性鱗癌淋巴結切開做開放式切片（open biopsy），不僅會破壞頸深筋膜天然屏障導致癌細胞種植於皮下傷口、提高日後局部頸部復發與遠端轉移率，更迫使後續頸部廓清術必須連同大片皮膚疤痕一併切除並擴大放射治療照射體積；尤須提防成人 Level II 囊性轉移癌偽裝成良性第二鰓裂囊腫之經典陷阱。"
+          ],
+          "sourceIds": [
+            "ent-res-08-aaohns-neck-mass",
+            "ent-res-08-nccn-salivary-cup"
+          ]
+        },
+        {
+          "heading": "腮腺手術的解剖決策：顏面神經定位標記與多形性腺瘤假性包膜特性",
+          "paragraphs": [
+            "腮腺雖在胚胎解剖上並非真正分葉，外科上則以穿行其中的「顏面神經主幹及五大分支平面」將腮腺劃分為淺葉與深葉。施行保留顏面神經之腮腺切除術時，主刀醫師最仰賴之順行定位解剖標記（anterograde landmarks）包含：外耳道軟骨耳珠指標（tragal pointer，神經主幹位於其前下方約 1 公分深處）、鼓乳突裂（tympanomastoid suture，最恆定骨性指標，神經出莖乳突孔處距其內側約 6–8 mm）與二腹肌後腹上緣（神經深度與其相當）。",
+            "良性多形性腺瘤（混合瘤）雖看似界線清楚，顯微鏡下其纖維包膜常不完整且有微小瘤芽如偽足般向外突出（pseudopodia）；若僅沿包膜表面做單純腫瘤剜除術（enucleation），極易捏破黏液基質或殘留顯微瘤巢，造成棘手之多發結節狀復發並大幅增加二次手術傷及顏面神經及日後惡性轉化（carcinoma ex pleomorphic adenoma）風險。因此標準術式必須連同周圍一圈正常腮腺實質施行淺葉或部分腮腺切除術。"
+          ],
+          "sourceIds": [
+            "ent-res-08-nccn-salivary-cup"
+          ]
+        }
+      ],
+      "oralChallenge": {
+        "question": "一位 55 歲女性在右側耳垂下方發現一顆無痛硬塊已存在十年，近兩個月突然快速增大、伴隨局部抽痛且出現右側閉眼不全與嘴角歪斜；請問最應懷疑何種診斷？與一般良性多形性腺瘤之處置有何根本差異？",
+        "answer": "長年穩定之腮腺腫塊在短期內突然快速長大、疼痛並出現同側周邊型顏面神經麻痺（House-Brackmann 功能受損），最經典診斷為「多形性腺瘤惡性轉化（多形性腺瘤內癌，carcinoma ex pleomorphic adenoma）」或高惡性度唾液腺癌侵犯顏面神經！評估須安排顯影 MRI（評估深葉、莖乳突孔神經侵犯與頸部淋巴）與 FNA；手術時若術前該分支已麻痺且術中證實腫瘤直接包埋浸潤顏面神經無法剝離，則必須犧牲受侵犯之神經段以求根治切緣（同期以大耳神經或腓腸神經行神經移植重建），並視高惡性病理與淋巴轉移追加頸部廓清及術後輔助放射治療。",
+        "sourceIds": [
+          "ent-res-08-nccn-salivary-cup"
+        ]
+      },
+      "integrated": {
+        "framing": "本章串聯三大唾液腺與小唾液腺之結石／腫瘤機率梯度，並建立兒童正中與側頸先天囊腫手術原則及成人頸部腫塊「內視鏡與 FNA 優先、禁貿然開放切片」之臨床鐵律。",
+        "objectives": [
+          "解釋下頜下腺好發結石之解剖生化成因，並掌握腮腺多形性腺瘤、華生氏瘤、黏液表皮樣癌與腺樣囊狀癌特徵",
+          "區辨甲狀舌管囊腫（隨伸舌上移、Sistrunk 術式切舌骨中段）與第二鰓裂囊腫之胚胎路徑",
+          "熟練成人可疑頸部腫塊（Level I–VI）之軟式內視鏡排查與 p16／EBER 原發不明轉移癌定位策略"
+        ],
+        "units": [
+          {
+            "id": "u1",
+            "title": "唾液腺結石、唾液腺炎與良惡性唾液腺腫瘤手術決策",
+            "sectionIndexes": [
+              0,
+              1
+            ],
+            "deepDiveIndexes": [
+              1
+            ],
+            "synthesis": [
+              "下頜下腺導管長、逆重力且唾液偏鹼富含黏液鈣鹽，占唾液腺結石八至九成；小唾液腺與舌下腺腫瘤惡性率遠高於腮腺。",
+              "整體最常見良性與惡性唾液腺腫瘤分別為多形性腺瘤與黏液表皮樣癌，下頜下腺與小唾液腺最常見惡性則為易沿神經侵犯之腺樣囊狀癌；腮腺術後耳顳神經錯位再生會致 Frey 味覺出汗。"
+            ],
+            "decisions": [
+              {
+                "finding": "34 歲男性每逢吃酸辣便當時左下頜下方瞬間腫脹劇痛，餐後一小時漸消，口底雙手觸診於左側舌下肉阜後方約 1 公分摸到一顆 5 mm 堅硬結石",
+                "interpretation": "典型左側下頜下腺前段導管（Wharton duct）唾液腺結石伴餐後阻塞絞痛",
+                "nextStep": "安排口底或無顯影電腦斷層確認無多發深部結石後，優先施行保留腺體之經口導管切開取石術或唾液腺內視鏡取石"
+              },
+              {
+                "finding": "46 歲女性硬軟腭交界偏外側出現一處 1.8 公分黏膜下堅韌腫塊伴上顎麻刺感，切片證實為腺樣囊狀癌（ACC）",
+                "interpretation": "小唾液腺最常見惡性腫瘤，具極高沿大腭神經與三叉神經上頜支向顱底翼腭窩潛行（PNI）傾向",
+                "nextStep": "術前必排顱底顯影 MRI 追蹤三叉神經路徑，施行廣泛切除確保陰性切緣並常規評估術後輔助放射治療與十年以上長期肺轉移追蹤"
+              }
+            ],
+            "sourceIds": [
+              "ent-res-08-nccn-salivary-cup"
+            ]
+          },
+          {
+            "id": "u2",
+            "title": "先天性頸部囊腫（Sistrunk 術式）與成人頸部腫塊標準流程",
+            "sectionIndexes": [
+              2,
+              3
+            ],
+            "deepDiveIndexes": [
+              0
+            ],
+            "synthesis": [
+              "正中線隨吞嚥與伸舌移動之囊腫為甲狀舌管囊腫，手術必切舌骨本體中段；成人持續側頸腫塊優先視為惡性轉移。",
+              "成人頸部硬塊第一步必做耳鼻咽喉內視鏡與 FNA／顯影影像，嚴禁未查原發灶即開放式切開切片。"
+            ],
+            "decisions": [
+              {
+                "finding": "7 歲女童前頸正中舌骨下方有一顆 2 公分圓滑無痛囊性腫塊，請女童伸出舌頭時腫塊明顯向上牽動，超音波確認兩側正常位置皆有正常甲狀腺葉",
+                "interpretation": "典型甲狀舌管囊腫（thyroglossal duct cyst），與舌骨骨膜及舌盲孔殘留管道相連",
+                "nextStep": "待無急性發炎時安排標準 Sistrunk 手術（連同囊腫、瘻管與舌骨中段一併切除），將復發率由五成降至 5% 以下"
+              },
+              {
+                "finding": "53 歲男性因右上頸 Level IIA 一顆 3 公分固定無痛硬塊持續一個月就診，同時主訴近兩個月右耳悶脹聽力變差（右耳鏡見琥珀色中耳積液）",
+                "interpretation": "成人單側積液性中耳炎合併同側 Level II／V 無痛頸部硬塊，高度懷疑鼻咽癌轉移",
+                "nextStep": "立即施行軟式鼻咽內視鏡檢查右側咽隱窩並直接對鼻咽腫瘤切片，嚴禁先將頸部淋巴結切開摘除切片"
+              }
+            ],
+            "sourceIds": [
+              "ent-res-08-aaohns-neck-mass",
+              "ent-res-08-radiopaedia-neck-levels"
+            ]
+          }
+        ],
+        "case": {
+          "title": "成人上頸囊性腫塊陷阱：鰓裂囊腫抑或隱匿口咽癌轉移？",
+          "stem": "48 歲無菸酒史男性於左側胸鎖乳突肌前緣上三分之一（Level IIA）摸到一顆 3.2 公分無痛微具彈性腫塊已六週，外院超音波報告疑似「囊性病灶（第二鰓裂囊腫？）」，轉診評估手術摘除。",
+          "steps": [
+            {
+              "newInfo": "門診軟式鼻咽喉內視鏡見鼻咽、下咽與喉部黏膜平滑，左側顎扁桃腺外觀略飽滿但無明顯外生菜花腫塊。",
+              "prompt": "可以直接排刀把這顆頸部囊腫當成良性第二鰓裂囊腫單純摘除嗎？下一步最正確的診斷步驟為何？",
+              "answer": "絕對不可直接當良性囊腫開刀摘除！超過 40 歲成人新發之 Level II 囊性頸部腫塊，極高比例實為「HPV 相關（p16 陽性）口咽鱗狀細胞癌之囊性淋巴結轉移」。應安排含顯影劑頭頸 CT／MRI，並於超音波導引下針對囊腫「實質囊壁」施行細針抽吸細胞學（FNA）及 p16 免疫染色。",
+              "rationale": "HPV 相關扁桃腺與舌根微小原發癌常躲在扁桃腺深部隱窩內，卻在 Level II 形成退化液化之假囊腫轉移，貿然單純切除囊腫將造成腫瘤破裂播散。",
+              "sourceIds": [
+                "ent-res-08-aaohns-neck-mass",
+                "ent-res-08-nccn-salivary-cup"
+              ]
+            },
+            {
+              "newInfo": "FNA 囊壁細胞學證實為轉移性鱗狀細胞癌且 p16 強陽性；FDG PET-CT 顯示左側扁桃腺深處有局灶高代謝亮點，無遠端轉移。",
+              "prompt": "如何取得原發灶組織確診並規劃治療？",
+              "answer": "安排全身麻醉直式喉咽鏡檢查併左側診斷性扁桃腺切除（或經口機械手臂舌根／扁桃腺切除 TORS），順利於左扁桃腺深部隱窩找到 0.9 公分 p16+ 原發鱗癌（cT1N1M0，AJCC 第八版 Stage I），後續依病理切緣與淋巴結包膜狀態完成根治性微創手術或放射（化學）治療。",
+              "rationale": "透過分子標記（p16／EBER）與 PET-CT 引導目標黏膜切除，可精準找出逾八成隱匿原發灶，避免盲目全咽照射之長期口乾吞嚥副作用。",
+              "sourceIds": [
+                "ent-res-08-nccn-salivary-cup"
+              ]
+            }
+          ]
+        },
+        "connections": [
+          {
+            "topicId": "ent-05",
+            "reason": "鼻咽癌超過七成以 Level II／IIB 與後頸三角 Level V 無痛頸部淋巴腫塊為首發表現，是台灣成人頸部腫塊必查頭號目標"
+          },
+          {
+            "topicId": "ent-09",
+            "reason": "當急性頸部腫脹合併發燒、牙關緊閉、吞嚥劇痛與口底抬高時，診斷重心即由腫瘤轉向隨時危及氣道之深頸部間隙感染"
+          }
+        ]
+      }
+    },
+    "ent-09": {
+      "source": "醫學系耳鼻喉科學課程講義 09（Disease of Oropharynx and Neck Mass）；醫學系耳鼻喉科學課程講義 14（Salivary Gland Disease, Deep Neck Infection and Upper Airway Management）；醫學系耳鼻喉科學課程講義 15（Diseases of Larynx, Hypopharynx, and Bronchoesophagology）；AAO-HNS Clinical Consensus Statement: Tracheostomy Care",
+      "resources": [
+        {
+          "id": "ent-res-09-aaohns-tracheostomy",
+          "title": "AAO-HNS Clinical Consensus Statement: Tracheostomy Care",
+          "url": "https://aaohnsfjournals.onlinelibrary.wiley.com/doi/10.1177/0194599812460376",
+          "kind": "指南",
+          "provider": "American Academy of Otolaryngology-Head and Neck Surgery (AAO-HNS)",
+          "note": "成人與小兒氣管切開術標準解剖位置、氣囊壓力監測、意外滑脫與出血緊急處置共識"
+        },
+        {
+          "id": "ent-res-09-radiopaedia-deep-neck",
+          "title": "Radiopaedia: Deep Neck Spaces and Danger Space Anatomy",
+          "url": "https://radiopaedia.org/articles/retropharyngeal-space",
+          "kind": "圖譜",
+          "provider": "Radiopaedia",
+          "note": "咽後間隙、翼狀筋膜（alar fascia）、危險間隙與頸動脈鞘縱向通往縱膈腔之斷層解剖圖解"
+        },
+        {
+          "id": "ent-res-09-ipo-laryngomalacia",
+          "title": "International Pediatric Otolaryngology Group (IPOG) Consensus Recommendations: Laryngomalacia",
+          "url": "https://www.sciencedirect.com/science/article/pii/S0165587616300519",
+          "kind": "指南",
+          "provider": "International Pediatric Otolaryngology Group (IPOG)",
+          "note": "新生兒軟喉症嚴重度分級、胃食道逆流共病管理與聲門上成形術適應症共識"
+        }
+      ],
+      "deepDive": [
+        {
+          "heading": "深頸部感染的生死走廊：從盧德維希氏咽峽炎氣道危機到危險間隙縱膈炎",
+          "paragraphs": [
+            "深頸部間隙由三層頸深筋膜分隔包圍，平時是血管神經滑動之潛在空間，一旦下顎大臼齒根尖膿瘍（特別是第二、三大臼齒牙根尖位於下頜舌骨肌附著線下方，膿液直接破入下頜下間隙）或扁桃腺咽部感染突破筋膜，便會順著阻力最小的方向急速蔓延。當雙側下頜下、舌下與頦下間隙同時受犯形成「盧德維希氏咽峽炎（Ludwig angina）」時，因下方被堅韌的下頜骨與頸深筋膜淺層封死，水腫只能將口底與舌頭劇烈向上向後頂向軟腭與咽後壁，患者常在數小時內由含糊音、流口水、無法平躺瞬間惡化為完全窒息（DNI 第一死因）；此時盲目平躺打麻藥插管極易因牙關緊閉與喉頭變形導致插管失敗死亡，必須優先以清醒經鼻光纖插管或局部麻醉下緊急氣切穩住氣道！",
+            "而在咽部後方，頰咽筋膜與翼狀筋膜間為「咽後間隙」，翼狀筋膜與椎前筋膜間則為貫穿顱底直達橫膈膜之「危險間隙（danger space）」。當咽後或咽旁膿瘍穿透薄弱的翼狀筋膜進入危險間隙，重力加上吸氣胸腔負壓便會將膿液一路吸入縱膈腔，引發致死率高達二至四成之「下行性壞死性縱膈炎（descending necrotizing mediastinitis）」；臨床只要見深頸感染患者出現胸骨後悶痛、呼吸急促、頸胸皮下氣腫或胸部 X 光上縱膈變寬，CT 掃描範圍務必由顱底一路涵蓋至全胸腔，並立即聯合胸腔外科同步引流頸部與縱膈膿瘍（台灣糖尿病患者經驗性抗生素更須涵蓋肺炎克雷伯氏菌、鏈球菌與厭氧菌）。"
+          ],
+          "sourceIds": [
+            "ent-res-09-radiopaedia-deep-neck"
+          ]
+        },
+        {
+          "heading": "小兒氣道與成人之解剖鴻溝：環狀軟骨漏斗、軟喉症與硬式支氣管鏡救命術",
+          "paragraphs": [
+            "嬰幼兒呼吸道絕非成人的等比例縮小版：成人上氣道最窄處位於三角形聲門裂（rima glottidis），嬰幼兒喉頭位置較高（C3–C4）、會厭軟長呈 Ω 形，且最狹窄處位於聲帶下方唯一完整封閉不可擴張之「環狀軟骨環（聲門下區 subglottis）」。根據流體力學 Poiseuille 定律，層流阻力與半徑四次方成反比——足月新生兒聲門下內徑僅約 4 至 5 mm，只要插管摩擦或感染造成黏膜一圈水腫 1 mm，管腔半徑即折半、氣流阻力暴增 16 倍！這正是為何小兒插管與重症照護必須選用適當小號氣管內管、嚴格控制氣囊壓力以預防後天聲門下狹窄。",
+            "在兒童喘鳴與嗆咳急症鑑別上，出生數週緩慢出現、仰臥餵奶加重而俯臥減輕之高頻吸氣喘鳴多為良性自限性「軟喉症」；反之，原本健康跑跳之 1–3 歲幼兒若在吃花生堅果時突發劇烈嗆咳，隨後即使進入看似平穩之「無症狀適應期」且正面胸部 X 光正常（約 25% 氣道異物 CXR 正常！），只要病史典型或聽診單側呼吸音減弱／局部喘鳴，絕對不可放回觀察，必須在全身麻醉維持自主呼吸與通氣安全下，由耳鼻喉科以「硬式通氣支氣管鏡（rigid ventilating bronchoscope）」直視取出（多位於較粗直之右主支氣管），這是軟式支氣管鏡無法取代之救命標準。"
+          ],
+          "sourceIds": [
+            "ent-res-09-ipo-laryngomalacia",
+            "ent-res-09-aaohns-tracheostomy"
+          ]
+        }
+      ],
+      "oralChallenge": {
+        "question": "急診送來一位 58 歲血糖控制不良（HbA1c 10.5%）男性，左下後大臼齒牙痛五天未就醫，今日高燒、左頸至鎖骨上區瀰漫紅腫壓痛伴捻髮音（crepitus）、張口僅一指幅、流口水且端坐微喘，左側另見輕度眼瞼下垂與瞳孔縮小；請說明最可能診斷、特殊神經徵象解剖意義及處置優先順序！",
+        "answer": "診斷為齒源性深頸部產氣性感染（波及下頜下與咽旁／頸動脈鞘周圍間隙，糖尿病患者高度懷疑肺炎克雷伯氏菌與厭氧菌混合感染）且向下逼近縱膈腔！左側眼瞼下垂與瞳孔縮小為「霍納氏症候群（Horner syndrome）」，代表膿腫已向深處擴散壓迫位於頸動脈鞘後方椎前筋膜上之「頸交感神經幹」。處置第一順位永遠是「確保呼吸道安全」（因嚴重牙關緊閉與咽喉水腫，切勿貿然平躺肌肉鬆弛插管，應會診麻醉與耳鼻喉團隊備妥氣切包施行清醒經鼻光纖插管或局部麻醉氣切）；氣道穩固後立即抽取血液培養、投予廣效經驗性靜脈抗生素（涵蓋 K. pneumoniae、鏈球菌與厭氧菌）並嚴控血糖，隨即執行「顱底至全胸腔」顯影 CT 確認深頸各間隙與縱膈腔範圍，緊急進刀房行廣泛頸部切開清創引流術！",
+        "sourceIds": [
+          "ent-res-09-radiopaedia-deep-neck",
+          "ent-res-09-aaohns-tracheostomy"
+        ]
+      },
+      "integrated": {
+        "framing": "本章聚焦耳鼻喉頭頸外科最危急之生命通道保衛戰：深頸間隙感染氣道與縱膈擴散、先天與醫源性聲門下狹窄管理，以及氣管食道異物硬式內視鏡救治。",
+        "objectives": [
+          "剖析頸深筋膜三層與咽後／危險間隙解剖，掌握糖尿病肺炎克雷伯氏菌 DNI、Ludwig 咽峽炎與霍納氏症候群處置",
+          "區辨軟喉症、先天雙側聲帶麻痺與後天插管聲門下狹窄（Cotton-Myer 分級），熟記標準氣切位置（第 2–4 氣管環）",
+          "牢記食道異物最常卡於環咽肌（C6）、氣道異物最常入右主支氣管及 25% 胸部 X 光正常仍須硬式支氣管鏡探查原則"
+        ],
+        "units": [
+          {
+            "id": "u1",
+            "title": "深頸部間隙感染（DNI）氣道優先鐵律與上呼吸道狹窄氣切管理",
+            "sectionIndexes": [
+              0,
+              2
+            ],
+            "deepDiveIndexes": [
+              0
+            ],
+            "synthesis": [
+              "現代 DNI 最常源於齒源性感染，首要死因為窒息（尤以雙側口底硬腫之 Ludwig angina 最險惡）；危險間隙直通後縱膈腔，交感神經幹受壓則現 Horner syndrome。",
+              "選用適當小號氣管內管、控制氣囊壓力與床頭抬高 30–45 度減輕 LPR 可預防後天聲門下狹窄；標準氣切應切開第 2–3 或 3–4 氣管環，避開第 1 環與環狀軟骨。"
+            ],
+            "decisions": [
+              {
+                "finding": "45 歲男性雙側下顎拔牙後三天出現雙側口底與頷下木板樣堅硬腫脹、舌頭被頂至上顎、不斷流口水、含糊音且無法平躺吸氣費力",
+                "interpretation": "典型盧德維希氏咽峽炎（Ludwig angina），隨時可能發生完全性上呼吸道閉鎖窒息",
+                "nextStep": "保持病患坐姿給氧，立即啟動困難氣道團隊於手術室備妥氣切器械下執行清醒經鼻光纖插管或局部麻醉氣切，嚴禁直接在急診平躺推注肌肉鬆弛劑插管"
+              },
+              {
+                "finding": "重症患者長期經口插管三週拔管後兩週漸進出現吸氣與呼氣雙相喘鳴（biphasic stridor），內視鏡見聲帶下方環狀軟骨處環狀瘢痕縮窄管腔達 80%（Cotton-Myer Grade III）",
+                "interpretation": "重度插管後醫源性聲門下狹窄伴軟骨支撐結構受損",
+                "nextStep": "安排薄切氣道 CT 評估狹窄長度與距聲帶距離，先確保氣道（必要時低位氣切）並規劃環狀軟骨氣管切除吻合術（CTR）或喉氣管重建術"
+              }
+            ],
+            "sourceIds": [
+              "ent-res-09-radiopaedia-deep-neck",
+              "ent-res-09-aaohns-tracheostomy"
+            ]
+          },
+          {
+            "id": "u2",
+            "title": "新生兒先天喉喘鳴鑑別與氣管食道異物內視鏡急症",
+            "sectionIndexes": [
+              1,
+              3
+            ],
+            "deepDiveIndexes": [
+              1
+            ],
+            "synthesis": [
+              "軟喉症占先天喉異常六至七成以上，表現為吸氣期喘鳴、仰臥餵食加重，九成保守追蹤可自癒；雙側先天聲帶麻痺則常伴中樞神經異常且半數需氣切。",
+              "食道異物多於氣道異物（2:1）且最常卡在 C6 環咽肌（鈕扣電池須 2 小時內急取）；氣道異物最常入右主支氣管，約四分之一胸部 X 光正常，懷疑即須硬式支氣管鏡。"
+            ],
+            "decisions": [
+              {
+                "finding": "滿月男嬰出生兩週起出現高音調吸氣喘鳴，平躺與喝奶時較明顯，趴抱時改善，體重成長曲線正常且血氧 99%，清醒軟式喉鏡見 Ω 形會厭與杓狀會厭襞吸氣內塌",
+                "interpretation": "輕中度先天性軟喉症（laryngomalacia），無缺氧發紺或生長遲滯危險徵象",
+                "nextStep": "向家屬衛教良性自然病程、採取分段餵奶拍嗝減少逆流並門診定期追蹤即可，無須立即手術或氣切"
+              },
+              {
+                "finding": "兩歲女童兩小時前邊吃開心果邊笑突然劇烈嗆咳臉色漲紅，目前咳嗽減緩但聽診右下肺呼吸音明顯減弱伴局部呼氣喘鳴，正面胸部 X 光報告無明顯不透光異物影",
+                "interpretation": "高度懷疑右側主支氣管植物性透光異物進入平靜適應期（約 25% 氣道異物 X 光正常）",
+                "nextStep": "立即禁食並會診耳鼻喉科與麻醉科進手術室施行全身麻醉硬式通氣支氣管鏡探查取出異物，切勿因 X 光無鐵影而讓病童返家"
+              }
+            ],
+            "sourceIds": [
+              "ent-res-09-ipo-laryngomalacia"
+            ]
+          }
+        ],
+        "case": {
+          "title": "幼兒誤吞圓形金屬異物：硬幣抑或奪命鈕扣電池？",
+          "stem": "3 歲男童半小時前將桌上圓形亮片塞入口中後開始哭鬧拒食、頻頻流口水並指著頸部喊痛，呼吸平順無喘鳴。",
+          "steps": [
+            {
+              "newInfo": "急診頸胸部正側面 X 光於下頸部 C6（環咽肌食道入口）見一枚直徑 2 公分圓形不透光金屬影，正面觀邊緣呈現清晰之雙環光暈（double-ring／halo sign），側面觀見階梯狀邊緣（step-off）。",
+              "prompt": "此圓形金屬影為何物？可以等男童空腹滿 8 小時明天早上再排內視鏡取出嗎？",
+              "answer": "正面雙環徵與側面階梯徵為「鈕扣電池（button battery）」卡在食道第一狹窄處（C6 環咽肌）之特徵性影像（一般硬幣呈單一均質圓盤影而無雙環階梯）！絕對不可等待空腹 8 小時！鈕扣電池負極在潮濕食道黏膜短短 2 小時內即會引發劇烈電解產鹼與液化性壞死，造成食道穿孔、縱膈炎甚至主動脈食道瘻管大出血死亡，必須視為第一級急症立即進刀房以內視鏡取出！",
+              "rationale": "食道鈕扣電池每一分鐘都在持續放電燒灼食道壁，麻醉快速順序誘導風險遠低於延遲兩小時所致之全層食道壞死穿孔。",
+              "sourceIds": [
+                "ent-res-09-aaohns-tracheostomy"
+              ]
+            },
+            {
+              "newInfo": "手術室立即以硬式食道鏡順利取出鋰電池，檢視 C6 食道前左壁黏膜已有局部黑褐色焦痂糜爛，幸未見明顯全層破裂或活動出血。",
+              "prompt": "取出電池後即代表完全脫離險境可直接出院嗎？後續應注意哪些併發症？",
+              "answer": "不可立即出院！鈕扣電池取出後殘留之組織鹼性壞死仍可能於數天至數週內造成遲發性食道穿孔、氣管食道瘻管（TEF）、聲帶麻痺（傷及氣管食道溝內喉返神經）、縱膈炎、食道瘢痕狹窄，甚至致命之大血管（主動脈／甲狀腺下動脈）遲發性破裂出血，必須住院禁食、鼻胃管或靜脈營養支持、安排食道攝影／CT 追蹤黏膜完整性並密切監測哨兵出血徵象。",
+              "rationale": "負極朝前時緊貼氣管後膜與喉返神經，朝下偏左近主動脈弓時更有遲發性主動脈食道瘻管風險，術後嚴密觀察與影像確認至關重要。",
+              "sourceIds": [
+                "ent-res-09-aaohns-tracheostomy"
+              ]
+            }
+          ]
+        },
+        "connections": [
+          {
+            "topicId": "ent-06",
+            "reason": "急性扁桃腺炎併發扁桃腺周圍膿瘍若未妥善引流，膿液突破上咽縮肌向外即演變為咽旁間隙深頸部感染"
+          },
+          {
+            "topicId": "ent-07",
+            "reason": "咽喉胃酸逆流（LPR）不僅引起慢性沙啞與接觸性肉芽腫，更是加護病房插管患者發生後天聲門下狹窄的重要幫兇"
+          }
+        ]
+      }
+    },
+    "ent-10": {
+      "source": "醫學系耳鼻喉科學課程講義 12（Diseases of Oral Cavity）；醫學系耳鼻喉科學課程講義 13（Maxillofacial Injury and Reconstruction）；AO Surgery Reference: Craniomaxillofacial Trauma；NCCN Guidelines: Head and Neck Reconstruction Principles",
+      "resources": [
+        {
+          "id": "ent-res-10-ao-cmf-trauma",
+          "title": "AO Surgery Reference: Craniomaxillofacial Trauma (Midface, Orbit & Mandible)",
+          "url": "https://surgeryreference.aofoundation.org/cmf/trauma",
+          "kind": "指南",
+          "provider": "AO Foundation",
+          "note": "顏面力學支柱、Le Fort I／II／III 骨折、顴骨複合體與成人／小兒眼眶底爆裂性骨折標準復位固定指引"
+        },
+        {
+          "id": "ent-res-10-icar-csf-leak",
+          "title": "International Consensus Statement on Endoscopic Skull-Base Surgery: CSF Leak Diagnosis & Repair",
+          "url": "https://onlinelibrary.wiley.com/doi/10.1002/alr.22326",
+          "kind": "指南",
+          "provider": "International Forum of Allergy & Rhinology (ICAR)",
+          "note": "腦脊髓液鼻漏 β-2 轉鐵蛋白確診黃金標準、高解析薄切 CT 定位、外傷性漏保守治療與經鼻內視鏡顱底修補實證"
+        },
+        {
+          "id": "ent-res-10-radiopaedia-lefort",
+          "title": "Radiopaedia: Le Fort Fracture Classification and Pterygoid Plate Involvement",
+          "url": "https://radiopaedia.org/articles/le-fort-fracture-classification",
+          "kind": "圖譜",
+          "provider": "Radiopaedia",
+          "note": "Le Fort I（浮動硬腭）、II（浮動上頜錐形）、III（顱顏分離）在 3D 與軸冠狀 CT 之判讀圖譜"
+        }
+      ],
+      "deepDive": [
+        {
+          "heading": "顏面外傷急救與手術時機哲學：破除休克迷思、保護眼球與兒童白眼陷阱",
+          "paragraphs": [
+            "顏面血管豐富，外傷病患送達急診時常滿臉鮮血看似怵目驚心，但臨床鐵律指出「單純閉鎖性顏面骨折極少單獨引發低血容性休克」！一旦顏面外傷傷患出現血壓下降、心跳過速等休克表徵，醫師絕不可把視線只停留在臉上止血，必須立即依 ATLS 流程排查胸腹腔內出血、後腹腔骨盆骨折或「股骨骨幹骨折」等致命失血源，同時維持頸椎固定（約 2% 合併頸椎外傷）且避免使用嗎啡以免瞳孔縮小及意識抑制掩蓋顱內腦傷與眼球病變。在顏面局部軟硬組織處理優先序上，視力與眼球完整性永遠排第一（任何眼眶周圍骨折開刀前均須完成眼科視力、瞳孔與眼底基準檢查）。",
+            "至於顏面骨折復位內固定之時機，成人多數中顏面與眼眶骨折在傷後頭 2–4 天處於劇烈軟組織水腫高峰，此時勉強開刀反而不易摸清骨縫對稱，故最佳窗口為水腫消退且骨痂尚未固著之「傷後第 5 至 8 天」（超過兩週則骨塊纖維癒合將大幅增加復位難度）。唯獨「兒童白眼型眼眶底爆裂性骨折（pediatric trapdoor fracture）」是絕對例外：小兒骨質富彈性，眼眶底裂開瞬間夾入下直肌後骨板立即彈回成活門夾死肌肉，患童眼白清澈無明顯瘀腫，卻一抬頭向上看就雙影劇痛甚至因迷走眼心反射狂吐心跳變慢——若誤當腦震盪觀察兩週，下直肌將於數日內缺血壞死纖維化留下終身複視，必須在 24–48 小時（至遲 3–5 天內）緊急手術釋放嵌頓眼肌！"
+          ],
+          "sourceIds": [
+            "ent-res-10-ao-cmf-trauma",
+            "ent-res-10-radiopaedia-lefort"
+          ]
+        },
+        {
+          "heading": "外傷性腦脊髓液鼻漏與頭頸顯微游離皮瓣的精準匹配藝術",
+          "paragraphs": [
+            "前顱底篩骨篩板與額竇後壁硬腦膜薄且緊貼骨面，在 Le Fort III 或鼻額篩複合骨折中極易撕裂造成外傷性腦脊髓液鼻漏（常伴嗅絲斷裂而失嗅）。當病患低頭滴出清澈不凝結鼻水時，收集液體檢測「β-2 轉鐵蛋白（beta-2 transferrin）」具近乎 100% 之敏感度與特異度，徹底淘汰易受淚液鼻涕還原糖干擾之舊式葡萄糖試紙。治療上無須一見鼻漏就急著開顱——急性外傷性 CSF 鼻漏先予嚴格臥床抬高床頭 30 度、軟便止咳禁擤鼻保守減壓 7–14 天，多數硬腦膜小裂口可自行閉合；若逾 10–14 天未停或併發氣腦／腦膜炎，再以薄切顱底 CT 定位後採「經鼻內視鏡多層顱底修補術（如鼻中隔帶血管黏膜瓣 Hadad flap）」，免除傳統額葉開顱牽拉導致之腦水腫與癲癇風險。",
+            "在頭頸腫瘤廣泛切除重建戰場上，現代顯微游離皮瓣講究「缺什麼組織、補什麼特性」：半舌切除需要輕薄柔軟不阻礙殘舌靈活發音吞嚥之皮瓣，首選「橈側前臂游離皮瓣（RFFF，切取前必通過 Allen test 確認尺動脈能養活手掌！）」；大範圍頰黏膜全層穿通或口咽舌根大體積死腔，首選血管蒂長、厚薄可調且供皮區可直接縫合之「大腿前外側游離皮瓣（ALT）」；一旦口腔齒齦癌侵犯下頜骨需行節段性截骨，唯一能提供 20 公分以上雙皮質硬骨塑造下巴弓形並承載日後植牙咬合力之黃金標準即為「腓骨骨皮游離皮瓣」；而當病患年邁休克共病多或游離皮瓣血栓失敗時，不需顯微吻合之「胸大肌帶蒂肌皮瓣（PMMC）」則是守護頸動脈免於唾液腐蝕破裂的最強後盾。"
+          ],
+          "sourceIds": [
+            "ent-res-10-icar-csf-leak",
+            "ent-res-10-ao-cmf-trauma"
+          ]
+        }
+      ],
+      "oralChallenge": {
+        "question": "車禍患者送達急診，滿臉鮮血、雙側眼周瘀青（熊貓眼）、上排牙齒咬合錯亂，雙手握住其上門牙搖晃時可見「整塊上頜連同鼻樑與兩側顴骨眼眶相對於額骨一起前後晃動」，且患者彎腰坐起時右側鼻孔持續滴出清澈水滴並表示聞不到味道；請回答其骨折分型、鼻漏首選確診檢驗及處置步驟！",
+        "answer": "搖晃上門牙時整張中臉（上頜、鼻骨與眼眶顴骨）與顱底分離連動，合併嗅覺喪失與單側清澈鼻漏，為最嚴重之「Le Fort III 骨折（顱顏分離 craniofacial disjunction）」併篩骨篩板斷裂外傷性腦脊髓液鼻漏！急救先守 ATLS：保護頸椎、確認氣道暢通（提防口咽血塊與軟腭後墜）、確認血壓循環（若有休克必查胸腹與股骨骨盆，禁用嗎啡止痛）並立即會診眼科完成視力眼球檢查。鼻漏液首選收集送檢「β-2 轉鐵蛋白（beta-2 transferrin）」確診，同時排高解析度薄切顏面與前顱底無顯影 CT。針對急性外傷性 CSF 鼻漏先採保守治療（抬高床頭 30 度臥床休息、軟便、嚴禁擤鼻涕或閉口打噴嚏憋氣）7–14 天，待水腫減退於傷後 5–8 天左右執行 Le Fort III 骨折開放復位內固定（常也有助減少骨片移位拉扯硬腦膜），若觀察滿 10–14 天腦脊髓液鼻漏仍未停止，則施行經鼻內視鏡前顱底修補術！",
+        "sourceIds": [
+          "ent-res-10-ao-cmf-trauma",
+          "ent-res-10-icar-csf-leak",
+          "ent-res-10-radiopaedia-lefort"
+        ]
+      },
+      "integrated": {
+        "framing": "本章整合顏面外傷急救優先序（ATLS 與眼球保護）、Le Fort 與眼眶底骨折精準時機、外傷性腦脊髓液鼻漏階梯處置，以及頭頸手術四大主力皮瓣選擇邏輯。",
+        "objectives": [
+          "貫徹顏面外傷頸椎保護、休克排查胸腹股骨、優先檢查眼球、禁用嗎啡及傷後 5–8 天修復原則",
+          "精準鑑別 Le Fort I／II／III 浮動範圍、鼻中隔血腫急症與小兒白眼型眼眶底骨折緊急手術指徵",
+          "掌握 CSF 鼻漏 β-2 轉鐵蛋白黃金標準與 7–14 天保守階梯，並正確配對 RFFF（Allen test）、ALT、腓骨皮瓣與 PMMC"
+        ],
+        "units": [
+          {
+            "id": "u1",
+            "title": "顏面外傷初級急救、Le Fort I–III 分類與眼眶鼻骨骨折時機",
+            "sectionIndexes": [
+              0,
+              1
+            ],
+            "deepDiveIndexes": [
+              0
+            ],
+            "synthesis": [
+              "顏面外傷罕單獨致休克（休克必查胸腹與股骨），軟組織先救眼球且禁給嗎啡；成人閉鎖顏面骨折多於傷後 5–8 天消腫後復位。",
+              "Le Fort I 浮動硬腭、II 浮動上頜（傷眶下神經）、III 顱顏分離（伴失嗅與 CSF 漏）；鼻中隔血腫與小兒白眼下直肌嵌頓皆須緊急處置。"
+            ],
+            "decisions": [
+              {
+                "finding": "9 歲男童被棒球擊中右眼，外觀無明顯結膜出血紅腫，但要求男童往上看時右眼完全卡住上不去、伴劇烈複視眼痛與陣發性嘔吐、心跳每分鐘 48 下，冠狀面 CT 見右眼眶底線性裂縫夾住下直肌",
+                "interpretation": "兒童白眼型眼眶底活門骨折（white-eyed blowout／trapdoor fracture）伴眼心反射",
+                "nextStep": "立即安排 24–48 小時內緊急手術鬆解嵌頓之下直肌並修補眶底，切勿比照成人觀察兩週以免眼肌缺血壞死永久複視"
+              },
+              {
+                "finding": "24 歲拳擊手鼻部挨拳後雙側嚴重鼻塞，前鼻鏡見鼻中隔兩側呈對稱暗紫紅色柔軟波動隆起阻塞鼻腔",
+                "interpretation": "急性鼻中隔血腫（septal hematoma），血塊剝離軟骨膜阻斷軟骨營養供應",
+                "nextStep": "立即於門診或急診切開鼻中隔黏膜引流血塊、置入引流條或鼻填塞加壓並給抗生素，防止鼻中隔軟骨缺血溶解成鞍鼻變形或穿孔"
+              }
+            ],
+            "sourceIds": [
+              "ent-res-10-ao-cmf-trauma",
+              "ent-res-10-radiopaedia-lefort"
+            ]
+          },
+          {
+            "id": "u2",
+            "title": "外傷性腦脊髓液鼻漏階梯治療與頭頸腫瘤重建皮瓣配對",
+            "sectionIndexes": [
+              2,
+              3
+            ],
+            "deepDiveIndexes": [
+              1
+            ],
+            "synthesis": [
+              "外傷性 CSF 鼻漏好發篩板與額竇後壁，首選 β-2 轉鐵蛋白確診，先保守臥床抬頭減壓 7–14 天，未癒再行經鼻內視鏡修補。",
+              "重建舌部薄軟選 RFFF（必做 Allen test），大體積頰咽選 ALT，下頜骨節段缺損選腓骨骨皮游離皮瓣，救援高危保護頸動脈選帶蒂 PMMC。"
+            ],
+            "decisions": [
+              {
+                "finding": "車禍前額撞擊患者隔日發現低頭時左鼻孔持續滴出清澈無黏性水液，收集 1 mL 送驗 β-2 轉鐵蛋白呈陽性，薄切顱底 CT 見左側篩板 3 mm 裂隙，無氣腦或腦膜炎徵象",
+                "interpretation": "急性外傷性前顱底篩板腦脊髓液鼻漏",
+                "nextStep": "第一線執行嚴格保守治療 7–14 天（臥床抬高床頭 30 度、軟便劑、嚴禁擤鼻涕與閉口憋氣打噴嚏），若逾 10–14 天仍持續滴漏再施行經鼻內視鏡顱底修補"
+              },
+              {
+                "finding": "56 歲下齒齦鱗狀細胞癌廣泛侵犯下頜骨髓質，預計施行右側節段性下頜骨切除（骨缺損長 8 公分）併口底頰部黏膜切除，患者全身狀況良好且雙下肢足背與脛後動脈搏動強健",
+                "interpretation": "複合性口內黏膜與長段下頜骨承重缺損，需兼具堅固皮質骨與皮膚島之顯微游離皮瓣",
+                "nextStep": "首選腓骨骨皮游離皮瓣（fibula osteocutaneous free flap，以腓動脈為血管蒂）進行多段塑形鈦板固定重建下頜弓與口內襯裡"
+              }
+            ],
+            "sourceIds": [
+              "ent-res-10-icar-csf-leak"
+            ]
+          }
+        ],
+        "case": {
+          "title": "高速車禍顏面外傷合併低血壓：急救陷阱全解析",
+          "stem": "29 歲機車騎士未戴全罩安全帽自撞電線桿送達急診，滿臉口鼻鮮血、意識煩躁呻吟（GCS E3V4M6），血壓 82/50 mmHg、心跳 128 次／分，中臉明顯扁平凹陷伴雙側眼眶腫脹。",
+          "steps": [
+            {
+              "newInfo": "急診住院醫師見患者臉部不斷滲血且躁動喊痛，準備先靜脈注射嗎啡（morphine）10 mg 止痛，並將低血壓完全歸因於鼻子與口腔流血。",
+              "prompt": "上述兩項判斷犯了哪兩個顏面外傷致命錯誤？此時最正確的處置順序為何？",
+              "answer": "錯誤一：單純顏面外傷極少單獨造成低血容性休克！血壓 82/50 mmHg 伴心跳過速必須立即啟動全身創傷排查（FAST 超音波查腹腔脾肝破裂與心包膜填塞、胸部 X 光查血氣胸、骨盆與雙側「股骨骨折」隱匿大出血）並雙管輸液輸血，同時在「頸椎護圈固定」下抽吸口咽血塊維持氣道暢通。錯誤二：急性頭頸顏面外傷嚴禁給予嗎啡，以免壓抑呼吸意識並使瞳孔縮小而掩蓋顱內出血腦疝與視神經眼球損傷！",
+              "rationale": "恪守 ATLS ABCDE 生命優先與保護腦眼評估視窗，是避免顏面外傷病患死於隱匿軀幹內出血之關鍵。",
+              "sourceIds": [
+                "ent-res-10-ao-cmf-trauma"
+              ]
+            },
+            {
+              "newInfo": "FAST 超音波果真發現脾臟撕裂腹腔積血，經血管栓塞與輸血穩定生命徵象，腦部與全顏面 CT 排除顱內出血與頸椎骨折，顯示雙側 Le Fort II 骨折（骨折線經鼻額縫、眼眶下壁、眶下孔與翼突板），眼科會診確認雙眼視力與眼球結構完整且無眼外肌嵌頓。",
+              "prompt": "此患者之雙側 Le Fort II 骨折應在今晚半夜臉部極度腫脹時立刻推進刀房釘骨板，還是何時手術最理想？",
+              "answer": "無須在半夜水腫高峰急開顏面骨！待脾臟出血與生命徵象完全穩定後，於傷後「第 5 至 8 天」急性顏面水腫消退且骨折線尚未纖維癒合之黃金窗口，施行開放式復位內固定（ORIF）並恢復上下顎正常咬合關係（intermaxillary fixation 對位）最為精準安全。",
+              "rationale": "避開前 3–4 天水腫極期可看清眶緣與顴頷骨縫對稱，趕在 10–14 天骨痂沾黏前完成固定則可避免截骨重打。",
+              "sourceIds": [
+                "ent-res-10-ao-cmf-trauma",
+                "ent-res-10-radiopaedia-lefort"
+              ]
+            }
+          ]
+        },
+        "connections": [
+          {
+            "topicId": "ent-04",
+            "reason": "前顱底篩骨篩板與篩頂既是外傷性腦脊髓液鼻漏最好發處，亦是功能性內視鏡鼻竇手術（FESS）最需避開之高危解剖屋頂"
+          },
+          {
+            "topicId": "ent-06",
+            "reason": "口腔頰舌與下齒齦癌廣泛切除後之軟硬組織缺損，直接銜接本章 RFFF、ALT、腓骨游離皮瓣與 PMMC 帶蒂皮瓣重建實務"
+          }
+        ]
+      }
+    },
+    "ent-11": {
+      "source": "衛生福利部《耳鼻喉科專科醫師訓練計畫認定基準》（113年12月12日修正）；ACGME Milestones for Otolaryngology–Head and Neck Surgery",
+      "resources": [
+        {
+          "id": "ent-res-11-mohw",
+          "title": "衛生福利部專科醫師訓練計畫認定專區（耳鼻喉科認定基準）",
+          "url": "https://www.mohw.gov.tw/",
+          "kind": "指南",
+          "provider": "衛生福利部醫事司",
+          "note": "台灣耳鼻喉科專科訓練醫院師資、設備、手術量與住院醫師工時會診規範"
+        },
+        {
+          "id": "ent-res-11-aaohns-safety",
+          "title": "AAO-HNS Patient Safety and Quality Improvement Clinical Statements",
+          "url": "https://www.entnet.org/quality-practice/quality-products/expert-consensus-statements/",
+          "kind": "指南",
+          "provider": "American Academy of Otolaryngology–Head and Neck Surgery",
+          "note": "耳鼻喉頭頸外科門急診內視鏡、氣道管理與手術安全檢核原則"
+        }
+      ],
+      "deepDive": [
+        {
+          "heading": "為何耳鼻喉科專科認定基準強制綁定「聽語專業人力」與「手術繪圖紀錄」",
+          "paragraphs": [
+            "耳鼻喉頭頸外科與多數純切除性外科最大的差異，在於手術標的緊鄰聽覺、平衡、發聲、吞嚥與呼吸五大生理樞紐。例如慢性中耳炎鼓室成形術需要術前術後純音氣骨導差對照，聲帶顯微皮瓣手術仰賴頻閃喉鏡與嗓音治療配合，而口腔下咽癌切除皮瓣重建後更需語言治療師執行吞嚥攝影與安全進食訓練；因此衛福部認定基準將具證照之聽力師與語言治療師列為收訓住院醫師的硬性門檻。",
+            "同時，耳鼻喉腔室狹小且立體結構複雜（如鼓室聽小骨鏈、篩頂紙樣板、喉返神經與頸部淋巴分區），單靠文字難以重現病灶侵犯範圍與重建幾何關係。強制要求門診局部處置與手術紀錄附圖，不僅能訓練住院醫師在術前建立三維解剖心理地圖，更能為日後追蹤復發、跨科放射治療靶區勾畫（RT contouring）提供精確依據。"
+          ],
+          "sourceIds": [
+            "ent-res-11-mohw",
+            "ent-res-11-aaohns-safety"
+          ]
+        },
+        {
+          "heading": "住院醫師分層授權與急症升級通報（Escalation of Care）的病安邏輯",
+          "paragraphs": [
+            "認定基準明訂每月值班不超過 10 班、不連續值班、一般病床上限 15 床，以及「第三年以上住院醫師始得在教師監督下第一線接受照會」，背後核心在於防止疲勞失誤與資歷越級決策。第一年住院醫師（R1）處於熟悉專科內視鏡操作與解剖變異的關鍵期，面對他科複雜會診（如加護病房困難氣切評估、免疫不全侵襲性黴菌鼻竇炎篩檢）時，必須由高年資住院醫師與主治醫師共同把關。",
+            "在面試與臨床實務中，優秀的 R1 並非萬事自己扛，而是能在前 3 分鐘完成結構化床邊初評（生命徵象、喘鳴位相、出血量、腦神經與視力眼動紅旗），並以精準 SBAR 架構向上級醫師回報關鍵異常，讓團隊在黃金時間窗口內啟動手術室或跨科支援。"
+          ],
+          "sourceIds": [
+            "ent-res-11-mohw",
+            "ent-res-11-aaohns-safety"
+          ]
+        }
+      ],
+      "oralChallenge": {
+        "question": "若你順利錄取耳鼻喉頭頸部 R1，前半年在門急診與病房值班最優先要建立哪三項安全習慣？",
+        "answer": "第一是「氣道與紅旗優先的床邊評估習慣」：遇到頸部腫脹、咽喉疼痛或頭暈耳痛病人，先確認呼吸音、吞嚥流涎、眼動視力與顏面神經等高危徵象，絕不因局部症狀漏掉窒息或中樞病變。第二是「標準化內視鏡操作與繪圖紀錄習慣」：每次軟式鼻咽喉鏡、耳鏡或鼻出血處置都確實記錄解剖方位與繪圖，方便主治醫師複核與後續追蹤。第三是「清楚守住年資界線、及時以 SBAR 求助」：遇到後鼻大出血、喘鳴惡化、術後頸部腫脹或跨科緊急照會，立即完成初步穩定並同步呼叫總醫師與主治醫師，確保病人安全零延誤。",
+        "sourceIds": [
+          "ent-res-11-mohw",
+          "ent-res-11-aaohns-safety"
+        ]
+      },
+      "integrated": {
+        "framing": "將衛福部專科訓練制度規範轉化為 R1 每日臨床工作中的安全防線、手術學習路徑與跨團隊溝通準則。",
+        "objectives": [
+          "熟記耳鼻喉科訓練醫院師資、聽語人力、門診內視鏡與聽平衡檢查室之法定基準",
+          "區分六大基本手術奠基目標與二十項進階特殊手術範疇",
+          "落實住院醫師工時床數規範、R3 會診分層界線與急症 SBAR 通報"
+        ],
+        "units": [
+          {
+            "id": "u1",
+            "title": "專科訓練硬體人力門檻與手術能力階梯",
+            "sectionIndexes": [
+              0,
+              1,
+              2
+            ],
+            "deepDiveIndexes": [
+              0
+            ],
+            "synthesis": [
+              "專科訓練品質建立在充足專任師資（6+4n 法則）、專任聽語團隊與完整內視鏡／電生理／顯微手術設備之上。",
+              "先紮實掌握鼓室成形、通氣管、鼻中隔下鼻甲、FESS、扁桃腺與喉顯微六大基本手術，再循序漸進參與膽脂瘤、鐙骨、顱底與頭頸游離皮瓣等二十項特殊手術。"
+            ],
+            "decisions": [
+              {
+                "finding": "門診或手術完成內視鏡切片、異物取出或鼓室鼻竇手術後",
+                "interpretation": "解剖立體關係影響後續病理對照、放療規劃與復發追蹤",
+                "nextStep": "於病歷與學習護照詳實撰寫發現並附上結構繪圖，送請指導主治醫師複簽回饋"
+              }
+            ],
+            "sourceIds": [
+              "ent-res-11-mohw"
+            ]
+          },
+          {
+            "id": "u2",
+            "title": "分層負責、會診授權界線與跨科全人病安",
+            "sectionIndexes": [
+              3,
+              4
+            ],
+            "deepDiveIndexes": [
+              1
+            ],
+            "synthesis": [
+              "每月值班 <=10 班、不連值、一般病床 <=15 床與 R3 以上始得第一線接照會，皆為保護病人與受訓醫師的制度紅線。",
+              "頭頸腫瘤與複雜氣道照護仰賴耳鼻喉、影像、病理、放腫、血腫、整外與聽語治療師之多專科協作。"
+            ],
+            "decisions": [
+              {
+                "finding": "R1 值班接獲他科緊急氣道或複雜術後併發症照會請求",
+                "interpretation": "超出低年資獨立授權範圍且具潛在生命威脅",
+                "nextStep": "立即確認現場生命徵象與氣道急救準備，同步通報 R3 以上總醫師與值班主治醫師共同處置"
+              }
+            ],
+            "sourceIds": [
+              "ent-res-11-mohw",
+              "ent-res-11-aaohns-safety"
+            ]
+          }
+        ],
+        "case": {
+          "title": "R1 夜間值班面對甲狀腺術後頸部急遽腫脹與跨科會診同時來電",
+          "stem": "晚間 11 點，身為第一年住院醫師值班時，病房護理師來電表示下午剛完成全甲狀腺切除的病人頸部腫脹且呼吸開始出現喘鳴；同一分鐘內科病房亦來電請耳鼻喉科會診一位慢性鼻塞病人。",
+          "steps": [
+            {
+              "newInfo": "兩通電話同時進線，甲狀腺術後病人血氧 94%、呼吸速率每分鐘 26 次、坐立難安。",
+              "prompt": "此時應如何排定優先順序與啟動團隊支援？",
+              "answer": "甲狀腺術後頸部腫脹合併喘鳴屬於瀕臨窒息之張力性頸部血腫急症，絕對優先！請內科非緊急慢性鼻塞會診改由隔日依 R3 以上會診規範正式排程；自己立即攜帶拆線剪與氣切急救包趕往外科病房，途中電話緊急呼叫總醫師、主治醫師與麻醉科準備緊急入刀房。",
+              "rationale": "術後頸部筋膜腔室封閉，少量動脈出血即可壓迫氣管靜脈回流造成嚴重聲門水腫，數分鐘內可能無法插管，必須分秒必爭。",
+              "sourceIds": [
+                "ent-res-11-mohw",
+                "ent-res-11-aaohns-safety"
+              ]
+            },
+            {
+              "newInfo": "抵達床邊時病人喘鳴加劇、嘴唇發紺、頸部傷口緊繃堅硬，主治醫師與麻醉團隊尚在趕來途中（預計 3 分鐘抵達）。",
+              "prompt": "在床邊最關鍵的救命動作與後續病安流程為何？",
+              "answer": "立即戴無菌手套於床邊剪開皮膚與頸闊肌縫線（甚至鬆開帶狀肌縫線），敞開傷口清除壓迫氣管之凝血塊以瞬間解除氣道張力，給予純氧面罩輔助，隨即護送入刀房於全身麻醉插管下徹底尋找出血點止血；事後詳實完成含圖示之手術紀錄，並於科內晨會／M&M 討論會檢討止血與拔管防範流程。",
+              "rationale": "床邊敞開傷口減壓是解除甲狀腺／頸部術後血腫窒息的唯一即時動作，先減壓能讓聲門水腫緩解並大幅提高麻醉插管成功率。",
+              "sourceIds": [
+                "ent-res-11-mohw",
+                "ent-res-11-aaohns-safety"
+              ]
+            }
+          ]
+        },
+        "connections": [
+          {
+            "topicId": "ent-01",
+            "reason": "專科訓練醫院法定配備之隔音聽力室、ABR、OAE 與專任聽力師直接對應第 1 章臨床聽力學實務"
+          },
+          {
+            "topicId": "ent-09",
+            "reason": "急診駐院值班急救設備與困難氣道模擬訓練直接支撐第 9 章深頸部感染與上呼吸道急症處置"
+          }
+        ]
+      }
+    }
+  },
+  "learningPaths": [
+    {
+      "title": "耳鼻喉急診值班救命氣道與出血主線",
+      "question": "面對急性會厭炎／盧德維希氏咽峽炎喘鳴、小兒支氣管異物、嚴重後鼻出血與顏面外傷休克，如何守住 ABC 與黃金處置順序？",
+      "topicIds": [
+        "ent-09",
+        "ent-07",
+        "ent-04",
+        "ent-10"
+      ]
+    },
+    {
+      "title": "耳科學與耳神經眩暈判讀主線",
+      "question": "如何串聯純音聽力圖／鼓室圖、膽脂瘤乳突手術顏面神經保護，以及突發性耳聾、梅尼爾氏症與 HINTS 急性眩暈中風鑑別？",
+      "topicIds": [
+        "ent-01",
+        "ent-02",
+        "ent-03"
+      ]
+    },
+    {
+      "title": "鼻竇內視鏡顱底與台灣鼻咽癌專題主線",
+      "question": "從 OMC 引流與 FESS 高危解剖（篩頂／紙板／蝶腭動脈），一路貫通倒生性乳突瘤、鼻咽癌單側積液性中耳炎警訊與外傷性 CSF 鼻漏修補？",
+      "topicIds": [
+        "ent-04",
+        "ent-05",
+        "ent-10"
+      ]
+    },
+    {
+      "title": "台灣頭頸腫瘤、嗓音吞嚥與顯微重建主線",
+      "question": "如何整合口腔鱗癌 DOI／ENE、p16+ 口咽癌、喉與下咽癌器官保留、成人頸部腫塊 FNA 鐵律、四大重建皮瓣與專科訓練基準？",
+      "topicIds": [
+        "ent-06",
+        "ent-07",
+        "ent-08",
+        "ent-10",
+        "ent-11"
+      ]
+    }
+  ]
+}
