@@ -19458,10 +19458,15 @@
               "note": "定義 C-MIL（PAM）分級、OSSN 基底膜侵襲標準與結膜黑色素瘤 BRAF/NRAS 分子分類。"
             },
             {
-              "title": "AAO EyeWiki — Conjunctival Melanoma & Ocular Surface Squamous Neoplasia",
-              "url": "https://eyewiki.org/Conjunctival_Melanoma",
+              "title": "AAO EyeWiki — Conjunctival Melanocytic Tumors",
+              "url": "https://eyewiki.org/Conjunctival_Melanocytic_Tumors",
               "year": "2025",
               "note": "彙整 No-touch 切除併雙重冷凍技術、耳前與下頷前哨淋巴結評估及局部化療指引。"
+            },
+            {
+              "title": "AAO EyeWiki — Ocular Surface Squamous Neoplasia",
+              "url": "https://eyewiki.org/Ocular_Surface_Squamous_Neoplasia",
+              "note": "OSSN 基底膜侵襲判讀與局部化療選擇。"
             }
           ]
         },
@@ -20157,16 +20162,22 @@
           ],
           "references": [
             {
-              "title": "AAO EyeWiki — Corneal Dystrophies (IC3D Edition 3 Histopathology & Genetics Summary)",
-              "url": "https://eyewiki.org/Corneal_Dystrophies",
+              "title": "AAO EyeWiki — Corneal Stromal Dystrophies",
+              "url": "https://eyewiki.org/Corneal_Stromal_Dystrophies",
               "year": "2025",
-              "note": "整合國際角膜失養症委員會第 3 版基因、組織化學染色與超微結構標準分類。"
+              "note": "格狀、顆粒狀、斑狀與 Schnyder 基質失養症之遺傳、裂隙燈表現與病理染色。"
             },
             {
               "title": "NCBI StatPearls — Stromal and Endothelial Corneal Dystrophies",
               "url": "https://www.ncbi.nlm.nih.gov/books/NBK557865/",
               "year": "2025",
               "note": "總結角膜基質與內皮失養症之臨床評估、特殊冷凍病理標本送檢與板層移植選擇。"
+            },
+            {
+              "title": "Weiss JS, Rapuano CJ, Seitz B, et al — IC3D Classification of Corneal Dystrophies-Edition 3 (Cornea)",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/38359414/",
+              "year": "2024",
+              "note": "國際角膜失養症委員會第 3 版基因、組織化學染色與超微結構標準分類。"
             }
           ]
         },
@@ -20822,16 +20833,26 @@
           ],
           "references": [
             {
-              "title": "AAO EyeWiki — Pseudoexfoliation Glaucoma, Pigment Dispersion & ICE Syndrome Pathology",
-              "url": "https://eyewiki.org/Pseudoexfoliation_Glaucoma",
+              "title": "AAO EyeWiki — Pseudoexfoliation Syndrome",
+              "url": "https://eyewiki.org/Pseudoexfoliation_Syndrome",
               "year": "2025",
-              "note": "詳述 LOXL1 假性落屑靶心與鋸齒虹膜病理、色素播散及 ICE 異位基底膜閉角機轉。"
+              "note": "假性落屑症候群之 LOXL1 關聯、臨床徵象、懸韌帶脆弱與手術併發症。"
             },
             {
-              "title": "NCBI StatPearls — Lens-Induced Glaucoma and Uveitis (Phacolytic vs Phacoantigenic)",
-              "url": "https://www.ncbi.nlm.nih.gov/books/NBK572117/",
-              "year": "2025",
+              "title": "NCBI StatPearls — Lens-Induced Glaucoma",
+              "url": "https://www.ncbi.nlm.nih.gov/books/NBK574524/",
+              "year": "2026",
               "note": "對比完囊蛋白巨噬阻塞與破囊分帶肉芽腫之組織病理與白內障摘除時機。"
+            },
+            {
+              "title": "AAO EyeWiki — Pigmentary Glaucoma and Pigment Dispersion Syndrome",
+              "url": "https://eyewiki.org/Pigmentary_Glaucoma_and_Pigment_Dispersion_Syndrome",
+              "note": "色素播散症候群之虹膜透光缺損、Krukenberg 紡錘與雷射虹膜切開術。"
+            },
+            {
+              "title": "AAO EyeWiki — Iridocorneal Endothelial Syndrome and Secondary Glaucoma",
+              "url": "https://eyewiki.org/Iridocorneal_Endothelial_Syndrome_and_Secondary_Glaucoma",
+              "note": "ICE 症候群三型（Chandler、Cogan-Reese、進行性虹膜萎縮）與次發青光眼。"
             }
           ]
         },
@@ -21531,10 +21552,10 @@
               "note": "詳述 PVRL 之大 B 細胞譜系、MYD88 分子診斷、玻璃體檢體處理與中樞神經分期治療。"
             },
             {
-              "title": "AAO EyeWiki — Vitreous Degenerations (Asteroid Hyalosis, Synchysis Scintillans & Amyloidosis)",
-              "url": "https://eyewiki.org/Asteroid_Hyalosis",
+              "title": "AAO EyeWiki — Asteroid Hyalosis (AH)",
+              "url": "https://eyewiki.org/Asteroid_Hyalosis_(AH)",
               "year": "2025",
-              "note": "彙整玻璃體鈣磷星狀體、膽固醇結晶與 TTR 家族性類澱粉沉積之化學染色與偏光特徵。"
+              "note": "星狀體之鈣磷成分與偏光特徵，及與閃輝性玻璃體液化、玻璃體類澱粉沉積之鑑別。"
             }
           ]
         },
@@ -26330,7 +26351,7 @@
           "references": [
             {
               "title": "Beck RW, Cleary PA, Anderson MM Jr, et al — A randomized, controlled trial of corticosteroids in the treatment of acute optic neuritis (ONTT, N Engl J Med)",
-              "url": "https://pubmed.ncbi.nlm.nih.gov/1731107/",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/1734247/",
               "year": "1992",
               "note": "奠定急性視神經炎禁用單獨標準口服 prednisone 與靜脈脈衝加速恢復之里程碑臨床試驗。"
             },
@@ -26940,19 +26961,19 @@
           "references": [
             {
               "title": "Biousse V, Nahab F, Newman NJ — Management of Acute Retinal Ischemia: Follow the Guidelines! (Ophthalmology)",
-              "url": "https://pubmed.ncbi.nlm.nih.gov/29716786/",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/29716787/",
               "year": "2018",
               "note": "確立急性視網膜缺血／單眼 TVL 比照急性腦 TIA 當日直送急診中風中心與 DWI MRI 標準流程。"
             },
             {
               "title": "Mac Grory B, Schrag M, Biousse V, et al — Management of Central Retinal Artery Occlusion: A Scientific Statement From the American Heart Association (Stroke)",
-              "url": "https://pubmed.ncbi.nlm.nih.gov/33993712/",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/33677974/",
               "year": "2021",
               "note": "AHA 科學聲明詳述視網膜動脈缺血之腦中風風險分層、GCA 攔截與抗栓策略。"
             },
             {
               "title": "Mendrinos E, Machinis TG, Pournaras CJ — Ocular ischemic syndrome (Survey of Ophthalmology)",
-              "url": "https://pubmed.ncbi.nlm.nih.gov/19963236/",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/19833366/",
               "year": "2010",
               "note": "權威綜述 OIS 之 ≥90% 頸動脈狹窄血流動力學、FA 脈絡膜延遲與血運重建眼壓變化。"
             }
@@ -27568,7 +27589,7 @@
           "references": [
             {
               "title": "Barton JJS — Higher cortical visual deficits (Continuum Lifelong Learning in Neurology: Neuro-ophthalmology)",
-              "url": "https://pubmed.ncbi.nlm.nih.gov/25093999/",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/25099101/",
               "year": "2014",
               "note": "系統建立腹側 What 與背側 Where 雙流皮質視覺症候群、純失讀症與 Balint 臨床測試架構。"
             },
@@ -27580,7 +27601,7 @@
             },
             {
               "title": "Schankin CJ, Maniyar FH, Digre KB, Goadsby PJ — 'Visual snow' – a disorder distinct from persistent migraine aura (Brain)",
-              "url": "https://pubmed.ncbi.nlm.nih.gov/24648052/",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/24645145/",
               "year": "2014",
               "note": "證實視覺雪症候群為獨立於持續性偏頭痛預兆之外的中樞視覺處理異常。"
             }
@@ -28182,7 +28203,7 @@
           "references": [
             {
               "title": "AAO Preferred Practice Pattern: Adult Strabismus",
-              "url": "https://www.aao.org/education/preferred-practice-pattern/adult-strabismus-ppp",
+              "url": "https://www.aao.org/education/preferred-practice-pattern/adult-strabismus-ppp-2023",
               "year": "2024",
               "note": "成人急性後天性動眼、滑車與外展神經麻痺之神經影像分流與血管風險評估準則。"
             },
@@ -29205,9 +29226,9 @@
               "note": "先天與後天眼振之臨床波形分類、感覺傳入評估與治療原則。"
             },
             {
-              "title": "StatPearls: Opsoclonus Myoclonus Syndrome & Saccadic Oscillations",
-              "url": "https://www.ncbi.nlm.nih.gov/books/NBK538236/",
-              "year": "2024",
+              "title": "StatPearls: Opsoclonus",
+              "url": "https://www.ncbi.nlm.nih.gov/books/NBK564353/",
+              "year": "2025",
               "note": "無慢相無間隔掃視振盪（眼陣攣／眼撲動）之腦幹暫停神經元機轉與神經母細胞瘤／副腫瘤篩檢。"
             }
           ]
@@ -29703,8 +29724,8 @@
           ],
           "references": [
             {
-              "title": "AAO EyeWiki / Clinical Approach to Anisocoria & Horner Syndrome",
-              "url": "https://www.aao.org/eye-health/diseases/anisocoria",
+              "title": "AAO EyeWiki — Anisocoria",
+              "url": "https://eyewiki.org/Anisocoria",
               "year": "2024",
               "note": "雙瞳不等大亮暗環境定側、apraclonidine／pilocarpine 藥理分流與血管急症警訊。"
             },
@@ -31175,7 +31196,7 @@
             },
             {
               "title": "AAO Preferred Practice Pattern — Adult Strabismus",
-              "url": "https://www.aao.org/education/preferred-practice-pattern/adult-strabismus-ppp",
+              "url": "https://www.aao.org/education/preferred-practice-pattern/adult-strabismus-ppp-2023",
               "year": "2024",
               "note": "總結麻痺與限制性斜視第二斜角判讀及多直肌手術前節缺血預防策略。"
             }
@@ -31859,7 +31880,7 @@
             },
             {
               "title": "AAO Preferred Practice Pattern — Esotropia and Exotropia",
-              "url": "https://www.aao.org/education/preferred-practice-pattern/esotropia-and-exotropia-ppp",
+              "url": "https://www.aao.org/education/preferred-practice-pattern/esotropia-exotropia-ppp",
               "year": "2023",
               "note": "涵蓋兒童斜視雙眼感覺檢查整合與手術前後複視風險評估。"
             }
@@ -32719,13 +32740,13 @@
           "references": [
             {
               "title": "AAO Preferred Practice Pattern — Esotropia and Exotropia",
-              "url": "https://www.aao.org/education/preferred-practice-pattern/esotropia-and-exotropia-ppp",
+              "url": "https://www.aao.org/education/preferred-practice-pattern/esotropia-exotropia-ppp",
               "year": "2023",
               "note": "詳列調節性內斜視三分流、平頂雙光配鏡基準及間歇性外斜視貼眼與鏡片梯度鑑別。"
             },
             {
               "title": "AAO Preferred Practice Pattern — Amblyopia",
-              "url": "https://www.aao.org/education/preferred-practice-pattern/amblyopia-ppp",
+              "url": "https://www.aao.org/education/preferred-practice-pattern/amblyopia-ppp-2022",
               "year": "2023",
               "note": "完整彙整 PEDIG 光學適應期、2h/6h 分級遮蓋、週末阿托品與停遮遞減實證結果。"
             }
@@ -33457,7 +33478,7 @@
           "references": [
             {
               "title": "AAO EyeWiki — Strabismus: Parks-Bielschowsky Three-Step Test & Skew Deviation",
-              "url": "https://eyewiki.org/Three_Step_Test",
+              "url": "https://eyewiki.org/Three_Step_Test_for_Cyclovertical_Muscle_Palsy",
               "year": "2025",
               "note": "詳述三步法生理邏輯、雙側第四腦神經麻痺指標與直立平躺試驗鑑別 Skew deviation。"
             },
@@ -34806,10 +34827,10 @@
           ],
           "references": [
             {
-              "title": "Infant Aphakia Treatment Study Group — Ten-Year Visual Outcomes (JAMA Ophthalmol)",
-              "url": "https://pubmed.ncbi.nlm.nih.gov/32215587/",
+              "title": "Lambert SR, Cotsonis G, DuBois L, et al; Infant Aphakia Treatment Study — Long-term Effect of Intraocular Lens vs Contact Lens Correction on Visual Acuity After Cataract Surgery During Infancy (JAMA Ophthalmol)",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/32077909/",
               "year": "2020",
-              "note": "確立未滿 7 個月單側先天白內障保留無水晶體配隱形眼鏡與一期 IOL 之十年視力與併發症實證。"
+              "note": "確立未滿 7 個月單側先天白內障保留無水晶體配隱形眼鏡與一期 IOL 之十年視力實證。"
             },
             {
               "title": "AAO EyeWiki — Ectopia Lentis and Pediatric Cataracts",
@@ -35395,7 +35416,7 @@
             },
             {
               "title": "AAP / AAO / AAPOS Policy Statement — Screening Examination of Premature Infants for Retinopathy of Prematurity",
-              "url": "https://publications.aap.org/pediatrics/article/142/6/e20183061/37497/Screening-Examination-of-Premature-Infants-for",
+              "url": "https://doi.org/10.1542/peds.2018-3061",
               "year": "2018",
               "note": "確立 <=30 週／<=1500 g 篩檢標準、首次檢查時間表與抗 VEGF 治療後延長追蹤至 >=65 週 PMA 規範。"
             }
@@ -36130,8 +36151,8 @@
               "note": "詳述視網膜母細胞瘤 IIRC 分期、禁切片與禁 CT 原則，以及與 Coats、PFV、犬蛔蟲症之鑑別。"
             },
             {
-              "title": "Levin AV et al. / AAP Clinical Report — The Eye Examination in the Evaluation of Child Abuse (Pediatrics)",
-              "url": "https://pubmed.ncbi.nlm.nih.gov/30061300/",
+              "title": "Christian CW, Levin AV; AAP Clinical Report — The Eye Examination in the Evaluation of Child Abuse (Pediatrics)",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/30037976/",
               "year": "2018",
               "note": "總結虐待性頭部外傷（AHT）延伸至鋸齒緣之多層次視網膜出血、黃斑環狀皺褶與客觀病歷紀錄規範。"
             }
@@ -37600,14 +37621,14 @@
           "references": [
             {
               "title": "AAO Basic and Clinical Science Course (BCSC) Section 7: Oculofacial Plastic and Orbital Surgery — Orbital Anatomy & Orbital Surgery",
-              "url": "https://www.aao.org/education/bcsc",
-              "year": "2025",
-              "note": "權威定義眼眶七骨幾何尺寸、Zinn 氏總腱環內外分流、24–12–6 mm 法則與五大手術空間。"
+              "url": "https://store.aao.org/basic-and-clinical-science-course-section-07-oculofacial-plastic-and-orbital-surgery.html",
+              "year": "2024–2025",
+              "note": "權威定義眼眶七骨幾何尺寸、Zinn 氏總腱環內外分流、24–12–6 mm 法則與五大手術空間。（AAO 書目頁，內文請開本機 PDF）"
             },
             {
-              "title": "StatPearls — Anatomy, Head and Neck, Eye Orbit and Orbital Apex",
-              "url": "https://www.ncbi.nlm.nih.gov/books/NBK470379/",
-              "year": "2024",
+              "title": "StatPearls — Anatomy, Head and Neck, Orbit",
+              "url": "https://www.ncbi.nlm.nih.gov/books/NBK539843/",
+              "year": "2023",
               "note": "詳述眼眶四壁骨性組成、眶上裂與視神經管神經血管解剖與臨床關聯。"
             }
           ]
@@ -38259,15 +38280,15 @@
             },
             {
               "title": "American Thyroid Association and European Thyroid Association Consensus Statement on Management of Thyroid Eye Disease",
-              "url": "https://pubmed.ncbi.nlm.nih.gov/36378564/",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/36480280/",
               "year": "2022",
               "note": "整合 Teprotumumab 適應症、聽力血糖監測與減壓→斜視→眼瞼手術復健序列。"
             },
             {
               "title": "AAO Basic and Clinical Science Course (BCSC) Section 7: Oculofacial Plastic and Orbital Surgery — Thyroid Eye Disease & Decompression",
-              "url": "https://www.aao.org/education/bcsc",
-              "year": "2025",
-              "note": "詳載 TED 分子機轉、平衡減壓骨柱保留原則與斜視／眼瞼分階段重建規範。"
+              "url": "https://store.aao.org/basic-and-clinical-science-course-section-07-oculofacial-plastic-and-orbital-surgery.html",
+              "year": "2024–2025",
+              "note": "詳載 TED 分子機轉、平衡減壓骨柱保留原則與斜視／眼瞼分階段重建規範。（AAO 書目頁，內文請開本機 PDF）"
             }
           ]
         },
@@ -38929,9 +38950,9 @@
           "references": [
             {
               "title": "AAO Basic and Clinical Science Course (BCSC) Section 7: Oculofacial Plastic and Orbital Surgery — Orbital Inflammatory, Infectious & Neoplastic Disorders",
-              "url": "https://www.aao.org/education/bcsc",
-              "year": "2025",
-              "note": "詳述骨膜下膿瘍 9 歲分界、Mucorales vs Aspergillus 抗黴菌選擇、IgG4-ROD 與淚腺腫瘤處置原則。"
+              "url": "https://store.aao.org/basic-and-clinical-science-course-section-07-oculofacial-plastic-and-orbital-surgery.html",
+              "year": "2024–2025",
+              "note": "詳述骨膜下膿瘍 9 歲分界、Mucorales vs Aspergillus 抗黴菌選擇、IgG4-ROD 與淚腺腫瘤處置原則。（AAO 書目頁，內文請開本機 PDF）"
             },
             {
               "title": "Global Guideline for the Diagnosis and Management of Mucormycosis (ECMM / MSG ERC)",
@@ -39650,13 +39671,13 @@
           "references": [
             {
               "title": "AAO Basic and Clinical Science Course (BCSC) Section 7: Oculofacial Plastic and Orbital Surgery — Orbital Trauma & The Anophthalmic Socket",
-              "url": "https://www.aao.org/education/bcsc",
-              "year": "2025",
-              "note": "涵蓋小兒白眼活門骨折、OCS 減壓演算法、無眼球手術適應症與眼窩併發症重建。"
+              "url": "https://store.aao.org/basic-and-clinical-science-course-section-07-oculofacial-plastic-and-orbital-surgery.html",
+              "year": "2024–2025",
+              "note": "涵蓋小兒白眼活門骨折、OCS 減壓演算法、無眼球手術適應症與眼窩併發症重建。（AAO 書目頁，內文請開本機 PDF）"
             },
             {
               "title": "Orbital Implants in Enucleation Surgery: A Report by the American Academy of Ophthalmology (Ophthalmic Technology Assessment)",
-              "url": "https://pubmed.ncbi.nlm.nih.gov/29103794/",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/28899574/",
               "year": "2018",
               "note": "比較非多孔與多孔生物整合眼眶植入物之活動度、栓釘風險與暴露併發症實證。"
             }
@@ -40448,10 +40469,10 @@
               "note": "詳述眼瞼前後葉解剖、＜25%／25–50%／＞50% 缺損分級重建與 Hughes／Cutler-Beard 原則。"
             },
             {
-              "title": "AAO EyeWiki — Lower Eyelid Reconstruction",
-              "url": "https://eyewiki.org/Lower_Eyelid_Reconstruction",
+              "title": "AAO EyeWiki — Lower Eyelid Reconstruction with a Tarsoconjunctival Flap",
+              "url": "https://eyewiki.org/Lower_Eyelid_Reconstruction_with_a_Tarsoconjunctival_Flap",
               "year": "2025",
-              "note": "總結 Tenzel 半圓形皮瓣、游離瞼板移植與小兒避免遮蔽性弱視之單階段重建策略。"
+              "note": "下瞼大缺損 Hughes 瞼板結膜瓣之適應症、手術步驟、結果與併發症。"
             }
           ]
         },
@@ -41155,9 +41176,9 @@
               "why": "縫線張力可立即將瞼緣向外翻轉並藉吸收線發炎反應在隔前輪匝肌與瞼板間製造瘢痕阻擋牆，快速保護角膜數月至一年。"
             },
             {
-              "condition": "患者於眉間注射玻尿酸當下突發同側眼眶劇痛與無光感黑矇，眼底見視網膜乳白水腫與櫻桃紅斑",
+              "condition": "患者於眉間注射玻尿酸當下突發同側眼眶劇痛與視力驟降或無光感黑矇（不必等眼底檢查確認）",
               "action": "第一秒立即停止注射，就地於注射區與眶上／滑車上注射高劑量玻尿酸酶（hyaluronidase），同時立即轉送急診／眼科（球後／球周僅限受訓醫師，療效未證實）",
-              "why": "填充劑已高壓逆流經滑車上／眶上動脈進入眼動脈與視網膜中央動脈，視網膜缺血超過 90 分鐘即發生永久失明。"
+              "why": "填充劑已高壓逆流經滑車上／眶上動脈進入眼動脈與視網膜中央動脈，視網膜缺血耐受時間短，應爭取約 90 分鐘內處置，逾時仍可依臨床判斷嘗試（RANZCO 2024：至 24 小時或更久）。"
             }
           ],
           "pitfalls": [
@@ -41194,16 +41215,33 @@
           ],
           "references": [
             {
-              "title": "AAO EyeWiki — Involutional Entropion & Ectropion",
-              "url": "https://eyewiki.org/Involutional_Entropion",
+              "title": "AAO EyeWiki — Entropion",
+              "url": "https://eyewiki.org/Entropion",
               "year": "2025",
               "note": "解析囊瞼筋膜斷裂、隔前輪匝肌翻越、Quickert 縫線與縮肌重接合併 LTS 之手術邏輯。"
             },
             {
-              "title": "AAO EyeWiki — Brow Ptosis and Temporal Fascial Planes",
-              "url": "https://eyewiki.org/Brow_Ptosis",
+              "title": "AAO EyeWiki — Brow Ptosis and Repair",
+              "url": "https://eyewiki.org/Brow_Ptosis_and_Repair",
               "year": "2025",
-              "note": "詳述顳頂筋膜（TPF）內顏面神經顳支走向與緊貼深顳筋膜（DTF）之安全內視鏡抬眉平面。"
+              "note": "眉下垂評估與顳側／全眉提升術式（含內視鏡前額拉提）及顏面神經併發症。"
+            },
+            {
+              "title": "AAO EyeWiki — Ectropion",
+              "url": "https://eyewiki.org/Ectropion",
+              "note": "退化性與瘢痕性外翻之分型、淚小點外翻與外眥瞼板條（LTS）矯正。"
+            },
+            {
+              "title": "Agarwal CA, Mendenhall SD, Foreman KB, Owsley JQ — The course of the frontal branch of the facial nerve in relation to fascial planes (Plast Reconstr Surg)",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/20124839/",
+              "year": "2010",
+              "note": "顏面神經額支與顳區筋膜平面之解剖關係。"
+            },
+            {
+              "title": "RANZCO — Filler Blindness Guidelines",
+              "url": "https://ranzco.edu/wp-content/uploads/2024/06/RANZCO-Filler-Blindness-Guidelines_2024.pdf",
+              "year": "2024",
+              "note": "填充劑致盲之急救、玻尿酸酶給藥與轉診原則。"
             }
           ]
         },
