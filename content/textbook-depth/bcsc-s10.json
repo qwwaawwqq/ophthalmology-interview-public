@@ -1406,7 +1406,7 @@
             {
               "test": "濃縮螢光素 Seidel 滲漏試驗（Concentrated Fluorescein Seidel Test）",
               "purpose": "偵測濾過泡微孔滲漏、角膜穿刺口微漏或外傷全層角膜裂傷之微量房水外溢。",
-              "interpretation": "必須使用微濕無菌螢光素試紙直接輕抹病灶（維持高濃度暗橘色淬滅態）；若無自發綠流，可在裂隙燈下極輕微施壓眼瞼觀察是否有間歇誘發性微漏（provoked Seidel）。",
+              "interpretation": "必須使用微濕無菌螢光素試紙直接輕抹病灶（維持高濃度暗橘色淬滅態）；若無自發綠流，限術後傷口或濾過泡等無內容物脫出風險者，可在裂隙燈下極輕微施壓眼瞼觀察是否有間歇誘發性微漏（provoked Seidel）；疑似開放性眼球外傷絕不可施壓。",
               "limitation": "若先點了一大滴稀釋螢光素麻藥水把整個淚湖染成亮綠色，淬滅對比即完全喪失，將漏診微細濾過泡針孔滲漏！"
             },
             {
@@ -1697,7 +1697,7 @@
               "condition": "追蹤期間眼底檢查或照片新發現視盤邊緣火焰狀出血（Drance Hemorrhage）",
               "stage": "活躍惡化預警與治療升級評估期",
               "action": "記錄出血精確鐘點並拍照存證，加密後續視野（含對應中心旁 10-2）與 OCT 追蹤頻率，徹查用藥依從性、日夜眼壓尖峰與系統性夜間低血壓，並認真評估調降目標眼壓（加藥、雷射或手術）。",
-              "rationale": "大型臨床試驗（EMGT、OHTS、CNTGS）一致證實視盤出血是後續視野惡化最強烈的局部預測因子之一，強化降眼壓可降低出血復發與後續惡化速率。",
+              "rationale": "大型臨床試驗（EMGT、OHTS、CNTGS）一致證實視盤出血是後續視野惡化最強烈的局部預測因子之一，強化降眼壓可降低後續惡化風險，但 EMGT 未見降眼壓減少出血的發生或頻率。",
               "caution": "絕對不要因為『出血過兩個月自己消失了』就誤以為疾病痊癒——出血吸收是自然病程，神經纖維缺損才剛要浮現！"
             },
             {
@@ -3382,7 +3382,7 @@
             {
               "test": "鐮刀型紅血球篩檢與血紅素電泳（Sickledex & Hemoglobin Electrophoresis）",
               "purpose": "對所有具非裔、拉丁裔、地中海或中東血統（或家族不明）之外傷性／手術後前房積血患者緊急篩查鐮刀型血紅素（即使只是無症狀雜合子帶因者 sickle cell trait HbAS 在眼內前房同樣會鐮刀化！）。",
-              "interpretation": "陽性者必須立即將手術前房沖洗的眼壓容忍門檻大幅下修（平均 IOP ≥25 mmHg 逾 24 小時即考慮手術），並嚴禁投予全身碳酸酐酶抑制劑。",
+              "interpretation": "陽性者必須立即將手術前房沖洗的眼壓容忍門檻大幅下修（平均 IOP ≥25 mmHg 逾 24 小時即考慮手術），並避免全身碳酸酐酶抑制劑（尤其 acetazolamide）。",
               "limitation": "快速溶解度篩檢偶無法區分純合子疾病與雜合子帶因，需同步送血紅素電泳，但臨床急診護眼標準兩者一律從嚴。"
             },
             {
@@ -3410,7 +3410,7 @@
             {
               "condition": "睫狀體／脈絡膜惡性腫瘤相關高眼壓，以及鐮刀型前房積血急症",
               "stage": "紅線禁忌堅守期",
-              "action": "眼內惡性腫瘤伴高壓僅能以抑制房水生成藥物緩衝疼痛與眼壓（或配合質子束／近接放射腫瘤治療與眼球摘除），『嚴禁施行小樑切除、引流管或前房穿刺外引流手術』；鐮刀型紅血球前房積血則保持床頭抬高 30°、點阿托品與適度類固醇、用局部 β 阻斷劑控壓（禁用全身 CAI 與高滲甘油／mannitol 過度脫水），達 24×24 門檻或角膜血染前兆即行前房灌洗術。",
+              "action": "眼內惡性腫瘤伴高壓僅能以抑制房水生成藥物緩衝疼痛與眼壓（或配合質子束／近接放射腫瘤治療與眼球摘除），『嚴禁施行小樑切除、引流管或前房穿刺外引流手術』；鐮刀型紅血球前房積血則保持床頭抬高 30°、點阿托品與適度類固醇、用局部 β 阻斷劑控壓（避免全身 CAI 與高滲甘油／mannitol 過度脫水），達 24×24 門檻或角膜血染前兆即行前房灌洗術。",
               "rationale": "守住『惡性腫瘤不開濾過孔防全身轉移致死』與『鐮刀紅血球不給酸化脫水藥防視神經梗塞全盲』兩條絕對生命視力安全底線。",
               "caution": "單眼長期房角後退傷患終身皆有晚發高壓風險，務必衛教『即使傷後眼壓正常，每年仍須回診測雙眼眼壓與視盤一輩子』！"
             }
@@ -3444,7 +3444,7 @@
             },
             {
               "mistake": "對非裔前房積血傷患未驗鐮刀型紅血球就直接靜脈注射或口服 acetazolamide 500 mg 降壓。",
-              "correction": "全身碳酸酐酶抑制劑引起全身與房水酸化及血液濃縮，會促使前房紅血球全面鐮刀化卡死小樑網並誘發視神經缺血梗塞，鐮刀型疾病／帶因者絕對禁用全身 CAI！"
+              "correction": "全身碳酸酐酶抑制劑引起全身與房水酸化及血液濃縮，會促使前房紅血球全面鐮刀化卡死小樑網並誘發視神經缺血梗塞，鐮刀型疾病／帶因者應避免全身 CAI（尤其 acetazolamide），非用不可時才審慎改用 methazolamide！"
             }
           ],
           "recall": {
@@ -3453,7 +3453,7 @@
           },
           "status": "source-checked",
           "memoryAid": {
-            "oneLiner": "發炎、激素、外傷出血與腫瘤皆可在開放隅角下摧毀小樑排水：牢記「葡萄膜炎禁用縮瞳劑（Posner-Schlossman 關聯 CMV）」、類固醇升壓比例「一般人約 33% 輕升／4%–6% 強升，POAG 高達 ~95%」、前房積血合併鐮刀型紅血球「24 mmHg × 24 hr 警界且禁用全身 CAI」，以及睫狀體腫瘤高壓頭號機轉為「直接侵犯前房隅角」。",
+            "oneLiner": "發炎、激素、外傷出血與腫瘤皆可在開放隅角下摧毀小樑排水：牢記「葡萄膜炎禁用縮瞳劑（Posner-Schlossman 關聯 CMV）」、類固醇升壓比例「一般人約 33% 輕升／4%–6% 強升，POAG 高達 ~95%」、前房積血合併鐮刀型紅血球「24 mmHg × 24 hr 警界且避免全身 CAI」，以及睫狀體腫瘤高壓頭號機轉為「直接侵犯前房隅角」。",
             "mnemonic": "「前炎高壓禁縮瞳與 SLT · 單眼極高壓少 KP 開角反覆發作找 Posner-Schlossman（CMV）· 一般人點類固醇 1/3（33%）輕升 · 鐮刀貧血積血禁 Acetazolamide · 睫狀體腫瘤最常直接爬進房角！」",
             "visualFlow": [
               {
@@ -3466,7 +3466,7 @@
               },
               {
                 "step": "3. 眼球鈍挫傷、前房積血（鐮刀型血紅素病）與血影細胞／房角後退",
-                "detail": "急性前房積血若發生於鐮刀型紅血球疾病或帶因者（sickle cell disease/trait），前房低氧偏酸使紅血球鐮刀化僵硬塞死小樑網，且視神經在輕度高壓（平均 ≥25 mmHg 持續 24 小時）即易梗塞，絕對禁用全身 CAI（acetazolamide 會酸化血液與房水加速鐮刀化）！玻璃體出血後 1–3 個月變性卡其色球形紅血球竄入前房為血影細胞青光眼（ghost cell）；睫狀體縱環肌撕裂致寬深睫狀體帶則為房角後退（angle recession，≥180° 者終身約 6%–9% 晚發單眼青光眼）。"
+                "detail": "急性前房積血若發生於鐮刀型紅血球疾病或帶因者（sickle cell disease/trait），前房低氧偏酸使紅血球鐮刀化僵硬塞死小樑網，且視神經在輕度高壓（平均 ≥25 mmHg 持續 24 小時）即易梗塞，應避免全身 CAI（acetazolamide 會酸化血液與房水加速鐮刀化；非用不可時才審慎改用 methazolamide）！玻璃體出血後 1–3 個月變性卡其色球形紅血球竄入前房為血影細胞青光眼（ghost cell）；睫狀體縱環肌撕裂致寬深睫狀體帶則為房角後退（angle recession，≥180° 者終身約 6%–9% 晚發單眼青光眼）。"
               },
               {
                 "step": "4. 眼內腫瘤相關青光眼（Intraocular Tumors）",
@@ -3640,7 +3640,7 @@
             {
               "test": "超短眼軸生物測量與人工水晶體度數公式精算（Optical Biometry for Short Eyes）",
               "purpose": "為擬接受 EAGLE 早期透明水晶體摘除或 PACG 白內障手術之遠視短眼軸眼（常 <21.5–22.0 mm）精準預測有效人工水晶體位置（ELP）。",
-              "interpretation": "短眼軸淺前房眼術後囊袋大幅後退加深前房，舊式兩變項公式極易造成重大屈光意外（遠視殘留誤差），必須採用現代多變項光學公式（如 Barrett Universal II、Kane、Haigis 或 Hoffer Q）！",
+              "interpretation": "短眼軸淺前房眼術後囊袋大幅後退加深前房，舊式兩變項公式極易造成重大屈光意外（遠視殘留誤差），必須採用現代多變項光學公式（如 Barrett Universal II、Kane、Haigis；第三代雙變項的 Hoffer Q 可作短眼對照）！",
               "limitation": "極短眼軸（<20 mm 真性小眼球 nanophthalmos）鞏膜極厚阻礙渦靜脈回流，開內眼手術極易爆發惡性青光眼與脈絡膜滲液大出血，不可輕率套用一般 EAGLE 透明晶體摘除！"
             }
           ],
@@ -5764,7 +5764,7 @@
             {
               "condition": "單藥未達目標眼壓，或初診即屬中重度青光眼／正常眼壓青光眼（目標降壓 ≥30–40%）",
               "stage": "換藥（Switch）vs 互補機轉複方疊加（Add-on Fixed Combination）",
-              "action": "若首選單藥反應極差（降幅 <10–15%），應『直接換另一機轉單藥』而非留著無效藥硬疊加；若首選單藥有效但尚未達嚴格目標，則疊加『不同房水機轉』的第二藥（例如 PGA 增流出 ＋ 固定複方 dorzolamide/timolol 或 brimonidine/timolol 抑生成，或搭配 latanoprost/netarsudil 雙重流出複方），並優先挑選無 BAK 防腐劑或固定複方瓶減少每日總滴數。",
+              "action": "若首選單藥反應極差（降幅 <10–15%），應『直接換另一機轉單藥』而非留著無效藥硬疊加；若首選單藥有效但尚未達嚴格目標，則疊加『不同房水機轉』的第二藥（例如 PGA 增流出 ＋ 固定複方 dorzolamide/timolol 或 brimonidine/timolol 抑生成，或將原 PGA 換成 latanoprost/netarsudil 雙重流出複方），並優先挑選無 BAK 防腐劑或固定複方瓶減少每日總滴數。",
               "rationale": "同類藥物重複疊加（如同時開兩種 PGA）毫無附加效益甚至反而因受體脫敏使眼壓反彈升高！固定複方將兩瓶變一瓶，同時避免連續點兩瓶間隔不足 5 分鐘把前一滴藥沖出結膜囊（washout effect）。",
               "caution": "教導所有患者兩瓶獨立眼藥水之間必須間隔至少 5 分鐘，且每次只點 1 滴並閉眼輕壓內眥鼻淚管 2 分鐘。"
             },
@@ -9375,8 +9375,8 @@
       "bcsc-s10-ch002-u02": "2430620a5d852ca08f2c50bb5831bd598162da9b579939cde05f888dcbaa48e9",
       "bcsc-s10-ch003-u01": "7a4168391a1c24a50300f072c6467b6c1ff986bcd224e614fac4b866b5acdd68",
       "bcsc-s10-ch004-u01": "4704fced16ff799f97391c6e826eaffb5d62aee5490bbae8eef826dc9e5480ed",
-      "bcsc-s10-ch004-u02": "23d72384c35e0f98af1fcb96a3fd42928886b376ca8ba7ef75033cb81dd236d7",
-      "bcsc-s10-ch005-u01": "dbe17acc14d335eed0a0679bfec5a3e0435d18e14937a5f1e951c6fd28b38e4a",
+      "bcsc-s10-ch004-u02": "ae9713fc9a7658ee0509ff9fa080fd7771659b515bdd59173b396f3d60b6a10c",
+      "bcsc-s10-ch005-u01": "9793ee3203f1c09b253c7fcce6c49dfd3167250ac63ee81b921bef500c3ae371",
       "bcsc-s10-ch005-u02": "4248af272118ea855b7a11b92ce1d67ad0154080f7e2240139d56f0aa70ea9cf",
       "bcsc-s10-ch006-u01": "24f0f28aa4ec15edeb1de55559cd8bc869457b7cb3a9659ec3d4d9c642061bde",
       "bcsc-s10-ch006-u02": "7735095b68a84dc5ff0c5bf30195bb39c27d858508ffc2895c127a1afcfca75a",
@@ -9384,8 +9384,8 @@
       "bcsc-s10-ch007-u02": "a27fac4d17889c57dc0b63be81d679be9818a20df4273203cb18c4e1465bf495",
       "bcsc-s10-ch008-u01": "124cfb2e3ec6f1376a9fa58adba86173a776c47c38214a355424c1e2e5d54962",
       "bcsc-s10-ch008-u02": "275177c5674e5071982b5a9ae1edbcfac47993e9d6254d6b31a3a1bbf800a6ea",
-      "bcsc-s10-ch008-u03": "6fc5ed6781fddda985dbe13c22afcc11156c23b9e1a0457c8e95454c3c8ae7f0",
-      "bcsc-s10-ch009-u01": "492ab2dd55e6577a712bcef8ba0847d7cf90310e00098097980a0c6394284cc0",
+      "bcsc-s10-ch008-u03": "5032ebff3e9b4a39b4451f0b90d2af532e9542036a67011474f45a481325fa7b",
+      "bcsc-s10-ch009-u01": "191ed777b79bf80de0dea06eab2829fd4a15cd4a02d81f61ef9f30c2412c86b3",
       "bcsc-s10-ch009-u02": "ebba9a1e1159fe9c94d6d2dfa608b59cd694e684baa115222ee4583a52e063aa",
       "bcsc-s10-ch009-u03": "4273f8503e59aa8b7f4693c79e7e4d70fb686a021445aa4b32ee25ad4d2f77f2",
       "bcsc-s10-ch010-u01": "6a72447cfc79584d055103cdeefadf59e246a24805c3cbfb243e031092cf086d",
@@ -9395,7 +9395,7 @@
       "bcsc-s10-ch011-u02": "5efccdedc4de5fad40af76306f57a40163f398608dcd6371737f137b35f3d6fc",
       "bcsc-s10-ch011-u03": "ebccc65af998f9284c37c9050da6c4d27e3d4d36a79239eedf58a813f9ae467f",
       "bcsc-s10-ch011-u04": "36d8062f21d60ee9ae5eb1393638b442526619e063dec7bbf2bfae79dfa137a2",
-      "bcsc-s10-ch012-u01": "c1aea3c15e563fe56456f9bbd8c91503bb8ce1f0aa61aadd4d3c5ba3f858a18c",
+      "bcsc-s10-ch012-u01": "5219764d6eda12eec88be3fc3305f03e982b5ee9655c83bfde84bfe097aa7425",
       "bcsc-s10-ch012-u02": "db22e47ea305e6401e28da9af8aac65fbc93b10df85acf9b7f62af3155997160",
       "bcsc-s10-ch013-u01": "8de32c2cd5f6585f6c7b2cab13cc2f757b94b82fc492cbfeb30934e52efec218",
       "bcsc-s10-ch013-u02": "cb34a519de938ec56616e739b488c3de8b7b86d38372da74cb035aefeecb010b",
