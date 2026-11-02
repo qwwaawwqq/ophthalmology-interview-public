@@ -78,8 +78,14 @@
   }
   function formatExpected(val){
     if(typeof val!=='number'||!Number.isFinite(val))return String(val??'');
-    const raw=String(val),num=/\.\d{5,}/.test(raw)?Number(val.toFixed(Math.abs(val)>=10?2:3)):val;
-    return String(num).replace(/^-/,'−');
+    if(val===0)return '0';
+    const abs=Math.abs(val),raw=String(val);
+    let out=raw;
+    if(abs<1e-6)out=val.toExponential(3).replace(/\.?0+e/,'e');
+    else if(/\.\d{7,}/.test(raw)||/e/i.test(raw)){
+      out=abs>=10?String(Number(val.toFixed(2))):abs>=1?String(Number(val.toFixed(3))):String(Number(val.toPrecision(4)));
+    }
+    return out.replace(/^-/,'−');
   }
   function inferCalcHint(expr){
     const s=String(expr??'').trim();

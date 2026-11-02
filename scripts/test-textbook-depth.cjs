@@ -480,6 +480,14 @@ for mutate in [
   assert(h01.includes(' = <strong>0.9</strong>'));
   assert(h01.includes('(10 ÷ 200) ÷ (20 ÷ 200)'));
   assert(h01.includes(' = <strong>0.5</strong>'));
+  const s03=JSON.parse(fs.readFileSync(path.join(__dirname,'../content/textbook-depth/bcsc-s03.json'),'utf8'));
+  const b03=moduleBoot(new Map(),'#textbook-bcsc-s03-ch002',s03);
+  await b03.mount();
+  assert(b03.root.innerHTML.includes(' = <strong>0.000305</strong>'),'small Airy-disc expected value preserves significant digits');
+  const s11=JSON.parse(fs.readFileSync(path.join(__dirname,'../content/textbook-depth/bcsc-s11.json'),'utf8'));
+  const b11=moduleBoot(new Map(),'#textbook-bcsc-s11-ch010',s11);
+  await b11.mount();
+  assert(b11.root.innerHTML.includes(' = <strong>0.00025</strong>'),'small incidence ratio preserves significant digits');
  });
  await test('bilingual Traditional Chinese chapter subtitles render across all 10 chapters of bcsc-s13 including Patient Evaluation',async()=>{
   const s13=JSON.parse(fs.readFileSync(path.join(__dirname,'../content/textbook-depth/bcsc-s13.json'),'utf8'));
