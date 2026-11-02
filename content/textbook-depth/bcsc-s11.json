@@ -2995,7 +2995,7 @@
           "pitfalls": [
             {
               "mistake": "病人術前眼鏡戴 -3.00 -2.50 × 180°，但角膜地形圖顯示角膜完全是球面無散光（0.25 D），醫師卻照眼鏡處方幫病人訂了一片 T5 Toric IOL",
-              "correction": "該 -2.50 D 全是病態晶狀體核傾斜硬化的「晶狀體散光」，白內障一吸掉散光就沒了！若誤放 T5 Toric，術後病人將白白多出 2.50 D 醫源性散光！"
+              "correction": "該 -2.50 D 全是病態晶狀體核傾斜硬化的「晶狀體散光」，白內障一吸掉散光就沒了！若誤放 T5 Toric（IOL 平面 3.00 D，約合角膜平面 2.06 D），術後病人將白白多出約 2 D 醫源性散光！"
             },
             {
               "mistake": "高度近視患者 Toric IOL 術後一週轉歪 20 度，醫師責怪病人術後散步走路或看手機用眼過度，只叫病人去重配一副散光眼鏡",
@@ -4631,7 +4631,7 @@
             {
               "test": "房角鏡與超高頻超音波生物顯微鏡（Gonioscopy & UBM / AS-OCT for Cyclodialysis）",
               "purpose": "針對鈍傷或複雜白內障術後不明原因頑固性低眼壓（<5 mmHg），精準定位睫狀體分離裂隙鐘點與寬度",
-              "interpretation": "因眼球太軟房角鏡常受角膜皺褶干擾（可先在前房打入少許黏彈劑撐開房角稱 viscogoniotomy 觀察），UBM 則可無創穿透鞏膜清晰拍出睫狀體自鞏膜突剝離並連通脈絡膜上腔積液的精確弧度",
+              "interpretation": "因眼球太軟房角鏡常受角膜皺褶干擾（可先在前房打入少許黏彈劑撐開房角稱 viscoelastic-assisted gonioscopy 觀察），UBM 則可無創穿透鞏膜清晰拍出睫狀體自鞏膜突剝離並連通脈絡膜上腔積液的精確弧度",
               "limitation": "必須先以 Seidel 螢光染色排除最常見的切口微滲漏，再排查睫狀體裂離。"
             }
           ],
@@ -8552,7 +8552,7 @@
       "bcsc-s11-ch006-u01": "8094322f70a7897975038333d00cb0cf575d94f0e3d01d9b7529c84e61321870",
       "bcsc-s11-ch006-u02": "4d6409cff9ac56c6073da7f5e0fc71fb66d9fbe490fe6002ea8468dd521f78af",
       "bcsc-s11-ch007-u01": "f4ab21a67425ff61f7e10b9cd2dc9eb788d4d3c8fa238f67f294208bdc58e6f6",
-      "bcsc-s11-ch007-u02": "f3e54d22d0ca20263d2662bb206ad8fc6fe6df457c088578db11c694ebcd2a9c",
+      "bcsc-s11-ch007-u02": "e333820a2bf30d2634372690776425487ed72145c184db845f8fedc079fafc20",
       "bcsc-s11-ch007-u03": "b1eb5722b36ea01cffcf387e1650026f58b5a6179e6cba276f18b4a4158d6e00",
       "bcsc-s11-ch008-u01": "dd43ca3493b95acac9c035292790a7ba4a0945cf969d689e5a3915836916bfed",
       "bcsc-s11-ch008-u02": "a5fe800458e9641e65b606ae489a20b852111a387093dc5492ec0af44f428d59",
@@ -8560,7 +8560,7 @@
       "bcsc-s11-ch009-u01": "3c1385383e57c642e717d6f0b99b5f4fe3be49b9f4b9ef5f8795430e0e3b2fe9",
       "bcsc-s11-ch010-u01": "0b67dbe14ae1d02bcb0bc88947d8d538a43e2a545cbe8a35cdd9c7bf785051de",
       "bcsc-s11-ch010-u02": "e529bb7b70178bd704e0f6c567dac4947f3f1ab63d40378a5f67d929ca67ff78",
-      "bcsc-s11-ch010-u03": "6947107949e460f6ec946bb91df08a7b13b232eae08e2e66afbcaeb40301573d",
+      "bcsc-s11-ch010-u03": "611850db8b40b4fd47eec43b5e23448139245f66c8ba4ece3b82b08330dc12ae",
       "bcsc-s11-ch011-u01": "84ca38a4f1a39c944e2b290eabc51a3ba557a8e980dfa3e5b56e18068978a85d",
       "bcsc-s11-ch011-u02": "e528e8c9677ae13c1f493774c4d128b94e48ec55e7a94fbc95c885a64a2f2dc0",
       "bcsc-s11-ch011-u03": "a1fc313ce4b8d833b13b446827573540d771a413f572ce6628d0cdfcf6651e8d",
