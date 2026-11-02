@@ -76,7 +76,7 @@ function wellFormed(markup) {
   }
   assert.equal(stack.length, 0, 'Unclosed tags: ' + stack.join(','));
 }
-const settle = async () => { for (let i = 0; i < 8; i++) await Promise.resolve(); };
+const settle = async () => { for (let i = 0; i < 16; i++) await Promise.resolve(); };
 
 const results = [];
 async function test(name, run) {
@@ -287,6 +287,89 @@ async function test(name, run) {
     assert.equal(app.qa.S.search, 'RAPD');
     assert(app.main().includes('value="RAPD"'));
     app.handlers.get('submit')({preventDefault() { throw Error('other forms must submit normally'); }, target: {matches: () => false}});
+  });
+
+  await test('筆試練習 integrates BCSC S01–S13, Hard clinical reasoning, and Extra cases while keeping core mode intact', async () => {
+    const manifest = JSON.parse(fs.readFileSync(path.join(root, 'content/textbook-manifest.json'), 'utf8'));
+    const bcsc01 = JSON.parse(fs.readFileSync(path.join(root, 'content/textbook-depth/bcsc-s01.json'), 'utf8'));
+    const hardPack = JSON.parse(fs.readFileSync(path.join(root, 'content/textbook-depth/advanced-practice.json'), 'utf8'));
+    const extraPack = JSON.parse(fs.readFileSync(path.join(root, 'content/textbook-depth/additional-practice.json'), 'utf8'));
+    const fetchImpl = url => {
+      const u = String(url);
+      if (u.includes('exam-schedule.json')) return Promise.resolve({ok: true, json: () => Promise.resolve({schemaVersion: 1, hospitals: []})});
+      if (u.includes('textbook-manifest.json')) return Promise.resolve({ok: true, json: () => Promise.resolve({...manifest, books: [manifest.books[0]]})});
+      if (u.includes('bcsc-s01.json')) return Promise.resolve({ok: true, json: () => Promise.resolve(bcsc01)});
+      if (u.includes('advanced-practice.json')) return Promise.resolve({ok: true, json: () => Promise.resolve(hardPack)});
+      if (u.includes('additional-practice.json')) return Promise.resolve({ok: true, json: () => Promise.resolve(extraPack)});
+      return Promise.resolve({ok: false});
+    };
+    const app = boot({fetchImpl});
+    await settle();
+    // 今日 has quick-launch buttons for BCSC, Hard, and Extra
+    assert(app.main().includes('data-today-quiz-banks'));
+    for (const mode of ['bcsc', 'hard', 'extra']) {
+      assert(app.main().includes(`data-action="quiz-bank-open" data-value="${mode}"`));
+    }
+    // Open #quiz in default core mode
+    app.action('tab', 'quiz');
+    let main = app.main();
+    wellFormed(main);
+    assert(main.includes('data-quiz-bank-switcher'));
+    assert(main.includes('data-quiz-adv-banner'));
+    for (const mode of ['core', 'bcsc', 'hard', 'extra', 'all-advanced']) {
+      assert(main.includes(`data-quiz-bank="${mode}"`), 'missing switcher button for ' + mode);
+    }
+    assert(main.includes('id="topic-filter"') && main.includes('id="mode-filter"'), 'core controls remain untouched');
+
+    // Switch to BCSC mode
+    app.action('quiz-bank', 'bcsc');
+    await settle();
+    main = app.main();
+    wellFormed(main);
+    assert(main.includes('data-quiz-adv-toolbar') && main.includes('id="quizList"'));
+    assert(main.includes('id="quiz-adv-volume"') && main.includes('id="quiz-adv-status"') && main.includes('id="qShuffle"') && main.includes('id="qResetShown"'));
+    const q1 = bcsc01.questions[0];
+    assert(main.includes(`data-question-id="${q1.id}"`));
+    // Answer a BCSC question and verify 4-option rationale + whenTrue reveal
+    app.action('quiz-adv-answer', `${q1.id}|${q1.correctIndex}`);
+    main = app.main();
+    wellFormed(main);
+    assert.equal(app.qa.entries['textbook:question:' + q1.id]?.choice, q1.correctIndex);
+    assert.equal(app.qa.entries['textbook:question:' + q1.id]?.revealed, true);
+    assert(main.includes('data-quiz-adv-rationales') && main.includes('條件反轉（何時成立）'));
+
+    // Switch to Hard mode
+    app.action('quiz-bank', 'hard');
+    await settle();
+    main = app.main();
+    wellFormed(main);
+    assert(main.includes('data-quiz-hard-actions') && main.includes('id="quiz-adv-domain"'));
+    const hq = hardPack.questions[0];
+    assert(main.includes(`data-question-id="${hq.id}"`));
+    app.action('quiz-adv-answer', `${hq.id}|${hq.correctIndex}`);
+    main = app.main();
+    wellFormed(main);
+    assert.equal(app.qa.entries['textbook:extra-question:' + hq.id]?.choice, hq.correctIndex);
+    assert(main.includes('data-quiz-adv-reasoning') && main.includes('關鍵鑑別點'));
+
+    // Switch to Extra 120 mode
+    app.action('quiz-bank', 'extra');
+    await settle();
+    main = app.main();
+    wellFormed(main);
+    const eq = extraPack.questions[0];
+    assert(main.includes(`data-question-id="${eq.id}"`));
+
+    // Switch back to core mode
+    app.action('quiz-bank', 'core');
+    main = app.main();
+    wellFormed(main);
+    assert(main.includes('id="topic-filter"') && main.includes('id="mode-filter"'));
+
+    // Non-oph specialty does not show ophthalmology quiz bank switcher
+    const nm = boot({search: '?s=nm'});
+    nm.action('tab', 'quiz');
+    assert(!nm.main().includes('data-quiz-bank-switcher'));
   });
 
   console.log(JSON.stringify({passed: results.filter(x => x.pass).length, failed: results.filter(x => !x.pass).length, results}, null, 2));
