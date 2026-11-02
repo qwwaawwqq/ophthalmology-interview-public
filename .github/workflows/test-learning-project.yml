@@ -25,6 +25,7 @@ jobs:
           python3 scripts/apply-learning-project.py --check
           python3 scripts/apply-exam-schedule.py --check
           python3 scripts/apply-app-install.py --check
+          python3 scripts/apply-layout.py --check
           node scripts/test-app-install.cjs
           node scripts/test-exam-schedule.cjs
           node scripts/test-integrated-lessons.cjs
@@ -37,3 +38,4 @@ jobs:
           node scripts/test-textbook-atlas.cjs
           node scripts/test-study-srs.cjs
           node scripts/test-learning-project.cjs
+          node scripts/test-layout.cjs
