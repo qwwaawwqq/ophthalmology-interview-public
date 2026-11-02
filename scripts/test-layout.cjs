@@ -124,7 +124,7 @@ async function test(name, run) {
     const app = boot();
     let nav = app.nav();
     assert(!nav.includes('specialty-pill'));
-    assert.equal((nav.match(/class="spec-item/g) || []).length, 27);
+    assert.equal((nav.match(/class="spec-item/g) || []).length, 5);
     assert(nav.includes('id="spec-panel" hidden'));
     assert(nav.includes('<span class="spec-current">眼科</span>'));
     app.action('spec-toggle');

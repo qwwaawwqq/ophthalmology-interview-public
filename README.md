@@ -7,7 +7,7 @@
 ## 版面（2026-11）
 
 - 進站先到「今日」：報名截止提醒、下一場甄試倒數（讀 `content/exam-schedule.json`）、今日複習數量、繼續閱讀／筆試／面試，以及各章進度。
-- 側欄分為今日、閱讀、筆試、面試、我的；27 科改為側欄上方一個可搜尋的「科別 · 切換」按鈕。
+- 側欄分為今日、閱讀、筆試、面試、我的；5 科改為側欄上方一個可搜尋的「科別 · 切換」按鈕。
 - 頂列有全站搜尋（送出後到章節教材顯示結果）；收藏此頁、安裝 App、匯入與匯出收在「保存與同步」選單。
 - 面試演練在寬螢幕分三欄：題目清單、作答區、參考答案與追問。
 - 手機改用底部五個分頁（今日／教材／筆試／面試／更多）；筆試作答時隱藏分頁列。
@@ -42,6 +42,10 @@
 ### 2026-11-02 題庫與口試去重
 
 跨章重複的同一考點只保留一題：HCQ 毒性偵測（保留 No.13 `notes-13-k15`）、閃光飛蚊幕簾缺損（保留 No.10 `notes-10-03`）、topiramate 機轉（保留 No.13 `notes-13-12`）、fluorescein 鈷藍光顏色（保留 No.05 `notes-05-k07`）。臨床口試 `notes-13-case-2` 與 `notes-07-case-2`（瞳孔阻滯 vs topiramate）重疊，併入後者。外觀相近但考不同重點的題目（內外層血視網膜屏障、兩型眼瞼下垂、不同度數的清晰範圍計算、不同年份的斜視檢查題）保留。
+
+### 2026-11-02 章節教材去重
+
+14 章頁面上，同一句話在單元串連、深入理解與共筆主題詳解重複出現的地方，刪去 151 句（約 3,400 字）：深入理解 48、主題詳解 87、單元串連 16。只刪不寫；每一句刪除前都確認同一頁仍有完整說法，並由另一位未參與刪除的審查者逐句核對資訊沒有遺失、段落仍通順，不通過的 74 句保留。基礎重點（原共筆整理）、判斷練習、題目與 id 都沒有變動；主題詳解仍各自說明自己標題的重點，所以與基礎重點仍有部分重疊。
 
 ## 圖解與延伸學習
 
@@ -114,7 +118,7 @@ PBL 與流程內容於 2026-10-13 由獨立審稿依 AAO／EyeWiki、AAP、ACR�
 - `content/interview-detailed.json`：45 題面試演練的詳細參考答案與追問回答。
 - `content/pbl-cases.json`、`content/clinical-workflows.json`：PBL 情境與臨床流程；來源 ID 必須是章節資源中已有的連結。
 - `scripts/progress-sync.js`：自動保存、回到上次畫面、GitHub 私人 repo 同步與裝置設定 QR，由建置腳本嵌入。
-- `scripts/specialty-registry.js`：科別登錄表（共 27 個臨床科別），由 `apply-enrichment.py` 以 `<script id="specialty-boot">` 嵌入（必須帶屬性，建置會改寫所有無屬性的 `<script>`），並為 26 個非眼科科別（`ent`、`rad`、`radonc`、`nm`、`neuro`、`gs`、`prs`、`ortho`、`uro`、`ns`、`gm`、`cv`、`pulm`、`gi`、`nephro`、`endo`、`hemeonc`、`id`、`rheu`、`ped`、`obgyn`、`derm`、`psych`、`pmr`、`anes`、`fm`）嵌入獨立的 `<script type="application/json" id="course-data-<科>">` 資料區塊。首頁與左側欄皆可切換科別（眼科 `./`、其他科 `./?s=<科別代碼>`）；尚未匯入教材的段落會顯示「內容待補」，不混入眼科題目或章節。各科使用自己的本機保存前綴（`<科>-prep:`）、雲端檔案（`progress-<科>.json`）與進度格式（`<科>-prep-progress-v1`），彼此不能互相匯入。眼科維持原本的 `course-data`、`oph-prep:`、`progress.json` 與 v1／v2／v3 格式。
+- `scripts/specialty-registry.js`：科別登錄表（共 5 個臨床科別，僅保留有甄選面試的科別），由 `apply-enrichment.py` 以 `<script id="specialty-boot">` 嵌入（必須帶屬性，建置會改寫所有無屬性的 `<script>`），並為 4 個非眼科科別（`ent`、`rad`、`nm`、`neuro`）嵌入獨立的 `<script type="application/json" id="course-data-<科>">` 資料區塊。首頁與左側欄皆可切換科別（眼科 `./`、其他科 `./?s=<科別代碼>`；未登錄或已移除的代碼，例如舊的 `?s=pmr`，會回到眼科）；尚未匯入教材的段落會顯示「內容待補」，不混入眼科題目或章節。各科使用自己的本機保存前綴（`<科>-prep:`）、雲端檔案（`progress-<科>.json`）與進度格式（`<科>-prep-progress-v1`），彼此不能互相匯入。眼科維持原本的 `course-data`、`oph-prep:`、`progress.json` 與 v1／v2／v3 格式。
 - `scripts/vendor/qrcode.js`：[qrcode-generator](https://github.com/kazuhikoarase/qrcode-generator) 2.0.4（MIT，授權見 `scripts/vendor/qrcode-generator.LICENSE`），僅在顯示設定 QR code 時載入。
 - 建置會把產生的程式區塊放回原位，不移動其他工具（例如共筆考前衝刺）加入的程式。
 - `scripts/practice-ui.js`、`scripts/practice-ui.css`：PBL、流程、我的連結與網址路由的介面，由建置腳本嵌入。
