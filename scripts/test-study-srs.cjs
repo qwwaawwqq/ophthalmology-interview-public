@@ -81,5 +81,35 @@ async function test(name,fn){try{await fn();results.push({name,pass:true});}catc
   assert(root.innerHTML.includes('今日稍後'));assert(root.innerHTML.includes('共筆 535 題'));assert(root.innerHTML.includes('原書概念 540 題'));assert(root.innerHTML.includes('自編陌生題 120 題'));assert(root.innerHTML.includes(q.stem));
   handlers.get('click')({target:{closest:()=>({dataset:{studyFilter:'all'},disabled:false})}});assert(root.innerHTML.includes('手動練習'));
  });
+ await test('continuous due and weak review queues advance across due items and show interval previews',async()=>{
+  const a=fresh(),q1=a.qa.D.questions[0],q2=a.qa.D.questions[1];
+  a.action('practice-one',q1.id);a.change('answer',{name:'answer',value:String((q1.correctIndex+1)%4)});a.action('submit');
+  a.action('practice-one',q2.id);a.change('answer',{name:'answer',value:String(q2.correctIndex)});a.action('submit');
+  assert(a.main().includes('Again · 重練 (10分)'));assert(a.main().includes('Good · 熟悉 (1天)'));assert(a.main().includes('Easy · 很熟 (3天)'));assert(a.main().includes('下一題到期複習'));
+  const token2=record(a,'shared',q2.id).attempt.id;assert(a.study.grade('shared',q2.id,token2,'hard'));
+  a.study.setClock(()=>Date.parse('2026-10-21T15:00:00.000Z'));
+  const first=a.study.nextReview('due');assert.deepEqual(JSON.parse(JSON.stringify(first)),{pool:'shared',id:q1.id,remaining:2});assert.equal(a.qa.S.ids[a.qa.S.qi],q1.id);
+  const second=a.study.nextReview('due');assert.deepEqual(JSON.parse(JSON.stringify(second)),{pool:'shared',id:q2.id,remaining:2});assert.equal(a.qa.S.ids[a.qa.S.qi],q2.id);
+  const weakNext=a.study.nextReview('weak');assert.equal(weakNext.id,q1.id);
+ });
+ await test('cram active-recall flashcards support Again/Hard/Good/Easy SRS scheduling and due filtering',async()=>{
+  const a=fresh(),cramData=read('content/cram-review.json'),handlers=new Map();
+  const root={isConnected:true,dataset:{},innerHTML:'',querySelector(){return {focus(){},scrollIntoView(){}};},addEventListener(n,fn){handlers.set(n,fn);}};
+  a.context.fetch=async()=>({ok:true,json:async()=>structuredClone(cramData)});
+  a.document.currentScript={src:'https://example.test/scripts/cram-review.js'};
+  const get=a.document.getElementById;a.document.getElementById=()=>null;
+  vm.runInContext(fs.readFileSync(path.join(here,'cram-review.js'),'utf8'),a.context);
+  a.document.getElementById=get;
+  await a.context.window.OphCram.mount(root);
+  const cardId=cramData.cards[0].id;
+  handlers.get('click')({target:{closest:s=>s==='[data-cram-srs]'?{dataset:{id:cardId,cramSrs:'good'},closest:()=>({nextElementSibling:null})}:null}});
+  let saved=JSON.parse(a.local.getItem('oph-prep:cram-review-v1'));
+  assert.equal(saved[cardId].status,'known');assert.equal(saved[cardId].plan.step,0);assert.equal(saved[cardId].plan.dueAt,'2026-10-21T14:00:00.000Z');
+  handlers.get('change')({target:{matches:s=>s==='[data-cram-filter]',value:'due'}});
+  assert(!root.innerHTML.includes(`data-card-id="${cardId}"`),'card due tomorrow is not in due filter today');
+  a.study.setClock(()=>Date.parse('2026-10-21T14:05:00.000Z'));
+  handlers.get('change')({target:{matches:s=>s==='[data-cram-filter]',value:'due'}});
+  assert(root.innerHTML.includes(`data-card-id="${cardId}"`),'card appears in due filter once dueAt arrives');
+ });
  console.log(JSON.stringify({pass:results.filter(r=>r.pass).length,total:results.length,results},null,2));if(results.some(r=>!r.pass))process.exitCode=1;
 })();
