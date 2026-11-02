@@ -80641,7 +80641,8 @@
             }
           ],
           "unitIds": [
-            "bcsc-s13-ch001-u01"
+            "bcsc-s13-ch001-u01",
+            "bcsc-s13-ch002-u04"
           ]
         },
         {
@@ -81658,7 +81659,7 @@
           "mechanism": [
             "圓錐角膜與亞臨床擴張最早期的結構軟化往往先顯現在「角膜後表面（posterior corneal elevation）」與「最薄點空間向下方偏移」，而角膜上皮具有強大的代償重塑力——在突起圓錐頂點上方主動變薄、在周圍凹槽主動增厚形成「上皮甜甜圈圖樣（epithelial doughnut pattern）」，將早期圓錐表面抹平掩蓋，使單純前表面 Placido 地形圖出現假正常盲區！",
             "前表面地形圖三大高危形態警訊絕不可放過：（1）下方顯著陡於上方（I−S 不對稱值異常升高）；（2）上下陡軸夾角歪斜的偏斜放射軸蝴蝶結（skewed radial axes, SRAX ＞ 21°–22°）；（3）下方周邊變薄導致上方平坦、下方兩側相向彎曲呈接吻鳥／蟹爪外觀的「蟹爪圖形（crab-claw / kissing doves pattern）」，為透明邊緣變性（PMD）或偏下型圓錐角膜之絕對雷射禁忌！",
-            "即便角膜天生結構完全正常，過度切削前基質高抗張板層仍會誘發醫源性角膜擴張：LASIK 剩餘基質床公式為 `RSB = CCT − 瓣厚 − 消融深度`（歷史紅線 `≥250 μm`，現代常規守 `≥280–300 μm`）；Santhiago 組織變動百分比 `PTA = (瓣厚 + 消融深度) / CCT` 在正常地形圖眼中一旦 `≥40%` 擴張風險即陡升！",
+            "即便角膜天生結構完全正常，過度切削前基質高抗張板層仍會誘發醫源性角膜擴張：LASIK 剩餘基質床公式為 RSB = CCT − 瓣厚 − 消融深度（歷史紅線 ≥250 μm，現代常規守 ≥280–300 μm）；Santhiago 組織變動百分比 PTA = (瓣厚 + 消融深度) / CCT 在正常地形圖眼中一旦 ≥40% 擴張風險即陡升！",
             "Randleman 擴張風險評分系統（ERSS）綜合五大權重變數（0–2 分低風險、3 分中風險、≥4 分高風險禁做 LASIK）：依影響力排序為①術前地形圖型態（異常直接得 4 分出局！）、②預計剩餘基質床 RSB（＜240 μm 得 4 分）、③年齡（18–21 歲年輕角膜尚未自然交聯且處圓錐好發期得 3 分）、④術前中央角膜厚度（＜450 μm 得 4 分）、⑤術前顯性等效球鏡度數。"
           ],
           "diagram": {
@@ -82178,16 +82179,16 @@
           ],
           "references": [
             {
-              "title": "American Academy of Ophthalmology. Basic and Clinical Science Course, Section 13: Refractive Surgery (Patient Evaluation and Ectasia Risk)",
-              "url": "https://www.aao.org/education/bcsc",
-              "year": "2025",
-              "note": "Randleman Ectasia Risk Score System, Percent Tissue Altered (PTA), posterior elevation, and epithelial mapping."
+              "title": "Randleman JB, Woodward M, Lynn MJ, Stulting RD. Risk assessment for ectasia after corneal refractive surgery. Ophthalmology",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/17624434/",
+              "year": "2008",
+              "note": "Foundational validation of the 5-factor Ectasia Risk Score System (ERSS) in preoperative LASIK screening (Ophthalmology 2008;115:37–50)."
             },
             {
-              "title": "Randleman JB, Woodward M, Lynn MJ, Stulting RD. Risk assessment for ectasia after corneal refractive surgery. Ophthalmology",
-              "url": "https://pubmed.ncbi.nlm.nih.gov/18022668/",
-              "year": "2025",
-              "note": "Foundational validation of the 5-factor Ectasia Risk Score System (ERSS) in refractive surgery screening."
+              "title": "Santhiago MR, Smadja D, Gomes BF, et al. Association between the percent tissue altered and post-laser in situ keratomileusis ectasia in eyes with normal preoperative topography. Am J Ophthalmol",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/24727263/",
+              "year": "2014",
+              "note": "Establishes Percent Tissue Altered PTA = (FT + AD) / CCT ≥ 40% as a robust ectasia risk threshold in eyes with normal topography."
             }
           ]
         },
@@ -85147,566 +85148,530 @@
           ],
           "clinicalQuestion": "門診一天內來了地圖點狀指紋失養症（EBMD）、Avellino 基質失養症家族史、曾得過單純疱疹角膜炎、做過小樑切除濾過泡青光眼及類風濕性關節炎五位患者要求做近視雷射——誰做 PRK 反而一舉兩得治好舊疾？誰一打準分子雷射就會長滿雪花沉積或角膜穿孔？",
           "mechanism": [
-            "角膜失養症必須按解剖層次精準分流：（1）**上皮基底膜失養症（EBMD / Map-dot-fingerprint）**——半橋粒與基底膜鬆動，若做 LASIK（尤其機械刀）極易發生術中大片上皮剝脫（sloughing）、次發性 DLK、上皮長入與瓣融解，故禁做 LASIK；但改做 **PRK（去上皮＋準分子消融）反而能順便完成前基質穿刺／PTK 治療效果**，讓新生上皮緊密錨定、一舉治癒反覆角膜糜爛！（2）**TGFBI 基因相關基質失養症（特別是 Avellino 顆粒-格子複合型與顆粒型）**——LASIK 或 PRK 創傷會刺激突變角膜上皮與基質細胞在層間或前基質暴發濃密灰白結晶沉積毀掉視力，列為絕對禁忌！（3）**明顯 Fuchs 角膜內皮失養症**——內皮脫水幫浦失能會使 LASIK 角膜瓣無法負壓貼附並誘發角膜水腫失代償，列為禁忌！",
-            "感染、移植與網膜特殊眼病把關：（1）**單純疱疹病毒（HSV）角膜炎病史**——準分子紫外光、手術神經創傷與術後類固醇皆可誘發潛伏於三叉神經節的病毒再活化！活動期與重度神經營養性角膜炎／深基質疤痕禁用；若靜止多年且角膜知覺正常經審慎評估施作，圍術期必須投予「全身口服抗病毒藥物預防（oral antiviral prophylaxis，如 acyclovir / valacyclovir）」！（2）**帶狀疱疹（HZV）**更易合併嚴重角膜知覺喪失與神經營養性角膜融解，須測角膜敏感度極度審慎；（3）**穿透性角膜移植（PKP）後**——須等移植**滿 `≥1 年` 且全拆線後 `≥4 個月`**、連續驗光地形穩定始可評估（PRK 必加 0.02% MMC 防 haze，LASIK 防吸引環裂傷，術後嚴防排斥）。",
-            "全身性疾病與藥物安全紅線：（1）**未受控自體免疫膠原血管病**（活動性 RA、SLE、GPA、Sjögren 乾燥症）具極高壞死性鞏膜炎與無菌角膜融解穿孔風險，列為禁忌（僅部分極穩定輕症無乾眼者在風濕科共照下極審慎個別評估）；（2）**懷孕哺乳期**與**血糖波動糖尿病**必須暫緩至穩定；（3）**全身異維 A 酸（isotretinoin，嚴重萎縮瞼板腺致重度乾眼與疤痕）**及**胺碘酮（amiodarone，渦狀角膜沉積與光敏感／視神經病變疑慮）**須詳查停藥與眼表狀態；HIV 感染屬相對禁忌（查免疫控制並於雷射時開啟 `0.22 μm` 超微濾網排煙器）。",
-            "青光眼與高眼壓患者的四大生死陷阱：（1）製瓣負壓吸引環會使眼壓短暫飆破 **`＞65 mmHg`**，晚期青光眼視神經凹陷伴視野缺損者禁受高壓壓迫（且結膜若有青光眼濾過泡 filtering bleb 絕對放不下吸引環，禁做 LASIK！）；（2）近視消融削薄並軟化中央角膜，使術後 Goldmann 壓平眼壓永遠「假性偏低」漏診青光眼；（3）PRK 需點數月類固醇、LASIK 亦點類固醇，青光眼族群高達高比例為「類固醇高眼壓反應者（steroid responder）」，極易誘發青光眼惡化或 LASIK 層間積液 PISK；（4）術後檢驗視盤與神經纖維層（RNFL OCT）基線須重新建立。"
+            "角膜失養症必須按解剖層次精準分流：（1）上皮基底膜失養症（EBMD / Map-dot-fingerprint）——半橋粒與基底膜鬆動，若做 LASIK（尤其機械刀）極易發生術中大片上皮剝脫（sloughing）、次發性 DLK、上皮長入與瓣融解，故禁做 LASIK；但改做 PRK（去上皮＋準分子消融）反而能順便完成前基質穿刺／PTK 治療效果，讓新生上皮緊密錨定、一舉治癒反覆角膜糜爛！（2）TGFBI 基因相關基質失養症（特別是 Avellino 顆粒-格子複合型與顆粒型）——LASIK 或 PRK 創傷會刺激突變角膜上皮與基質細胞在層間或前基質暴發濃密灰白結晶沉積毀掉視力，列為絕對禁忌！（3）明顯 Fuchs 角膜內皮失養症——內皮脫水幫浦失能會使 LASIK 角膜瓣無法負壓貼附並誘發角膜水腫失代償，列為禁忌！",
+            "感染、移植與網膜特殊眼病把關：（1）單純疱疹病毒（HSV）角膜炎病史——準分子紫外光、手術神經創傷與術後類固醇皆可誘發潛伏於三叉神經節的病毒再活化！活動期與重度神經營養性角膜炎／深基質疤痕禁用；若靜止多年且角膜知覺正常經審慎評估施作，圍術期必須投予「全身口服抗病毒藥物預防（oral antiviral prophylaxis，如 acyclovir / valacyclovir）」！（2）帶狀疱疹（HZV）更易合併嚴重角膜知覺喪失與神經營養性角膜融解，須測角膜敏感度極度審慎；（3）穿透性角膜移植（PKP）後——須等移植滿 ≥1 年 且全拆線後 ≥4 個月、連續驗光地形穩定始可評估（PRK 必加 0.02% MMC 防 haze，LASIK 防吸引環裂傷，術後嚴防排斥）。",
+            "全身性疾病與藥物安全紅線：（1）未受控自體免疫膠原血管病（活動性 RA、SLE、GPA、Sjögren 乾燥症）具極高壞死性鞏膜炎與無菌角膜融解穿孔風險，列為禁忌（僅部分極穩定輕症無乾眼者在風濕科共照下極審慎個別評估）；（2）懷孕哺乳期與血糖波動糖尿病必須暫緩至穩定；（3）全身異維 A 酸（isotretinoin，嚴重萎縮瞼板腺致重度乾眼與疤痕）及胺碘酮（amiodarone，渦狀角膜沉積與光敏感／視神經病變疑慮）須詳查停藥與眼表狀態；HIV 感染屬相對禁忌（查免疫控制並於雷射時開啟 0.22 μm 超微濾網排煙器）。",
+            "青光眼與高眼壓患者的四大生死陷阱：（1）製瓣負壓吸引環會使眼壓短暫飆破 ＞65 mmHg，晚期青光眼視神經凹陷伴視野缺損者禁受高壓壓迫（且結膜若有青光眼濾過泡 filtering bleb 絕對放不下吸引環，禁做 LASIK！）；（2）近視消融削薄並軟化中央角膜，使術後 Goldmann 壓平眼壓永遠「假性偏低」漏診青光眼；（3）PRK 需點數月類固醇、LASIK 亦點類固醇，青光眼族群高達高比例為「類固醇高眼壓反應者（steroid responder）」，極易誘發青光眼惡化或 LASIK 層間積液 PISK；（4）術後檢驗視盤與神經纖維層（RNFL OCT）基線須重新建立。"
           ],
           "diagram": {
-            "kind": "relationship",
-            "title": "特殊眼病與全身共病屈光手術「綠燈宜 PRK · 黃燈嚴控 · 紅燈絕對禁」矩陣",
-            "alt": "三欄紅綠燈決策板：綠燈特殊轉機欄顯示EBMD地圖點狀指紋禁LASIK但宜PRK兼治糜爛，PKP滿1年且拆線滿4月穩定可評估；黃燈嚴控欄顯示靜止HSV必配口服抗病毒藥、穩定DM無網膜神經病變、孕哺期暫緩與HIV開0.22微米排煙；紅燈高危禁區欄顯示Avellino基質失養症沉積暴發、Fuchs內皮失養症瓣浮動、活動自體免疫角膜融解與濾過泡晚期青光眼吸引大於65毫米汞柱。",
+            "kind": "anatomy",
+            "title": "角膜五層解剖分流與全眼／全身篩檢四關卡",
+            "alt": "原創雙欄解剖與臨床決策圖：左欄由前至後繪出淚膜、上皮基底膜（EBMD 選 PRK/PTK）、前彈力層、前基質（TGFBI 絕對禁忌）與後基質內皮（Fuchs 禁 LASIK）剖面；右欄列出暗室瞳孔與 kappa 角、水晶體核硬化、散瞳周邊視網膜及眼壓視神經四道全眼篩檢關卡。",
             "width": 900,
             "height": 460,
             "elements": [
               {
                 "type": "rect",
-                "x": 14,
+                "x": 24,
                 "y": 10,
-                "width": 872,
-                "height": 36,
+                "width": 852,
+                "height": 34,
                 "rx": 6,
-                "fill": "pale-blue",
-                "stroke": "blue",
-                "strokeWidth": 2
-              },
-              {
-                "type": "text",
-                "x": 450,
-                "y": 34,
-                "anchor": "middle",
-                "fontSize": 19,
-                "fill": "ink",
-                "lines": [
-                  "眼部與全身共病屈光手術決策紅綠燈（失養症 · 感染 · 免疫 · 青光眼）"
-                ]
-              },
-              {
-                "type": "rect",
-                "x": 14,
-                "y": 56,
-                "width": 276,
-                "height": 392,
-                "rx": 8,
                 "fill": "pale-teal",
                 "stroke": "teal",
                 "strokeWidth": 2
               },
               {
-                "type": "circle",
-                "cx": 42,
-                "cy": 78,
-                "r": 10,
-                "fill": "teal",
-                "stroke": "ink",
-                "strokeWidth": 1
-              },
-              {
                 "type": "text",
-                "x": 162,
-                "y": 84,
+                "x": 450,
+                "y": 33,
                 "anchor": "middle",
-                "fontSize": 18,
-                "fill": "teal",
+                "fontSize": 19,
+                "fill": "ink",
                 "lines": [
-                  "綠燈轉機 / 精準時機"
+                  "角膜五層剖面術式分流 × 全眼與全身術前篩檢四關卡"
                 ]
               },
               {
                 "type": "rect",
-                "x": 26,
-                "y": 102,
-                "width": 252,
-                "height": 156,
-                "rx": 6,
-                "fill": "white",
-                "stroke": "teal",
-                "strokeWidth": 2
-              },
-              {
-                "type": "circle",
-                "cx": 38,
-                "cy": 114,
-                "r": 5,
-                "fill": "teal",
-                "stroke": "none",
-                "strokeWidth": 1
-              },
-              {
-                "type": "text",
-                "x": 152,
-                "y": 130,
-                "anchor": "middle",
-                "fontSize": 18,
-                "fill": "ink",
-                "lines": [
-                  "EBMD 上皮基底膜失養"
-                ]
-              },
-              {
-                "type": "text",
-                "x": 152,
-                "y": 162,
-                "anchor": "middle",
-                "fontSize": 18,
-                "fill": "red",
-                "lines": [
-                  "禁 LASIK (防大片脫皮)"
-                ]
-              },
-              {
-                "type": "text",
-                "x": 152,
-                "y": 194,
-                "anchor": "middle",
-                "fontSize": 18,
-                "fill": "teal",
-                "lines": [
-                  "宜 PRK！兼治反覆糜爛"
-                ]
-              },
-              {
-                "type": "text",
-                "x": 152,
-                "y": 228,
-                "anchor": "middle",
-                "fontSize": 18,
-                "fill": "muted",
-                "lines": [
-                  "(重建全新緊密半橋粒)"
-                ]
-              },
-              {
-                "type": "rect",
-                "x": 26,
-                "y": 272,
-                "width": 252,
-                "height": 160,
-                "rx": 6,
-                "fill": "white",
-                "stroke": "teal",
-                "strokeWidth": 2
-              },
-              {
-                "type": "circle",
-                "cx": 38,
-                "cy": 284,
-                "r": 5,
-                "fill": "teal",
-                "stroke": "none",
-                "strokeWidth": 1
-              },
-              {
-                "type": "text",
-                "x": 152,
-                "y": 300,
-                "anchor": "middle",
-                "fontSize": 18,
-                "fill": "ink",
-                "lines": [
-                  "PKP 角膜移植後散光"
-                ]
-              },
-              {
-                "type": "text",
-                "x": 152,
-                "y": 334,
-                "anchor": "middle",
-                "fontSize": 18,
-                "fill": "teal",
-                "lines": [
-                  "滿≥1年＋全拆線≥4月"
-                ]
-              },
-              {
-                "type": "text",
-                "x": 152,
-                "y": 368,
-                "anchor": "middle",
-                "fontSize": 18,
-                "fill": "ink",
-                "lines": [
-                  "跨次驗光地形確認穩定"
-                ]
-              },
-              {
-                "type": "text",
-                "x": 152,
-                "y": 402,
-                "anchor": "middle",
-                "fontSize": 18,
-                "fill": "muted",
-                "lines": [
-                  "(PRK加MMC · 防排斥)"
-                ]
-              },
-              {
-                "type": "rect",
-                "x": 302,
-                "y": 56,
-                "width": 284,
-                "height": 392,
+                "x": 24,
+                "y": 52,
+                "width": 441,
+                "height": 396,
                 "rx": 8,
+                "fill": "white",
+                "stroke": "teal",
+                "strokeWidth": 2
+              },
+              {
+                "type": "text",
+                "x": 244,
+                "y": 76,
+                "anchor": "middle",
+                "fontSize": 19,
+                "fill": "teal",
+                "lines": [
+                  "角膜五層剖面與手術選擇（前 → 後）"
+                ]
+              },
+              {
+                "type": "path",
+                "d": "M 38 92 Q 140 84 244 92 T 451 92",
+                "fill": "none",
+                "stroke": "blue",
+                "strokeWidth": 3
+              },
+              {
+                "type": "rect",
+                "x": 38,
+                "y": 96,
+                "width": 413,
+                "height": 72,
+                "rx": 6,
                 "fill": "pale-amber",
                 "stroke": "amber",
                 "strokeWidth": 2
               },
               {
                 "type": "circle",
-                "cx": 330,
-                "cy": 78,
-                "r": 10,
+                "cx": 56,
+                "cy": 114,
+                "r": 5,
                 "fill": "amber",
-                "stroke": "ink",
-                "strokeWidth": 1
+                "stroke": "none"
+              },
+              {
+                "type": "circle",
+                "cx": 432,
+                "cy": 114,
+                "r": 5,
+                "fill": "amber",
+                "stroke": "none"
               },
               {
                 "type": "text",
-                "x": 456,
-                "y": 84,
+                "x": 244,
+                "y": 120,
                 "anchor": "middle",
                 "fontSize": 18,
                 "fill": "ink",
                 "lines": [
-                  "黃燈暫緩 / 預防護航"
+                  "淚膜層（乾眼／MGD）"
                 ]
               },
               {
                 "type": "rect",
-                "x": 314,
-                "y": 102,
-                "width": 260,
-                "height": 100,
-                "rx": 6,
-                "fill": "white",
-                "stroke": "amber",
-                "strokeWidth": 2
-              },
-              {
-                "type": "text",
-                "x": 444,
+                "x": 74,
                 "y": 130,
-                "anchor": "middle",
-                "fontSize": 18,
-                "fill": "ink",
-                "lines": [
-                  "靜止期 HSV 疱疹病史"
-                ]
-              },
-              {
-                "type": "text",
-                "x": 444,
-                "y": 162,
-                "anchor": "middle",
-                "fontSize": 18,
-                "fill": "red",
-                "lines": [
-                  "必給圍術期口服抗病毒藥"
-                ]
-              },
-              {
-                "type": "text",
-                "x": 444,
-                "y": 190,
-                "anchor": "middle",
-                "fontSize": 18,
-                "fill": "muted",
-                "lines": [
-                  "(查角膜知覺 · 基質疤痕忌)"
-                ]
-              },
-              {
-                "type": "rect",
-                "x": 314,
-                "y": 214,
-                "width": 260,
-                "height": 100,
-                "rx": 6,
+                "width": 340,
+                "height": 30,
+                "rx": 12,
                 "fill": "white",
                 "stroke": "amber",
                 "strokeWidth": 2
               },
               {
                 "type": "text",
-                "x": 444,
-                "y": 242,
+                "x": 244,
+                "y": 151,
                 "anchor": "middle",
                 "fontSize": 18,
-                "fill": "ink",
+                "fill": "amber",
                 "lines": [
-                  "懷孕哺乳 / 血糖波動DM"
-                ]
-              },
-              {
-                "type": "text",
-                "x": 444,
-                "y": 274,
-                "anchor": "middle",
-                "fontSize": 18,
-                "fill": "blue",
-                "lines": [
-                  "一律延後至荷爾蒙血糖穩"
-                ]
-              },
-              {
-                "type": "text",
-                "x": 444,
-                "y": 302,
-                "anchor": "middle",
-                "fontSize": 18,
-                "fill": "muted",
-                "lines": [
-                  "(DM嚴查神經上皮與網膜)"
+                  "先治乾眼再量地形圖"
                 ]
               },
               {
                 "type": "rect",
-                "x": 314,
-                "y": 326,
-                "width": 260,
-                "height": 106,
+                "x": 38,
+                "y": 174,
+                "width": 413,
+                "height": 78,
                 "rx": 6,
-                "fill": "white",
-                "stroke": "amber",
+                "fill": "pale-teal",
+                "stroke": "teal",
                 "strokeWidth": 2
               },
               {
                 "type": "text",
-                "x": 444,
-                "y": 354,
+                "x": 244,
+                "y": 198,
                 "anchor": "middle",
                 "fontSize": 18,
                 "fill": "ink",
                 "lines": [
-                  "HIV相對禁忌 / 全身藥物"
+                  "上皮與基底膜（EBMD 地圖點狀指紋）"
                 ]
               },
               {
+                "type": "rect",
+                "x": 64,
+                "y": 208,
+                "width": 360,
+                "height": 30,
+                "rx": 12,
+                "fill": "white",
+                "stroke": "teal",
+                "strokeWidth": 2
+              },
+              {
                 "type": "text",
-                "x": 444,
-                "y": 386,
+                "x": 244,
+                "y": 229,
                 "anchor": "middle",
                 "fontSize": 18,
                 "fill": "teal",
                 "lines": [
-                  "0.22μm排煙 · 禁AIDS乾眼"
+                  "禁 LASIK 掀皮 · 選 PRK/PTK"
                 ]
               },
               {
-                "type": "text",
-                "x": 444,
-                "y": 416,
-                "anchor": "middle",
-                "fontSize": 18,
-                "fill": "muted",
-                "lines": [
-                  "(警覺A酸乾眼與Amiodarone)"
-                ]
+                "type": "path",
+                "d": "M 42 255 Q 92 249 142 255 T 242 255 T 342 255 T 446 255",
+                "fill": "none",
+                "stroke": "teal",
+                "strokeWidth": 2,
+                "dash": true
               },
               {
                 "type": "rect",
-                "x": 598,
-                "y": 56,
-                "width": 288,
-                "height": 392,
-                "rx": 8,
+                "x": 38,
+                "y": 260,
+                "width": 413,
+                "height": 80,
+                "rx": 6,
                 "fill": "pale-red",
                 "stroke": "red",
                 "strokeWidth": 2
               },
               {
                 "type": "circle",
-                "cx": 626,
-                "cy": 78,
-                "r": 10,
+                "cx": 56,
+                "cy": 280,
+                "r": 4,
+                "fill": "white",
+                "stroke": "red",
+                "strokeWidth": 2
+              },
+              {
+                "type": "circle",
+                "cx": 70,
+                "cy": 286,
+                "r": 3,
+                "fill": "white",
+                "stroke": "red",
+                "strokeWidth": 2
+              },
+              {
+                "type": "circle",
+                "cx": 418,
+                "cy": 286,
+                "r": 3,
+                "fill": "white",
+                "stroke": "red",
+                "strokeWidth": 2
+              },
+              {
+                "type": "circle",
+                "cx": 432,
+                "cy": 280,
+                "r": 4,
+                "fill": "white",
+                "stroke": "red",
+                "strokeWidth": 2
+              },
+              {
+                "type": "text",
+                "x": 244,
+                "y": 285,
+                "anchor": "middle",
+                "fontSize": 18,
+                "fill": "ink",
+                "lines": [
+                  "前基質層（TGFBI 顆粒／Avellino）"
+                ]
+              },
+              {
+                "type": "rect",
+                "x": 64,
+                "y": 296,
+                "width": 360,
+                "height": 32,
+                "rx": 12,
+                "fill": "white",
+                "stroke": "red",
+                "strokeWidth": 2
+              },
+              {
+                "type": "text",
+                "x": 244,
+                "y": 318,
+                "anchor": "middle",
+                "fontSize": 18,
                 "fill": "red",
+                "lines": [
+                  "雷射消融絕對禁忌（混濁惡化）"
+                ]
+              },
+              {
+                "type": "rect",
+                "x": 38,
+                "y": 348,
+                "width": 413,
+                "height": 82,
+                "rx": 6,
+                "fill": "pale-red",
+                "stroke": "red",
+                "strokeWidth": 2
+              },
+              {
+                "type": "text",
+                "x": 244,
+                "y": 373,
+                "anchor": "middle",
+                "fontSize": 18,
+                "fill": "ink",
+                "lines": [
+                  "後基質與內皮層（Fuchs 滴狀贅生物）"
+                ]
+              },
+              {
+                "type": "rect",
+                "x": 60,
+                "y": 384,
+                "width": 368,
+                "height": 32,
+                "rx": 12,
+                "fill": "white",
+                "stroke": "red",
+                "strokeWidth": 2
+              },
+              {
+                "type": "text",
+                "x": 244,
+                "y": 406,
+                "anchor": "middle",
+                "fontSize": 18,
+                "fill": "red",
+                "lines": [
+                  "泵浦失償＜1500/mm² 禁 LASIK"
+                ]
+              },
+              {
+                "type": "path",
+                "d": "M 70 430 Q 80 441 90 430 M 176 430 Q 186 441 196 430 M 292 430 Q 302 441 312 430 M 398 430 Q 408 441 418 430",
+                "fill": "pale-red",
+                "stroke": "red",
+                "strokeWidth": 2
+              },
+              {
+                "type": "rect",
+                "x": 485,
+                "y": 52,
+                "width": 391,
+                "height": 396,
+                "rx": 8,
+                "fill": "white",
+                "stroke": "blue",
+                "strokeWidth": 2
+              },
+              {
+                "type": "text",
+                "x": 680,
+                "y": 76,
+                "anchor": "middle",
+                "fontSize": 19,
+                "fill": "blue",
+                "lines": [
+                  "全眼與全身篩檢四關卡"
+                ]
+              },
+              {
+                "type": "rect",
+                "x": 499,
+                "y": 92,
+                "width": 363,
+                "height": 80,
+                "rx": 6,
+                "fill": "pale-blue",
+                "stroke": "blue",
+                "strokeWidth": 2
+              },
+              {
+                "type": "circle",
+                "cx": 522,
+                "cy": 116,
+                "r": 9,
+                "fill": "blue",
+                "stroke": "none"
+              },
+              {
+                "type": "circle",
+                "cx": 524,
+                "cy": 116,
+                "r": 3,
+                "fill": "white",
+                "stroke": "none"
+              },
+              {
+                "type": "text",
+                "x": 542,
+                "y": 122,
+                "anchor": "start",
+                "fontSize": 18,
+                "fill": "blue",
+                "lines": [
+                  "① 暗室瞳孔與 kappa 角"
+                ]
+              },
+              {
+                "type": "text",
+                "x": 680,
+                "y": 154,
+                "anchor": "middle",
+                "fontSize": 18,
+                "fill": "ink",
+                "lines": [
+                  "大光學區防眩光／遠視大 kappa 偏心"
+                ]
+              },
+              {
+                "type": "rect",
+                "x": 499,
+                "y": 180,
+                "width": 363,
+                "height": 80,
+                "rx": 6,
+                "fill": "pale-amber",
+                "stroke": "amber",
+                "strokeWidth": 2
+              },
+              {
+                "type": "ellipse",
+                "cx": 522,
+                "cy": 204,
+                "rx": 10,
+                "ry": 7,
+                "fill": "amber",
                 "stroke": "ink",
                 "strokeWidth": 1
               },
               {
                 "type": "text",
-                "x": 754,
-                "y": 84,
-                "anchor": "middle",
+                "x": 542,
+                "y": 210,
+                "anchor": "start",
                 "fontSize": 18,
-                "fill": "red",
+                "fill": "amber",
                 "lines": [
-                  "紅燈絕對 / 高度禁忌"
-                ]
-              },
-              {
-                "type": "rect",
-                "x": 610,
-                "y": 102,
-                "width": 264,
-                "height": 102,
-                "rx": 6,
-                "fill": "white",
-                "stroke": "red",
-                "strokeWidth": 2
-              },
-              {
-                "type": "circle",
-                "cx": 622,
-                "cy": 114,
-                "r": 5,
-                "fill": "red",
-                "stroke": "none",
-                "strokeWidth": 1
-              },
-              {
-                "type": "text",
-                "x": 742,
-                "y": 130,
-                "anchor": "middle",
-                "fontSize": 18,
-                "fill": "red",
-                "lines": [
-                  "TGFBI基質失養 · Fuchs"
+                  "② 水晶體核硬化"
                 ]
               },
               {
                 "type": "text",
-                "x": 742,
-                "y": 162,
+                "x": 680,
+                "y": 242,
                 "anchor": "middle",
                 "fontSize": 18,
                 "fill": "ink",
                 "lines": [
-                  "Avellino雷射致白斑暴發"
-                ]
-              },
-              {
-                "type": "text",
-                "x": 742,
-                "y": 192,
-                "anchor": "middle",
-                "fontSize": 18,
-                "fill": "ink",
-                "lines": [
-                  "Fuchs缺內皮泵致瓣浮水腫"
+                  "早期白內障致近視漂移 → 改選晶體置換"
                 ]
               },
               {
                 "type": "rect",
-                "x": 610,
-                "y": 216,
-                "width": 264,
-                "height": 100,
+                "x": 499,
+                "y": 268,
+                "width": 363,
+                "height": 80,
                 "rx": 6,
-                "fill": "white",
-                "stroke": "red",
+                "fill": "pale-teal",
+                "stroke": "teal",
                 "strokeWidth": 2
               },
               {
-                "type": "circle",
-                "cx": 622,
-                "cy": 228,
-                "r": 5,
-                "fill": "red",
-                "stroke": "none",
-                "strokeWidth": 1
+                "type": "path",
+                "d": "M 514 286 Q 528 292 514 298",
+                "fill": "none",
+                "stroke": "teal",
+                "strokeWidth": 3
               },
               {
                 "type": "text",
-                "x": 742,
-                "y": 244,
-                "anchor": "middle",
+                "x": 542,
+                "y": 298,
+                "anchor": "start",
                 "fontSize": 18,
-                "fill": "red",
+                "fill": "teal",
                 "lines": [
-                  "未控RA / SLE / 乾燥症"
+                  "③ 散瞳周邊視網膜"
                 ]
               },
               {
                 "type": "text",
-                "x": 742,
-                "y": 276,
+                "x": 680,
+                "y": 330,
                 "anchor": "middle",
                 "fontSize": 18,
                 "fill": "ink",
                 "lines": [
-                  "無菌角膜基質融解穿孔！"
-                ]
-              },
-              {
-                "type": "text",
-                "x": 742,
-                "y": 304,
-                "anchor": "middle",
-                "fontSize": 18,
-                "fill": "muted",
-                "lines": [
-                  "(重度KCS必先治癒眼表)"
+                  "格子狀變性／裂孔先評估預防雷射"
                 ]
               },
               {
                 "type": "rect",
-                "x": 610,
-                "y": 328,
-                "width": 264,
-                "height": 104,
-                "rx": 6,
-                "fill": "white",
-                "stroke": "red",
-                "strokeWidth": 2
-              },
-              {
-                "type": "circle",
-                "cx": 622,
-                "cy": 340,
-                "r": 5,
-                "fill": "red",
-                "stroke": "none",
-                "strokeWidth": 1
-              },
-              {
-                "type": "text",
-                "x": 742,
+                "x": 499,
                 "y": 356,
-                "anchor": "middle",
+                "width": 363,
+                "height": 80,
+                "rx": 6,
+                "fill": "pale-red",
+                "stroke": "red",
+                "strokeWidth": 2
+              },
+              {
+                "type": "circle",
+                "cx": 522,
+                "cy": 380,
+                "r": 9,
+                "fill": "white",
+                "stroke": "red",
+                "strokeWidth": 2
+              },
+              {
+                "type": "circle",
+                "cx": 522,
+                "cy": 380,
+                "r": 4,
+                "fill": "red",
+                "stroke": "none"
+              },
+              {
+                "type": "text",
+                "x": 542,
+                "y": 386,
+                "anchor": "start",
                 "fontSize": 18,
                 "fill": "red",
                 "lines": [
-                  "濾過泡 / 晚期視神經凹陷"
+                  "④ 眼壓與視神經"
                 ]
               },
               {
                 "type": "text",
-                "x": 742,
-                "y": 388,
-                "anchor": "middle",
-                "fontSize": 18,
-                "fill": "ink",
-                "lines": [
-                  "吸引＞65mmHg破泡傷神經"
-                ]
-              },
-              {
-                "type": "text",
-                "x": 742,
+                "x": 680,
                 "y": 418,
                 "anchor": "middle",
                 "fontSize": 18,
-                "fill": "muted",
+                "fill": "ink",
                 "lines": [
-                  "(術後GAT假低壓＋防PISK)"
+                  "薄角膜低估真眼壓 · 類固醇升壓監測"
                 ]
               }
             ]
           },
           "figureReading": [
             {
-              "label": "左欄綠燈區（EBMD 禁 LASIK 宜 PRK vs PKP 雙時間鎖）",
-              "meaning": "EBMD 是角膜失養症中的唯一『PRK 受益特例』——刮除病變鬆動上皮基底膜後行 PRK 兼具治療反覆糜爛功效；PKP 則須同時滿足移植 ≥1 年與全拆線 ≥4 個月穩定。"
+              "label": "左欄剖面（淚膜層 → 上皮基底膜 → 前基質 → 後基質與內皮層）",
+              "meaning": "由淺至深區分治療策略：乾眼／MGD 先治癒再量地形；EBMD 禁 LASIK 掀瓣而選 PRK/PTK 兼治破皮；TGFBI 顆粒／Avellino 屬雷射絕對禁忌；Fuchs 內皮失償（＜1500/mm²）禁做 LASIK。"
             },
             {
-              "label": "中欄黃燈區（HSV 口服預防、孕哺／血糖波動延後、HIV 0.22 μm 排煙）",
-              "meaning": "並非一刀切永久拒絕，但必須滿足前置防護：HSV 靜止眼必吃口服抗病毒藥擋紫外光再活化；糖尿病與孕哺期必等屈光回穩；雷射羽流以 0.22 μm 濾網近距離抽吸。"
+              "label": "右欄關卡 ①–②（暗室瞳孔與 kappa 角、水晶體核硬化）",
+              "meaning": "大暗室瞳孔需足大光學區防夜間眩光，遠視大 kappa 角須防視軸偏心；中老年近視加深若源於早期核性白內障，應改選晶狀體置換而非削角膜。"
             },
             {
-              "label": "右欄紅燈區（TGFBI／Avellino、Fuchs、活動性自體免疫與青光眼濾過泡）",
-              "meaning": "Avellino 遇雷射會爆長白色蛋白質沉積，Fuchs 失去內皮負壓吸力會讓瓣漂浮水腫，未控 RA／SLE 會角膜穿孔，青光眼濾過泡會被 ＞65 mmHg 吸引環壓破！"
+              "label": "右欄關卡 ③–④（散瞳周邊視網膜、眼壓視神經與全身共病）",
+              "meaning": "高度近視周邊裂孔先評估預防性雷射；薄角膜會低估真實眼壓、青光眼濾過泡禁上吸引環且須監測類固醇升壓，活動性自體免疫與口服 A 酸亦須攔截。"
             }
           ],
           "comparison": {
@@ -85800,16 +85765,597 @@
           ],
           "references": [
             {
-              "title": "American Academy of Ophthalmology. Basic and Clinical Science Course, Section 13: Refractive Surgery (Refractive Surgery in Ocular and Systemic Disease & Glaucoma)",
-              "url": "https://www.aao.org/education/bcsc",
-              "year": "2025",
-              "note": "Corneal dystrophies (EBMD vs TGFBI vs Fuchs), HSV antiviral prophylaxis, post-PKP timing, autoimmune corneal melt, and glaucoma suction/IOP traps."
+              "title": "Jacobs DS, Lee JK, Shen TT, Afshari NA, Bishop RJ, Keenan JD, Vitale S. Refractive Surgery Preferred Practice Pattern®. Ophthalmology",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/36543604/",
+              "year": "2023",
+              "note": "AAO evidence-based preoperative screening guidelines covering ocular surface/corneal dystrophies, HSV prophylaxis, autoimmune disease, systemic medications, and glaucoma."
             },
             {
-              "title": "Weiss JS, Møller HU, Aldave AJ, et al. IC3D classification of corneal dystrophies—edition 2/3 clinical surgical implications",
-              "url": "https://pubmed.ncbi.nlm.nih.gov/25564336/",
-              "year": "2025",
-              "note": "Pathogenesis of TGFBI-related exacerbation after excimer laser surgery vs therapeutic benefit of surface ablation in EBMD."
+              "title": "Weiss JS, Rapuano CJ, Seitz B, et al. IC3D Classification of Corneal Dystrophies—Edition 3. Cornea",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/38359414/",
+              "year": "2024",
+              "note": "Anatomic and genetic classification of corneal dystrophies detailing TGFBI stromal exacerbation after excimer ablation versus therapeutic surface ablation in EBMD."
+            }
+          ]
+        },
+        {
+          "id": "atlas-s13-11",
+          "title": "術前屈光目標設定：頂點距離換算、老花單眼視與停戴重塑",
+          "chapterIds": [
+            "bcsc-s13-ch002"
+          ],
+          "unitIds": [
+            "bcsc-s13-ch002-u01"
+          ],
+          "learningGoals": [
+            "精準運用頂點距離公式換算超過 ±4.00 D 之鏡框處方至角膜消融平面，避免高度近視過矯遠視與高度遠視欠矯。",
+            "為前老花與老花族群規劃單眼視（主力眼 0.00 D、非主力眼 −1.25 至 −1.75 D）並落實隱形眼鏡生活試戴，防止雙眼融合失代償。",
+            "依軟式球面、軟式散光與硬式 RGP 執行分級停戴期，追蹤至連續驗光與角膜地形圖穩定以排除壓痕假性散光。"
+          ],
+          "clinicalQuestion": "一位 46 歲、配戴硬式 RGP 達 20 年的高度近視患者（眼鏡處方 −8.00 D，頂點距 12 mm）停戴 4 天即要求雙眼 LASIK 削至 0.00 D：直接按 −8.00 D 排刀會同時踩中哪三個光學與生理陷阱？",
+          "mechanism": [
+            "光學平面位移與頂點距離換算：當矯正平面由鏡框（常見頂點距 d = 12 mm = 0.012 m）後移至角膜前表面（d = 0），等效屈光度依 D_cornea = D_spec / (1 − d × D_spec) 改變。超過 ±4.00 D 時差異具臨床意義：−8.00 D 高度近視移至角膜面僅需約 −7.30 D（少切 0.70 D 防術後遠視過矯），而 +8.00 D 高度遠視移至角膜面則高達 +8.85 D（需多矯 0.85 D 防欠矯）。",
+            "老花年齡單眼視權衡與治療量扣減：40 歲以上近視患者原本享有裸眼近讀優勢，雙眼全矯為 0.00 D 後看手機立即需配老花鏡。若採單眼視，常設主力眼 0.00 D 看遠、非主力眼保留 −1.25 至 −1.75 D（如 −1.50 D 對應約 67 cm 中近距閱讀），雷射治療量依「術前驗光 − 目標保留負度數」扣減；術前必先以隱形眼鏡實境試戴，確認無隱斜視融合崩潰複視或夜間光暈不耐。",
+            "隱形眼鏡停戴回彈與角膜壓痕消退：長期配戴隱形眼鏡會壓迫角膜上皮與基質造成不對稱壓痕（corneal warpage），混淆假性散光與早期圓錐角膜。術前須嚴格停戴：軟式球面片 1–2 週、軟式散光片 2–3 週、硬式 RGP 至少 3–4 週（且每配戴 10 年再加停 1 週），直到跨次主觀驗光變動 ≤0.50 D 且序列地形圖完全穩定。",
+            "顯性與睫狀肌麻痺驗光雙軌核對：年輕近視患者常伴隨調節張力過強，必須比對霧視顯性驗光與散瞳睫狀肌麻痺驗光，防止把調節痙攣假性近視打進角膜造成永久遠視；散光軸向與瞳孔對位則一律於未散瞳自然坐姿下鎖定，避開散瞳瞳孔中心偏移與平躺眼球旋轉誤差。"
+          ],
+          "diagram": {
+            "kind": "optics",
+            "title": "頂點距離光學換算 · 老花單眼視 · 隱形眼鏡停戴回彈",
+            "alt": "原創三欄光學與臨床圖解：左欄示鏡片面與角膜面 12 mm 頂點距光線聚焦換算（−8.00 D 轉 −7.30 D、+8.00 D 轉 +8.85 D）；中欄示單眼視主力眼 0.00 D 與非主力眼 −1.25 至 −1.75 D（67 cm）及隱形眼鏡試戴；右欄示軟式球面、軟式散光與硬式 RGP 停戴角膜回彈標準。",
+            "width": 900,
+            "height": 460,
+            "elements": [
+              {
+                "type": "rect",
+                "x": 22,
+                "y": 10,
+                "width": 856,
+                "height": 34,
+                "rx": 6,
+                "fill": "pale-blue",
+                "stroke": "blue",
+                "strokeWidth": 2
+              },
+              {
+                "type": "text",
+                "x": 450,
+                "y": 33,
+                "anchor": "middle",
+                "fontSize": 19,
+                "fill": "ink",
+                "lines": [
+                  "術前屈光目標設定：頂點距離換算 · 老花單眼視 · 停戴回彈"
+                ]
+              },
+              {
+                "type": "rect",
+                "x": 22,
+                "y": 52,
+                "width": 286,
+                "height": 396,
+                "rx": 8,
+                "fill": "white",
+                "stroke": "blue",
+                "strokeWidth": 2
+              },
+              {
+                "type": "text",
+                "x": 165,
+                "y": 76,
+                "anchor": "middle",
+                "fontSize": 18,
+                "fill": "blue",
+                "lines": [
+                  "① 頂點距換算 (d = 12 mm)"
+                ]
+              },
+              {
+                "type": "path",
+                "d": "M 86 102 L 102 102 Q 95 144 102 186 L 86 186 Q 93 144 86 102 Z",
+                "fill": "pale-blue",
+                "stroke": "blue",
+                "strokeWidth": 2
+              },
+              {
+                "type": "path",
+                "d": "M 176 102 Q 150 144 176 186",
+                "fill": "none",
+                "stroke": "teal",
+                "strokeWidth": 3
+              },
+              {
+                "type": "path",
+                "d": "M 252 108 Q 276 144 252 180",
+                "fill": "none",
+                "stroke": "ink",
+                "strokeWidth": 2
+              },
+              {
+                "type": "line",
+                "x1": 94,
+                "y1": 89,
+                "x2": 94,
+                "y2": 99,
+                "stroke": "amber",
+                "strokeWidth": 2
+              },
+              {
+                "type": "line",
+                "x1": 94,
+                "y1": 94,
+                "x2": 163,
+                "y2": 94,
+                "stroke": "amber",
+                "strokeWidth": 2,
+                "dash": true
+              },
+              {
+                "type": "line",
+                "x1": 163,
+                "y1": 89,
+                "x2": 163,
+                "y2": 99,
+                "stroke": "amber",
+                "strokeWidth": 2
+              },
+              {
+                "type": "polyline",
+                "points": "40,122 94,122 163,116 264,144",
+                "fill": "none",
+                "stroke": "amber",
+                "strokeWidth": 2
+              },
+              {
+                "type": "polyline",
+                "points": "40,166 94,166 163,172 264,144",
+                "fill": "none",
+                "stroke": "amber",
+                "strokeWidth": 2
+              },
+              {
+                "type": "circle",
+                "cx": 264,
+                "cy": 144,
+                "r": 4,
+                "fill": "red",
+                "stroke": "none"
+              },
+              {
+                "type": "text",
+                "x": 165,
+                "y": 212,
+                "anchor": "middle",
+                "fontSize": 18,
+                "fill": "muted",
+                "lines": [
+                  "鏡片面 ↔ 角膜面位移"
+                ]
+              },
+              {
+                "type": "rect",
+                "x": 35,
+                "y": 226,
+                "width": 260,
+                "height": 102,
+                "rx": 6,
+                "fill": "pale-teal",
+                "stroke": "teal",
+                "strokeWidth": 2
+              },
+              {
+                "type": "text",
+                "x": 165,
+                "y": 253,
+                "anchor": "middle",
+                "fontSize": 18,
+                "fill": "teal",
+                "lines": [
+                  "高度近視 −8.00 D",
+                  "→ 角膜面 −7.30 D",
+                  "少切 0.70 D 防過矯遠視"
+                ]
+              },
+              {
+                "type": "rect",
+                "x": 35,
+                "y": 336,
+                "width": 260,
+                "height": 102,
+                "rx": 6,
+                "fill": "pale-red",
+                "stroke": "red",
+                "strokeWidth": 2
+              },
+              {
+                "type": "text",
+                "x": 165,
+                "y": 363,
+                "anchor": "middle",
+                "fontSize": 18,
+                "fill": "red",
+                "lines": [
+                  "高度遠視 +8.00 D",
+                  "→ 角膜面 +8.85 D",
+                  "需多矯 0.85 D 防欠矯"
+                ]
+              },
+              {
+                "type": "rect",
+                "x": 322,
+                "y": 52,
+                "width": 280,
+                "height": 396,
+                "rx": 8,
+                "fill": "white",
+                "stroke": "teal",
+                "strokeWidth": 2
+              },
+              {
+                "type": "text",
+                "x": 462,
+                "y": 76,
+                "anchor": "middle",
+                "fontSize": 19,
+                "fill": "teal",
+                "lines": [
+                  "② 老花單眼視權衡"
+                ]
+              },
+              {
+                "type": "circle",
+                "cx": 402,
+                "cy": 130,
+                "r": 24,
+                "fill": "pale-blue",
+                "stroke": "blue",
+                "strokeWidth": 2
+              },
+              {
+                "type": "path",
+                "d": "M 386 110 Q 402 98 418 110",
+                "fill": "none",
+                "stroke": "blue",
+                "strokeWidth": 3
+              },
+              {
+                "type": "circle",
+                "cx": 402,
+                "cy": 154,
+                "r": 4,
+                "fill": "blue",
+                "stroke": "none"
+              },
+              {
+                "type": "circle",
+                "cx": 522,
+                "cy": 130,
+                "r": 24,
+                "fill": "pale-teal",
+                "stroke": "teal",
+                "strokeWidth": 2
+              },
+              {
+                "type": "path",
+                "d": "M 506 110 Q 522 96 538 110",
+                "fill": "none",
+                "stroke": "teal",
+                "strokeWidth": 3
+              },
+              {
+                "type": "circle",
+                "cx": 522,
+                "cy": 140,
+                "r": 4,
+                "fill": "teal",
+                "stroke": "none"
+              },
+              {
+                "type": "path",
+                "d": "M 402 158 Q 462 178 522 158",
+                "fill": "none",
+                "stroke": "muted",
+                "strokeWidth": 2,
+                "dash": true
+              },
+              {
+                "type": "rect",
+                "x": 330,
+                "y": 178,
+                "width": 264,
+                "height": 64,
+                "rx": 6,
+                "fill": "pale-blue",
+                "stroke": "blue",
+                "strokeWidth": 2
+              },
+              {
+                "type": "text",
+                "x": 462,
+                "y": 204,
+                "anchor": "middle",
+                "fontSize": 18,
+                "fill": "blue",
+                "lines": [
+                  "主力眼 → 0.00 D",
+                  "看遠清晰（駕駛／遠距）"
+                ]
+              },
+              {
+                "type": "rect",
+                "x": 330,
+                "y": 250,
+                "width": 264,
+                "height": 90,
+                "rx": 6,
+                "fill": "pale-teal",
+                "stroke": "teal",
+                "strokeWidth": 2
+              },
+              {
+                "type": "text",
+                "x": 462,
+                "y": 276,
+                "anchor": "middle",
+                "fontSize": 18,
+                "fill": "teal",
+                "lines": [
+                  "非主力眼 → 保留近視",
+                  "−1.25～−1.75 D",
+                  "67 cm 中近距閱讀"
+                ]
+              },
+              {
+                "type": "rect",
+                "x": 330,
+                "y": 348,
+                "width": 264,
+                "height": 90,
+                "rx": 6,
+                "fill": "pale-amber",
+                "stroke": "amber",
+                "strokeWidth": 2
+              },
+              {
+                "type": "text",
+                "x": 462,
+                "y": 374,
+                "anchor": "middle",
+                "fontSize": 18,
+                "fill": "amber",
+                "lines": [
+                  "必做隱形眼鏡試戴：",
+                  "確認無複視與融合失償",
+                  "評估立體視下降耐受"
+                ]
+              },
+              {
+                "type": "rect",
+                "x": 616,
+                "y": 52,
+                "width": 262,
+                "height": 396,
+                "rx": 8,
+                "fill": "white",
+                "stroke": "amber",
+                "strokeWidth": 2
+              },
+              {
+                "type": "text",
+                "x": 747,
+                "y": 76,
+                "anchor": "middle",
+                "fontSize": 19,
+                "fill": "amber",
+                "lines": [
+                  "③ 隱形眼鏡停戴回彈"
+                ]
+              },
+              {
+                "type": "path",
+                "d": "M 636 156 Q 666 106 694 140 Q 708 154 720 156",
+                "fill": "none",
+                "stroke": "red",
+                "strokeWidth": 3,
+                "dash": true
+              },
+              {
+                "type": "line",
+                "x1": 728,
+                "y1": 134,
+                "x2": 762,
+                "y2": 134,
+                "stroke": "amber",
+                "strokeWidth": 3,
+                "arrow": true
+              },
+              {
+                "type": "path",
+                "d": "M 772 156 Q 815 102 858 156",
+                "fill": "none",
+                "stroke": "teal",
+                "strokeWidth": 3
+              },
+              {
+                "type": "rect",
+                "x": 624,
+                "y": 178,
+                "width": 246,
+                "height": 50,
+                "rx": 6,
+                "fill": "pale-blue",
+                "stroke": "blue",
+                "strokeWidth": 2
+              },
+              {
+                "type": "text",
+                "x": 747,
+                "y": 210,
+                "anchor": "middle",
+                "fontSize": 18,
+                "fill": "blue",
+                "lines": [
+                  "軟式球面：停戴 1–2 週"
+                ]
+              },
+              {
+                "type": "rect",
+                "x": 624,
+                "y": 238,
+                "width": 246,
+                "height": 50,
+                "rx": 6,
+                "fill": "pale-teal",
+                "stroke": "teal",
+                "strokeWidth": 2
+              },
+              {
+                "type": "text",
+                "x": 747,
+                "y": 270,
+                "anchor": "middle",
+                "fontSize": 18,
+                "fill": "teal",
+                "lines": [
+                  "軟式散光：停戴 2–3 週"
+                ]
+              },
+              {
+                "type": "rect",
+                "x": 624,
+                "y": 298,
+                "width": 246,
+                "height": 140,
+                "rx": 6,
+                "fill": "pale-red",
+                "stroke": "red",
+                "strokeWidth": 2
+              },
+              {
+                "type": "text",
+                "x": 747,
+                "y": 330,
+                "anchor": "middle",
+                "fontSize": 18,
+                "fill": "red",
+                "lines": [
+                  "硬式 RGP：停 ≥3–4 週",
+                  "每戴 10 年再加 1 週",
+                  "至驗光與地形圖",
+                  "連續穩定始放行"
+                ]
+              }
+            ]
+          },
+          "figureReading": [
+            {
+              "label": "左區（① 頂點距換算 d = 12 mm 光學平面位移）",
+              "meaning": "凹透鏡發散光線後移 12 mm 至角膜面時曲率需求減小（−8.00 D 僅需消融 −7.30 D），凸透鏡會聚光線後移則曲率需求增大（+8.00 D 需 +8.85 D）。"
+            },
+            {
+              "label": "中區（② 老花單眼視權衡與試戴把關）",
+              "meaning": "主力眼設 0.00 D 負責遠距、非主力眼保留 −1.25 至 −1.75 D 對應約 67 cm 閱讀；動刀前必經隱形眼鏡生活試戴排除複視與立體視下降不耐。"
+            },
+            {
+              "label": "右區（③ 隱形眼鏡停戴回彈分級）",
+              "meaning": "虛線不對稱壓痕角膜經足期停戴（軟球 1–2 週、軟散 2–3 週、RGP ≥3–4 週且每 10 年加 1 週）回彈為實線真實曲率，連測穩定始可規劃雷射。"
+            }
+          ],
+          "comparison": {
+            "columns": [
+              "術前情境",
+              "關鍵光學／生理誤差",
+              "換算或處置原則",
+              "漏算之術後代價"
+            ],
+            "rows": [
+              [
+                "高度近視鏡片 −8.00 D（d = 12 mm）",
+                "凹透鏡後移至角膜面有效負度數變弱",
+                "角膜面目標約 −7.30 D（少切 0.70 D）",
+                "多切基質並造成 +0.70 D 遠視過矯"
+              ],
+              [
+                "高度遠視鏡片 +8.00 D（d = 12 mm）",
+                "凸透鏡後移至角膜面有效正度數變強",
+                "角膜面需求約 +8.85 D（多矯 0.85 D）",
+                "矯正不足殘留明顯遠視與視疲勞"
+              ],
+              [
+                "46 歲 −4.50 D 擬非主力眼留 −1.50 D",
+                "調節衰退失去原生近視閱讀焦點",
+                "先試戴隱形眼鏡；治療量 (−4.5)−(−1.5) = −3.0 D",
+                "未溝通全矯致老花客訴，或符號算反過矯"
+              ],
+              [
+                "配戴硬式 RGP 20 年停戴僅 5 天",
+                "角膜上皮與基質壓痕尚未回彈",
+                "停戴至少 4–5 週以上並連測驗光地形至穩定",
+                "把可逆壓痕散光打進角膜或漏診圓錐"
+              ]
+            ]
+          },
+          "decisionSteps": [
+            {
+              "condition": "鏡框處方絕對值超過 4.00 D 之近視或遠視候選人",
+              "action": "確認驗光儀頂點距離（通常 12 mm）並換算為角膜平面度數輸入雷射系統",
+              "why": "度數愈高頂點距平方效應愈顯著，未換算將直接造成高度近視過矯或高度遠視欠矯"
+            },
+            {
+              "condition": "40 歲以上近視患者強烈希望雷射後看遠看近都不戴眼鏡",
+              "action": "在診間先以試鏡架體驗雙眼正視看手機的模糊感，再安排 1–2 週單眼視隱形眼鏡實境試戴",
+              "why": "讓患者親身驗證 67 cm 閱讀便利度、夜間駕駛光暈與雙眼融像耐受度，避免術後不可逆後悔"
+            },
+            {
+              "condition": "長期配戴軟式散光片或硬式 RGP 之候選人初診地形圖見下方不對稱變陡",
+              "action": "嚴格執行分級停戴期並每隔數週複測主觀驗光與角膜地形差分圖",
+              "why": "唯有隨停戴消退者才屬良性壓痕；若停戴足期仍持續下方變陡則為真性潛伏圓錐角膜，禁做雷射"
+            }
+          ],
+          "pitfalls": [
+            "計算單眼視治療量時正負號寫反：原驗光 −4.50 D 想保留 −1.25 D 看近，誤算成 −5.75 D 而削成 +1.25 D 遠視眼！",
+            "相信硬式 RGP 患者「週末停戴兩天就很穩定」的說法直接取像排刀，將暫時性角膜壓痕永久刻印在基質上。",
+            "對大角度隱斜視患者未經隱形眼鏡生活試戴就直接做單眼視 LASIK，術後融像鎖定崩潰引發持續性雙眼複視。"
+          ],
+          "counterfactuals": [
+            {
+              "change": "若將鏡框頂點距 12 mm 之 −10.00 D 近視處方未經頂點換算，直接以 −10.00 D 施打於角膜平面",
+              "consequence": "角膜面實際僅需約 −8.93 D，直接打 −10.00 D 會平白多消耗十餘微米角膜基質並留下超過 +1.00 D 的痛苦遠視過矯！"
+            },
+            {
+              "change": "若 23 歲工程師顯性驗光 −5.50 D，點用睫狀肌麻痺劑後實測僅 −4.25 D，卻照顯性度數全量切削",
+              "consequence": "術後調節痙攣一旦放鬆，多削的 1.25 D 將轉為永久性遠視，導致年輕患者整日看近頭痛眼脹。"
+            }
+          ],
+          "retrieval": [
+            {
+              "type": "case",
+              "question": "45 歲建築師雙眼鏡框驗光皆為 −5.00 D（頂點距 12 mm），配戴軟式散光隱形眼鏡 12 年。他剛停戴 3 天來診，希望雙眼做 LASIK 之後不用戴老花鏡也能看工程藍圖。請問應如何安排停戴、試戴與非主力眼（擬保留 −1.50 D）之雷射目標？",
+              "answer": "應先請患者改戴框架眼鏡，停戴軟式散光片至少 2–3 週並複測至驗光與地形圖連續穩定；接著安排單眼視隱形眼鏡試戴（主力眼 0.00 D、非主力眼保留 −1.50 D 對應約 67 cm 藍圖距離），確認無複視與立體視障礙後，非主力眼角膜面治療量依頂點換算後之穩定度數扣減 −1.50 D 規劃。",
+              "reasoning": [
+                "軟式散光片停戴 3 天遠不足以消除角膜壓痕，至少需停戴 2–3 週並經序列驗光地形確認穩定。",
+                "45 歲雙眼若全矯至 0.00 D 將立即喪失看藍圖的近距離焦點，單眼視又會輕微降低立體視，建築師務必先經隱形眼鏡生活試戴確認職業耐受度。",
+                "−5.00 D 鏡框處方經 12 mm 頂點換算至角膜面約為 −4.72 D，非主力眼擬保留 −1.50 D 時，實際角膜消融目標約為 (−4.72) − (−1.50) = −3.22 D。"
+              ]
+            },
+            {
+              "type": "recall",
+              "question": "請說出軟式球面片、軟式散光片與硬式 RGP 在屈光術前檢查前的停戴時間原則，以及放行手術的最終判準。",
+              "answer": "軟式球面片停戴至少 1–2 週，軟式散光片停戴至少 2–3 週，硬式 RGP 停戴至少 3–4 週（且每配戴 10 年再加停 1 週）；最終一律須追蹤至跨次主觀驗光變動 ≤0.50 D 且角膜地形圖完全穩定無壓痕方可放行。"
+            }
+          ],
+          "references": [
+            {
+              "title": "Jacobs DS, Lee JK, Shen TT, Afshari NA, Bishop RJ, Keenan JD, Vitale S. Refractive Surgery Preferred Practice Pattern®. Ophthalmology",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/36543604/",
+              "year": "2023",
+              "note": "AAO preoperative refractive surgery guidelines on refractive stability, contact lens cessation intervals, manifest/cycloplegic refraction, and presbyopic monovision trials."
+            },
+            {
+              "title": "Jacobs DS, Afshari NA, Bishop RJ, Keenan JD, Lee J, Shen TT, Vitale S. Refractive Errors Preferred Practice Pattern®. Ophthalmology",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/36543603/",
+              "year": "2023",
+              "note": "AAO optical evaluation principles covering high-power spectacle-to-corneal vertex distance conversion, accommodative loss, and binocular vision assessment."
             }
           ]
         }

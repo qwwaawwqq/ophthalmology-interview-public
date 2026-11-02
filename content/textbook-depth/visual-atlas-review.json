@@ -3,7 +3,7 @@
   "packId": "volume-atlas-20261028",
   "conclusion": "pass",
   "reviewer": "independent-clinical-review",
-  "reviewedAt": "2026-11-01",
+  "reviewedAt": "2026-11-03",
   "contentHashes": {
     "atlas-s01-01": "1ad9eded78cef0e4c1b7081b126859f96456574c3500caa70fa9d354c7e95294",
     "atlas-s01-02": "e827da8484fe1748ddcd837b02503e0cc958b86f0d213bed241fc1ca3b0e315c",
@@ -149,16 +149,17 @@
     "atlas-s12-12": "be0f7e3d711e7a872c5984deb7b14cc94f2230c421e4dfa4a28a25289058098e",
     "atlas-s12-13": "083ebec2113df299a87669b4f9d2d3ad1d2a83566e7e8b7aaffc579286c98add",
     "atlas-s12-14": "4f01fdddf49eda07fcfe8f8684b7194f3e4517ce3b53816864ded32c9e79d186",
-    "atlas-s13-01": "e02093785deebf4ec85d6a3444ed71426f2a4dfbfdc06eac1d514d7ce8b5fb23",
+    "atlas-s13-01": "963f53b952d51c836edd28d66f317de86efa1f8d5d4b76a82b7934d3f6274431",
     "atlas-s13-02": "5661fc33ce8277394f87306d52299fa1a16d0cb14357cee9c30de0bdf087fc5a",
     "atlas-s13-03": "74e7168e4b728d9368295d7b2d82085676d81b151eeb453a30af3f917d8e1f10",
-    "atlas-s13-04": "9ce92de96eb16cc57d9b21cd3e537ea3ae025b8da9306135d578e9ef622e9f9c",
+    "atlas-s13-04": "81ac4e8113e41d4ab8962a8094c85ec37929a908ffa489861a0d1716b15c6cb3",
     "atlas-s13-05": "fcb7acc1daa98e3bde831f8ece79c094612c9165d543f80355e180db7f53e255",
     "atlas-s13-06": "04e125a50c4161e9e83fb6978eeadf3a54ca8c11e0875064227372c623103282",
     "atlas-s13-07": "afc3c67ff7c7f3b119152a2aabbe5f5b78847b3c4582b0cf3f7a38ffe0919e82",
     "atlas-s13-08": "be65574f7dcdab9d7b4f631ed8e673e1ab99804d37bf4f09652be80b90c66612",
     "atlas-s13-09": "8a667eaacf2122646db97d86cbe71449b7c41b8cc4ad696c027fc4af2116889c",
-    "atlas-s13-10": "0f863b24ffaa3276933d181b16fca96ef9b8d71442dd9b8fc30150470f209ba5"
+    "atlas-s13-10": "515424c2a5b7cd38aa977dd122fb9e69d7a8f770c488407edd4ff4786d8f33d9",
+    "atlas-s13-11": "4797fdb3406eaeb90cd2855e3e82592b4a4de2c2123e0c57508479dd887226f6"
   },
   "reviewNotes": [
     "All 26 complete teaching units, original cases, tables, reasoning and counterfactuals reviewed independently of their authors.",
@@ -186,6 +187,7 @@
     "2026-11-02 targeted correction, not a full re-review: atlas-s01-18. Hashes refreshed for these units only.",
     "2026-11-02 targeted correction, not a full re-review: atlas-s01-13. Hashes refreshed for these units only.",
     "2026-11-02 targeted correction, not a full re-review: atlas-s06-07, atlas-s10-08. Hashes refreshed for these units only.",
-    "2026-11-02 targeted correction, not a full re-review: atlas-s13-07. Hashes refreshed for these units only."
+    "2026-11-02 targeted correction, not a full re-review: atlas-s13-07. Hashes refreshed for these units only.",
+    "2026-11-02 targeted upgrade (Issue #164 S13CH2-CONTENT): bound atlas-s13-01 to bcsc-s13-ch002-u04, cleaned raw markdown in atlas-s13-04/10, upgraded atlas-s13-10 to a 2-panel corneal-layer & whole-eye screening anatomy diagram, and added atlas-s13-11 (vertex distance, monovision, contact lens holiday optics) for bcsc-s13-ch002-u01."
   ]
 }
