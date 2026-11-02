@@ -155,7 +155,7 @@
     "atlas-s13-04": "9ce92de96eb16cc57d9b21cd3e537ea3ae025b8da9306135d578e9ef622e9f9c",
     "atlas-s13-05": "fcb7acc1daa98e3bde831f8ece79c094612c9165d543f80355e180db7f53e255",
     "atlas-s13-06": "04e125a50c4161e9e83fb6978eeadf3a54ca8c11e0875064227372c623103282",
-    "atlas-s13-07": "63d43f67eaba9ec731ee64234de74c9bedab26148d9bb50e12ef04dfa41985a5",
+    "atlas-s13-07": "afc3c67ff7c7f3b119152a2aabbe5f5b78847b3c4582b0cf3f7a38ffe0919e82",
     "atlas-s13-08": "be65574f7dcdab9d7b4f631ed8e673e1ab99804d37bf4f09652be80b90c66612",
     "atlas-s13-09": "8a667eaacf2122646db97d86cbe71449b7c41b8cc4ad696c027fc4af2116889c",
     "atlas-s13-10": "0f863b24ffaa3276933d181b16fca96ef9b8d71442dd9b8fc30150470f209ba5"
@@ -185,6 +185,7 @@
     "2026-11-02 targeted correction, not a full re-review: atlas-s05-03, atlas-s06-05, atlas-s07-09. Hashes refreshed for these units only.",
     "2026-11-02 targeted correction, not a full re-review: atlas-s01-18. Hashes refreshed for these units only.",
     "2026-11-02 targeted correction, not a full re-review: atlas-s01-13. Hashes refreshed for these units only.",
-    "2026-11-02 targeted correction, not a full re-review: atlas-s06-07, atlas-s10-08. Hashes refreshed for these units only."
+    "2026-11-02 targeted correction, not a full re-review: atlas-s06-07, atlas-s10-08. Hashes refreshed for these units only.",
+    "2026-11-02 targeted correction, not a full re-review: atlas-s13-07. Hashes refreshed for these units only."
   ]
 }

@@ -27,7 +27,7 @@ const bootScript = new vm.Script(bootSource);
 const hookedScript = new vm.Script(hooked);
 
 // 2026-11-02 (#122): chapter synthesis, deep dives and explainers lost 151 repeated sentences.
-const COURSE_DATA_SHA256 = '243e9ac98a24f1c49a8154c33094aec073213383a1d77db13b8bc8bdd0ffe733';
+const COURSE_DATA_SHA256 = '15033cc7daad22d31aa197dbde43245d2be679a7c75e53d5208e8bfd5048aabf';
 const OPH = {
   id: 'oph', label: '眼科', appTitle: '眼科甄選練習室', storePrefix: 'oph-prep:', stateKey: 'oph-prep:progress-v3', syncFile: 'progress.json',
   formats: ['ophthalmology-prep-progress-v1', 'ophthalmology-prep-progress-v2', 'ophthalmology-prep-progress-v3'],

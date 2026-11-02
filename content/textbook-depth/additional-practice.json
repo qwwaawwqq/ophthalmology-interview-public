@@ -1192,7 +1192,7 @@
         }
       ],
       "correctIndex": 0,
-      "explanation": "單純皰疹病毒（HSV）角膜炎的用藥安全核心在於「精準區分病變解剖層次與致病主導機轉」：樹枝狀或地圖狀上皮性角膜炎（epithelial keratitis）源於活病毒在角膜上皮細胞內活躍複製並溶解細胞，單獨使用局部皮質類固醇會嚴重抑制局部抗病毒免疫，導致潰瘍迅速擴大惡化為地圖狀潰瘍並增加基質疤痕風險；反之，非壞死性基質角膜炎（immune stromal keratitis）與內皮炎／盤狀水腫（endotheliitis／disciform keratitis，表現為局部基質水腫、角膜後沉著物 KP 及前房發炎而上皮完整）主要由宿主對殘存病毒抗原的免疫發炎反應驅動。依里程碑臨床試驗 HEDS（Herpetic Eye Disease Study）與 BCSC 指引，針對無活動性上皮潰瘍的 HSV 基質炎或內皮炎，標準治療為「局部皮質類固醇合併預防性局部或口服抗病毒藥物覆蓋」，能顯著縮短發炎病程並降低持續性基質混濁進展；療程中須緩慢階梯式減量類固醇，並嚴密追蹤上皮是否復發破皮及類固醇性或小梁炎性高眼壓。",
+      "explanation": "單純皰疹病毒（HSV）角膜炎的用藥安全核心在於「精準區分病變解剖層次與致病主導機轉」：樹枝狀或地圖狀上皮性角膜炎（epithelial keratitis）源於活病毒在角膜上皮細胞內活躍複製並溶解細胞，單獨使用局部皮質類固醇會嚴重抑制局部抗病毒免疫，導致潰瘍迅速擴大惡化為地圖狀潰瘍並增加基質疤痕風險；反之，非壞死性基質角膜炎（immune stromal keratitis）與內皮炎／盤狀水腫（endotheliitis／disciform keratitis，表現為局部基質水腫、角膜後沉著物 KP 及前房發炎而上皮完整）主要由宿主對殘存病毒抗原的免疫發炎反應驅動。依里程碑臨床試驗 HEDS（Herpetic Eye Disease Study）與 BCSC 指引，針對無活動性上皮潰瘍的 HSV 基質炎，標準治療為「局部皮質類固醇合併預防性局部或口服抗病毒藥物覆蓋」，能顯著縮短發炎病程並降低持續性基質混濁進展；內皮炎／盤狀水腫則依 AAO 指引併用治療劑量口服抗病毒（如 acyclovir 400 mg 每日 3–5 次或 valacyclovir 500 mg BID），7–10 天後降為預防劑量（HEDS 未單獨分析盤狀內皮炎，BCSC 未列內皮炎專屬劑量）；療程中須緩慢階梯式減量類固醇，並嚴密追蹤上皮是否復發破皮及類固醇性或小梁炎性高眼壓。",
       "testConcept": "HSV角膜炎類固醇取決病層與抗病毒覆蓋",
       "difficulty": "moderate",
       "questionType": "treatment-comparison",
@@ -10038,7 +10038,7 @@
       "extra-20261020-q014": "2dfd2de6853f5910a413d2cdbf6c925521c0e9fbad51a692e7f4478e825946e4",
       "extra-20261020-q015": "2a2359b00d96fe7c9cce6dbb506e636658dd5cdabd04b2a0ace9cf700a6b826b",
       "extra-20261020-q016": "dd33090c5c720f239d42a0974c9525fae5bc02a55b558eef3da09923573415ec",
-      "extra-20261020-q017": "ca5a6931b65648229fd5a8f3f19c3639f83ac565a184c1bbbee25b2d322ea1d2",
+      "extra-20261020-q017": "a3120f9b191a16eead73004231cf10ddc7e6fa38a23f2780e605e44928f16011",
       "extra-20261020-q018": "3c1ce89b67d72d8eb197a3eb5af052c5d6282b0a9d1c994840abb382b91453a8",
       "extra-20261020-q019": "1205994d86610033893e3ee45edabab6e76fb363cd1607ff8e32c2f8fe546678",
       "extra-20261020-q020": "78f542c0501c591807110627bc25ffdabaf6d96982574814f27ec71b15139057",
