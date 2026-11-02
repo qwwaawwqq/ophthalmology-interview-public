@@ -15953,17 +15953,17 @@
           "whenTrue": "當急診面對突發雷擊樣頭痛或意識改變，需在第一時間確認顱內或蜘蛛膜下腔有無急性出血時。"
         },
         {
-          "text": "Routine brain MRI",
+          "text": "常規腦部磁振造影（routine MRI）",
           "rationale": "常規腦部磁振造影耗時較長、易受躁動偽影干擾，且超急性期去氧血紅素尚未形成前傳統序列對蜘蛛膜下腔薄層出血不如平掃 CT 直觀迅速。",
           "whenTrue": "當亞急性期欲藉 FLAIR／SWI 偵測微量殘血，或需評估腦下垂體中風、後部可逆性腦病變（PRES）與腦實質病灶時。"
         },
         {
-          "text": "CTA",
+          "text": "顯影電腦斷層腦血管攝影（head CTA）",
           "rationale": "電腦斷層血管攝影（CTA）的核心用途是描繪顱內動脈管腔以尋找囊狀動脈瘤或血管痙攣，而非作為偵測腦溝急性游離積血的第一步。",
           "whenTrue": "當平掃 CT 已證實蜘蛛膜下腔出血，或患者表現急性動眼神經麻痺伴瞳孔受累需緊急排除後交通動脈瘤時。"
         },
         {
-          "text": "MRA",
+          "text": "非侵入性磁振腦血管攝影（head MRA）",
           "rationale": "磁振血管攝影（MRA）主要用於非侵入性篩檢動脈管腔結構，檢查時間較長且對蜘蛛膜下腔游離出血本身不具直接診斷優勢。",
           "whenTrue": "當腎功能不全或碘顯影劑禁忌患者需評估顱內外大血管狹窄、剝離或穩定態腦血管構造時。"
         }
@@ -16007,17 +16007,17 @@
           "whenTrue": "當視盤處於急性水腫期（如 NAION、視神經乳頭炎、重度視乳頭水腫）仍需早期量化永久性視神經節細胞損傷時。"
         },
         {
-          "text": "Peripapillary RNFL厚度",
+          "text": "受急性視盤軸突腫脹嚴重掩蓋之視盤周圍視網膜神經纖維層厚度（peripapillary RNFL thickness）",
           "rationale": "視盤水腫急性期 pRNFL 因軸突腫脹而顯著增厚，會完全掩蓋同步進行中的軸突死亡，須待數月消腫後才會顯現最終萎縮。",
           "whenTrue": "當視盤無水腫之慢性視神經萎縮追蹤，或量化視乳頭水腫消退幅度與球後視神經炎遠期軸突殘留量時。"
         },
         {
-          "text": "Ellipsoid-zone完整性",
+          "text": "反映外層視網膜感光細胞內節粒線體密集帶之橢圓體帶完整性（photoreceptor ellipsoid-zone）",
           "rationale": "橢圓體帶（ellipsoid zone）代表外層感光細胞內節粒線體密集區，主要反映視網膜外層病變而非視神經病變的早期神經節細胞流失。",
           "whenTrue": "當鑑別隱匿性外層視網膜病變（如 AZOOR、MEWDS、視錐細胞失養症、太陽光視網膜病變）與視神經病變時。"
         },
         {
-          "text": "OCTA vessel-density map",
+          "text": "易受水腫遮蔽偽影與分層誤差干擾之光學同調斷層血管攝影微血管密度圖（OCTA vessel-density map）",
           "rationale": "OCT 血管攝影（OCTA）微血管密度圖易受嚴重視盤水腫之遮蔽偽影與分割誤差影響，並非臨床直接量化神經元胞體存活的標準指標。",
           "whenTrue": "當輔助研究視盤旁微血管灌流變化或視網膜血管病變（如黃斑缺血、脈絡膜新生血管）時。"
         }
@@ -16385,17 +16385,17 @@
           "whenTrue": "當 50 歲以上患者出現單眼短暫視損、AAION、CRAO 或急性複視並伴隨咀嚼跛行、新發頭痛等 GCA 全身警訊時。"
         },
         {
-          "text": "先完成TAB再決定是否開始steroid",
+          "text": "延後皮質類固醇投予並等待單側或雙側顳動脈切片（TAB）病理報告確診後再決定是否用藥",
           "rationale": "等待顳動脈切片排程與病理報告期間不給類固醇，會讓患者暴露於隨時發生雙眼永久無光感失明的極端風險，屬嚴重臨床失誤。",
           "whenTrue": "臨床上絕無「高度懷疑視覺型 GCA 卻延後類固醇以等待切片」之適應症；僅在完全無視覺警訊且極低度懷疑之非緊急鑑別時才可能審慎評估。"
         },
         {
-          "text": "以一般retinal TIA流程評carotid/cardioembolic來源",
+          "text": "僅按一般非動脈炎性視網膜短暫缺血（retinal TIA）慢速排檢頸動脈超音波與心臟栓子來源",
           "rationale": "將高齡咀嚼跛行患者之單眼黑矇當作一般頸動脈粥狀硬化栓塞性 TIA 慢速排檢而不給類固醇，會直接漏診即將爆發的動脈炎性視盤梗塞。",
           "whenTrue": "當無任何全身發炎與咀嚼跛行症狀、ESR／CRP 正常，且眼底見 Hollenhorst 膽固醇結晶栓子之典型非動脈炎性視網膜短暫缺血時。"
         },
         {
-          "text": "按TMJ疼痛安排局部止痛與牙科評估",
+          "text": "將下顎痠痛視為單純顳顎關節症候群（TMJ disorder）開立消炎止痛藥並轉診牙科咬合評估",
           "rationale": "把咀嚼運動數十秒後發作之咀嚼肌缺血痠痛（jaw claudication）誤判為顳顎關節症候群（TMJ，張口瞬間即喀啦痛）轉診牙科，是臨床致盲最常見的誤診陷阱。",
           "whenTrue": "當年輕或無發炎指標異常患者於張口咬合瞬間出現局部耳前關節彈響與機械性壓痛、且毫無視覺或全身血管炎症狀時。"
         }
@@ -16439,17 +16439,17 @@
           "whenTrue": "當雙眼同步短暫全盲或雙眼同向偏盲瞬間發作、持續數分鐘且伴血管危險因子（或合併眩暈、構音吞嚥困難、跌倒發作）時。"
         },
         {
-          "text": "Migraine aura",
+          "text": "呈現閃爍鋸齒狀幾何圖形緩慢向外擴展之無頭痛偏頭痛視覺預兆（migraine aura）",
           "rationale": "晚發性偏頭痛預兆（acephalgic migraine）必須具備閃爍幾何圖形於 5–60 分鐘內漸進擴散（march）的正性演進特徵，不會表現為 1–2 分鐘瞬間全黑啟閉。",
           "whenTrue": "當患者描述閃爍鋸齒狀堡壘線條自視野局部在 15–30 分鐘內緩慢向外擴展並消退，且已排除血管栓塞病變時。"
         },
         {
-          "text": "Occipital seizure",
+          "text": "伴隨彩色圓圈閃光幻視與眨眼強直之枕葉局部癲癇發作（occipital seizure）",
           "rationale": "枕葉局部癲癇發作雖短暫（數秒至數分鐘），但絕大多數表現為鮮豔彩色圓圈或光點閃爍等強烈正性放電現象，而非單純全黑。",
           "whenTrue": "當兒童或枕葉皮質病灶患者反覆出現數十秒彩色圓形閃光幻視、眨眼強直、共軛偏視或發作後頭痛意識混亂時。"
         },
         {
-          "text": "AVM或occipital mass",
+          "text": "造成固定持續性對側同向視野缺損之枕葉動靜脈畸形或腫塊（AVM或occipital mass）",
           "rationale": "枕葉動靜脈畸形或腫瘤本身屬於固定結構病灶，除非引發繼發性癲癇或盜血，否則極少單純以每週數次 1–2 分鐘瞬間完全可逆之雙眼全盲為首發表現。",
           "whenTrue": "當患者出現固定持續性對側同向視野缺損、同一側鎖定性搏動頭痛或顱內出血／局部癲癇時。"
         }
@@ -16547,17 +16547,17 @@
           "whenTrue": "當後大腦動脈梗塞損傷雙側下枕顳葉或右側下枕顳區，導致視力保留卻無法憑視覺認臉（常伴隨上方同向視野缺損與中樞性色盲）時。"
         },
         {
-          "text": "Bilateral dorsal occipitoparietal區",
+          "text": "掌管背側空間定位視覺流並引發Balint三聯徵之雙側頂枕葉Bilateral dorsal occipitoparietal區",
           "rationale": "雙側背側枕頂葉病變損傷背側「在哪裡」空間視覺流，引發 Balint 症候群（同時失認、視覺運動失調、後天性眼球運動失用），而非臉孔辨識障礙。",
           "whenTrue": "當低血壓分水嶺梗塞或後皮質萎縮症波及雙側頂枕交界區，造成患者看得到單一細節卻無法同時掌握全景與伸手對準目標時。"
         },
         {
-          "text": "Left occipital加splenium",
+          "text": "切斷右側視覺皮質往語言區連線並導致失讀不失寫症之Left occipital cortex合併胼胝體壓部splenium區",
           "rationale": "左側枕葉合併胼胝體壓部（splenium of corpus callosum）病變會切斷右側視覺皮質傳往左側語言區的連線，產生「失讀不失寫症（alexia without agraphia）」。",
           "whenTrue": "當左側後大腦動脈梗塞造成右側同向偏盲，且患者能流利書寫卻完全讀不懂自己剛寫下的文字時。"
         },
         {
-          "text": "Left angular gyrus相關區",
+          "text": "引發失讀合併失寫症與Gerstmann症候群之優勢半球Left inferior parietal angular gyrus區",
           "rationale": "優勢半球（左側）角回（angular gyrus）病變會導致「失讀合併失寫症」及 Gerstmann 症候群（手指失認、左右混淆、失算、失寫），並非臉孔失認定位。",
           "whenTrue": "當中大腦動脈下支梗塞波及左側頂葉角回，引發閱讀與書寫雙重喪失並伴隨計算障礙及左右不分時。"
         }
@@ -16765,17 +16765,17 @@
           "whenTrue": "當任何後天性動眼神經麻痺合併患側瞳孔散大遲鈍、外眼肌部分不完全受累，或年齡小於 50 歲且無血管危險因子時。"
         },
         {
-          "text": "短期觀察和慢性風險控制",
+          "text": "僅作門診短期觀察與內科慢性血管危險因子控制而不安排緊急腦血管動脈造影檢查",
           "rationale": "將瞳孔受累或不完全動眼神經麻痺歸咎於高血壓微血管缺血而僅作門診觀察，可能導致後交通動脈瘤於數小時至數日內破裂致死。",
           "whenTrue": "僅在 50 歲以上具明確血管危險因子、外眼肌「完全麻痺」但「瞳孔大小與光反應 100% 完全保留」，且已排除巨細胞動脈炎與其他腦幹伴隨徵象時，才可審慎密切追蹤（或仍低門檻做 CTA／MRA）。"
         },
         {
-          "text": "MG serology/ice test",
+          "text": "抽血檢驗乙醯膽鹼受體抗體並執行眼瞼冰敷測試（MG serology/ice test）",
           "rationale": "重症肌無力僅影響骨骼肌菸鹼型乙醯膽鹼受體，臨床上「絕對不會侵犯平滑肌瞳孔括約肌」造成明顯瞳孔散大與對光遲鈍。",
           "whenTrue": "當上瞼下垂與眼球運動受限呈現日內疲勞波動，且雙側瞳孔大小與對光反射完全正常對稱時。"
         },
         {
-          "text": "Routine nonvascular brain MRI",
+          "text": "僅安排未含血管序列之常規非血管磁振造影（routine nonvascular MRI）",
           "rationale": "未加做動脈血管攝影序列之常規平掃或顯影腦部 MRI 無法可靠描繪數毫米級別的後交通動脈瘤管腔，絕不可單獨用來排除動脈瘤。",
           "whenTrue": "當已藉 CTA／MRA 排除動脈瘤後，須進一步加做含眼眶海綿竇抑脂顯影之腦部 MRI 以排查腦幹梗塞、神經鞘瘤、腦膜炎或垂體中風時。"
         }
@@ -16981,17 +16981,17 @@
           "whenTrue": "當左側中大腦動脈急性梗塞患者表現雙眼看向左側、右側肢體偏癱，且娃娃眼轉頭測試能完整帶出向右共軛轉動時。"
         },
         {
-          "text": "右側大腦皮質／frontal eye field",
+          "text": "右側大腦額葉眼動區（right FEF cortex）",
           "rationale": "右側大腦額葉眼動區破壞性中風會使雙眼偏向「右側」且無法自主向左注視，與本題雙眼持續偏左、無法向右看完全相反（除非為極短暫右側癲癇發作期）。",
           "whenTrue": "當右側大腦半球急性梗塞導致雙眼共軛偏向右側、左側肢體偏癱伴左側空間忽略，且轉頭 VOR 可帶出向左轉動時。"
         },
         {
-          "text": "左側橋腦外展神經核",
+          "text": "左側橋腦背側外展神經核（left CN VI核團）",
           "rationale": "左側橋腦外展神經核病變會造成「向左」共軛凝視麻痺（雙眼反而偏向右側），且因核團最終共同路徑受損，連轉頭 VOR 亦無法帶出向左眼動。",
           "whenTrue": "當左側橋腦背側梗塞導致雙眼無法自主亦無法藉轉頭 VOR 向左共軛轉動（常伴同側核性顏面神經麻痺）時。"
         },
         {
-          "text": "右側橋腦外展神經核",
+          "text": "右側橋腦背側外展神經核（right CN VI核團）",
           "rationale": "右側橋腦外展神經核病變雖同樣使雙眼靜息偏左且無法向右看，但因直接破壞水平凝視最終共同核團，被動轉頭 VOR 絕對無法帶出向右水平運動。",
           "whenTrue": "當患者雙眼偏左、無法向右注視，且快速轉頭娃娃眼測試（VOR）同樣完全無法誘發雙眼向右轉動時。"
         }
@@ -17468,17 +17468,17 @@
           "whenTrue": "當確診良性原發性眼瞼痙攣（BEB）或半邊顏面痙攣（HFS）造成功能性閱讀與行走障礙，需首選局部標靶症狀控制時。"
         },
         {
-          "text": "AChR antibody testing",
+          "text": "檢測血清抗乙醯膽鹼受體抗體（AChR antibody testing）",
           "rationale": "抗乙醯膽鹼受體抗體（AChR Ab）用於診斷提上瞼肌「無力鬆垂（眉毛代償挑高）」之重症肌無力；本例為眼輪匝肌與皺眉肌「主動強力緊縮（眉毛下壓）」，機轉完全相反。",
           "whenTrue": "當患者表現下午加劇之變動性上瞼下垂、額肌代償抬眉、冰敷測試改善或合併雙眼複視與眼輪匝肌閉眼無力時。"
         },
         {
-          "text": "Cranial MRI",
+          "text": "常規安排高解析度腦部磁振造影（routine cranial MRI）",
           "rationale": "典型雙側對稱、無其他腦幹或基底核神經缺損之單純原發性眼瞼痙攣（BEB）不需常規安排腦部 MRI，濫排影像並無臨床效益。",
           "whenTrue": "當表現為嚴格單側「半邊顏面痙攣」、持續顏面肌纖維顫搐、年輕早發非典型肌張力不全或合併其他顱神經與錐體外病徵時。"
         },
         {
-          "text": "Psychiatric referral",
+          "text": "轉介精神科行心因性轉化症評估（psychiatric referral）",
           "rationale": "BEB 是真實的基底核神經迴路局部肌張力不全症（過去數十年前曾常被誤認為心因性歇斯底里症而延誤治療），將典型器質性肌張力不全直接當作精神疾病轉診屬重大認知偏誤。",
           "whenTrue": "當非器質性功能性眼瞼痙攣合併明確正向不一致徵象且患者兼具嚴重焦慮憂鬱共病，需多專科支持性心理復健協同照護時。"
         }
@@ -17749,17 +17749,17 @@
           "whenTrue": "當單眼功能性視力喪失（宣稱無光感或重度低視力，好眼正常）需在診間直接定量測出患眼真實最佳矯正視力（如 20/20）時。"
         },
         {
-          "text": "OKN drum",
+          "text": "轉動黑白條紋視動性眼振鼓（OKN drum）誘發不自主快慢相眼振",
           "rationale": "視動性眼振鼓（OKN drum）誘發出正常快慢相眼振僅能證明該眼「並非無光感全盲（至少具數指或粗略條紋感知）」，無法證明具備 20/20 精細中心視力。",
           "whenTrue": "當雙眼或單眼宣稱完全失明（NLP／LP）患者需在床邊快速證明仍保留基本視覺運動傳入反應時。"
         },
         {
-          "text": "Mirror test",
+          "text": "搖晃大型平面鏡（mirror test）填滿視野誘發不自主追視眼動",
           "rationale": "大平面鏡搖晃測試（mirror test）利用全視野環境隨鏡面反射移動誘發無法壓抑的追視眼球運動，是最強大的「破除無光感全盲」定性測試，但同樣無法量化 20/20 視力。",
           "whenTrue": "當宣稱雙眼或單眼完全無光感（NLP）患者連視動鼓都刻意注視遠方壓抑時，以大鏡子填滿視野誘發不自主追視以排除真全盲時。"
         },
         {
-          "text": "Base-out prism test",
+          "text": "置放基底朝外稜鏡（base-out prism test）觀察雙眼融像掃視",
           "rationale": "基底朝外稜鏡試驗（4–10Δ base-out prism test）觀察雙眼微幅掃視與融像重整，僅能定性證明雙眼皆具中心固視與雙眼融像能力，無法精準讀出 20/20 字母視力值。",
           "whenTrue": "當單眼宣稱重度視力喪失患者需藉由雙眼融像再注視微幅掃視，客觀佐證雙眼黃斑固視迴路存在時。"
         }
@@ -17911,17 +17911,17 @@
           "whenTrue": "當重度痛性視神經炎表現雙側受累、侵犯後段視神經或視交叉、類固醇療效不彰，或伴隨橫貫性脊髓炎與極後區打嗝嘔吐時。"
         },
         {
-          "text": "典型 MS-associated optic neuritis",
+          "text": "預後良好且多為單側短節段受累之典型MS-associated optic neuritis",
           "rationale": "典型多發性硬化症（MS）相關視神經炎絕大多數為單側短節段受累，且逾九成患者即便未治療亦會於數週內恢復至 20/40 以上，極少雙眼接連全毀且類固醇無效。",
           "whenTrue": "當年輕成人發生單側中度球後痛性視神經炎、數週內視力穩步回升，且腦部 MRI 具典型腦室周圍與皮質旁短斑塊時。"
         },
         {
-          "text": "Giant cell arteritis",
+          "text": "高齡患者伴隨咀嚼跛行與蒼白視盤水腫之動脈炎性Giant cell arteritis",
           "rationale": "巨細胞動脈炎（GCA）雖可雙眼先後重度失明，但其本質為 50 歲以上高齡患者之前部或後部缺血性梗塞（常伴蒼白水腫視盤與咀嚼跛行），而非痛性雙側長節段脫髓鞘樣神經幹強化。",
           "whenTrue": "當高齡患者出現無眼球轉動痛之超急性蒼白視盤水腫（AAION）、ESR／CRP 飆升與顳部頭痛咀嚼痠痛時。"
         },
         {
-          "text": "AZOOR",
+          "text": "表現為無痛性閃光感與外層視網膜橢圓體帶缺損之急性區域性AZOOR病變",
           "rationale": "急性區域性隱匿性外層視網膜病變（AZOOR）為無痛性外層感光細胞病變，伴隨持續閃光感與多焦點 ERG 異常，眼眶 MRI 視神經絕對不會出現雙側實質強化。",
           "whenTrue": "當患者主訴無痛性閃光感與盲點周圍暗點，眼眶視神經 MRI 完全正常而 OCT 橢圓體帶缺損且 mfERG 振幅下降時。"
         }
@@ -18031,17 +18031,17 @@
           "whenTrue": "當患者於持續偏心凝視回正後反覆誘發 30–60 秒短暫外眼肌強直痙攣與複視，回溯數月至數年前之顱底放射治療病史時。"
         },
         {
-          "text": "糖尿病相關微血管性 VI palsy",
+          "text": "糖尿病微血管缺血所致之固定性外展神經麻痺（diabetic CN VI palsy）",
           "rationale": "糖尿病相關微血管性第六對外展神經麻痺表現為全天候「持續性固定外轉無力（原位內斜視、向右看雙眼複視加劇）」，於 2–3 個月內緩慢恢復，絕不會表現為向右看正常、回正時右眼反而外斜卡住 60 秒。",
           "whenTrue": "當具高齡或糖尿病血管風險患者急性出現全天候固定單側外轉受限與看遠內斜複視，並於 8–12 週內完全自癒時。"
         },
         {
-          "text": "MS 接受 glatiramer acetate",
+          "text": "多發性硬化症（MS）長期接受glatiramer acetate皮下注射免疫調節治療",
           "rationale": "多發性硬化症接受 glatiramer acetate 與顱底周邊運動神經軸突放射性神經肌強直毫無關聯；MS 引起的複視多為持續數週之腦幹核間性眼肌麻痺（INO）或外展神經束病灶。",
           "whenTrue": "當年輕多發性硬化症患者出現持續數日以上之內轉掃視變慢伴對側外轉分離性眼振（INO）時。"
         },
         {
-          "text": "乳癌接受 tamoxifen",
+          "text": "乳癌術後長期服用tamoxifen引發雙眼黃斑部結晶性視網膜病變",
           "rationale": "乳癌輔助內分泌藥物 tamoxifen 的已知眼部副作用為雙眼黃斑部結晶性視網膜病變（crystalline maculopathy）、黃斑水腫及罕見視神經毒性，不會造成海綿竇顱神經強直放電。",
           "whenTrue": "當接受 tamoxifen 治療患者出現無痛性中心視力輕度減退，散瞳與 OCT 見中心凹周圍內層視網膜高反光折光結晶沈積時。"
         }
@@ -18915,26 +18915,26 @@
     },
     "questionContentHashes": {
       "bcsc-s05-rq001": "66ac9f2c3ec5e38276c6cfd1f02e69ff3a95aa710ec5d58666a93805dabf27ba",
-      "bcsc-s05-rq002": "45e5cc186f8acc0d1dd7b57273875cc8820fc68c53159a1e66308af402fd62eb",
-      "bcsc-s05-rq003": "2145f7bc0a265a348e599e3f2104740971b0127992d079bdb02f314044611525",
+      "bcsc-s05-rq002": "0cc47204d433e291d8e4fc3a3b8dac5b9da4d0bb6992627594b5969226a2edc5",
+      "bcsc-s05-rq003": "02f759fc5039a8e168185f9215a1c0a958274e6593418a9c891fb37a9b896057",
       "bcsc-s05-rq004": "44de1fcce035a7ec0df88a6c8b7f71eca8fa5e9fdb967f61a55c811ed33ab240",
       "bcsc-s05-rq005": "0344d4734bddb0cdbc3d59def0aeed8f8b4f2bac98f99b24df635a80b6584f44",
       "bcsc-s05-rq006": "39527f5779d7f4779cf149bde35484608f9286534f2fb38695470c3b338eb143",
       "bcsc-s05-rq007": "08d21d213e1ddbd3f82a73ea56b6b31c563ff35b52a3bb7875d884e95bc98695",
       "bcsc-s05-rq008": "246498c637333763d9ff53fafa85cdd1cb22148f9711614f19d93e590a74402d",
       "bcsc-s05-rq009": "9dc7be52335b6e63d9666b222b2b4d44e238418402f653ee19d6a62dd1ff8082",
-      "bcsc-s05-rq010": "0d0f39cfd8f1d25f65c69bafb0334c730290d6676e05eea6c5d827ff1e19690e",
-      "bcsc-s05-rq011": "f32ca18825596bfb69f947a237b9b4522331435aab943d9d4e47c9b926449368",
+      "bcsc-s05-rq010": "b9642f974ddd6b2f17662dc05718e21437ef6de387828461521f0f5de230e656",
+      "bcsc-s05-rq011": "0e08a05ba5259699a0c66a1ef8c375fb6fbeb5edd707d4880d7fccf29a85a759",
       "bcsc-s05-rq012": "a7a0715cc17e0b7f91fc7f1fcac4fd39a049021da451e2efe528629203e43ebf",
-      "bcsc-s05-rq013": "8d68e3ab5d11bfd0ac0bf01dfed042992b9d8b2777d2dbadbb51bfef49cf4f21",
+      "bcsc-s05-rq013": "d288ab1e24e51e4d0136833a5ddf27f7342e42490c1fa4869f9f0c31e7e80dad",
       "bcsc-s05-rq014": "803c142dc8aeb160448cfc0018eda5318e45ca2ede0ce4742f85eac36cee1065",
       "bcsc-s05-rq015": "e72a23348ff4ad92143e433d97f9c2a503043d543e923642ed01bf9bd85ca444",
       "bcsc-s05-rq016": "ba0df9af06a22b1ea921ccd15f49c0e1b661ca7b67f595d6b545a042a833ab7c",
-      "bcsc-s05-rq017": "241823160b3b1d96afba316d7975dd85dc8b3fdbeb98d244d1fad4cb324f4a13",
+      "bcsc-s05-rq017": "3dd653104afddf74baa4ae649c5c2e3a251f8a39b1add61946e744105b14fce0",
       "bcsc-s05-rq018": "7f90b1a405d6858765a63f50227e0d6780e8fc2d942cb98304620c40ed3f1ad6",
       "bcsc-s05-rq019": "a1c88fe1c3ad14ecf4aa213b59de860cdbe8264eab35ee9d927e1b6f17627131",
       "bcsc-s05-rq020": "dbaf69f85d4fa776463b79296252e3c6979e4489b6ab155a35037a39f317873d",
-      "bcsc-s05-rq021": "3bd088dc52b27764d84c74c7771f556c46c081244c76151be6f0362194ad461e",
+      "bcsc-s05-rq021": "5bd07cb19027afa9c59e55cc4d403f2df8e22bd7cce73c4f437eb6e83566bfaa",
       "bcsc-s05-rq022": "4d841832c5cf068197c2e73c2d9740efa95f763acd256e6c4553b43d579d2b10",
       "bcsc-s05-rq023": "a450755830ff0773ba4512c8726616ea8b9736d8cbabd9db3ef2391fec3b16df",
       "bcsc-s05-rq024": "f4a0fac2b1e7f8d062edf0643d351270b646bec11ba3406c1e30a341b8cf79ce",
@@ -18943,17 +18943,17 @@
       "bcsc-s05-rq027": "94a402dd329f61b02b48245b8b9973b20bce9dd83ce2ad58251cce7d5efe2aee",
       "bcsc-s05-rq028": "3cfadb45f0d808decbbba720e2f4bbd2742c63c8a40eead0a307f44d49c2b506",
       "bcsc-s05-rq029": "dd5643940545d5c7f15e87625d93e97df2e1db12fef2eb4ab72575190e96538e",
-      "bcsc-s05-rq030": "1acc1f48e5c395e645be239ed7c53ec51ac61962677e78ac1b7b98242cc14f44",
+      "bcsc-s05-rq030": "695c92c90fb45044ee2ebe91c2e3a90654cf07a0f65f202a1228e56599ae6be2",
       "bcsc-s05-rq031": "b24670e5b8cf0e21c67b206dd9191c1d702ae72e424c295e69ba4c3a8dcec3a8",
       "bcsc-s05-rq032": "21473f676fa61bb8c96b257d6d7ac4b2bd2fda97b07cbeb5c9eeec4dd0d2a350",
       "bcsc-s05-rq033": "f27c62a33145099bd1d5d72bc45e39834afdcdbca65ab3a47d51aacc1f10c36e",
       "bcsc-s05-rq034": "d35691fa93978783d414249b1ab293b32bd994b00e2ae064d743d494abe263f9",
-      "bcsc-s05-rq035": "38a3e62b8d62733a2f3c5241d1acdfd1f123f12abc89b620969d7079fcbfa619",
+      "bcsc-s05-rq035": "6671b69dc2149c415f7f2374aeb9ecda9c751aa5152ee22be473452ac78762c2",
       "bcsc-s05-rq036": "13dc965caaa21f7ac8ac251b1ed2f8616c406eac3bd0abacc6af26b67fe37247",
       "bcsc-s05-rq037": "6ead93826c97ff1a6798a2345fc34d62af2d31a1fbc1ff183828e79eec35c868",
-      "bcsc-s05-rq038": "105851680151b7687e2b0e1751c56a6be05a090dac0da02a01649a8af0c3f34c",
+      "bcsc-s05-rq038": "7ccb252abb4bf8c9c1675b3fcaed685c54f02a5ce3556c3c1abf49b47cdec2bc",
       "bcsc-s05-rq039": "fd797e088e18f2ac845de8d0ddc349a758663f2f22dcec9974046f035f214366",
-      "bcsc-s05-rq040": "ee42c5f32b5d59b5d21e139be034bfac8a5e5e25b1f93d161e6688143344f0d6"
+      "bcsc-s05-rq040": "627292b550f8baad0ad8d00785da65e4a19f46dca8c89368bc4a948650017f55"
     },
     "chapterCoverageIds": [
       "bcsc-s05-ch001",

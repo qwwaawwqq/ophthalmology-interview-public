@@ -15966,17 +15966,17 @@
           "whenTrue": "估算正常成人單側整個骨性眼眶腔室（含眼球、眼外肌、視神經、血管與眼眶脂肪總和）之參考容積時。"
         },
         {
-          "text": "約5 mL",
+          "text": "約5 mL，相當於玻璃體腔容積量級",
           "rationale": "此數值遠小於整個骨性眼眶容積，反而接近單顆成人眼球（globe，約 6.5–7.5 mL）或玻璃體腔（約 4–4.5 mL）的體積量級，常見混淆。",
           "whenTrue": "討論成人玻璃體腔容積（約 4.0–4.5 mL）或略小於正常成人眼球本體容積（約 6.5–7.5 mL）之眼內腔室時。"
         },
         {
-          "text": "約15 mL",
+          "text": "約15 mL，僅達正常成人眼眶一半",
           "rationale": "僅約正常成人單側眼眶容積的一半，低估了球後肌錐內外脂肪與附屬器所占的空間。",
           "whenTrue": "評估嬰幼兒尚未發育完全之小型眼眶容積，或嚴重先天性小眼／無眼症導致骨性眼眶發育不全之特殊情境時。"
         },
         {
-          "text": "約50 mL",
+          "text": "約50 mL，明顯高估單側骨性眼眶",
           "rationale": "顯著高於正常成人單側骨性眼眶容量，若誤用此高估值將嚴重低估急性球後出血引發眼眶腔室症候群的壓力飆升速度。",
           "whenTrue": "跨雙側眼眶加總計算，或巨大長期良性腫瘤／雙側廣泛骨壁減壓術後重塑擴大之極端異常腔室時。"
         }
@@ -16084,17 +16084,17 @@
           "whenTrue": "繪製葡萄膜與脈絡膜主要上游動脈灌流來源（睫狀動脈系統）及其分水嶺解剖時。"
         },
         {
-          "text": "Central retinal artery",
+          "text": "Central retinal artery（供應內層視網膜之視網膜中央動脈）",
           "rationale": "視網膜中央動脈（CRA）自視神經盤中央穿出後分支行於神經纖維層，專責供應內層視網膜（直至內核層中界），屬終末動脈系統，不供應脈絡膜。",
           "whenTrue": "討論內層視網膜血液供應，或急性無痛視力喪失伴視網膜乳白水腫與櫻桃紅斑之 CRAO 病生理時。"
         },
         {
-          "text": "Choriocapillaris",
+          "text": "Choriocapillaris（緊貼Bruch膜外側之脈絡膜微血管終末交換層）",
           "rationale": "脈絡膜微血管層（choriocapillaris）是位於 Bruch 膜外側、具窗孔（fenestrated）高通透性的小葉狀毛細血管床，屬於脈絡膜內部的終末交換層而非上游供血動脈幹。",
           "whenTrue": "討論直接藉由擴散供應視網膜色素上皮（RPE）與外層感光細胞（尤其無血管中心凹）氧氣養分的微血管層時。"
         },
         {
-          "text": "Major arterial circle of iris",
+          "text": "Major arterial circle of iris（位於睫狀體基質之虹膜大動脈環）",
           "rationale": "虹膜大動脈環位於睫狀體基質（並非虹膜本體），由長後睫狀動脈與前睫狀動脈吻合形成，主要分支往前供應虹膜與睫狀突，並非全脈絡膜的上游主幹。",
           "whenTrue": "討論虹膜與睫狀突前節血液供應，或外傷房角後退撕裂睫狀體前表面血管導致前房出血（hyphema）時。"
         }
@@ -16259,17 +16259,17 @@
           "whenTrue": "評估前庭神經鞘瘤壓迫 CN VII 造成外耳道後壁感覺遲鈍（Hitselberger 徵象）或膝狀神經節帶狀疱疹外耳道痛性水泡時。"
         },
         {
-          "text": "Preauricular皮膚主要感覺",
+          "text": "Preauricular耳前區及鬢角顳部皮膚之一般痛溫觸覺（由三叉神經下頜支之耳顳神經負責傳入）",
           "rationale": "耳前及鬢角顳部皮膚的一般痛溫觸覺主要由三叉神經下頜支（CN V3）分出的耳顳神經（auriculotemporal nerve）支配，並非顏面神經感覺根範圍。",
           "whenTrue": "顳顎關節病變、腮腺腫瘤侵犯耳顳神經或腮腺術後出現咀嚼冒汗（Frey 味覺出汗症候群）涉及 CN V3 分支時。"
         },
         {
-          "text": "角膜表面主要感覺",
+          "text": "角膜上皮與前基質表面之高密度痛覺及機械觸覺（由CN V1眼神經之長睫神經負責傳入）",
           "rationale": "角膜高密度無髓鞘痛覺神經末梢完全由三叉神經眼神經支（CN V1）之鼻睫神經分支（長睫神經為主）負責傳入；CN VII 僅負責眨眼反射與反射性流淚的「傳出端（efferent limb）」。",
-          "whenTrue": "測試角膜反射傳入支（輕觸患眼雙側皆不眨眼）或診斷單純疱疹／三叉神經損傷所致神經營養性角膜炎時。"
+          "whenTrue": "測試角膜反射傳入支（輕觸患眼雙側皆不眨眼）或診斷單純皰疹／三叉神經損傷所致神經營養性角膜炎時。"
         },
         {
-          "text": "舌後1/3味覺",
+          "text": "舌後三分之一黏膜表面之特殊味覺與一般體感覺（由CN IX舌咽神經負責傳入孤束核）",
           "rationale": "舌後三分之一的特殊味覺與一般黏膜感覺皆由第 IX 對舌咽神經（glossopharyngeal nerve）負責；CN VII 鼓索神經（chorda tympani）負責的是「舌前三分之二」味覺。",
           "whenTrue": "評估舌咽神經病變、頸靜脈孔症候群（jugular foramen syndrome）或咽反射傳入支缺損時。"
         }
@@ -16315,17 +16315,17 @@
           "whenTrue": "先天單側上瞼下垂患童於吸吮、咀嚼或下顎移向對側（收縮同側外翼肌）時出現同側上眼瞼瞬時同步抬升之連動現象時。"
         },
         {
-          "text": "Duane：III異常支配LR",
+          "text": "Duane眼球後縮症候群：胚胎期外展神經核發育不全並由CN III下分支異常支配外直肌",
           "rationale": "Duane 眼球後縮症候群確屬典型 CCDD（胚胎外展神經核發育不全，由動眼神經分支異常支配外直肌），但表現為水平外轉／內轉受限與內轉時瞼裂縮小眼球後縮，而非咀嚼提瞼連動。",
           "whenTrue": "先天外轉或內轉受限，且在企圖內轉（adduction）時因內外直肌同時收縮導致眼球向眶內後縮與瞼裂變窄時。"
         },
         {
-          "text": "後天III麻痺",
+          "text": "後天外傷或壓迫性CN III麻痺後之軸突迷走錯接再生（Aberrant regeneration）",
           "rationale": "外傷或動脈瘤壓迫第 III 對動眼神經幹雖可在再生期發生神經迷走錯接（如內轉或下視時上瞼異常抬起之假性 Graefe 徵象），但屬後天動眼神經內部錯接，不與三叉神經咀嚼運動連動且非嬰兒期先天表現。",
           "whenTrue": "外傷或後交通動脈瘤壓迫第 III 對腦神經後出現內轉／下視伴上瞼抬升或瞳孔收縮之後天動眼神經異常再生（絕不見於糖尿病微血管缺血）時。"
         },
         {
-          "text": "VII周邊麻痺",
+          "text": "周邊性CN VII顏面神經麻痺後之眼輪匝肌異常連動收縮（Facial synkinesis）",
           "rationale": "周邊顏面神經麻痺（如 Bell 麻痺）復原後若發生異常再生（Marin-Amat 或鱷魚淚／咀嚼眨眼連動），是鼓嘴微笑時眼輪匝肌收縮使「瞼裂變小閉合」而非提上瞼肌收縮使眼瞼上彈。",
           "whenTrue": "陳舊性周邊顏面神經麻痺後，患者微笑或鼓腮時同側眼輪匝肌不自主同步收縮造成瞼裂瞇小之顏面連動症（facial synkinesis）時。"
         }
@@ -16483,17 +16483,17 @@
           "whenTrue": "著色性乾皮症患者接受嚴格防紫外線護目鏡衛教，並定期以裂隙燈篩檢瞼裂區角結膜上皮內腫瘤（OSSN）與眼表／眼瞼皮膚癌時。"
         },
         {
-          "text": "Retinoblastoma與choroidal melanoma",
+          "text": "Retinoblastoma視網膜母細胞瘤與choroidal melanoma成人脈絡膜惡性黑色素瘤（眼內深部腫瘤）",
           "rationale": "角膜與晶狀體已吸收絕大部分環境紫外線，且視網膜母細胞瘤（RB1 雙擊）與成人脈絡膜黑色素瘤（GNAQ/GNA11 及 BAP1 等體細胞突變）並非 XP 紫外線修復缺陷主要倍增的眼部癌症。",
           "whenTrue": "分別於嬰幼兒 RB1 生殖系突變篩檢白瞳症，或高齡淺膚色／眼部黑色素增多症（ocular melanocytosis）患者追蹤脈絡膜惡性腫瘤時。"
         },
         {
-          "text": "Optic pathway glioma與Lisch nodules",
+          "text": "Optic pathway glioma視路毛狀星狀細胞瘤與Lisch nodules虹膜色素性錯構瘤結節（NF1表徵）",
           "rationale": "視路毛狀星狀細胞瘤與虹膜色素錯構瘤（Lisch 結節）是第 17 號染色體 NF1（neurofibromin 抑制 RAS 活性蛋白）突變所致第一型神經纖維瘤病特徵，與 UV DNA 修復無關。",
           "whenTrue": "具咖啡牛奶斑（café-au-lait macules）、腋下雀斑與蝶骨大翼發育不全之 NF1 病童定期篩檢視力、視野與視路神經膠質瘤時。"
         },
         {
-          "text": "Retinal hemangioblastoma與renal tumor",
+          "text": "Retinal hemangioblastoma視網膜毛細血管母細胞瘤與clear cell renal tumor腎細胞癌",
           "rationale": "視網膜毛細血管母細胞瘤合併透明細胞腎細胞癌（RCC）、小腦血管母細胞瘤及嗜鉻細胞瘤，屬於第 3 號染色體 VHL 抑癌基因缺氧誘導因子（HIF）降解失調之 von Hippel–Lindau 症候群。",
           "whenTrue": "眼底發現具粗大扭曲滋養動靜脈之橘紅色周邊或視盤旁視網膜血管母細胞瘤，啟動全身 VHL 腹部與腦脊髓 MRI 監測時。"
         }
@@ -17149,17 +17149,17 @@
           "whenTrue": "解釋為何有晶狀體眼（phakic eye）接受玻璃體切除術後高達數成至九成在 1–2 年內快速發生核性硬化型白內障，以及長期隅角開放青光眼風險上升時。"
         },
         {
-          "text": "有gel時氧壓較高，移除後必然更低",
+          "text": "有完整gel時晶狀體後氧分壓較高，手術移除凝膠後必然更低",
           "rationale": "完全顛倒了玻璃體凝膠的阻隔對流與抗壞血酸耗氧生理機制——實測顯示完整玻璃體中央與晶狀體後表面氧分壓極低，玻璃體切除術後晶狀體後方氧分壓反而顯著飆升。",
           "whenTrue": "本題單純移除玻璃體條件下不成立；唯有在玻璃體切除同時改善缺血視網膜對「缺血內層視網膜本身供氧（緩解 VEGF）」時，才是由內界膜側補氧而非降低整體晶狀體氧暴露。"
         },
         {
-          "text": "Gel只影響透明，氧環境不變",
+          "text": "玻璃體Gel只影響光學透明，移除後眼內氧氣分壓環境不變",
           "rationale": "忽略了流體力學黏滯度對流（convection vs diffusion）與抗壞血酸依賴性耗氧生化反應，錯誤將玻璃體視為純粹光學填充水球。",
           "whenTrue": "在真實活體眼球轉動生理下不成立；眼球快速掃視（saccades）在液化腔與凝膠腔產生的氧氣對流傳輸相差數倍以上。"
         },
         {
-          "text": "氧化負荷降低，ascorbate消耗相對下降",
+          "text": "手術後晶狀體氧化負荷降低，房水ascorbate消耗相對下降",
           "rationale": "玻璃體切除並液化對流增強後，大量氧分子湧入反而加速消耗抗壞血酸（ascorbate 轉化為脫氫抗壞血酸），使晶狀體與小樑網失去抗氧化緩衝而氧化損傷加劇。",
           "whenTrue": "本題不成立；抗壞血酸消耗減少僅見於眼內氧氣輸入減少之特殊實驗缺血條件。"
         }
@@ -17605,17 +17605,17 @@
           "whenTrue": "闡述自由基與活性氧（ROS）慢性累積破壞無更新能力之晶狀體中央核蛋白與脂質膜導致老年性白內障之核心分子機轉時。"
         },
         {
-          "text": "殘餘epithelium術後增殖—此原lens核混濁",
+          "text": "赤道部殘餘lens epithelium於白內障術後遷移增殖—此原生lens中央核硬化混濁",
           "rationale": "赤道部殘留晶狀體上皮細胞遷移至後囊表面增殖形成 Elschnig 珍珠小體並轉分化為肌纖維母細胞收縮皺褶，屬於「人工水晶體植入術後」的後囊混濁（PCO／次發性白內障），而非原生晶狀體核蛋白老化。",
           "whenTrue": "白內障手術後數月至數年再度出現視力模糊與眩光，需以 Nd:YAG 雷射後囊切開術處理之後囊混濁（PCO）時。"
         },
         {
-          "text": "Hemidesmosomal附著失敗—此lens核混濁",
+          "text": "角膜基底上皮Hemidesmosomal半橋粒附著複合體結構失敗—此原生lens中央核混濁",
           "rationale": "半橋粒（hemidesmosome，含 α6β4 整合素、第 XVII 型膠原與第七型膠原錨定原纖維）位於角膜基底上皮與前基質交界，其缺陷造成晨間睜眼劇痛之復發性角膜上皮糜爛，與眼內晶狀體核混濁毫無關聯。",
           "whenTrue": "指甲刮傷後或上皮基底膜失養症（EBMD／map-dot-fingerprint dystrophy）患者反覆發生清晨角膜上皮剝脫劇痛時。"
         },
         {
-          "text": "Retinal ganglion axon損傷—此lens核混濁",
+          "text": "篩板處Retinal ganglion axon視網膜神經節細胞軸突損傷—此lens核混濁",
           "rationale": "視網膜神經節細胞軸突於篩板處受機械壓迫、軸漿運輸阻斷與粒線體氧化壓力而凋亡，產生的是青光眼性視野缺損與視神經凹陷，並不會改變水晶體蛋白質的光學散射特性。",
           "whenTrue": "討論青光眼、缺血性或遺傳性視神經病變中視網膜神經節細胞（RGC）軸突退化與不可逆視野喪失機轉時。"
         }
@@ -17782,17 +17782,17 @@
           "whenTrue": "核對標示為 1:10,000 w/v 腎上腺素製劑之精確毫克／毫升濃度與重量體積百分比時。"
         },
         {
-          "text": "1 mg/mL，亦即0.1%",
+          "text": "1 mg/mL，亦即0.1%（對應1:1,000）",
           "rationale": "1 mg/mL（1,000 mg / 1,000 mL）對應的比例濃度為「1:1,000 w/v」，比題目所問的 1:10,000 濃上整整十倍，若在手術中誤抽未稀釋將造成嚴重心血管與角膜內皮風險。",
           "whenTrue": "核對全身過敏性休克大腿肌肉注射常用之高濃度「1:1,000 w/v」腎上腺素安瓿時。"
         },
         {
-          "text": "0.01 mg/mL",
+          "text": "0.01 mg/mL，亦即0.001%（稀釋十倍）",
           "rationale": "0.01 mg/mL（1,000 mg / 100,000 mL，即 0.001%）對應的比例濃度為「1:100,000 w/v」，比本題稀釋十倍。",
           "whenTrue": "眼瞼整形手術局部浸潤麻醉劑（如 2% lidocaine 混合 1:100,000 epinephrine 收縮微血管止血）之腎上腺素濃度換算時。"
         },
         {
-          "text": "10 mg/mL",
+          "text": "10 mg/mL，亦即1.0%（對應1:100）",
           "rationale": "10 mg/mL（1,000 mg / 100 mL）對應的是「1:100 w/v（即 1% w/v）」，比 1:10,000 濃上一百倍。",
           "whenTrue": "換算 1% w/v 局部點眼或局部麻醉藥（如 1% lidocaine = 10 mg/mL）之濃度時。"
         }
@@ -17853,17 +17853,17 @@
           "whenTrue": "重度前葡萄膜炎控制劇烈睫狀肌疼痛、穩定血—房水屏障或弱視遮蓋替代罰抑療法（penalization）需要超長效睫狀肌麻痺時。"
         },
         {
-          "text": "Scopolamine",
+          "text": "Scopolamine（0.25%東莨菪鹼）",
           "rationale": "氫溴酸東莨菪鹼（scopolamine 0.25%）作用時間約 4–7 天，雖屬長效抗蕈毒鹼藥物，但持續時間仍顯著短於阿托品的 7–14 天（臨床常在阿托品接觸性過敏時作為替代品，惟須留心中樞鎮靜譫妄副作用）。",
           "whenTrue": "需要數日長效睫狀肌麻痺但病患對阿托品產生局部眼瞼接觸性皮膚結膜炎過敏反應時。"
         },
         {
-          "text": "Homatropine",
+          "text": "Homatropine（2%後馬托品）",
           "rationale": "後馬托品（homatropine 2%–5%）屬於中效抗蕈毒鹼散瞳麻痺劑，其調節麻痺與散瞳恢復時間約為 1–3 天（本卷列約 3 天），遠短於阿托品。",
           "whenTrue": "輕至中度前葡萄膜炎或外傷性虹膜炎希望止痛防沾黏、但避免讓上班族近距離視力模糊長達兩週之折衷情境時。"
         },
         {
-          "text": "Cyclopentolate",
+          "text": "Cyclopentolate（1%環戊通）",
           "rationale": "環戊通（cyclopentolate 0.5%–1%）起效快（約 25–45 分鐘達最大調節麻痺），作用持續約 24–48 小時（本卷列約 2 天），為門診兒童睫狀肌麻痺驗光主力，並非最長效製劑。",
           "whenTrue": "兒童內斜視或假性近視執行常規門診睫狀肌麻痺屈光檢查（cycloplegic refraction），兼顧足夠麻痺深度與隔日恢復上學需求時。"
         }
@@ -19169,16 +19169,16 @@
     },
     "questionContentHashes": {
       "bcsc-s02-rq001": "b6506005909ef4f4ad382206275128507d9426ad0dce1188c1fb55a7c2764541",
-      "bcsc-s02-rq002": "29aacad20c6998ae51025de5535e03508a0ccb0ebfa9640fafa92f753db7cfe9",
+      "bcsc-s02-rq002": "7097ab732800d922058c125632d9bddd489337c831442d674db980e332a01598",
       "bcsc-s02-rq003": "a2a8c1420b3747acef8447680823bf7c147068b320c35efc2b609ea0f305f527",
-      "bcsc-s02-rq004": "de5720f42650671ea655a8423e6fbb5b8814d6d877ae94dfe970ccd85109bb9f",
+      "bcsc-s02-rq004": "ff57f64a64a4dfce73e7905b74ed4dde45cdadda3e918e9e916e9f8874519c47",
       "bcsc-s02-rq005": "2ace62dbd6a9762e43cdc90ddcefe360f00dcb20e969aedd3ec1f9ac80666d46",
       "bcsc-s02-rq006": "4e883dffabf637801170872284eb098dc44b7d3ba643c4520b5cfd6d11287b64",
-      "bcsc-s02-rq007": "e22d5fbedf16ea67139c48e4934a3262276a964f29986222595d9e37779f5771",
-      "bcsc-s02-rq008": "e04aea854fbd47bd8706c12e9d5d2bf25e6cde80aa30de3635ab5fe2952aaa71",
+      "bcsc-s02-rq007": "5f7e846c545289ddd8bc7d1f86329a5694d162262a93f81a7f2b2a55a83b6ffa",
+      "bcsc-s02-rq008": "3beb8b229bd5490ad2bd918a8c5b25c90db9949c8889c93504e792368e1c807a",
       "bcsc-s02-rq009": "9b3c681b9fdfaeb7ae670ff22ce9160b87855461adcfefed30263542e66c0961",
       "bcsc-s02-rq010": "53b60925f23c16505e12d5b37ab3c9e75d6cd811ac02009afbe0a0350414f4bc",
-      "bcsc-s02-rq011": "283f57497376327c04c8e00f56465f63d564188077032f4f99ba0fda17bcaeec",
+      "bcsc-s02-rq011": "a1c0a6233f5ce2446fb606ae88c3bf010e9129216c407b8a17e6c658dfe11ba9",
       "bcsc-s02-rq012": "3967269c3d122db2adb9caf8dac7cdbf018fe85678ea7add9063fd24dfcc8acd",
       "bcsc-s02-rq013": "6af7de7dadc04cb429d1d12f2917498a5055d8be8443a0e298be65ac9e320ecd",
       "bcsc-s02-rq014": "9ff4c8bf672b51bca01eab00240e263f15d8bd0dd37e0cca43b50c3bc7204409",
@@ -19190,7 +19190,7 @@
       "bcsc-s02-rq020": "35fdddc66902f12eabd39c678d3f3a87bf43ab687aff9731bab52e28d63a1171",
       "bcsc-s02-rq021": "f8302167d496c243089a40d9e313d1990955a420cd1d3d6476b4b38d40f82396",
       "bcsc-s02-rq022": "4fcb29a2f92b7359c26f3b3e585f3d2ed41d6d944395b097fba9e62466a39271",
-      "bcsc-s02-rq023": "6ba666bb49ce372a27fad666655dd92ab6892a1d6e037e6e8b8d3ce746fc6fc4",
+      "bcsc-s02-rq023": "de07da6782a3657204fa16f4249179a2945dae78f9429eb8010222b917cc755d",
       "bcsc-s02-rq024": "4df37402b18dfff5adfd0a6d37e47197b8550a43cc8121276ba994f6c58beec1",
       "bcsc-s02-rq025": "7d89817412a0d4789f2f13bebd5866de35617e5af698793263a0c411e624ce6d",
       "bcsc-s02-rq026": "1aab7fa64820a1c6e283a3b3868ce2bf37de241dbab3fc1d293fbe1c5edcb241",
@@ -19198,11 +19198,11 @@
       "bcsc-s02-rq028": "42af041e213e32613937cbb28afa251e977c9f115bb66ed797fcf935ee58cc71",
       "bcsc-s02-rq029": "440c1e596ae071e9af4c31154da8998fa9fed61bfff1d34ffdd62aa7494ea779",
       "bcsc-s02-rq030": "537caca6ef319805579f541aff1b7fa9562c6bc4437c62a2b23c51fc11a9d890",
-      "bcsc-s02-rq031": "3deb4c9381acb562efbf8fda117da9fb7ed392d875983f497e3b750a7d28f10e",
+      "bcsc-s02-rq031": "a43cc4d91079e0d97e04f405bc19eeea3e91e041d4dc0e90747fe75ded3a4eea",
       "bcsc-s02-rq032": "525eb099de8fac657d3ad57d68f89bccd30a6aca091b032622af26805ac5bfb3",
       "bcsc-s02-rq033": "bae52f02325176e644134e0bafe358b67e7685f12759ab6c13791713c47aa54e",
-      "bcsc-s02-rq034": "8f80fc5ffb3d7a8b06cf35ffdeeceae988d59b9019685076d82d69c56cc83ae6",
-      "bcsc-s02-rq035": "005ee9626528c40b3f755f0e5f64b7a109ae4615de5575d5eb6125291ae03ef4",
+      "bcsc-s02-rq034": "968a721ef9818df90b06e85fe205ee3aa90901557102a22b61d8bd5fb192fe22",
+      "bcsc-s02-rq035": "71b9f66c02bd1fe7606b062cf67f3ccf3f96c7596cba77c7bb332a9d0f6cd4b0",
       "bcsc-s02-rq036": "780e5cd592043cde888e58323e689d8c2cbd39ba143334c515621e1532898849",
       "bcsc-s02-rq037": "38c1fd59fbb296037bcaf361ff544be745c50a1a0ffd6772b47feff5bb68e6b6",
       "bcsc-s02-rq038": "225731a5dc1c6b30290739cf6e0f3b2c66e443c04ad1709ab9e827d3bee51283",

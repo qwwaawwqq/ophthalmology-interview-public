@@ -793,7 +793,7 @@
       "stem": "56歲，首次診斷原發閉角病，晶狀體清澈，尚未接受LPI或眼內手術。Gonioscopy有240° iridotrabecular contact及部分PAS，IOP 26 mmHg；同位置的superotemporal rim notch、RNFL defect與兩次可重現inferior arcuate field defect相符。若討論clear-lens extraction，哪組「疾病分型＋EAGLE試驗可直接支持的範圍」最準確？此題不要求在個別病人中指定唯一手術。",
       "options": [
         {
-          "text": "PAC而非PACG；已在EAGLE的PAC入組範圍，可直接援引其CLE比較",
+          "text": "診斷為單純PAC而非PACG；因初診眼壓26mmHg已在EAGLE試驗無損傷PAC入組範圍內，可直接援引其CLE比較結果",
           "rationale": "本例既有神經損傷不屬單純PAC；且若改成無損傷PAC，IOP26本身仍不到研究PAC分支條件。",
           "whenTrue": "≥50歲、無白內障、初診PAC而無神經損傷，且IOP≥30時。"
         },
@@ -803,12 +803,12 @@
           "whenTrue": "≥50歲、無白內障、初診PACG且符合其餘研究條件時。"
         },
         {
-          "text": "PACG；目前不宜把EAGLE當作此個案的直接RCT證據，須另說明外推",
+          "text": "診斷為PACG；但因EAGLE試驗要求所有入組受試者初診眼壓均須達30mmHg以上，目前不宜把EAGLE當作此個案直接RCT證據",
           "rationale": "疾病分型正確，但本例年齡及初診、清澈晶狀體條件符合研究範圍；不能只因IOP26就把PACG排除。",
           "whenTrue": "同樣PACG但年齡<50歲，或其他主要研究條件不同時。"
         },
         {
-          "text": "PAC而非PACG；目前不在EAGLE的PAC入組範圍，須另說明外推",
+          "text": "診斷為單純PAC而非PACG；因初診眼壓未達30mmHg不在EAGLE試驗的PAC入組範圍內，討論CLE時須另說明外推限制",
           "rationale": "若沒有神經損傷，IOP26的PAC確不屬該試驗PAC分支；但本例相符rim/RNFL/重現field已提供glaucomatous damage。",
           "whenTrue": "無glaucomatous optic neuropathy且PAC的IOP<30時。"
         }
@@ -1148,17 +1148,17 @@
       "stem": "AMD病人一眼曾有exudative MNV；另一眼20/20、無新變形視，structural OCT見shallow irregular RPE elevation，但無IRF/SRF、無出血，FA無leakage。兩次SS-OCTA在手動核正segmentation後，都可在RPE下重現獨立血管網，與表層血管投影不重疊。以subclinical MNV自然史研究的框架，哪組判讀與處置最合理？",
       "options": [
         {
-          "text": "真正的exudative MNV；依目前病灶啟動anti-VEGF",
+          "text": "判讀為真正具滲出活性的exudative MNV；即便結構OCT無液體仍應立即依目前OCTA血管病灶啟動anti-VEGF注射",
           "rationale": "OCTA證實血管存在，但目前無液體、出血或FAleakage，未給出exudative activity。",
           "whenTrue": "同一血管網後續新出現可歸因的IRF/SRF、出血或其他exudation時。"
         },
         {
-          "text": "以segmentation／projection artifact為主；先重做影像才能決定是否有MNV",
+          "text": "判讀為單純segmentation／projection artifact偽影為主；必須先重做螢光血管攝影才能決定是否存在真實MNV",
           "rationale": "初始自動分層可有此問題，但本例手動核正後重現獨立sub-RPE血管網，已提供反對單純artifact的證據。",
           "whenTrue": "訊號隨分層邊界消失、只複製表層血管或掃描間無法重現時。"
         },
         {
-          "text": "以無MNV的choroidal hyperpermeability相關病變為主；依chronic CSC框架評估PDT",
+          "text": "判讀為無MNV的choroidal hyperpermeability相關病變為主；應直接依chronic CSC治療框架評估半劑量PDT",
           "rationale": "沒有新液體／leakage且已有經核對的MNV flow，不支持以無血管的CSC機轉解釋本例。",
           "whenTrue": "有相符pachychoroid／CSC表現、持續SRF，而適當多模式影像未見MNV時。"
         },
@@ -1278,17 +1278,17 @@
           "whenTrue": "typical acute ON、適合corticosteroid且希望加速恢復，但接受oral而不接受IV時。"
         },
         {
-          "text": "以IV methylprednisolone 1000mg/day×3days為主要方案，先取得病人對IV的同意",
+          "text": "堅持以住院IV methylprednisolone 1000mg/day×3days作為唯一合規加速恢復方案，否定任何高劑量oral替代方案並要求病人先簽署IV治療同意書",
           "rationale": "這是可支持的加速恢復方案，但目前病人拒絕此路徑，而有可討論的高劑量oral替代。",
           "whenTrue": "同樣臨床目標下病人接受IV，或口服吸收／服藥可靠性不足時。"
         },
         {
-          "text": "採不使用corticosteroid的密切觀察，並完成神經疾病後續評估",
+          "text": "告知所有形式之口服prednisone皆等同ONTT低劑量組會增加復發風險，故一律採不使用corticosteroid的密切門診觀察並完成多發性硬化症等神經疾病後續評估",
           "rationale": "typical ON觀察可以是合理選項，但不最符合此病人明確選擇加速恢復且可接受oral治療的目標。",
           "whenTrue": "病人知悉利弊後選擇不使用corticosteroid，且無其他需不同急救的atypical線索時。"
         },
         {
-          "text": "立即採plasma exchange，因其可避開IV corticosteroid",
+          "text": "因病人拒絕住院IV corticosteroid，直接改排五次治療性plasma exchange血漿置換作為單純typical optic neuritis初始等效替代方案",
           "rationale": "PLEX不是僅因拒絕IV steroid就取代typical ON初始方案的對等選擇；其證據情境多為嚴重、steroid-refractory或特定atypical disease。",
           "whenTrue": "嚴重且適當高劑量steroid後反應不足，或NMOSD等需早期rescue之相應情境時。"
         }
@@ -1718,17 +1718,17 @@
           "whenTrue": "甲有嚴重entrapment／autonomic危險，乙無急性夾陷或視威脅、症狀改善時。"
         },
         {
-          "text": "甲可先追蹤；乙因骨缺損較大須urgent release評估",
+          "text": "甲因CT骨缺損極小可先門診追蹤；乙因55%眶底缺損面積較大須立即安排urgent release評估",
           "rationale": "把骨缺損大小當成急性夾陷的替代指標；甲小trapdoor仍可嚴重夾陷，乙大缺損也不等同當下需要急性release。",
           "whenTrue": "若甲無夾陷／autonomic危險且改善，而乙另有嚴重夾陷或急性視威脅時。"
         },
         {
-          "text": "兩人都須urgent entrapment release評估",
+          "text": "無論臨床有無夾陷或心率反應，甲與乙兩人都須在今日立即接受urgent entrapment release",
           "rationale": "甲符合；乙仍可能需後續重建，但資料未顯示需急性release的夾陷／生理危險。",
           "whenTrue": "兩人均出現嚴重臨床entrapment、oculocardiac反應或相應急性威脅時。"
         },
         {
-          "text": "兩人都可先非急性追蹤後再判斷",
+          "text": "甲的心率下降可先用藥觀察，故甲與乙兩人都可先安排兩週非急性門診追蹤後再一併判斷手術需求",
           "rationale": "乙目前可如此分流；甲的心率反應及運動受限不能以白眼外觀或小CT缺損降低急迫性。",
           "whenTrue": "兩人皆無臨床夾陷／autonomic危險，視功能完整且症狀持續改善時。"
         }
@@ -2326,12 +2326,12 @@
       "stem": "一名未接受過梅毒治療的成人，treponemal test與RPR均reactive，眼科已確認符合ocular syphilis的posterior uveitis。完整cranial nerve與其他神經檢查正常，沒有meningitic症狀；HIV test陰性，無penicillin過敏。若依CDC STI guideline，哪組「CSF安排＋抗菌治療層級」最符合目前資料？",
       "options": [
         {
-          "text": "先作CSF評估釐清未能在眼科檢查證實的視覺症狀，再依結果與分期安排療程",
+          "text": "必須先安排腰椎穿刺CSF檢查以釐清尚未在眼科檢查中證實的主觀視覺症狀，待腦脊髓液報告出爐後再依結果與分期安排抗菌療程",
           "rationale": "這是眼部症狀但未見ocular findings時可考慮的診斷路徑；本例已有眼科確認病灶，不應退回未證實分支。",
           "whenTrue": "reactive serology且有視覺症狀，但完整眼科檢查未能確認ocular abnormality時。"
         },
         {
-          "text": "不常規作CSF檢查，依無眼／神經侵犯的latent syphilis分期採benzathine penicillin G療程",
+          "text": "既然神經學檢查正常即不常規作CSF檢查，並直接依無眼／神經侵犯的latent syphilis分期採肌肉注射benzathine penicillin G療程",
           "rationale": "不需LP這一半不能被用來支持較低層級抗菌方案；本例已有ocular syphilis。",
           "whenTrue": "沒有眼、耳或神經侵犯，而診斷為相應分期的latent syphilis時。"
         },
@@ -2341,7 +2341,7 @@
           "whenTrue": "isolated ocular symptoms、reactive serology、已確認ocular findings且神經檢查正常時。"
         },
         {
-          "text": "安排CSF檢查；仍使用ocular／neurosyphilis層級的aqueous crystalline penicillin G療程",
+          "text": "強制先安排腰椎穿刺CSF檢查；待完成檢查後仍使用ocular／neurosyphilis層級的aqueous crystalline penicillin G療程",
           "rationale": "治療層級正確；但題設已確認ocular findings且神經正常，CDC不要求把LP列為治療前必要條件。",
           "whenTrue": "同樣眼梅毒但出現cranial nerve palsy、meningitis等神經異常時；此時CSF評估有適應症。"
         }
@@ -2625,17 +2625,17 @@
           "whenTrue": "符合試驗解剖範圍且病人優先一次anatomic success、理解其他trade-off時。"
         },
         {
-          "text": "目前解剖落在PIVOT比較範圍；可解釋PnR視覺品質及較低白內障負擔如何符合其首要偏好",
+          "text": "目前裂孔解剖落在PIVOT試驗比較範圍內；可向病人重點解釋PnR較佳的術後視覺品質與較低白內障手術負擔如何完全符合其一次手術即復位的首要偏好",
           "rationale": "解剖判讀正確，但此病人已把一次手術復位列為首位；不能把另一個合法價值排序代替其選擇。",
           "whenTrue": "同樣解剖條件下，病人優先視覺品質／減少白內障手術，並接受較低primary success與可能追加修復時。"
         },
         {
-          "text": "目前已有inferior detached-retina break，超出PIVOT裂孔範圍；應依該解剖限制另評PPV",
+          "text": "目前6點鐘方向已存在inferior detached-retina break而超出PIVOT試驗裂孔入組範圍；應依下方脫離裂孔解剖限制另評PPV",
           "rationale": "題幹下方小孔仍在attached retina；不能把所有下方病灶都當成下方脫離裂孔。",
           "whenTrue": "下方6點小孔周圍retina其實已detached，而不再符合PIVOT的detached-break分布時。"
         },
         {
-          "text": "目前上方detached裂孔群跨距超過PIVOT限制；應依裂孔分散程度另評PPV",
+          "text": "目前上方detached裂孔群由10:30至11:00的跨距已超過PIVOT試驗一小時鐘點限制；應依多發裂孔分散程度直接排除PnR並另行評估PPV",
           "rationale": "10:30至11:00只跨半個clock hour，不是分散超過一小時的多裂孔。",
           "whenTrue": "上方detached裂孔改為10點與12點等超過一小時的群組，不能直接套該試驗PnR範圍時。"
         }
@@ -2750,7 +2750,7 @@
       "stem": "比較兩個phaco術中PCR案例：均已妥善處理前方玻璃體，後囊不足以支持整枚in-the-bag IOL，但zonules與360°sulcus support足，且已確認備用three-piece IOL的整體直徑適合。兩眼均無其他需另改屈光目標的因素。甲有置中、完整的5.0mm anterior CCC；乙有置中、完整的6.5mm anterior CCC。可用IOL optic直徑均為6.0mm。術者的既定策略是在可行時利用現有CCC作posterior optic capture（haptics留sulcus），不另重建／另作囊膜開口；不能穩定capture者則整枚sulcus fixation。哪組「依此解剖選擇固定方式＋相對原in-the-bag power的方向」最合理？此題不要求精確下修多少D。",
       "options": [
         {
-          "text": "甲乙均採整枚sulcus fixation，均須考慮下修power",
+          "text": "甲與乙兩眼均放棄posterior optic capture而一律採整枚three-piece sulcus fixation，且均須考慮下修power",
           "rationale": "乙屬此分支；但依題目可行時優先capture的既定策略，甲有可利用的5mm CCC，不能把兩眼一律當whole-sulcus。",
           "whenTrue": "若甲與乙的現有CCC都無法穩定capture optic，但兩眼均仍具足夠sulcus support且選擇whole-sulcus時。"
         },
@@ -2760,12 +2760,12 @@
           "whenTrue": "甲可穩定capture、乙無法capture但適合whole-sulcus fixation，且其他生物測量與target不變時。"
         },
         {
-          "text": "甲：整枚sulcus，須考慮下修power；乙：sulcus haptics＋optic capture，通常保留原power",
+          "text": "甲：採整枚sulcus，須考慮下修power；乙：採sulcus haptics＋optic capture，通常保留原in-the-bag power",
           "rationale": "兩種策略各自的power方向可成立，但把甲乙CCC相對optic的可capture性倒置。",
           "whenTrue": "若甲的現有CCC大於optic、乙則是完整置中且小於optic的可capture CCC，並保留題設策略時。"
         },
         {
-          "text": "甲乙均採sulcus haptics＋optic capture，通常均保留原in-the-bag power",
+          "text": "甲與乙兩眼均採sulcus haptics＋利用現有CCC執行posterior optic capture，且兩眼通常均直接保留原in-the-bag power",
           "rationale": "甲可如此處理；乙6.5mm CCC大於6mm optic，不能只因同樣「完整」就推論可以包住optic。",
           "whenTrue": "若只把乙CCC改為與甲一樣完整置中的5mm，且兩眼均可確認穩定capture時。"
         }
@@ -4509,7 +4509,7 @@
       "stem": "合成病例：兒童因鼻竇相關orbital cellulitis住院，CT見小型內側subperiosteal collection。起初視力、瞳孔反應正常，因此在ENT及眼科共同監督下用適當IV抗菌治療並密切觀察。之後發燒與炎症指標下降，CT集合大小也未增加；但在充分止痛與可靠重測後，患眼視力持續下降且新出現RAPD。有人想因「膿瘍小且抽血進步」繼續原觀察期。最合理的即時調整是？",
       "options": [
         {
-          "text": "依集合未變大且全身炎症改善維持IV療程，待下一輪影像或炎症趨勢再決定引流",
+          "text": "依CT膿瘍集合未變大且全身發燒炎症改善維持原IV抗菌療程，待下一輪常規影像或炎症趨勢再決定是否外科引流",
           "rationale": "全身炎症反應與膿瘍尺寸未增加不能抵銷已確認的新視功能危險；等待固定天數缺少安全基礎。",
           "whenTrue": "若視功能、眼眶症狀及整體病程均改善，才可延續密切觀察的醫療策略。"
         },
@@ -4519,12 +4519,12 @@
           "whenTrue": "可靠重測證實視功能惡化或其他嚴重眼眶/顱內警訊時。"
         },
         {
-          "text": "先擴大抗菌範圍並縮短視力監測間隔；若炎症指標或影像再惡化，才加入外科處理",
+          "text": "先單獨擴大抗菌範圍並縮短床邊視力監測間隔；規定若後續抽血炎症指標或CT影像再惡化，才加入外科引流處理",
           "rationale": "抗菌調整可能需要，但新而可靠的視功能惡化本身已值得source-control評估；不能把外科重評延至抽血或影像也跟著惡化。",
           "whenTrue": "重新微生物評估顯示覆蓋不足時應調藥，但應與必要的眼眶評估並行。"
         },
         {
-          "text": "先加輔助全身steroid以降低眼眶水腫，再以短期視功能反應決定是否引流",
+          "text": "先加上輔助全身steroid以降低眼眶組織水腫，再觀察短期視功能反應來決定是否需要安排外科手術引流",
           "rationale": "在新的視功能警訊下，不能以試用抗炎取代急性source control評估；adjunctive anti-inflammatory的角色需與感染控制和專科判斷整合。",
           "whenTrue": "感染控制與手術需求已充分評估後，部分個案才由團隊討論輔助抗炎，不是延後本題升級的理由。"
         }

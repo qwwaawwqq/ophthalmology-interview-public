@@ -13440,17 +13440,17 @@
           "whenTrue": "視網膜缺血梗塞、鈍挫傷、黃斑皺褶（ERM）或視神經萎縮後，GFAP 陽性神經膠質細胞肥大增生填補神經元流失空間時。"
         },
         {
-          "text": "Retinal ganglion cells",
+          "text": "掌管視覺傳遞之Retinal ganglion cells（RGCs）",
           "rationale": "成熟人類視網膜神經節細胞（RGCs）為終末分化中樞神經元，軸突或胞體受損後僅會經歷逆行性／順行性凋亡萎縮，絕不會透過有絲分裂增殖來修復缺損。",
           "whenTrue": "青光眼或外傷性視神經病變導致神經纖維層與神經節細胞複合體（GCC）不可逆變薄流失，而非細胞增生修復時。"
         },
         {
-          "text": "Photoreceptors",
+          "text": "外核層負責光電轉換之視錐與視桿Photoreceptors細胞",
           "rationale": "成熟錐細胞與桿細胞光受體同樣缺乏有絲分裂再生能力；一旦光受體細胞核（外核層）凋亡壞死即永久喪失，僅在僅傷及外節而核層尚存時才能緩慢更新外節盤膜。",
           "whenTrue": "長期視網膜脫離或視網膜色素變性導致外核層凋亡萎縮，切片呈現光受體永久缺如而非增殖再生時。"
         },
         {
-          "text": "Fibroblasts",
+          "text": "源自鞏膜與脈絡膜血管間質之間葉Fibroblasts纖維母細胞",
           "rationale": "典型間葉來源纖維母細胞（fibroblasts）主要主導鞏膜穿通傷、眼眶或脈絡膜破裂的膠原結締組織瘢痕；單純封閉性神經視網膜內損傷的原發修復主角則是神經膠質細胞而非纖維母細胞。",
           "whenTrue": "眼球全層鞏膜穿刺傷口或大型脈絡膜破裂處，由表鞏膜與葡萄膜基質纖維母細胞長入形成緻密膠原纖維血管瘢痕時。"
         }
@@ -13618,17 +13618,17 @@
           "whenTrue": "慢性強日照、風沙或乾冷氣候暴露者於瞼裂區 Bowman 氏層及淺基質出現琥珀油滴狀沉積，需以特殊染色確認彈性樣蛋白變性時。"
         },
         {
-          "text": "Amyloid—Congo red",
+          "text": "具雙折射特性之類澱粉蛋白原纖維（Amyloid）—Congo red剛果紅染色",
           "rationale": "剛果紅（Congo red）專門標定具 β-摺疊片結構之類澱粉蛋白原纖維（amyloid，偏光下呈蘋果綠雙折射），用於診斷格子狀角膜失養症（lattice dystrophy）或膠狀滴狀失養症，而非日光性球狀變性。",
           "whenTrue": "TGFBI 突變引發格子狀角膜失養症於基質出現分支折射線條，或慢性角膜瘢痕發生繼發性類澱粉沉積時。"
         },
         {
-          "text": "Calcium salts—von Kossa",
+          "text": "沉積於前彈力層之磷酸鈣結晶斑塊（Calcium salts）—von Kossa銀染色",
           "rationale": "von Kossa 銀染色（與 Alizarin red 茜素紅）專門針對磷酸鈣／鈣鹽結晶反應呈黑色沉積，主要用於確認鈣化性帶狀角膜病變（calcific band keratopathy），而非金棕色蛋白球狀滴。",
           "whenTrue": "慢性葡萄膜炎或腎衰竭患者於 Bowman 氏層出現灰白乳酪孔洞狀鈣鹽斑塊、可用 EDTA 刮除螯合治療時。"
         },
         {
-          "text": "GAG—Alcian blue",
+          "text": "基質內外異常堆積之酸性黏多醣體（GAGs）—Alcian blue阿爾新藍染色",
           "rationale": "Alcian blue（阿爾新藍）與膠體鐵（colloidal iron）專門將酸性黏多醣／糖胺聚醣（glycosaminoglycans, GAGs）染成藍色，對應斑狀角膜失養症（macular dystrophy），與球狀變性無關。",
           "whenTrue": "CHST6 體隱性突變導致角膜基質細胞內外及內皮層廣泛堆積異常硫酸化角質素硫酸鹽 GAGs，角膜混濁一路延伸至角膜緣且周邊變薄之斑狀失養症時。"
         }
@@ -14121,17 +14121,17 @@
           "whenTrue": "高齡患者（逾 75% 為單側，且患者本人鮮少主訴飛蚊干擾）玻璃體見附著於膠原網架不沉底之乳白金黃折射小球、偏光顯微鏡下呈馬爾他十字（Maltese cross）雙折射時。"
         },
         {
-          "text": "Cholesterol crystals",
+          "text": "液化玻璃體內隨重力沉降眼底之雙折射Cholesterol結晶（synchysis scintillans）",
           "rationale": "膽固醇結晶（cholesterol crystals）是閃輝性玻璃體液化（synchysis scintillans／cholesterolosis bulbi）的成分，發生於嚴重外傷或慢性大出血之液化盲眼，眼球靜止時金色扁平結晶會受重力全部沉積眼底。",
           "whenTrue": "曾有嚴重陳舊性玻璃體出血、Coats 病或外傷退化之液化無支撐玻璃體腔，轉動眼球時掀起金色暴風雪、靜止時全數沉底，且常規石蠟切片因酒精溶解膽固醇僅留梭形膽固醇裂隙（cholesterol clefts）時。"
         },
         {
-          "text": "Amyloid蛋白fibrils",
+          "text": "TTR基因突變相關家族性玻璃體沉積之Amyloid蛋白原纖維（amyloidosis fibrils）",
           "rationale": "類澱粉蛋白原纖維（amyloid fibrils，最常見於轉甲狀腺素蛋白 TTR／transthyretin 基因突變之家族性類澱粉多發性神經病變）在玻璃體內呈現玻璃棉或足板樣（footplates）灰白絲絮混濁並嚴重遮蔽視力。",
           "whenTrue": "中年患者出現雙側進行性玻璃體絲絮棉團混濁伴隨腕隧道症候群、周邊自主神經病變或心肌病變，玻切檢體剛果紅染色呈蘋果綠雙折射時。"
         },
         {
-          "text": "可溶性的albumin蛋白",
+          "text": "血眼屏障通透度上升滲入房水與玻璃體腔之可溶性血漿白蛋白（soluble serum albumin）",
           "rationale": "可溶性白蛋白（albumin）僅為血—眼屏障滲漏或正常房水玻璃體微量可溶性蛋白成分（裂隙燈下表現為均質水樣前房閃輝 flare），不會結晶聚集成肉眼可見的固態鈣脂球體。",
           "whenTrue": "葡萄膜炎血管通透度上升使可溶性血漿蛋白滲入前房或玻璃體產生均質廷得耳光束效應（Tyndall phenomenon），而非固態懸浮微粒時。"
         }
@@ -14179,17 +14179,17 @@
           "whenTrue": "裂孔性視網膜剝離早期玻璃體出現棕色菸草塵（tobacco dust／Shafer sign），後續演變為堅韌收縮性視網膜前膜與下膜（napkin-ring 餐巾環狀牽引）造成復發性剝離時。"
         },
         {
-          "text": "Amacrine neurons",
+          "text": "內核層負責橫向抑制調控之無軸突神經元（amacrine neurons）",
           "rationale": "無軸突細胞（amacrine cells）是位於內核層負責橫向調控視覺訊號的終末分化抑制性中間神經元，缺乏有絲分裂增殖與遷移合成細胞外膠原纖維之能力。",
           "whenTrue": "視網膜中央動脈阻塞（CRAO）導致內層視網膜缺血性凝固壞死，內核層內側神經元凋亡消失而非增生造膜時。"
         },
         {
-          "text": "Bipolar neurons",
+          "text": "連接感光細胞與神經節細胞之垂直傳導雙極神經元（bipolar neurons）",
           "rationale": "雙極細胞（bipolar cells）同樣屬於連接光受體與神經節細胞之終末分化垂直傳導神經元，視網膜剝離時僅會發生突觸重塑或萎縮，不會轉化為纖維收縮膜細胞。",
           "whenTrue": "視網膜電圖（ERG）b 波反映內核層雙極細胞與 Müller 細胞去極化功能，在視網膜中央動脈阻塞或先天靜止性夜盲呈現負波形（electronegative ERG）時。"
         },
         {
-          "text": "Choroidal stromal melanocytes",
+          "text": "侷限於Bruch膜外之Choroidal stromal melanocytes",
           "rationale": "脈絡膜基質黑色素細胞（choroidal stromal melanocytes）源自神經嵴且侷限於完整 Bruch 氏膜外方的葡萄膜血管間質內，並非穿越視網膜裂孔形成 PVR 收縮膜的主要來源。",
           "whenTrue": "脈絡膜母斑或葡萄膜黑色素瘤於脈絡膜基質內發生梭形或上皮樣黑色素細胞單株增殖時。"
         }
@@ -14637,17 +14637,17 @@
           "whenTrue": "眼瞼數週內爆發火山口樣角質栓結節（或多發於 Muir-Torre 症候群／免疫抑制／BRAF 抑制劑使用者），需行包含基底與雙側唇緣（lateral lip）之完整切除送病理評估浸潤深度時。"
         },
         {
-          "text": "Basal cell carcinoma",
+          "text": "具周邊細胞柵欄狀排列與基質收縮裂隙之結節型Basal cell carcinoma（BCC）",
           "rationale": "基底細胞癌（BCC）通常經數月至數年生長，由缺乏角化或僅局部角化之嗜鹼性基底樣細胞構成，並無數週爆發大型嗜伊紅玻璃樣角質細胞火山口之特徵。",
           "whenTrue": "下眼瞼緩慢生長數年之珍珠捲邊潰瘍結節，切片見周邊柵欄狀排列與基質收縮裂隙時。"
         },
         {
-          "text": "Epidermoid cyst",
+          "text": "真皮內由完整複層鱗狀上皮囊壁包覆板層角質之Epidermoid inclusion cyst",
           "rationale": "表皮樣囊腫（epidermoid inclusion cyst）位於真皮內，由完整複層鱗狀上皮囊壁包圍層狀角質薄片構成平滑皮下圓球，並非向外突出表皮之杯狀增生角化腫瘤。",
           "whenTrue": "眼瞼皮下緩慢出現光滑可動圓形囊腫（表面偶見微小開口 punctum），切開見完整囊壁包覆乳酪狀板層角質而無異型鱗狀上皮向下浸潤時。"
         },
         {
-          "text": "Sebaceous adenoma",
+          "text": "由外圍生發基底細胞與內側泡沫狀皮脂空泡小葉構成之Sebaceous gland adenoma",
           "rationale": "皮脂腺腺瘤（sebaceous adenoma）由分化成熟度不一之泡沫狀脂質空泡皮脂腺小葉構成，無大型中央角質火山口（惟兩者皆可同時出現於錯配修復基因缺陷之 Muir-Torre 症候群！）。",
           "whenTrue": "眼瞼出現黃色分葉小結節，切片見外圍生發基底細胞與內側泡沫狀皮脂細胞小葉（確診後須篩查 MSH2／MLH1 與大腸／泌尿道內臟癌之 Muir-Torre 症候群）時。"
         }
@@ -14695,17 +14695,17 @@
           "whenTrue": "依循本版 BCSC 眼病理章節傳統偏好，確保永久石蠟切片清晰辨識周邊切緣與眼表上皮內散在異型泡沫細胞，以決定切除與重建範圍時。"
         },
         {
-          "text": "標準frozen-section Mohs切緣策略",
+          "text": "單純依賴標準冷凍切片Mohs顯微描記手術（standard frozen-section Mohs surgery）控邊而不排mapping",
           "rationale": "在本版 BCSC 傳統題目設計中，一般標準冷凍切片 Mohs 手術因冷凍冰晶空泡假影可能干擾單顆 pagetoid 皮脂細胞判讀而未被列為首選（惟須結合當代臨床更新：2019／2024 跨專科指引已認可經驗團隊採石蠟慢速 Mohs 或輔助免疫染色之 Mohs 控邊策略）。",
           "whenTrue": "眼瞼結節型或硬斑病樣基底細胞癌（BCC）與一般鱗狀細胞癌需要最高組織保留率之即時全周切緣顯微描記控制，或於現代專科指引下搭配永久切片／IHC 執行改良式 Mohs 手術時。"
         },
         {
-          "text": "先做conjunctival mapping biopsy",
+          "text": "僅執行四象限多點球結膜與瞼結膜地圖式切片（conjunctival mapping biopsy）而暫緩原發侵襲性瞼板腫瘤之廣泛手術切除",
           "rationale": "多點球結膜與瞼結膜地圖式切片（conjunctival map biopsies）雖是界定上皮內 pagetoid 播散版圖的必備診斷拼圖，但單做點狀探測切片本身並未切除原發侵襲腫塊與完整手術切緣。",
           "whenTrue": "作為正式腫瘤根治切除前或同步之診斷分期工具，在上下瞼結膜與四象限球結膜分區取樣以排除隱匿眼表全層播散（決定是否需局部絲裂黴素 C／冷凍或眼眶剜除）時。"
         },
         {
-          "text": "以radiotherapy作主要局部治療",
+          "text": "不進行外科手術廣泛切除而直接採用局部外照射放射線治療（primary external beam radiotherapy）作根治策略",
           "rationale": "皮脂腺癌對單純放射線治療的根治敏感度不如淋巴瘤或小型基底細胞癌且局部復發率較高，故放射治療主要保留予拒絕或身體狀況無法承受手術及術後輔助情境，而非可切除病灶的首選局部根治手段。",
           "whenTrue": "高齡衰弱無法耐受全身麻醉廣泛切除重建，或晚期拒絕眼眶內容物剜除術（exenteration）之姑息局部控制情境時。"
         }
@@ -16158,10 +16158,10 @@
       "bcsc-s04-rq003": "8439b08c799754e1facbf9ad330d7a8edadbb11f3ad824e1718feb735e0aceca",
       "bcsc-s04-rq004": "d235de7d1b6090df3fb97c15d067a598465c5cea794c8ccdb5ab4deffa19e8ed",
       "bcsc-s04-rq005": "e3d764ef18826826f4384b5e1382824ddf39e7a98df267ca9552c38dee93a148",
-      "bcsc-s04-rq006": "43298cf4cdb4482d97606d72c30c199d7ab60463440e3f481550c25c2329a75a",
+      "bcsc-s04-rq006": "cb81998d8d9ab264c8941d1405a77dc9455a27892814c490c2395acf8908d915",
       "bcsc-s04-rq007": "7ed21537d7d8ea4a6e95e77aece9ec92f3385028b884de831d0c24a09c0ad5a5",
       "bcsc-s04-rq008": "b38b80a8d601a4cdbfa436a6961ef7faf95a3595e9b46a6c5f11fa1b63abe554",
-      "bcsc-s04-rq009": "bc9d8b65de85cf5dc2b15764f5ac3ed13aff9f9d8650afec1a8b994c11e9f11a",
+      "bcsc-s04-rq009": "105dc12c2b9ab86c3f42b6e003037ab194c57547fc0a31e7738ff201f3a3a290",
       "bcsc-s04-rq010": "c1de62cb0eded776c77efa6c0fcea22a470fdab1efacaf69c329f63ecedabc2e",
       "bcsc-s04-rq011": "9798ffb1b8b07a38ca28d87d3962b80950341dbcd88c4f64df871f32d3643a77",
       "bcsc-s04-rq012": "94e446ed6c748646da2c76355bbbf28b9f602c25ba9dae1d7f00c87b550a58f3",
@@ -16170,8 +16170,8 @@
       "bcsc-s04-rq015": "d8fb6704d1787f6abd50d071de02f9ec3e306a9d6744a607a7df9f29c0393313",
       "bcsc-s04-rq016": "47796d38e76236b0eca20d6a2d83582acbab7dccd7e5fda5eac2d66d10397aa2",
       "bcsc-s04-rq017": "26bac685be795873fa5732fe3a1837213e6f3f1d7a7e44a8c61f9bd3dc822fc3",
-      "bcsc-s04-rq018": "298c63316d4e8a49d298a51ffca2cc8a5d929065b3c11792bd86cee3b73d9798",
-      "bcsc-s04-rq019": "128d1491b300148191df124921db45ed3257ff9b24a5bbe09873a52e96e88488",
+      "bcsc-s04-rq018": "1d09efa18c1c8c673b2bcf57627bc291222dc693e64cee18e9477fc892ac4e69",
+      "bcsc-s04-rq019": "dbbc48dbea1153150f33e0b012979050acf9299964ac5657b93e337db91ffb53",
       "bcsc-s04-rq020": "4f39bf5fa50a64a9e7332f5266d4fbd4ad390a5e61be46f7ddee004dad32c791",
       "bcsc-s04-rq021": "6908fdf007ee0ccaabe6e76199feea83ef579b77c6c7b15932a63523ba13af4a",
       "bcsc-s04-rq022": "cec39fda8e9a8af2af442cd23f9790e18eaa014926f25190942cb2671aedf146",
@@ -16179,8 +16179,8 @@
       "bcsc-s04-rq024": "78153ee9e864e04233af82c44a6553e3c603b8152f962384500a055fac887910",
       "bcsc-s04-rq025": "1dc90a744b45d97243bffcb7e2e8ae3b85865cf4f21dd1ae81224e654f6712aa",
       "bcsc-s04-rq026": "aee9af968855365a88f81fd6b098b07738eee17ad9c7f2397e3d7f1545d9ff77",
-      "bcsc-s04-rq027": "333850e5c3bfd2bad67aedafc40bc6a831c1ad924cd592d6c138d3791fe77d69",
-      "bcsc-s04-rq028": "be2b5eefd0045f9a581b5be913288034562a19ad7e1319c7e3e0d5ca83b0de5f",
+      "bcsc-s04-rq027": "e52bf0a8b75ff8165071712b110b0bb0053b42a4d06760f4a370c0c21144d3de",
+      "bcsc-s04-rq028": "1124125c3a46c9109afaa42202a97283eefb12110788d50f6b9edfa6b326b85e",
       "bcsc-s04-rq029": "5e1c3b77747d32d59e8475b400e8942329ceaa652d8efa567c9c3ac5bfce76d5",
       "bcsc-s04-rq030": "5aefcdef56d12269d7fcae1c6a72df6f906bbda58408024458e4afefafb2c88c",
       "bcsc-s04-rq031": "745f943665a372a6deacee57cc1456ad4e0114a09c73bb2488216e667e3b295a",
