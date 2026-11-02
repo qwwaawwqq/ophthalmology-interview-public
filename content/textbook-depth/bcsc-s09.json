@@ -9073,22 +9073,22 @@
           "chapterHeading": "Study Questions / Answers"
         }
       ],
-      "stem": "依據 BCSC 2024–2025 本卷針對腎功能正常成人所列之水痘帶狀疱疹病毒急性視網膜壞死（VZV-related ARN）「高劑量口服抗病毒誘導治療選項」數值考點，下列哪一個處方劑量與頻率正確？（註：請就本卷教材明列之口服誘導劑量作答，並與下方臨床更新欄位所載現行 HIV 族群指引區隔。）",
+      "stem": "依據 BCSC 2024–2025 本卷針對腎功能正常成人所列之水痘帶狀疱疹病毒急性視網膜壞死（VZV-related ARN）「高劑量口服抗病毒誘導治療選項」數值考點，本卷列出的是下列哪一個處方劑量與頻率？（註：請就本卷教材明列之口服誘導劑量作答；文獻另有其他口服方案，HIV 感染者適用的指引也不同，作答後於詳解說明。）",
       "options": [
         {
           "text": "Valganciclovir 900 mg口服每日2次",
-          "rationale": "口服 valganciclovir 900 mg 每日 2 次（維持期改為 900 mg 每日 1 次）是針對「巨細胞病毒（CMV）視網膜炎」的一線全身誘導抗病毒處方（須嚴密監測絕對嗜中性球減少與血小板低下），並非 VZV-ARN 的標準誘導首選。",
+          "rationale": "口服 valganciclovir 900 mg 每日 2 次（維持期改為 900 mg 每日 1 次）是針對「巨細胞病毒（CMV）視網膜炎」的一線全身誘導抗病毒處方（須嚴密監測絕對嗜中性球減少與血小板低下），並非本卷列出的 VZV-ARN 口服誘導選項（AAO 2017 報告將 valganciclovir 列為其他曾用於 ARN 的治療之一）。",
           "whenTrue": "當免疫不全患者確診巨細胞病毒（CMV）視網膜炎，採用高口服生體可用率之 ganciclovir 前驅藥進行 14–21 天全身誘導治療並定期監測全血球計數時。"
         },
         {
           "text": "Valacyclovir 2 g口服每日3次",
-          "rationale": "由於水痘帶狀疱疹病毒（VZV）對 acyclovir 的半數抑制濃度（IC50）高於單純疱疹病毒，BCSC 2024–2025 本卷明列腎功能正常成人之 ARN 全身誘導可採靜脈 acyclovir 10 mg/kg 每 8 小時一次（10–14 天）或高劑量口服前驅藥「valacyclovir 2 g 口服每日 3 次（共 6 g/day）」以迅速達成等同靜脈給藥之血清與玻璃體抗病毒濃度（常合併玻璃體內 foscarnet 2.4 mg/0.1 mL 立即雙路夾擊）。",
+          "rationale": "由於水痘帶狀疱疹病毒（VZV）對 acyclovir 的半數抑制濃度（IC50）高於單純疱疹病毒，BCSC 2024–2025 本卷明列腎功能正常成人之 ARN 全身誘導可採靜脈 acyclovir 10 mg/kg 每 8 小時一次（10–14 天）或高劑量口服前驅藥「valacyclovir 2 g 口服每日 3 次（共 6 g/day）」以達成接近靜脈給藥的血清藥物暴露量（AUC；峰值與達峰速度仍不及靜脈給藥）（常合併玻璃體內 foscarnet 2.4 mg/0.1 mL 立即雙路夾擊）。",
           "whenTrue": "在符合 BCSC 2024–2025 本卷所述腎功能正常、服藥依從性可靠且非重度 HIV 免疫不全禁忌之成人 VZV-ARN 教材考點情境下，選用高生體可用率口服誘導劑量時。"
         },
         {
           "text": "Valacyclovir 1 g口服每日3次",
-          "rationale": "口服 valacyclovir 1 g 每日 3 次（共 3 g/day）是標準皮膚眼部帶狀疱疹（herpes zoster ophthalmicus, HZO）或本卷部分 HSV 相關情境與維持減階之常用劑量，其血中峰值不足以滿足本卷針對 VZV-ARN 口服誘導所要求的 2 g 每日 3 次高強度門檻。",
-          "whenTrue": "當免疫健全成人發生一般急性眼部帶狀疱疹皮疹／角膜前葡萄膜炎（無急性視網膜壞死），開立標準 7–10 天口服抗病毒療程時。"
+          "rationale": "口服 valacyclovir 1 g 每日 3 次（共 3 g/day）是帶狀疱疹眼病變（herpes zoster ophthalmicus, HZO）的常用劑量，也見於 ARN 口服治療的回顧性病例系列（AAO 2017 報告），並非臨床上錯誤的方案；只是本卷列出的 VZV-ARN 口服誘導劑量為 2 g 每日 3 次，故本題不選。",
+          "whenTrue": "當免疫健全成人發生一般急性眼部帶狀疱疹皮疹／角膜前葡萄膜炎（無急性視網膜壞死），開立標準 7–10 天口服抗病毒療程時；部分 ARN 病例系列也以此劑量作口服起始治療。"
         },
         {
           "text": "Acyclovir 800 mg口服每日5次",
@@ -9097,7 +9097,7 @@
         }
       ],
       "correctIndex": 1,
-      "explanation": "掌握 ARN 抗病毒劑量必須同時記住「教材原考點數值」與「臨床實證安全分界」：\n1. **BCSC 2024–2025 教材考點**：傳統標準為住院靜脈注射 **IV acyclovir 10 mg/kg 每 8 小時一次共 10–14 天**；因前驅藥 valacyclovir 口服生體可用率高，本卷對 VZV-ARN 列出高劑量口服誘導選項 **valacyclovir 2 g TID**（之後轉長期維持治療保護對側眼），並強烈常規搭配**玻璃體內注射 foscarnet（2.4 mg/0.1 mL）或 ganciclovir** 在全身藥效達穩態前立即煞住視網膜壞死。\n2. **臨床更新提醒**：NIH 成人／青少年 HIV 伺機性感染指引明確建議 HIV 合併 ARN 成人應採 **IV acyclovir 10 mg/kg q8h** 誘導且「不建議以口服誘導取代靜脈治療」；所有高劑量 acyclovir / valacyclovir 均須充分水化並依腎絲球過濾率調整劑量以防結晶性急性腎損傷與神經毒性。",
+      "explanation": "掌握 ARN 抗病毒劑量必須同時記住「教材原考點數值」與「臨床實證安全分界」：\n1. **BCSC 2024–2025 教材考點**：傳統標準為住院靜脈注射 **IV acyclovir 10 mg/kg 每 8 小時一次共 10–14 天**；因前驅藥 valacyclovir 口服生體可用率高，本卷對 VZV-ARN 列出高劑量口服誘導選項 **valacyclovir 2 g TID**（之後轉長期維持治療保護對側眼；文獻另有 valacyclovir 1 g TID、famciclovir 500 mg TID 等口服方案的病例系列），並強烈常規搭配**玻璃體內注射 foscarnet（2.4 mg/0.1 mL）或 ganciclovir** 在全身藥效達穩態前立即煞住視網膜壞死。\n2. **臨床更新提醒**：NIH 成人／青少年 HIV 伺機性感染指引明確建議 HIV 合併 ARN 成人應採 **IV acyclovir 10 mg/kg q8h** 誘導且「不建議以口服誘導取代靜脈治療」；所有高劑量 acyclovir / valacyclovir 均須充分水化並依腎絲球過濾率調整劑量以防結晶性急性腎損傷與神經毒性。",
       "imageStatus": "not-applicable",
       "requiresImage": false,
       "status": "source-checked",
@@ -10581,7 +10581,7 @@
       "bcsc-s09-rq020": "25e5c6040a7d24266abbdbc35b24247b0cbc64ea0d7cb97947960e75a420019d",
       "bcsc-s09-rq021": "a5f5cfd3ab1db8191f7acfb5fcb772330bd6cd12a2294368afb637f3e2a5e8be",
       "bcsc-s09-rq022": "b12b69b4cd8b74288d62eb2a6f26d9d60ac7d0f56be50ff5765bf94432057860",
-      "bcsc-s09-rq023": "9a6d9dead7fe44655bbce2b7d601482363de36324fb61fd55c4a684d45944c95",
+      "bcsc-s09-rq023": "b5b3cca98e9dc5025ac75c169cec079ab18e0d57cb209d1c28e3370f41562924",
       "bcsc-s09-rq024": "45e5a510e70e9a297eeef4b077f11af3819379c0621c438f489dbc6053a62605",
       "bcsc-s09-rq025": "daefbb900e9861b0b6c4b9d0a60aedc98bedcdaae4dff5eeea51fbb6bf2edf65",
       "bcsc-s09-rq026": "815257d6e974c19625ffb576925eba5260d510ccefe926e723462ce0ac69655c",
