@@ -935,6 +935,33 @@ async function practise(app) {
       const percent = 100 * longest / questions.length;
       assert.ok(percent <= 40, `${id}: the keyed option is the longest in ${percent.toFixed(1)}% of ${questions.length} MCQs (limit 40%)`);
     }
+
+    const depthDir = path.join(ROOT, 'content', 'textbook-depth');
+    const depthBanks = [
+      ...Array.from({length: 13}, (_, i) => `bcsc-s${String(i + 1).padStart(2, '0')}.json`),
+      'additional-practice.json',
+      'advanced-practice.json',
+    ];
+    for (const name of depthBanks) {
+      const questions = JSON.parse(fs.readFileSync(path.join(depthDir, name), 'utf8')).questions;
+      assert.ok(Array.isArray(questions) && questions.length > 0, `${name}: expected non-empty questions`);
+      const text = o => (o && typeof o === 'object' ? o.text : String(o));
+      const longest = questions.filter(q => {
+        const lens = q.options.map(o => text(o).length);
+        return lens[q.correctIndex] === Math.max(...lens);
+      }).length;
+      const percent = 100 * longest / questions.length;
+      assert.ok(percent <= 40, `${name}: the keyed option is the longest in ${percent.toFixed(1)}% of ${questions.length} MCQs (limit 40%)`);
+
+      const ratios = questions.map(q => {
+        const lens = q.options.map(o => text(o).length);
+        const others = lens.filter((_, i) => i !== q.correctIndex);
+        return lens[q.correctIndex] / (others.reduce((a, b) => a + b, 0) / others.length);
+      }).sort((a, b) => a - b);
+      const mid = Math.floor(ratios.length / 2);
+      const median = ratios.length % 2 ? ratios[mid] : (ratios[mid - 1] + ratios[mid]) / 2;
+      assert.ok(median <= 1.2, `${name}: median keyed-to-other option length ratio is ${median.toFixed(2)} (limit 1.2)`);
+    }
   });
 
   const failed = results.filter(r => !r.pass);

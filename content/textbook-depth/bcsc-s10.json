@@ -7187,17 +7187,17 @@
           "whenTrue": "人體臨床試驗欲定量某新型降壓藥增加了多少 µL/min 的葡萄膜鞏膜流出量，必須靠其餘四項非侵入實測參數代入公式間接推算時。"
         },
         {
-          "text": "EVP",
+          "text": "上鞏膜靜脈壓力值（藉由非侵入靜脈壓計量測之 EVP）",
           "rationale": "上鞏膜靜脈壓（EVP）雖非日常門診例行項目，但在房水動力學研究中可透過非侵入式上鞏膜靜脈壓計（episcleral venomanometry）觀察靜脈壓扁壓力直接估測。",
           "whenTrue": "研究人員使用非侵入透明壓力室壓迫球結膜表面上鞏膜靜脈至管腔半塌陷，以定量評估藥物（如 netarsudil）對靜脈背壓影響時。"
         },
         {
-          "text": "Outflow facility",
+          "text": "傳統小梁網房水流出易度（outflow facility）",
           "rationale": "傳統流出易度（outflow facility, C）在人體研究可藉由非侵入性眼壓描記術（tonography，雖然受假性流出 pseudofacility 與眼球剛性假設限制）直接估測。",
           "whenTrue": "在角膜上放置電子眼壓描記探頭持續施壓 2–4 分鐘，記錄眼壓衰減曲線斜率以非侵入估計傳統房水流出易度時。"
         },
         {
-          "text": "Aqueous flow",
+          "text": "前房房水生成流動速率（aqueous humor flow）",
           "rationale": "房水流動／生成速率（aqueous flow, F）在人類活體研究中可透過非侵入式前房螢光光度測定法（fluorophotometry）追蹤點眼螢光素清除率定量測出（惟受睡眠日夜節律影響且無法直接看穿流出端分配）。",
           "whenTrue": "利用掃描式眼螢光光度計（scanning ocular fluorophotometer）非侵入量測人體白天與夜間睡眠時房水分泌速率減半現象時。"
         }
@@ -7470,17 +7470,17 @@
       "stem": "疑似青光眼的視神經盤檢查，以下四種所見何者相對最特異地支持glaucomatous optic neuropathy？",
       "options": [
         {
-          "text": "露出lamina",
+          "text": "視杯底部可見篩板孔外露（laminar dot sign）",
           "rationale": "篩板孔外露（lamina cribrosa fenestrations visible / laminar dot sign）雖然常見於晚期深凹陷青光眼，但在天生生理性大視盤伴大而深生理視杯的健康人眼中亦經常清晰可見，單獨作為青光眼指標的特異性較低。",
           "whenTrue": "健康人擁有巨型視盤（macrodisc）伴隨對稱寬大深邃生理視杯但整圈神經邊緣飽滿粉紅且遵循 ISNT 法則時，亦常直接看見篩板孔。"
         },
         {
-          "text": "血管鼻側移",
+          "text": "視盤中央血管束向鼻側偏移（vessel nasalization）",
           "rationale": "視盤中央血管束向鼻側偏移（nasalization of vessels）多在視杯整體擴大時被動伴隨出現，正常生理大視杯亦常見血管偏鼻側，不如局部神經邊緣切跡具高度診斷特異性（反而是跨越削薄邊緣處的血管刺刀樣急轉彎 bayoneting 或懸空架橋 baring 更具病理意義）。",
           "whenTrue": "先天雙眼對稱大視杯或高度近視傾斜視盤出現大血管自鼻側穿出，但無局部邊緣切跡與對應視野缺損時。"
         },
         {
-          "text": "Peripapillary atrophy",
+          "text": "視盤周圍脈絡膜視網膜萎縮弧（peripapillary atrophy）",
           "rationale": "視盤周圍脈絡膜視網膜萎縮（peripapillary atrophy, PPA：含外圈色素改變 α 區與內圈露出鞏膜脈絡膜大血管 β 區）雖在青光眼（尤其 NTG）面積較大且位置常對應受損邊緣，但在一般正常人（α 區極普遍）與軸性高度近視弧形斑中亦極為常見，並非專屬於青光眼的特異病徵。",
           "whenTrue": "高度軸性近視患者因鞏膜拉伸在視盤顳側出現寬大新月形近視弧（myopic crescent / γ-zone），但 RNFL 與視野長期穩定無青光眼損傷時。"
         },
@@ -7524,12 +7524,12 @@
       "stem": "首次可靠SAP顯示疑似青光眼性缺損，尚無急迫壓力危機。開始長期治療前最適合建立哪個證據？",
       "options": [
         {
-          "text": "追加ONH/OCT影像",
+          "text": "單靠追加視盤與OCT結構影像",
           "rationale": "視盤與 OCT RNFL/GCC 結構影像固然是完整青光眼評估不可或缺的一環，但單靠補拍一張 OCT 並不能消除那張『首次異常視野』本身的學習效應誤差，亦無法取代建立可靠可重複功能基線。",
           "whenTrue": "在重複視野確認功能缺損是否真實重現的同時，並列整合視盤立體檢查與 OCT 以驗證結構與功能空間對應（structure-function correlation）時。"
         },
         {
-          "text": "直接神經影像",
+          "text": "直接安排腦部與眼眶MRI神經影像",
           "rationale": "對於視盤凹陷與水平弓形暗點模式符合典型青光眼表現的患者，常規開立腦部與眼眶神經影像（MRI）既無必要亦缺乏成本效益。",
           "whenTrue": "視野缺損整齊貼齊『垂直中線（雙顳側或同側偏盲）』、中心視力與紅綠色覺不成比例劇降，或視盤邊緣蒼白明顯大於凹陷（pallor > cupping）懷疑顱內壓迫病變時。"
         },
@@ -7539,7 +7539,7 @@
           "whenTrue": "初診疑似早期開角青光眼患者眼壓 22 mmHg 無急迫危機，第一次 24-2 視野出現上方輕淺鼻側階梯，決定是否展開終身治療前建立可靠功能基線時。"
         },
         {
-          "text": "立即開始PGA",
+          "text": "不待複查即刻啟動前列腺素藥物治療",
           "rationale": "在尚未確認功能缺損是否僅為初次學習假象、亦未累積多次未治療基線眼壓前就倉促開立前列腺素類眼藥水，會讓患者承受不必要的終身用藥標籤與副作用，且一旦點藥就失去了寶貴的未治療基線資訊。",
           "whenTrue": "患者初診眼壓已高達 38–42 mmHg 隨時有視網膜靜脈阻塞風險，或視盤已近全凹（C/D 0.95）伴明顯威脅中心固視的重度視野缺損，不容許等待而須立即啟動降壓治療時。"
         }
@@ -7914,17 +7914,17 @@
       "stem": "Uveitic glaucoma需降壓並控制前炎。下列哪類藥因可加劇炎症和後黏連，最不宜常規加入？",
       "options": [
         {
-          "text": "β-blocker",
+          "text": "局部β腎上腺素阻斷劑（β-blocker）",
           "rationale": "局部 β 腎上腺素阻斷劑（如 timolol）透過抑制房水分泌穩定降壓，不會破壞血房水屏障亦不會誘發瞳孔後黏連，只要患者無氣喘或心搏過緩等全身禁忌，正是葡萄膜炎高眼壓的首選第一線藥物。",
           "whenTrue": "心肺健康的活動性前葡萄膜炎高眼壓患者（如 HLA-B27 急性虹彩炎眼壓 36 mmHg），需挑選不加重發炎的第一線局部降壓藥時。"
         },
         {
-          "text": "Topical CAI",
+          "text": "局部碳酸酐酶抑制劑（CAI點眼液）",
           "rationale": "局部碳酸酐酶抑制劑（如 dorzolamide、brinzolamide）同樣純粹抑制睫狀體房水生成而不刺激前房發炎或縮瞳，只要角膜內皮功能尚可，常與 β-blocker 並列為葡萄膜炎青光眼的首選主力。",
           "whenTrue": "活動性葡萄膜炎合併高眼壓（或兒童 JIA 相關慢性葡萄膜炎青光眼）需要安全日間與夜間房水抑制劑時。"
         },
         {
-          "text": "α2 agonist",
+          "text": "α2腎上腺素促效劑（α2 agonist）",
           "rationale": "α2 腎上腺素促效劑（如 brimonidine）在成人葡萄膜炎高眼壓可作為有效二線抑水輔助藥（惟極少數長期使用者可能誘發肉芽腫樣過敏性前葡萄膜炎，若懷疑藥物本身誘發則停藥即退），並不會像縮瞳劑那樣機械性鎖死小瞳孔造成廣泛後黏連。",
           "whenTrue": "無服用 MAOI 之成人葡萄膜炎高眼壓患者，在 β-blocker 與局部 CAI 仍未達標需疊加第三種抑水機轉藥物時。"
         },
@@ -8081,17 +8081,17 @@
           "whenTrue": "35 歲患者右眼第 3 次突發看路燈有彩虹圈、眼壓量得 48 mmHg，但眼睛幾乎不紅不痛、房角 360° 寬開且角膜內皮僅見 3–4 顆細小灰白 KP 時（並須留意 CMV 病因與長期視盤追蹤）。"
         },
         {
-          "text": "Fuchs uveitis",
+          "text": "瀰漫星芒狀 KP 伴虹膜異色之 Fuchs heterochromic iridocyclitis",
           "rationale": "Fuchs 異色性虹膜睫狀體炎（Fuchs uveitis syndrome，常關聯德國麻疹病毒 Rubella 或 CMV）典型表現為慢性隱匿持續存在之瀰漫星芒狀細小 KP（鋪滿全角膜內皮而非僅下方幾顆）、虹膜基質萎縮變淡異色（heterochromia）、後囊下白內障與隅角鏡細微易出血異常血管（Amsler 穿刺出血徵），通常不呈現間歇尖峰破 40–50 mmHg 又完全消失的陣發危象，且對局部類固醇消退 KP 反應不佳。",
           "whenTrue": "單眼虹膜顏色漸漸變淺（或失去隱窩紋理）、全角膜內皮散在細星狀架橋 KP、合併後囊下白內障與慢性持續性開角高眼壓（勿長期濫點強效類固醇徒增高壓白內障！）時。"
         },
         {
-          "text": "Primary acute angle closure",
+          "text": "淺前房伴隨劇烈眼痛嘔吐之急性原發性隅角閉鎖（Primary acute angle closure）",
           "rationale": "急性原發性隅角閉鎖發作（acute PAC）雖同樣單眼極高眼壓伴虹視，但通常伴隨劇烈脹痛頭痛、噁心嘔吐、顯著睫狀充血、中度散大固定瞳孔，且裂隙燈與隅角鏡必為『淺前房與 360° 房角緊密閉鎖』，與題幹深前房開放房角完全相反。",
           "whenTrue": "遠視中老年女性暗處突發劇烈單眼痛與嘔吐、眼壓 55 mmHg、前房極淺、瞳孔中散不縮且隅角鏡完全看不見任何小樑結構時。"
         },
         {
-          "text": "Herpetic keratouveitis",
+          "text": "伴隨角膜知覺減退與扇形虹膜萎縮之皰疹性角膜葡萄膜炎（Herpetic keratouveitis）",
           "rationale": "單純皰疹或帶狀皰疹角膜葡萄膜炎（herpetic keratouveitis）雖亦常因急性小樑炎引起單側高眼壓，但典型合併角膜樹枝狀／基質盤狀角膜炎、角膜知覺減退、較明顯前房肉芽腫／非肉芽腫發炎反應與『扇形虹膜色素上皮萎縮透光缺損（sectoral iris atrophy）』，並非單純幾顆微量 KP 的白眼陣發表現。",
           "whenTrue": "單眼紅痛畏光高眼壓合併角膜敏感度下降、角膜基質混濁疤痕與裂隙燈徹照見特徵性扇形虹膜透光萎縮（必要時行前房水 HSV/VZV PCR 並給予口服抗病毒藥加類固醇）時。"
         }
@@ -8130,17 +8130,17 @@
       "stem": "依本卷所引用的中國人群估計，glaucoma相關失明最常由哪類造成？",
       "options": [
         {
-          "text": "POAG",
+          "text": "原發性開放隅角青光眼（primary open-angle / POAG）",
           "rationale": "原發性開放隅角青光眼（POAG）雖是歐美非裔與全球總患病人數最多的青光眼類型，但在 BCSC 引述的中國人群失明負擔統計中，並非造成雙眼青光眼失明的首要元凶。",
           "whenTrue": "考題改問全球總患病人數最多之青光眼亞型，或問歐裔與非裔美國人群中最常見之青光眼致盲類型時。"
         },
         {
-          "text": "Secondary OAG",
+          "text": "續發性開放隅角青光眼（secondary open-angle）",
           "rationale": "續發性開放隅角青光眼（如假性落屑症在北歐斯堪地那維亞、色素性或類固醇青光眼）在特定區域雖重要，但並非中國人口層級青光眼失明的最主要類別。",
           "whenTrue": "在北歐冰島、芬蘭或希臘等 LOXL1 假性落屑症候群極高盛行地區討論最常見之續發性開角青光眼時。"
         },
         {
-          "text": "Secondary angle closure",
+          "text": "續發性閉鎖隅角青光眼（secondary angle closure）",
           "rationale": "續發性隅角閉鎖（如糖尿病／CRVO 所致 NVG、外傷或葡萄膜炎閉角）雖單眼預後差，但在整體人口雙眼青光眼失明總數上遠不及原發性 PACG。",
           "whenTrue": "針對未控制的增殖性糖尿病視網膜病變或中央視網膜靜脈阻塞住院專科族群統計最常見之續發頑固閉角病因時。"
         },
@@ -8238,7 +8238,7 @@
       "stem": "視網膜手術後有非瞳阻窄角、choroidal effusion與ciliary body前旋。哪個程序最典型造成此組合？",
       "options": [
         {
-          "text": "Anti-VEGF注射",
+          "text": "單純玻璃體腔抗血管內皮生長因子（anti-VEGF）注射",
           "rationale": "玻璃體腔注射抗血管內皮生長因子（anti-VEGF）雖可在注射當下因眼球容積瞬間增加造成短暫急性眼壓飆升，但不會壓迫渦狀靜脈引發脈絡膜滲液與睫狀體前旋。",
           "whenTrue": "玻璃體腔注藥後數分鐘內突發黑矇與高眼壓，且需立即評估中央視網膜動脈灌流並考慮前房穿刺減壓之急性容積性高眼壓情境時。"
         },
@@ -8248,12 +8248,12 @@
           "whenTrue": "視網膜扣壓術後數日出現全前房均勻變淺、眼壓上升且雷射虹膜穿孔無效，需改用阿托品（atropine）後拉睫狀體與類固醇治療時。"
         },
         {
-          "text": "PPV加expansile gas",
+          "text": "玻璃體切除合併膨脹氣體填充（PPV加expansile gas）",
           "rationale": "經平坦部玻璃體切除合併膨脹性氣體（如 SF6、C3F8）雖可因病患仰臥或氣體過度膨脹推擠晶狀體－虹膜隔前移（亦可伴瞳孔阻滯成分），但並非壓迫渦狀靜脈造成脈絡膜滲液伴睫狀體前旋之最典型代表機轉。",
           "whenTrue": "玻璃體切除灌注高濃度 C3F8 氣體後病患未維持俯臥姿勢，或搭乘飛機高空低氣壓導致氣泡急遽膨脹引發急性高眼壓時。"
         },
         {
-          "text": "PPV加silicone oil",
+          "text": "玻璃體切除合併矽油填充（PPV加silicone oil）",
           "rationale": "玻璃體腔灌注矽油（silicone oil）最常透過乳化油滴阻塞上方小梁網，或在無晶狀體眼缺少下方虹膜穿孔（Ando iridectomy）時形成矽油瞳孔阻滯，而非渦狀靜脈受壓之脈絡膜滲液前旋。",
           "whenTrue": "無晶狀體眼行矽油填充術時，需預防性於下方 6 點鐘方向施行周邊虹膜切除術（因矽油比重輕於房水會浮於上方阻塞上方穿孔）之情境時。"
         }
@@ -8622,12 +8622,12 @@
       "stem": "Netarsudil等Rho kinase inhibitor的主要降壓流出靶點是哪個？",
       "options": [
         {
-          "text": "高滲梯度抽水",
+          "text": "建立血液與眼內液高滲透壓梯度（hyperosmotic gradient）抽吸水分",
           "rationale": "利用血液與眼內液間『高滲透壓梯度抽吸玻璃體水分』是口服甘油（glycerol）、異山梨醇（isosorbide）或靜脈注射甘露醇（mannitol）等全身高滲透壓劑的救急機轉，並非局部點眼 ROCK 抑制劑的作用方式。",
           "whenTrue": "急性原發性隅角閉鎖發作眼壓飆破 55 mmHg 伴角膜水腫嘔吐，需術前短期靜脈滴注 mannitol 快速脫水縮小玻璃體容積時。"
         },
         {
-          "text": "只抑制房水產生",
+          "text": "單純抑制睫狀體上皮房水生成速率（aqueous suppression）",
           "rationale": "單純抑制睫狀體上皮房水生成（aqueous suppression）是 β-受體阻斷劑（timolol）與碳酸酐酶抑制劑（dorzolamide／acetazolamide）的核心機轉；netarsudil 雖有微弱抑制房水生成輔助效應，但絕非『只抑制產生』。",
           "whenTrue": "描述局部 β-阻斷劑或碳酸酐酶抑制劑完全不改變流出阻力、純粹透過減少睫狀體房水分泌速率 F 來降低眼壓時。"
         },
@@ -8637,7 +8637,7 @@
           "whenTrue": "原發性開放隅角青光眼或正常眼壓青光眼患者需直接改善傳統小梁網流出功能並下調 EVP（或與 latanoprost 組成雙流出固定複方）時。"
         },
         {
-          "text": "Uveoscleral outflow為唯一主機轉",
+          "text": "重塑睫狀肌基質以增加非傳統 Uveoscleral outflow 為唯一主機轉",
           "rationale": "以『增加葡萄膜鞏膜非傳統流出（uveoscleral outflow）』作為首要主機轉的是前列腺素類似物（PGAs，透過活化基質金屬蛋白酶 MMPs 重塑睫狀肌束間基質），而非 Rho 激酶抑制劑。",
           "whenTrue": "詢問 latanoprost、travoprost 或 tafluprost 等傳統前列腺素 F2α 類似物最核心的降眼壓房水流出途徑時。"
         }
@@ -8676,7 +8676,7 @@
       "stem": "晚期glaucoma需濾過級降壓，患者獨居、手抖、未規律回診且有COPD。依本卷示例，較能兼顧降幅與較少術後調整需求的選擇是？",
       "options": [
         {
-          "text": "TM-MIGS",
+          "text": "小梁網微創青光眼手術（TM-MIGS）",
           "rationale": "小梁網微創青光眼手術（TM-MIGS，如 iStent、Hydrus 或小梁切開）受限於下游上鞏膜靜脈壓（EVP 約 8–10 mmHg）天花板，術後平均眼壓多落在十幾 mmHg 中段（mid-teens），難以單獨滿足晚期青光眼且點藥困難患者所需的濾過級大幅降壓。",
           "whenTrue": "輕至中度開放隅角青光眼合併白內障手術，追求極高安全性、快速視力恢復與減少 1–2 種點眼藥物負擔而非超低眼壓時。"
         },
@@ -8686,12 +8686,12 @@
           "whenTrue": "晚期青光眼需濾過級手術降壓，但病患獨居手抖、交通不便無法配合小梁切除術後密集回診拆線與濾過泡照護時。"
         },
         {
-          "text": "Trabeculectomy",
+          "text": "傳統小梁切除術（Trabeculectomy）",
           "rationale": "小梁切除術（trabeculectomy）雖能達成最低目標眼壓，但其成功高度依賴術後數週極密集的裂隙燈濾過泡評估、雷射拆線與低眼壓併發症即時處置，對無法規律回診且手抖獨居者風險過高。",
           "whenTrue": "晚期青光眼需將眼壓嚴格壓低至 10–12 mmHg 以下，且病患結膜條件良好、能高度配合術後每週密集回診進行個人化濾過泡管理時。"
         },
         {
-          "text": "只作SLT",
+          "text": "單純選擇性雷射小梁成形術（SLT）",
           "rationale": "單純選擇性雷射小梁成形術（SLT）平均降壓幅度約 20%–25%（類似單一前列腺素藥物），在需濾過級低眼壓的晚期失控青光眼且因 COPD 與手抖難以配合多重藥物者中降壓幅度遠遠不足。",
           "whenTrue": "初診輕至中度開放隅角青光眼或高眼壓症患者（如 LiGHT 試驗族群），因手抖無法點藥而選擇 SLT 作為第一線初始治療時。"
         }
@@ -9406,34 +9406,34 @@
       "bcsc-s10-rq001": "ac8ea9ccd0c54857c03eb34073f9dc726286d474fbcb088b8fe6b55818fdf52f",
       "bcsc-s10-rq002": "6cc7ff1caa7afbb12a8f5c7a305e83211f62df8c4fa32a4f9ba26f023542cf2c",
       "bcsc-s10-rq003": "6ee13e9451fcf784589e67fcdb7c78a9a59cd1afd29d829a171c62d06d5d4390",
-      "bcsc-s10-rq004": "06815a6ad0de3d137021d11477190e3889be2ffade0d29bae76fd6022a93fce3",
+      "bcsc-s10-rq004": "2e11912fa0599b14f4d84c0da7fb0de2d85a9d2f2087f0c69d86c21064a7188e",
       "bcsc-s10-rq005": "059cecdea641b2635ed52d1865f3650c81eec99d81fe6239f723c9d28e31c26c",
       "bcsc-s10-rq006": "f4560b054e3b325bab6b0492d243e67cd1bee85b0db4c47f97fd29c37c952716",
       "bcsc-s10-rq007": "4f75310cdb0031aaadb7175e0f0f4c6bc4ad51cf7ea0ed970a4bc0a75fecaf47",
       "bcsc-s10-rq008": "c7ebc87eb02835375150eed9e3f0f1d42c936793e987531277df27674726f43f",
-      "bcsc-s10-rq009": "df3969811055cbb12985394ba7ea47f8b2bfb5409a254bf82d6aec77db870b79",
-      "bcsc-s10-rq010": "52235bff68fe493232c0c0316e5d2a31cd51e50481f08509626102f47118a76c",
+      "bcsc-s10-rq009": "e9d11c8b9fc067bdcf3753ffab47a0c3c8d34c6a75c22502a6cd3d363bd4634a",
+      "bcsc-s10-rq010": "1bd4ec8912b31ba6e4a49c83545cc78a1c7d5f3a1b1fd2832959f586d7ab5d42",
       "bcsc-s10-rq011": "442dd7b7caae032f8890c92a1541593cba5808f1e07f3b106e649b2acb74fe40",
       "bcsc-s10-rq012": "4a8f2f436494826d86daa1c2c4884d06432bf9fb415dee5e482fca25ed7eaeab",
       "bcsc-s10-rq013": "9e77f6318f56b3eb4cd5a35528a297cdb91c424988038234f40c41b843a14799",
       "bcsc-s10-rq014": "24fa1cf7ef79788c4fb1aa5893ac2d4a65e50c63a111eaa234a693ac3d766ed6",
       "bcsc-s10-rq015": "0c32668785d584454c3ca0cbc326036d47f556df4f418a0d2572800cac3f9460",
       "bcsc-s10-rq016": "278addf2a24ed3aff0eee3b2705c1f9de614075218a5af36d226e968f264f0d9",
-      "bcsc-s10-rq017": "d807a220032f9e683b34886fca0ebe6bce43bc0963983c0bf4aaf2ae631690f0",
+      "bcsc-s10-rq017": "e27edb2113968e255ca59005c8800cf96295b878341db1abeb73993375dc6079",
       "bcsc-s10-rq018": "6a5acd3b2d7a328677f3c1c0d253ca358bce3d7a05930954622f3783509973cd",
       "bcsc-s10-rq019": "c5bfaa85dc6bf7ba7b30bbc634e0d6c872d91f5104a7ff8a05d2c2e39e82fc5b",
-      "bcsc-s10-rq020": "b7cf0be1d594ba5a96e198c9d048a81d81edab36033aea4c83fe3f8e69184e51",
-      "bcsc-s10-rq021": "b106f60f4937e1a22f25957b92de104167e183aa494f13b8dbc58f6674e94ba6",
+      "bcsc-s10-rq020": "6e64fe880061b4b6b6238a8c2a0451811b5251369603ff3fdf965e74c46fe9a9",
+      "bcsc-s10-rq021": "ddb190b2f1fec2732360360503fcff67eb658a9c47d92dcb2bbe11ead44a7dbe",
       "bcsc-s10-rq022": "fb95415cb72d09e37dc6f24406f48685483ce997a462648e02a7be04431f9dbc",
-      "bcsc-s10-rq023": "d0a76ada813d08ddd6c3065858c864b96e541a0152092bb9fa54d72e05d81db8",
+      "bcsc-s10-rq023": "a1693b4bc3ea2afd3f643bfdd19ae93c3751c6a9916f8bf1a827417aa6c6f1c6",
       "bcsc-s10-rq024": "c565186f8f149e8848e705e88dff47a601db674b699616669c1de758a4a4d11c",
       "bcsc-s10-rq025": "92efcd78b86cc2a07f808b7223bd7a085b02fd136d8d4de381fa1f395ae762e6",
       "bcsc-s10-rq026": "8a7af3b61e24c1d5f0e48e73e3fe20c6060269d58a63587536a3947835e89aed",
       "bcsc-s10-rq027": "807f1183f283ee3b2b8f955c94905e5b26c525a3eb6d078156b50777e236645b",
       "bcsc-s10-rq028": "e08e4e4ad29c998eccc84b20522c0e3bccf96ab5893fc72d906e35bf11427119",
       "bcsc-s10-rq029": "39cccf20e52b4b7b84601571625bed110e39c93d03d69ed9c44a0bc63043d463",
-      "bcsc-s10-rq030": "39395a7a4dc333c7f3c90b335a2ab201d8b0485a5c7fc19ed9682d08a3d8f131",
-      "bcsc-s10-rq031": "b48328abb20910c7a6c1c66b47121b04dcd914d17bb81cd449459b2e3fbd4edd",
+      "bcsc-s10-rq030": "146708c926657d865bb338c5ee6ace6f2f31d51e5b6d187bc8b125a234948426",
+      "bcsc-s10-rq031": "607e302e92394f258e1fe8ad1011df2519d7673ed59381c8dbbf92aac9216ff1",
       "bcsc-s10-rq032": "b7489b8d53f466ad8da72a1f4b8e4f545a62a72dbf66cd99f16c6c7af117a513"
     },
     "chapterCoverageIds": [

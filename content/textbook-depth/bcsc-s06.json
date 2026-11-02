@@ -14269,12 +14269,12 @@
       "stem": "在規劃複雜斜視或眼眶手術並評估眼外肌動脈供應時，眼動脈（ophthalmic artery）分出之「外側肌支（lateral muscular branch）」主要負責供應下列哪一組眼外肌群？",
       "options": [
         {
-          "text": "IR與IO為主",
+          "text": "偏眼眶下內側象限之IR與IO肌群（由內側肌支主供）",
           "rationale": "下直肌（IR）與下斜肌（IO）位於眼眶偏下內側象限，解剖上主要由眼動脈之「內側肌支（medial muscular branch，常為較粗大分支）」合併眶下動脈分支負責灌流，並非外側肌支主供區。",
           "whenTrue": "題目改問眼動脈「內側肌支（medial muscular branch）」所負責灌流之下方與內側眼外肌群（內直肌、下直肌與下斜肌）時。"
         },
         {
-          "text": "MR及IO為主",
+          "text": "同屬內側肌支經典供血範圍之MR及IO兩條眼外肌",
           "rationale": "內直肌（MR）與下斜肌（IO）同屬眼動脈內側肌支（medial muscular branch）之經典供血範圍；且須區分肌肉腹本身供血與穿出直肌止端供應眼前段之「前睫狀動脈」條數概念。",
           "whenTrue": "評估眼眶內下壁手術或內側肌支血管分布（供應內直肌、下直肌與下斜肌）時。"
         },
@@ -14284,7 +14284,7 @@
           "whenTrue": "分析眼眶上外側肌群血液供應，或連結外直肌同時接受淚腺動脈（lacrimal artery）雙重吻合灌流之解剖考點時。"
         },
         {
-          "text": "MR及IR為主",
+          "text": "各發出兩條前睫狀動脈之內下側MR及IR兩條直肌",
           "rationale": "內直肌（MR）與下直肌（IR）皆由眼動脈內側肌支供應；順帶一提，四條直肌各發出 2 條前睫狀動脈供應前段葡萄膜，唯獨外直肌僅發出 1 條前睫狀動脈。",
           "whenTrue": "討論眼動脈內側肌支供血範圍，或計算同時切斷內直肌與下直肌將阻斷 4 條前睫狀動脈而增加眼前段缺血風險時。"
         }
@@ -14323,7 +14323,7 @@
       "stem": "當患者右眼由第一眼位（正前方）平順向右側外轉注視時，右側外展神經對右眼外直肌（LR）的興奮性神經衝動增加，而同一隻右眼的內直肌（MR）張力則同步成比例抑制放鬆。此「同一眼球內主動肌與拮抗肌反向同步調控」之生理機制直接體現哪一條運動定律？",
       "options": [
         {
-          "text": "Arc of contact",
+          "text": "決定眼球轉動時肌肉有效力臂維持恆定之鞏膜接觸弧（arc of contact）",
           "rationale": "接觸弧（arc of contact）是指眼外肌在未融合至解剖止端前、緊貼眼球鞏膜表面包繞的弧段長度，決定眼球轉動過程中肌肉有效力臂維持恆定的生物力學，並非中樞神經衝動定律。",
           "whenTrue": "探討直肌過量後退術（recession）超過接觸弧極限後，為何力臂驟減造成該方向眼球轉動機械性失能時。"
         },
@@ -14333,12 +14333,12 @@
           "whenTrue": "分析單眼眼球平順轉動之生理基礎，或解釋違反此定律之先天顱神經異常支配症（如 Duane 後退症候群內外直肌異常共同收縮導致眼球後縮）時。"
         },
         {
-          "text": "Hering equal innervation",
+          "text": "規範雙眼共軛配對肌同步等量驅動之Hering equal innervation",
           "rationale": "Hering 等量神經支配定律（law of equal innervation）規範的是「雙眼共軛配對肌（yoke muscles）」——例如向右看時右眼外直肌與左眼內直肌同時接收等量興奮驅動，而非單眼內部拮抗肌放鬆。",
           "whenTrue": "解釋麻痺性斜視中為何以麻痺眼固視時「第二偏斜角（secondary deviation）大於第一偏斜角（primary deviation）」，或對側配偶肌假性過動時。"
         },
         {
-          "text": "Recruitment",
+          "text": "單一眼外肌收縮由弱轉強時動員運動單位之神經肌肉Recruitment機制",
           "rationale": "運動單位徵召（recruitment）與放電頻率調變屬於單一骨骼肌由弱至強遞增收縮力量的神經肌肉動員機制，並未描述主動肌與拮抗肌之間的反向協調關係。",
           "whenTrue": "用肌電圖（EMG）觀察單一條眼外肌由正位逐漸轉向極度作用視野時，運動單元逐步加入放電之電生理現象時。"
         }
@@ -14598,17 +14598,17 @@
           "whenTrue": "臨床定量水平內外隱斜視（esophoria / exophoria）時，將馬氏桿橫向紋路水平置放（軸 180 度），使受試眼看見垂直線與對側眼白點左右對照。"
         },
         {
-          "text": "90°垂直",
+          "text": "產生水平紅線之90°垂直軸",
           "rationale": "若將馬氏桿圓柱體垂直擺放於 90 度軸向，點光源經垂直於軸向的水平面散開後，患者眼前看到的會是一條「180 度水平紅線」，只能用來判斷紅線在白點上方或下方（測量垂直偏斜），無法判斷左右水平距離。",
           "whenTrue": "欲定量患者之「垂直上下偏斜（vertical phoria/tropia，如上斜肌麻痺之上斜視）」時，將圓柱軸置於 90 度垂直以產生水平紅線。"
         },
         {
-          "text": "45°",
+          "text": "產生斜向紅線之45°斜軸",
           "rationale": "將單一馬氏桿置於 45 度斜軸會產生一條 135 度傾斜紅線，既無法單純定量水平稜鏡度亦無法單純定量垂直稜鏡度。",
           "whenTrue": "僅在使用無散光度數之 Bagolini 線條鏡（45 度與 135 度交叉細紋）於自然視覺條件下評估視網膜對應與中央抑制缺口時。"
         },
         {
-          "text": "135°",
+          "text": "產生斜向紅線之135°斜軸",
           "rationale": "將馬氏桿置於 135 度斜軸會產生一條 45 度傾斜紅線，同樣不適用於水平隱斜視之基底朝內／朝外稜鏡中和。",
           "whenTrue": "使用雙馬氏桿測試（double Maddox rod test）時，才會在試鏡架上讓患者自行旋轉圓柱軸脫離 90 度垂直，藉以量化第四對腦神經麻痺之主觀眼球旋轉偏斜度數（cyclodeviation）。"
         }
@@ -15246,17 +15246,17 @@
           "whenTrue": "唯有在排除前視路與中樞神經器質病變，並親自追蹤見證患嬰於 4–6 個月齡視覺行為百分之百恢復正常後，方能正式確立單純第一型 DVM 診斷時。"
         },
         {
-          "text": "CVI",
+          "text": "周產期缺氧性腦傷所致之大腦皮質性視覺障礙（CVI）",
           "rationale": "大腦／皮質性視覺障礙（CVI）雖同樣呈現瞳孔反應正常與缺乏眼震，但其背後存在周產期缺氧缺血（HIE）、腦室旁白質軟化（PVL）或腦發育異常，縱使隨成長部分功能改善，極少在 4–6 個月內毫無痕跡地完全恢復正常，常遺留視覺擁擠與高階處理障礙。",
           "whenTrue": "嬰兒具難產窒息或早產腦白質病史、滿 6 個月後仍持續表現注視遲緩、偏心注視與複雜背景辨識困難，且腦部 MRI 證實後視路損傷時。"
         },
         {
-          "text": "未矯正高屈光病",
+          "text": "初診散瞳即能檢出之雙側未矯正高度屈光不正（ametropia）",
           "rationale": "雙側重度未矯正屈光不正（如雙眼 +9.00 D 超高度遠視）在初診睫狀肌麻痺網膜鏡檢下必定能立即被抓出來，且在未配戴眼鏡矯正的情況下不會於兩個月內憑空變成完全正常。",
           "whenTrue": "嬰兒初診散瞳驗光發現雙側極高度遠視或無晶狀體屈光不正，經及時驗配眼鏡後注視追視反應迅速浮現時。"
         },
         {
-          "text": "Early-onset IRD",
+          "text": "伴隨感覺性眼震與ERG熄滅之早發性遺傳視網膜失養症（IRD）",
           "rationale": "早發性遺傳視網膜失養症（如 Leber 先天性黑矇 LCA 或全色盲）屬於外側膝狀體前感光細胞重度缺損，幾乎必在生後 2–3 個月伴隨搜尋性／擺動性感覺性眼震與遲鈍／矛盾瞳孔，全視野 ERG 異常且絕不會自發痊癒。",
           "whenTrue": "初診眼底看似正常的不追視嬰兒，同時合併感覺性眼震、揉戳眼眶徵與遲鈍瞳孔，經全視野 ERG 證實桿錐電位熄滅時。"
         }
@@ -15403,7 +15403,7 @@
       "stem": "一名幼兒呈現雙側對稱水平瞼裂狹小（blepharophimosis）、重度先天性上瞼下垂（ptosis）、反向內眥贅皮（epicanthus inversus，由下瞼向上內側延伸之皮褶）及內眥間距過寬（telecanthus）典型四聯徵，臨床診斷為小瞼裂症候群（BPES）。此疾病最典型的遺傳模式為何？",
       "options": [
         {
-          "text": "X-linked dominant",
+          "text": "具男胎致死性之X連鎖顯性遺傳（X-linked dominant）",
           "rationale": "X 染色體連鎖顯性遺傳（如色素失調症 incontinentia pigmenti 或 Aicardi 症候群）通常具男性胎兒致死性且基因位於 X 染色體，與位於第 3 號體染色體長臂 3q23 FOXL2 轉錄因子基因突變之 BPES 不符。",
           "whenTrue": "女嬰出現沿 Blaschko 線水泡色素皮疹伴周邊視網膜缺血增生（IKBKG 基因），或脈絡膜視網膜間隙配嬰兒痙攣與胼胝體缺如時。"
         },
@@ -15413,12 +15413,12 @@
           "whenTrue": "向 BPES 患童家屬進行遺傳諮詢，說明顯性傳遞規律（帶因者每胎 50% 傳遞率）並區分第 I 型（合併女性早發性卵巢功能不全 POI 不孕，故多由患病父親傳代）與第 II 型（單純眼瞼四聯徵，男女皆可傳代）時。"
         },
         {
-          "text": "Autosomal recessive",
+          "text": "需雙等位突變之體隱性遺傳（autosomal recessive）",
           "rationale": "體染色體隱性遺傳需父母雙方各帶一個隱性突變等位基因才發病（手足再發率 25%）；除極罕見特殊 FOXL2 雙等位變異報告外，經典臨床 BPES 絕大多數均為體染色體顯性或新生顯性突變。",
           "whenTrue": "諮詢經典眼皮膚白化症（OCA）、胱胺酸症或隱性遺傳 Stargardt 黃斑失養症等雙等位基因致病疾病時。"
         },
         {
-          "text": "X-linked recessive",
+          "text": "主要由男童發病之X連鎖隱性遺傳（X-linked recessive）",
           "rationale": "X 染色體連鎖隱性遺傳主要使半合子男性完全發病、女性帶因者無症狀或僅輕微嵌合表徵，而 BPES 男女發病機率均等（甚至第 I 型女性患者還額外承受早發卵巢衰竭風險），顯非 X 連鎖隱性。",
           "whenTrue": "諮詢 X 連鎖少年型視網膜劈裂症（RS1）、X 連鎖眼白化症（GPR143）或 Norrie 病（NDP）等男童專屬高發眼病時。"
         }
@@ -15565,12 +15565,12 @@
       "stem": "一名出生僅滿第 3 天（72 小時）的新生兒突發雙眼眼瞼極度紅腫緊繃、球結膜高度水腫膨出（marked chemosis）並湧出大量濃稠黃綠色膿性分泌物，輕柔翻開眼瞼見角膜周邊已出現浸潤潰瘍。在等待抹片與培養報告期間，必須立即按下列哪一種超急性致穿孔病原啟動全身抗生素急救？",
       "options": [
         {
-          "text": "HSV",
-          "rationale": "新生兒單純疱疹病毒（HSV）結膜角膜炎通常較晚於「出生後第 1 至第 2 週（約 5–14 天）」發病，特徵為漿液黏液性分泌物、眼瞼邊緣簇集小水泡與角膜上皮地圖狀／樹枝狀潰瘍，而非生後第 2–4 天火山爆發般之大量超急性濃膿。",
-          "whenTrue": "出生第 7–14 天新生兒出現眼瞼水泡、樹枝狀角膜上皮染色或伴癲癇嗜睡，須立即給予全身靜脈 Acyclovir 防中樞疱疹腦炎致死時。"
+          "text": "生後第一至二週發病伴水泡之單純皰疹病毒（HSV）",
+          "rationale": "新生兒單純皰疹病毒（HSV）結膜角膜炎通常較晚於「出生後第 1 至第 2 週（約 5–14 天）」發病，特徵為漿液黏液性分泌物、眼瞼邊緣簇集小水泡與角膜上皮地圖狀／樹枝狀潰瘍，而非生後第 2–4 天火山爆發般之大量超急性濃膿。",
+          "whenTrue": "出生第 7–14 天新生兒出現眼瞼水泡、樹枝狀角膜上皮染色或伴癲癇嗜睡，須立即給予全身靜脈 Acyclovir 防中樞皰疹腦炎致死時。"
         },
         {
-          "text": "Chemical irritation",
+          "text": "生後一日內自限之Chemical irritation",
           "rationale": "化學性結膜炎（如傳統硝酸銀點眼預防）雖最早於生後 24 小時內出現輕微結膜充血與水樣分泌物，但病情極輕且必於 24–48 小時內自然消退，絕不可能在生後第 3 天演變為大量濃膿與進行性角膜潰瘍（況且現代改用紅黴素藥膏後已極罕見）。",
           "whenTrue": "僅見於剛點過硝酸銀預防液後 24 小時內出現輕微雙眼紅潤流淚、無濃膿且角膜完全清澈自限消退之新生兒。"
         },
@@ -15580,7 +15580,7 @@
           "whenTrue": "生後首週超急性大量膿性結膜炎（革蘭氏染色見細胞內革蘭氏陰性雙球菌），必須立即住院給予全身第三代頭孢菌素（如 IV/IM ceftriaxone 或無高膽紅素禁忌時選 cefotaxime）加頻繁生理食鹽水沖膿並同步治療砂眼披衣菌與雙親時！"
         },
         {
-          "text": "Chlamydia trachomatis",
+          "text": "生後一週發病之Chlamydia trachomatis",
           "rationale": "砂眼披衣菌（Chlamydia trachomatis，美國最常見新生兒感染性結膜炎病原）潛伏期較長，典型於「生後第 5–14 天」表現輕中度黏液膿性分泌物、瞼結膜充血乳突與假膜（嬰兒尚未長出淋巴濾泡故無濾泡！），極少在生後第 3 天迅速穿孔角膜。",
           "whenTrue": "出生 1–2 週嬰兒出現持續黏膿分泌物伴結膜假膜（甚至合併無熱性斷續咳嗽披衣菌肺炎），需給予口服紅黴素（oral erythromycin 14 天，留意嬰兒肥厚性幽門狹窄副作用！）或 azithromycin 全身治療時。"
         }
@@ -15619,7 +15619,7 @@
       "stem": "一名 8 歲兒童因服用抗癲癇藥物引發急性史蒂芬強森症候群／毒性表皮壞死溶解症（SJS/TEN）入住燒燙傷加護病房，發病第 2 天急會診眼科。在慢性結膜纖維瘢痕尚未成形的「最早期急性階段」，裂隙燈與眼表檢查最典型會先觀察到下列哪一項表現？",
       "options": [
         {
-          "text": "Cicatricial entropion",
+          "text": "瞼板下結膜慢性縱向瘢痕攣縮與倒睫所致之晚期瘢痕性瞼內翻（cicatricial entropion）",
           "rationale": "瘢痕性瞼內翻（cicatricial entropion）合併倒睫摩擦角膜，屬於急性黏膜壞死癒合後瞼板下結膜收縮變短所致之「慢性晚期結構後遺症」，不會在發病最初兩天立刻成形。",
           "whenTrue": "SJS/TEN 邁入慢性期（數月後），瞼板結膜縱向瘢痕攣縮使瞼緣向內捲曲、角化睫毛持續刮傷角膜幹細胞時。"
         },
@@ -15629,12 +15629,12 @@
           "whenTrue": "SJS/TEN 住院首 24–72 小時內強制床邊翻瞼並以螢光素徹底檢查上下瞼緣、穹窿結膜與角膜上皮缺損面積，一旦跨入中重度上皮剝脫立即在發病首週內鋪設羊膜移植（amniotic membrane transplantation, AMT）覆蓋瞼緣至穹窿時！"
         },
         {
-          "text": "Symblepharon",
+          "text": "裸露基質於癒合過程中瞼結膜與球結膜相互黏死之慢性瞼球結膜沾黏（symblepharon）",
           "rationale": "瞼球結膜沾黏（symblepharon）與穹窿縮短閉鎖，是由於急性期相對面的瞼結膜與球結膜同時喪失上皮裸露基質、若未及時保護隔離而在數日到數週癒合過程中相互長死黏合的後果，並非最初步原發病灶。",
           "whenTrue": "急性廣泛結膜上皮剝脫未能於黃金首週以羊膜隔離抑制發炎，導致上下穹窿閉鎖與眼球運動受限之亞急性／慢性沾黏時。"
         },
         {
-          "text": "Corneal vascularization/scarring",
+          "text": "角膜緣幹細胞耗竭與重度乾眼長期摩擦所致之晚期Corneal vascularization/scarring",
           "rationale": "角膜新生血管長入、結膜化與混濁結疤（corneal vascularization and scarring）屬於角膜緣幹細胞缺乏、重度乾眼（杯狀細胞與淚腺管開口瘢痕阻塞）與瞼緣角化長期反覆摧殘之晚期致盲終局。",
           "whenTrue": "SJS/TEN 慢性期因角膜緣幹細胞耗竭與眼瞼摩擦乾眼，造成角膜表面被血管化結膜組織取代而失明（極難行一般角膜移植，常需鞏膜鏡 PROSE 或人工角膜）時。"
         }
@@ -15894,17 +15894,17 @@
           "whenTrue": "所有雙側（甚至單側）視神經發育不全嬰幼兒無論透明中隔是否缺如，皆須安排腦部／蝶鞍 MRI 並轉介小兒內分泌科篩檢生長激素、甲狀腺素、皮質醇（防壓力期腎上腺危象猝死！）與抗利尿激素時。"
         },
         {
-          "text": "Bifid septum pellucidum",
+          "text": "不預測內分泌缺乏之中線透明中隔雙叉變異（bifid septum pellucidum）",
           "rationale": "視隔發育不良（septo-optic dysplasia, de Morsier 症候群）的中線結構異常特徵為「透明中隔缺如（absence of the septum pellucidum）」及胼胝體發育不全，而非雙叉透明中隔；更重要的是，單憑透明中隔缺如與否並不能準確預測內分泌激素是否缺乏。",
           "whenTrue": "腦部偶發解剖變異（如透明中隔腔 cavum septi pellucidi 或雙層變異）但蝶鞍漏斗柄與後葉亮點完全正常、無視神經發育不全時。"
         },
         {
-          "text": "Empty sella",
+          "text": "常見於特發性顱高壓之蛛網膜下腔疝入空蝶鞍表現（secondary empty sella）",
           "rationale": "空蝶鞍（empty sella，蛛網膜下腔疝入蝶鞍壓扁腦下垂體）常見於慢性特發性顱內高壓（IIH）患者，並非先天性視神經發育不全嬰兒預測腦下垂體發育障礙之核心特異影像徵象。",
           "whenTrue": "青春期或肥胖病患因頭痛與雙側視乳頭水腫接受腦部 MRI，評估慢性特發性顱內高壓之次發影像佐證（含空蝶鞍、眼球後壁壓平、視神經鞘擴張與橫竇狹窄）時。"
         },
         {
-          "text": "Chiasmal glioma",
+          "text": "多見於第一型神經纖維瘤病之視交叉毛狀星狀細胞瘤（optic chiasmal glioma）",
           "rationale": "視交叉膠質瘤（chiasmal glioma，常與第一型神經纖維瘤病 NF1 相關）屬於腫瘤性視路病變，雖可壓迫下視丘造成內分泌異常與後天視神經萎縮，但與胚胎期視神經節細胞軸突過度凋亡所致之先天性視神經發育不全截然不同。",
           "whenTrue": "NF1 幼童出現後天進行性視力下降、雙顳側或非對稱視野缺損、視神經蒼白或性早熟（precocious puberty），MRI 見視神經至視交叉梭形腫大時。"
         }
@@ -16051,7 +16051,7 @@
       "stem": "一名極低出生體重早產兒接受早產兒視網膜病變（ROP）散瞳篩檢，眼底確認為「第一區第三期病變，但後極部血管無明顯擴張扭曲（Zone I, stage 3 ROP without plus disease）」。若嚴格依據早期治療早產兒視網膜病變隨機試驗（ETROP trial）對「第一型高風險閾值前病變（Type 1 ROP）」之原始研究處置規範作答，應採取下列哪一項策略？",
       "options": [
         {
-          "text": "Intravitreal anti-VEGF",
+          "text": "BEAT-ROP試驗建立之玻璃體內注射Intravitreal anti-VEGF",
           "rationale": "玻璃體內注射抗血管內皮生長因子（intravitreal anti-VEGF，如 bevacizumab 或 ranibizumab）雖是當代臨床針對 Zone I ROP 極具優勢的第一線治療選項（BEAT-ROP 與 RAINBOW 試驗建立），但「並非當年 ETROP 隨機試驗所採用的原始標準治療介入」。",
           "whenTrue": "當代臨床處置第一區（Zone I）Type 1 ROP 或侵襲性早產兒視網膜病變（A-ROP），為保留周邊視野、降低高度近視風險且家屬能配合長達 65 週矯正胎齡以上之晚期復發密集追蹤時。"
         },
@@ -16061,12 +16061,12 @@
           "whenTrue": "依 ETROP 標準判讀達 Type 1 ROP（含：① Zone I 任何期別伴 plus；② Zone I 第三期無 plus；③ Zone II 第二或第三期伴 plus），於屈光介質清澈可視下即刻安排周邊無血管視網膜融合性雷射光凝固治療時。"
         },
         {
-          "text": "密切observation",
+          "text": "僅適用於第二型閾值前病變之每週密集眼底追蹤（close observation）",
           "rationale": "密集觀察（每週或每數日複檢）僅適用於「Type 2 ROP」（即 Zone I 第一或第二期且無 plus，或 Zone II 第三期但無 plus）；Zone I stage 3 即使尚未出現 plus disease，自然惡化剝離風險已極高，在 ETROP 分類中屬於必須立即治療的 Type 1 ROP 而非觀察組！",
           "whenTrue": "眼底屬於 ETROP Type 2 ROP（如 Zone I stage 1 or 2 without plus，或 Zone II stage 3 without plus），採取每週嚴密散瞳追蹤直到退行血管化或一旦進展為 Type 1 立即治療時。"
         },
         {
-          "text": "Cryotherapy",
+          "text": "CRYO-ROP世代使用之經鞏膜周邊視網膜冷凍術（cryotherapy）",
           "rationale": "經鞏膜冷凍治療（cryotherapy）雖在更早期的 CRYO-ROP 試驗證實對舊制閾值病變（threshold ROP）有效，但會造成嚴重眼瞼結膜水腫、鞏膜損傷、高比率高度近視與較差視力預後，在 ETROP 時代已被雙眼間接眼底鏡經瞳孔雷射光凝固術全面取代。",
           "whenTrue": "僅在極罕見特殊歷史或緊急情境（無抗 VEGF 可用且重度角膜／水晶體／玻璃體混濁導致雷射光束完全無法穿透至周邊視網膜）下作為替代消融手段時。"
         }
@@ -16159,17 +16159,17 @@
       "stem": "一名 13 歲青少年因倦怠、食慾不振、輕微發燒與血清肌酸酐上升，經腎臟科檢驗尿液 β2-微球蛋白顯著飆高並確診急性腎小管間質性腎炎（tubulointerstitial nephritis）。若此病患合併典型「腎小管間質性腎炎與葡萄膜炎症候群（TINU syndrome）」，其最具代表性的眼部病變為何？",
       "options": [
         {
-          "text": "Cataract",
+          "text": "長期類固醇眼藥水繼發之後囊下白內障（PSC cataract）",
           "rationale": "白內障並非 TINU 症候群的原發眼部表現，僅可能在長期未受控眼內發炎或反覆高劑量局部／全身類固醇治療後作為次發併發症出現。",
           "whenTrue": "慢性兒童葡萄膜炎長期點用強效類固醇眼藥水後出現後囊下白內障（posterior subcapsular cataract）時。"
         },
         {
-          "text": "Serous retinal detachment",
+          "text": "見於VKH病之雙側Serous retinal detachment",
           "rationale": "雙側漿液性視網膜剝離（serous retinal detachment）合併腦膜刺激徵、聽力障礙與毛髮皮膚脫色，屬於原田氏病（Vogt-Koyanagi-Harada, VKH disease）的經典後葡萄膜／全葡萄膜炎表徵，而非 TINU 症候群的主要典型眼表型。",
           "whenTrue": "學齡或青少年突發雙眼視力驟降、眼底見多發性水泡狀漿液性視網膜剝離與脈絡膜明顯增厚（VKH 急性葡萄膜炎期）時。"
         },
         {
-          "text": "Papilledema",
+          "text": "反映顱內壓升高之雙側視乳頭水腫（papilledema）",
           "rationale": "雙側視乳頭水腫（papilledema）反映顱內壓升高（須先排除腦腫瘤、腦靜脈竇血栓或藥物如四環黴素／生長激素誘發之特發性顱高壓），儘管少數嚴重 TINU 個案可伴輕度反應性視盤充血水腫，但絕非其定義性核心眼疾。",
           "whenTrue": "青少年因頭痛、複視與暫時性視覺變暗（transient visual obscurations）就診，眼底見雙側視盤隆起伴腦部影像排除佔位病灶時。"
         },
@@ -16213,12 +16213,12 @@
       "stem": "一名 10 個月大嬰兒在毫無外傷病史下突發單眼自發性前房出血（spontaneous hyphema）伴眼壓升高；裂隙燈見虹膜表面有一顆血管豐富、界限欠清的黃橘色肉芽結節，全身皮膚檢查亦在頭頸軀幹發現數顆直徑數毫米之紅黃色圓頂丘疹。下列哪一項診斷最契合此整體臨床表型？",
       "options": [
         {
-          "text": "Medulloepithelioma",
+          "text": "伴隨游離透明囊腫之睫狀體髓上皮瘤（medulloepithelioma）",
           "rationale": "睫狀體髓上皮瘤（medulloepithelioma）雖亦可在幼兒引起虹膜新生血管、前房出血、晶狀體半脫位（睫狀小帶缺口 notch）與次發青光眼，但病灶源自睫狀體無色素上皮之粉白／灰白色腫塊且常伴「前房或玻璃體內游離透明囊腫（free-floating cysts）」，不會合併頭頸皮膚紅黃色組織細胞丘疹。",
           "whenTrue": "2–5 歲幼童單眼出現水晶體邊緣缺口白內障、虹膜新生血管與睫狀體帶多發囊腫之白色腫塊（部分與 DICER1 基因突變及胸膜肺母細胞瘤相關）時。"
         },
         {
-          "text": "Leukemic infiltration",
+          "text": "伴灰色偽前房蓄膿之白血病浸潤（leukemic infiltration）",
           "rationale": "急性白血病（尤以急性淋巴性白血病 ALL）前段浸潤雖可表現虹膜瀰漫增厚結節、偽前房蓄膿與自發性前房出血，但多伴隨蒼白貧血、紫斑瘀青、肝脾淋巴結腫大與周邊血象母細胞異常，而非典型良性嬰兒紅黃色圓頂皮膚組織細胞丘疹。",
           "whenTrue": "已知白血病患童緩解期突發虹膜結節與灰色偽前房蓄膿，高度警覺眼內庇護所中樞／前段白血病復發時。"
         },
@@ -16228,7 +16228,7 @@
           "whenTrue": "2 歲以下嬰幼兒出現不明原因自發性前房出血與黃橘色虹膜腫塊——優先對「皮膚丘疹做切片（見富含脂質泡沫組織細胞與經典 Touton 巨細胞）」即可安全確診，避免冒險切取極易大出血之虹膜病灶，並以局部／結膜下或全身類固醇消退腫塊與控制眼壓時！"
         },
         {
-          "text": "Retinoblastoma",
+          "text": "合併眼底鈣化腫塊與玻璃體種子之視網膜母細胞瘤（RB腫瘤）",
           "rationale": "視網膜母細胞瘤（retinoblastoma）雖亦名列嬰幼兒自發性前房出血的重要鑑別診斷（因腫瘤誘發虹膜新生血管 rubeosis iridis 破裂出血），但必合併眼底後段視網膜腫塊／玻璃體種子或瀰漫視網膜浸潤，且不會合併皮膚黃色肉芽丘疹。",
           "whenTrue": "嬰幼兒自發性前房出血伴白瞳症或眼底／B-scan 超音波檢出鈣化視網膜腫塊時（所有嬰兒自發前房出血均須先用超音波排除視網膜母細胞瘤！）。"
         }
@@ -16375,17 +16375,17 @@
       "stem": "下列哪一項先天發育性眼病在胚胎視路發育過程中，因黑色素合成路徑缺損導致「原本應不交叉投射至同側大腦之顳側視網膜神經節軸突，在視交叉處發生過度交叉投射（excessive decussation of retinogeniculate fibers at the optic chiasm）」，臨床上並常合併中心凹發育不全（foveal hypoplasia）與嬰兒型眼球震顫？",
       "options": [
         {
-          "text": "Optic nerve hypoplasia",
+          "text": "眼底見小視盤伴雙環徵之Optic nerve hypoplasia",
           "rationale": "視神經發育不全（optic nerve hypoplasia, ONH）的病生理本質為胚胎期視網膜神經節細胞軸突過度凋亡導致視神經纖維總數稀少（眼底呈小視盤與雙環徵），而非顳側視網膜軸突在視交叉處過度交叉至對側外膝狀體。",
           "whenTrue": "嬰兒眼底見小視盤伴雙環徵（double-ring sign）與血管扭曲，須安排腦部蝶鞍 MRI 與小兒內分泌科評估腦下垂體激素缺乏時。"
         },
         {
-          "text": "Achromatopsia",
+          "text": "視錐離子通道突變導致極度畏光與全色盲之Achromatopsia",
           "rationale": "全色盲（achromatopsia，常源於 CNGA3 或 CNGB3 雙等位基因突變）屬於視網膜視錐細胞離子通道失能之遺傳性感光細胞病變，雖同樣表現嬰兒期畏光、眼球震顫、低視力與偶發輕度中心凹發育不全，但其視交叉雙側投射比例完全正常。",
           "whenTrue": "嬰兒具強烈晝盲／極度畏光（photoaversion）、眼球震顫與色覺喪失，全視野視網膜電圖（ERG）顯示明適應視錐反應嚴重缺損而暗適應視桿反應大致保留時。"
         },
         {
-          "text": "Morning glory anomaly",
+          "text": "漏斗狀視盤伴中央膠質簇之Morning glory anomaly",
           "rationale": "牽牛花視盤異常（morning glory disc anomaly）源於胚胎視柄遠端／篩板閉合缺陷，眼底呈現漏斗狀擴大凹陷視盤、中央白色神經膠質團塊與放射狀直行血管，常合併經蝶骨基底腦膨出及煙霧病（moyamoya）腦血管狹窄，但無白化症特有之視交叉軸突過度交叉。",
           "whenTrue": "單側漏斗狀擴大視盤伴中央膠質簇與周邊色素環，需安排腦部 MRI／MRA 排除經蝶骨腦膨出與頸內動脈發育異常／煙霧病時。"
         },
@@ -16483,7 +16483,7 @@
       "stem": "一名患有史特奇—韋伯症候群（Sturge-Weber syndrome, SWS）之 7 歲男童，右側上眼瞼與額頭具明顯葡萄酒色斑（port-wine stain），同側眼底呈瀰漫深紅橘色「番茄醬眼底（tomato-catsup fundus）」瀰漫性脈絡膜血管瘤，且因上鞏膜靜脈壓升高導致藥物無法控制之頑固青光眼而擬接受濾過性手術。術中一旦前房穿刺使眼壓「驟然大幅下降（sudden globe decompression）」，最須嚴密防範下列哪一項毀滅性併發症？",
       "options": [
         {
-          "text": "Trab flap leak",
+          "text": "小梁切除術後結膜縫合不密所致之鞏膜瓣傷口滲漏（trab flap leak）",
           "rationale": "小梁切除鞏膜瓣滲漏（bleb/flap leak）屬於所有青光眼濾過手術共通的傷口縫合與抗代謝藥物相關併發症，並非史特奇—韋伯症候群異常脈絡膜血管床在急速減壓下特有的高危災難。",
           "whenTrue": "小梁切除術中使用絲裂黴素 C（MMC）且結膜縫合不密合，術後出現前房變淺、低眼壓與 Seidel 試驗陽性傷口漏水時。"
         },
@@ -16493,12 +16493,12 @@
           "whenTrue": "規劃 SWS 青光眼濾過或引流管手術前——術前先以超音波確認脈絡膜血管瘤厚度、給予高滲透壓劑平緩降壓，術中維持前房灌流器／黏彈劑支撐、緊密可調式鞏膜瓣縫線避免眼壓驟降，必要時預做預防性後鞏膜切開窗（prophylactic posterior sclerotomy）引流脈絡膜上腔滲出液時！"
         },
         {
-          "text": "Hyphema",
+          "text": "房角切開術後因施氏管血液逆流常見之自限性前房積血（hyphema）",
           "rationale": "前房少量出血（hyphema）在房角切開術（goniotomy）或小梁切開術中相當常見且多半自限吸收，並非 SWS 瀰漫脈絡膜血管瘤因眼壓驟降引發之特異致命危機。",
           "whenTrue": "原發性先天性青光眼施行房角切開術或小梁切開術後，前房出現因施氏管血液逆流所致之輕度一過性前房積血時。"
         },
         {
-          "text": "Tube conjunctival exposure",
+          "text": "引流植入物晚期補片變薄之Tube conjunctival exposure",
           "rationale": "青光眼引流管結膜糜爛裸露（tube exposure）屬於房水引流植入物術後數月至數年的晚期機械摩擦併發症（有引發眼內炎風險），與術中急速眼球減壓毫無直接關聯。",
           "whenTrue": "小兒青光眼植入房水引流閥數年後，覆蓋引流管之異體鞏膜補片變薄與結膜破皮導致矽膠管外露需緊急修補防眼內炎時。"
         }
@@ -16542,19 +16542,19 @@
           "whenTrue": "任何新診斷白化症兒童詢問瘀青流鼻血病史，或 HPS 患童接受斜視手術前會診血液科評估血小板電子顯微鏡緻密顆粒／功能並同步追蹤成人期致命性肺纖維化與肉芽腫性結腸炎風險時！"
         },
         {
-          "text": "反覆細菌感染作主要突出線索",
-          "rationale": "「反覆嚴重化膿性細菌感染、嗜中性球巨大過氧化酶陽性顆粒與致命加速期噬血細胞淋巴組織細胞增生症（HLH）」屬於另一種致命型白化症候群——「謝迪亞克—東氏症候群（Chédiak-Higashi syndrome, CHS，`LYST` 基因突變，毛髮具銀灰色金屬光澤）」的核心標誌，而非 HPS 的首要定義性特徵。",
+          "text": "見於Chédiak-Higashi症候群之反覆細菌感染與白血球巨大包涵體",
+          "rationale": "「反覆嚴重化膿性細菌感染、嗜中性球巨大過氧化酶陽性顆粒與致命加速期噬血細胞淋巴組織細胞增生症（HLH）」屬於另一種致命型白化症候群——「謝迪亞克—東氏症候群（Chédiak-Higashi syndrome, CHS，LYST 基因突變，毛髮具銀灰色金屬光澤）」的核心標誌，而非 HPS 的首要定義性特徵。",
           "whenTrue": "白化症嬰幼兒呈現銀灰色金屬光澤頭髮、反覆嚴重金黃色葡萄球菌與鏈球菌感染及肝脾腫大，需緊急血液抹片查巨大白血球包涵體並安排骨髓造血幹細胞移植搶救生命時（註：CHS 亦合併輕中度血小板儲存池出血傾向，但以致命免疫缺陷感染最為突出！）。"
         },
         {
-          "text": "Soft-tissue tumor傾向作核心",
-          "rationale": "軟組織肉瘤或惡性骨腫瘤好發傾向主要見於生殖細胞系 `RB1` 突變（遺傳型視網膜母細胞瘤倖存者）或 Li-Fraumeni 等癌症易感症候群；HPS 晚期致死主因為進行性間質性肺纖維化（pulmonary fibrosis）與出血，而非軟組織腫瘤。",
+          "text": "見於生殖細胞系RB1突變倖存者之軟組織肉瘤與骨肉瘤第二原發癌傾向",
+          "rationale": "軟組織肉瘤或惡性骨腫瘤好發傾向主要見於生殖細胞系 RB1 突變（遺傳型視網膜母細胞瘤倖存者）或 Li-Fraumeni 等癌症易感症候群；HPS 晚期致死主因為進行性間質性肺纖維化（pulmonary fibrosis）與出血，而非軟組織腫瘤。",
           "whenTrue": "雙側視網膜母細胞瘤長期存活患者進入青少年期出現四肢或眼眶疼痛腫塊，警覺骨肉瘤或軟組織肉瘤第二原發癌時。"
         },
         {
-          "text": "孤立IgA deficiency",
+          "text": "見於共濟失調微血管擴張症之孤立IgA deficiency免疫缺陷",
           "rationale": "選擇性免疫球蛋白 A 缺乏症（selective IgA deficiency，可見於共濟失調微血管擴張症 ataxia-telangiectasia 等疾病）並非赫曼斯基—普德拉克症候群的病生理組成。",
-          "whenTrue": "兒童呈現進行性小腦步態不穩、眼球運動失用症（oculomotor apraxia）與球結膜螺旋狀微血管擴張（ataxia-telangiectasia, `ATM` 基因突變）合併反覆鼻竇肺部感染與 IgA 缺乏時。"
+          "whenTrue": "兒童呈現進行性小腦步態不穩、眼球運動失用症（oculomotor apraxia）與球結膜螺旋狀微血管擴張（ataxia-telangiectasia, ATM 基因突變）合併反覆鼻竇肺部感染與 IgA 缺乏時。"
         }
       ],
       "correctIndex": 0,
@@ -17611,13 +17611,13 @@
     },
     "questionContentHashes": {
       "bcsc-s06-rq001": "c31de06c1d0e19ff948bbec084bc1a5c6893cd94f111c6d95d85dc1cfddf1669",
-      "bcsc-s06-rq002": "125c57c2590162e19040906d6b41f27f11345ca7f7a3dd07181c9c0dbf72e800",
-      "bcsc-s06-rq003": "fd0f96e2e0abb186a564c67d9cfde437ca35b4764c8999fb18cc2fc0515be5b8",
+      "bcsc-s06-rq002": "2232abf6cc68b5663b2080442871be72af6af7698dff271a64c7f3c8a18fc8e7",
+      "bcsc-s06-rq003": "74aaabe77671f0eaeee9b7700a10e140a131e9a89ee1a7dc09f2f510ef78bce0",
       "bcsc-s06-rq004": "4def22102f4d896d2cc4ad08f9fa9a6fb0d190b75345989d10c6ad4c6debcafe",
       "bcsc-s06-rq005": "9955ca6ab210d747e4da65886e55b6ae2ccc60137bc0bf231379ea0e79435f61",
       "bcsc-s06-rq006": "77318222939fe42e8993cdd0994dc5b1fbdc49ccc36e0390cec49fb804ebde62",
       "bcsc-s06-rq007": "e9950a6b4daeda51e1fbd4ab00277bdfab9fe29eb7de1bf3b72c19a567777753",
-      "bcsc-s06-rq008": "5a10ed9b0a8e569597f5c5cd74cad2a3ff4ecb66641217a0f755d3fda2d737bc",
+      "bcsc-s06-rq008": "5ad9e582370a4fdbbb9ddaa908c54a13a8b3e33a48be4888ab9c723643669319",
       "bcsc-s06-rq009": "f54abe841618f0b40a151a838fa5bae7a40f45c9ffce94183ab465d3766c9a9c",
       "bcsc-s06-rq010": "0e8da2b847673fb1d42629a4eb8c5c92602d80e62f34f202f09e30a95aad3aba",
       "bcsc-s06-rq011": "5db8b544528b277ebbc018934b150e7dd3085b8fd6b21d473d8923c6d38349c1",
@@ -17629,31 +17629,31 @@
       "bcsc-s06-rq017": "c8b1537dae796556134fb424401076c5f1ac0fe60f60654b138429167d01c75b",
       "bcsc-s06-rq018": "bc78014e77d9c7241bd702fc6b65dda224707a2da9dfdb1a56bbcf4edc5c14fb",
       "bcsc-s06-rq019": "d39844028714933f6f16982806e956082b57aee965726c8e2978e0c1c7fea4c4",
-      "bcsc-s06-rq020": "b187ec17c2fd28603d0a0a207028734e632a67f245f903312bf7989a0cf4375c",
+      "bcsc-s06-rq020": "92bf57c04fe8e73c0d35cac4b838c9fb532e5b749b3ce2a5c66254d70f0f8bf3",
       "bcsc-s06-rq021": "f3f2eb9838da9ae1fe0c03198c2ee7dbdd417e2238656c88f855de964ee92a9f",
       "bcsc-s06-rq022": "36fcb3271fdc65eb8eb51ebda817fb26fb1dc55d1ac490d9cf9b349203f0bdaa",
-      "bcsc-s06-rq023": "9e08bf28e96c8b486c49392ef43f9b57618c63b4a889a2472e1f986947c18eeb",
+      "bcsc-s06-rq023": "b1ad61b74822c99b2ac56c5ed4cd6a3d3842f0ac611e777fa979ca2a309de3df",
       "bcsc-s06-rq024": "3919cedc042338ab55e4153fb9f0123005304cb5d261b35dea2dbf4d40aa8aa0",
       "bcsc-s06-rq025": "62bba1cfe038d3ef16d1745b7bbdbcfe07a40e28faf437daf9bc8d51193fadd3",
-      "bcsc-s06-rq026": "0c1266a60c5e7c9b6253c330750d15c9027ebf2677dd17237fe7af1190537c99",
-      "bcsc-s06-rq027": "cd12fa2820b4d10cddb63ddd620aa4433fcc81048089079c214a2922d29f54af",
+      "bcsc-s06-rq026": "5f27fc619b16666bd11a573670d782eb3fcd64dbf0b33f8c911cd5d7e743d7e5",
+      "bcsc-s06-rq027": "1c20b9874853449811d355a2a91da5e17c199fbb32ba0982b9dd6eac4adbff78",
       "bcsc-s06-rq028": "27a4190c02976382c11895c5d627371ab798cc4e55cebecaad40241634ee50d5",
       "bcsc-s06-rq029": "e4187cc21931cba59e618d66df9966d4295fdcdf6f8166ae2f5c79ebb768e27f",
       "bcsc-s06-rq030": "71eeea2dbac8a18e65ea0001e04354b54e1d9adefa6b06a7c0d80a31bd9d84da",
       "bcsc-s06-rq031": "cabd176d0b09f6642297916fa5f40ff57d39addf2340bbec5810f68b65fd0e8a",
-      "bcsc-s06-rq032": "7035f9f280e01b885d2cd4b6bb175322b7f7d6dc6544d4020166a9a63c72647d",
+      "bcsc-s06-rq032": "d7a71e41c09e258d9f8dd99b698c57b83a1fae3a07320dce5db5675522af305a",
       "bcsc-s06-rq033": "eaaa44c8e72356cb7933f2bb0352fc1f579bffaada5cfe80d8aa3425d563f8c5",
       "bcsc-s06-rq034": "8195d88bdb444f5b81464b486f493665d6367441e8fd4fb61b1326392cd511c7",
-      "bcsc-s06-rq035": "1d23a56ea2a7551c4a63777744b14bfe60c382e37db2965b11c3da818b24fbab",
+      "bcsc-s06-rq035": "4a9a1c83de6a7ee46750fa8e08243efddaf667a86baf97dea676acdfe72fdf3f",
       "bcsc-s06-rq036": "9dafcaa798f5cb4eeca568e70259b8b27d572806e0fb35d27e416e82ee8769a4",
-      "bcsc-s06-rq037": "bc52fdc2fb096ec6528d81edfbbbdc3440f2c2e027507949b4cb20749ba1adee",
-      "bcsc-s06-rq038": "598fd5aa39942b6a3128f4b20368bf07157714df5adf1041440351bf7b28f46e",
+      "bcsc-s06-rq037": "5ca21935b049be9eb2e8cf09322adbb8a43812a98d8f3a9e0c31ff6e3f80d708",
+      "bcsc-s06-rq038": "c7cd8742ee2841ae45e4d75d7b913b17e0efa817c774ea2c7b320642c571b1cb",
       "bcsc-s06-rq039": "497de0bc74eb84949a082b2998f6907526cb7a999a610afa9be1ac361d7883a4",
       "bcsc-s06-rq040": "686c5eddba7cc46410c734f37bcfc8564e99463f1ecfef67649e1a96f81cf2f7",
-      "bcsc-s06-rq041": "35333ebfbbb79cab575c59d3d08013a99939a973164891663231e3777e06d6c2",
+      "bcsc-s06-rq041": "2f914147f648a645fabc15501843a3e6ae0000bc20ede5db399db8d201577392",
       "bcsc-s06-rq042": "bd95dc92075dace55eb27b4e9bdf95544013a674958fcaffb64c4cd64f7a9019",
-      "bcsc-s06-rq043": "1929e299c67e8217d104934fc8c401add94e60c605d1a71a5bd802a5d07839b9",
-      "bcsc-s06-rq044": "55da9500251bad2c1ecf2b4047eac3a56bad0f712d7e01963d1d0a34b590d4ee"
+      "bcsc-s06-rq043": "77de6006e7c2e04bfa67babc28127d5e12cdd9dcdc4fae301a09ddd812bc54c2",
+      "bcsc-s06-rq044": "186ec609c3650d46c3c219a854eaf922da764d36d0135cbb7179e24f41a43558"
     },
     "chapterCoverageIds": [
       "bcsc-s06-ch001",
