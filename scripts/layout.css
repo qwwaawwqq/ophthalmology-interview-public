@@ -151,3 +151,14 @@
   .chapter-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
   .iv-reference{padding:16px}
 }
+
+/* Issue #114: one home per subject */
+.merged-note{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin:0 0 18px;padding:12px 16px;background:#fff8ea;border:1px solid #efdcb6;border-radius:8px;color:#6e4c12;font-size:14px;line-height:1.6}
+.merged-note .btn{min-height:40px}
+.merged-topics>.small{margin:0 0 10px}
+.merged-links{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.merged-links .btn{min-height:40px}
+.case-links{margin:8px 0 0;padding-left:1.4em;display:flex;flex-direction:column;gap:10px}
+.case-links li{padding-left:4px;line-height:1.75}
+.case-links li>span{display:block}
+.case-links .btn{margin-top:6px}
