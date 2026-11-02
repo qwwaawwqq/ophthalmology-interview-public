@@ -5662,7 +5662,7 @@
             {
               "test": "三代家譜繪製與無症狀一等親散瞳裂隙燈／眼底／電生理（EOG/ERG）篩檢",
               "purpose": "揪出低表現度顯性帶因者或萊昂化 X 連鎖女性帶因者，確立真實遺傳模式。",
-              "interpretation": "例如疑似散發卵黃樣黃斑病變兒童，若父親眼底完全正常但眼電圖（EOG）Arden 比值 <1.5，立即證實為體染色體顯性 BEST1 不完全外顯而非隱性病變！",
+              "interpretation": "例如疑似散發卵黃樣黃斑病變兒童，若父親眼底完全正常但眼電圖（EOG）Arden 比值 <1.5，強烈提示為體染色體顯性 BEST1 不完全外顯而非隱性病變！",
               "limitation": "需注意收養、輔助生殖捐精捐卵或偶發非親生關係可能干擾家譜推論。"
             },
             {
@@ -10845,7 +10845,7 @@
           ],
           "recall": {
             "prompt": "（1）RPE 的 `Na+,K+-ATPase` 與 `BEST1`（bestrophin 氯通道）分別位於頂端膜還是基底外側膜？（2）若某青少年黃斑有蛋黃樣病灶，EOG 測得暗谷電位 200 μV、光峰電位 240 μV（對照正常人光峰 370 μV／暗谷 200 μV），計算兩者 Arden 比值並說明其全視野閃光 ERG 預期結果與充氣性視網膜固定術吸收積液的原理。",
-            "answer": "（1）RPE 具反向極性，`Na+,K+-ATPase` 位於頂端膜（apical），`BEST1` 氯離子通道位於基底外側膜（basolateral）。（2）患者 Arden 比值 = `240 / 200 = 1.2`（<1.5 顯著異常，正常對照 `370 / 200 = 1.85`），確診 Best 病，其全視野閃光 ERG 預期完全正常；充氣性視網膜固定術以氣泡封堵裂孔阻止新液體灌入，再由 RPE 主動離子幫浦將視網膜下積液排往脈絡膜微血管而復位。"
+            "answer": "（1）RPE 具反向極性，`Na+,K+-ATPase` 位於頂端膜（apical），`BEST1` 氯離子通道位於基底外側膜（basolateral）。（2）患者 Arden 比值 = `240 / 200 = 1.2`（<1.5 顯著異常，正常對照 `370 / 200 = 1.85`），強烈支持 Best 病（確診仍需 BEST1 檢測），其全視野閃光 ERG 預期完全正常；充氣性視網膜固定術以氣泡封堵裂孔阻止新液體灌入，再由 RPE 主動離子幫浦將視網膜下積液排往脈絡膜微血管而復位。"
           },
           "notApplicable": {},
           "status": "source-checked",
@@ -19113,7 +19113,7 @@
       "bcsc-s02-ch005-u02": "1dd7f8e629492f22659fe02ca3e422c71e9b1f8dae1590c3a5d9b745e034f31b",
       "bcsc-s02-ch005-u03": "257a0b58169cfc51ee3c8e0f39785f4a2446f2d5241819e32b8f9f494f54afd9",
       "bcsc-s02-ch005-u04": "da5c094204512978625bc8892a1cb5913e7234b26a402844aa8a04732c07baf8",
-      "bcsc-s02-ch006-u01": "a52e1be30a076c4f4eb220b37e83feac3759b3c0a4dfb29b20fedf573eb73620",
+      "bcsc-s02-ch006-u01": "77b418431e167bdd8771d6bccf150a4a41382d9f6133b8a964635b50a98acd9e",
       "bcsc-s02-ch006-u02": "efe325a23d8ba21612aa5c99c951de43d70159e0b107da3ea7d4f870f5c8fd6b",
       "bcsc-s02-ch006-u03": "b73614bf443e8e1bac6c5b61da193bb3ad877a7365f32ccf9d2f9245f49e7606",
       "bcsc-s02-ch006-u04": "22dafab980b137573ba3dd1717046e81abbd012d1c471131a09eb18512ea2483",
@@ -19139,7 +19139,7 @@
       "bcsc-s02-ch012-u02": "ec8b32e20793db330a33594f07d9c866663c7ea7c5bc66869e20e60e9eb41c7b",
       "bcsc-s02-ch012-u03": "c8a7988eb025b7e439d5d0bbdb014d135ee084fa62f0d1d8bcdd6bc84e93ac19",
       "bcsc-s02-ch013-u01": "0288acdcc7fef0bef24b4f7995e2864363f224a3a658fa63e52da6b4eb173294",
-      "bcsc-s02-ch013-u02": "625ba38f49a1e8424207697862f33a74fc52af3047c5ee96fc513e214b5417ce",
+      "bcsc-s02-ch013-u02": "b63a50c65fae92c01526490c889cb13ee4a321153d986f56281fc18b14bcaf64",
       "bcsc-s02-ch013-u03": "30e00ee164427e1a3d2b075877cd0af515a248342a074b3e1fa6d2e3c1f11da2",
       "bcsc-s02-ch014-u01": "20794ad77fc738079c08b221eb92d9792bea7ba04ae6a9006984c2f50c3bdd05",
       "bcsc-s02-ch014-u02": "2f30755802c658ba91b24bf67effbb678153cae76b91451b935f0116ddb81231",

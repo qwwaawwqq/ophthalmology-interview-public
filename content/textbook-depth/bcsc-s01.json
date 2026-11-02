@@ -12849,7 +12849,7 @@
             {
               "condition": "MEK／FGFR抑制劑漿液性視網膜病變與BTK抑制劑圍術期出血風險",
               "stage": "跨專科風險權衡期",
-              "action": "先排除視網膜靜脈阻塞（trametinib、cobimetinib、binimetinib 仿單遇 RVO 皆永久停藥），再與腫瘤科依個別藥物仿單決定，不可跨藥一律續藥：erdafitinib 任何程度 CSR 先停藥並於 2 週內眼科評估（14 天內改善以原劑量重啟，否則待改善後降階）；pemigatinib 無症狀且連續檢查穩定可續藥，有症狀或惡化則停藥；trametinib 確診 RPED 先停藥最長 3 週；cobimetinib 先停藥最長 4 週；binimetinib 有症狀者先停藥最長 10 天；使用ibrutinib等BTK抑制劑患者若需接受眼窩、青光眼濾過或玻璃體視網膜等高出血風險手術，術前須會診血液腫瘤科評估短暫停藥天數",
+              "action": "先排除視網膜靜脈阻塞（trametinib、cobimetinib、binimetinib 仿單遇 RVO 皆永久停藥），再與腫瘤科依個別藥物仿單決定，不可跨藥一律續藥：erdafitinib 任何程度 CSR 先停藥並於 2 週內眼科評估（14 天內改善以原劑量重啟，否則待改善後降階）；pemigatinib 無症狀且連續檢查穩定可續藥，有症狀或惡化則暫停，無症狀且改善後降階重啟；trametinib 確診 RPED 先停藥最長 3 週；cobimetinib 先停藥最長 4 週；binimetinib 有症狀者先停藥最長 10 天；使用ibrutinib等BTK抑制劑患者若需接受眼窩、青光眼濾過或玻璃體視網膜等高出血風險手術，術前須會診血液腫瘤科評估短暫停藥天數",
               "rationale": "MEKAR多具可逆性且無抗炎類固醇適應症；而ibrutinib抑制血小板聚集會引發嚴重術中眼內或眼窩出血",
               "caution": "切勿將MEKAR誤認為發炎性葡萄膜炎而給予全身或眼內高劑量類固醇（類固醇本身反而可能誘發或惡化CSCR樣漿液性剝離）。"
             }
@@ -19746,7 +19746,7 @@
       "bcsc-s01-ch014-u01": "03a6ca07f3f74d0f6079037ed66fc472ef454ac555d2fb17e44e171fd40d2571",
       "bcsc-s01-ch014-u02": "dfa654440dd4f4fa2bd533f861a3d717b3c313dd421785ea7d93f32957c86f05",
       "bcsc-s01-ch014-u03": "502fe697840cdbae14db3123f79589ec23333203ce7a7c2ab21235b93b6841ae",
-      "bcsc-s01-ch014-u04": "7ebc2b99a112dfb511e52a5e9ed4e9bc328a9ed37f9c366c3e8728c269b48840",
+      "bcsc-s01-ch014-u04": "c71664cc7b3c1d740a1a144338dd4a21a4459c28b0fdb83f6447039e1128abf9",
       "bcsc-s01-ch014-u05": "f19aee4ed0383d07b6004b8589d588d5dd9298af907450b4846e49de200c9e68",
       "bcsc-s01-ch015-u01": "3c409177ed035b824a3767cdf033e77d51f4e0b5d2701345a4070702fa45ea19",
       "bcsc-s01-ch015-u02": "80723b17fdeb63e1b72ecf258b1eacd16c073c17ea1d9d7ce38e7f7d1e92158b",
