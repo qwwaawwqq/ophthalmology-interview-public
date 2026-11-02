@@ -17,7 +17,7 @@
     "atlas-s01-10": "1efa35c264dfe9475960dc25841894464d41029dbedb950435efefb4f26a48f9",
     "atlas-s01-11": "122eac5c283ad2906e75137ac3b52ed620cb2620a4e0aaa6f41891ead67d422f",
     "atlas-s01-12": "f6332168d698ad11089301237ce83b109b772728ce4b9bca10fdaf11ed9f1321",
-    "atlas-s01-13": "0f905e2d359205c603c91e5e314281677f9155e3bb936291bbf1900d708f9a4e",
+    "atlas-s01-13": "aa587609b287f7bbdba91e1cd7e49d8fe10db46f86a30ee79b7e76af4fd4e1b7",
     "atlas-s01-14": "1829ddd0a905f3f3ecf6d6334fcb0d2dfbfc0510ef038c0ed175f6ec85913776",
     "atlas-s01-15": "a926f4959684fbd2993d774809af27a83b5049b0f0f6d759630b8d87d532fa2b",
     "atlas-s01-16": "b7512ce006f76d801ba02e48ad8c84e47b33836102bcc5ec753c8fc1e2c8a085",
@@ -160,6 +160,7 @@
     "2026-11-02 targeted correction, not a full re-review: references replaced in atlas-s02-08, atlas-s02-09, atlas-s02-10, atlas-s02-12, atlas-s03-03, atlas-s03-05, atlas-s03-06, atlas-s03-07, atlas-s03-08, atlas-s03-09 (wrong articles and dead links; titles, years and notes matched to the linked source); teaching text corrected in atlas-s02-11 (netarsudil epithelial oedema, FDA label 5.1) and atlas-s02-12 (no CT for suspected retinoblastoma). Hashes refreshed for these units only.",
     "2026-11-02 targeted correction, not a full re-review: atlas-s04-09, atlas-s06-06. Hashes refreshed for these units only.",
     "2026-11-02 targeted correction, not a full re-review: atlas-s05-03, atlas-s06-05, atlas-s07-09. Hashes refreshed for these units only.",
-    "2026-11-02 targeted correction, not a full re-review: atlas-s01-18. Hashes refreshed for these units only."
+    "2026-11-02 targeted correction, not a full re-review: atlas-s01-18. Hashes refreshed for these units only.",
+    "2026-11-02 targeted correction, not a full re-review: atlas-s01-13. Hashes refreshed for these units only."
   ]
 }
