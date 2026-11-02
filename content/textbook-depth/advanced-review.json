@@ -290,6 +290,330 @@
       "hardness": "pass",
       "source": "pass",
       "numbers": "pass"
+    },
+    {
+      "id": "extra-20261022-q056",
+      "contentSha256": "b9ef10a245706a7145362e8ff9b064b10f80d01032d90f4a676c63cf5f1f66c7",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "not-applicable",
+      "reviewSummary": "Verified bcsc-s01 bcsc-s01-ch016 (圍術期抗栓管理與生物製劑選藥需分別依據手術出血等級、支架時窗與藥物特異性) against BCSC page anchors and clinical discriminators."
+    },
+    {
+      "id": "extra-20261022-q057",
+      "contentSha256": "ad18eb4892f595b26081135945ac7a863d0fe0ae6542ef692f92f9c28c2a328d",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "not-applicable",
+      "reviewSummary": "Verified bcsc-s01 bcsc-s01-ch004 (瀰漫型全身性硬化症併發惡性高血壓視網膜病變與腎危機時，須啟動ACE抑制劑) against BCSC page anchors and clinical discriminators."
+    },
+    {
+      "id": "extra-20261022-q058",
+      "contentSha256": "e41e28f866adbb650593fadfd058595cec532ace7d3990d46561cbc2be24969d",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass",
+      "reviewSummary": "Verified bcsc-s02 bcsc-s02-ch009 (以Goldmann眼壓方程式量化上鞏膜靜脈壓（EVP）對眼壓地板值的限制) against BCSC page anchors and clinical discriminators."
+    },
+    {
+      "id": "extra-20261022-q059",
+      "contentSha256": "8154e9880e86f74d065793685ea84d8a7ec4aee2de0ba9be2c0d81dfdabce5a7",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass",
+      "reviewSummary": "Verified bcsc-s02 bcsc-s02-ch006 (以明確父傳子排除粒線體與X連鎖遺傳並計算不完全外顯率之子代發病風險，同時) against BCSC page anchors and clinical discriminators."
+    },
+    {
+      "id": "extra-20261022-q060",
+      "contentSha256": "79ed77872c4fb0ba038b818111ce5931cee471f8b08670ad44bbb8f44a76b6a0",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass",
+      "reviewSummary": "Verified bcsc-s03 bcsc-s03-ch004 (結合Toric IOL旋轉30度之倍角向量幾何（殘餘散光大小等於原散光但) against BCSC page anchors and clinical discriminators."
+    },
+    {
+      "id": "extra-20261022-q061",
+      "contentSha256": "1a0f3ad4dc2e99dab0e03c8e1ae091fef66944e2e8abd9936188c683e7733580",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass",
+      "reviewSummary": "Verified bcsc-s03 bcsc-s03-ch005 (在異號屈光參差（antimetropia）含散光處方中，先擷取垂直90度) against BCSC page anchors and clinical discriminators."
+    },
+    {
+      "id": "extra-20261022-q062",
+      "contentSha256": "253b9156a0beb7c73a03903504e1b9f259e4c8958ced64f8ec36952561ba01af",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "not-applicable",
+      "reviewSummary": "Verified bcsc-s03 bcsc-s03-ch007 (區分遠視LASIK術後（中央陡峭hyperprolate、負球差）與近視) against BCSC page anchors and clinical discriminators."
+    },
+    {
+      "id": "extra-20261022-q063",
+      "contentSha256": "79f988b0be75fa0db9bb95c4c912b8a9c0045e171557df6b55ca98c60c5d94be",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "not-applicable",
+      "reviewSummary": "Verified bcsc-s04 bcsc-s04-ch011 (區分COMS中型脈絡膜黑色素瘤保眼近接放療與眼球摘除之等效存活實證、GE) against BCSC page anchors and clinical discriminators."
+    },
+    {
+      "id": "extra-20261022-q064",
+      "contentSha256": "3419b92fc9a357eb6da583714aeda41156426a068b7729a5e694bf8bb4101698",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "not-applicable",
+      "reviewSummary": "Verified bcsc-s04 bcsc-s04-ch002 (辨識皮脂腺癌之頁狀上皮內跳躍蔓延（pagetoid spread）、FF) against BCSC page anchors and clinical discriminators."
+    },
+    {
+      "id": "extra-20261022-q065",
+      "contentSha256": "b846814c741a5144dd02ca2da85efea611e6e841d6de4256b29700339021a6cc",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass",
+      "reviewSummary": "Verified bcsc-s05 bcsc-s05-ch008 (垂直複視合併水平內收跳視遲滯時，利用高眼內旋（incyclotorsio) against BCSC page anchors and clinical discriminators."
+    },
+    {
+      "id": "extra-20261022-q066",
+      "contentSha256": "d149690835c4953df50db30bf18caac7272761c5b6e58ac592a64a19f1dd6751",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass",
+      "reviewSummary": "Verified bcsc-s05 bcsc-s05-ch004 (辨識ESR正常之巨細胞動脈炎（GCA）所致動脈炎性前部缺血性視神經病變（) against BCSC page anchors and clinical discriminators."
+    },
+    {
+      "id": "extra-20261022-q067",
+      "contentSha256": "dbe4d5970fd4403501e33192315f1a51efa30d866983ea65b504ecf123887adf",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "not-applicable",
+      "reviewSummary": "Verified bcsc-s05 bcsc-s05-ch008 (單側外展神經麻痺合併同側節後Horner氏症候群（Parkinson s) against BCSC page anchors and clinical discriminators."
+    },
+    {
+      "id": "extra-20261022-q068",
+      "contentSha256": "bb420b2c93f46b8a93d1df0ff879a0ab2bcc7d10dd5d1a17043224968f00b571",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass",
+      "reviewSummary": "Verified bcsc-s06 bcsc-s06-ch006 (閉鎖性頭部外傷後垂直與旋轉複視：以左右側視/歪頭垂直斜視反轉、雙馬氏桿外) against BCSC page anchors and clinical discriminators."
+    },
+    {
+      "id": "extra-20261022-q069",
+      "contentSha256": "3f571db6dd3773dea72f70c1e1bf7786c6c94a4a7e6e7c776e476a0ec08d38a2",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass",
+      "reviewSummary": "Verified bcsc-s06 bcsc-s06-ch007 (定量計算高AC/A比值調節性內斜視（梯度法與遠近距法），並掌握兒童平頂雙) against BCSC page anchors and clinical discriminators."
+    },
+    {
+      "id": "extra-20261022-q070",
+      "contentSha256": "3c1053562ba588cf0f723d3010b8fb1a8f56afc8699cc08bb7e2ff2574f1b182",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "not-applicable",
+      "reviewSummary": "Verified bcsc-s06 bcsc-s06-ch024 (辨識ETROP指引中Zone I Stage 3即使無plus dise) against BCSC page anchors and clinical discriminators."
+    },
+    {
+      "id": "extra-20261022-q071",
+      "contentSha256": "cb3fc7c1ea5ce90fb0b9d9d46d656a30b1673e8ff444fa13445b61b92a522122",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "not-applicable",
+      "reviewSummary": "Verified bcsc-s07 bcsc-s07-ch006 (眼眶外傷出現突眼與RAPD時，若同時發現水滴狀瞳孔、前房異常加深與360) against BCSC page anchors and clinical discriminators."
+    },
+    {
+      "id": "extra-20261022-q072",
+      "contentSha256": "a5201633884e3a1f9829180db3cdebb363967f29744b4bdc754d91124d73e8c0",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "not-applicable",
+      "reviewSummary": "Verified bcsc-s07 bcsc-s07-ch006 (小兒白眼活門型眼窩底骨折（white-eyed trapdoor fra) against BCSC page anchors and clinical discriminators."
+    },
+    {
+      "id": "extra-20261022-q073",
+      "contentSha256": "95ea0b6c65e8136f53fe4f4e7222895f9d96158bff9d187cdbcac8dda590cff0",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass",
+      "reviewSummary": "Verified bcsc-s07 bcsc-s07-ch012 (重度先天性肌源性眼瞼下垂（下視眼瞼遲滯、按壓眉毛後真實提眼瞼肌功能≤4 ) against BCSC page anchors and clinical discriminators."
+    },
+    {
+      "id": "extra-20261022-q074",
+      "contentSha256": "0488d8504db64119a80e951bd6c47331004743f25371eacdfb44640c632af820",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "not-applicable",
+      "reviewSummary": "Verified bcsc-s08 bcsc-s08-ch012 (假樹枝上皮病變與基質水腫對抗病毒藥無反應且伴隨不成比例劇痛時，須先排除棘) against BCSC page anchors and clinical discriminators."
+    },
+    {
+      "id": "extra-20261022-q075",
+      "contentSha256": "18ad5d505adf1c6e44b3a0cb8aef59bffd9e7f20a917ad9aa3aeea1499debf9e",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "not-applicable",
+      "reviewSummary": "Verified bcsc-s08 bcsc-s08-ch004 (疱疹後無痛性平滑捲邊持續上皮缺損屬Mackie第2期神經營養性角膜病變，) against BCSC page anchors and clinical discriminators."
+    },
+    {
+      "id": "extra-20261022-q076",
+      "contentSha256": "7d3ed81e1cf15969499bc0135d8ed4d6f0fb305b3e9e9bb6a4f078d9cb456cc2",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "not-applicable",
+      "reviewSummary": "Verified bcsc-s08 bcsc-s08-ch016 (DMEK／DSAEK術後準備重打氣（rebubbling）前須先核對植片) against BCSC page anchors and clinical discriminators."
+    },
+    {
+      "id": "extra-20261022-q077",
+      "contentSha256": "62926b500ddea3181997524ce0deecaf6beef791e375daa87a2f87fa3ed796b2",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "not-applicable",
+      "reviewSummary": "Verified bcsc-s09 bcsc-s09-ch009 (散彈狀脈絡膜視網膜病變（Birdshot）中心視力常在病程晚期前維持20) against BCSC page anchors and clinical discriminators."
+    },
+    {
+      "id": "extra-20261022-q078",
+      "contentSha256": "d9bf6a8514eed2ffcc408b9227fd715b75437616634e74f2a00c380dcab64f73",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "not-applicable",
+      "reviewSummary": "Verified bcsc-s09 bcsc-s09-ch010 (交感性眼炎（sympathetic ophthalmia）一旦發病，免疫) against BCSC page anchors and clinical discriminators."
+    },
+    {
+      "id": "extra-20261022-q079",
+      "contentSha256": "089bf47d067f567c856a2b9e1bb2a410a1d4402d18db29e3579e25adf32d2daf",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "not-applicable",
+      "reviewSummary": "Verified bcsc-s09 bcsc-s09-ch012 (急性視網膜壞死（ARN）須立即啟動高劑量全身抗病毒（口服valacycl) against BCSC page anchors and clinical discriminators."
+    },
+    {
+      "id": "extra-20261022-q080",
+      "contentSha256": "c3a2332a3e5217bb49c605a5de2bb4a4dd4b9776dc8e91539acd7638994d506c",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "not-applicable",
+      "reviewSummary": "Verified bcsc-s10 bcsc-s10-ch010 (小樑切除術後出現中央與周邊均勻極淺前房且周邊虹膜切除孔（PI）暢通時，即) against BCSC page anchors and clinical discriminators."
+    },
+    {
+      "id": "extra-20261022-q081",
+      "contentSha256": "c9a5fa19a7c8ca8e126ad72240aefe9eaebc7821ada4b55fdace3bb7be0fa581",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "not-applicable",
+      "reviewSummary": "Verified bcsc-s10 bcsc-s10-ch010 (新生血管性青光眼（NVG）進入廣泛器質性虹膜前黏連（PAS）第3期閉角後) against BCSC page anchors and clinical discriminators."
+    },
+    {
+      "id": "extra-20261022-q082",
+      "contentSha256": "b61121ba54b8de50f6dc7027f87ea863d00dce801a8b623196de69da39d73581",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "not-applicable",
+      "reviewSummary": "Verified bcsc-s10 bcsc-s10-ch005 (晚期青光眼盤周OCT RNFL在約45–50 µm即觸及底限效應（flo) against BCSC page anchors and clinical discriminators."
+    },
+    {
+      "id": "extra-20261022-q083",
+      "contentSha256": "09f53a4d9f455335c0ad6b3141c5188c7d3ceb8bb33a1adef8ebf0f4d479d07c",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "not-applicable",
+      "reviewSummary": "Verified bcsc-s11 bcsc-s11-ch012 (假性落屑症候群（PXF）術中出現超過4個鐘點（>120度）廣泛進行性懸韌) against BCSC page anchors and clinical discriminators."
+    },
+    {
+      "id": "extra-20261022-q084",
+      "contentSha256": "768932ad8c7cbe5ba4198c99b90ab22cff594a3c3918c4e40f9cfd9f78ebd8cf",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "not-applicable",
+      "reviewSummary": "Verified bcsc-s11 bcsc-s11-ch011 (急性白內障術後眼內炎約25%患者完全無痛，不可因無痛誤判為TASS；且E) against BCSC page anchors and clinical discriminators."
+    },
+    {
+      "id": "extra-20261022-q085",
+      "contentSha256": "49da57252b5838896a5c40f00d07092a88024ad9ea34a5275c678bbc7f1cbd94",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "not-applicable",
+      "reviewSummary": "Verified bcsc-s11 bcsc-s11-ch007 (親水性壓克力（hydrophilic acrylic）IOL在DMEK／) against BCSC page anchors and clinical discriminators."
+    },
+    {
+      "id": "extra-20261022-q086",
+      "contentSha256": "17fd2bc54e7f5ae2c1a93e622a833a1749cb55a13f4305dafb72308727c5c8e7",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "not-applicable",
+      "reviewSummary": "Verified bcsc-s12 bcsc-s12-ch004 (黃斑大出血必須先以OCT區分「感覺神經視網膜下積血（subretinal) against BCSC page anchors and clinical discriminators."
+    },
+    {
+      "id": "extra-20261022-q087",
+      "contentSha256": "8d0a33f6482a5c758da6d25f5916f6cdd64bf3b4aee2275f9140dc3bb0984ed2",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "not-applicable",
+      "reviewSummary": "Verified bcsc-s12 bcsc-s12-ch005 (糖尿病牽引性視網膜剝離（TRD）術前輔助玻璃體內抗VEGF必須嚴格鎖定在) against BCSC page anchors and clinical discriminators."
+    },
+    {
+      "id": "extra-20261022-q088",
+      "contentSha256": "7284d75ebcebdc31c410d1ef6d7dc2b8d2b9c9f746b834564acbb4dd48211815",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass",
+      "reviewSummary": "Verified bcsc-s12 bcsc-s12-ch014 (羥氯奎寧（HCQ）安全劑量上限必須以「實際體重（actual body ) against BCSC page anchors and clinical discriminators."
+    },
+    {
+      "id": "extra-20261022-q089",
+      "contentSha256": "981ca4928239747e3e7fa93bfe7b48594d923d074a565485343ba79f19d5f9de",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "pass",
+      "reviewSummary": "Verified bcsc-s13 bcsc-s13-ch002 (LASIK術前組織改變百分比（PTA = [瓣厚 + 消融深度] / 中) against BCSC page anchors and clinical discriminators."
+    },
+    {
+      "id": "extra-20261022-q090",
+      "contentSha256": "bc506456b430636ebba0ec703c94bd7f3376c49c92431d145d4e9c3c690bb73e",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "not-applicable",
+      "reviewSummary": "Verified bcsc-s13 bcsc-s13-ch005 (LASIK術後必須精準區分「第2–3天侷限於層間之Stage 3瀰漫性層) against BCSC page anchors and clinical discriminators."
+    },
+    {
+      "id": "extra-20261022-q091",
+      "contentSha256": "bbbd375d3e4a04fc21acc05e65af7b380664d9ab21c5c46929076ee4c7b1363b",
+      "medical": "pass",
+      "hardness": "pass",
+      "source": "pass",
+      "numbers": "not-applicable",
+      "reviewSummary": "Verified bcsc-s13 bcsc-s13-ch009 (繞射型多焦點／三焦點IOL會分割入射光能並降低對比敏感度，在大Kappa) against BCSC page anchors and clinical discriminators."
     }
   ],
   "deepDives": [
