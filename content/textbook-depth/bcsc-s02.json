@@ -15966,17 +15966,17 @@
           "whenTrue": "估算正常成人單側整個骨性眼眶腔室（含眼球、眼外肌、視神經、血管與眼眶脂肪總和）之參考容積時。"
         },
         {
-          "text": "約5 mL，相當於玻璃體腔容積量級",
+          "text": "約5 mL，常由前房、後房與玻璃體腔液體共同占據",
           "rationale": "此數值遠小於整個骨性眼眶容積，反而接近單顆成人眼球（globe，約 6.5–7.5 mL）或玻璃體腔（約 4–4.5 mL）的體積量級，常見混淆。",
           "whenTrue": "討論成人玻璃體腔容積（約 4.0–4.5 mL）或略小於正常成人眼球本體容積（約 6.5–7.5 mL）之眼內腔室時。"
         },
         {
-          "text": "約15 mL，僅達正常成人眼眶一半",
+          "text": "約15 mL，常為眼球與直肌肌錐內部空間之和",
           "rationale": "僅約正常成人單側眼眶容積的一半，低估了球後肌錐內外脂肪與附屬器所占的空間。",
           "whenTrue": "評估嬰幼兒尚未發育完全之小型眼眶容積，或嚴重先天性小眼／無眼症導致骨性眼眶發育不全之特殊情境時。"
         },
         {
-          "text": "約50 mL，明顯高估單側骨性眼眶",
+          "text": "約50 mL，常涵蓋眼眶及鄰近上頜竇鼻竇總和",
           "rationale": "顯著高於正常成人單側骨性眼眶容量，若誤用此高估值將嚴重低估急性球後出血引發眼眶腔室症候群的壓力飆升速度。",
           "whenTrue": "跨雙側眼眶加總計算，或巨大長期良性腫瘤／雙側廣泛骨壁減壓術後重塑擴大之極端異常腔室時。"
         }
@@ -16084,17 +16084,17 @@
           "whenTrue": "繪製葡萄膜與脈絡膜主要上游動脈灌流來源（睫狀動脈系統）及其分水嶺解剖時。"
         },
         {
-          "text": "Central retinal artery（供應內層視網膜之視網膜中央動脈）",
+          "text": "Central retinal artery（穿行視神經中央並分支供應視網膜表面血管網）",
           "rationale": "視網膜中央動脈（CRA）自視神經盤中央穿出後分支行於神經纖維層，專責供應內層視網膜（直至內核層中界），屬終末動脈系統，不供應脈絡膜。",
           "whenTrue": "討論內層視網膜血液供應，或急性無痛視力喪失伴視網膜乳白水腫與櫻桃紅斑之 CRAO 病生理時。"
         },
         {
-          "text": "Choriocapillaris（緊貼Bruch膜外側之脈絡膜微血管終末交換層）",
+          "text": "Choriocapillaris（緊貼Bruch膜外側並具窗孔結構之扁平微血管小葉網）",
           "rationale": "脈絡膜微血管層（choriocapillaris）是位於 Bruch 膜外側、具窗孔（fenestrated）高通透性的小葉狀毛細血管床，屬於脈絡膜內部的終末交換層而非上游供血動脈幹。",
           "whenTrue": "討論直接藉由擴散供應視網膜色素上皮（RPE）與外層感光細胞（尤其無血管中心凹）氧氣養分的微血管層時。"
         },
         {
-          "text": "Major arterial circle of iris（位於睫狀體基質之虹膜大動脈環）",
+          "text": "Major arterial circle of iris（位於睫狀體基質並由長後與前睫狀動脈吻合形成之動脈環）",
           "rationale": "虹膜大動脈環位於睫狀體基質（並非虹膜本體），由長後睫狀動脈與前睫狀動脈吻合形成，主要分支往前供應虹膜與睫狀突，並非全脈絡膜的上游主幹。",
           "whenTrue": "討論虹膜與睫狀突前節血液供應，或外傷房角後退撕裂睫狀體前表面血管導致前房出血（hyphema）時。"
         }
@@ -16259,17 +16259,17 @@
           "whenTrue": "評估前庭神經鞘瘤壓迫 CN VII 造成外耳道後壁感覺遲鈍（Hitselberger 徵象）或膝狀神經節帶狀疱疹外耳道痛性水泡時。"
         },
         {
-          "text": "Preauricular耳前區及鬢角顳部皮膚之一般痛溫觸覺（由三叉神經下頜支之耳顳神經負責傳入）",
+          "text": "Preauricular耳前區及鬢角顳部皮膚之一般痛溫觸覺（涵蓋耳屏前方、顳顎關節表面與外耳道前壁皮膚區域）",
           "rationale": "耳前及鬢角顳部皮膚的一般痛溫觸覺主要由三叉神經下頜支（CN V3）分出的耳顳神經（auriculotemporal nerve）支配，並非顏面神經感覺根範圍。",
           "whenTrue": "顳顎關節病變、腮腺腫瘤侵犯耳顳神經或腮腺術後出現咀嚼冒汗（Frey 味覺出汗症候群）涉及 CN V3 分支時。"
         },
         {
-          "text": "角膜上皮與前基質表面之高密度痛覺及機械觸覺（由CN V1眼神經之長睫神經負責傳入）",
+          "text": "角膜上皮與前基質表面之高密度痛覺及機械觸覺（經由穿透角膜輪部進入前基質放射狀分布之無髓鞘神經末梢傳遞）",
           "rationale": "角膜高密度無髓鞘痛覺神經末梢完全由三叉神經眼神經支（CN V1）之鼻睫神經分支（長睫神經為主）負責傳入；CN VII 僅負責眨眼反射與反射性流淚的「傳出端（efferent limb）」。",
           "whenTrue": "測試角膜反射傳入支（輕觸患眼雙側皆不眨眼）或診斷單純皰疹／三叉神經損傷所致神經營養性角膜炎時。"
         },
         {
-          "text": "舌後三分之一黏膜表面之特殊味覺與一般體感覺（由CN IX舌咽神經負責傳入孤束核）",
+          "text": "舌後三分之一黏膜表面之特殊味覺與一般體感覺（涵蓋界溝後方輪狀乳頭、舌根扁桃體與鄰近口咽部黏膜上皮區）",
           "rationale": "舌後三分之一的特殊味覺與一般黏膜感覺皆由第 IX 對舌咽神經（glossopharyngeal nerve）負責；CN VII 鼓索神經（chorda tympani）負責的是「舌前三分之二」味覺。",
           "whenTrue": "評估舌咽神經病變、頸靜脈孔症候群（jugular foramen syndrome）或咽反射傳入支缺損時。"
         }
@@ -16483,12 +16483,12 @@
           "whenTrue": "著色性乾皮症患者接受嚴格防紫外線護目鏡衛教，並定期以裂隙燈篩檢瞼裂區角結膜上皮內腫瘤（OSSN）與眼表／眼瞼皮膚癌時。"
         },
         {
-          "text": "Retinoblastoma視網膜母細胞瘤與choroidal melanoma成人脈絡膜惡性黑色素瘤（眼內深部腫瘤）",
+          "text": "Retinoblastoma視網膜母細胞瘤與choroidal melanoma成人脈絡膜惡性黑色素瘤（源自視網膜與葡萄膜基質）",
           "rationale": "角膜與晶狀體已吸收絕大部分環境紫外線，且視網膜母細胞瘤（RB1 雙擊）與成人脈絡膜黑色素瘤（GNAQ/GNA11 及 BAP1 等體細胞突變）並非 XP 紫外線修復缺陷主要倍增的眼部癌症。",
           "whenTrue": "分別於嬰幼兒 RB1 生殖系突變篩檢白瞳症，或高齡淺膚色／眼部黑色素增多症（ocular melanocytosis）患者追蹤脈絡膜惡性腫瘤時。"
         },
         {
-          "text": "Optic pathway glioma視路毛狀星狀細胞瘤與Lisch nodules虹膜色素性錯構瘤結節（NF1表徵）",
+          "text": "Optic pathway glioma視路毛狀星狀細胞瘤與Lisch nodules虹膜色素性錯構瘤結節（源自視神經膠質與虹膜基質）",
           "rationale": "視路毛狀星狀細胞瘤與虹膜色素錯構瘤（Lisch 結節）是第 17 號染色體 NF1（neurofibromin 抑制 RAS 活性蛋白）突變所致第一型神經纖維瘤病特徵，與 UV DNA 修復無關。",
           "whenTrue": "具咖啡牛奶斑（café-au-lait macules）、腋下雀斑與蝶骨大翼發育不全之 NF1 病童定期篩檢視力、視野與視路神經膠質瘤時。"
         },
@@ -17782,17 +17782,17 @@
           "whenTrue": "核對標示為 1:10,000 w/v 腎上腺素製劑之精確毫克／毫升濃度與重量體積百分比時。"
         },
         {
-          "text": "1 mg/mL，亦即0.1%（對應1:1,000）",
+          "text": "1 mg/mL，亦即0.1%（每毫升含1毫克有效成分）",
           "rationale": "1 mg/mL（1,000 mg / 1,000 mL）對應的比例濃度為「1:1,000 w/v」，比題目所問的 1:10,000 濃上整整十倍，若在手術中誤抽未稀釋將造成嚴重心血管與角膜內皮風險。",
           "whenTrue": "核對全身過敏性休克大腿肌肉注射常用之高濃度「1:1,000 w/v」腎上腺素安瓿時。"
         },
         {
-          "text": "0.01 mg/mL，亦即0.001%（稀釋十倍）",
+          "text": "0.01 mg/mL，亦即0.001%（每毫升含10微克有效成分）",
           "rationale": "0.01 mg/mL（1,000 mg / 100,000 mL，即 0.001%）對應的比例濃度為「1:100,000 w/v」，比本題稀釋十倍。",
           "whenTrue": "眼瞼整形手術局部浸潤麻醉劑（如 2% lidocaine 混合 1:100,000 epinephrine 收縮微血管止血）之腎上腺素濃度換算時。"
         },
         {
-          "text": "10 mg/mL，亦即1.0%（對應1:100）",
+          "text": "10 mg/mL，亦即1.0%（每毫升含10毫克有效成分）",
           "rationale": "10 mg/mL（1,000 mg / 100 mL）對應的是「1:100 w/v（即 1% w/v）」，比 1:10,000 濃上一百倍。",
           "whenTrue": "換算 1% w/v 局部點眼或局部麻醉藥（如 1% lidocaine = 10 mg/mL）之濃度時。"
         }
@@ -19169,16 +19169,16 @@
     },
     "questionContentHashes": {
       "bcsc-s02-rq001": "b6506005909ef4f4ad382206275128507d9426ad0dce1188c1fb55a7c2764541",
-      "bcsc-s02-rq002": "7097ab732800d922058c125632d9bddd489337c831442d674db980e332a01598",
+      "bcsc-s02-rq002": "d53d704e6ac7b0424c68ce15c7f57d150032591c4bbfba6d536bebf704bcb7fe",
       "bcsc-s02-rq003": "a2a8c1420b3747acef8447680823bf7c147068b320c35efc2b609ea0f305f527",
-      "bcsc-s02-rq004": "ff57f64a64a4dfce73e7905b74ed4dde45cdadda3e918e9e916e9f8874519c47",
+      "bcsc-s02-rq004": "a503817227639f37776313c62d90302342534a71d19b674cce54a1ba0fbff566",
       "bcsc-s02-rq005": "2ace62dbd6a9762e43cdc90ddcefe360f00dcb20e969aedd3ec1f9ac80666d46",
       "bcsc-s02-rq006": "4e883dffabf637801170872284eb098dc44b7d3ba643c4520b5cfd6d11287b64",
-      "bcsc-s02-rq007": "5f7e846c545289ddd8bc7d1f86329a5694d162262a93f81a7f2b2a55a83b6ffa",
+      "bcsc-s02-rq007": "c1a27d0a0a0692e34bd48a404b472755f00f3827df477efaaf4e58be61c935c1",
       "bcsc-s02-rq008": "3beb8b229bd5490ad2bd918a8c5b25c90db9949c8889c93504e792368e1c807a",
       "bcsc-s02-rq009": "9b3c681b9fdfaeb7ae670ff22ce9160b87855461adcfefed30263542e66c0961",
       "bcsc-s02-rq010": "53b60925f23c16505e12d5b37ab3c9e75d6cd811ac02009afbe0a0350414f4bc",
-      "bcsc-s02-rq011": "a1c0a6233f5ce2446fb606ae88c3bf010e9129216c407b8a17e6c658dfe11ba9",
+      "bcsc-s02-rq011": "72129efa75db7e8afb8967e12818e0aaa57ff8d0df6e2acb2ffabdbb1f227c54",
       "bcsc-s02-rq012": "3967269c3d122db2adb9caf8dac7cdbf018fe85678ea7add9063fd24dfcc8acd",
       "bcsc-s02-rq013": "6af7de7dadc04cb429d1d12f2917498a5055d8be8443a0e298be65ac9e320ecd",
       "bcsc-s02-rq014": "9ff4c8bf672b51bca01eab00240e263f15d8bd0dd37e0cca43b50c3bc7204409",
@@ -19201,7 +19201,7 @@
       "bcsc-s02-rq031": "a43cc4d91079e0d97e04f405bc19eeea3e91e041d4dc0e90747fe75ded3a4eea",
       "bcsc-s02-rq032": "525eb099de8fac657d3ad57d68f89bccd30a6aca091b032622af26805ac5bfb3",
       "bcsc-s02-rq033": "bae52f02325176e644134e0bafe358b67e7685f12759ab6c13791713c47aa54e",
-      "bcsc-s02-rq034": "968a721ef9818df90b06e85fe205ee3aa90901557102a22b61d8bd5fb192fe22",
+      "bcsc-s02-rq034": "ef0a1039f2656a9e85006e163cf8ef45de6804d7cc66398c30c534c9a770a285",
       "bcsc-s02-rq035": "71b9f66c02bd1fe7606b062cf67f3ccf3f96c7596cba77c7bb332a9d0f6cd4b0",
       "bcsc-s02-rq036": "780e5cd592043cde888e58323e689d8c2cbd39ba143334c515621e1532898849",
       "bcsc-s02-rq037": "38c1fd59fbb296037bcaf361ff544be745c50a1a0ffd6772b47feff5bb68e6b6",

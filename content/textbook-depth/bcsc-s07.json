@@ -12432,7 +12432,7 @@
       "stem": "外科醫師於顳部髮際線內切口進行內視鏡抬眉或外眥懸吊剝離時，必須精確掌握顳區筋膜層次以避免切斷面神經顳支（temporal branch of CN VII）。依據眼顏面解剖學可一致確認的筋膜對應關係，下列敘述何者最正確？",
       "options": [
         {
-          "text": "將緊密包覆顳肌表面的深顳筋膜（DTF）誤當成淺層顳頂筋膜之同義詞",
+          "text": "緊密包覆顳肌表面的深顳筋膜（DTF）與皮下淺層顳頂筋膜在解剖上屬於同一連續筋膜層",
           "rationale": "深顳筋膜（deep temporal fascia, DTF）是緊密包覆顳肌表面的堅韌亮白色筋膜，而顳頂筋膜（TPF）則是位於其淺層的含血管神經筋膜層，將兩者混為同義詞會直接導致剝離迷航傷及面神經。",
           "whenTrue": "此同義關係在解剖上完全錯誤；手術中必須將淺層柔軟帶血管的 TPF 與深層緻密白色的 DTF 嚴格區分開來。"
         },
@@ -14093,7 +14093,7 @@
       "bcsc-s07-rq010": "2b99e8aa03ee861fb64bb7081969d2c4bf44c90cbe7c96cccb300a9ad1cb50d5",
       "bcsc-s07-rq011": "12848205a3a387ad6a0200ba48dae875c39415ddc0ff82b33e04e0a5d0df0e4f",
       "bcsc-s07-rq012": "50a17718dca5f18fe87f3e1d1a7afb959666bc0a28933b9e2e80b9d6b346dbaf",
-      "bcsc-s07-rq013": "41519481437f954871f7642f334f5a9e5440ddda180280fc7f2f8760c3f917a0",
+      "bcsc-s07-rq013": "c71c61f0622b5c7f4eb691d7636836c78b86dc12f785396b318ec0fee94b79c8",
       "bcsc-s07-rq014": "036b2dbd7e767f76ebe0ea5fe7728c38512922c65db6a3f5a6aecdc3abbff655",
       "bcsc-s07-rq015": "e555b41a74245d66980ab244073c6a29f8b068105005e321119122db54004470",
       "bcsc-s07-rq016": "d0f66963fcb0c36efdde210a46c88935cfe2057687b94287dab61c0a0f3981f2",

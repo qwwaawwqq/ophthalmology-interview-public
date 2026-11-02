@@ -18221,7 +18221,7 @@
           "whenTrue": "當患者具未開發疫區山泉水飲用史、慢性脂肪便腹瀉或嗜酸性白血球升高而懷疑腸道原蟲／蠕蟲寄生感染時。"
         },
         {
-          "text": "僅開立一般常規糞便好氧與兼性厭氧細菌培養（Routine bacterial stool culture，針對沙門氏菌與志賀氏菌及曲狀桿菌篩檢）",
+          "text": "僅開立一般常規糞便好氧與兼性厭氧細菌培養（Routine bacterial stool culture，搭配選擇性培養基分離沙門氏菌、志賀氏菌與曲狀桿菌等腸道致病菌）",
           "rationale": "錯誤。醫院實驗室之「一般常規糞便細菌培養」僅針對沙門氏菌（Salmonella）、志賀氏菌（Shigella）與曲狀桿菌（Campylobacter）等社區食源性腸炎設計；C. difficile屬嚴格厭氧產孢桿菌且無症狀帶菌者不罕見，必須專門開立C. difficile毒素EIA／NAAT而非一般糞便培養。",
           "whenTrue": "當患者無近期抗生素暴露，而是在生食禽蛋海鮮後出現急性血便發燒、懷疑沙門氏菌或曲狀桿菌食物中毒時。"
         },
@@ -18381,12 +18381,12 @@
           "whenTrue": "當對服用ethambutol、isoniazid或linezolid患者進行基準篩檢或懷疑中毒性／營養性視神經病變（雙側中心或中心盲點暗點）時。"
         },
         {
-          "text": "僅執行大視標周邊等視力線動態視野檢查（Peripheral kinetic Goldmann perimetry alone，僅掃描外圍等視力線邊界而不測中心閾值）",
+          "text": "僅執行大視標周邊等視力線動態視野檢查（Peripheral kinetic Goldmann perimetry alone，利用移動視標描繪周邊視野外圍等感度邊界與水平子午線範圍）",
           "rationale": "錯誤。多數經典軸性ethambutol視神經毒性集中於中心5至20度內之中心暗點或雙顳側旁中心暗點（交叉纖維受累時），單靠大視標周邊動態視野掃描外圍邊界極易完全漏掉早期淺層中心盲點暗點，延誤停藥時機。",
           "whenTrue": "當病患視力極差無法固視中心目標、認知無法配合自動視野，或評估毯狀視網膜變性（RP）遠周邊殘餘視島與功能性管狀視野偽病時。"
         },
         {
-          "text": "僅執行黃斑部外層感光細胞橢圓體帶與視網膜色素上皮層結構OCT掃描（而不測中心視野、色覺與視盤周圍RNFL及黃斑部GCIPL神經節細胞內叢狀層厚度）",
+          "text": "僅執行黃斑部外層感光細胞橢圓體帶與視網膜色素上皮層結構OCT掃描（評估外核層厚度、感光細胞內外節交界完整性以及布魯氏膜複合體之高解析橫斷面反射訊號表現）",
           "rationale": "錯誤。Ethambutol原發靶點位於視網膜神經節細胞及其視神經軸突粒線體，而非外層感光細胞或RPE（後者為HCQ抗瘧疾藥靶點！）；且急性早期視盤周圍RNFL厚度甚至可能完全正常或因軸漿阻滯微增厚，單看外層黃斑OCT會誤判為正常。",
           "whenTrue": "當篩檢hydroxychloroquine（HCQ）中心凹旁橢圓體帶飛碟徵損傷，或排查MEK抑制劑漿液性視網膜下積液時。"
         },
@@ -19800,10 +19800,10 @@
       "bcsc-s01-rq029": "ec645c797fb651151cd4a47e95647803ed80e49396992f45e76b977bec425eef",
       "bcsc-s01-rq030": "a7e7c0e21d76453ebe19a0f811211a4a26feac88b10d899e637ae5d1c6c5aa10",
       "bcsc-s01-rq031": "e3a6ff7131fe8ef6018b64df5b061c173a261c9eda6515b5b5702481bac916fa",
-      "bcsc-s01-rq032": "15a39ae95c7232f0cfa6294cc1d6d2c7751b42b55d691f2b7a75d1a4bac62b80",
+      "bcsc-s01-rq032": "9905c7d079d80c53f0f37b6a2e4af10ca1ab7f7b6f706de963478fc365973405",
       "bcsc-s01-rq033": "9e7e6999328102563b16f4678b9849b173b7bcf2942548adc48fb26c960b1036",
       "bcsc-s01-rq034": "de8a87dbb385d66fc31668e58ee2e13a26f41e126853107062e9a591493114e5",
-      "bcsc-s01-rq035": "3c7951892fac4335b2aa9ae8d5d97b86af9b939affe0e0366e080c0d68c853cb",
+      "bcsc-s01-rq035": "dad405ac597d2406472d8d5264a2b3129ef38e765387ee8f48b4a11d2b6b0f63",
       "bcsc-s01-rq036": "ab4be041fc119ce29bb2bed3fbb7612a82ed9a637fdb9f80b0cd97a808cf358b",
       "bcsc-s01-rq037": "db9d5552f0899054ee50b24b95c16e0a27eed616171549184e3dffc5e2add330",
       "bcsc-s01-rq038": "28241ef6002c7193020dc7fc7b5c04b402020d14fb23e06168d9325b945dcd7f"

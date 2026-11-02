@@ -10810,17 +10810,17 @@
           "whenTrue": null
         },
         {
-          "text": "C/3，相當於旋轉約10°時損失三分之一",
+          "text": "C/3，向量合成後約保留三分之二柱鏡矯正效益",
           "rationale": "誤把每10°近似損失三分之一再錯套30°。 C/3 對應的是旋轉約 10° 時損失約 1/3 矯正量（殘餘約 0.35 C），誤把 10° 比例錯套在 30°。",
           "whenTrue": null
         },
         {
-          "text": "C/2，相當於旋轉約14.5°之殘餘散光",
+          "text": "C/2，向量合成後約保留二分之一柱鏡矯正效益",
           "rationale": "不符雙角向量的精確30°結果。 C/2 對應雙倍角公式 2·C·sin(θ) = 0.5 C，即旋轉約 14.5° 時的殘餘散光量，不符 30°。",
           "whenTrue": null
         },
         {
-          "text": "2C，相當於軸向完全放反90°之倍增散光",
+          "text": "2C，兩組正交散光向量疊加後形成雙倍柱鏡度數",
           "rationale": "等量反向加重到2C對應90°，不是30°。 殘餘散光倍增至 2C 發生在軸向完全放反 90°（2·C·sin(90°) = 2C）的最極端失誤。",
           "whenTrue": "當 toric IOL 軸向誤置達 90°（把強軸完全對到原本最平軸）時，殘餘散光才會加倍為 2C。"
         }
@@ -11888,7 +11888,7 @@
           "whenTrue": null
         },
         {
-          "text": "正視在視網膜上；近視在視網膜前；遠視在視網膜後（像焦點）",
+          "text": "正視在視網膜上；近視在視網膜前；遠視在視網膜後（平行光線進入放鬆眼球後之共軛聚焦平面）",
           "rationale": "這把像焦點位置誤當物空間遠點。 網膜上、網膜前、網膜後描述的是「無窮遠平行光入射時的次焦點（像點）位置」，而非物空間遠點。",
           "whenTrue": "若題目改問「無窮遠物體在未矯正且放鬆調節之正視、近視、遠視眼內的像焦點位置」，此選項才成立。"
         },
@@ -12284,17 +12284,17 @@
           "whenTrue": null
         },
         {
-          "text": "+8.70D，屬頂點距反向縮短10mm之換算值",
+          "text": "+8.70D，四分之一D試片約+8.75D之正透鏡度數",
           "rationale": "這是轉換方向相反的結果。 +8.70 D（= 1 / 0.115 m）是鏡框反而「往角膜靠近縮短 10 mm（如改戴隱形眼鏡方向）」時的反向換算值。",
           "whenTrue": "若新鏡框鼻墊調低使鏡片「更貼近角膜 10 mm（頂點距減少 10 mm）」，維持等效才需增至 +8.70 D。"
         },
         {
-          "text": "+8.00D，忽略頂點距外移對高正鏡之放大效應",
+          "text": "+8.00D，維持與原鏡架處方籤完全相同之正透鏡度數",
           "rationale": "未考頂點距改變。 在 +8.00 D 高屈光力下，10 mm 頂點距變動已造成近 0.60 D 光學差異，不調整會導致明顯遠視過矯霧視。",
           "whenTrue": null
         },
         {
-          "text": "−7.41D，將高度遠視正透鏡誤反轉為負透鏡",
+          "text": "−7.41D，四分之一D試片約−7.50D之負透鏡度數",
           "rationale": "符號無故反轉，仍在矯正遠視。 頂點距微調僅改變正透鏡焦距長短，高度遠視眼的虛遠點仍在眼後，絕不可能反轉為負透鏡。",
           "whenTrue": null
         }
@@ -12452,17 +12452,17 @@
           "whenTrue": null
         },
         {
-          "text": "約−9.62D，屬頂點距往內縮短4mm之反向值",
+          "text": "約−9.62D，四分之一D試片約−9.50D之負透鏡",
           "rationale": "往角膜移近的方向才會較少負；本題移遠。 −9.62 D（= −1 / 0.104 m）是把鏡框從 10 mm「往內推近至角膜前 6 mm」時的反向結果。",
           "whenTrue": "若新鏡框反而比試鏡架更貼近角膜 4 mm（頂點距由 10 mm 縮短為 6 mm），所需鏡力才是 −9.62 D。"
         },
         {
-          "text": "仍為−10.00D，忽略高負鏡頂點距外移之欠矯",
+          "text": "仍為−10.00D，維持與原試鏡架相同之負透鏡度數",
           "rationale": "高負鏡距離改變會影響有效矯正。 在 −10.00 D 高度近視下，僅 4 mm 的鏡框頂點距外移就會造成近 0.50 D 欠矯而使遠視力退步一至兩行。",
           "whenTrue": null
         },
         {
-          "text": "+10.42D，誤將近視發散負透鏡反轉為正透鏡",
+          "text": "+10.42D，四分之一D試片約+10.50D之正透鏡",
           "rationale": "遠點方向不變，不會轉成正鏡。 頂點距離微調不會改變近視本質，所需仍為發散負透鏡。",
           "whenTrue": null
         }
@@ -13481,7 +13481,7 @@
           "whenTrue": null
         },
         {
-          "text": "只要處於無晶狀體狀態，錯誤AL測量完全不影響屈光結果",
+          "text": "只要處於無晶狀體或人工水晶體狀態，眼軸長度變化皆不改變術後屈光度數",
           "rationale": "無晶狀體狀態不會取消眼軸的光學重要性。 即使完全不放 IOL（無水晶體眼），眼軸長短依然直接決定角膜焦點與視網膜的距離及所需眼鏡度數。",
           "whenTrue": null
         }
@@ -13944,7 +13944,7 @@
           "whenTrue": "順帶對照：若是曾接受「遠視雷射（hyperopic LASIK）」造陡中央角膜者，一般 K 則傾向低估角膜力而易致術後近視偏移。"
         },
         {
-          "text": "因普通手動K計已直接實測角膜後表面曲率，故不存在模型假設失準問題",
+          "text": "因普通手動K計已直接量測角膜前後雙表面曲率半徑，可直接代入標準公式計算",
           "rationale": "前提錯，普通K不是總角膜直接量測。 普通手動或自動 K 計完全未測量後角膜，正是這個模型盲點在雷射術後引發系統性高估。",
           "whenTrue": null
         },
@@ -15699,7 +15699,7 @@
       "bcsc-s03-rq023": "73f45eca4326eb03d42bf0dd2fbc4cb2da21b1d14868dbcdeb65e3834c49606d",
       "bcsc-s03-rq024": "a5c158661003bb5388e0c5bd05c4f7ea1370c772e99451f327ae41b6c8287d5d",
       "bcsc-s03-rq025": "096a00bb0c2fc15f21a4789fc61de5ef8f48cd13b9195c40c1ccf0d98c7cb9ae",
-      "bcsc-s03-rq026": "9da973629ad9d1a7a6ada42f3b3c0b55c14ed8fdfb0ebd4f136d721a02fe25d2",
+      "bcsc-s03-rq026": "7059c984f7157b557eda730d3bd7baa5dea8a17f64c6ccf4fb37470f0db9ca89",
       "bcsc-s03-rq027": "78cadcade24e531756edd425c2d0ca30d4616a1c949a20e5d78c37b2ed5c8390",
       "bcsc-s03-rq028": "7f3645d24551db1b9e487127b6d790e45ef86a19c1931f51502fd94e3dcf2acc",
       "bcsc-s03-rq029": "6b6a7b8fcf9177a2ad0987fe04c6507d517dd8755fe40f4218039ec56561c9b1",
@@ -15718,17 +15718,17 @@
       "bcsc-s03-ch003-iq001": "81fa8d8fd0bbdd880b9511d0396b8eb275299dc5efd9fb2d4265e5d058a3aac1",
       "bcsc-s03-ch003-iq002": "1d350c935ba406d55cf67b9295d10298adf3ba98f65845877bb3b61f1be68d9b",
       "bcsc-s03-ch003-iq003": "ef81015d250094e43a71882c86c4be723b07686bb3870dce260a0653e01258e6",
-      "bcsc-s03-ch003-iq004": "5f171e7dbf888b99ebf4ad5487d01688f7e7e3f6959b63adcf550a778b44759f",
+      "bcsc-s03-ch003-iq004": "466247552bb0032797585cc249899b77918ef41e167f44f3d1850b301bbd895c",
       "bcsc-s03-ch003-iq005": "fd9e27312129f45dd5568fa5ad0f87b24d003fcd385c963fc111c624a75da5fb",
       "bcsc-s03-ch003-iq006": "826d032dc430150418ea83ced6dc77228e6a29f6fb7ff804e288d7d29bff5188",
       "bcsc-s03-ch004-iq001": "85cd518b26626e3d0de829cdc4bf24db7ec0100fe4bee98b937d2b76218aa5f9",
       "bcsc-s03-ch004-iq002": "a5fe4d71ed81c7b0ca75594a0829eb3617dc8ff271cceadf3c5e4f32af6933f8",
       "bcsc-s03-ch004-iq003": "5e4705835e2cc87137bbdc6c66ceb18416d2d886a5b9e7b2828cda088e1cc550",
       "bcsc-s03-ch005-iq001": "53e2785e8e26e0f359a92ba453c1cb223c3e23bc0c25389a711893dd4152f838",
-      "bcsc-s03-ch005-iq002": "56d12fce2609824ba36383d490c48002092913b2e77f768ee7c567e14f3d299d",
+      "bcsc-s03-ch005-iq002": "f5818d590fba157d8b42842017eac138d4b478c448b1b895978314fee20a032c",
       "bcsc-s03-ch005-iq003": "ccb5ff798a2efd2d8c89e7a7b73fb4246d5bf781017c2fbf093640cba51d9066",
       "bcsc-s03-ch005-iq004": "425e7c705b941843af855e7177785bf17e46baa7328df2d743c7fe507dc5dce9",
-      "bcsc-s03-ch005-iq005": "cb8f2ae1695b3095bb535e212acfe5f476e7953b09f47308eefbf52a7e715169",
+      "bcsc-s03-ch005-iq005": "b003d2b8b6c336a479978ad5f2ff774e540216dd70ec1512688377728f48f54e",
       "bcsc-s03-ch005-iq006": "3b2952dc93a47f5529d888fe428500490fbf60ab1893ad77e9dfa3a4d25d8e20",
       "bcsc-s03-ch005-iq007": "0d90ec57c6ebfcdc0d4fcb867ee3bfb8d111444ebf3bca676b4c30c354662855",
       "bcsc-s03-ch005-iq008": "0fd13746055adc946422b24ba9ba5b69327c3c28fe58f24988fc01e47e2c9acb",
@@ -15746,7 +15746,7 @@
       "bcsc-s03-ch007-iq002": "b4d965bc48a5762e529e6f8c2393cbba060f7990c431b36ab8e2e028a5304e18",
       "bcsc-s03-ch007-iq003": "4b1583785b6384ce5c74aaa035d13583104184c15a6d2195534c3691913747cc",
       "bcsc-s03-ch007-iq004": "8f90f56ca63db143d51397821e10632889f6197ff22a7c676fb9faa8d4e88553",
-      "bcsc-s03-ch007-iq005": "a30dfe34250968a70cc82ef51b29fe220300f19884ced7a5889fce0bf5bb942a",
+      "bcsc-s03-ch007-iq005": "a4fc59e083b1167f525d187bb940a9d698a0432ae59f14002bf3f71fc381e831",
       "bcsc-s03-ch008-iq001": "a4167bf6cfa68b9672cb946bef68efd00f3fc8a07aea890b09bd37eff91235f7",
       "bcsc-s03-ch008-iq002": "30ee30c7e1dd01d3a432d4e0bb1ba47cfb0ec1fed5dcf220bb8292d3b930f1f4",
       "bcsc-s03-ch008-iq003": "6d3854e801e839a8cdc5577c62b5982c2f3a6338178de7b5982a6de1bf3ef59b",
@@ -15754,7 +15754,7 @@
       "bcsc-s03-ch008-iq005": "a88ae824c5ac163e2eef475152dfdf488f9cf9ab94d59c835af94630f354eb2c",
       "bcsc-s03-ch009-iq001": "d7e468cf25ba3929939d1f77af757450dffee4b6722e45e9c3c4b2ee33248124",
       "bcsc-s03-ch009-iq002": "339455e268b9e327b61c7a437dfbe05d14f53b1c94e80ac3056082593f9918eb",
-      "bcsc-s03-ch009-iq003": "6b029e69b2e576b37c2625094dc60c2045fdcec714ad32e5d0f42703e7ccf0b7",
+      "bcsc-s03-ch009-iq003": "84f3fee223fe98ee42904386a932105118ee88c27ef051ccedbbb89173b2571e",
       "bcsc-s03-ch009-iq004": "2253a3657ff906d367211b5eecb56ccb5fb842fda3fbd0f3a1f39ffa0b7081bc",
       "bcsc-s03-ch009-iq005": "a29838daf81f146de131ebd465320a74e3eccdf4303dc272ee48f4a7c09c53ca",
       "bcsc-s03-ch009-iq006": "41ef5ac26534d5e141f9995c1f4fafb934ef4ad036780466bef503c5fdecc4a6",
