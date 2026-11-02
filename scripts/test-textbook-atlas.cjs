@@ -46,7 +46,7 @@ function boot({integrated=false,hash='#textbook',data=pack,fetchOverride=null}={
     else value=volumes[path.basename(pathname,'.json')];
     return {ok:!!value,json:async()=>JSON.parse(JSON.stringify(value))};
   }};
-  vm.createContext(context);vm.runInContext(atlasSource.replace('window.OphTextbookAtlas={mount,load,unitsForChapter,inlineChapterHtml};','window.OphTextbookAtlas={mount,load,unitsForChapter,inlineChapterHtml,__test:{shape,svg,load}};'),context);
+  vm.createContext(context);vm.runInContext(atlasSource.replace('window.OphTextbookAtlas={mount,load,unitsForChapter,inlineChapterHtml};','window.OphTextbookAtlas={mount,load,unitsForChapter,inlineChapterHtml,__test:{shape,svg,load,formatRich,formatBullet}};'),context);
   if(integrated){document.currentScript.src='https://example.test/ophthalmology-interview-public/scripts/textbook-depth.js';vm.runInContext(textbookSource,context);}
   async function mount(bookId=null,unitId=null,extra={}){
     const opts={manifest,book:bookId?volumes[bookId]:null,bookId,unitId,focus:true,isCurrent:()=>true,onSelect:(b,u)=>{navigation.push(['select',b,u]);void mount(b,u);},onBack:()=>navigation.push(['back']),onChapter:id=>navigation.push(['chapter',id]),...extra};
@@ -169,6 +169,26 @@ reject_unit_ids(lambda t:t.update(unitIds=['bcsc-s01-ch002-u01'],unexpectedKey=T
     assert.equal(u02Html,'');
     assert(chHtml.includes('data-inline-atlas="'+chapFig.id+'"'));
     assert(!chHtml.includes('data-inline-atlas="'+unitFig.id+'"'),'unit-bound SVG must not duplicate in chapter header');
+  });
+  await test('atlas formatRich and formatBullet escape XSS before converting **bold**, `code`, lead-ins and （1）（2） substeps across all 13 volumes',async()=>{
+    const b=boot();
+    const {formatRich,formatBullet}=b.window.OphTextbookAtlas.__test;
+    const out=formatRich('基因 **`PAX6` <script>evil()</script>** 分流：（1）無虹膜 <img src=x onerror=alert(1)>；（2）WAGR 症候群');
+    assert(!out.includes('<script>'));
+    assert(!out.includes('<img src=x'));
+    assert(out.includes('<strong><code class="tb-formula-chip">PAX6</code> &lt;script&gt;evil()&lt;/script&gt;</strong>'));
+    assert(out.includes('<span class="tb-substeps"><span class="tb-substep">（1）無虹膜 &lt;img src=x onerror=alert(1)&gt;；</span><span class="tb-substep">（2）WAGR 症候群</span></span>'));
+    const lead=formatBullet('安全拱高 <svg onload=alert(1)>：`250–750 μm`');
+    assert(!lead.includes('<svg onload='));
+    assert(lead.startsWith('<strong class="tb-lead-term">安全拱高 &lt;svg onload=alert(1)&gt;：</strong>'));
+    assert(lead.includes('<code class="tb-formula-chip">250–750 μm</code>'));
+    for(const v of pack.volumes){
+      for(const u of v.units){
+        await b.mount(v.bookId,u.id);
+        assert(!b.root.innerHTML.includes('**'),'unrendered ** in '+u.id);
+        assert(!b.root.innerHTML.includes('`'),'unrendered backtick in '+u.id);
+      }
+    }
   });
   const failed=results.filter(r=>!r.pass);console.log(JSON.stringify({passed:results.length-failed.length,failed:failed.length,results},null,2));if(failed.length)process.exitCode=1;
 })();

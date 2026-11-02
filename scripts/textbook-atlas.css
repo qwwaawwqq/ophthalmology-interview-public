@@ -21,7 +21,7 @@
 #textbook-root .atlas-lesson{max-width:1000px;margin:0 auto}
 #textbook-root .atlas-lesson>section{margin-top:38px;max-width:78ch}
 #textbook-root .atlas-lesson>section h2{font-size:22px;margin:0 0 16px;padding-bottom:8px;border-bottom:1px solid var(--atlas-line)}
-#textbook-root .atlas-lesson p,#textbook-root .atlas-lesson li,#textbook-root .atlas-lesson dd{font-size:15px;line-height:1.95;overflow-wrap:anywhere}
+#textbook-root .atlas-lesson p,#textbook-root .atlas-lesson li,#textbook-root .atlas-lesson dd{font-size:.96875rem;line-height:1.82;overflow-wrap:anywhere}
 #textbook-root .atlas-goals{border-left:4px solid #187b78;padding:14px 22px;background:#f0f7f6;max-width:none!important}
 #textbook-root .atlas-goals h2{border:0!important;padding:0!important;font-size:18px!important}
 #textbook-root .atlas-clinical-question{font-weight:650;margin-top:18px!important}
@@ -81,3 +81,9 @@
 #textbook-root .tb-inline-atlas-steps{padding-left:1.25em;margin:0;font-size:13px}
 #textbook-root .tb-inline-atlas-steps li{margin-bottom:8px;overflow-wrap:anywhere}
 @media(max-width:800px){#textbook-root .tb-inline-atlas-card{padding:14px}#textbook-root .atlas-unit-inline-wrap .tb-inline-atlas-card{padding:13px}#textbook-root .tb-inline-atlas-key-body{grid-template-columns:minmax(0,1fr);gap:12px}}
+#textbook-root .atlas-lesson>section>p,#textbook-root .atlas-rich-list{max-width:70ch}
+#textbook-root .atlas-rich-list>li+li{margin-top:10px}
+#textbook-root .atlas-root .tb-formula-chip{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.88em;font-weight:600;color:#134e5e;background:#e8f3f5;border:1px solid #cbe2e6;border-radius:4px;padding:1px 6px}
+#textbook-root .atlas-root .tb-lead-term{color:#153e4d;font-weight:700}
+#textbook-root .atlas-root .tb-substeps{display:grid;gap:7px;margin-top:8px}
+#textbook-root .atlas-root .tb-substep{display:block;padding:7px 11px;background:#f8fbfc;border:1px solid #dce9eb;border-left:3px solid #4c8c8a;border-radius:6px;line-height:1.75}

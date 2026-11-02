@@ -16,7 +16,7 @@ function moduleBoot(progress=new Map(),hash='#textbook',volume=fixture,env={}){
  const context={window,document:{currentScript:{src:'https://example.test/scripts/textbook-depth.js'},getElementById(){return null;}},URL:env.URL||URL,Blob,Map,Set,WeakMap,Promise,console,fetch:async url=>{calls.push(String(url));const u=String(url),data=u.endsWith('textbook-manifest.json')?manifest:u.endsWith('additional-practice.json')?env.extra:u.includes('visual-atlas.json')?env.atlas:volume;if(!data)return {ok:false,json:async()=>null};return {ok:true,json:async()=>JSON.parse(JSON.stringify(data))};}};
  vm.createContext(context);
  if(env.atlas!==undefined){context.document.currentScript={src:'https://example.test/scripts/textbook-atlas.js'};vm.runInContext(atlasSource,context);context.document.currentScript={src:'https://example.test/scripts/textbook-depth.js'};}
- vm.runInContext(source.replace('window.OphTextbook={mount};','window.OphTextbook={mount,__test:{optionOrder,route,choosePdf,localPdfs}};'),context);
+ vm.runInContext(source.replace('window.OphTextbook={mount};','window.OphTextbook={mount,__test:{optionOrder,route,choosePdf,localPdfs,formatRich,formatBullet,prettyExpr,renderCalcChecks,CHAPTER_ZH_TITLES}};'),context);
  return {api:window.OphTextbook,root,calls,scrolled,progress,window,windowHandlers,async mount(){await window.OphTextbook.mount(root);},async filter(value){for(const fn of handlers.get('change')||[])fn({target:{matches:selector=>selector==='[data-tb-filter]',value}});for(let i=0;i<6;i++)await new Promise(r=>setImmediate(r));},async action(kind,value=''){for(const fn of handlers.get('click')||[])fn({target:{closest:sel=>!sel||sel==='[data-tb-action]'?({dataset:{tbAction:kind,value},disabled:false}):null}});for(let i=0;i<6;i++)await new Promise(r=>setImmediate(r));}};
 }
 (async()=>{
@@ -419,6 +419,82 @@ for mutate in [
   pass
 `;
   execFileSync('python3',['-c',check],{cwd:path.join(__dirname,'..')});
+ });
+ await test('formatRich and formatBullet escape XSS payloads before converting **bold**, `code`, lead-in colons and （1）（2） substeps while leaving clinicalUpdates untouched',async()=>{
+  const b=moduleBoot();
+  const {formatRich,formatBullet}=b.api.__test;
+  const xssRich=formatRich('重點 **<script>alert(1)</script> 角膜基質** 搭配 `<img src=x onerror=alert(2)> RSB >= 250`：（1）第一項 <svg onload=alert(3)>；（2）第二項 **安全門檻**');
+  assert(!xssRich.includes('<script>'));
+  assert(!xssRich.includes('<img src=x'));
+  assert(!xssRich.includes('<svg onload='));
+  assert(xssRich.includes('<strong>&lt;script&gt;alert(1)&lt;/script&gt; 角膜基質</strong>'));
+  assert(xssRich.includes('<code class="tb-formula-chip">&lt;img src=x onerror=alert(2)&gt; RSB &gt;= 250</code>'));
+  assert(xssRich.includes('<span class="tb-substeps"><span class="tb-substep">（1）第一項 &lt;svg onload=alert(3)&gt;；</span><span class="tb-substep">（2）第二項 <strong>安全門檻</strong></span></span>'));
+  const xssBullet=formatBullet('角膜預算 <img onerror=alert(9)>：**PTA < 40%** 與 `RSB >= 300 μm`');
+  assert(!xssBullet.includes('<img onerror='));
+  assert(xssBullet.startsWith('<strong class="tb-lead-term">角膜預算 &lt;img onerror=alert(9)&gt;：</strong>'));
+  assert(xssBullet.includes('<strong>PTA &lt; 40%</strong>'));
+  assert(xssBullet.includes('<code class="tb-formula-chip">RSB &gt;= 300 μm</code>'));
+  const bracketBullet=formatBullet('【關鍵陷阱 <script>x</script>】：切勿忽略後角膜高度');
+  assert(bracketBullet.startsWith('<strong class="tb-lead-term">【關鍵陷阱 &lt;script&gt;x&lt;/script&gt;】：</strong>'));
+  assert(!formatBullet('https://example.test：網址開頭不應被包成導語').includes('tb-lead-term'));
+  assert(!formatBullet('這是一段超過二十八個字元的超長前導敘述所以不應該被當成簡短標題導語來加粗處理：後續內文').includes('tb-lead-term'));
+  // Ensure clinicalUpdates statement keeps exact raw text without formatRich/formatBullet mutation
+  const updBook=JSON.parse(JSON.stringify(fixture));
+  updBook.chapters[0].units[0].clinicalUpdates=[{statement:'保留原始 **星號** 與 `反引號` 字串不轉換',source:{title:'AAO PPP',url:'https://example.test/ppp',checkedAt:'2026-11-01'}}];
+  const m=moduleBoot(new Map(),'#textbook-'+updBook.chapters[0].id,updBook);
+  await m.mount();
+  assert(m.root.innerHTML.includes('<p>保留原始 **星號** 與 `反引號` 字串不轉換</p>'));
+ });
+ await test('calculationChecks renders .tb-calc-box with human-readable ×/÷/−/² math on bcsc-s13-ch002 and bcsc-s01-ch002 and folds cleanly in digest mode',async()=>{
+  const s13=JSON.parse(fs.readFileSync(path.join(__dirname,'../content/textbook-depth/bcsc-s13.json'),'utf8'));
+  const s01=JSON.parse(fs.readFileSync(path.join(__dirname,'../content/textbook-depth/bcsc-s01.json'),'utf8'));
+  const css=fs.readFileSync(path.join(__dirname,'textbook-depth.css'),'utf8');
+  assert.match(css,/\.tb-visual-flow\{[^}]*display:grid;grid-template-columns:repeat\(2,minmax\(0,1fr\)\);gap:14px/);
+  assert(!css.includes('tb-vf-node:not(:last-child)::after'),'floating arrow pseudo-element should be removed from visualFlow');
+  const b13=moduleBoot(new Map(),'#textbook-bcsc-s13-ch002',s13);
+  await b13.mount();
+  assert.equal(b13.api.__test.prettyExpr('5*6**2/3'),'5 × 6² ÷ 3');
+  const h13=b13.root.innerHTML;
+  assert(h13.includes('class="tb-calc-box"'));
+  assert(h13.includes('<h5>臨床公式與數值驗算</h5>'));
+  assert(h13.includes('43.0 − 12 × 0.8'));
+  assert(h13.includes(' = <strong>33.4</strong>'));
+  assert(h13.includes('(120 + 90) ÷ 500 × 100'));
+  assert(h13.includes(' = <strong>42</strong>'));
+  assert(h13.includes('500 − 120 − 90'));
+  assert(h13.includes(' = <strong>290</strong>'));
+  assert(h13.includes('class="tb-clues tb-pitfalls"'));
+  assert(h13.includes('✗ 常見誤區')&&h13.includes('✓ 臨床正解'));
+  assert(h13.includes('class="tb-recall-item"')&&h13.includes('快問 1')&&h13.includes('解析 1'));
+  assert(h13.includes('class="tb-substeps"'));
+  await b13.action('read-style','digest');
+  const d13=b13.root.innerHTML;
+  assert(d13.includes('展開詳讀：機轉與因果'));
+  assert(d13.indexOf('展開詳讀：機轉與因果')<d13.indexOf('class="tb-calc-box"'),'calc box stays folded inside 機轉與因果 in digest mode');
+  const b01=moduleBoot(new Map(),'#textbook-bcsc-s01-ch002',s01);
+  await b01.mount();
+  const h01=b01.root.innerHTML;
+  assert(h01.includes('class="tb-calc-box"'));
+  assert(h01.includes('18 ÷ (18 + 2)'));
+  assert(h01.includes(' = <strong>0.9</strong>'));
+  assert(h01.includes('(10 ÷ 200) ÷ (20 ÷ 200)'));
+  assert(h01.includes(' = <strong>0.5</strong>'));
+ });
+ await test('bilingual Traditional Chinese chapter subtitles render across all 10 chapters of bcsc-s13 including Patient Evaluation',async()=>{
+  const s13=JSON.parse(fs.readFileSync(path.join(__dirname,'../content/textbook-depth/bcsc-s13.json'),'utf8'));
+  const b=moduleBoot(new Map(),'#textbook-bcsc-s13-ch002',s13);
+  await b.mount();
+  const map=b.api.__test.CHAPTER_ZH_TITLES;
+  assert.equal(Object.keys(map).length,10);
+  for(const ch of s13.chapters){
+   assert(typeof map[ch.id]==='string'&&map[ch.id].length>=10,'missing zh subtitle for '+ch.id);
+  }
+  assert(b.root.innerHTML.includes('<h2>Patient Evaluation</h2>'));
+  assert(b.root.innerHTML.includes('<p class="tb-chapter-zh">屈光手術術前評估：目標屈光設定、擴張風險篩檢與組織安全預算</p>'));
+  await b.action('chapter','bcsc-s13-ch001');
+  assert(b.root.innerHTML.includes('<h2>The Science of Refractive Surgery</h2>'));
+  assert(b.root.innerHTML.includes('<p class="tb-chapter-zh">'+map['bcsc-s13-ch001']+'</p>'));
  });
  const failed=results.filter(x=>!x.pass);console.log(JSON.stringify({passed:results.length-failed.length,failed:failed.length,results},null,2));if(failed.length)process.exitCode=1;
 })();

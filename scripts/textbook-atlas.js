@@ -10,8 +10,46 @@
   const finite = n => typeof n === 'number' && Number.isFinite(n);
   const color = (value, fallback) => palette[value] || palette[fallback];
   const button = (label, action, value='', extra='') => '<button type="button" data-atlas-action="'+action+'" data-value="'+esc(value)+'" '+extra+'>'+esc(label)+'</button>';
-  const paragraph = text => '<p>'+esc(text)+'</p>';
-  const list = items => '<ul>'+items.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul>';
+  function formatInline(raw) {
+    return esc(raw).split(/(`[^`\n]+`)/g).map(part=>part.startsWith('`')&&part.endsWith('`')&&part.length>2?'<code class="tb-formula-chip">'+part.slice(1,-1).replace(/\*/g,'&#42;')+'</code>':part).join('').replace(/\*\*([^*\n]+)\*\*/g,'<strong>$1</strong>').replace(/&#42;/g,'*');
+  }
+  function balancedParens(s) {
+    return (s.match(/（/g)||[]).length===(s.match(/）/g)||[]).length&&(s.match(/\(/g)||[]).length===(s.match(/\)/g)||[]).length;
+  }
+  function applyLead(str, allowColon) {
+    const s=String(str??'');
+    const b=s.match(/^(【[^】\n]+】：?)([\s\S]*)$/);
+    if(b) return '<strong class="tb-lead-term">'+formatInline(b[1])+'</strong>'+formatInline(b[2]);
+    if(allowColon) {
+      const idx=s.indexOf('：');
+      if(idx>0&&idx<=28) {
+        const head=s.slice(0,idx), tail=s.slice(idx+1);
+        if(!/https?:/i.test(head)&&balancedParens(head)) return '<strong class="tb-lead-term">'+formatInline(head+'：')+'</strong>'+formatInline(tail);
+      }
+    }
+    return formatInline(s);
+  }
+  function findSubstepMatches(s) {
+    for(const re of [/（[1-9]）/g, /[①②③④⑤⑥⑦⑧⑨]/g]) {
+      const m=[...s.matchAll(re)];
+      if(m.length>=2) return m;
+    }
+    if(s.includes('第一是')&&s.includes('第二是')) {
+      const m=[...s.matchAll(/第[一二三四五六七八九]是/g)];
+      if(m.length>=2) return m;
+    }
+    return null;
+  }
+  function formatRich(raw, opts={}) {
+    const s=String(raw??''), allowColon=Boolean(opts.lead), matches=findSubstepMatches(s);
+    if(!matches) return applyLead(s, allowColon);
+    const pre=s.slice(0,matches[0].index).trim();
+    const steps=matches.map((m,i)=>s.slice(m.index,i+1<matches.length?matches[i+1].index:s.length).trim()).filter(Boolean);
+    return (pre?applyLead(pre,allowColon):'')+'<span class="tb-substeps">'+steps.map(p=>'<span class="tb-substep">'+applyLead(p,false)+'</span>').join('')+'</span>';
+  }
+  const formatBullet = raw => formatRich(raw, {lead:true});
+  const paragraph = text => '<p>'+formatRich(text)+'</p>';
+  const list = items => '<ul class="atlas-rich-list">'+items.map(x=>'<li>'+formatBullet(x)+'</li>').join('')+'</ul>';
   function shape(e, prefix) {
     if(!e||typeof e!=='object')return '';
     const numeric = keys => keys.filter(k=>finite(e[k])).map(k=>' '+k.replace('strokeWidth','stroke-width')+'="'+e[k]+'"').join('');
@@ -63,7 +101,7 @@
     const readings=Array.isArray(u.figureReading)?u.figureReading:[];
     const steps=Array.isArray(u.decisionSteps)?u.decisionSteps:[];
     return '<figure class="tb-inline-atlas-card'+(opts.extraClass||'')+'" data-inline-atlas="'+esc(u.id)+'" data-expanded="'+zoomed+'">' +
-      '<div class="tb-inline-atlas-head"><span class="tb-inline-atlas-badge">'+opts.badge+'</span><h3>'+esc(u.title)+'</h3><p class="tb-small">'+esc(u.clinicalQuestion)+'</p></div>' +
+      '<div class="tb-inline-atlas-head"><span class="tb-inline-atlas-badge">'+opts.badge+'</span><h3>'+esc(u.title)+'</h3><p class="tb-small">'+formatRich(u.clinicalQuestion)+'</p></div>' +
       '<div class="atlas-svg-scroll'+(zoomed?' is-zoomed':'')+'" tabindex="0" aria-label="'+esc(u.diagram.title)+'，可橫向捲動檢視圖解">'+svg(u,opts.suffix)+'</div>' +
       '<figcaption class="tb-small">原創醫學示意，非患者影像、非按比例。'+esc(u.diagram.alt)+'</figcaption>' +
       '<div class="tb-inline-atlas-actions">' +
@@ -72,8 +110,8 @@
       '</div>' +
       '<details class="tb-inline-atlas-key"><summary>'+opts.summaryLabel+'（'+readings.length+' 項標記 · '+steps.length+' 步決策）</summary>' +
         '<div class="tb-inline-atlas-key-body">' +
-          '<div><h4>'+opts.readingHeading+'</h4><dl class="tb-inline-atlas-dl">'+readings.map(r=>'<div><dt>'+esc(r.label)+'</dt><dd>'+esc(r.meaning)+'</dd></div>').join('')+'</dl></div>' +
-          '<div><h4>'+opts.stepsHeading+'</h4><ol class="tb-inline-atlas-steps">'+steps.map(s=>'<li><strong>'+esc(s.condition)+'</strong><span> → '+esc(s.action)+'</span></li>').join('')+'</ol></div>' +
+          '<div><h4>'+opts.readingHeading+'</h4><dl class="tb-inline-atlas-dl">'+readings.map(r=>'<div><dt>'+esc(r.label)+'</dt><dd>'+formatRich(r.meaning)+'</dd></div>').join('')+'</dl></div>' +
+          '<div><h4>'+opts.stepsHeading+'</h4><ol class="tb-inline-atlas-steps">'+steps.map(s=>'<li><strong>'+esc(s.condition)+'</strong><span> → '+formatRich(s.action)+'</span></li>').join('')+'</ol></div>' +
         '</div>' +
       '</details>' +
     '</figure>';
@@ -130,7 +168,7 @@
     const volume=pack.volumes.find(v=>v.bookId===context.bookId), book=context.manifest.books.find(b=>b.bookId===context.bookId);
     const unit=volume.units.find(u=>u.id===context.unitId)||volume.units[0];
     const chapters=context.book?.chapters||[];
-    return '<div class="atlas-back">'+button('全部圖解卷別','overview')+button('返回本卷章節','chapter',context.bookId)+'</div><header class="atlas-heading" tabindex="-1"><p>第 '+book.section+' 卷 · '+esc(book.title)+'</p><h1>'+esc(unit.title)+'</h1></header>'+selector(context,volume.bookId)+'<nav class="atlas-unit-nav" aria-label="本卷圖解單元">'+volume.units.map(u=>button(u.title,'unit',volume.bookId+'|'+u.id,'aria-pressed="'+(u.id===unit.id)+'"')).join('')+'</nav><article class="atlas-lesson"><section class="atlas-goals"><h2>讀完要能解釋</h2>'+list(unit.learningGoals)+'<p class="atlas-clinical-question">'+esc(unit.clinicalQuestion)+'</p></section><figure class="atlas-figure" data-atlas-figure="'+unit.id+'"><div class="atlas-figure-toolbar"><h2>'+esc(unit.diagram.title)+'</h2>'+button('放大圖解','zoom',unit.id,'aria-expanded="false"')+'</div><div class="atlas-svg-scroll" tabindex="0" aria-label="'+esc(unit.diagram.title)+'，可橫向捲動放大圖解">'+svg(unit)+'</div><figcaption>原創醫學示意，非患者影像、非按比例。'+esc(unit.diagram.alt)+'</figcaption></figure><section class="atlas-reading"><h2>讀圖與判斷</h2><dl>'+unit.figureReading.map(r=>'<div><dt>'+esc(r.label)+'</dt><dd>'+esc(r.meaning)+'</dd></div>').join('')+'</dl></section><section><h2>機轉：為什麼會這樣</h2>'+unit.mechanism.map(paragraph).join('')+'</section><section><h2>把相似情況分開</h2><div class="atlas-table-scroll" tabindex="0" aria-label="'+esc(unit.title)+'的鑑別比較"><table><thead><tr>'+unit.comparison.columns.map(c=>'<th scope="col">'+esc(c)+'</th>').join('')+'</tr></thead><tbody>'+unit.comparison.rows.map(row=>'<tr>'+row.map((cell,i)=>i?'<td>'+esc(cell)+'</td>':'<th scope="row">'+esc(cell)+'</th>').join('')+'</tr>').join('')+'</tbody></table></div></section><section><h2>決策順序與理由</h2><ol class="atlas-decisions">'+unit.decisionSteps.map(step=>'<li><h3>'+esc(step.condition)+'</h3>'+paragraph(step.action)+'<p class="atlas-why">'+esc(step.why)+'</p></li>').join('')+'</ol></section><section><h2>容易誤判的地方</h2>'+list(unit.pitfalls)+'</section><section><h2>改一個條件，決策如何改變</h2><dl class="atlas-counterfactuals">'+unit.counterfactuals.map(c=>'<div><dt>'+esc(c.change)+'</dt><dd>'+esc(c.consequence)+'</dd></div>').join('')+'</dl></section><section><h2>病例推演與主動回想</h2>'+unit.retrieval.map((r,i)=>'<div class="atlas-retrieval"><h3>'+(r.type==='case'?'病例推演':'主動回想')+'</h3>'+paragraph(r.question)+'<details><summary>展開推理與答案</summary>'+paragraph(r.answer)+(r.reasoning?'<ol>'+r.reasoning.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ol>':'')+'</details></div>').join('')+'</section><section class="atlas-links"><h2>回到原章節</h2><p>原有章節、概念題及本機 PDF 圖頁仍可搭配閱讀。</p>'+unit.chapterIds.map(id=>button(chapters.find(c=>c.id===id)?.title||id,'chapter',id)).join('')+'</section><section><h2>證據與適用範圍</h2>'+references(unit.references)+'</section></article>';
+    return '<div class="atlas-back">'+button('全部圖解卷別','overview')+button('返回本卷章節','chapter',context.bookId)+'</div><header class="atlas-heading" tabindex="-1"><p>第 '+book.section+' 卷 · '+esc(book.title)+'</p><h1>'+esc(unit.title)+'</h1></header>'+selector(context,volume.bookId)+'<nav class="atlas-unit-nav" aria-label="本卷圖解單元">'+volume.units.map(u=>button(u.title,'unit',volume.bookId+'|'+u.id,'aria-pressed="'+(u.id===unit.id)+'"')).join('')+'</nav><article class="atlas-lesson"><section class="atlas-goals"><h2>讀完要能解釋</h2>'+list(unit.learningGoals)+'<p class="atlas-clinical-question">'+formatRich(unit.clinicalQuestion)+'</p></section><figure class="atlas-figure" data-atlas-figure="'+unit.id+'"><div class="atlas-figure-toolbar"><h2>'+esc(unit.diagram.title)+'</h2>'+button('放大圖解','zoom',unit.id,'aria-expanded="false"')+'</div><div class="atlas-svg-scroll" tabindex="0" aria-label="'+esc(unit.diagram.title)+'，可橫向捲動放大圖解">'+svg(unit)+'</div><figcaption>原創醫學示意，非患者影像、非按比例。'+esc(unit.diagram.alt)+'</figcaption></figure><section class="atlas-reading"><h2>讀圖與判斷</h2><dl>'+unit.figureReading.map(r=>'<div><dt>'+esc(r.label)+'</dt><dd>'+formatRich(r.meaning)+'</dd></div>').join('')+'</dl></section><section><h2>機轉：為什麼會這樣</h2>'+unit.mechanism.map(paragraph).join('')+'</section><section><h2>把相似情況分開</h2><div class="atlas-table-scroll" tabindex="0" aria-label="'+esc(unit.title)+'的鑑別比較"><table><thead><tr>'+unit.comparison.columns.map(c=>'<th scope="col">'+esc(c)+'</th>').join('')+'</tr></thead><tbody>'+unit.comparison.rows.map(row=>'<tr>'+row.map((cell,i)=>i?'<td>'+formatRich(cell)+'</td>':'<th scope="row">'+formatRich(cell)+'</th>').join('')+'</tr>').join('')+'</tbody></table></div></section><section><h2>決策順序與理由</h2><ol class="atlas-decisions">'+unit.decisionSteps.map(step=>'<li><h3>'+esc(step.condition)+'</h3>'+paragraph(step.action)+'<p class="atlas-why">'+formatRich(step.why)+'</p></li>').join('')+'</ol></section><section><h2>容易誤判的地方</h2>'+list(unit.pitfalls)+'</section><section><h2>改一個條件，決策如何改變</h2><dl class="atlas-counterfactuals">'+unit.counterfactuals.map(c=>'<div><dt>'+formatRich(c.change)+'</dt><dd>'+formatRich(c.consequence)+'</dd></div>').join('')+'</dl></section><section><h2>病例推演與主動回想</h2>'+unit.retrieval.map((r,i)=>'<div class="atlas-retrieval"><h3>'+(r.type==='case'?'病例推演':'主動回想')+'</h3>'+paragraph(r.question)+'<details><summary>展開推理與答案</summary>'+paragraph(r.answer)+(r.reasoning?'<ol>'+r.reasoning.map(x=>'<li>'+formatBullet(x)+'</li>').join('')+'</ol>':'')+'</details></div>').join('')+'</section><section class="atlas-links"><h2>回到原章節</h2><p>原有章節、概念題及本機 PDF 圖頁仍可搭配閱讀。</p>'+unit.chapterIds.map(id=>button(chapters.find(c=>c.id===id)?.title||id,'chapter',id)).join('')+'</section><section><h2>證據與適用範圍</h2>'+references(unit.references)+'</section></article>';
   }
   function render(root,context) {
     root.innerHTML='<div class="atlas-root">'+(context.bookId?detail(context):overview(context))+'</div>';

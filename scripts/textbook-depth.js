@@ -8,8 +8,127 @@
   const bridge=()=>window.OphTextbookBridge;
   const imageLabels={'not-reviewed':'原圖尚未核對',missing:'原圖缺失',unreadable:'原圖無法辨讀',verified:'原圖已核對','not-applicable':'本題不依賴原圖'};
   const statusLabels={unreviewed:'尚待補入',unmapped:'尚未對應',draft:'初稿',partial:'已核部分單元，章內仍有缺口', 'source-checked':'已對照來源','independently-reviewed':'已獨立核對'};
+  const CHAPTER_ZH_TITLES={
+    'bcsc-s13-ch001':'屈光手術科學基礎：角膜生物力學、光學像差與雷射組織交互作用',
+    'bcsc-s13-ch002':'屈光手術術前評估：目標屈光設定、擴張風險篩檢與組織安全預算',
+    'bcsc-s13-ch003':'角膜切開屈光手術：放射狀切開（RK）長期演變與弧形鬆弛切口散光矯正',
+    'bcsc-s13-ch004':'準分子雷射光消融技術與療效：表層切削、LASIK、波前導引與術後照護',
+    'bcsc-s13-ch005':'光消融併發症與處置：視覺品質異常、角膜瓣機械意外、DLK／IFS 與醫源性外膨',
+    'bcsc-s13-ch006':'飛秒雷射微透鏡萃取術（SMILE）：深層透鏡幾何、前基質力學優勢與分離併發症',
+    'bcsc-s13-ch007':'合併眼部或全身疾病之屈光手術評估：角膜失養症、乾眼、青光眼與自體免疫風險',
+    'bcsc-s13-ch008':'屈光手術後之繼發臨床考量：白內障人工水晶體度數計算、眼壓校正與後續角膜手術',
+    'bcsc-s13-ch009':'眼內屈光手術：有晶狀體眼人工水晶體（Phakic IOL）、透明晶狀體置換與散光軸位管理',
+    'bcsc-s13-ch010':'老花眼之調節性與非調節性治療：單眼視、多焦光學、角膜嵌入片與老花藥物機轉'
+  };
   const label=x=>statusLabels[x]||'待核對';
-  const list=items=>'<ul>'+items.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul>';
+  function formatInline(raw){
+    return esc(raw).split(/(`[^`\n]+`)/g).map(part=>part.startsWith('`')&&part.endsWith('`')&&part.length>2?'<code class="tb-formula-chip">'+part.slice(1,-1).replace(/\*/g,'&#42;')+'</code>':part).join('').replace(/\*\*([^*\n]+)\*\*/g,'<strong>$1</strong>').replace(/&#42;/g,'*');
+  }
+  function balancedParens(s){
+    return (s.match(/（/g)||[]).length===(s.match(/）/g)||[]).length&&(s.match(/\(/g)||[]).length===(s.match(/\)/g)||[]).length;
+  }
+  function applyLead(str,allowColon){
+    const s=String(str??'');
+    const b=s.match(/^(【[^】\n]+】：?)([\s\S]*)$/);
+    if(b)return '<strong class="tb-lead-term">'+formatInline(b[1])+'</strong>'+formatInline(b[2]);
+    if(allowColon){
+      const idx=s.indexOf('：');
+      if(idx>0&&idx<=28){
+        const head=s.slice(0,idx),tail=s.slice(idx+1);
+        if(!/https?:/i.test(head)&&balancedParens(head))return '<strong class="tb-lead-term">'+formatInline(head+'：')+'</strong>'+formatInline(tail);
+      }
+    }
+    return formatInline(s);
+  }
+  function findSubstepMatches(s){
+    for(const re of [/（[1-9]）/g,/[①②③④⑤⑥⑦⑧⑨]/g]){
+      const m=[...s.matchAll(re)];
+      if(m.length>=2)return m;
+    }
+    if(s.includes('第一是')&&s.includes('第二是')){
+      const m=[...s.matchAll(/第[一二三四五六七八九]是/g)];
+      if(m.length>=2)return m;
+    }
+    return null;
+  }
+  function formatRich(raw,opts={}){
+    const s=String(raw??''),allowColon=Boolean(opts.lead),matches=findSubstepMatches(s);
+    if(!matches)return applyLead(s,allowColon);
+    const pre=s.slice(0,matches[0].index).trim();
+    const steps=matches.map((m,i)=>s.slice(m.index,i+1<matches.length?matches[i+1].index:s.length).trim()).filter(Boolean);
+    return (pre?applyLead(pre,allowColon):'')+'<span class="tb-substeps">'+steps.map(p=>'<span class="tb-substep">'+applyLead(p,false)+'</span>').join('')+'</span>';
+  }
+  const formatBullet=raw=>formatRich(raw,{lead:true});
+  const list=items=>'<ul class="tb-mech-list">'+items.map(x=>'<li>'+formatBullet(x)+'</li>').join('')+'</ul>';
+  function prettyExpr(expr){
+    const sup={'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'};
+    return String(expr??'').trim()
+      .replace(/\s*\*\*\s*\(\s*-(\d+)\s*\)/g,(_,d)=>'⁻'+[...d].map(c=>sup[c]||c).join(''))
+      .replace(/\s*\*\*\s*([234])(?![\d.])/g,(_,d)=>sup[d])
+      .replace(/\s*\*\*\s*/g,'^')
+      .replace(/\s*\*\s*/g,' × ')
+      .replace(/\s*\/\s*/g,' ÷ ')
+      .replace(/(?<=[\d.)⁰¹²³⁴⁵⁶⁷⁸⁹])\s*\+\s*/g,' + ')
+      .replace(/(?<=[\d.)⁰¹²³⁴⁵⁶⁷⁸⁹])\s*-\s*/g,' − ')
+      .replace(/(^|[(\s×÷+−^])-\s*/g,'$1−')
+      .replace(/\(\s+/g,'(')
+      .replace(/\s+\)/g,')')
+      .replace(/\s{2,}/g,' ')
+      .trim();
+  }
+  function formatExpected(val){
+    if(typeof val!=='number'||!Number.isFinite(val))return String(val??'');
+    const raw=String(val),num=/\.\d{5,}/.test(raw)?Number(val.toFixed(Math.abs(val)>=10?2:3)):val;
+    return String(num).replace(/^-/,'−');
+  }
+  function inferCalcHint(expr){
+    const s=String(expr??'').trim();
+    if(/^\d+(?:\.\d+)?\s*\*\s*\d+(?:\.\d+)?\s*\*\*\s*2\s*\/\s*3(?:\.0)?$/.test(s))return 'Munnerlyn 切削深度估算（D × OZ² ÷ 3，μm）';
+    if(/^\(\s*\d+\s*\+\s*\d+\s*\)\s*\/\s*(?:4\d\d|5\d\d|6\d\d)\s*\*\s*100$/.test(s))return '組織改變百分比 PTA（(瓣厚 + 消融) ÷ CCT × 100%）';
+    if(/^(?:4\d\d|5\d\d|6\d\d)\s*-\s*\d+\s*-\s*\d+$/.test(s))return '殘餘基質床厚度 RSB（CCT − 瓣厚 − 消融，μm）';
+    if(/0\.01[2-4]\s*\*/.test(s))return '鏡框至角膜平面頂點距離換算';
+    if(/^4\d(?:\.\d+)?\s*-\s*\d+(?:\.\d+)?\s*\*\s*0\.8$/.test(s))return '近視消融後預期角膜曲率 K（D）';
+    if(/^4\d(?:\.\d+)?\s*\+\s*\d+(?:\.\d+)?\s*\*\s*1(?:\.0)?$/.test(s))return '遠視消融後預期角膜曲率 K（D）';
+    return '';
+  }
+  function cleanCalcUnit(u){
+    return typeof u==='string'&&u&&!/[_]/.test(u)&&!/^(proportion|ratio|entities|percent|pct|fold|applications|doses|arteries|muscle|days|years|degrees|deg|rad|um|x)$/.test(u)?u:'';
+  }
+  function renderCalcChecks(checks){
+    if(!Array.isArray(checks)||!checks.length)return '';
+    return '<div class="tb-calc-box" aria-label="臨床公式與床邊驗算"><h5>臨床公式與數值驗算</h5><div class="tb-calc-grid">'+checks.map((c,i)=>{
+      const hint=c.label||inferCalcHint(c.expression),u=cleanCalcUnit(c.unit);
+      return '<div class="tb-calc-item"><div class="tb-calc-meta"><span class="tb-calc-idx">驗算 '+(i+1)+'</span>'+(hint?'<span class="tb-calc-label">'+formatRich(hint)+'</span>':'')+'</div><div class="tb-calc-math"><code class="tb-calc-expr">'+esc(prettyExpr(c.expression))+'</code><span class="tb-calc-eq"> = <strong>'+esc(formatExpected(c.expected))+'</strong>'+(u?' <span class="tb-calc-unit">'+esc(u)+'</span>':'')+'</span></div>'+(c.note?'<p class="tb-calc-note">'+formatRich(c.note)+'</p>':'')+'</div>';
+    }).join('')+'</div></div>';
+  }
+  function splitRecallParts(raw,defaultPrefix){
+    const s=String(raw??'').trim();
+    const kw=[...s.matchAll(/【([^】]+)】/g)];
+    if(kw.length>=2){
+      const pre=s.slice(0,kw[0].index).trim();
+      const items=kw.map((m,i)=>({badge:m[1],body:s.slice(m.index+m[0].length,i+1<kw.length?kw[i+1].index:s.length).trim()})).filter(x=>x.body);
+      return {pre,items};
+    }
+    const pn=[...s.matchAll(/（([1-9])）/g)];
+    if(pn.length>=2){
+      const pre=s.slice(0,pn[0].index).trim();
+      const items=pn.map((m,i)=>({badge:defaultPrefix+' '+m[1],body:s.slice(m.index+m[0].length,i+1<pn.length?pn[i+1].index:s.length).trim()})).filter(x=>x.body);
+      return {pre,items};
+    }
+    return {pre:'',items:[]};
+  }
+  function renderRecall(recall){
+    if(!recall)return '';
+    const qParts=splitRecallParts(recall.prompt,'問題');
+    const aParts=splitRecallParts(recall.answer,'解析');
+    const promptHtml=qParts.items.length
+      ?(qParts.pre?'<p class="tb-recall-intro">'+formatRich(qParts.pre)+'</p>':'')+'<ol class="tb-recall-list tb-recall-prompts">'+qParts.items.map(it=>'<li class="tb-recall-item"><span class="tb-recall-badge">'+esc(it.badge)+'</span><div class="tb-recall-text">'+formatRich(it.body)+'</div></li>').join('')+'</ol>'
+      :'<p class="tb-recall-single">'+formatRich(recall.prompt)+'</p>';
+    const answerHtml=aParts.items.length
+      ?(aParts.pre?'<p class="tb-recall-intro">'+formatRich(aParts.pre)+'</p>':'')+'<ol class="tb-recall-list tb-recall-answers">'+aParts.items.map(it=>'<li class="tb-recall-item"><span class="tb-recall-badge tb-recall-ans-badge">'+esc(it.badge)+'</span><div class="tb-recall-text">'+formatRich(it.body)+'</div></li>').join('')+'</ol>'
+      :'<p class="tb-recall-ans-single">'+formatRich(recall.answer)+'</p>';
+    return '<section class="tb-recall"><h3>不看字，自己講一次</h3>'+promptHtml+'<details class="tb-recall-details"><summary>展開參考推理</summary>'+answerHtml+'</details></section>';
+  }
   function optionOrder(q){const a=[0,1,2,3];let seed=2166136261;for(const c of q.id){seed=Math.imul(seed^c.charCodeAt(0),16777619)>>>0;}for(let i=3;i>0;i--){seed^=seed<<13;seed^=seed>>>17;seed^=seed<<5;const j=(seed>>>0)%(i+1);[a[i],a[j]]=[a[j],a[i]];}return a;}
   function updates(item,scoped=[]){const all=[...(item.clinicalUpdates||[]),...scoped].filter(x=>/^https:\/\//.test(x.source?.url));return all.length?'<section class="tb-clinical-updates"><h3>與現行臨床建議的差異</h3>'+all.map(x=>'<p>'+esc(x.statement)+'</p><p class="tb-source"><a href="'+esc(x.source.url)+'" target="_blank" rel="noopener noreferrer">'+esc(x.source.title)+'</a> · 核對 '+esc(x.source.checkedAt)+'</p>').join('')+'</section>':'';}
   function scopedUpdates(b,key,id){return (b.clinicalUpdates||[]).filter(x=>x[key]?.includes(id));}
@@ -53,12 +172,12 @@
   function totals(){return manifest.books.reduce((a,b)=>{const c=b.coverage||{};a.chapters+=b.expected.chapters;a.questions+=b.expected.questions;a.taught+=c.taughtChapters||0;a.concepts+=c.readyQuestions||0;a.images+=c.verifiedImages||0;return a;},{chapters:0,questions:0,taught:0,concepts:0,images:0});}
   function library(){const t=totals();return '<section class="tb-atlas-entry"><h2>各卷圖解與進階推演</h2><p>收錄各卷原創醫學圖解，搭配鑑別比較、決策理由與病例推演；不需先選取PDF。</p>'+button('瀏覽全部卷別圖解','atlas')+'</section><section class="tb-extra-entry advanced-deep-library"><h2>深度臨床推理</h2><p>把分散章節接成臨床決策：比對衝突線索、檢查限制與治療先後，再練全新Hard病例。</p><a class="btn primary" href="#tab-advanced">開啟深度單元與新病例</a></section><section class="tb-extra-entry"><h2>自編陌生病例</h2><p>把已讀過的概念換成新的病例線索，與原書概念題分開練習。</p>'+button('開始自編陌生題','extra')+'</section><header class="tb-heading"><h1>原文書進階</h1><p>把原書章節讀成機轉、判斷與下一步。從一卷開始，先回想，再看推理。</p></header><div class="tb-scope"><strong>BCSC '+esc(manifest.edition)+'</strong><span>'+t.chapters+' 章來源對照 · '+t.questions+' 個原書題目概念</span><p>教材已補入 '+t.taught+' 章；已重述 '+t.concepts+' 個題目概念。原圖核對另列，與自評掌握分開記錄。</p></div><div class="tb-library">'+manifest.books.map(b=>{const c=b.coverage||{},ac=atlasCount(b.bookId);return '<article class="tb-book"><div class="tb-book-number">'+String(b.section).padStart(2,'0')+'</div><div><h2>'+esc(b.title)+'</h2><p>'+b.expected.chapters+' 章 · '+b.expected.questions+' 個題目概念</p><p class="tb-small">已編寫 '+(c.authoredChapters||0)+' 章／已核對 '+(c.taughtChapters||0)+' 章；題解已編寫 '+(c.authoredQuestions||0)+'／已核對 '+(c.readyQuestions||0)+'；原圖已核對 '+(c.verifiedImages||0)+' 項</p></div>'+'<div class="tb-book-actions">'+button('開啟這卷','book',b.bookId)+button(ac!==null?'圖解與進階 · '+ac+' 個':'圖解與進階','atlas',b.bookId)+'</div></article>';}).join('')+'</div><details class="tb-method"><summary>來源與完成狀態怎麼看</summary><p>章名與題號是來源範圍。只有具體教材或原創題解通過檢查後，才列入已補入或已重述；它們不等於你已掌握，也不表示原圖已核對。文字重述供學習，不能代替最新指引與臨床督導。</p><p>共筆教材保留原來的來源對照；本區另外追溯原文書版次、章節與頁碼。原書全文及未授權圖像未公開。</p></details>';}
   function bookHeader(b){const summary=manifest.books.find(x=>x.bookId===b.bookId),c=b.coverage.summary,ac=atlasCount(b.bookId);return '<div class="tb-back">'+button('全部卷別','library')+'</div><header class="tb-heading"><p class="tb-section">BCSC 第 '+summary.section+' 卷 · '+esc(b.source.edition)+'</p><h1>'+esc(b.source.title)+'</h1><p>教材已編寫 '+c.authoredChapters+' / '+b.chapters.length+' 章，已核對 '+c.taughtChapters+' 章；題解已編寫 '+c.authoredQuestions+' / '+summary.expected.questions+'，已核對 '+c.readyQuestions+'；原圖已核對 '+c.verifiedImages+' 項。</p><div class="tb-atlas-summary"><strong>'+(ac!==null?'原創圖解 '+ac+' 個':'原創醫學圖解')+'</strong><span>搭配進階比較與病例推演</span>'+button('開啟本卷圖解與進階','atlas',b.bookId)+'</div></header>'+pdfPicker(b)+'<nav class="tb-modes" aria-label="本卷閱讀方式">'+[['read','章節深讀'],['atlas','圖解與進階'],['questions','題目推理'],['coverage','來源與缺口']].map(([m,t])=>button(t,'mode',m,'aria-pressed="'+(view.mode===m)+'"')).join('')+'</nav>';}
-  function memoryAidHtml(u){const ma=u.memoryAid;if(!ma)return '';const flow=Array.isArray(ma.visualFlow)?ma.visualFlow:[];return '<section class="tb-memory-card" aria-label="秒懂與速記卡"><div class="tb-ma-grid"><div class="tb-ma-item tb-ma-oneliner"><span class="tb-ma-tag">一句話秒懂</span><p>'+esc(ma.oneLiner)+'</p></div><div class="tb-ma-item tb-ma-mnemonic"><span class="tb-ma-tag">記憶口訣</span><p><strong>'+esc(ma.mnemonic)+'</strong></p></div></div>'+(flow.length?'<div class="tb-ma-flow-wrap"><span class="tb-ma-tag">視覺流程圖</span><ol class="tb-visual-flow">'+flow.map((f,i)=>'<li class="tb-vf-node"><span class="tb-vf-num">'+(i+1)+'</span><div class="tb-vf-body"><strong>'+esc(f.step)+'</strong><p>'+esc(f.detail)+'</p></div></li>').join('')+'</ol></div>':'')+'<div class="tb-ma-trigger"><span class="tb-ma-tag">考題秒判</span><p>'+esc(ma.examTrigger)+'</p></div></section>';}
-  function studyGuideHtml(ch){const sg=ch.studyGuide;if(!sg)return '';const mnemonics=Array.isArray(sg.masterMnemonics)?sg.masterMnemonics:[],contrasts=Array.isArray(sg.quickContrasts)?sg.quickContrasts:[];return '<section class="tb-study-guide" aria-label="本章速記總覽"><div class="tb-sg-header"><span class="tb-sg-badge">本章速記總覽</span><p class="tb-sg-tagline">'+esc(sg.chapterTagline)+'</p></div>'+(mnemonics.length?'<div class="tb-sg-mnemonics">'+mnemonics.map(m=>'<div class="tb-sg-card"><span class="tb-sg-label">'+esc(m.label)+'</span><strong class="tb-sg-formula">'+esc(m.formula)+'</strong><p>'+esc(m.meaning)+'</p></div>').join('')+'</div>':'')+(contrasts.length?'<div class="tb-sg-contrasts"><h3>秒辨對照</h3><dl>'+contrasts.map(c=>'<div><dt>'+esc(c.pair)+'</dt><dd>'+esc(c.rule)+'</dd></div>').join('')+'</dl></div>':'')+'</section>';}
+  function memoryAidHtml(u){const ma=u.memoryAid;if(!ma)return '';const flow=Array.isArray(ma.visualFlow)?ma.visualFlow:[];return '<section class="tb-memory-card" aria-label="秒懂與速記卡"><div class="tb-ma-grid"><div class="tb-ma-item tb-ma-oneliner"><span class="tb-ma-tag">一句話秒懂</span><p>'+formatRich(ma.oneLiner)+'</p></div><div class="tb-ma-item tb-ma-mnemonic"><span class="tb-ma-tag">記憶口訣</span><p><strong>'+esc(ma.mnemonic)+'</strong></p></div></div>'+(flow.length?'<div class="tb-ma-flow-wrap"><span class="tb-ma-tag">視覺流程圖</span><ol class="tb-visual-flow">'+flow.map((f,i)=>'<li class="tb-vf-node"><div class="tb-vf-step"><span class="tb-vf-num">'+(i+1)+'</span><strong>'+esc(f.step)+'</strong></div><p class="tb-vf-detail">'+formatRich(f.detail)+'</p></li>').join('')+'</ol></div>':'')+'<div class="tb-ma-trigger"><span class="tb-ma-tag">考題秒判</span><p>'+formatRich(ma.examTrigger)+'</p></div></section>';}
+  function studyGuideHtml(ch){const sg=ch.studyGuide;if(!sg)return '';const mnemonics=Array.isArray(sg.masterMnemonics)?sg.masterMnemonics:[],contrasts=Array.isArray(sg.quickContrasts)?sg.quickContrasts:[];return '<section class="tb-study-guide" aria-label="本章速記總覽"><div class="tb-sg-header"><span class="tb-sg-badge">本章速記總覽</span><p class="tb-sg-tagline">'+formatRich(sg.chapterTagline)+'</p></div>'+(mnemonics.length?'<div class="tb-sg-mnemonics">'+mnemonics.map(m=>'<div class="tb-sg-card"><span class="tb-sg-label">'+esc(m.label)+'</span><strong class="tb-sg-formula">'+esc(m.formula)+'</strong><p>'+formatRich(m.meaning)+'</p></div>').join('')+'</div>':'')+(contrasts.length?'<div class="tb-sg-contrasts"><h3>秒辨對照</h3><dl>'+contrasts.map(c=>'<div><dt>'+formatRich(c.pair)+'</dt><dd>'+formatRich(c.rule)+'</dd></div>').join('')+'</dl></div>':'')+'</section>';}
   function chapterToolbar(b,ch){if(!ch.units.length)return '<p class="tb-chapter-atlas">'+button('搭配本卷圖解延伸閱讀','atlas',b.bookId)+'</p>';return '<div class="tb-read-toolbar" role="region" aria-label="本章學習工具"><div class="tb-style-switch"><span>學習視圖：</span>'+button('完整精讀','read-style','full','aria-pressed="'+(readStyle==='full')+'"')+button('圖解速記（好背模式）','read-style','digest','aria-pressed="'+(readStyle==='digest')+'"')+button('搭配本卷圖解延伸閱讀','atlas',b.bookId,'class="tb-atlas-link-btn"')+'</div><nav class="tb-unit-pills" aria-label="本章單元快速跳轉">'+ch.units.map((u,i)=>button((i+1)+'. '+esc(u.title),'jump-unit',u.id,'class="tb-unit-pill"')).join('')+'</nav></div>';}
   function unit(u,book=data()){const mark=record('unit',u.id);const na=u.notApplicable||{};const bookId=book?.bookId||view.bookId,unitVisuals=window.TextbookAtlas?.renderInlineUnitCards?window.TextbookAtlas.renderInlineUnitCards(bookId,u.id,zoomedInlineAtlas):(window.OphTextbookAtlas?.renderInlineUnitCards?.(bookId,u.id,zoomedInlineAtlas)||'');function section(title,key,body){if(u[key]?.length){const inner='<section class="tb-domain"><h3>'+title+'</h3>'+body+'</section>';if(readStyle==='digest'&&key!=='differential'){const keepOpen=key==='imageClues'&&(u.imageClues||[]).some((_,n)=>openFigures.has(u.id+'|'+n));return '<details class="tb-digest-fold"'+(keepOpen?' open':'')+'><summary>展開詳讀：'+title+'（'+u[key].length+' 項）</summary>'+inner+'</details>';}return inner;}return na[key]?'<p class="tb-na">'+title+'：'+esc(na[key])+'</p>':'';}
-    return '<article class="tb-unit" id="'+esc(u.id)+'"><header><h2>'+esc(u.title)+'</h2><span class="tb-status">'+label(u.status)+'</span></header>'+sourceRefs(u.sourceRefs)+memoryAidHtml(u)+unitVisuals+section('機轉與因果','mechanism',list(u.mechanism||[]))+section('看到什麼，代表什麼','clinicalClues','<dl class="tb-clues">'+(u.clinicalClues||[]).map(c=>'<div><dt>'+esc(c.finding)+'</dt><dd>'+esc(c.meaning)+'</dd></div>').join('')+'</dl>')+section('鑑別與分辨線索','differential','<div class="tb-table-wrap"><table><thead><tr><th>鑑別</th><th>支持／反對</th><th>下一個分辨點</th></tr></thead><tbody>'+(u.differential||[]).map(d=>'<tr><th>'+esc(d.diagnosis)+'</th><td><b>支持：</b>'+esc(d.for)+'<br><b>反對：</b>'+esc(d.against)+'</td><td>'+esc(d.discriminator)+'</td></tr>').join('')+'</tbody></table></div>')+section('檢查要回答的問題','investigations','<div class="tb-investigations">'+(u.investigations||[]).map(i=>'<section><h4>'+esc(i.test)+'</h4><p><b>目的：</b>'+esc(i.purpose)+'</p><p><b>解讀：</b>'+esc(i.interpretation)+'</p><p class="tb-small"><b>限制：</b>'+esc(i.limitation)+'</p></section>').join('')+'</div>')+section('分層處置與理由','management','<ol class="tb-management">'+(u.management||[]).map(m=>'<li><strong>'+esc(m.stage)+'</strong><p class="tb-condition">'+esc(m.condition)+'</p><p>'+esc(m.action)+'</p><p><b>理由：</b>'+esc(m.rationale)+'</p><p class="tb-small"><b>留意：</b>'+esc(m.caution)+'</p></li>').join('')+'</ol>')+section('圖像判讀線索','imageClues',(u.imageClues||[]).map((i,n)=>'<div class="tb-image-clue"><span class="tb-image-status">'+esc(imageLabels[i.status]||imageLabels['not-reviewed'])+'</span><h4>'+esc(i.modality)+'</h4><p><b>找：</b>'+esc(i.clue)+'</p><p><b>解讀：</b>'+esc(i.interpretation)+'</p>'+(i.figureId||i.pdfPage?'<p class="tb-source">'+esc(i.figureId||'')+(i.pdfPage?' · PDF p. '+esc(i.pdfPage):'')+'</p>':'')+(Number.isInteger(i.pdfPage)&&i.pdfPage>0?(openFigures.has(u.id+'|'+n)?button('收起原書圖頁','unit-figure',u.id+'|'+n,'aria-expanded="true"')+figureFrame(view.bookId,i.pdfPage):button('在這裡顯示原書圖頁 p. '+i.pdfPage,'unit-figure',u.id+'|'+n,'aria-expanded="false"')):'')+'</div>').join(''))+section('易錯之處','pitfalls','<dl class="tb-clues">'+(u.pitfalls||[]).map(p=>'<div><dt>'+esc(p.mistake)+'</dt><dd>'+esc(p.correction)+'</dd></div>').join('')+'</dl>')+updates(u)+'<section class="tb-recall"><h3>先用自己的話回答</h3><p>'+esc(u.recall.prompt)+'</p><details><summary>展開參考推理</summary><p>'+esc(u.recall.answer)+'</p></details></section><div class="tb-self"><span>這一單元的自評</span>'+button('待複習','rate',u.id+'|review','aria-pressed="'+(mark?.rating==='review')+'"')+button('能解釋','rate',u.id+'|known','aria-pressed="'+(mark?.rating==='known')+'"')+'</div></article>';}
-  function reading(b){const ch=chapter();if(!ch)return '<p>這卷章節尚未補入。</p>';const chapterUnitIds=ch.units.map(u=>u.id),atlas=window.TextbookAtlas||window.OphTextbookAtlas,visuals=atlas?.renderInlineChapterCards?atlas.renderInlineChapterCards(b.bookId,ch.id,chapterUnitIds,zoomedInlineAtlas):(atlas?.inlineChapterHtml?.(b.bookId,ch.id,zoomedInlineAtlas)||'');return '<div class="tb-reading"><aside class="tb-chapter-nav" aria-label="本卷章節">'+b.chapters.map(c=>button('<span>'+c.number+'</span>'+esc(c.title),'chapter',c.id,(c.id===ch.id?'aria-current="page"':''))).join('')+'</aside><div class="tb-chapter"><header class="tb-chapter-heading"><p>第 '+ch.number+' 章</p><h2>'+esc(ch.title)+'</h2>'+sourceRefs(ch.sourceRefs)+'</header>'+chapterToolbar(b,ch)+studyGuideHtml(ch)+visuals+updates({},scopedUpdates(b,'chapterIds',ch.id))+(ch.units.length?ch.units.map(u=>unit(u,b)).join(''):'<p class="tb-empty">這一章只有來源對照，教材尚待補入；不列為已完成。</p>')+'</div></div>';}
+    return '<article class="tb-unit" id="'+esc(u.id)+'"><header><h2>'+esc(u.title)+'</h2><span class="tb-status">'+label(u.status)+'</span></header>'+sourceRefs(u.sourceRefs)+memoryAidHtml(u)+unitVisuals+section('機轉與因果','mechanism',list(u.mechanism||[])+renderCalcChecks(u.calculationChecks))+section('看到什麼，代表什麼','clinicalClues','<dl class="tb-clues tb-clinical-clues">'+(u.clinicalClues||[]).map(c=>'<div><dt>'+formatRich(c.finding)+'</dt><dd>'+formatRich(c.meaning)+'</dd></div>').join('')+'</dl>')+section('鑑別與分辨線索','differential','<div class="tb-table-wrap"><table><thead><tr><th>鑑別</th><th>支持／反對</th><th>下一個分辨點</th></tr></thead><tbody>'+(u.differential||[]).map(d=>'<tr><th>'+formatRich(d.diagnosis)+'</th><td><b>支持：</b>'+formatRich(d.for)+'<br><b>反對：</b>'+formatRich(d.against)+'</td><td>'+formatRich(d.discriminator)+'</td></tr>').join('')+'</tbody></table></div>')+section('檢查要回答的問題','investigations','<div class="tb-investigations">'+(u.investigations||[]).map(i=>'<section><h4>'+formatRich(i.test)+'</h4><p><b>目的：</b>'+formatBullet(i.purpose)+'</p><p><b>解讀：</b>'+formatBullet(i.interpretation)+'</p><p class="tb-small"><b>限制：</b>'+formatBullet(i.limitation)+'</p></section>').join('')+'</div>')+section('分層處置與理由','management','<ol class="tb-management">'+(u.management||[]).map(m=>'<li><strong>'+formatRich(m.stage)+'</strong><p class="tb-condition">'+formatRich(m.condition)+'</p><p>'+formatBullet(m.action)+'</p><p><b>理由：</b>'+formatBullet(m.rationale)+'</p><p class="tb-small"><b>留意：</b>'+formatBullet(m.caution)+'</p></li>').join('')+'</ol>')+section('圖像判讀線索','imageClues',(u.imageClues||[]).map((i,n)=>'<div class="tb-image-clue"><span class="tb-image-status">'+esc(imageLabels[i.status]||imageLabels['not-reviewed'])+'</span><h4>'+esc(i.modality)+'</h4><p><b>找：</b>'+formatRich(i.clue)+'</p><p><b>解讀：</b>'+formatRich(i.interpretation)+'</p>'+(i.figureId||i.pdfPage?'<p class="tb-source">'+esc(i.figureId||'')+(i.pdfPage?' · PDF p. '+esc(i.pdfPage):'')+'</p>':'')+(Number.isInteger(i.pdfPage)&&i.pdfPage>0?(openFigures.has(u.id+'|'+n)?button('收起原書圖頁','unit-figure',u.id+'|'+n,'aria-expanded="true"')+figureFrame(view.bookId,i.pdfPage):button('在這裡顯示原書圖頁 p. '+i.pdfPage,'unit-figure',u.id+'|'+n,'aria-expanded="false"')):'')+'</div>').join(''))+section('易錯之處','pitfalls','<dl class="tb-clues tb-pitfalls">'+(u.pitfalls||[]).map(p=>'<div class="tb-pitfall-card"><dt><span class="tb-pf-tag tb-pf-mistake">✗ 常見誤區</span>'+formatRich(p.mistake)+'</dt><dd><span class="tb-pf-tag tb-pf-correct">✓ 臨床正解</span>'+formatRich(p.correction)+'</dd></div>').join('')+'</dl>')+updates(u)+renderRecall(u.recall)+'<div class="tb-self"><span>這一單元的自評</span>'+button('待複習','rate',u.id+'|review','aria-pressed="'+(mark?.rating==='review')+'"')+button('能解釋','rate',u.id+'|known','aria-pressed="'+(mark?.rating==='known')+'"')+'</div></article>';}
+  function reading(b){const ch=chapter();if(!ch)return '<p>這卷章節尚未補入。</p>';const zhTitle=CHAPTER_ZH_TITLES[ch.id]||'',chapterUnitIds=ch.units.map(u=>u.id),atlas=window.TextbookAtlas||window.OphTextbookAtlas,visuals=atlas?.renderInlineChapterCards?atlas.renderInlineChapterCards(b.bookId,ch.id,chapterUnitIds,zoomedInlineAtlas):(atlas?.inlineChapterHtml?.(b.bookId,ch.id,zoomedInlineAtlas)||'');return '<div class="tb-reading"><aside class="tb-chapter-nav" aria-label="本卷章節">'+b.chapters.map(c=>{const czh=CHAPTER_ZH_TITLES[c.id];return button('<span>'+c.number+'</span><span class="tb-nav-label">'+esc(c.title)+(czh?'<small class="tb-nav-zh">'+esc(czh.split('：')[0])+'</small>':'')+'</span>','chapter',c.id,(c.id===ch.id?'aria-current="page"':''));}).join('')+'</aside><div class="tb-chapter"><header class="tb-chapter-heading"><p>第 '+ch.number+' 章</p><h2>'+esc(ch.title)+'</h2>'+(zhTitle?'<p class="tb-chapter-zh">'+esc(zhTitle)+'</p>':'')+sourceRefs(ch.sourceRefs)+'</header>'+chapterToolbar(b,ch)+studyGuideHtml(ch)+visuals+updates({},scopedUpdates(b,'chapterIds',ch.id))+(ch.units.length?ch.units.map(u=>unit(u,b)).join(''):'<p class="tb-empty">這一章只有來源對照，教材尚待補入；不列為已完成。</p>')+'</div></div>';}
   function questions(b){const progressKind=view.extra?'extra-question':'question',all=b.questions;const available=view.filter==='review'?all.filter(q=>{const r=record(progressKind,q.id);return q.id===view.feedbackId||!r?.revealed||r.choice!==q.correctIndex;}):all;const q=available.find(q=>q.id===view.questionId)||available[0];if(q)view.questionId=q.id;window.OphStudy?.context(q?(view.extra?'extra':'book'):null,q?.id);const rec=q?record(progressKind,q.id):null;const selected=rec?.choice;const verified=q?.readiness==='ready';const revealed=!verified||rec?.revealed===true;
     return (!verified&&q?'<p class="tb-draft-notice">本題已編寫，仍待來源與醫學核對；目前只供檢閱推理，不記錄答題成績。</p>':'')+'<div class="tb-question-toolbar"><label>練習範圍 <select data-tb-filter><option value="all" '+(view.filter==='all'?'selected':'')+'>全部已補入概念</option><option value="review" '+(view.filter==='review'?'selected':'')+'>未答與待複習</option></select></label><span>'+available.length+' 題可練習</span></div>'+(q?withFigures(q,view.extra?q.bookId:view.bookId,'<article class="tb-question"><div class="tb-question-meta"><span>'+(available.indexOf(q)+1)+' / '+available.length+'</span><span>'+(view.extra?'自編原創練習 · '+esc(manifest.books.find(x=>x.bookId===q.bookId)?.title||''):esc(q.questionScope==='chapter-inline'?'章內練習':'卷末練習')+' · 原書題號 '+esc(q.sourceNumber))+'</span><span>'+esc(imageLabels[q.imageStatus]||imageLabels['not-reviewed'])+'</span></div>'+updates({},scopedUpdates(b,'questionIds',q.id))+'<h2>'+esc(q.stem)+'</h2><div class="tb-options" role="group" aria-label="答案選項">'+optionOrder(q).map((i,position)=>{const o=q.options[i];return button('<span class="tb-option-letter">'+String.fromCharCode(65+position)+'</span><span>'+esc(o.text)+'</span>','answer',q.id+'|'+i,'aria-pressed="'+(selected===i)+'" '+(revealed?'disabled':'')+' class="'+(revealed?(i===q.correctIndex?'correct':i===selected?'wrong':''):'')+'"');}).join('')+'</div><div class="tb-question-actions">'+(verified?button(revealed?'重新作答':'看逐選項推理',revealed?'retry':'reveal',q.id,selected===undefined?'disabled':''):'')+'</div>'+(revealed?'<section class="tb-feedback"><h3>'+(!verified?'待核對的原創題解':selected===q.correctIndex?'答對了，確認理由是否相同':'先找出改變答案的線索')+'</h3><p>'+esc(q.explanation)+'</p>'+(window.OphAdvanced?.reasoningHtml(q,revealed)||'')+'<ol class="tb-rationales">'+optionOrder(q).map((i,position)=>{const o=q.options[i];return '<li><strong>'+String.fromCharCode(65+position)+' · '+(i===q.correctIndex?'本題正確':'本題不選')+'</strong><p>'+esc(o.rationale)+'</p>'+(o.whenTrue?'<p class="tb-small"><b>在哪種設定可能成立：</b>'+esc(o.whenTrue)+'</p>':'')+'</li>';}).join('')+'</ol>'+(window.OphStudy?.ratingHtml(view.extra?'extra':'book',q.id)||'')+updates(q)+sourceRefs(q.sourceRefs,view.extra?q.bookId:view.bookId)+'<div class="tb-related">'+(view.extra?q.unitIds.map((id,i)=>button('回讀相關單元 '+(i+1),'linked-unit',id.match(/^bcsc-s\d{2}/)[0]+'|'+id)):q.chapterIds.map(id=>{const c=b.chapters.find(c=>c.id===id);return c?button('回讀：'+esc(c.title),'chapter',id):'';})).join('')+'</div></section>':'')+'<div class="tb-question-nav">'+button('上一題','question',available[(available.indexOf(q)-1+available.length)%available.length].id)+button('下一題','question',available[(available.indexOf(q)+1)%available.length].id)+'</div></article>'):'<p class="tb-empty">這個範圍沒有待複習題。可切回全部概念，或回章節練習解釋。</p>');}
   function coverage(b){const c=b.coverage;return '<section class="tb-coverage"><h2>來源對照與仍待補的部分</h2><p>原書題目概念使用重新編寫的題幹與選項。原圖核對、來源答案核對與學習自評各自記錄。</p><p class="tb-source">'+esc(b.source.title)+' · '+esc(b.source.edition)+' · PDF '+b.source.pdfPageCount+' 頁</p><div class="tb-table-wrap"><table><thead><tr><th>章節</th><th>教材</th><th>原圖</th><th>仍待補</th></tr></thead><tbody>'+c.chapterRows.map(r=>{const ch=b.chapters.find(c=>c.id===r.chapterId);return '<tr><th>'+esc(ch?.title||r.chapterId)+'</th><td>'+label(r.teachingStatus)+'</td><td>'+esc(imageLabels[r.originalImageStatus])+'</td><td>'+esc(r.gaps.join('；')||'目前未另列')+'</td></tr>';}).join('')+'</tbody></table></div><h3>題目概念對照</h3><div class="tb-table-wrap"><table><thead><tr><th>原題號</th><th>概念重述</th><th>來源答案</th><th>原圖與缺口</th></tr></thead><tbody>'+c.questionRows.map(r=>'<tr><th>'+esc(r.questionScope==='chapter-inline'?'章內 ':'卷末 ')+esc(r.sourceNumber)+'</th><td>'+(r.questionId?button(label(r.conceptStatus),'question',r.questionId):label(r.conceptStatus))+'</td><td>'+esc({matched:'已對照',missing:'來源缺答案',unverified:'尚未核對'}[r.sourceAnswerStatus]||'尚未核對')+'</td><td>'+esc(imageLabels[r.originalImageStatus])+(r.gaps.length?'<br>'+esc(r.gaps.join('；')):'')+'</td></tr>').join('')+'</tbody></table></div></section>';}
