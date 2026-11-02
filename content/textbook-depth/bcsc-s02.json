@@ -4299,7 +4299,7 @@
             },
             {
               "finding": "足月出生、無吸氧史之嬰兒或青少年出現雙眼不對稱「類似 ROP」的周邊顳側視網膜無血管區、血管拉直牽引黃斑異位（macular dragging）與鐮刀狀視網膜皺褶，散瞳螢光攝影檢查無症狀父母竟也發現周邊無灌流分支",
-              "meaning": "家族性滲出性玻璃體視網膜病變（FEVR，Wnt 血管發育訊號路徑 FZD4 / LRP5 / TSPAN12 / NDP 突變）：詢問「足月高出生體重無早產史」加「父母廣角 FA 篩檢」是與早產兒視網膜病變（ROP）一錘定音的關鍵！"
+              "meaning": "家族性滲出性玻璃體視網膜病變（FEVR，Wnt 血管發育訊號路徑 FZD4 / LRP5 / TSPAN12 / NDP 突變）：詢問「足月、出生體重正常、無早產史」加「父母廣角 FA 篩檢」是與早產兒視網膜病變（ROP）鑑別的有力線索（BCSC 以足月對比 ROP，但足月非必要條件，早產不能排除，仍須結合基因檢測與病程）！"
             }
           ],
           "differential": [
@@ -4317,7 +4317,7 @@
             },
             {
               "diagnosis": "家族性滲出性玻璃體視網膜病變（FEVR）vs Norrie 病（NDP X 連鎖隱性）vs 早產兒視網膜病變（ROP）",
-              "for": "ROP 必有早產低出生體重史且雙眼病程對稱隨視網膜血管化成熟而穩定；FEVR 為足月兒、終生隨時可能再活化滲漏剝離（LRP5 突變型還常合併骨質疏鬆假性神經膠質瘤症候群 OPPG 易骨折！）；Norrie 病則為 NDP 無效突變致男嬰出生即雙眼全視網膜發育不良假性神經膠質瘤失明，伴漸進感音性耳聾與智能障礙。",
+              "for": "ROP 具早產史、常合併低出生體重且雙眼病程對稱隨視網膜血管化成熟而穩定；FEVR 多為足月兒（BCSC 以足月對比 ROP，但早產不能排除）、終生隨時可能再活化滲漏剝離（LRP5 突變型還常合併骨質疏鬆假性神經膠質瘤症候群 OPPG 易骨折！）；Norrie 病則為 NDP 無效突變致男嬰出生即雙眼全視網膜發育不良假性神經膠質瘤失明，伴漸進感音性耳聾與智能障礙。",
               "against": "足月兒單眼鐮刀狀視網膜皺褶直接誤貼「子宮內 ROP」標籤而漏查父母眼底與終生周邊雷射追蹤。",
               "discriminator": "出生週數體重＋廣角螢光血管攝影（UWFA 連同父母一起照）＋Wnt 路徑基因檢測（FZD4/LRP5/TSPAN12/NDP）＋骨密度／聽力評估。"
             }
@@ -4399,13 +4399,13 @@
           ],
           "recall": {
             "prompt": "1. 請配對四個關鍵發育轉錄因子（PAX6、PAX2、PAX3、FOXL2）與一個形態發生素路徑（Wnt/FZD4/LRP5）各自的經典眼部與全身疾病！ 2. 何謂 CCDD？為何第一型 Duane 症候群往內看時眼球會後縮且瞼裂變窄？手術絕對禁止做哪一個動作？",
-            "answer": "1. PAX6→無虹膜症（散發查 WT1 Wilms 瘤）；PAX2→視神經缺損＋腎發育不全（腎—視神經缺損症候群）；PAX3→Waardenburg 症候群（內眥外移、虹膜異色、白額髮、聽障）；FOXL2→小瞼裂症候群 BPES（第 I 型伴早發卵巢衰竭）；Wnt（FZD4/LRP5/TSPAN12/NDP）→足月兒家族性滲出性玻璃體視網膜病變（FEVR，LRP5 伴骨鬆）。 2. CCDD 為先天腦幹運動神經核或軸突導引基因缺陷引發錯誤神經支配；Duane 因 CN VI 缺如、外直肌改由 CN III 分支支配，內收時內直肌與外直肌同時收縮將眼球拉入眶內使瞼裂縮小；手術嚴禁做「患眼外直肌截除縮短術（LR resection）」。"
+            "answer": "1. PAX6→無虹膜症（散發查 WT1 Wilms 瘤）；PAX2→視神經缺損＋腎發育不全（腎—視神經缺損症候群）；PAX3→Waardenburg 症候群（內眥外移、虹膜異色、白額髮、聽障）；FOXL2→小瞼裂症候群 BPES（第 I 型伴早發卵巢衰竭）；Wnt（FZD4/LRP5/TSPAN12/NDP）→家族性滲出性玻璃體視網膜病變（FEVR，多為足月兒，早產不能排除；LRP5 伴骨鬆）。 2. CCDD 為先天腦幹運動神經核或軸突導引基因缺陷引發錯誤神經支配；Duane 因 CN VI 缺如、外直肌改由 CN III 分支支配，內收時內直肌與外直肌同時收縮將眼球拉入眶內使瞼裂縮小；手術嚴禁做「患眼外直肌截除縮短術（LR resection）」。"
           },
           "notApplicable": {},
           "status": "source-checked",
           "memoryAid": {
-            "oneLiner": "PAX6 無虹膜、PAX2 缺盤腎、PAX3 異色聾、FOXL2 小瞼護卵巢、Wnt 壞變足月 FEVR；Duane 六缺三代管，內收縮眼禁截外直肌。",
-            "mnemonic": "發育基因五虎將「6 無虹·2 腎盤·3 聾白·FOXL2 小瞼卵·Wnt 足月 FEVR」；眼瞼「8 週封·5-7 月開」",
+            "oneLiner": "PAX6 無虹膜、PAX2 缺盤腎、PAX3 異色聾、FOXL2 小瞼護卵巢、Wnt 壞變多足月 FEVR；Duane 六缺三代管，內收縮眼禁截外直肌。",
+            "mnemonic": "發育基因五虎將「6 無虹·2 腎盤·3 聾白·FOXL2 小瞼卵·Wnt 多足月 FEVR」；眼瞼「8 週封·5-7 月開」",
             "visualFlow": [
               {
                 "step": "HOX/PAX 轉錄開關",
@@ -5662,7 +5662,7 @@
             {
               "test": "三代家譜繪製與無症狀一等親散瞳裂隙燈／眼底／電生理（EOG/ERG）篩檢",
               "purpose": "揪出低表現度顯性帶因者或萊昂化 X 連鎖女性帶因者，確立真實遺傳模式。",
-              "interpretation": "例如疑似散發卵黃樣黃斑病變兒童，若父親眼底完全正常但眼電圖（EOG）Arden 比值 <1.5，立即證實為體染色體顯性 BEST1 不完全外顯而非隱性病變！",
+              "interpretation": "例如疑似散發卵黃樣黃斑病變兒童，若父親眼底完全正常但眼電圖（EOG）Arden 比值 <1.5，強烈提示為體染色體顯性 BEST1 不完全外顯而非隱性病變！",
               "limitation": "需注意收養、輔助生殖捐精捐卵或偶發非親生關係可能干擾家譜推論。"
             },
             {
@@ -10496,7 +10496,7 @@
           },
           {
             "pair": "Best 卵黃樣黃斑失養症（`BEST1`） vs Stargardt 病（`ABCA4`）",
-            "rule": "Best 病為體染色體顯性基底外側氯通道缺陷，全視野 ERG 正常但 EOG Arden 比值恆嚴重異常（<1.5）；Stargardt 病為體染色體隱性外節膜盤 ABC 轉運蛋白缺陷致 A2PE-H2/A2E 毒殺 RPE，EOG 多正常而螢光血管攝影呈特徵性脈絡膜靜默（dark choroid）。"
+            "rule": "Best 病為體染色體顯性基底外側氯通道缺陷，全視野 ERG 正常但 EOG Arden 比值通常 <= 1.5（無症狀帶因者也幾乎總是異常）；Stargardt 病為體染色體隱性外節膜盤 ABC 轉運蛋白缺陷致 A2PE-H2/A2E 毒殺 RPE，EOG 多正常而螢光血管攝影呈特徵性脈絡膜靜默（dark choroid）。"
           }
         ]
       },
@@ -10737,13 +10737,13 @@
           "mechanism": [
             "胚胎期視杯神經外胚層向內凹陷折疊，使外層 RPE 與內層感覺神經視網膜呈「頂端對頂端（apex-to-apex）」貼合；兩者之間終生沒有任何實質組織橋樑橫跨，僅留下一道潛在間隙——視網膜下腔（subretinal space，正是臨床視網膜剝離分離的解剖平面）。RPE 近頂端側藉緊密連接（tight junctions）封鎖旁細胞水與離子漏流，構成**外血—視網膜障壁（outer blood–retina barrier, oBRB）**；基底側則形成大量基底內褶（basal infoldings）以倍增與脈絡膜微血管交換溶質的表面積，並仰賴肌動蛋白、肌凝蛋白、α-actinin、fodrin 與 vinculin 等細胞骨架維持嚴格膜域極性。",
             "RPE 最具考點價值的分子特徵是「**反向膜極性（reversed polarity）**」：在人體絕大多數極性上皮中，鈉鉀幫浦皆位於基底外側膜，唯獨在 RPE 細胞中，**對 ouabain 敏感的 `Na+,K+-ATPase` 專一分佈於「頂端膜（apical membrane）」**（神經細胞黏附分子 `NCAM-140` 與葉酸受體 α 亦呈現相同的反向極性配置）！頂端膜同時設有主動碳酸氫根轉運系統，而頂端與基底兩側皆具高活性碳酸酐酶（carbonic anhydrase）。這套不對稱的向量離子轉運系統（將 Na+ 主動運向視網膜下腔、將 K+ 反向運離，並跨上皮建立離子梯度）不僅精準穩住感光細胞外節周圍的 Na+/K+ 微環境，更強勢驅動水分與視網膜高代謝產生的**乳酸（lactic acid）**自視網膜下腔排往脈絡膜微血管（同時主動轉運牛磺酸 taurine、甲硫胺酸與葉酸）。",
-            "跨越 RPE 頂端與基底膜之間的淨離子通量會產生一道穩定的「**跨色素上皮電位（transepithelial electrical potential**，在 ouabain 或二硝基酚 dinitrophenol 等代謝抑制劑作用下會迅速改變）」，這正是臨床評估全視網膜 RPE 功能最常用電生理檢查——**眼電圖（electro-oculogram, EOG）**的物理基礎。EOG 比較光照引發之電位高峰（Light Peak）與黑暗谷底（Dark Trough）計算 **Arden 比值（Arden ratio = Light Peak / Dark Trough）**：正常眼通常 ≥1.8–2.0；當位於 RPE 基底外側膜的鈣活化氯離子通道基因 **`BEST1`（編碼 bestrophin）**發生雜合子顯性突變引發 **Best 卵黃樣黃斑失養症（Best disease）**時，光照無法誘發基底側氯離子電導上升，導致全視野閃光 ERG 完全正常，但 **EOG Arden 比值嚴重崩跌至 <1.5（常僅 1.1–1.3）**！",
+            "跨越 RPE 頂端與基底膜之間的淨離子通量會產生一道穩定的「**跨色素上皮電位（transepithelial electrical potential**，在 ouabain 或二硝基酚 dinitrophenol 等代謝抑制劑作用下會迅速改變）」，這正是臨床評估全視網膜 RPE 功能最常用電生理檢查——**眼電圖（electro-oculogram, EOG）**的物理基礎。EOG 比較光照引發之電位高峰（Light Peak）與黑暗谷底（Dark Trough）計算 **Arden 比值（Arden ratio = Light Peak / Dark Trough）**：正常眼通常 ≥1.8–2.0；當位於 RPE 基底外側膜的鈣活化氯離子通道基因 **`BEST1`（編碼 bestrophin）**發生雜合子顯性突變引發 **Best 卵黃樣黃斑失養症（Best disease）**時，光照無法誘發基底側氯離子電導上升，導致全視野閃光 ERG 完全正常，但 **EOG Arden 比值通常崩跌至 <= 1.5（常僅 1.1–1.3）**；但少數確診家族 EOG 正常，故 EOG 正常不能完全排除 Best 病！",
             "既然視網膜下腔毫無組織連結，感覺視網膜何以終生緊貼 RPE？這仰賴四大生理貼附力協同運作：（1）被動流體靜水壓與脈絡膜高膠體滲透壓；（2）RPE 頂端長微絨毛與感光細胞外節指狀包鞘嵌合；（3）感光細胞間基質（IPM）複雜黏多醣結構與凡得瓦力（van der Waals forces）；以及（4）**RPE 主動跨上皮抽水幫浦**。因此，**單純視網膜破一個洞或 RPE 有小滲漏並不會自動造成視網膜剝離**——唯有當玻璃體正向牽引力拉扯視網膜，或液化玻璃體灌入破孔的正向推力「壓倒 RPE 主動排水幫浦上限」時，剝離才會發生！臨床施行**充氣性視網膜固定術（pneumatic retinopexy）**治療上方裂孔性視網膜剝離，正是利用玻璃體腔注射氣泡加上頭位擺位「頂住並封閉視網膜裂孔阻止新液體灌入」，接著完全交由患者自身的 **RPE 主動離子幫浦把視網膜下積液抽乾**，使視網膜自然貼回後再補上雷射光凝固定。"
           ],
           "clinicalClues": [
             {
               "finding": "兒童或青年黃斑中心呈現荷包蛋黃樣圓形黃色病灶（egg-yolk vitelliform lesion），視力卻仍保有 20/25–20/40，全視野 ERG 完全正常，唯獨 EOG Arden 比值僅 1.2，且無症狀雙親之一 Arden 比值亦為 1.3",
-              "meaning": "典型自體顯性 Best 病（`BEST1` 突變）：病變直擊 RPE 基底外側 bestrophin 氯離子通道，外層感光細胞與雙極細胞未全面受損故閃光 ERG 正常，且顯性帶因者即使眼底外觀正常 EOG 亦恆異常！"
+              "meaning": "典型自體顯性 Best 病（`BEST1` 突變）：病變直擊 RPE 基底外側 bestrophin 氯離子通道，外層感光細胞與雙極細胞未全面受損故閃光 ERG 正常，且顯性帶因者即使眼底外觀正常 EOG 也幾乎總是異常！"
             },
             {
               "finding": "上方單一馬蹄形裂孔性視網膜剝離患者接受診間玻璃體內注入 C3F8 氣體並維持正確頭位，完全沒做鞏膜穿刺放水，24 小時後隔天回診視網膜下大片積液竟然全數消失貼平",
@@ -10779,7 +10779,7 @@
               "test": "臨床眼電圖（Electro-oculogram, EOG）測定 Arden 比值",
               "purpose": "透過內外眥皮膚電極記錄眼球水平轉動偶極電位，無創量化全眼 RPE 跨上皮離子電位對光照的反應（Figure 12-7）",
               "interpretation": "先暗適應 15 分鐘測最低電位（Dark Trough），再明適應 15 分鐘測最高電位（Light Peak）；Arden ratio = `Light Peak / Dark Trough`，正常 ≥1.8–2.0，Best 病特徵性 <1.5。",
-              "limitation": "光照誘發跨 RPE 電位上升的前提是「感光細胞必須先能感測光線」！因此若廣泛感光細胞壞死（如晚期 RP），Flash ERG 與 EOG 會同時異常；唯有「Flash ERG 正常而 EOG 單獨異常」才專一確診原發性 RPE 通道病變（Best 病）。"
+              "limitation": "光照誘發跨 RPE 電位上升的前提是「感光細胞必須先能感測光線」！因此若廣泛感光細胞壞死（如晚期 RP），Flash ERG 與 EOG 會同時異常；「Flash ERG 正常而 EOG 單獨異常」才強烈支持原發性 RPE 通道病變（Best 病；確診仍需臨床與 BEST1 檢測）。"
             },
             {
               "test": "周邊散瞳壓鞏膜間接眼底鏡與玻璃體後脫離（PVD）牽引評估",
@@ -10836,7 +10836,7 @@
             },
             {
               "mistake": "患者因晚期色素性視網膜炎（RP）全視野閃光 ERG 平坦，做 EOG 發現 Arden 比值 1.2，便診斷合併 Best 病",
-              "correction": "EOG 的光峰上升必須先靠健康感光細胞接收光訊號觸發！感光細胞廣泛死亡時 EOG 必然繼發性變平；只有「全視野 ERG 正常＋EOG 異常」才能診斷原發性 Best 病。"
+              "correction": "EOG 的光峰上升必須先靠健康感光細胞接收光訊號觸發！感光細胞廣泛死亡時 EOG 必然繼發性變平；「全視野 ERG 正常＋EOG 異常」才強烈支持原發性 Best 病（EOG 正常亦不能完全排除，確診仍需臨床與 BEST1 檢測）。"
             },
             {
               "mistake": "以為視網膜跟 RPE 之間靠橋粒或膠原纖維縫在一起，只要視網膜破一個小洞就一定會立刻視網膜剝離",
@@ -10845,7 +10845,7 @@
           ],
           "recall": {
             "prompt": "（1）RPE 的 `Na+,K+-ATPase` 與 `BEST1`（bestrophin 氯通道）分別位於頂端膜還是基底外側膜？（2）若某青少年黃斑有蛋黃樣病灶，EOG 測得暗谷電位 200 μV、光峰電位 240 μV（對照正常人光峰 370 μV／暗谷 200 μV），計算兩者 Arden 比值並說明其全視野閃光 ERG 預期結果與充氣性視網膜固定術吸收積液的原理。",
-            "answer": "（1）RPE 具反向極性，`Na+,K+-ATPase` 位於頂端膜（apical），`BEST1` 氯離子通道位於基底外側膜（basolateral）。（2）患者 Arden 比值 = `240 / 200 = 1.2`（<1.5 顯著異常，正常對照 `370 / 200 = 1.85`），確診 Best 病，其全視野閃光 ERG 預期完全正常；充氣性視網膜固定術以氣泡封堵裂孔阻止新液體灌入，再由 RPE 主動離子幫浦將視網膜下積液排往脈絡膜微血管而復位。"
+            "answer": "（1）RPE 具反向極性，`Na+,K+-ATPase` 位於頂端膜（apical），`BEST1` 氯離子通道位於基底外側膜（basolateral）。（2）患者 Arden 比值 = `240 / 200 = 1.2`（<1.5 顯著異常，正常對照 `370 / 200 = 1.85`），強烈支持 Best 病（確診仍需 BEST1 檢測），其全視野閃光 ERG 預期完全正常；充氣性視網膜固定術以氣泡封堵裂孔阻止新液體灌入，再由 RPE 主動離子幫浦將視網膜下積液排往脈絡膜微血管而復位。"
           },
           "notApplicable": {},
           "status": "source-checked",
@@ -17216,7 +17216,7 @@
         },
         {
           "text": "Familial exudative vitreoretinopathy",
-          "rationale": "家族性滲出性玻璃體視網膜病變（FEVR）主要涉及 FZD4、LRP5、TSPAN12 或 NDP 等 Wnt 血管新生訊號路徑異常，核心病徵為足月兒周邊顳側視網膜無血管區、血管拉直拖曳黃斑（鐮狀視網膜皺褶）與滲出牽引剝離，非 COL2A1 膠原病。",
+          "rationale": "家族性滲出性玻璃體視網膜病變（FEVR）主要涉及 FZD4、LRP5、TSPAN12 或 NDP 等 Wnt 血管新生訊號路徑異常，核心病徵為周邊顳側視網膜無血管區（多見於足月兒，早產不能排除）、血管拉直拖曳黃斑（鐮狀視網膜皺褶）與滲出牽引剝離，非 COL2A1 膠原病。",
           "whenTrue": "無早產吸氧史卻出現酷似 ROP 之雙側不對稱周邊視網膜無灌流區（螢光血管攝影確診）、視盤黃斑向顳側牽引與家族無症狀周邊血管異常時。"
         }
       ],
@@ -19107,13 +19107,13 @@
       "bcsc-s02-ch003-u05": "d4b9125a03ea4add7e06f03ab1f7135bd8c73c862180044c6245306d9dccac4c",
       "bcsc-s02-ch004-u01": "0153d5971ec1e07019850107aef364585bea8e7eea5ff4fa86e880b6bf301ef0",
       "bcsc-s02-ch004-u02": "f29e20daaa6cae7886309371b57f02f3c3aec62b9ac372422209f579121a9244",
-      "bcsc-s02-ch004-u03": "a91123b80f2aeb44338051ee9851ebcef17610f27e079e2f48596b799f5d27bd",
+      "bcsc-s02-ch004-u03": "c9656cb72c8a066717a332071a3137d859a20e4e645b75373baeb8d11ba14c6f",
       "bcsc-s02-ch004-u04": "274001714b6579e056c8fe06a4985e714e705776330cfaf63a5899256f5231bd",
       "bcsc-s02-ch005-u01": "c3c6a1fdbc307f8d61d5a7b711477bc92ee4c468adb9a1f6252ea0a5ec093ef3",
       "bcsc-s02-ch005-u02": "1dd7f8e629492f22659fe02ca3e422c71e9b1f8dae1590c3a5d9b745e034f31b",
       "bcsc-s02-ch005-u03": "257a0b58169cfc51ee3c8e0f39785f4a2446f2d5241819e32b8f9f494f54afd9",
       "bcsc-s02-ch005-u04": "da5c094204512978625bc8892a1cb5913e7234b26a402844aa8a04732c07baf8",
-      "bcsc-s02-ch006-u01": "a52e1be30a076c4f4eb220b37e83feac3759b3c0a4dfb29b20fedf573eb73620",
+      "bcsc-s02-ch006-u01": "77b418431e167bdd8771d6bccf150a4a41382d9f6133b8a964635b50a98acd9e",
       "bcsc-s02-ch006-u02": "efe325a23d8ba21612aa5c99c951de43d70159e0b107da3ea7d4f870f5c8fd6b",
       "bcsc-s02-ch006-u03": "b73614bf443e8e1bac6c5b61da193bb3ad877a7365f32ccf9d2f9245f49e7606",
       "bcsc-s02-ch006-u04": "22dafab980b137573ba3dd1717046e81abbd012d1c471131a09eb18512ea2483",
@@ -19139,7 +19139,7 @@
       "bcsc-s02-ch012-u02": "ec8b32e20793db330a33594f07d9c866663c7ea7c5bc66869e20e60e9eb41c7b",
       "bcsc-s02-ch012-u03": "c8a7988eb025b7e439d5d0bbdb014d135ee084fa62f0d1d8bcdd6bc84e93ac19",
       "bcsc-s02-ch013-u01": "0288acdcc7fef0bef24b4f7995e2864363f224a3a658fa63e52da6b4eb173294",
-      "bcsc-s02-ch013-u02": "a47d66cf5607bf55b5d5e5c6e5290008e99e50678f92a105364727eb77ea701b",
+      "bcsc-s02-ch013-u02": "b63a50c65fae92c01526490c889cb13ee4a321153d986f56281fc18b14bcaf64",
       "bcsc-s02-ch013-u03": "30e00ee164427e1a3d2b075877cd0af515a248342a074b3e1fa6d2e3c1f11da2",
       "bcsc-s02-ch014-u01": "20794ad77fc738079c08b221eb92d9792bea7ba04ae6a9006984c2f50c3bdd05",
       "bcsc-s02-ch014-u02": "2f30755802c658ba91b24bf67effbb678153cae76b91451b935f0116ddb81231",
@@ -19191,7 +19191,7 @@
       "bcsc-s02-rq021": "f8302167d496c243089a40d9e313d1990955a420cd1d3d6476b4b38d40f82396",
       "bcsc-s02-rq022": "4fcb29a2f92b7359c26f3b3e585f3d2ed41d6d944395b097fba9e62466a39271",
       "bcsc-s02-rq023": "6ba666bb49ce372a27fad666655dd92ab6892a1d6e037e6e8b8d3ce746fc6fc4",
-      "bcsc-s02-rq024": "be1cb049c6fcfd8c16a4580ccbd63c564a247786d3966314f7e781a592e4796a",
+      "bcsc-s02-rq024": "4df37402b18dfff5adfd0a6d37e47197b8550a43cc8121276ba994f6c58beec1",
       "bcsc-s02-rq025": "7d89817412a0d4789f2f13bebd5866de35617e5af698793263a0c411e624ce6d",
       "bcsc-s02-rq026": "1aab7fa64820a1c6e283a3b3868ce2bf37de241dbab3fc1d293fbe1c5edcb241",
       "bcsc-s02-rq027": "9223aa6b4c4bfae49c2c05a9a96f282356eb81ce3084dde4cd9665a200f2d5c6",
