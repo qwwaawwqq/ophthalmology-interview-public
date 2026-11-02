@@ -452,6 +452,31 @@ test('search interaction finds newly written integrated content', () => {
   assert(decode(main()).includes(query), 'New integrated prose not returned by search action');
 });
 
+test('no chapter page states the same teaching sentence twice', () => {
+  const sentences = text => String(text).match(/[^。！？；]+[。！？；]?/g) || [];
+  const norm = text => text.replace(/[\s，。、；：:,.()（）「」『』【】!?！？\-—·/／]+/g, '').toLowerCase();
+  for (const [id, chapter] of chapters()) {
+    const topic = qa.D.topics.find(item => item.id === id);
+    const coverage = qa.D.coverage.chapters[id];
+    assert(coverage, id + ': explainer coverage missing');
+    const blocks = [];
+    topic.sections.forEach((section, i) => section.points.forEach(point => blocks.push(['key point ' + i, false, point])));
+    for (const unit of chapter.integrated.units) unit.synthesis.forEach((p, k) => blocks.push([unit.id + ' synthesis ' + k, true, p]));
+    chapter.deepDive.forEach((dive, i) => dive.paragraphs.forEach((p, k) => blocks.push(['deep dive ' + i + '.' + k, true, p])));
+    for (const entry of coverage.entries) [...entry.keyPoints, entry.clinicalLink, entry.pitfall].forEach((p, k) => blocks.push([entry.id + ' explainer ' + k, true, p]));
+    const seen = new Map();
+    for (const [label, written, text] of blocks) {
+      for (const sentence of sentences(text)) {
+        const key = norm(sentence);
+        if (key.length < 12) continue;
+        const first = seen.get(key);
+        if (first && first[0] !== label) assert(!(written || first[1]), `${id}: "${sentence}" in ${label} repeats ${first[0]}`);
+        if (!first) seen.set(key, [label, written]);
+      }
+    }
+  }
+});
+
 async function finish() {
   try {
     qa.exportProgress();
