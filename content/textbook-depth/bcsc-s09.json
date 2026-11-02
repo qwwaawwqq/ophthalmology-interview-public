@@ -6638,7 +6638,7 @@
             {
               "condition": "念珠菌已侵入玻璃體（伴玻璃體炎／珍珠串）、威脅黃斑，或內源性麴菌（Aspergillus）眼內炎",
               "stage": "全身抗真菌 ＋ 玻璃體內抗真菌注射 ＋ 評估玻璃體切除術（PPV）",
-              "action": "在全身有效高穿透抗真菌藥（麴菌與抗 fluconazole 念珠菌必選 **Voriconazole**！）基礎上，立即施行玻璃體抽吸取樣並注射**玻璃體內 Voriconazole（`100 µg/0.1 mL`）或 Amphotericin B（`5–10 µg/0.1 mL`）**；若伴明顯玻璃體膿濁、珍珠串團塊或麴菌視網膜下膿瘍，及早安排 **PPV** 降低病原與發炎毒素負荷（依半衰期必要時重複眼內給藥）。",
+              "action": "在全身有效抗真菌藥（麴菌必選 **Voriconazole**；念珠菌依藥敏選藥，fluconazole／voriconazole 皆抗藥者改靜脈 liposomal amphotericin B ± flucytosine）基礎上，立即施行玻璃體抽吸取樣並注射**玻璃體內 Voriconazole（`100 µg/0.1 mL`）或 Amphotericin B（`5–10 µg/0.1 mL`）**；若伴明顯玻璃體膿濁、珍珠串團塊或麴菌視網膜下膿瘍，及早安排 **PPV** 降低病原與發炎毒素負荷（依半衰期必要時重複眼內給藥）。",
               "rationale": "玻璃體無血管且全身藥物對玻璃體濃密黴菌球殺菌緩慢，唯有直接眼內給藥加手術清創能保住黃斑。",
               "caution": "**絕對禁止單獨施打眼周或眼內長效皮質類固醇（depot steroid）**！"
             },
@@ -10551,7 +10551,7 @@
       "bcsc-s09-ch013-u01": "41c6e56c0affd57e14c2b35426c21045d9f002252a9160644ef1d623bf4be55e",
       "bcsc-s09-ch013-u02": "5e0b0e9ac7917ea0b06cb797832340e7656e59d5f838e5b425e251316d3a65c0",
       "bcsc-s09-ch014-u01": "856fa3cec7471d81136b231825196b2185348c2fb7b2cb7b5a58501e8f706720",
-      "bcsc-s09-ch014-u02": "536e4d3cbc18c2c704477f4401e808edb030463f4756f34b585fa1c8b32c6282",
+      "bcsc-s09-ch014-u02": "8882946790e04fd87319ed882de99144eead84cba38d2c6cd0011aa5fea3a389",
       "bcsc-s09-ch015-u01": "9907acbadd1739faa1e7f71470c1520231dace7ef9a7240d4576d94d34c91a50",
       "bcsc-s09-ch015-u02": "27f854a758cb4ab5a7695a38bef3fd06548f9860cecd1479b71948f5e4f372cb",
       "bcsc-s09-ch016-u01": "3c64076286a4291d8117aecfeab77d26ebc0c2039322985a55b0de016ebd3eef",

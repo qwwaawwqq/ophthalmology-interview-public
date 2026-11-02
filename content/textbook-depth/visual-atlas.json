@@ -9491,7 +9491,7 @@
           "mechanism": [
             "HIV 耗竭 CD4+ 淋巴球形成鮮明伺機感染階梯：CD4 >200 時表現似一般人之 HSV／VZV（ARN）、結核與梅毒（後兩者在任何 CD4 皆可發生）；CD4 <100 警戒弓漿蟲視網膜脈絡膜炎、隱球菌高顱壓視乳頭水腫與非感染性 HIV 棉絮斑；CD4 <50 則爆發最常見致盲感染——巨細胞病毒視網膜炎（CMV retinitis，全層壞死伴刷狀出血而玻璃體炎輕微）、PORN 與 MAC。CMV 必須以全身抗病毒（首選口服 valganciclovir 誘導轉維持；UL97 抗藥改 IV foscarnet）保護對側眼與內臟，若侵犯威脅黃斑／視盤之 Zone 1 則須立即同步玻璃體內注射 ganciclovir 或 foscarnet。",
             "隨高效抗反轉錄病毒治療（ART）拉升免疫，安全停用抗 CMV 維持治療須同時滿足四要件：（1）抗 CMV 治療滿 >=3–6 個月、（2）散瞳確認所有病灶完全結痂靜止、（3）ART 下 CD4+ 持續穩定 >=100 cells/µL 達 3–6 個月以上、（4）配合定期散瞳追蹤（若跌回 <100 立即重啟）。此外恢復之 CD4 細胞攻擊殘留抗原會於約 10% 患者引發免疫重建葡萄膜炎（IRU：瘢痕邊界靜止但出現明顯玻璃體炎、46% 囊樣黃斑水腫 CME 與 49% 視網膜前膜 ERM）。",
-            "內源性黴菌眼內炎（念珠菌呈奶油白脈絡膜網膜灶延伸為玻璃體珍珠串；麴菌具強血管侵犯性直撲黃斑出血壞死）治療成敗取決於血眼屏障穿透力：棘白菌素類（echinocandins：caspofungin、micafungin）分子量巨大且高蛋白結合，幾乎進不了玻璃體，嚴禁單用治療眼內炎！必須換成高玻璃體穿透之口服／靜脈 fluconazole（敏感念珠菌）或 voriconazole（抗藥念珠菌與麴菌），一旦累及玻璃體或威脅黃斑則立即合併眼內注射 voriconazole 或 amphotericin B 與玻璃體切除術（PPV）。"
+            "內源性黴菌眼內炎（念珠菌呈奶油白脈絡膜網膜灶延伸為玻璃體珍珠串；麴菌具強血管侵犯性直撲黃斑出血壞死）治療成敗取決於血眼屏障穿透力：棘白菌素類（echinocandins：caspofungin、micafungin）分子量巨大且高蛋白結合，幾乎進不了玻璃體，嚴禁單用治療眼內炎！必須換成高玻璃體穿透之口服／靜脈 fluconazole（敏感念珠菌）或 voriconazole（fluconazole 抗藥但 voriconazole 敏感之念珠菌與麴菌；兩者皆抗藥之念珠菌改靜脈 liposomal amphotericin B ± flucytosine），一旦累及玻璃體或威脅黃斑則立即合併眼內注射 voriconazole 或 amphotericin B 與玻璃體切除術（PPV）。"
           ],
           "diagram": {
             "kind": "anatomy",
@@ -9863,7 +9863,7 @@
           "decisionSteps": [
             {
               "condition": "ICU 念珠菌血症病患正接受 micafungin 治療，眼科會診散瞳發現左眼黃斑旁白色絨毛脈絡膜視網膜病灶伴玻璃體絨球",
-              "action": "立即通知醫療團隊拔除／更換中央靜脈導管，依菌種藥敏將全身藥換為或加上高穿透之 fluconazole（如 C. albicans）或 voriconazole（如抗藥 C. krusei／glabrata），並當日施行玻璃體內注射 voriconazole 或 amphotericin B（濃重膿球排 PPV）。",
+              "action": "立即通知醫療團隊拔除／更換中央靜脈導管，依菌種藥敏將全身藥換為或加上高穿透之 fluconazole（如 C. albicans）或 voriconazole（如 fluconazole 抗藥但 voriconazole 敏感之 C. krusei／glabrata；兩者皆抗藥改靜脈 liposomal amphotericin B ± flucytosine），並當日施行玻璃體內注射 voriconazole 或 amphotericin B（濃重膿球排 PPV）。",
               "why": "Echinocandin 在玻璃體幾乎無治療濃度，不及時轉換與眼內給藥將迅速毀損黃斑光受器。"
             },
             {
@@ -24422,7 +24422,7 @@
           ],
           "clinicalQuestion": "同樣面對嚴重角膜炎混濁，為何單純疱疹基質炎合併局部類固醇能大幅縮減惡化，而真菌、棘阿米巴或活動性疱疹樹枝潰瘍一旦點入類固醇卻會引爆穿孔失明？又為何絲狀真菌潰瘍首選 5% natamycin 而非穿透力更強的 voriconazole？",
           "mechanism": [
-            "感染性角膜炎的組織破壞由「活體病原直接複製溶解」與「宿主免疫發炎風暴」雙引擎驅動，兩者權重決定類固醇的生死分界：單純疱疹病毒（HSV）上皮樹枝狀潰瘍（具特徵性末端球莖 terminal bulbs，中央基底螢光染色、邊緣活性感染細胞麗絲胺綠染色）屬活病毒複製期，禁用類固醇；但非壞死性 HSV 基質炎與盤狀內皮炎則以 CD4+ T 細胞免疫水腫為主，HEDS 試驗證實「局部類固醇＋抗病毒覆蓋」能顯著縮短病程，而長期口服 acyclovir（400 mg BID）更能將基質炎復發率砍半。",
+            "感染性角膜炎的組織破壞由「活體病原直接複製溶解」與「宿主免疫發炎風暴」雙引擎驅動，兩者權重決定類固醇的生死分界：單純疱疹病毒（HSV）上皮樹枝狀潰瘍（具特徵性末端球莖 terminal bulbs，中央基底螢光染色、邊緣活性感染細胞麗絲胺綠染色）屬活病毒複製期，禁用類固醇；但非壞死性 HSV 基質炎與盤狀內皮炎則以 CD4+ T 細胞免疫水腫為主，HEDS 基質炎試驗證實「局部類固醇＋抗病毒覆蓋」能顯著縮短病程，而長期口服 acyclovir（400 mg BID）更能將基質炎復發率砍半。",
             "細菌性角膜炎（隱形眼鏡族頭號元兇為綠膿桿菌 Pseudomonas aeruginosa，極速釋放基質蛋白酶致環狀液化壞死與前房蓄膿）首重刮片培養與強化廣效抗生素或第四代氟喹諾酮密集點眼。SCUT 試驗顯示整體而言於抗生素滿 48 小時後加用局部類固醇並未改善 3 個月視力（僅極重度中央浸潤次族群略獲益），但對「奴卡氏菌（Nocardia）」潰瘍加用類固醇反而導致疤痕擴大與視力惡化！",
             "植物農具外傷誘發之絲狀真菌角膜炎（Fusarium、Aspergillus）呈現灰白乾燥隆起表面、羽狀毛邊（feathery margins）、多發衛星病灶與黏稠內皮斑塊。MUTT I 隨機試驗推翻了「穿透好就一定贏」的直覺：局部 5% natamycin 在治療絲狀真菌（特別是鐮刀菌 Fusarium）之最佳視力與降低穿孔／移植率上顯著擊敗局部 1% voriconazole！MUTT II 更證實重度絲狀真菌常規加用口服 voriconazole 未能降低穿孔率卻徒增肝毒性與視覺副作用；且真菌潰瘍點類固醇屬絕對禁忌。",
             "隱形眼鏡接觸自來水、泳池或溫泉引發之棘阿米巴角膜炎（Acanthamoeba），早期常偽裝成假樹枝上皮病變但伴隨「與表徵極不成比例之劇痛」及放射狀角膜神經炎（radial keratoneuritis），晚期形成環狀基質浸潤。活體共軛焦顯微鏡（IVCM）可直接捕捉 10–25 µm 高反光圓形雙壁囊體；治療必須仰賴具備殺囊體（cysticidal）活性的雙胍類（PHMB 0.02% 或 chlorhexidine 0.02%，常聯合 diamidines 如 propamidine／hexamidine）長期抗戰數月。"
@@ -24973,7 +24973,7 @@
           "figureReading": [
             {
               "label": "第一欄（藍）：HSV 上皮樹枝末端球莖 vs 基質內皮炎",
-              "meaning": "真性 HSV 樹枝潰瘍具末端膨大球莖（terminal bulbs），屬活病毒裂解上皮期，絕對禁點類固醇；一旦轉入上皮完整之免疫基質炎或盤狀內皮炎，則須依 HEDS 原則給予「局部類固醇＋足量抗病毒保護傘」。"
+              "meaning": "真性 HSV 樹枝潰瘍具末端膨大球莖（terminal bulbs），屬活病毒裂解上皮期，絕對禁點類固醇；一旦轉入上皮完整之免疫基質炎或盤狀內皮炎，則須給予「局部類固醇＋口服抗病毒（基質炎用預防劑量；內皮炎先用治療劑量）」。"
             },
             {
               "label": "第二欄（青）：細菌性化膿浸潤與 SCUT 試驗邊界",
