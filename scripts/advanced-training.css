@@ -10,7 +10,7 @@
 .advanced-deep-section{padding:1.2rem 0;border-top:1px solid var(--line,#ddd);margin-top:1.3rem}
 .advanced-deep-section h4{margin-bottom:.35rem}.advanced-deep-section td{vertical-align:top;min-width:150px;line-height:1.75}
 .advanced-evidence{padding:1.1rem;border-radius:12px;background:var(--soft,#f4f7fa)}
-.advanced-deep-library{border-left:4px solid var(--accent,#1f6d63)}
+.tb-extra-entry,.advanced-deep-library{padding:24px;background:#eef6f7;border-left:4px solid #187b78;margin:0 0 26px}.notebook-search+.tb-extra-entry{margin-top:26px}.tb-extra-entry h2{font-size:21px;line-height:1.55}.tb-extra-entry p{line-height:1.85;margin:8px 0}
 @media(max-width:700px){.advanced-deep-grid{grid-template-columns:1fr}.advanced-deep-entry{padding:1rem}.advanced-deep-section td{min-width:135px}}
 
 /* Navigation targets stay visible below the existing mobile header. */
