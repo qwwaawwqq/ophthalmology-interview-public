@@ -78,7 +78,7 @@ async function test(name,fn){try{await fn();results.push({name,pass:true});}catc
  await test('today catalogue distinguishes now/later/new and manual practice remains available',async()=>{
   const a=fresh(),q=shared(a,false);a.action('submit');const handlers=new Map(),root={isConnected:true,dataset:{},innerHTML:'',addEventListener(n,fn){handlers.set(n,fn);}};
   a.context.fetch=async url=>({ok:true,json:async()=>String(url).endsWith('textbook-manifest.json')?manifest:extra});await a.study.mount(root);
-  assert(root.innerHTML.includes('今日稍後'));assert(root.innerHTML.includes('共筆 539 題'));assert(root.innerHTML.includes('原書概念 540 題'));assert(root.innerHTML.includes('自編陌生題 120 題'));assert(root.innerHTML.includes(q.stem));
+  assert(root.innerHTML.includes('今日稍後'));assert(root.innerHTML.includes('共筆 535 題'));assert(root.innerHTML.includes('原書概念 540 題'));assert(root.innerHTML.includes('自編陌生題 120 題'));assert(root.innerHTML.includes(q.stem));
   handlers.get('click')({target:{closest:()=>({dataset:{studyFilter:'all'},disabled:false})}});assert(root.innerHTML.includes('手動練習'));
  });
  console.log(JSON.stringify({pass:results.filter(r=>r.pass).length,total:results.length,results},null,2));if(results.some(r=>!r.pass))process.exitCode=1;

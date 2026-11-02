@@ -26,7 +26,7 @@ const hooked = source.replace(end, 'globalThis.__qa={D,S,SPEC,get entries(){retu
 const bootScript = new vm.Script(bootSource);
 const hookedScript = new vm.Script(hooked);
 
-const COURSE_DATA_SHA256 = '8bd05cf8194d7c1d4d8d7350498c9df20ca4f40acc9a058bae094e1eda1eef91';
+const COURSE_DATA_SHA256 = '2476c00c72ae98c9cb0d0f8e3e831b3a59fe9d9b89f7df5ff1a93fbb9e73de58';
 const OPH = {
   id: 'oph', label: '眼科', appTitle: '眼科甄選練習室', storePrefix: 'oph-prep:', stateKey: 'oph-prep:progress-v3', syncFile: 'progress.json',
   formats: ['ophthalmology-prep-progress-v1', 'ophthalmology-prep-progress-v2', 'ophthalmology-prep-progress-v3'],

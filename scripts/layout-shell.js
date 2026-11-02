@@ -154,9 +154,10 @@ function todayPlanLine(){
 }
 function todayReview(){
   if(!tabAllowed('study')||(SPEC.id!=='oph'&&!D.questions.length))return '';
-  const now=Date.now(),today=taipeiDate(now),st=stats();let due=0,later=0,weak=0;
+  const now=Date.now(),today=taipeiDate(now),st=stats(),bank=new Set(D.questions.map(q=>q.id));let due=0,later=0,weak=0;
   for(const [k,v] of Object.entries(entries)){
     if(!k.startsWith('study:srs:')||!v||typeof v!=='object')continue;
+    if(k.startsWith('study:srs:shared:')&&!bank.has(k.slice(17)))continue;// saved review for a question no longer in the bank
     const at=Date.parse(v.plan?.dueAt);
     if(Number.isFinite(at)){if(at<=now)due++;else if(taipeiDate(at)===today)later++;}
     if(v.attempt?.correct===false||['again','hard'].includes(v.plan?.rating))weak++;
