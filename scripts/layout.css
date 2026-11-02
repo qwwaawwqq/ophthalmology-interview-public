@@ -162,3 +162,48 @@
 .case-links li{padding-left:4px;line-height:1.75}
 .case-links li>span{display:block}
 .case-links .btn{margin-top:6px}
+
+/* Issue #148: BCSC S01-S13, Hard Clinical Reasoning & Extra Cases in #quiz */
+.quiz-bank-switcher{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:0 0 18px}
+.quiz-bank-btn{display:flex;flex-direction:column;align-items:flex-start;gap:4px;min-height:68px;padding:12px 14px;background:#fff;border:1px solid var(--line);border-radius:10px;color:var(--ink);font:inherit;text-align:left;cursor:pointer;transition:border-color .15s,background .15s,box-shadow .15s}
+.quiz-bank-btn:hover{border-color:#9ccbcb;background:#f7fbfb}
+.quiz-bank-btn.is-active,.quiz-bank-btn[aria-pressed=true]{background:#e8f3f2;border-color:#155b64;box-shadow:0 0 0 1px #155b64 inset}
+.quiz-bank-btn strong{font-size:14.5px;font-weight:650;color:var(--navy);line-height:1.35}
+.quiz-bank-btn.is-active strong{color:#10343a}
+.quiz-bank-btn span{font-size:12px;color:#526a77;line-height:1.45}
+.card.quiz-adv-banner,.card.quiz-hard-hero{margin:0 0 18px;padding:18px 22px;border-radius:12px;background:#f7fbfb;border:1px solid #b9d3d6}
+.card.quiz-adv-banner.is-complete{background:#fff8ea;border-color:#efdcb6}
+.quiz-adv-banner-body,.quiz-hard-hero-body{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 20px}
+.quiz-adv-banner h2,.quiz-hard-hero h2{margin:4px 0 6px;font-size:18px;font-weight:650;line-height:1.4;color:var(--navy)}
+.quiz-adv-banner-actions,.quiz-hard-hero-actions{display:flex;flex-wrap:wrap;gap:8px}
+.quiz-adv-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin-bottom:18px;padding:12px 14px;background:#fff;border:1px solid var(--line);border-radius:10px}
+.quiz-adv-toolbar .select{min-height:40px}
+.quiz-adv-search{flex:1 1 200px;min-width:160px;min-height:40px;padding:6px 12px}
+.quiz-adv-list{display:flex;flex-direction:column;gap:18px}
+.quiz-adv-top{flex-wrap:wrap;gap:8px 12px}
+.quiz-adv-badges{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.quiz-badge-hard{background:#fff1ee;color:#8f2d1e;border:1px solid #f2c4bc}
+.quiz-badge-bcsc{background:#e8f3f2;color:#155b64}
+.quiz-badge-extra{background:#eef4fb;color:#1e4d7b}
+.quiz-badge-diff{background:#f5f8f9;color:#526a77}
+.quiz-adv-concept{font-size:13px;font-weight:600;color:var(--navy)}
+.quiz-adv-pages{padding:2px 8px;border-radius:999px;background:#f5f8f9;border:1px solid var(--line);font-size:12px;color:#526a77;font-variant-numeric:tabular-nums}
+.quiz-adv-options{display:flex;flex-direction:column;gap:8px;margin:14px 0}
+.quiz-adv-option{width:100%;text-align:left;font:inherit;cursor:pointer;background:#fff}
+.quiz-adv-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.quiz-adv-reasoning{margin:16px 0;padding:14px 16px;background:#fff8ea;border:1px solid #efdcb6;border-radius:10px}
+.quiz-adv-reasoning h3,.quiz-adv-rationales h3{margin:0 0 8px;font-size:15px;font-weight:650;color:var(--navy)}
+.quiz-adv-reasoning p{margin:6px 0;line-height:1.65}
+.quiz-adv-steps ol{margin:6px 0 0;padding-left:1.4em}
+.quiz-adv-steps li{margin:4px 0;line-height:1.65}
+.quiz-adv-rationales{margin:16px 0}
+.quiz-rationale-list{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column;gap:10px}
+.quiz-rationale-list li{padding:12px 14px;border-radius:8px;border:1px solid var(--line);background:#fff}
+.quiz-rationale-list li.is-correct{background:#f1f9f5;border-color:#a8d5ba}
+.rationale-head{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:baseline;margin-bottom:4px}
+.rationale-head strong{color:var(--navy);font-size:13.5px}
+.rationale-body,.rationale-whentrue{margin:4px 0 0;font-size:13.5px;line-height:1.65}
+.rationale-whentrue{color:#415a66}
+.quiz-adv-more{display:flex;justify-content:center;margin:12px 0 24px}
+.today-quiz-banks{display:flex;flex-wrap:wrap;gap:6px;padding-top:8px;border-top:1px dashed var(--line);margin-top:4px}
+

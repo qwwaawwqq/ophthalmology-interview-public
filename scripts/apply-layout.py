@@ -102,12 +102,23 @@ def build(text):
                 ":id==='workflow'?`<span class=\"nav-count\" aria-hidden=\"true\">${D.workflows?.workflows?.length||0}</span>`:''}${id==='schedule'?scheduleBadge():''}</button>", 'schedule badge')
     text = once(text, "$('#main').setAttribute('data-view',S.tab);$('#main').innerHTML=({schedule:schedulePage,notebook,",
                 "$('#main').setAttribute('data-view',S.tab);layoutChrome();$('#main').innerHTML=({schedule:schedulePage,notebook,today:todayPage,", 'render today')
+    text = once(text, "today:todayPage,originals,quiz,learn,",
+                "today:todayPage,originals,quiz:quizPage,learn,", 'render quizPage')
     text = once(text, "document.addEventListener('click',e=>{const b=e.target.closest('[data-action]');",
                 "document.addEventListener('click',e=>{layoutDismiss(e);const b=e.target.closest('[data-action]');", 'click dismiss')
-    text = once(text, "if(window.OphProject?.action(a,v,b))return;switch(a){\ncase'nav-toggle':",
-                "if(window.OphProject?.action(a,v,b))return;switch(a){\ncase'spec-toggle':case'top-menu':case'more-toggle':case'today-new':layoutAction(a,v,b);break;\ncase'nav-toggle':", 'layout actions')
+    old_cases = "case'spec-toggle':case'top-menu':case'more-toggle':case'today-new':layoutAction(a,v,b);break;"
+    new_cases = "case'spec-toggle':case'top-menu':case'more-toggle':case'today-new':case'quiz-bank':case'quiz-bank-open':case'quiz-adv-answer':case'quiz-adv-reveal':case'quiz-adv-retry':case'quiz-adv-shuffle':case'quiz-adv-reset-shown':case'quiz-adv-more':case'quiz-hard-timed':case'quiz-hard-deepdives':case'quiz-adv-open-source':layoutAction(a,v,b);break;"
+    if old_cases in text and new_cases not in text:
+        text = text.replace(old_cases, new_cases, 1)
+    else:
+        text = once(text, "if(window.OphProject?.action(a,v,b))return;switch(a){\ncase'nav-toggle':",
+                    "if(window.OphProject?.action(a,v,b))return;switch(a){\n" + new_cases + "\ncase'nav-toggle':", 'layout actions')
+    text = once(text, "document.addEventListener('change',e=>{const el=e.target;if(window.OphProject?.change(el))return;if(practiceChange(el))return;",
+                "document.addEventListener('change',e=>{const el=e.target;if(window.OphProject?.change(el))return;if(layoutChange(el))return;if(practiceChange(el))return;", 'layout change')
     text = once(text, "document.addEventListener('input',e=>{const el=e.target;if(window.OphProject?.input(el))return;",
                 "document.addEventListener('input',e=>{const el=e.target;if(window.OphProject?.input(el))return;if(layoutInput(el))return;", 'layout input')
+    text = once(text, "S.round=Object.create(null);switchTab('quiz');}",
+                "S.round=Object.create(null);quizBankMode='core';switchTab('quiz');}", 'startQuiz core reset')
     return merge_hooks(interview_hooks(text))
 
 
