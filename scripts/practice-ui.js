@@ -58,8 +58,8 @@ function routeMatchesView(route){
   if(route.kind==='interview')return S.tab==='interview'&&S.interview===route.id;
   return S.tab===route.tab;
 }
-function currentViewHash(){return S.tab==='learn'?(S.learn?'#topic-'+S.learn:'#tab-learn'):S.tab==='pbl'?(S.pbl?'#'+S.pbl:'#pbl'):S.tab==='workflow'?(S.workflow?'#'+S.workflow:'#workflow'):S.tab==='interview'?(S.interview?'#interview-'+S.interview:'#tab-interview'):S.tab==='links'?'#links':S.tab==='notebook'?'':'#tab-'+S.tab;}
-function currentLocationHash(){const route=parseRoute(window.location?.hash||'');return route&&routeMatchesView(route)?route.hash:(currentViewHash()||'#tab-notebook');}
+function currentViewHash(){return S.tab==='learn'?(S.learn?'#topic-'+S.learn:'#tab-learn'):S.tab==='pbl'?(S.pbl?'#'+S.pbl:'#pbl'):S.tab==='workflow'?(S.workflow?'#'+S.workflow:'#workflow'):S.tab==='interview'?(S.interview?'#interview-'+S.interview:'#tab-interview'):S.tab==='links'?'#links':S.tab==='today'?'':'#tab-'+S.tab;}
+function currentLocationHash(){const route=parseRoute(window.location?.hash||'');return route&&routeMatchesView(route)?route.hash:(currentViewHash()||'#tab-today');}
 function syncPracticeHash(){
   rememberWorkspace();
   if(!practiceHashReady||!window.history?.replaceState||!window.location)return;
@@ -107,8 +107,8 @@ function normalizeLinkUrl(raw){
     const root=base.replace(/index\.html$/,'');
     if(SPEC.query){
       const trimmed=root.replace(/\/$/,'');
-      if(s===root+SPEC.query||s===trimmed+SPEC.query||s.startsWith(root+SPEC.query+'#')||s.startsWith(trimmed+SPEC.query+'#')||s.startsWith(root+'index.html'+SPEC.query)){const i=s.indexOf('#');if(i<0)return '#tab-notebook';const hash=s.slice(i);return parseRoute(hash)?hash:null;}
-    }else if(s===root||s===root.replace(/\/$/,'')||s.startsWith(root+'#')||s.startsWith(root+'index.html')){const i=s.indexOf('#');if(i<0)return '#tab-notebook';const hash=s.slice(i);return parseRoute(hash)?hash:null;}
+      if(s===root+SPEC.query||s===trimmed+SPEC.query||s.startsWith(root+SPEC.query+'#')||s.startsWith(trimmed+SPEC.query+'#')||s.startsWith(root+'index.html'+SPEC.query)){const i=s.indexOf('#');if(i<0)return '#tab-today';const hash=s.slice(i);return parseRoute(hash)?hash:null;}
+    }else if(s===root||s===root.replace(/\/$/,'')||s.startsWith(root+'#')||s.startsWith(root+'index.html')){const i=s.indexOf('#');if(i<0)return '#tab-today';const hash=s.slice(i);return parseRoute(hash)?hash:null;}
   }
   let url;
   try{url=new URL(/^[a-z][a-z0-9+.-]*:/i.test(s)?s:'https://'+s);}catch{return null;}

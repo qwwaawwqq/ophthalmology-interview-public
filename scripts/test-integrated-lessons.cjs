@@ -202,8 +202,10 @@ test('existing active recall remains hidden until revealed and preserves origina
 });
 test('chapter quiz filters questions and records correct and wrong answers', () => {
   qa.startQuiz('notes-07');
-  assert.equal(qa.S.ids.length, 56);
-  assert(qa.S.ids.every(id => id.startsWith('notes-07-')));
+  // The folded quick-review topic 青光眼 (glaucoma) practises with its chapter (issue #114).
+  const folded = new Set(qa.D.questions.filter(q => q.topicId === 'glaucoma').map(q => q.id));
+  assert.equal(qa.S.ids.length, 56 + folded.size);
+  assert(qa.S.ids.every(id => id.startsWith('notes-07-') || folded.has(id)));
   let question = qa.question();
   change({name: 'answer', value: String(question.correctIndex)});
   action('submit');
