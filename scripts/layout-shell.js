@@ -1,7 +1,11 @@
 /* layout-shell:start */
 // 2026-11 layout: grouped rail, one specialty switcher, the 今日 home, the interview reference column and the phone tab bar.
 // Injected by scripts/apply-layout.py into the application script; edit this file, then run the script.
-const NAV_LAYOUT=[['',['today']],['閱讀',['notebook','textbook','cram','learn']],['筆試',['quiz','study','advanced']],['面試',['interview','pbl','workflow','workshop','project']],['我的',['schedule','progress','plan','links','sync']]];
+const NAV_LAYOUT=[['',['today']],['閱讀',['notebook','textbook','cram']],['筆試',['quiz','study','advanced']],['面試',['interview','pbl','workflow','workshop','project']],['我的',['schedule','progress','plan','links','sync']]];
+// 'learn' is the chapter page itself: it opens from 章節教材, so it gets no second rail entry.
+const NAV_HIDDEN=new Set(['learn']);
+// The 12 early quick-review topics now live inside the chapter that teaches them (ophthalmology only).
+const LEGACY_TOPICS={examination:'notes-01',optics:'notes-02','red-eye':'notes-14','vision-loss':'notes-14',trauma:'notes-05',glaucoma:'notes-07','vascular-retina':'notes-10','retina-macula':'notes-10',neuro:'notes-03',diplopia:'notes-04',pediatric:'notes-04',cataract:'notes-06'};
 const TABBAR=[['today','今日',['today']],['notebook','教材',['notebook','textbook','cram','learn']],['quiz','筆試',['quiz','study','advanced']],['interview','面試',['interview','pbl','workflow','workshop','project']]];
 const TABBAR_ICON={
   today:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg>',
@@ -22,8 +26,33 @@ function shortDate(date){const d=new Date(date+'T00:00:00Z');return (d.getUTCMon
 /* Rail: the build-hooked `groups` list stays the source of known tabs; NAV_LAYOUT only decides order and grouping. */
 function navLayout(groups){
   const known=new Set(groups.flatMap(g=>g[1]));known.add('today');
-  const placed=new Set(NAV_LAYOUT.flatMap(g=>g[1])),extra=[...known].filter(id=>!placed.has(id));
+  const placed=new Set(NAV_LAYOUT.flatMap(g=>g[1])),extra=[...known].filter(id=>!placed.has(id)&&!NAV_HIDDEN.has(id));
   return NAV_LAYOUT.map(([label,ids])=>[label,(label==='我的'?[...ids,...extra]:ids).filter(id=>known.has(id)&&navs.some(n=>n[0]===id))]);
+}
+function navCurrent(id){return id===S.tab||(id==='notebook'&&S.tab==='learn');}
+
+/* One home per subject: folded quick-review topics, their questions and their old links all lead to the chapter. */
+function mergedInto(id){const to=SPEC.id==='oph'?LEGACY_TOPICS[id]:null;return to&&D.topics.some(t=>t.id===to)?to:null;}
+function topicQuestions(t){return D.questions.filter(q=>q.topicId===t.id||mergedInto(q.topicId)===t.id);}
+function chapterLabel(t){return t.chapter?(SPEC.id==='oph'?'共筆 ':'第 ')+String(t.chapter).padStart(2,'0')+(SPEC.id==='oph'?' · ':' 章 · ')+shortTitle(t.id):shortTitle(t.id);}
+function topicEyebrow(t){
+  const to=mergedInto(t.id);
+  if(to)return '快速重點 · 已併入'+esc(chapterLabel(D.topics.find(x=>x.id===to)));
+  const list=orderedTopics();
+  return (t.chapter&&SPEC.id==='oph'?'共筆 ':'主題 ')+String(list.indexOf(t)+1).padStart(2,'0')+' / '+String(list.length).padStart(2,'0');
+}
+function mergedNotice(t){
+  const to=mergedInto(t.id);if(!to)return '';
+  return `<p class="merged-note">這個早期快速重點已由「${esc(chapterLabel(D.topics.find(x=>x.id===to)))}」取代，題目也併入該章練習。${btn('打開該章','learn-topic',to,'small')}</p>`;
+}
+function mergedSupplements(t){
+  if(!t.chapter)return '';
+  const list=D.topics.filter(x=>mergedInto(x.id)===t.id);if(!list.length)return '';
+  return `<section class="lesson-block merged-topics" aria-label="併入本章的快速重點"><h3>併入本章的快速重點</h3><p class="small">早期「主動複習」的快速重點已由本章取代，題目併入本章練習；舊頁與回想紀錄仍保留。</p><ul class="merged-links">${list.map(x=>`<li>${btn(esc(x.title),'learn-topic',x.id,'small')}</li>`).join('')}</ul></section>`;
+}
+function notebookHeading(){
+  const n=D.topics.filter(t=>t.chapter).length;
+  return heading('','章節教材',n?`${n} 章整合教材：點章節開始閱讀，或直接搜尋重點、詳解與題目。`:'點主題開始閱讀，或直接搜尋重點與題目。');
 }
 function specialtySwitcher(){
   if(specState.tab!==S.tab){specState.open=false;specState.tab=S.tab;}
@@ -137,7 +166,7 @@ function todayReview(){
 function todayReading(){
   const t=D.topics.find(x=>x.id===S.learn&&x.chapter)||D.topics.find(x=>x.chapter)||D.topics[0];
   if(!t)return '';
-  const started=Object.keys(entries).length>0,qs=D.questions.filter(q=>q.topicId===t.id),done=qs.filter(q=>entries['q:'+q.id]).length;
+  const started=Object.keys(entries).length>0,qs=topicQuestions(t),done=qs.filter(q=>entries['q:'+q.id]).length;
   return `<article class="card home-card"><p class="today-kicker">${started?'繼續閱讀':'從這裡開始'} · 章節教材</p><h3>${t.chapter?String(t.chapter).padStart(2,'0')+' ':''}${esc(t.title)}</h3><p class="today-summary">${esc(t.summary||'')}</p>${qs.length?`<p class="small">本章已答 ${done} / ${qs.length} 題</p>`:''}<div class="today-actions">${btn(started?'繼續閱讀':'開始閱讀','learn-topic',t.id,'primary')}${qs.length?btn('做本章 '+qs.length+' 題','practice-topic',t.id):''}</div></article>`;
 }
 function todayQuiz(){
@@ -152,7 +181,7 @@ function todayInterview(){
 }
 function todayChapters(){
   const ch=D.topics.filter(t=>t.chapter);if(!ch.length)return '';
-  return `<section class="today-chapters" aria-labelledby="today-chapters-title"><div class="today-section-head"><h2 id="today-chapters-title">${ch.length} 章進度</h2>${btn('全部章節教材','tab','notebook','small subtle')}</div><div class="chapter-tiles">${ch.map(t=>{const qs=D.questions.filter(q=>q.topicId===t.id),done=qs.filter(q=>entries['q:'+q.id]).length,pct=qs.length?Math.round(done/qs.length*100):0;return `<button class="chapter-tile" data-action="learn-topic" data-value="${esc(t.id)}"><span class="tile-no">${String(t.chapter).padStart(2,'0')}</span><span class="tile-name">${esc(shortTitle(t.id))}</span><span class="tile-meta">${qs.length?`${done} / ${qs.length} 題`:'閱讀'}</span><span class="tile-bar" aria-hidden="true"><span style="width:${pct}%"></span></span></button>`;}).join('')}</div></section>`;
+  return `<section class="today-chapters" aria-labelledby="today-chapters-title"><div class="today-section-head"><h2 id="today-chapters-title">${ch.length} 章進度</h2>${btn('全部章節教材','tab','notebook','small subtle')}</div><div class="chapter-tiles">${ch.map(t=>{const qs=topicQuestions(t),done=qs.filter(q=>entries['q:'+q.id]).length,pct=qs.length?Math.round(done/qs.length*100):0;return `<button class="chapter-tile" data-action="learn-topic" data-value="${esc(t.id)}"><span class="tile-no">${String(t.chapter).padStart(2,'0')}</span><span class="tile-name">${esc(shortTitle(t.id))}</span><span class="tile-meta">${qs.length?`${done} / ${qs.length} 題`:'閱讀'}</span><span class="tile-bar" aria-hidden="true"><span style="width:${pct}%"></span></span></button>`;}).join('')}</div></section>`;
 }
 function todayPage(){
   loadExamSchedule();

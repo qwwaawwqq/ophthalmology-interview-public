@@ -92,7 +92,10 @@ def build(text):
         text = text[:i] + block + '\n' + text[j:]
     text = once(text, "if(!D.topics.length)return specialtyPicker()+heading('SPECIALTY PREP'",
                 "if(!D.topics.length)return heading('SPECIALTY PREP'", 'notebook empty picker')
-    text = once(text, 'return specialtyPicker()+notebookHero()+', 'return notebookHero()+', 'notebook picker')
+    # 章節教材 no longer repeats the 今日 hero and stat tiles (issue #114); the first edition kept notebookHero().
+    if 'return notebookHero()+' in text and 'return notebookHeading()+' not in text:
+        text = text.replace('return notebookHero()+', 'return specialtyPicker()+notebookHero()+', 1)
+    text = once(text, 'return specialtyPicker()+notebookHero()+', 'return notebookHeading()+', 'notebook picker')
     text = once(text, "return specialtyNav()+groups.map(([label,ids])=>[label,ids.filter(tabAllowed)]).filter(([,ids])=>ids.length).map(([label,ids])=>`<section class=\"nav-group\" aria-label=\"${label}\"><p class=\"nav-group-label\">${label}</p>",
                 "return specialtySwitcher()+navLayout(groups).map(([label,ids])=>[label,ids.filter(tabAllowed)]).filter(([,ids])=>ids.length).map(([label,ids])=>`<section class=\"nav-group${label?'':' nav-home'}\" aria-label=\"${label||'首頁'}\">${label?`<p class=\"nav-group-label\">${label}</p>`:''}", 'nav groups')
     text = once(text, ":id==='workflow'?`<span class=\"nav-count\" aria-hidden=\"true\">${D.workflows?.workflows?.length||0}</span>`:''}</button>",
@@ -105,7 +108,34 @@ def build(text):
                 "if(window.OphProject?.action(a,v,b))return;switch(a){\ncase'spec-toggle':case'top-menu':case'more-toggle':case'today-new':layoutAction(a,v,b);break;\ncase'nav-toggle':", 'layout actions')
     text = once(text, "document.addEventListener('input',e=>{const el=e.target;if(window.OphProject?.input(el))return;",
                 "document.addEventListener('input',e=>{const el=e.target;if(window.OphProject?.input(el))return;if(layoutInput(el))return;", 'layout input')
-    return interview_hooks(text)
+    return merge_hooks(interview_hooks(text))
+
+
+def merge_hooks(text):
+    """Issue #114: one home per subject. Folded quick-review topics, one chapter entry, cases linked to 面試演練."""
+    text = once(text, "function orderedTopics(){return [...D.topics.filter(t=>t.chapter),...D.topics.filter(t=>!t.chapter)];}",
+                "function orderedTopics(){return [...D.topics.filter(t=>t.chapter),...D.topics.filter(t=>!t.chapter&&!mergedInto(t.id))];}", 'topic order')
+    text = once(text, "heading('02 / ACTIVE RECALL','主動複習','讀過之後，遮住答案。能用自己的話說出來，才算完成一次回想。',`<div class=\"heading-stat\"><strong>${st.topics}<i> / ${D.topics.length}</i></strong><span>主題已複習</span></div>`)",
+                "heading('02 / ACTIVE RECALL','章節教材','閱讀重點，或遮住答案主動回想；能用自己的話說出來，才算記住。',`<div class=\"heading-stat\"><strong>${orderedTopics().filter(x=>entries['topic:'+x.id]?.done).length}<i> / ${orderedTopics().length}</i></strong><span>已複習</span></div>`)", 'chapter heading')
+    text = once(text, "<p class=\"eyebrow\">CONCEPT ${String(D.topics.indexOf(t)+1).padStart(2,'0')} / ${D.topics.length}</p>",
+                "<p class=\"eyebrow\">${topicEyebrow(t)}</p>", 'chapter eyebrow')
+    text = once(text, "<p class=\"lead\">${esc(t.summary)}</p>${enrichmentNav(t)}",
+                "<p class=\"lead\">${esc(t.summary)}</p>${mergedNotice(t)}${enrichmentNav(t)}", 'merged notice')
+    text = once(text, "${extensionList(t.ext)}${renderEnrichment(t)}`;}",
+                "${mergedSupplements(t)}${extensionList(t.ext)}${renderEnrichment(t)}`;}", 'merged supplements')
+    text = once(text, "${cs.length?`<section class=\"lesson-block\"><h3>臨床口試 · 先回答再展開</h3>${cs.map((c,n)=>`<div class=\"case-block\"><h3>${n+1}. ${esc(c.prompt)}</h3><p class=\"small\">${esc(Array.isArray(t.source)?t.source.join('；'):t.source||'')}${c.ref?' · 頁 '+esc(c.ref):''}</p><details class=\"model\"><summary>查看參考回答</summary><div class=\"preline\">${esc(c.answer)}</div></details>${D.interview.some(i=>i.id===t.id+'-case-'+(n+1))?btn('進入 90 秒口試','interview',t.id+'-case-'+(n+1),'small'):''}</div>`).join('')}</section>`:''}",
+                "${cs.length?`<section class=\"lesson-block chapter-cases\"><h3>臨床口試情境</h3><p class=\"small\">計時、草稿、追問與參考回答都在「面試演練」，這裡只列情境。</p><ol class=\"case-links\">${cs.map((c,n)=>{const id=t.id+'-case-'+(n+1);return D.interview.some(i=>i.id===id)?`<li><span>${esc(c.prompt)}</span>${btn('到面試演練練習','interview',id,'small')}</li>`:`<li><span>${esc(c.prompt)}</span><details class=\"model\"><summary>查看參考回答</summary><div class=\"preline\">${esc(c.answer)}</div></details></li>`;}).join('')}</ol></section>`:''}", 'chapter cases')
+    text = once(text, "<button class=\"nav-button\" data-action=\"tab\" data-value=\"${id}\" ${id===S.tab?'aria-current=\"page\"':''}>",
+                "<button class=\"nav-button\" data-action=\"tab\" data-value=\"${id}\" ${navCurrent(id)?'aria-current=\"page\"':''}>", 'rail current')
+    text = once(text, "S.ids=D.questions.filter(q=>(topic==='all'||q.topicId===topic)&&",
+                "S.ids=D.questions.filter(q=>(topic==='all'||q.topicId===topic||mergedInto(q.topicId)===topic)&&", 'chapter practice')
+    # The chapter's own questions come first; folded quick-review questions follow.
+    text = once(text, "(mode==='uncertain'&&entries['q:'+q.id]&&meta['q:'+q.id]?.confidence===1))).map(q=>q.id);S.qi=",
+                "(mode==='uncertain'&&entries['q:'+q.id]&&meta['q:'+q.id]?.confidence===1))).sort((a,b)=>(a.topicId!==topic)-(b.topicId!==topic)).map(q=>q.id);S.qi=", 'chapter practice order')
+    text = once(text, "個快速重點、${D.questions.filter(q=>!q.sourceId).length} 題與個人面試資料持續保留。",
+                "個快速重點已併入對應章節；${D.questions.filter(q=>!q.sourceId).length} 題與個人面試資料持續保留。", 'notebook note')
+    return once(text, "${D.topics.map(t=>{const qs=D.questions.filter(q=>q.topicId===t.id);return `<tr><td><button class=\"text-button\" data-action=\"learn-topic\"",
+                "${orderedTopics().map(t=>{const qs=topicQuestions(t);return `<tr><td><button class=\"text-button\" data-action=\"learn-topic\"", 'progress rows')
 
 
 def main():

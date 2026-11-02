@@ -115,7 +115,7 @@ async function test(name, run) {
     assert.deepEqual(labels, ['閱讀', '筆試', '面試', '我的']);
     const order = [...nav.matchAll(/data-action="tab" data-value="([a-z]+)"/g)].map(m => m[1]);
     assert.equal(order[0], 'today');
-    assert.deepEqual([...order].sort(), Array.from(app.qa.navs, n => n[0]).filter(id => app.qa.tabAllowed(id)).sort(), 'each visible tab exactly once');
+    assert.deepEqual([...order].sort(), Array.from(app.qa.navs, n => n[0]).filter(id => app.qa.tabAllowed(id) && id !== 'learn').sort(), 'each visible tab exactly once; the chapter page has no second entry');
     assert(order.indexOf('notebook') < order.indexOf('quiz') && order.indexOf('quiz') < order.indexOf('interview') && order.indexOf('interview') < order.indexOf('schedule'));
     assert(nav.indexOf('data-value="study"') > nav.indexOf('<p class="nav-group-label">筆試</p>'), '今日複習 sits with 筆試');
   });
@@ -189,6 +189,47 @@ async function test(name, run) {
     const nm = boot({search: '?s=nm', fetchImpl: () => { throw Error('non-oph must not read the ophthalmology schedule'); }});
     assert(!nm.main().includes('exam-hero'));
     wellFormed(nm.main());
+  });
+
+  await test('each subject has one home: folded quick-review topics, one chapter entry, cases linked to 面試演練', () => {
+    const app = boot(), D = app.qa.D;
+    const legacy = D.topics.filter(t => !t.chapter), chapters = D.topics.filter(t => t.chapter);
+    assert.equal(legacy.length, 12);
+    app.action('learn-topic', 'notes-07');
+    let main = app.main();
+    wellFormed(main);
+    const menu = [...main.matchAll(/class="topic-button[^"]*" data-action="learn-topic" data-value="([^"]+)"/g)].map(m => m[1]);
+    assert.deepEqual(menu, chapters.map(t => t.id), 'the chapter menu lists the 14 chapters only');
+    assert(main.includes('<h1>章節教材</h1>') && main.includes('共筆 07 / 14'));
+    assert(app.nav().includes('data-value="notebook" aria-current="page"'), '章節教材 stays selected while reading a chapter');
+    assert(!app.nav().includes('data-value="learn"'));
+    const chapter = D.topics.find(t => t.id === 'notes-07');
+    assert(main.includes('class="lesson-block chapter-cases"') && main.includes('data-action="interview" data-value="notes-07-case-1"'));
+    assert(!main.includes(chapter.cases[0].answer.slice(0, 40)), 'case answers live only in 面試演練');
+    assert(main.includes('data-action="learn-topic" data-value="glaucoma"'), 'the folded topic is linked from its chapter');
+    app.action('learn-topic', 'notes-14');
+    for (const id of ['red-eye', 'vision-loss']) assert(app.main().includes(`data-action="learn-topic" data-value="${id}"`));
+    app.action('learn-topic', 'red-eye');
+    main = app.main();
+    wellFormed(main);
+    assert(main.includes('class="merged-note"') && main.includes('data-value="notes-14"'), 'old topic pages point to their chapter');
+    assert(main.includes('快速重點 · 已併入共筆 14'));
+    app.action('practice-topic', 'notes-07');
+    const own = D.questions.filter(q => q.topicId === 'notes-07').map(q => q.id), folded = D.questions.filter(q => q.topicId === 'glaucoma').map(q => q.id);
+    assert(folded.length > 0);
+    assert.deepEqual(Array.from(app.qa.S.ids), [...own, ...folded], 'chapter questions first, folded ones after');
+    main = app.main();
+    for (const t of legacy) assert(!main.includes(`<option value="${t.id}"`), 'quiz topics list chapters only');
+    app.action('tab', 'notebook');
+    main = app.main();
+    wellFormed(main);
+    assert(main.includes('<h1>章節教材</h1>') && !main.includes('home-hero') && !main.includes('stat-tile'), 'no repeat of the 今日 card and tiles');
+    app.action('tab', 'progress');
+    for (const t of legacy) assert(!app.main().includes(`data-action="learn-topic" data-value="${t.id}"`), 'progress rows list chapters only');
+    const nm = boot({search: '?s=nm'});
+    nm.action('tab', 'learn');
+    const nmMenu = [...nm.main().matchAll(/class="topic-button[^"]*" data-action="learn-topic" data-value="([^"]+)"/g)].length;
+    assert.equal(nmMenu, nm.qa.D.topics.length, 'other specialties keep every topic');
   });
 
   await test('the interview page splits practice and references into columns', () => {
