@@ -25,17 +25,25 @@ const DAY = 86400000;
 const taipei = t => new Intl.DateTimeFormat('en-CA', {timeZone: 'Asia/Taipei', year: 'numeric', month: '2-digit', day: '2-digit'}).format(new Date(t));
 const inDays = n => taipei(Date.now() + n * DAY);
 
-function boot({search = '', fetchImpl} = {}) {
+const studySrsScript = fs.readFileSync(path.join(root, 'scripts/study-srs.js'), 'utf8');
+
+function boot({search = '', fetchImpl, withStudySrs = false} = {}) {
   const elements = new Map(), handlers = new Map(), windowHandlers = new Map();
+  let focusedKey = null;
   function element(key) {
     if (!elements.has(key)) {
       const classes = new Set(), attrs = {};
       elements.set(key, {
+        id: key.startsWith('#') ? key.slice(1) : '',
+        dataset: {},
         textContent: '', innerHTML: '', value: '', hidden: false, style: {setProperty() {}},
+        selectionStart: 0, selectionEnd: 0,
         classList: {add: v => classes.add(v), remove: v => classes.delete(v), contains: v => classes.has(v),
           toggle(v, force) { const next = force === undefined ? !classes.has(v) : force; next ? classes.add(v) : classes.delete(v); return next; }},
         setAttribute(k, v) { attrs[k] = String(v); }, getAttribute: k => attrs[k] ?? null,
-        focus() {}, scrollIntoView() {}, click() {}, addEventListener() {},
+        focus() { focusedKey = key; },
+        setSelectionRange(s, e) { this.selectionStart = s; this.selectionEnd = e; },
+        scrollIntoView() {}, click() {}, addEventListener() {},
       });
     }
     return elements.get(key);
@@ -46,6 +54,7 @@ function boot({search = '', fetchImpl} = {}) {
     history: {replaceState(_s, _t, url) { const i = String(url).indexOf('#'); location.hash = i < 0 ? '' : String(url).slice(i); }},
   };
   const document = {
+    currentScript: {src: 'https://qwwaawwqq.github.io/ophthalmology-interview-public/scripts/study-srs.js?v=test'},
     getElementById: id => id in blocks ? {textContent: blocks[id]} : element('#' + id),
     querySelector: element, createElement: () => element('anchor'),
     addEventListener: (name, fn) => handlers.set(name, fn),
@@ -56,12 +65,16 @@ function boot({search = '', fetchImpl} = {}) {
   vm.createContext(context);
   vm.runInContext(registry, context);
   window.OphSpecialty = context.window.OphSpecialty;
+  if (withStudySrs) {
+    vm.runInContext(studySrsScript, context);
+    window.OphStudy = context.window.OphStudy;
+  }
   const script = appScript.replace(end, 'globalThis.__qa={D,S,navs,get entries(){return entries;},render,parseRoute,normalizeLinkUrl,currentLocationHash,tabAllowed};render();})();');
   vm.runInContext(script, context, {timeout: 10000});
   const qa = context.__qa;
   windowHandlers.get('load')?.();
   const action = (name, value = '') => handlers.get('click')({target: {closest: () => ({dataset: {action: name, value}, disabled: false, setAttribute() {}})}});
-  return {qa, element, handlers, location, action, main: () => element('#main').innerHTML, nav: () => element('#nav').innerHTML, tabbar: () => element('#tabbar').innerHTML};
+  return {qa, element, handlers, location, action, focused: () => focusedKey, main: () => element('#main').innerHTML, nav: () => element('#nav').innerHTML, tabbar: () => element('#tabbar').innerHTML};
 }
 
 // Balanced-tag check for controlled app templates, not an HTML rendering engine.
@@ -303,7 +316,7 @@ async function test(name, run) {
       if (u.includes('additional-practice.json')) return Promise.resolve({ok: true, json: () => Promise.resolve(extraPack)});
       return Promise.resolve({ok: false});
     };
-    const app = boot({fetchImpl});
+    const app = boot({fetchImpl, withStudySrs: true});
     await settle();
     // 今日 has quick-launch buttons for BCSC, Hard, and Extra
     assert(app.main().includes('data-today-quiz-banks'));
@@ -330,15 +343,48 @@ async function test(name, run) {
     assert(main.includes('id="quiz-adv-volume"') && main.includes('id="quiz-adv-status"') && main.includes('id="qShuffle"') && main.includes('id="qResetShown"'));
     const q1 = bcsc01.questions[0];
     assert(main.includes(`data-question-id="${q1.id}"`));
-    // Answer a BCSC question and verify 4-option rationale + whenTrue reveal
+
+    // Fix 7: Deterministic option permutation ensures BCSC questions do not all display correct option at letter A
+    const firstCardOptions = [...main.split('</article>')[0].matchAll(/data-option-src="(\d)" data-option-pos="(\d)"/g)];
+    assert.equal(firstCardOptions.length, 4);
+    const allCardCorrectPositions = [...main.matchAll(/<article[^>]*data-question-id="([^"]+)"[\s\S]*?<\/article>/g)].map(m => {
+      const qObj = bcsc01.questions.find(x => x.id === m[1]);
+      const optMatch = [...m[0].matchAll(/data-option-src="(\d)" data-option-pos="(\d)"/g)].find(o => Number(o[1]) === qObj.correctIndex);
+      return Number(optMatch?.[2] ?? 0);
+    });
+    assert(allCardCorrectPositions.some(pos => pos !== 0), 'deterministic option permutation distributes correct options beyond position A');
+
+    // Fix 6: Book-level clinicalUpdates scoped via questionIds (e.g. bcsc-s01-rq009) render in #quiz
+    assert(main.includes('data-quiz-adv-updates') && main.includes('與現行臨床建議的差異'), 'scoped clinicalUpdates must render on BCSC questions');
+
+    // Fix 2 & Fix 4: Filter to unanswered, answer a BCSC question, verify it stays visible for feedback AND commits/enables Study SRS rating
+    app.handlers.get('change')({target: {id: 'quiz-adv-status', value: 'unanswered'}});
     app.action('quiz-adv-answer', `${q1.id}|${q1.correctIndex}`);
     main = app.main();
     wellFormed(main);
+    assert(main.includes(`data-question-id="${q1.id}"`), 'just-answered question remains visible under unanswered filter so feedback can be read');
     assert.equal(app.qa.entries['textbook:question:' + q1.id]?.choice, q1.correctIndex);
     assert.equal(app.qa.entries['textbook:question:' + q1.id]?.revealed, true);
+    assert(app.qa.entries['study:srs:book:' + q1.id]?.attempt?.correct === true, 'OphStudy commits BCSC attempt to study:srs:book:<id>');
+    assert(main.includes('data-study-rate="good"') && !/data-study-rate="good"[^>]*disabled/.test(main), 'OphStudy rating buttons are active and not disabled');
     assert(main.includes('data-quiz-adv-rationales') && main.includes('條件反轉（何時成立）'));
+    app.handlers.get('change')({target: {id: 'quiz-adv-status', value: 'all'}});
 
-    // Switch to Hard mode
+    // Fix 1: Search input preserves focus & selection range, and skips render during IME composition
+    const searchEl = app.element('#quiz-adv-search');
+    searchEl.value = 'hypertension';
+    searchEl.selectionStart = 5;
+    searchEl.selectionEnd = 5;
+    app.handlers.get('compositionstart')?.({target: searchEl});
+    app.handlers.get('input')({target: searchEl, isComposing: true});
+    assert(app.main().includes(`data-question-id="${bcsc01.questions[1].id}"`), 'IME composition does not clobber DOM mid-composition');
+    app.handlers.get('compositionend')?.({target: searchEl});
+    assert.equal(app.focused(), '#quiz-adv-search', 'search input keeps focus after re-render');
+    assert.equal(app.element('#quiz-adv-search').selectionStart, 5, 'selectionStart restored after re-render');
+    searchEl.value = '';
+    app.handlers.get('input')({target: searchEl});
+
+    // Switch to Hard mode & verify Study SRS extra pool commit
     app.action('quiz-bank', 'hard');
     await settle();
     main = app.main();
@@ -350,6 +396,7 @@ async function test(name, run) {
     main = app.main();
     wellFormed(main);
     assert.equal(app.qa.entries['textbook:extra-question:' + hq.id]?.choice, hq.correctIndex);
+    assert.equal(app.qa.entries['study:srs:extra:' + hq.id]?.attempt?.correct, true, 'OphStudy commits Hard attempt to study:srs:extra:<id>');
     assert(main.includes('data-quiz-adv-reasoning') && main.includes('關鍵鑑別點'));
 
     // Switch to Extra 120 mode
@@ -360,11 +407,42 @@ async function test(name, run) {
     const eq = extraPack.questions[0];
     assert(main.includes(`data-question-id="${eq.id}"`));
 
-    // Switch back to core mode
-    app.action('quiz-bank', 'core');
+    // Fix 5: Returning to 今日 and clicking 繼續作答 or 換主題 restores core quiz mode without resetting S.qi
+    app.qa.S.qi = 2;
+    const savedIds = [...app.qa.S.ids];
+    app.action('tab', 'today');
+    assert(app.main().includes('data-action="today-core-quiz"'));
+    app.action('today-core-quiz', 'continue');
     main = app.main();
     wellFormed(main);
-    assert(main.includes('id="topic-filter"') && main.includes('id="mode-filter"'));
+    assert(main.includes('id="topic-filter"') && main.includes('id="mode-filter"'), 'today-core-quiz restores core mode');
+    assert.equal(app.qa.S.qi, 2, 'today-core-quiz preserves current core question index');
+    assert.deepEqual(app.qa.S.ids, savedIds);
+
+    // Fix 3: Failed advanced bank fetch does not loop on render() and recovers on quiz-adv-retry-load
+    let hardCalls = 0, shouldFail = true;
+    const errApp = boot({
+      fetchImpl: url => {
+        if (String(url).includes('advanced-practice.json')) {
+          hardCalls++;
+          return shouldFail ? Promise.resolve({ok: false}) : Promise.resolve({ok: true, json: () => Promise.resolve(hardPack)});
+        }
+        return Promise.resolve({ok: true, json: () => Promise.resolve({schemaVersion: 1, hospitals: []})});
+      }
+    });
+    await settle();
+    errApp.action('quiz-bank-open', 'hard');
+    await settle();
+    assert.equal(hardCalls, 1, 'failed fetch must not automatically retry in a render loop');
+    assert(errApp.main().includes('data-quiz-adv-error') && errApp.main().includes('data-action="quiz-adv-retry-load"'));
+    errApp.qa.render();
+    await settle();
+    assert.equal(hardCalls, 1, 'subsequent renders in error state do not re-fetch until explicit retry');
+    shouldFail = false;
+    errApp.action('quiz-adv-retry-load', '');
+    await settle();
+    assert.equal(hardCalls, 2);
+    assert(errApp.main().includes(`data-question-id="${hardPack.questions[0].id}"`));
 
     // Non-oph specialty does not show ophthalmology quiz bank switcher
     const nm = boot({search: '?s=nm'});
