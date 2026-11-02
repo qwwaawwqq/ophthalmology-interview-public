@@ -357,7 +357,10 @@ async function test(name, run) {
     // Fix 6: Book-level clinicalUpdates scoped via questionIds (e.g. bcsc-s01-rq009) render in #quiz
     assert(main.includes('data-quiz-adv-updates') && main.includes('與現行臨床建議的差異'), 'scoped clinicalUpdates must render on BCSC questions');
 
-    // Fix 2 & Fix 4: Filter to unanswered, answer a BCSC question, verify it stays visible for feedback AND commits/enables Study SRS rating
+    // Fix 2 & Fix 4 (plus Round 2 empty core pool + revealed answer rejection + reset-shown retention):
+    // Set S.ids = [] to simulate an empty core filter (e.g. wrong filter with 0 wrong answers), so question() is undefined and render() calls OphStudy.context(null, null)
+    const origCoreIds = [...app.qa.S.ids];
+    app.qa.S.ids = [];
     app.handlers.get('change')({target: {id: 'quiz-adv-status', value: 'unanswered'}});
     app.action('quiz-adv-answer', `${q1.id}|${q1.correctIndex}`);
     main = app.main();
@@ -366,8 +369,29 @@ async function test(name, run) {
     assert.equal(app.qa.entries['textbook:question:' + q1.id]?.choice, q1.correctIndex);
     assert.equal(app.qa.entries['textbook:question:' + q1.id]?.revealed, true);
     assert(app.qa.entries['study:srs:book:' + q1.id]?.attempt?.correct === true, 'OphStudy commits BCSC attempt to study:srs:book:<id>');
-    assert(main.includes('data-study-rate="good"') && !/data-study-rate="good"[^>]*disabled/.test(main), 'OphStudy rating buttons are active and not disabled');
+    assert(main.includes('data-study-rate="good"') && !/data-study-rate="good"[^>]*disabled/.test(main), 'OphStudy rating buttons stay active even when core question() is undefined');
     assert(main.includes('data-quiz-adv-rationales') && main.includes('條件反轉（何時成立）'));
+
+    // Round 2 Fix 1: Option buttons are disabled when revealed, and attempting to change answer or answer after reveal is rejected until retry
+    const q1CardHtml = main.split('</article>')[0];
+    assert(/data-action="quiz-adv-answer"[^>]*disabled/.test(q1CardHtml), 'revealed question options must be disabled');
+    const wrongIdx = (q1.correctIndex + 1) % 4;
+    app.action('quiz-adv-answer', `${q1.id}|${wrongIdx}`);
+    assert.equal(app.qa.entries['textbook:question:' + q1.id]?.choice, q1.correctIndex, 'revealed question must reject subsequent answer changes');
+
+    // Round 2 Fix 3: Clicking 重設本頁作答 under unanswered filter resets the retained quizAdvFeedbackId question as well
+    app.action('quiz-adv-reset-shown', '');
+    assert.equal(app.qa.entries['textbook:question:' + q1.id], undefined, 'quiz-adv-reset-shown must reset retained feedback question before clearing quizAdvFeedbackId');
+
+    // Also verify clicking 直接看解析 (quiz-adv-reveal) disables options and rejects subsequent answer until 重做本題 (quiz-adv-retry)
+    app.action('quiz-adv-reveal', q1.id);
+    app.action('quiz-adv-answer', `${q1.id}|${q1.correctIndex}`);
+    assert.equal(app.qa.entries['textbook:question:' + q1.id], undefined, 'answering after quiz-adv-reveal is rejected before retry');
+    app.action('quiz-adv-retry', q1.id);
+    app.action('quiz-adv-answer', `${q1.id}|${q1.correctIndex}`);
+    assert.equal(app.qa.entries['textbook:question:' + q1.id]?.choice, q1.correctIndex, 'answering succeeds after quiz-adv-retry');
+
+    app.qa.S.ids = origCoreIds;
     app.handlers.get('change')({target: {id: 'quiz-adv-status', value: 'all'}});
 
     // Fix 1: Search input preserves focus & selection range, and skips render during IME composition
@@ -419,13 +443,21 @@ async function test(name, run) {
     assert.equal(app.qa.S.qi, 2, 'today-core-quiz preserves current core question index');
     assert.deepEqual(app.qa.S.ids, savedIds);
 
-    // Fix 3: Failed advanced bank fetch does not loop on render() and recovers on quiz-adv-retry-load
-    let hardCalls = 0, shouldFail = true;
+    // Fix 3 & Round 2 Fix 4: Failed advanced bank fetch does not loop on render(), shows partial-error retry even when filtered list is empty, and recovers on quiz-adv-retry-load
+    let hardCalls = 0, bcscCalls = 0, shouldFail = true;
     const errApp = boot({
       fetchImpl: url => {
-        if (String(url).includes('advanced-practice.json')) {
+        const u = String(url);
+        if (u.includes('advanced-practice.json')) {
           hardCalls++;
           return shouldFail ? Promise.resolve({ok: false}) : Promise.resolve({ok: true, json: () => Promise.resolve(hardPack)});
+        }
+        if (u.includes('textbook-manifest.json')) {
+          bcscCalls++;
+          return Promise.resolve({ok: false});
+        }
+        if (u.includes('additional-practice.json')) {
+          return Promise.resolve({ok: false});
         }
         return Promise.resolve({ok: true, json: () => Promise.resolve({schemaVersion: 1, hospitals: []})});
       }
@@ -443,6 +475,12 @@ async function test(name, run) {
     await settle();
     assert.equal(hardCalls, 2);
     assert(errApp.main().includes(`data-question-id="${hardPack.questions[0].id}"`));
+
+    // Switch to all-advanced where Hard is ready but BCSC/Extra failed, then filter to S01 (empty filtered list) and verify partial-error retry banner still appears
+    errApp.action('quiz-bank', 'all-advanced');
+    await settle();
+    errApp.handlers.get('change')({target: {id: 'quiz-adv-volume', value: 'bcsc-s01'}});
+    assert(errApp.main().includes('data-quiz-adv-error') && errApp.main().includes('data-action="quiz-adv-retry-load"'), 'partial error retry banner must stay visible even when filtered list is empty');
 
     // Non-oph specialty does not show ophthalmology quiz bank switcher
     const nm = boot({search: '?s=nm'});
