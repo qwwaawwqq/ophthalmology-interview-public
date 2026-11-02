@@ -4863,7 +4863,7 @@
       "closestDistractorIndex": 2,
       "decisiveDiscriminator": "表面麻醉透明角膜白內障屬低出血處置可續用DAPT，但外路DCR屬高出血手術且ACS後DES未滿4個月嚴禁擅停P2Y12抑制劑；同時etanercept關聯矛盾性葡萄膜炎，須轉換為單株抗體型anti-TNF-α。",
       "counterfactual": "若該名患者僅需執行表面麻醉透明角膜白內障手術而無DCR需求，且目前使用的是adalimumab並使葡萄膜炎長期穩定緩解，則可在不停止抗血小板藥物與不更換生物製劑種類的前提下規畫白內障手術。",
-      "counterfactualIndex": 2,
+      "counterfactualIndex": null,
       "reasoningSteps": [
         "將同台要求的兩個術式按出血風險拆開：表面麻醉透明角膜白內障手術為極低出血風險（續用DAPT），外路DCR為高出血風險（需停藥評估）",
         "檢核冠狀動脈支架時窗：急性心肌梗塞置放塗藥支架僅4個月，停用clopidogrel具致命支架血栓風險，故擇期高出血之DCR必須延後",
@@ -4944,7 +4944,7 @@
       "closestDistractorIndex": 0,
       "decisiveDiscriminator": "瀰漫型SSc（anti-RNA polymerase III陽性）暴露於中高劑量類固醇後出現極端高血壓、急性腎衰竭與惡性高血壓眼底（視盤水腫＋Elschnig斑），確診硬皮症腎危機；必須即刻停類固醇並給ACE抑制劑受控降壓，絕不可再打類固醇或瞬間把血壓壓得過低。",
       "counterfactual": "若患者血壓僅190/104 mmHg，完全無頭痛、肌酸酐與尿液檢查正常，且散瞳眼底僅見慢性小動脈狹窄而無視盤水腫或新鮮出血棉絮斑，則歸類為無急性標的器官損傷之高血壓緊急狀態，可採門診口服降壓藥逐步調控。",
-      "counterfactualIndex": 2,
+      "counterfactualIndex": null,
       "reasoningSteps": [
         "從眼底定位危象層級：雙側視盤水腫＋火焰狀出血／棉絮斑＋脈絡膜缺血（Elschnig斑）構成惡性高血壓眼底三聯徵，屬高血壓急症（hypertensive emergency）",
         "連結全身風濕病史與誘因：瀰漫型全身性硬化症（anti-RNA polymerase III陽性）近期服用prednisone 40 mg並伴隨肌酸酐飆升與溶血，鎖定硬皮症腎危機（scleroderma renal crisis）",
@@ -5025,7 +5025,7 @@
       "closestDistractorIndex": 0,
       "decisiveDiscriminator": "依Goldmann方程式IOP = (F − U)/C + EVP，代入F = 1.2、U = 0.4、C = 0.20、EVP = 20得(0.8 / 0.20) + 20 = 24 mmHg（高EVP使眼壓無法低於20 mmHg）；且角膜內皮僅680 cells/mm²應避開局部CAI，慢性葡萄膜炎應避開易破壞血—房水障壁之PGA。",
       "counterfactual": "若該患者無海綿竇瘻管、上鞏膜靜脈壓EVP為正常的11 mmHg，則在F降至1.2 μL/min後穩態IOP將降至(1.2 − 0.4)/0.20 + 11 = 15 mmHg；若同時角膜內皮健康無移植史，便可安全將局部碳酸酐酶抑制劑納入降壓組合。",
-      "counterfactualIndex": 0,
+      "counterfactualIndex": null,
       "reasoningSteps": [
         "列出Goldmann房水動力學方程式：IOP = (F − U) / C + EVP，用藥前基線為(2.4 − 0.4) / 0.20 + 20 = 30 mmHg",
         "計算F減半至1.2 μL/min後之新穩態眼壓：IOP = (1.2 − 0.4) / 0.20 + 20 = 0.8 / 0.20 + 20 = 4 + 20 = 24 mmHg，辨識高EVP對眼壓下限的1:1墊高效應",
@@ -5120,7 +5120,7 @@
       "closestDistractorIndex": 0,
       "decisiveDiscriminator": "家譜具「父傳子」直接排除mtDNA母系遺傳與X連鎖遺傳，確立體染色體顯性（傳遞基因機率50%，乘上80%外顯率得40%發病風險）；同時OPA1為核基因編碼之粒線體內膜蛋白，仍須嚴格迴避ethambutol與linezolid等粒線體毒性藥物。",
       "counterfactual": "若該名男性患者的基因檢測改為確認攜帶粒線體DNA點突變（m.11778G>A，即典型LHON），且家譜中僅母系親屬患病而無任何父傳子紀錄，則其生育任何子女由他傳遞該mtDNA突變的機率確為0%（惟其本人仍須絕對戒菸並避開ethambutol與linezolid）。",
-      "counterfactualIndex": 0,
+      "counterfactualIndex": null,
       "reasoningSteps": [
         "利用家譜特徵定性遺傳模式：祖父→父親→男性患者連續兩代「父傳子（male-to-male transmission）」，100%排除粒線體母系遺傳與X連鎖遺傳，確認為體染色體顯性（AD）",
         "拆解傳遞率、外顯率與表現度：AD雜合患者傳遞突變基因給兒子的機率為50%，計入外顯率80%後，子代實際發病機率為0.5 × 0.8 = 40%，且因變異表現度無法保證子代必為輕症",
@@ -5213,7 +5213,7 @@
       "closestDistractorIndex": 2,
       "decisiveDiscriminator": "Toric IOL每偏轉1°約損失3.3%減散光效果，依ΔC = 2·C·sinθ，偏轉30°時2·sin30° = 1.0，殘餘散光幅度為100%原散光（2.00 D）而非損失30%；且試鏡架增加−1.00 D負柱鏡時，須依ΔS = −ΔC/2加上+0.50 D球鏡。",
       "counterfactual": "若該枚2.00 D Toric IOL在囊袋內僅偏離目標軸約9°（2·sin9° ≈ 0.31），則殘餘散光大小才約為原散光的30%（約0.62 D）；但驗光時每增加−1.00 D負柱鏡仍須加上+0.50 D球鏡而非減球鏡。",
-      "counterfactualIndex": 2,
+      "counterfactualIndex": null,
       "reasoningSteps": [
         "計算Toric IOL旋轉30°之合成散光幅度：依倍角向量公式ΔC = 2·C·sinθ，代入C = 2.00 D、θ = 30°（sin30° = 0.5），得殘餘散光大小 = 2 × 2.00 × 0.5 = 2.00 D（即100%原散光大小，僅軸向旋轉）",
         "計算試鏡架調強負柱鏡時之球鏡補償：原試鏡−1.00 −1.00 × 060之等效球面SE = −1.00 + (−1.00)/2 = −1.50 D",
@@ -5311,7 +5311,7 @@
       "closestDistractorIndex": 2,
       "decisiveDiscriminator": "右眼+1.50 +2.00 × 180在90°子午線為+3.50 D（正鏡下視產生3.5 Δ BU），左眼−2.00 −2.00 × 090在90°子午線為−2.00 D（負鏡下視產生2.0 Δ BD）；BU與BD方向相反必須相加得5.5 Δ失衡，而非同向相減得1.5 Δ。",
       "counterfactual": "若右眼處方改為−1.50 −2.00 × 180（使右眼90°子午線變為−3.50 D，下移1.0 cm產生3.5 Δ BD），而左眼90°子午線維持−2.00 D（2.0 Δ BD），則兩眼同為基底向下（BD），淨垂直稜鏡差額才會相減為3.5 − 2.0 = 1.5 Δ。",
-      "counterfactualIndex": 2,
+      "counterfactualIndex": null,
       "reasoningSteps": [
         "分別求取兩眼在90°垂直子午線的有效屈折力（D_90）：OD柱鏡軸在180°，全部柱鏡力作用於90°，故D_90(OD) = +1.50 + 2.00 = +3.50 D；OS柱鏡軸在90°，垂直方向無柱鏡力，故D_90(OS) = −2.00 D",
         "套用Prentice規則（Δ = c_cm × |D_90|）並判定基底方向：閱讀視線下移c = 1.0 cm，OD正鏡產生1.0 × 3.50 = 3.5 Δ BU（基底朝向光學中心上方），OS負鏡產生1.0 × 2.00 = 2.0 Δ BD（基底朝向鏡片下方邊緣）",
@@ -5481,7 +5481,7 @@
       "closestDistractorIndex": 2,
       "decisiveDiscriminator": "COMS中型試驗證明I-125斑塊放療與直接眼球摘除存活率相等（無須因Class 2補摘眼球）；GEP Class 2/BAP1失活經血行嗜肝轉移需密集肝臟MRI（抽血肝指數不能取代），且tebentafusp受限於HLA-A*02:01陽性（本例陰性不適用）。",
       "counterfactual": "若該患者在追蹤期間經肝臟穿刺證實發生無法手術切除之肝臟轉移，且其人類白血球抗原分型確認為HLA-A*02:01陽性，則可由腫瘤科啟動tebentafusp全身治療以延長整體存活期。",
-      "counterfactualIndex": 2,
+      "counterfactualIndex": null,
       "reasoningSteps": [
         "評估局部治療與眼球保留安全性：依COMS中型腫瘤隨機試驗，I-125斑塊放療與眼球摘除之長期轉移死亡率無差異，且同台斑塊放療前FNAB不增加播散風險，無須預防性摘除眼球或做前哨淋巴結切片（眼內無淋巴管）",
         "轉譯分子預後分層為全身監測策略：GEP Class 2（Monosomy 3＋BAP1失活）具極高早期血行轉移風險，約90%轉移累及肝臟，必須每6–12個月以含顯影腹部MRI密集監測（肝功能抽血敏感度不足）",
@@ -5567,7 +5567,7 @@
       "closestDistractorIndex": 0,
       "decisiveDiscriminator": "常規福馬林石蠟包埋（FFPE）經二甲苯脫蠟後脂質已溶失，不能做Oil Red O（需改用石蠟可做的Adipophilin/EMA免疫染色）；且上皮內頁狀蔓延（pagetoid spread）呈跳躍分布又難在標準冷凍切片辨識，須做多點結膜map biopsies並待永久切緣確認後再行複雜重建。",
       "counterfactual": "若手術醫師在切取新鮮瞼板檢體當下即預留未放入福馬林的新鮮組織送冰凍切片室，則病理科確實可直接使用Oil Red O或Sudan Black B化學染色證明胞質內脂質滴；惟結膜頁狀蔓延之mapping與切緣確認原則仍不變。",
-      "counterfactualIndex": 0,
+      "counterfactualIndex": null,
       "reasoningSteps": [
         "從臨床與病理特徵鎖定診斷：高齡上眼瞼反覆霰粒腫偽裝、睫毛脫落（madarosis）、分葉中央粉刺壞死、泡沫空泡胞質及結膜上皮內單細胞跳躍播散（pagetoid spread），確立為皮脂腺癌",
         "檢核檢體處理對特殊染色的限制：檢體已入10%福馬林並做成FFPE石蠟塊，二甲苯與酒精已溶盡胞質脂質，故傳統Oil Red O必失效，應在FFPE切片改做Adipophilin（膜泡狀陽性）、EMA(+)與Ber-EP4(−)免疫染色",
@@ -5652,7 +5652,7 @@
       "closestDistractorIndex": 0,
       "decisiveDiscriminator": "第四腦神經麻痺的高眼必為外旋（excyclotorsion）且平躺測試垂直斜視不變；本例高眼（右眼）為內旋（incyclotorsion）、合併同側內收跳視遲滯（INO），且平躺測試垂直斜視由5 Δ降至1 Δ（減少80% ≥ 50%），確診為右側MLF病灶致INO合併斜偏視。",
       "counterfactual": "若該病患水平內收跳視完全正常，雙馬氏桿顯示右眼（高眼）外旋6度、左眼正位0度，且由坐姿改平躺後右眼上斜視仍維持5 Δ不變，則應診斷為右側第四腦神經（滑車神經）麻痺。",
-      "counterfactualIndex": 0,
+      "counterfactualIndex": null,
       "reasoningSteps": [
         "辨識水平運動異常：右眼內收跳視遲滯（adducting saccadic lag）伴對側外展眼分離性眼振且會聚保留，定位於右側內側縱束（MLF）之核間性眼肌麻痺（INO）",
         "檢核眼球旋轉方向：高眼（右眼）呈內旋4度、低眼（左眼）呈外旋5度，屬向低眼側之雙眼共軛滾轉（ocular tilt reaction），直接排除高眼必外旋之第四腦神經麻痺",
@@ -5744,7 +5744,7 @@
       "closestDistractorIndex": 3,
       "decisiveDiscriminator": "高達16%之GCA患者ESR可正常，但對側眼CDR 0.55（非擁擠視盤）、患眼粉筆白視盤水腫、咀嚼跛行及高CRP/血小板增多確立AAION；急性期須立即給予IV methylprednisolone（不可等切片亦不可單用tocilizumab），維持期併用tocilizumab但須知其會掩蓋CRP/ESR。",
       "counterfactual": "若病患為56歲睡眠呼吸中止症男性，無咀嚼跛行或短暫黑矇，晨起右眼視力0.6伴下方視野缺損、右眼視盤充血性節段水腫、左眼杯盤比為0.1（crowded disc-at-risk），且ESR、CRP與血小板皆正常，則診斷為典型NAION，重點為控制血管危險因子與避免夜間低血壓。",
-      "counterfactualIndex": 1,
+      "counterfactualIndex": null,
       "reasoningSteps": [
         "以視盤外觀與對側眼結構鑑別AAION與NAION：患眼粉筆白蒼白水腫（pallid edema）伴視力HM，且對側眼杯盤比0.55（無disc-at-risk），搭配咀嚼跛行（jaw claudication）強烈指向GCA所致之AAION",
         "綜合判讀發炎指標：約10%–16%之GCA患者ESR正常（本例18 mm/hr ≤ 43 mm/hr），但CRP顯著升高（4.8 mg/dL）合併反應性血小板增多（495,000/μL）具極高診斷敏感度與特異度",
@@ -5835,7 +5835,7 @@
       "closestDistractorIndex": 0,
       "decisiveDiscriminator": "第三級（節後）交感神經纖維於海綿竇內由內頸動脈交感叢短暫併入緊鄰的第六腦神經（CN VI）再轉入三叉神經眼支（V1），故「單側CN VI麻痺 + 同側Horner氏症（Parkinson sign）+ V1麻木」且無視神經（CN II）受累，唯一精確定位於海綿竇。",
       "counterfactual": "若該病患同時出現右眼視力驟降至0.1、右眼顯著RAPD、色覺喪失及眼球微突，則代表病灶已向前延伸壓迫視神經管與眶上裂，此時應改定位為右側眼眶尖症候群（orbital apex syndrome）。",
-      "counterfactualIndex": 0,
+      "counterfactualIndex": null,
       "reasoningSteps": [
         "確認Horner氏症候群：右眼上眼瞼輕度下垂伴下眼瞼微抬（Müller肌去交感神經）、暗室瞳孔不等大伴擴張遲滯，且1% apraclonidine測試呈去神經超敏反轉（右眼擴瞳且眼瞼上抬）",
         "追蹤交感與外展神經交會解剖：節後交感纖維僅在海綿竇（cavernous sinus）內由內頸動脈交感叢短暫跳上緊貼內頸動脈外側游離行走的第VI腦神經，再併入V1",
@@ -5917,7 +5917,7 @@
       "closestDistractorIndex": 1,
       "decisiveDiscriminator": "雙馬氏桿外旋總和14°（>10°）、上下凝視V型內斜視差18 Δ（≥15 Δ），以及向右凝視（4 Δ LHT）與向左歪頭（6 Δ LHT）出現垂直斜視方向反轉，鐵證鎖定隱匿性雙側第四腦神經麻痺（masked bilateral SOP），單側手術必導致對側麻痺顯現。",
       "counterfactual": "若該病患向右凝視時為2 Δ RHT、頭向左傾時為0 Δ（從未反轉為LHT），上下凝視水平眼位無V型內斜視，且雙馬氏桿僅右眼外旋6度、左眼0度，則為單純右側第四腦神經麻痺，追蹤滿6個月未恢復時可單獨針對右側施行斜肌手術。",
-      "counterfactualIndex": 1,
+      "counterfactualIndex": null,
       "reasoningSteps": [
         "計算雙馬氏桿總外旋量：右眼外旋9度 + 左眼外旋5度 = 14度（>10°為雙側上斜肌麻痺之關鍵量化門檻）",
         "評估水平A/V型態：上方凝視0 Δ、下方凝視18 Δ內斜視（上下差18 Δ ≥ 15 Δ），因雙側上斜肌同時失去下視外展與下轉作用，由雙側下直肌主導下轉造成V型內斜視與下巴內收代償頭位",
@@ -6021,7 +6021,7 @@
       "closestDistractorIndex": 1,
       "decisiveDiscriminator": "戴+3.00 D全矯正後遠距僅2 Δ內隱斜視、近距26 Δ ET'，梯度法AC/A = (26-2)/3 = 8.0 Δ/D、遠近距法AC/A = 5.0 + (26-2)/3 = 13.0 Δ/D，確立為高AC/A調節性內斜視；兒童雙光鏡必須採用平頂雙光鏡（flat-top/executive）且子片上緣切齊瞳孔中線（bisecting the pupil）。",
       "counterfactual": "若該女童配戴OU +3.00 D滿8週並經二次散瞳確認無殘餘潛伏遠視後，戴鏡遠距離仍為22 Δ顯性內斜視（ET）、戴鏡近距離為24 Δ ET'，則診斷為部分調節性內斜視，應針對戴鏡後殘留之非調節性角度施行雙側內直肌後退術。",
-      "counterfactualIndex": 0,
+      "counterfactualIndex": null,
       "reasoningSteps": [
         "計算梯度法（gradient method）AC/A比值：於33 cm固定距離下，(戴全矯正近距26 Δ − 加+3.00 D後近距2 Δ) / 3.00 D = 8.0 Δ/D（>5 Δ/D，證實高AC/A）",
         "計算遠近距法（heterophoria method）AC/A比值：IPD(5.0 cm) + (戴鏡近距26 Δ − 戴鏡遠距2 Δ) / 3.00 D = 5.0 + 8.0 = 13.0 Δ/D",
@@ -6126,7 +6126,7 @@
       "closestDistractorIndex": 0,
       "decisiveDiscriminator": "ETROP中「Zone I, stage 3 without plus」直接屬於需在72小時內治療之Type 1 ROP（而Zone II, stage 3 without plus才屬Type 2 ROP）；且玻璃體內抗VEGF注射後因常殘留持續性無血管視網膜（PAR）並可在50–65週PMA以後發生晚期復發，必須追蹤至至少65週PMA。",
       "counterfactual": "若該早產兒視網膜血管已延伸超過視盤至中心凹距離兩倍以外進入Zone II，交界處見Stage 3增生脊但後極部無plus disease（即Zone II, stage 3 without plus），則歸類為Type 2 prethreshold ROP，應每1週密切追蹤而暫不需在72小時內治療。",
-      "counterfactualIndex": 0,
+      "counterfactualIndex": null,
       "reasoningSteps": [
         "判定解剖分區與期別：視盤中心至中心凹距離2倍半徑圓內為Zone I；交界處見突破視網膜平面之纖維血管增生脊為Stage 3；後極部血管未達標準plus照片為without plus",
         "套用ETROP治療門檻：Zone I只要有Stage 3（即使無plus disease）即屬Type 1 ROP，必須在72小時內執行治療（抗VEGF玻璃體內注射或周邊無血管區雷射消融）",
@@ -6199,7 +6199,7 @@
       "closestDistractorIndex": 0,
       "decisiveDiscriminator": "水滴狀瞳孔移位（peaked pupil）、前房異常加深、360度隆起出血性結膜水腫與低眼壓（8 mmHg）為隱匿性開放性鞏膜破裂（occult open-globe rupture）鐵證；必須立即停止任何眼球壓迫或床邊強行處置，罩上硬式眼罩、給止吐與靜脈抗生素並緊急進手術室探查。",
       "counterfactual": "若該病患角膜與鞏膜完整、前房深度正常對稱、瞳孔圓整無移位，但眼壓高達52 mmHg、眼球硬如石頭伴突眼、RAPD與視力下降，則為純粹球後血腫所致急性眼窩腔室症候群（OCS），必須在排CT前立即於床邊施行外側眥切開加下眥韌帶切斷術（lateral canthotomy and inferior cantholysis）。",
-      "counterfactualIndex": 0,
+      "counterfactualIndex": null,
       "reasoningSteps": [
         "執行眼外傷首要檢核（Globe First）：發現水滴狀瞳孔（指向破裂口）、前房異常加深（後方鞏膜破裂致晶體虹膜膈後移）、360度出血性結膜水腫與眼壓8 mmHg，確立為隱匿性開放性眼球破裂",
         "排除床邊減壓與壓迫操作禁忌：開放性眼球破裂時強行撐瞼或壓迫眼球會擠出視網膜与葡萄膜造成永久失明，且禁用加壓眼墊與接觸式B-scan",
@@ -6361,7 +6361,7 @@
       "closestDistractorIndex": 3,
       "decisiveDiscriminator": "提上眼瞼肌纖維脂肪發育不良導致「上提無力（按眉後真實LF僅2 mm ≤ 4 mm、眼瞼摺痕消失）」與「下視無法放鬆（downgaze lid lag）」；因已遮蔽瞳孔（MRD1 -1.0 mm）併發弱視，須立即以矽膠條施行額肌懸吊術（frontalis suspension），不可等到3–4歲取自體闊筋膜。",
       "counterfactual": "若病患為68歲女性，右眼MRD1為+0.5 mm、左眼+3.5 mm，右眼上眼瞼摺痕高達13 mm，向下看時右眼上眼瞼比左眼更低（downgaze ptosis worsens），且按壓眉毛後雙眼提上眼瞼肌功能皆為15 mm，則為後天腱膜性眼瞼下垂（aponeurotic ptosis），應行提上眼瞼肌腱膜推進修復術。",
-      "counterfactualIndex": 1,
+      "counterfactualIndex": null,
       "reasoningSteps": [
         "區分肌源性與腱膜性眼瞼下垂：眼瞼摺痕消失且向下看時患眼上瞼無法放鬆下移反而較高（downgaze lid lag），確立為先天性肌源性提上眼瞼肌纖維脂肪發育不良（fibrofatty dystrophy）",
         "校正提上眼瞼肌功能（levator excursion）：按壓固定眉毛（brow immobilization）扣除額肌4 mm代償後，真實LF僅2 mm（≤4 mm屬極差功能），鎖定術式必須為額肌懸吊術（frontalis suspension）",
@@ -6451,7 +6451,7 @@
       "closestDistractorIndex": 1,
       "decisiveDiscriminator": "不成比例之劇痛、放射狀角膜神經炎（radial keratoneuritis）與自來水暴露史將診斷由「HSV基質炎」翻轉為「棘阿米巴角膜炎」，此時類固醇與局部NSAID由治療選項變成惡化與融解陷阱。",
       "counterfactual": "若病患無隱形眼鏡與自來水暴露史、角膜知覺明顯減退且無放射狀神經炎，前房與基質呈現典型盤狀水腫（disciform endotheliitis）且上皮已完全癒合，則在口服抗病毒藥保護下維持局部皮質類固醇方屬合理。",
-      "counterfactualIndex": 1,
+      "counterfactualIndex": null,
       "reasoningSteps": [
         "辨識早期棘阿米巴角膜炎的典型假象：上皮假樹枝病變常被誤診為HSV樹枝狀角膜炎，但抗疱疹治療無效且疼痛劇烈不成比例",
         "抓出決定性形態與病史線索：自來水沖洗鏡盒、放射狀角膜神經炎與早期環狀浸潤確診為Acanthamoeba方向",
@@ -6538,7 +6538,7 @@
       "closestDistractorIndex": 0,
       "decisiveDiscriminator": "「完全不痛＋平滑灰白捲邊（rolled margins）」將病變定性為無活病毒的Mackie第2/3期神經營養性潰瘍（metaherpetic ulcer），而非活動性病毒上皮炎；因此必須停除局部抗病毒水劑與局部NSAID這兩大融解元兇，改走cenegermin／自體血清／羊膜保護。",
       "counterfactual": "若裂隙燈下並非平滑捲邊橢圓缺損，而是角膜周邊或中央新冒出高起、表面微濕潤且染色呈分支假樹枝狀（pseudodendrites）的活動性VZV上皮病變，則應給予口服高劑量valacyclovir或局部ganciclovir凝膠抗病毒治療。",
-      "counterfactualIndex": 0,
+      "counterfactualIndex": null,
       "reasoningSteps": [
         "從「HZO病史＋完全無痛＋平滑灰白捲曲邊緣」辨識Mackie Stage II/III神經營養性角膜病變（metaherpetic ulcer），排除活動性病毒複製",
         "抓出醫源性惡化原因：含BAK局部抗病毒水劑毒殺移行上皮，局部diclofenac（NSAID）則直接誘發無菌性角膜基質融解",
@@ -6599,7 +6599,7 @@
         "test-interpretation"
       ],
       "testConcept": "DMEK／DSAEK術後準備重打氣（rebubbling）前須先核對植片貼附方向與下方虹膜周切（inferior PI）通暢度，避免對貼反（反S印記）植片盲目反覆注氣或誘發氣泡瞳孔阻滯",
-      "stem": "66歲Fuchs角膜內皮失養症病患接受人工水晶體置換聯合DMEK手術（預留約-0.50 D目標以補償輕度遠視偏移）。術後第4天中央與下方角膜持續水腫，前房殘留20% SF6氣泡位於上方，術中所做6點鐘方向下方周邊虹膜切除孔（inferior PI）通暢、眼壓14 mmHg。前節OCT（AS-OCT）見植片約40%面積與受者後基質分離，邊緣朝向受者基質面（向上方）緊密內捲，裂隙燈下植片印記呈現反轉之「反S形（upside-down S-stamp）」。此時最合理的處置為何？",
+      "stem": "66歲Fuchs角膜內皮失養症病患接受人工水晶體置換聯合DMEK手術（預留約-0.50 D目標以補償輕度遠視偏移）。術後第4天中央與下方角膜持續水腫，前房殘留20% SF6氣泡位於上方，術中所做6點鐘方向下方周邊虹膜切除孔（inferior PI）通暢、眼壓14 mmHg。前節OCT（AS-OCT）見植片約40%面積與受者後基質分離，邊緣朝向虹膜面（向下方）緊密捲曲，裂隙燈下植片印記呈現反轉之「反S形（upside-down S-stamp）」。此時最合理的處置為何？",
       "options": [
         {
           "text": "直接於門診裂隙燈下由側切口補打100%純SF6氣體填滿前房95%容積以壓平捲邊，並於12點鐘方向加打一處上方Nd:YAG雷射虹膜周切孔預防瞳孔阻滯",
@@ -6608,13 +6608,13 @@
         },
         {
           "text": "因眼壓正常且下方PI通暢，判定為急性角膜內皮免疫排斥導致植片水腫脫離，維持植片原位觀察並升級為每小時點用0.05% difluprednate加口服prednisone",
-          "rationale": "術後第4天、印記呈「反S」且邊緣朝向受者基質內捲，屬於醫源性植片上下貼反（inverted graft），並非免疫排斥（排斥通常在數週至數月後發生且植片原本已貼附清澈），單點高劑量類固醇無法讓貼反的Descemet膜發揮內皮泵功能。",
+          "rationale": "術後第4天、印記呈「反S」且邊緣朝向下方虹膜面捲曲，屬於醫源性植片上下貼反（inverted graft），並非免疫排斥（排斥通常在數週至數月後發生且植片原本已貼附清澈），單點高劑量類固醇無法讓貼反的Descemet膜發揮內皮泵功能。",
           "whenTrue": "原本已完全貼附清澈數月之DMEK植片突然出現Khoudadoust線或瀰漫KP與水腫，且AS-OCT確認植片完全貼合無分離時。"
         },
         {
-          "text": "辨識出植片上下貼反（內皮面朝向受者基質），不作原地重打氣；進手術室將DMEK植片翻正為正向S印記後，再以20% SF6或空氣頂貼並確認下方PI通暢",
-          "rationale": "DMEK植片自然狀態下總是「向內皮面捲曲（scrolling toward endothelium）」；本例邊緣朝向受者基質向上捲且呈「反S印記」，證實植片上下貼反。若不先進手術室翻正就直接rebubbling，內皮面只會被壓向基質而徹底損毀；翻正後搭配20%非膨脹SF6與暢通的6點鐘inferior PI方能安全復位。",
-          "whenTrue": "DMEK術後植片脫離伴隨「反S印記」及邊緣朝受者基質方向捲曲，確認為植片貼反但內皮尚可搶救時。"
+          "text": "辨識出植片上下貼反（內皮面朝上貼向受者基質），不作原地重打氣；進手術室將DMEK植片翻正為正向S印記後，再以20% SF6或空氣頂貼並確認下方PI通暢",
+          "rationale": "DMEK植片自然狀態下總是「向基質面捲曲（內皮面朝外，scrolls toward stromal side with endothelium on the outside）」；因此正常貼附方向（基質面朝上對準受者基質）時，脫離邊緣會朝上方受者基質捲曲；本例邊緣朝向下方虹膜面捲曲且呈「反S印記」，證實植片上下貼反（內皮面朝上貼向受者基質、基質面朝下向著虹膜）。若不先進手術室翻正就直接rebubbling，內皮面只會被死壓在受者基質上而徹底損毀；翻正後搭配20%非膨脹SF6與暢通的6點鐘inferior PI方能安全復位。",
+          "whenTrue": "DMEK術後植片脫離伴隨「反S印記」及邊緣朝向虹膜面（下方）捲曲，確認為植片貼反但內皮尚可搶救時。"
         },
         {
           "text": "判定DMEK植片在術後第4天仍脫離40%即屬不可逆原發性植片衰竭（primary graft failure），立即放棄該植片並改排全層穿透性角膜移植（PK）以徹底解決水腫",
@@ -6624,15 +6624,15 @@
       ],
       "correctIndex": 2,
       "closestDistractorIndex": 0,
-      "decisiveDiscriminator": "AS-OCT見植片邊緣「朝受者基質面（上方）內捲」加上裂隙燈「反S印記（upside-down S-stamp）」直接確立植片上下貼反；此時盲目原地重打氣（rebubbling）不僅無效更會壓死內皮，必須先進手術室將植片翻正。",
-      "counterfactual": "若裂隙燈確認為正向「S印記」且AS-OCT顯示植片邊緣朝前房下方捲曲（方向正確）、僅因氣泡提早吸收導致超過1/3面積或波及視軸脫離，則可在下方PI通暢前提下直接施行前房重打氣術（20% SF6或空氣）。",
-      "counterfactualIndex": 0,
+      "decisiveDiscriminator": "AS-OCT見植片邊緣「朝向虹膜面（下方）捲曲」加上裂隙燈「反S印記（upside-down S-stamp）」直接確立植片上下貼反（DMEK植片自然向基質面捲曲，正常方向應朝上方受者基質捲曲）；此時盲目原地重打氣（rebubbling）不僅無效更會壓死內皮，必須先進手術室將植片翻正。",
+      "counterfactual": "若裂隙燈確認為正向「S印記」且AS-OCT顯示植片邊緣朝受者角膜基質（前房上方）捲曲（代表基質面朝上、內皮面朝下，方向正確），僅因氣泡提早吸收導致超過1/3面積或波及視軸脫離，則可在6點鐘下方PI通暢前提下直接施行前房重打氣術（20% SF6或空氣）。",
+      "counterfactualIndex": null,
       "reasoningSteps": [
-        "利用DMEK植片生物力學特性判讀方向：Descemet膜永遠往內皮面捲曲，邊緣朝向受者基質（向上）捲曲加上「反S印記」證實植片貼反",
-        "攔截盲目rebubbling陷阱：貼反時內皮面朝向受者基質，直接補氣只會把內皮死壓在基質上造成醫源性原發衰竭",
-        "整合正確手術與流體防線：進手術室沖洗翻正植片呈正向S印記後，注入非膨脹20% SF6（或空氣）頂貼，並由既有的6點鐘下方PI維持房水繞流防瞳孔阻滯"
+        "利用DMEK植片生物力學特性判讀方向：Descemet膜自然狀態下永遠向基質面捲曲（內皮面朝外），正常貼附時脫離邊緣應朝上方受者基質捲曲；本例邊緣朝向下方虹膜捲曲加上「反S印記」證實植片貼反",
+        "攔截盲目rebubbling陷阱：貼反時內皮面朝上貼向受者基質，直接補氣只會把內皮死壓在受者基質上造成醫源性原發衰竭",
+        "整合正確手術與流體防線：進手術室沖洗翻正植片呈正向S印記（基質面朝上、內皮面朝下）後，注入非膨脹20% SF6（或空氣）頂貼，並由既有的6點鐘下方PI維持房水繞流防瞳孔阻滯"
       ],
-      "explanation": "角膜內皮移植（DSAEK／DMEK）術後植片脫離是常見早期併發症，但在決定施行前房重打氣（rebubbling）前，第一鐵律是「先確認植片有無上下貼反」。DMEK植片因彈性纖維分佈，永遠會往內皮細胞面捲曲（scrolls with endothelium on the outside）；正常貼附時若邊緣微翹應朝向前房（向下捲），一旦AS-OCT見邊緣朝受者基質（向上）捲曲，且基質側S-stamp呈現反轉之「反S」，即代表內皮面貼反朝向受者基質。此時必須進手術室將植片翻正再注入20%稀釋SF6或空氣，並仰賴6點鐘下方周邊虹膜切除（inferior PI，絕不可打在被上浮氣泡堵住的12點鐘）預防氣泡瞳孔阻滯。",
+      "explanation": "角膜內皮移植（DSAEK／DMEK）術後植片脫離是常見早期併發症，但在決定施行前房重打氣（rebubbling）前，第一鐵律是「先確認植片有無上下貼反」。DMEK植片因彈性纖維分佈，自然狀態下永遠會往基質面捲曲、使內皮細胞面朝外（scrolls toward stromal side with endothelium on the outside）；因此當植片方向正確（基質面朝上對準受者基質、內皮面朝下向著前房）時，脫離邊緣會朝向受者角膜基質（向上）捲曲；一旦AS-OCT見邊緣朝向虹膜（向下）捲曲，且基質側S-stamp呈現反轉之「反S」，即代表植片上下貼反（內皮面朝上貼向受者基質、基質面朝下）。此時必須進手術室將植片翻正再注入20%稀釋SF6或空氣，並仰賴6點鐘下方周邊虹膜切除（inferior PI，絕不可打在被上浮氣泡堵住的12點鐘）預防氣泡瞳孔阻滯。",
       "sourceRefs": [
         {
           "bookId": "bcsc-s08",
@@ -6713,7 +6713,7 @@
       "closestDistractorIndex": 0,
       "decisiveDiscriminator": "Birdshot的中心視力（20/20）與中心凹OCT正常具有高度欺騙性；ICGA瀰漫暗點與ffERG 30-Hz flicker隱含期（implicit time）延長直接證實廣泛脈絡膜基質炎與視網膜功能受損正在進行，必須立即啟動長期全身IMT而非等待視力表退步。",
       "counterfactual": "若年輕女性為單眼急性發病、眼底見細小顆粒狀白點伴中心凹橙黃色顆粒（foveal granularity）、ICGA點狀低螢光與ERG異常，且符合多發性一過性白點症候群（MEWDS），則因具高度自限性，確實可採取保守觀察不必啟動全身IMT。",
-      "counterfactualIndex": 0,
+      "counterfactualIndex": null,
       "reasoningSteps": [
         "拆解Birdshot的臨床與功能分離現象：Snellen中心視力20/20與無CME僅反映中心凹最中央小島暫時倖存，不能代表全網膜安全",
         "整合多模態客觀證據：ICGA暗點反映活動性脈絡膜基質肉芽腫，24-2視野縮窄與ffERG 30-Hz flicker implicit time延長則量化瀰漫視網膜功能受損",
@@ -6802,7 +6802,7 @@
       "closestDistractorIndex": 0,
       "decisiveDiscriminator": "交感性眼炎一旦發作，全身免疫致敏已成立，且本例左眼（誘發眼）尚有20/200可用視力（未來甚至可能比右眼恢復更好），因此絕對不可摘除左眼，而應立即啟動全身高劑量類固醇合併早期IMT搶救雙眼。",
       "counterfactual": "若左眼於嚴重爆裂傷後已確定完全無光感（NLP）、眼內結構徹底毀損毫無復明可能，且時間處於外傷後10–14天內、右眼完全安靜尚未發病之前，則可在充分溝通下考慮預防性移除無光感盲眼。",
-      "counterfactualIndex": 0,
+      "counterfactualIndex": null,
       "reasoningSteps": [
         "結合穿透性眼外傷史與雙眼羊脂狀KP、多發漿液性剝離、Dalen-Fuchs結節及脈絡膜增厚，確立交感性眼炎（SO）診斷（與無外傷史但常有腦膜耳鳴前驅的VKH區別）",
         "評估誘發眼去留：已發病時全身免疫記憶已形成，且左眼具20/200視力，嚴禁摘除有視覺潛能的誘發眼",
@@ -6889,7 +6889,7 @@
       "closestDistractorIndex": 2,
       "decisiveDiscriminator": "ARN為臨床急症，絕不可等PCR出爐或把希望寄託於具爭議的預防性雷射；唯有立即啟動「高劑量全身抗病毒（口服valacyclovir 2 g TID或IV acyclovir 10 mg/kg q8h）＋玻璃體內foscarnet 2.4 mg/0.1 mL」雙重打擊，才能同時煞住患眼壞死推進並保護對側健康眼。",
       "counterfactual": "若病患為重度免疫不全之HIV感染者（CD4 = 20 cells/µL），則依NIH與BCSC指引，誘導期不建議使用口服valacyclovir，而應一律採用靜脈注射acyclovir 10 mg/kg q8h合併玻璃體內foscarnet（若為PORN則常需IV加雙藥眼內注射）。",
-      "counterfactualIndex": 2,
+      "counterfactualIndex": null,
       "reasoningSteps": [
         "從高眼壓前葡萄膜炎＋玻璃體炎＋閉塞性動脈炎＋360度周邊融合性壞死推進，臨床確立ARN（不因等待PCR而延遲治療）",
         "雙途徑抗病毒誘導：全身給高劑量口服valacyclovir 2 g TID（或IV acyclovir 10 mg/kg q8h）保護對側眼並壓制全身病毒，局部同步打玻璃體內foscarnet 2.4 mg/0.1 mL快速煞住眼內壞死",
@@ -6966,7 +6966,7 @@
       "closestDistractorIndex": 0,
       "decisiveDiscriminator": "「中央與周邊同步均勻淺前房＋暢通的PI」直接排除瞳孔阻滯並確立房水錯流（malignant glaucoma），且濾過造瘻口洩壓可使眼壓僅22 mmHg；此時pilocarpine為絕對禁忌，必須用atropine與Nd:YAG前玻璃體膜切開（hyaloidotomy）連通前後腔。",
       "counterfactual": "若裂隙燈檢查發現手術時的周邊虹膜切除孔（PI）並未穿透全層（色素上皮層仍完整封閉），且前房呈現「中央軸區尚深、但周邊虹膜向前高度拱起（iris bombe）」伴眼壓升高，則屬真性瞳孔阻滯，應立即以Nd:YAG雷射打穿PI解除阻滯。",
-      "counterfactualIndex": 0,
+      "counterfactualIndex": null,
       "reasoningSteps": [
         "破除眼壓數字迷思：小樑切除術後因有濾過通道分流，惡性青光眼（aqueous misdirection）眼壓常僅微高甚至正常（22 mmHg）",
         "以解剖構型定位機轉：Seidel陰性＋B-scan無脈絡膜脫離＋PI暢通＋中央與周邊均勻淺房（伴IOL前移近視化），確立房水錯流而非瞳孔阻滯",
@@ -7052,7 +7052,7 @@
       "closestDistractorIndex": 0,
       "decisiveDiscriminator": "330度器質性PAS代表NVG已進入第3期（拉鏈式閉角期），抗VEGF與PRP雖成功消退血管並完成術前止血準備，但無法拆開已纖維化黏死的房角；面對20/80可用視力與38 mmHg眼壓，必須植入青光眼引流管建立新出口。",
       "counterfactual": "若散瞳前壓陷隅角鏡檢查確認360度房角結構完全開放（無任何器質性PAS，屬第2期開角型NVG），且在玻璃體內bevacizumab與足量PRP後新生血管消退、眼壓順利降至16 mmHg，則可維持藥物與門診追蹤而暫免引流管手術。",
-      "counterfactualIndex": 0,
+      "counterfactualIndex": null,
       "reasoningSteps": [
         "區分NVG第2期（開角纖維血管膜覆蓋）與第3期（肌纖維母細胞收縮致器質性PAS閉角）：壓陷隅角鏡下330度PAS不動代表小樑網已永久封閉",
         "定位抗VEGF＋PRP在第3期的真實角色：消除活動血管與缺血來源、大幅降低後續手術出血與失敗率，但無法逆轉器質性閉角",
@@ -7142,7 +7142,7 @@
       "closestDistractorIndex": 0,
       "decisiveDiscriminator": "盤周RNFL在48 µm已觸及膠質血管底限（floor effect），且24-2 PSD在全視野塌陷（MD由-18.5降至-24.2 dB）時會因不均勻度減少而假性下降；10-2中心旁惡化與黃斑GCIPL持續變薄證實疾病正在吞噬固視點，必須立即下調目標眼壓並升級治療。",
       "counterfactual": "若病患為早期青光眼（盤周RNFL為84 µm遠高於底限），且24-2的Total Deviation、MD、10-2中心視野與黃斑GCIPL在連續3年內均完全重疊無斜率變化，則維持現行14–15 mmHg目標眼壓方屬合理。",
-      "counterfactualIndex": 0,
+      "counterfactualIndex": null,
       "reasoningSteps": [
         "識破結構底限假象：盤周OCT RNFL在約45–50 µm觸及殘餘血管與膠質組織底限（floor effect），連續48 µm不代表停止退化，須改看黃斑GCIPL",
         "識破功能指標反轉陷阱：重度青光眼全視野下陷（MD由-18.5掉至-24.2 dB）時，Pattern Deviation參考點跟著下沉，導致PSD由13.8假性降至8.1 dB",
@@ -7240,7 +7240,7 @@
       "closestDistractorIndex": 0,
       "decisiveDiscriminator": "懸韌帶斷裂範圍達5個鐘點（>4個鐘點／120度分水嶺）且背景為進行性PXF，單靠無固定孔的標準開放式CTR無法抵抗重力與前囊收縮，必須改用可縫合固定於鞏膜壁的Cionni改良式CTR或Ahmed囊袋張力片（CTS），且全程以前後囊100%無裂口為前提。",
       "counterfactual": "若外傷性懸韌帶斷裂僅占局部2至3個鐘點（<=90度）、其餘9個鐘點懸韌帶強健且無PXF等進行性病變，則在前後囊完整下使用囊袋拉鉤輔助乳化並置入標準開放式CTR即可安全完成囊袋內IOL植入。",
-      "counterfactualIndex": 0,
+      "counterfactualIndex": null,
       "reasoningSteps": [
         "核對懸韌帶斷裂廣度與病因：5個鐘點（150度，>4鐘點門檻）加上進行性PXF，排除單純標準CTR的適用性",
         "確立術中保護與皮質清除動作：先掛囊袋拉鉤或Ahmed CTS支撐缺損象限，皮質採取切線方向（tangential）剝除，並嚴守「前囊或後囊有裂口即絕對禁用CTR」底線",
@@ -7328,7 +7328,7 @@
       "closestDistractorIndex": 1,
       "decisiveDiscriminator": "甲於18小時出現limbus-to-limbus水腫、固定瞳孔與清澈玻璃體屬TASS（需密集局部類固醇＋追查毒源）；乙於第5天出現積膿與玻璃體混濁屬急性眼內炎（約25%無痛），且因初診視力為HM（非LP），依EVS標準首選即刻玻璃體抽吸加雙抗生素注射（tap & inject）而非急診PPV。",
       "counterfactual": "若病患乙在暗室以最強光源自各方向測試，僅能感知光線亮暗而完全無法辨識手掌揮動方向（初診視力僅剩LP），則依EVS實證，立即施行急診經平坦部玻璃體切除術（immediate PPV）合併眼內抗生素注射，其最終視力達20/40以上的比率將是單做tap & inject的三倍（33% vs 11%）。",
-      "counterfactualIndex": 1,
+      "counterfactualIndex": null,
       "reasoningSteps": [
         "以發病時序與解剖範圍區分甲、乙：甲在18小時發病、limbus-to-limbus全角膜水腫、固定散瞳且玻璃體清澈為TASS；乙在第5天發病伴重度玻璃體混濁為急性細菌性眼內炎",
         "破除無痛迷思：EVS顯示約25%急性白內障術後眼內炎患者完全不痛（常見於表皮葡萄球菌），絕不可因乙不痛而延誤眼內抗生素",
@@ -7417,7 +7417,7 @@
       "closestDistractorIndex": 0,
       "decisiveDiscriminator": "混濁呈圓盤狀嚴格對應瞳孔區且位於「親水性壓克力IOL前表面／表層本體（對應DMEK時SF6氣泡接觸面）」，後囊光滑透明，確立為氣體誘發之繼發性IOL磷酸鈣結晶鈣化而非PCO；此時絕對禁止打Nd:YAG破壞後囊，必須規劃IOL置換術。",
       "counterfactual": "若病患當初植入的是疏水性壓克力（hydrophobic acrylic）IOL、光學部前表面與本體完全透明，而是在後囊表面長出遮蔽視軸的增殖性Elschnig珍珠樣混濁（真性PCO），則施行Nd:YAG雷射後囊切開術方為正確處置。",
-      "counterfactualIndex": 0,
+      "counterfactualIndex": null,
       "reasoningSteps": [
         "結合材質與手術暴露史定位病變：親水性壓克力IOL＋DMEK前房SF6注氣史＋瞳孔圓區內鏡片前表面磨砂顆粒混濁＝繼發性IOL磷酸鈣結晶鈣化",
         "攔截毀滅性Nd:YAG陷阱：鈣化位於鏡片本體而非後囊，誤打YAG後囊切開不僅視力零改善，更使後續IOL置換失去完整後囊屏障而暴露於玻璃體脫出風險",
@@ -7514,7 +7514,7 @@
       "closestDistractorIndex": 3,
       "decisiveDiscriminator": "SD-OCT解剖層次決定物理推移的可行性與風險：位於光受體與RPE之間的「感覺神經視網膜下出血（甲）」可被氣體（± tPA）推離中心凹以搶救光受體；位於緊繃RPE下方的「出血性PED（乙）」則無法被推走，強行氣體壓迫反而會引爆巨大RPE撕裂（RPE rip）。",
       "counterfactual": "若病患乙的出血性PED在追蹤中突破RPE進入感覺神經視網膜下腔形成厚重中心凹視網膜下積血，或突破內界膜形成濃密不吸收之玻璃體出血（breakthrough vitreous hemorrhage），則乙亦將具備施行氣體推移或PPV清除出血並合併抗VEGF之適應症。",
-      "counterfactualIndex": 3,
+      "counterfactualIndex": null,
       "reasoningSteps": [
         "先以SD-OCT精確定位出血層次：甲位於感覺神經視網膜下腔（subretinal space，光受體與RPE之間），乙位於RPE下方（sub-RPE hemorrhagic PED）",
         "匹配物理推移機轉與禁忌：甲須趁早期血塊未纖維化前以膨脹氣體（± tPA）推離中心凹以防光受體鐵毒性死亡；乙受RPE阻隔無法推移，強壓易致RPE rip",
@@ -7601,7 +7601,7 @@
       "closestDistractorIndex": 0,
       "decisiveDiscriminator": "廣泛白色纖維血管牽引膜在注射抗VEGF約1週後會發生強烈血管—纖維轉換收縮（anti-VEGF crunch）；因此術前輔助抗VEGF嚴格以「確定3–7天內能進手術室行PPV」為前提，當NSTEMI迫使手術延後6週時，今日先打抗VEGF反而會在空窗期把中心凹拉下來。",
       "counterfactual": "若病患全身心血管與血糖完全穩定、麻醉科已核准排定於「4天後（本週五）」施行微創PPV手術，則在今日（術前第4天）施打玻璃體內抗VEGF注射以閉鎖新生血管、減少術中出血與醫源性裂孔，即為完全正確的標準操作。",
-      "counterfactualIndex": 0,
+      "counterfactualIndex": null,
       "reasoningSteps": [
         "解析術前輔助抗VEGF的生物時間窗：注射後3–7天內以「退血管止血」為主（有利PPV剝膜），超過1–2週則轉為「纖維膜劇烈收縮（crunch）」為主",
         "結合全身內科限制：NSTEMI強制延後手術至少6週，若今日打針將讓病患在毫無手術保護下獨自承受第2–6週的劇烈纖維收縮高峰",
@@ -7688,7 +7688,7 @@
       "closestDistractorIndex": 0,
       "decisiveDiscriminator": "HCQ安全劑量必須以「實際體重 <= 5.0 mg/kg/day」計算（48 kg × 5.0 = 240 mg/day，現行400 mg/day達8.33 mg/kg/day嚴重超量）；同時，單次視野可疑而廣域SD-OCT與FAF均正常時尚未達確診停藥門檻，應立即照會風濕科調降劑量至<=240 mg/day並短期複查／加做mfERG，而非單方面擅停SLE救命藥。",
       "counterfactual": "若今日廣域SD-OCT已清楚顯示對應顳下旁中央區的橢球帶（EZ）與外核層（ONL）局部塌陷消失（形成典型飛碟徵flying saucer sign），且FAF於同位置呈現明確高自發螢光弧線（主客觀雙模態一致確立早期HCQ毒性），則應立即正式會診風濕科與病患討論停止HCQ並改用替代免疫調節藥物。",
-      "counterfactualIndex": 0,
+      "counterfactualIndex": null,
       "reasoningSteps": [
         "精算實際體重劑量：48 kg × 5.0 mg/kg/day = 240 mg/day上限；現行400 mg/day相當於8.33 mg/kg/day，識破舊式理想體重（60 kg × 6.5）造成的嚴重超量",
         "交叉驗證篩檢模態：單次視野2個可疑點屬主觀變異可能，而廣域SD-OCT（無EZ斷裂／無飛碟徵）與廣域FAF均正常，尚不構成確診毒性",
@@ -7798,7 +7798,7 @@
       "closestDistractorIndex": 1,
       "decisiveDiscriminator": "雖然LASIK的PTA = (110 + 120) / 500 = 46%（>= 40%）看似只要改無瓣PRK就能省下瓣厚，但「Scheimpflug後表面異常隆起＋頂點上皮變薄」已確立亞臨床圓錐角膜，這使PRK與SMILE同樣列為絕對禁忌，唯有不削角膜的接觸鏡或（穩定下之）後房型ICL可保留角膜結構。",
       "counterfactual": "若該25歲求診者近視僅-4.50 D，且Scheimpflug前後表面高度、Belin/Ambrósio指標、角膜生物力學與上皮厚度分布均100%正常對稱（完全排除頓挫型圓錐角膜），僅因角膜偏薄（495 µm）不適合切瓣，則改採表層PRK即為合理選項。",
-      "counterfactualIndex": 1,
+      "counterfactualIndex": null,
       "reasoningSteps": [
         "精算LASIK組織預算：PTA = (FT 110 + AD 120) / CCT 500 = 46%（>= 40%高風險門檻），RSB = 500 - 110 - 120 = 270 µm",
         "檢核角膜固有生物力學：後表面異常隆起＋最薄點上皮變薄（遮蔽效應）證實為頓挫型圓錐角膜（FFKC），直接否決LASIK、PRK與SMILE一切角膜消融手術",
@@ -7908,7 +7908,7 @@
       "closestDistractorIndex": 1,
       "decisiveDiscriminator": "病灶解剖縱深與基質厚度是分開Stage 3 DLK與CTK的鐵證：甲於第2天發作且白血球嚴格侷限於「層間平面（無基質變薄）」，必須立即掀瓣輕柔沖洗加每小時類固醇；乙於第6天發作且混濁「向下跨越層間合併中央基質顯著變薄塌陷與+4.75 D大遠視」，屬非發炎性CTK，掀瓣刮洗與高劑量類固醇只會加重基質毀損。",
       "counterfactual": "若病患乙在術後第3週時，前節OCT顯示的並非中央基質溶解變薄，而是層間出現明顯積液裂隙（fluid cleft）使全角膜水腫增厚，且瓣外周邊Schiøtz／Tono-Pen眼壓高達38 mmHg（中央GAT因水袋緩衝假性偏低為11 mmHg），則屬壓力誘發層間基質角膜炎（PISK），應立即停用所有類固醇並積極降眼壓。",
-      "counterfactualIndex": 3,
+      "counterfactualIndex": null,
       "reasoningSteps": [
         "區分Stage 3 DLK（甲）與CTK（乙）的時序及OCT結構：甲在第2天、侷限於層間平面、厚度正常；乙在第6天（常緊接在早期介面反應後）、混濁跨越層間深達基質床、伴顯著中央變薄與+4.75 D遠視偏移",
         "匹配相反的機械與藥物策略：甲（白血球聚集）須把握首72小時黃金窗「掀瓣BSS輕柔沖洗＋每小時強效類固醇」以防進入Stage 4；乙（非發炎性基質細胞凋亡）則必須「克制衝動，不掀瓣、不用高劑量長程類固醇」",
@@ -7990,7 +7990,7 @@
       "closestDistractorIndex": 0,
       "decisiveDiscriminator": "夜間職業駕駛、大Kappa角（視軸偏離光學中心）、高彗差（coma）與黃斑前膜（ERM）會讓繞射三焦點IOL的分光光暈與對比敏感度下降成倍惡化，屬明確禁忌；而對已植入且自第1天即本質光學不耐受的病患丙，完整後囊是安全換回單焦點IOL的唯一保護傘，絕對禁止先打Nd:YAG後囊切開。",
       "counterfactual": "若病患丙在植入三焦點IOL後的「前6個月對遠近視力與夜間光暈均非常滿意」，直到術後第10個月才因為後囊長出明顯增殖性Elschnig珍珠樣混濁（真性PCO）導致視力退步與散射增加，且病患明確表示希望保留原有的多焦點功能，則施行Nd:YAG雷射後囊切開術方屬正確。",
-      "counterfactualIndex": 0,
+      "counterfactualIndex": null,
       "reasoningSteps": [
         "檢核貨車司機之四重多焦禁忌：職業夜間長途駕駛（對車燈光暈零容忍）＋大Kappa角（視軸切過繞射環邊緣）＋高角膜彗差（coma 0.45 µm）＋黃斑前膜（ERM原生對比敏感度已受損），果斷攔截繞射三焦點IOL並改選單焦點設計",
         "區分病患丙的「本質多焦光學不耐受」與「遲發真性PCO」：自術後第1天起即眩光且驗光0.00 D、淚膜正常，確立為繞射光學本質不耐受而非後囊細紋所致",
