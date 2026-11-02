@@ -3247,7 +3247,7 @@
             {
               "modality": "瀰漫性層間角膜炎（DLK）分期表與撒哈拉沙丘波浪裂隙燈影像",
               "clue": "對照周邊細沙狀白血球（Stage 1/2）與中央視軸濃密白血球團塊（Stage 3）及融解瘢痕（Stage 4）",
-              "interpretation": "掌握 Stage 2 與 Stage 3 之間「單純點藥 vs 必須立即掀瓣沖洗」的關鍵視覺分界（對應原書 Table 5-2、Figure 5-12）。",
+              "interpretation": "掌握 Stage 2 與 Stage 3 之間「單純點藥 vs 通常須立即掀瓣沖洗」的關鍵視覺分界（對應原書 Table 5-2、Figure 5-12）。",
               "status": "not-reviewed",
               "figureId": "Figure 5-12",
               "pdfPage": 131
@@ -8463,7 +8463,7 @@
         {
           "text": "DLK必須立即掀瓣沖洗",
           "rationale": "瀰漫性層間角膜炎（DLK）發病於術後極早期（第 1–3 天），且裂隙燈必可見明顯層間白色顆粒浸潤；TLSS 介面並無細胞堆積，掀開角膜瓣沖洗完全無益反而徒增上皮長入風險！",
-          "whenTrue": "唯有在術後第 1–3 天裂隙燈確診中央軸區密集白血球聚集成團伴視力下降（DLK 第 III 期）時，才需緊急掀瓣沖洗。"
+          "whenTrue": "唯有在術後第 1–3 天裂隙燈確診中央軸區密集白血球聚集成團伴視力下降（DLK 第 III 期；第 IV 期 BCSC 仍併列但有爭議）時，才需緊急掀瓣沖洗。"
         },
         {
           "text": "感染性角膜炎一律先只加強類固醇",
@@ -9850,7 +9850,7 @@
       "bcsc-s13-ch005-u01": "2db9e7571ec9a63e7bb0fdc664e35c5a535f0b37a4700d360846e66bc09485f8",
       "bcsc-s13-ch005-u02": "79c17cb6e3ebf36cd85bc402b3bb3d26d1e6823fd26348e851799d716b27f83a",
       "bcsc-s13-ch005-u03": "570fd523c65caf83ccefb9d1ded9454c3db725a560b02a1cad1d269665521e6f",
-      "bcsc-s13-ch005-u04": "6a3f18b4026b747059d1b4ff95c52493c76ccbfc85b90cba0ff61ed2ca0789c5",
+      "bcsc-s13-ch005-u04": "7b0d4b16bfe1853c5fb748658ad799fec5cce0eac6f84eec853ea569984b3d07",
       "bcsc-s13-ch005-u05": "6c9d4260ac3cd96422b945c1067828f0426f78bca229327b38dc762520179c3d",
       "bcsc-s13-ch005-u06": "671d5e75303f3cc782eb012f82c2b441c2e24e8474b63799ac81e4de0b4dfedb",
       "bcsc-s13-ch006-u01": "1d4b8d0456169f51e73ae5e1d1cce92c992636a44916d550e184850e57ede934",
@@ -9900,7 +9900,7 @@
       "bcsc-s13-rq025": "f305c32c680c3f73fc35a8055375aad58e3bc22ce7f07bcf3839d0721ef5a431",
       "bcsc-s13-rq026": "4f2522348e5548f19b7cbaaeca55a66c6a4b7d664ced8db5ff9bb6d646bd7722",
       "bcsc-s13-rq027": "3e20bdaa4d0b56adc85ef3db26cba28b432bf0e29b59759ec7fc64ac1f59add7",
-      "bcsc-s13-rq028": "ccc30499455350626e0e39c92de6c979e392275ec1daa88a051c9329121812c7",
+      "bcsc-s13-rq028": "4f3ac7b4bff5debafd8f5a58e59f65cd42677e78838be43f67958f7e3c2e73f6",
       "bcsc-s13-rq029": "97c07deb6cf32eacc35727b2b81159916c7a9d482651a8599888d05f3f7ca120",
       "bcsc-s13-rq030": "c2a71963e93313136d2118b30b0c3dee2807f8eb82c37637239e7c317e50df84",
       "bcsc-s13-rq031": "75e53100d14df972820dd1c562ed671ee630230a874adf1620a8c56b2efc6694",

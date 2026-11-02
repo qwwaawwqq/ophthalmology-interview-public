@@ -138,7 +138,7 @@
     "atlas-s12-01": "542c096e5a3dfd38620ec61cfea5a627a0eb3596b7a0c50f76df2ec600fdd41f",
     "atlas-s12-02": "a7d56fac505c9c68d5b4530967af93a9200f1a3a18c7332c57cba8d2dbf3ad04",
     "atlas-s12-03": "21aa2c86c6bb72cad863f716360b2206bad0cf7ca7d0d103cb05e91e9599d7a7",
-    "atlas-s12-04": "3b324c8c5a9e84c56b2dbe189559d1e5716ec90f4dd1096dc000a739f646ec12",
+    "atlas-s12-04": "535dbc8ec1f15824ecf0fb0650961caac89a834dc4e37cc83c8a742f56aa4521",
     "atlas-s12-05": "e15bdb0312f724c59e97bc43f931ed8a6d2a955f8e0fea49567068f122320a9e",
     "atlas-s12-06": "fefb71c888767adb2664f3c9430d6213e971330830bd916b883ff98a3cc23c53",
     "atlas-s12-07": "6faa0b8075dc019d97030e876eb08e3920c3c3ee67bcbec52d3ed0ae42acd910",
@@ -180,6 +180,7 @@
     "2026-11-02 targeted correction, not a full re-review: atlas-s02-12 (no CT for suspected retinoblastoma, ERIC guideline) and atlas-s03-07 (residual toric axis at 30 degrees misalignment). Hashes refreshed for these two units only.",
     "2026-11-02 targeted correction, not a full re-review: references replaced in atlas-s02-08, atlas-s02-09, atlas-s02-10, atlas-s02-12, atlas-s03-03, atlas-s03-05, atlas-s03-06, atlas-s03-07, atlas-s03-08, atlas-s03-09 (wrong articles and dead links; titles, years and notes matched to the linked source); teaching text corrected in atlas-s02-11 (netarsudil epithelial oedema, FDA label 5.1) and atlas-s02-12 (no CT for suspected retinoblastoma). Hashes refreshed for these units only.",
     "2026-11-02 targeted correction, not a full re-review: atlas-s04-09, atlas-s06-06. Hashes refreshed for these units only.",
-    "2026-11-02 targeted correction, not a full re-review: atlas-s01-18, atlas-s12-04, atlas-s12-09, atlas-s12-10, atlas-s12-12, atlas-s13-06, atlas-s13-09. Hashes refreshed for these units only."
+    "2026-11-02 targeted correction, not a full re-review: atlas-s01-18, atlas-s12-04, atlas-s12-09, atlas-s12-10, atlas-s12-12, atlas-s13-06, atlas-s13-09. Hashes refreshed for these units only.",
+    "2026-11-02 targeted correction, not a full re-review: atlas-s12-04. Hashes refreshed for these units only."
   ]
 }
