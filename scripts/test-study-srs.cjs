@@ -88,9 +88,14 @@ async function test(name,fn){try{await fn();results.push({name,pass:true});}catc
   assert(a.main().includes('Again · 重練 (10分)'));assert(a.main().includes('Good · 熟悉 (1天)'));assert(a.main().includes('Easy · 很熟 (3天)'));assert(a.main().includes('下一題到期複習'));
   const token2=record(a,'shared',q2.id).attempt.id;assert(a.study.grade('shared',q2.id,token2,'hard'));
   a.study.setClock(()=>Date.parse('2026-10-21T15:00:00.000Z'));
-  const first=a.study.nextReview('due');assert.deepEqual(JSON.parse(JSON.stringify(first)),{pool:'shared',id:q1.id,remaining:2});assert.equal(a.qa.S.ids[a.qa.S.qi],q1.id);
-  const second=a.study.nextReview('due');assert.deepEqual(JSON.parse(JSON.stringify(second)),{pool:'shared',id:q2.id,remaining:2});assert.equal(a.qa.S.ids[a.qa.S.qi],q2.id);
-  const weakNext=a.study.nextReview('weak');assert.equal(weakNext.id,q1.id);
+  const first=await a.study.nextReview('due');assert.deepEqual(JSON.parse(JSON.stringify(first)),{pool:'shared',id:q1.id,remaining:2});assert.equal(a.qa.S.ids[a.qa.S.qi],q1.id);
+  const second=await a.study.nextReview('due');assert.deepEqual(JSON.parse(JSON.stringify(second)),{pool:'shared',id:q2.id,remaining:2});assert.equal(a.qa.S.ids[a.qa.S.qi],q2.id);
+  const weakNext=await a.study.nextReview('weak');assert.equal(weakNext.id,q1.id);
+  const b=fresh(),bookQ=volumes['bcsc-s07'].questions[0];
+  b.context.fetch=async url=>({ok:true,json:async()=>String(url).endsWith('textbook-manifest.json')?manifest:extra});
+  b.bridge.save(key('book',bookQ.id),{version:1,at:'2026-10-20T14:00:00.000Z',answerCount:1,attempt:{id:'book-t1',at:'2026-10-20T14:00:00.000Z',correct:false,rated:true},plan:{step:-1,dueAt:'2026-10-20T14:10:00.000Z',rating:'again',reviewCount:1,lapses:1}});
+  b.study.setClock(()=>Date.parse('2026-10-20T14:15:00.000Z'));
+  const bookPick=await b.study.nextReview('due');assert.deepEqual(JSON.parse(JSON.stringify(bookPick)),{pool:'book',id:bookQ.id,remaining:1});assert.equal(b.context.window.location.hash,'#textbook-'+bookQ.id);
  });
  await test('cram active-recall flashcards support Again/Hard/Good/Easy SRS scheduling and due filtering',async()=>{
   const a=fresh(),cramData=read('content/cram-review.json'),handlers=new Map();
