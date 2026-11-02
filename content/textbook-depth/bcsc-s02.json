@@ -4496,7 +4496,7 @@
               "diagnosis": "新生兒先天角膜混濁七大口訣（STUMPED）精準拆解",
               "for": "S＝鞏膜化角膜（Sclerocornea，周邊向中央延伸瓷白混濁伴血管化、角膜扁平無輪部界線）；T＝產鉗外傷（Tears in Descemet，單眼垂直／斜行裂紋伴眼瞼壓痕）；U＝感染潰瘍（Ulcer，HSV/淋病螢光染色陽性）；M＝代謝黏多醣症（Mucopolysaccharidosis I/VI，雙側瀰漫基質霧白）；P＝Peters 異常（中央白斑＋後角膜缺損沾黏）；E＝先天遺傳內皮失養症（CHED，SLC4A11 突變，雙側全角膜極度增厚水腫毛玻璃狀但眼壓正常、無 Haab 條紋）；D＝角膜皮樣瘤（Dermoid）。",
               "against": "把雙側對稱極厚角膜水腫但眼壓與角膜直徑正常的 CHED 誤當先天性青光眼反覆開隅角切開術，或反過來把先天性青光眼誤當鼻淚管不通拖到失明！",
-              "discriminator": "全麻檢查（EUA）四件套定江山：角膜水平直徑（新生兒 >11.5 mm、1 歲 >12.0 mm 指向青光眼牛眼）＋手持眼壓＋裂隙燈／染色（水平 Haab vs 垂直產鉗）＋高頻 UBM（看 Peters 後缺損晶體沾黏與青光眼隅角）。"
+              "discriminator": "全麻檢查（EUA）四件套定江山：角膜水平直徑（新生兒 >11 mm、1 歲 >12.0 mm 指向青光眼牛眼）＋手持眼壓＋裂隙燈／染色（水平 Haab vs 垂直產鉗）＋高頻 UBM（看 Peters 後缺損晶體沾黏與青光眼隅角）。"
             },
             {
               "diagnosis": "Axenfeld-Rieger 症候群（雙側先天顯性）vs 虹膜角膜內皮症候群（ICE Syndrome，單側後天散發）",
@@ -19108,7 +19108,7 @@
       "bcsc-s02-ch004-u01": "0153d5971ec1e07019850107aef364585bea8e7eea5ff4fa86e880b6bf301ef0",
       "bcsc-s02-ch004-u02": "f29e20daaa6cae7886309371b57f02f3c3aec62b9ac372422209f579121a9244",
       "bcsc-s02-ch004-u03": "a91123b80f2aeb44338051ee9851ebcef17610f27e079e2f48596b799f5d27bd",
-      "bcsc-s02-ch004-u04": "e12612997652fdb7bc2833aeee50a51f09470655508a2898fe94442f490a3716",
+      "bcsc-s02-ch004-u04": "1b6d6e33613c02809e985e32684c0f1ddb4af84d24715fafec8deaecdc53d936",
       "bcsc-s02-ch005-u01": "c3c6a1fdbc307f8d61d5a7b711477bc92ee4c468adb9a1f6252ea0a5ec093ef3",
       "bcsc-s02-ch005-u02": "1dd7f8e629492f22659fe02ca3e422c71e9b1f8dae1590c3a5d9b745e034f31b",
       "bcsc-s02-ch005-u03": "257a0b58169cfc51ee3c8e0f39785f4a2446f2d5241819e32b8f9f494f54afd9",
