@@ -3608,28 +3608,6 @@
   "pastExam": true
  },
  {
-  "id": "notes-10-k03",
-  "topicId": "notes-10",
-  "stem": "一位類風濕性關節炎病人已服用 hydroxychloroquine 數年，近期主訴視力模糊。下列哪一項檢查最有助於偵測可能的藥物性視網膜病變？",
-  "options": [
-   "黃斑部光學同調斷層掃描（OCT）",
-   "只測矯正視力",
-   "以裂隙燈尋找角膜漩渦狀沉積（cornea verticillata）",
-   "螢光眼底血管攝影（FA）"
-  ],
-  "correctIndex": 0,
-  "explanation": "考點：hydroxychloroquine 視網膜病變的篩檢檢查。\n\n此藥長期使用（約 5–7 年以上）可造成不可逆的黃斑部色素變化，建議以自動視野搭配 SD-OCT、眼底自發螢光或 mfERG 等客觀檢查偵測，其中黃斑部 OCT 能在視力下降前看到外層視網膜損傷。視力與色覺在早期不敏感，FA 只是輔助，角膜漩渦狀沉積多為良性，與視網膜毒性無關。\n\n常見陷阱：只看視力或色覺，或誤以為角膜沉積可預測視網膜病變。",
-  "refs": [],
-  "sourceType": "考古題考點改寫（108s/13），非原題",
-  "sourceId": "10-k03",
-  "source": "Retina.pdf",
-  "sourceRef": "31–33",
-  "safety": false,
-  "reserve": false,
-  "medicalReview": null,
-  "pastExam": true
- },
- {
   "id": "notes-10-k04",
   "topicId": "notes-10",
   "stem": "一位 35 歲男性連續多天熬夜用眼後，突然在單眼的周邊視野出現閃光感（photopsia）。這種症狀最直接反映的機轉為何？",
@@ -4480,28 +4458,6 @@
   "refs": [],
   "sourceType": "考古題考點改寫，非原題",
   "sourceId": "12-k03",
-  "source": "眼科學No.12.pdf",
-  "sourceRef": "25–27",
-  "safety": false,
-  "reserve": false,
-  "medicalReview": null,
-  "pastExam": true
- },
- {
-  "id": "notes-12-k04",
-  "topicId": "notes-12",
-  "stem": "用 fluorescein 染色並以鈷藍光 (cobalt blue) 觀察角膜潰瘍時，病灶染色會呈現什麼顏色？",
-  "options": [
-   "白色",
-   "螢光綠色",
-   "橘紅色",
-   "深藍色"
-  ],
-  "correctIndex": 1,
-  "explanation": "考點：fluorescein 在鈷藍光下的染色顏色。\n\nFluorescein 吸收藍光（激發峰約 490 nm）後發出綠色螢光；角膜上皮缺損處染劑滯留，因此潰瘍或上皮缺損在鈷藍光下呈亮綠色。\n\n常見陷阱：在一般白光下染劑只呈黃橘色，不會有螢光；題目指明用藍光觀察時答案就是綠色，不要因為「藍光」而選藍色。",
-  "refs": [],
-  "sourceType": "考古題考點改寫，非原題",
-  "sourceId": "12-k04",
   "source": "眼科學No.12.pdf",
   "sourceRef": "25–27",
   "safety": false,
