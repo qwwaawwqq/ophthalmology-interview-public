@@ -18093,10 +18093,10 @@
           ],
           "references": [
             {
-              "title": "AAO Basic and Clinical Science Course (BCSC) Section 2: Fundamentals and Principles of Ophthalmology — Tear Film",
-              "url": "https://www.aao.org/education/bcsc",
-              "year": "2025",
-              "note": "淚膜三層連續相厚度（2–5 μm）、OAHFA、MUC5AC 與 MUC1/4/16 生理基準。"
+              "title": "TFOS DEWS II Tear Film Report",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/28736338/",
+              "year": "2017",
+              "note": "角膜前淚膜厚度約 2–5.5 μm、OAHFA、MUC5AC 與跨膜 MUC1/4/16 之生化基準。"
             },
             {
               "title": "TFOS DEWS II Pathophysiology Report — Tear Film Hyperosmolarity and Vicious Circle of Dry Eye Disease",
@@ -18749,16 +18749,22 @@
           ],
           "references": [
             {
-              "title": "AAO Basic and Clinical Science Course (BCSC) Section 2: Fundamentals and Principles of Ophthalmology — Cornea",
-              "url": "https://www.aao.org/education/bcsc",
-              "year": "2025",
-              "note": "角膜第 I/V 型膠原、KS/DS 蛋白聚醣、78% 水合度與內皮 Na+/K+-ATPase 幫浦—漏流生理。"
+              "title": "Meek KM, Knupp C — Corneal structure and transparency (Prog Retin Eye Res)",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/26145225/",
+              "year": "2015",
+              "note": "基質第 I／V 型膠原纖維、硫酸角質素（KS）與硫酸皮膚素（DS）蛋白聚醣及透明機轉。"
             },
             {
-              "title": "Bourne WM — Biology of the Corneal Endothelium in Health and Disease",
-              "url": "https://pubmed.ncbi.nlm.nih.gov/14528241/",
+              "title": "Bourne WM — Biology of the corneal endothelium in health and disease (Eye)",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/14631396/",
               "year": "2003",
-              "note": "角膜內皮斑狀緊密連接、幫浦—漏流平衡與失代償臨界細胞密度經典綜述。"
+              "note": "角膜內皮部分屏障（leaky tight junction）、主動幫浦與細胞密度變化之經典綜述。"
+            },
+            {
+              "title": "EyeWiki — Corneal Edema",
+              "url": "https://eyewiki.org/Corneal_Edema",
+              "year": "2026",
+              "note": "角膜 78% 水合度及基質膨脹壓、上皮／內皮屏障與內皮幫浦等水合因子。"
             }
           ]
         },
@@ -19381,10 +19387,16 @@
           ],
           "references": [
             {
-              "title": "AAO Basic and Clinical Science Course (BCSC) Section 2: Fundamentals and Principles of Ophthalmology — Retina & RPE",
-              "url": "https://www.aao.org/education/bcsc",
-              "year": "2025",
-              "note": "視網膜光轉導暗電流、PDE6 級聯與 ABCA4–IRBP–LRAT–RPE65 視覺循環權威教材。"
+              "title": "Yau KW, Hardie RC — Phototransduction motifs and variations (Cell)",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/19837030/",
+              "year": "2009",
+              "note": "桿錐細胞暗電流、transducin 活化 PDE 水解 cGMP、CNG 通道關閉與超極化級聯。"
+            },
+            {
+              "title": "Kiser PD, Golczak M, Palczewski K — Chemistry of the retinoid (visual) cycle (Chem Rev)",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/23905688/",
+              "year": "2014",
+              "note": "視覺循環 LRAT、RPE65、IRBP 與 ABCA4 之酵素及轉運機轉。"
             },
             {
               "title": "Russell S et al. — Efficacy and safety of voretigene neparvovec (AAV2-hRPE65v2) in patients with RPE65-mediated inherited retinal dystrophy (Lancet)",
@@ -20076,7 +20088,7 @@
               "reasoning": [
                 "第一步定位現有機轉缺口：病患已使用 PGA 擴張葡萄膜鞏膜外流（↑U），欲再降 6 mmHg 應互補切入「暢通小樑外流 ↑C」、「壓低房水生成 ↓F」或「降低鞏膜上靜脈壓 ↓EVP」，絕不可將 Latanoprost 改為每日 2 次或再疊加另一種 PGA。",
                 "第二步攔截全身與角膜禁忌：支氣管氣喘禁止局部 β 阻斷劑（防鼻黏膜吸收阻斷支氣管 β2 致痙攣）；重度角膜內皮病變伴亞臨床水腫（615 μm）應避開局部 CAI Dorzolamide（防抑制 >99% 內皮碳酸酐酶幫浦引爆角膜失償水腫）。",
-                "第三步完成精準配伍：疊加 Netarsudil（↑C ＋ ↓F ＋ ↓EVP）或換用 Netarsudil/Latanoprost 固定複方，既涵蓋 Goldmann 全四項參數協同降壓，又不觸發支氣管收縮，僅須衛教結膜充血與良性可逆渦狀角膜表現並追蹤角膜上皮狀態。"
+                "第三步完成精準配伍：疊加 Netarsudil（↑C ＋ ↓F ＋ ↓EVP）或換用 Netarsudil/Latanoprost 固定複方，既涵蓋 Goldmann 全四項參數協同降壓，又不觸發支氣管收縮，須衛教結膜充血與良性可逆渦狀角膜表現；本例已有亞臨床水腫，另須告知蜂巢狀或水泡性上皮水腫風險（眼痛或視力下降即回診，通常停藥後緩解）並追蹤角膜上皮狀態。"
               ]
             },
             {
@@ -20117,7 +20129,7 @@
             "bcsc-s02-ch017-u02"
           ],
           "learningGoals": [
-            "建立「磁性金屬異物篩檢優先 → 骨性鈣化外傷選薄切 CT → 軟組織視路選多序列抑脂 MRI → 介質混濁眼球內選 A/B-scan 超音波 → 血管急症選 CTA/MRA/DSA」之五階臨床決策樹。",
+            "建立「磁性金屬異物篩檢優先 → 骨性鈣化外傷（疑 RB 除外）選薄切 CT → 軟組織視路選多序列抑脂 MRI → 介質混濁眼球內選 A/B-scan 超音波 → 血管急症選 CTA/MRA/DSA」之五階臨床決策樹。",
             "精準判讀眼眶 MRI 四大核心序列（T1、T1+Gd+Fat-Sat、T2/FLAIR、DWI/ADC）的訊號對比原理，理解為何未加脂肪抑制（Fat-Sat）的顯影 T1 會漏診視神經炎與腦膜瘤。"
           ],
           "clinicalQuestion": "面對急性單眼視力喪失合併眼球突出、外傷性複視、或瞳孔受累第三對腦神經麻痺患者，眼科醫師如何在數分鐘內開立正確的首選影像、切面與顯影抑脂醫囑，避免磁性異物移位致盲或視神經病灶被眼眶脂肪高訊號掩蓋？",
@@ -20130,7 +20142,7 @@
           "diagram": {
             "kind": "relationship",
             "title": "眼眶與神經眼科影像五階選擇決策（CT／多序列抑脂 MRI／超音波／CTA-MRA-DSA）",
-            "alt": "頂端紅色安全閘門標示疑似磁性金屬異物禁做 MRI 須先排無顯影薄切眼眶 CT；中層分出三欄：左欄琥珀色為眼眶薄切 CT（骨折嵌頓、鈣化病灶（RB 除外）、甲狀腺眼病，提醒腎功能與顱底偽影限制），中欄藍色為多序列 MRI（T1+Gd 必加 Fat-Sat 抑脂、T2/FLAIR 脫髓鞘斑、DWI 亮加 ADC 暗判超急性中風與淋巴瘤膿瘍），右欄青綠色為 A/B-scan 眼部超音波（介質混濁動態掃描 RD vs PVD、脈絡膜黑色素瘤與 T-sign，警示開放性眼球破裂禁壓）；底部紅色橫列匯入神經血管急症（CN III 麻痺、CCF、CRAO）採用 CTA/MRA 與黃金標準 DSA。",
+            "alt": "頂端紅色安全閘門標示疑似磁性金屬異物禁做 MRI 須先排無顯影薄切眼眶 CT；中層分出三欄：左欄琥珀色為眼眶薄切 CT（骨折嵌頓、眶內鈣化（RB 除外）、甲狀腺眼病，提醒腎功能與顱底偽影限制），中欄藍色為多序列 MRI（T1+Gd 必加 Fat-Sat 抑脂、T2/FLAIR 脫髓鞘斑、DWI 亮加 ADC 暗判超急性中風與淋巴瘤膿瘍），右欄青綠色為 A/B-scan 眼部超音波（介質混濁動態掃描 RD vs PVD、脈絡膜黑色素瘤與 T-sign，警示開放性眼球破裂禁壓）；底部紅色橫列匯入神經血管急症（CN III 麻痺、CCF、CRAO）採用 CTA/MRA 與黃金標準 DSA。",
             "width": 900,
             "height": 460,
             "elements": [
@@ -20296,7 +20308,7 @@
                 "fontSize": 18,
                 "fill": "ink",
                 "lines": [
-                  "鈣化病灶（RB 除外）"
+                  "眶內鈣化（RB 除外）"
                 ]
               },
               {
@@ -20711,8 +20723,8 @@
             "rows": [
               [
                 "無顯影薄切眼眶 CT（軸位＋冠狀位）",
-                "眼眶骨折嵌頓、疑似金屬異物、鈣化病灶（RB 除外）、甲狀腺眼病（TED）",
-                "骨皮質中斷／淚滴徵；視神經盤玻璃膜疣高密度鈣化（疑 RB 不用 CT，改超音波加 MRI）；TED 肌腹梭形肥大而肌腱保留",
+                "眼眶骨折嵌頓、疑似金屬異物、眶內鈣化（RB 除外）、甲狀腺眼病（TED）",
+                "骨皮質中斷／淚滴徵；視神經鞘腦膜瘤雙軌鈣化（疑 RB 不用 CT，改超音波加 MRI；視神經盤玻璃膜疣首選 B-scan／EDI-OCT）；TED 肌腹梭形肥大而肌腱保留",
                 "具游離輻射；顱底、眶尖與蝶鞍區易受骨束硬化偽影干擾"
               ],
               [
@@ -20729,7 +20741,7 @@
               ],
               [
                 "眼部超音波（10 MHz B-scan／標準化 A-scan）",
-                "屈光介質混濁之眼底評估、眼內腫瘤厚度與內反射率定量、表淺視神經盤玻璃膜疣",
+                "屈光介質混濁之眼底評估、眼內腫瘤厚度與內反射率定量、RB 鈣化評估、視神經盤玻璃膜疣",
                 "脈絡膜黑色素瘤呈蕈狀伴低至中內反射與脈絡膜凹陷；血管瘤高內反射；後鞏膜炎呈 T-sign",
                 "疑似開放性眼球破裂禁壓掃描；聲波受骨壁與氣體阻擋，無法清晰穿透眼眶尖深部"
               ],
@@ -20743,7 +20755,7 @@
           },
           "decisionSteps": [
             {
-              "condition": "高速金屬敲擊外傷、懷疑眼眶底爆裂性骨折（尤其兒童白眼伴上視受限與迷走神經反射嘔吐）或眼內鈣化病灶（兒童白瞳症除外）",
+              "condition": "高速金屬敲擊外傷或懷疑眼眶底爆裂性骨折（尤其兒童白眼伴上視受限與迷走神經反射嘔吐）",
               "action": "立即開立無顯影薄切（1–3 mm）眼眶 CT，必須同時指定軸位（axial）與冠狀位（coronal）重組切面。",
               "why": "CT 兼具最快取像速度、最高骨皮質／鈣化對比與零磁場異物移位風險；冠狀位正交切過眶底與上壁，是判斷下直肌是否卡入上頜竇（trapdoor fracture）不可或缺的視角。"
             },
@@ -20761,6 +20773,11 @@
               "condition": "濃密玻璃體出血或成熟白內障無法窺見眼底，需排除裂孔性視網膜剝離或眼內腫瘤（且已確認眼球壁完整無破裂）",
               "action": "門診立即施行閉瞼輕觸式 B-scan 動態掃描並搭配標準化 A-scan 定量內反射波幅。",
               "why": "動態眼球轉動能即時觀察膜狀構造之後擺運動與視神經盤附著點，標準化 A-scan 則能以內回音高低鑑別低內反射之脈絡膜黑色素瘤與高內反射之脈絡膜血管瘤或轉移癌。"
+            },
+            {
+              "condition": "兒童白瞳、斜視或眼內鈣化腫塊，疑似視網膜母細胞瘤（RB）",
+              "action": "避開 CT；以眼底鏡檢查與眼部 B-scan 評估鈣化，安排眼眶／腦部 MRI 評估腫瘤範圍與顱內病灶，並轉介兒童眼腫瘤團隊。",
+              "why": "游離輻射會增加 RB1 生殖系變異患童的第二原發惡性腫瘤風險；B-scan 多能顯示鈣化，MRI 能評估視神經與顱內侵犯。"
             }
           ],
           "pitfalls": [
@@ -20803,14 +20820,20 @@
             {
               "title": "ACR Appropriateness Criteria: Orbits, Vision and Visual Loss",
               "url": "https://acsearch.acr.org/docs/69486/Narrative/",
-              "year": "2024",
+              "year": "2017",
               "note": "美國放射醫學會針對眼眶外傷、視力喪失、眼球突出與神經眼科病變之實證影像選擇準則。"
             },
             {
-              "title": "American Academy of Ophthalmology Preferred Practice Pattern: Adult Strabismus & Neuro-Ophthalmology Imaging Recommendations",
-              "url": "https://www.aao.org/education/preferred-practice-pattern",
+              "title": "AAO Preferred Practice Pattern — Adult Strabismus",
+              "url": "https://www.aao.org/education/preferred-practice-pattern/adult-strabismus-ppp-2023",
+              "year": "2023",
+              "note": "第三對腦神經麻痺（瞳孔受累與動脈瘤風險）及眼眶 CT／MR 影像評估之臨床指引（見 PDF 全文）。"
+            },
+            {
+              "title": "AAO Preferred Practice Pattern — Retinal and Ophthalmic Artery Occlusions",
+              "url": "https://www.aao.org/education/preferred-practice-pattern/retinal-ophthalmic-artery-occlusions-ppp",
               "year": "2024",
-              "note": "美國眼科學會針對顱神經麻痺、眼眶病變與急性視網膜動脈阻塞（中風視同處置）之影像臨床指引。"
+              "note": "急性症狀性視網膜／眼動脈阻塞應立即轉中風中心並進行全身中風評估。"
             }
           ]
         }
@@ -22098,16 +22121,16 @@
           ],
           "references": [
             {
-              "title": "American Academy of Ophthalmology — Subjective Refraction and Jackson Cross Cylinder",
-              "url": "https://eyewiki.org/Subjective_Refraction",
-              "year": "2025",
-              "note": "詳述 Sturm 圓錐、等效球面維持與 JCC 軸向及度數精修流程。"
+              "title": "EyeWiki — Cross-Cylinder Technique for Subjective Refraction",
+              "url": "https://eyewiki.org/Cross-Cylinder_Technique_for_Subjective_Refraction",
+              "year": "2026",
+              "note": "說明 JCC 等效球面為零、不移動 Sturm 圓錐位置，以及軸向與度數精修流程。"
             },
             {
-              "title": "NCBI StatPearls — Optics, Refraction, and Astigmatism",
-              "url": "https://www.ncbi.nlm.nih.gov/books/NBK549880/",
-              "year": "2024",
-              "note": "說明主子午線屈光與散光焦線對應幾何。"
+              "title": "NCBI StatPearls — Astigmatism",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/35881747/",
+              "year": "2023",
+              "note": "說明各子午線屈光差異、焦線形成與 Sturm 圓錐定義之規則散光光學。"
             }
           ]
         },
@@ -23192,16 +23215,22 @@
           ],
           "references": [
             {
-              "title": "American Academy of Ophthalmology — Spectacle Corrections, Prentice Rule, and Slab-Off",
-              "url": "https://eyewiki.org/Spectacle_Correction_of_Ametropias",
-              "year": "2025",
-              "note": "詳解頂點距離公式、Prentice 稜鏡不平衡與屈光參差配鏡策略。"
+              "title": "EyeWiki — Lensometry",
+              "url": "https://eyewiki.org/Lensometry",
+              "year": "2026",
+              "note": "Prentice 法則（誘發稜鏡＝鏡片度數 × 偏心距 cm）及雙焦、漸進多焦鏡片之量測。"
             },
             {
-              "title": "Opticianry & Ophthalmic Optics — Prism and Bifocal Segment Design",
-              "url": "https://www.aao.org/education/clinical-optics",
-              "year": "2024",
-              "note": "涵蓋雙焦影像跳動、總位移與漸進多焦鏡裝配幾何。"
+              "title": "EyeWiki — Aniseikonia",
+              "url": "https://eyewiki.org/Aniseikonia",
+              "year": "2026",
+              "note": "屈光參差以眼鏡矯正時之放大率差異與不等像。"
+            },
+            {
+              "title": "AAO BCSC Section 3: Clinical Optics and Vision Rehabilitation — Eyeglasses 章（AAO 書目頁）",
+              "url": "https://store.aao.org/basic-and-clinical-science-course-section-03-clinical-optics-and-vision-rehabilitation.html",
+              "year": "2024–2025",
+              "note": "頂點距離換算、雙焦影像跳動與 slab-off 請對照本機 PDF；此連結僅為書目頁，非全文。"
             }
           ]
         },
@@ -23692,10 +23721,16 @@
           ],
           "references": [
             {
-              "title": "American Academy of Ophthalmology — Contact Lenses: RGP Tear Lens and Toric Fitting",
-              "url": "https://eyewiki.org/Rigid_Gas_Permeable_Contact_Lenses",
-              "year": "2025",
-              "note": "詳述淚液透鏡光學、SAM/FAP 換算、螢光素圖譜與殘餘散光評估。"
+              "title": "EyeWiki — Physiology of Astigmatism",
+              "url": "https://eyewiki.org/Physiology_of_Astigmatism",
+              "year": "2026",
+              "note": "硬式鏡片與角膜間形成淚液透鏡而中和角膜散光，並顯露內部殘餘散光。"
+            },
+            {
+              "title": "EyeWiki — Mnemonics",
+              "url": "https://eyewiki.org/Mnemonics",
+              "year": "2026",
+              "note": "硬式鏡片基弧陡／平於 K 值時之 SAM–FAP 度數調整口訣。"
             },
             {
               "title": "U.S. Food and Drug Administration — Contact Lens Care & Hydrogen Peroxide Safety",
@@ -24280,16 +24315,22 @@
           ],
           "references": [
             {
-              "title": "American Academy of Ophthalmology — Intraocular Lens Power Calculation and Sulcus Adjustment",
-              "url": "https://eyewiki.org/IOL_Power_Calculation_Formulas",
-              "year": "2025",
-              "note": "詳載生物測量誤差敏感度、ELP 預測與睫狀溝減度數對照表。"
+              "title": "EyeWiki — Biometry for Intra-Ocular Lens (IOL) Power Calculation",
+              "url": "https://eyewiki.org/Biometry_for_Intra-Ocular_Lens_(IOL)_Power_Calculation",
+              "year": "2026",
+              "note": "眼軸誤差對 IOL 度數之放大（短眼尤甚）、ELP、睫狀溝植入之 ACD 修正與矽油眼聲速問題。"
             },
             {
-              "title": "American Academy of Ophthalmology — Multifocal, EDOF, and Toric Intraocular Lenses",
-              "url": "https://eyewiki.org/Multifocal_Intraocular_Lenses",
-              "year": "2025",
-              "note": "解析同時視覺 MTF 對比傳遞曲線、光學干擾現象與散光片旋轉向量學。"
+              "title": "EyeWiki — Trifocal Intraocular Lenses",
+              "url": "https://eyewiki.org/Trifocal_Intraocular_Lenses",
+              "year": "2026",
+              "note": "三焦點與雙焦／EDOF 鏡片之離焦曲線、MTF 與光暈傾向比較。"
+            },
+            {
+              "title": "EyeWiki — Toric IOLs",
+              "url": "https://eyewiki.org/Toric_IOLs",
+              "year": "2026",
+              "note": "Toric IOL（以 AcrySof 為例）每旋轉 3° 約減 10% 矯正效果，偏 30° 效果完全喪失。"
             }
           ]
         },
@@ -24812,16 +24853,22 @@
           ],
           "references": [
             {
-              "title": "American Academy of Ophthalmology — Munnerlyn Formula, Ectasia Risk, and Corneal Asphericity",
-              "url": "https://eyewiki.org/Laser_In_Situ_Keratomileusis_(LASIK)",
-              "year": "2025",
-              "note": "涵蓋準分子切削深度公式、RSB/PTA 安全指標與波前優化 Q 值控制。"
+              "title": "EyeWiki — Calculation for LASIK Ablation",
+              "url": "https://eyewiki.org/Calculation_for_LASIK_Ablation",
+              "year": "2026",
+              "note": "Munnerlyn 公式（t = S²D/3）、殘餘基質床 250 至 300 μm 下限與 PTA > 40% 之擴張風險。"
             },
             {
-              "title": "ASCRS — Intraocular Lens Power Calculation After Corneal Refractive Surgery",
-              "url": "https://eyewiki.org/IOL_Power_Calculation_after_Corneal_Refractive_Surgery",
-              "year": "2025",
-              "note": "解析近視／遠視雷射及 RK 術後三大 IOL 計算誤差來源與公式對策。"
+              "title": "EyeWiki — Intraocular Lens Power Calculation after Corneal Refractive Surgery",
+              "url": "https://eyewiki.org/Intraocular_Lens_Power_Calculation_after_Corneal_Refractive_Surgery",
+              "year": "2026",
+              "note": "雷射與 RK 術後角膜弧度及 ELP 誤差來源，與 Haigis-L、Shammas、Barrett True-K 等公式對策。"
+            },
+            {
+              "title": "Anera RG et al. — Changes in corneal asphericity after laser in situ keratomileusis (J Cataract Refract Surg)",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/12686246/",
+              "year": "2003",
+              "note": "近視 LASIK 術後角膜非球面度上升（p-factor 增加），度數愈高愈明顯並伴隨對比敏感度下降。"
             }
           ]
         },
@@ -25380,16 +25427,22 @@
           ],
           "references": [
             {
-              "title": "American Academy of Ophthalmology — Indirect Ophthalmoscopy Optics and Aerial Image",
-              "url": "https://eyewiki.org/Indirect_Ophthalmoscopy",
-              "year": "2025",
-              "note": "詳述空中倒立實像放大率、Gullstrand 無反光瞳孔分離與小瞳孔觀察技巧。"
+              "title": "EyeWiki — Binocular Indirect Ophthalmoscopy",
+              "url": "https://eyewiki.org/Binocular_Indirect_Ophthalmoscopy",
+              "year": "2026",
+              "note": "倒立反轉影像、放大倍率約 60／聚光鏡度數（+20 D 為 3×）與小瞳孔選高度數鏡。"
             },
             {
-              "title": "NCBI StatPearls — Optical Coherence Tomography Principles and Slit-Lamp Illumination",
-              "url": "https://www.ncbi.nlm.nih.gov/books/NBK559039/",
-              "year": "2024",
-              "note": "說明低同調干涉軸向解析度公式與臨床斷層偽影判讀。"
+              "title": "Aumann S et al. — Optical Coherence Tomography (OCT): Principle and Technical Realization",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/32091846/",
+              "year": "2019",
+              "note": "以干涉裝置重建深度剖面；軸向解析度與成像範圍取決於光源與偵測器特性。"
+            },
+            {
+              "title": "NCBI StatPearls — Slit-Lamp Biomicroscope",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/36512656/",
+              "year": "2023",
+              "note": "細隙燈照明法：直接焦點、間接、後照、鏡面反射、鞏膜散射與 Koeppe 振盪照明。"
             }
           ]
         },
