@@ -158,6 +158,21 @@ async function test(name, run) {
     assert(app.main().includes('開始今日複習'));
   });
 
+  await test('今日 review counts skip saved reviews of questions removed from the bank', () => {
+    const app = boot();
+    const soon = new Date(Date.now() - 60000).toISOString();
+    const due = id => ({version: 1, at: soon, answerCount: 1, attempt: {id, at: soon, correct: false, rated: true}, plan: {step: -1, dueAt: soon, rating: 'again', reviewCount: 1, lapses: 1}});
+    const counts = () => [...app.main().matchAll(/<div><span>(現在到期|今日稍後|弱項)<\/span><strong>(\d+)<\/strong><\/div>/g)].map(m => [m[1], Number(m[2])]);
+    assert(!app.qa.D.questions.some(q => q.id === 'q9'), 'q9 was removed as a duplicate');
+    app.qa.entries['study:srs:shared:q1'] = due('a');
+    app.qa.entries['study:srs:shared:q9'] = due('b');
+    app.qa.render();
+    assert.deepEqual(counts(), [['現在到期', 1], ['今日稍後', 0], ['弱項', 1]]);
+    app.qa.entries['study:srs:book:ch01-q1'] = due('c');
+    app.qa.render();
+    assert.deepEqual(counts(), [['現在到期', 2], ['今日稍後', 0], ['弱項', 2]], 'textbook and extra pools are still counted');
+  });
+
   await test('今日 shows deadlines and the next exam day from the schedule file', async () => {
     const schedule = {schemaVersion: 1, timezone: 'Asia/Taipei', updatedAt: inDays(0), hospitals: [
       {id: 'a', name: '甲醫院', events: [
