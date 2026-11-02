@@ -4496,7 +4496,7 @@
               "diagnosis": "新生兒先天角膜混濁七大口訣（STUMPED）精準拆解",
               "for": "S＝鞏膜化角膜（Sclerocornea，周邊向中央延伸瓷白混濁伴血管化、角膜扁平無輪部界線）；T＝產鉗外傷（Tears in Descemet，單眼垂直／斜行裂紋伴眼瞼壓痕）；U＝感染潰瘍（Ulcer，HSV/淋病螢光染色陽性）；M＝代謝黏多醣症（Mucopolysaccharidosis I/VI，雙側瀰漫基質霧白）；P＝Peters 異常（中央白斑＋後角膜缺損沾黏）；E＝先天遺傳內皮失養症（CHED，SLC4A11 突變，雙側全角膜極度增厚水腫毛玻璃狀但眼壓正常、無 Haab 條紋）；D＝角膜皮樣瘤（Dermoid）。",
               "against": "把雙側對稱極厚角膜水腫但眼壓與角膜直徑正常的 CHED 誤當先天性青光眼反覆開隅角切開術，或反過來把先天性青光眼誤當鼻淚管不通拖到失明！",
-              "discriminator": "全麻檢查（EUA）四件套定江山：角膜水平直徑（新生兒 >11 mm、1 歲 >12.0 mm 指向青光眼牛眼）＋手持眼壓＋裂隙燈／染色（水平 Haab vs 垂直產鉗）＋高頻 UBM（看 Peters 後缺損晶體沾黏與青光眼隅角）。"
+              "discriminator": "全麻檢查（EUA）四件套定江山：角膜水平直徑（新生兒 ≥11 mm、未滿 1 歲 >12.0 mm 指向青光眼牛眼）＋手持眼壓＋裂隙燈／染色（水平 Haab vs 垂直產鉗）＋高頻 UBM（看 Peters 後缺損晶體沾黏與青光眼隅角）。"
             },
             {
               "diagnosis": "Axenfeld-Rieger 症候群（雙側先天顯性）vs 虹膜角膜內皮症候群（ICE Syndrome，單側後天散發）",
@@ -16700,16 +16700,16 @@
           "chapterHeading": "Study Questions / Answers"
         }
       ],
-      "stem": "角膜深層割傷或感染性潰瘍癒合後，原本透明的角膜基質（stroma）常留下灰白色混濁瘢痕。依本卷角膜生化學與傷口修復機轉，傷口重塑區新合成的細胞外基質中，哪一型膠原蛋白（collagen）的顯著增加最直接代表基質瘢痕修復反應？",
+      "stem": "角膜深層割傷或感染性潰瘍癒合後，原本透明的角膜基質（stroma）常留下灰白色混濁瘢痕。依本卷角膜生化學與傷口修復機轉，傷口重塑區新合成的細胞外基質中，哪一型在正常透明基質僅微量表現的膠原蛋白（collagen），其顯著增加最能代表基質瘢痕修復反應？",
       "options": [
         {
           "text": "Type III",
-          "rationale": "正常成熟角膜基質幾乎不含或僅含極微量第三型膠原；一旦基質受損活化肌纖維母細胞，便會大量分泌纖維直徑粗細不一且排列紊亂的 Type III 膠原蛋白，破壞光學干涉而形成白斑。",
+          "rationale": "正常成熟角膜基質僅微量表現第三型膠原；基質受損、肌纖維母細胞活化後其表現明顯上升，與第一型等膠原一同沉積成粗細不一且排列紊亂的纖維，破壞光學干涉而形成白斑。第三型以總量計未必最多，但最能代表修復反應。",
           "whenTrue": "評估角膜基質外傷、潰瘍或板層手術後肌纖維母細胞活化與基質瘢痕重塑（stromal wound healing）之分子標記時。"
         },
         {
           "text": "Type I",
-          "rationale": "第一型膠原蛋白占正常透明角膜基質膠原總量的最大宗（約 75%–80%），為維持正常角膜生物力學強度與規則晶格的常駐主角，並非傷口修復特有的新興亞型。",
+          "rationale": "第一型膠原蛋白占正常透明角膜基質膠原總量的最大宗（約 75%–80%），為維持正常角膜生物力學強度與規則晶格的常駐主角；瘢痕中第一型沉積同樣增加、總量也可能仍居多，但它本來就是正常基質的主成分，無法專一代表修復反應。",
           "whenTrue": "討論健康成人透明角膜基質板層（lamellae）含量最豐富的主要結構膠原蛋白類型時。"
         },
         {
@@ -16724,7 +16724,7 @@
         }
       ],
       "correctIndex": 0,
-      "explanation": "正常角膜基質之所以能兼具強韌抗張力與 99% 光學穿透度，並非因為膠原蛋白本身透明，而是依賴 Maurice 與後續繞射理論證實的「次波長均一管徑與短程規則晶格排列」：正常基質膠原以第一型（Type I）為主並嵌合第五型（Type V）調控，使每條原纖維直徑嚴格維持在約 25–30 nm，再由富含硫酸角質素（keratan sulfate，如 lumican、keratocan）與硫酸軟骨素／皮膚素的蛋白聚醣（proteoglycans）維持約 60 nm 均勻間距，使散射光波彼此產生相消干涉（destructive interference）；同時靜止期角膜基質細胞（keratocytes）胞質富含高濃度角膜晶狀體蛋白（corneal crystallins，如 ALDH1A1、transketolase）以匹配基質折射率。一旦角膜基質受傷，受損上皮釋放 TGF-β 等生長因子誘使鄰近角膜細胞凋亡，存活細胞則轉分化為表現 α-平滑肌肌動蛋白（α-SMA）的肌纖維母細胞（myofibroblasts），不僅胞內晶狀體蛋白驟減增加細胞散射，更大量分泌粗大紊亂的「第三型膠原蛋白（Type III collagen）」與異常蛋白聚醣，徹底打破相消干涉而形成臨床可見的角膜雲翳或白斑。",
+      "explanation": "正常角膜基質之所以能兼具強韌抗張力與 99% 光學穿透度，並非因為膠原蛋白本身透明，而是依賴 Maurice 與後續繞射理論證實的「次波長均一管徑與短程規則晶格排列」：正常基質膠原以第一型（Type I）為主並嵌合第五型（Type V）調控，使每條原纖維直徑嚴格維持在約 25–30 nm，再由富含硫酸角質素（keratan sulfate，如 lumican、keratocan）與硫酸軟骨素／皮膚素的蛋白聚醣（proteoglycans）維持約 60 nm 均勻間距，使散射光波彼此產生相消干涉（destructive interference）；同時靜止期角膜基質細胞（keratocytes）胞質富含高濃度角膜晶狀體蛋白（corneal crystallins，如 ALDH1A1、transketolase）以匹配基質折射率。一旦角膜基質受傷，受損上皮釋放 TGF-β 等生長因子誘使鄰近角膜細胞凋亡，存活細胞則轉分化為表現 α-平滑肌肌動蛋白（α-SMA）的肌纖維母細胞（myofibroblasts），不僅胞內晶狀體蛋白驟減增加細胞散射，更沉積粗細不一、排列紊亂的新生膠原（第一型總量仍可觀，但由正常微量明顯上升的「第三型膠原蛋白（Type III collagen）」最能代表修復反應）與異常蛋白聚醣，徹底打破相消干涉而形成臨床可見的角膜雲翳或白斑。",
       "imageStatus": "not-applicable",
       "requiresImage": false,
       "status": "source-checked",
@@ -17597,7 +17597,7 @@
           "chapterHeading": "Study Questions / Answers"
         }
       ],
-      "stem": "隨年齡增長，位於晶狀體中央核（lens nucleus）自胚胎期留存至今的陳舊晶狀體蛋白，逐漸累積甲硫胺酸／半胱胺酸雙硫鍵交聯、黃褐色發色團修飾與高分子量不溶性聚集，導致折射散射增加與透明度喪失。下列哪一組病理機轉與疾病配對最契合本卷活性氧（ROS）章節主軸？",
+      "stem": "隨年齡增長，位於晶狀體中央核（lens nucleus）自胚胎期留存至今的陳舊晶狀體蛋白，逐漸累積半胱胺酸雙硫鍵交聯、甲硫胺酸亞碸（methionine sulfoxide）氧化、黃褐色發色團修飾與高分子量不溶性聚集，導致折射散射增加與透明度喪失。下列哪一組病理機轉與疾病配對最契合本卷活性氧（ROS）章節主軸？",
       "options": [
         {
           "text": "Oxidative protein/membrane damage—cataract",
@@ -19108,7 +19108,7 @@
       "bcsc-s02-ch004-u01": "0153d5971ec1e07019850107aef364585bea8e7eea5ff4fa86e880b6bf301ef0",
       "bcsc-s02-ch004-u02": "f29e20daaa6cae7886309371b57f02f3c3aec62b9ac372422209f579121a9244",
       "bcsc-s02-ch004-u03": "a91123b80f2aeb44338051ee9851ebcef17610f27e079e2f48596b799f5d27bd",
-      "bcsc-s02-ch004-u04": "1b6d6e33613c02809e985e32684c0f1ddb4af84d24715fafec8deaecdc53d936",
+      "bcsc-s02-ch004-u04": "274001714b6579e056c8fe06a4985e714e705776330cfaf63a5899256f5231bd",
       "bcsc-s02-ch005-u01": "c3c6a1fdbc307f8d61d5a7b711477bc92ee4c468adb9a1f6252ea0a5ec093ef3",
       "bcsc-s02-ch005-u02": "1dd7f8e629492f22659fe02ca3e422c71e9b1f8dae1590c3a5d9b745e034f31b",
       "bcsc-s02-ch005-u03": "257a0b58169cfc51ee3c8e0f39785f4a2446f2d5241819e32b8f9f494f54afd9",
@@ -19182,7 +19182,7 @@
       "bcsc-s02-rq012": "3967269c3d122db2adb9caf8dac7cdbf018fe85678ea7add9063fd24dfcc8acd",
       "bcsc-s02-rq013": "6af7de7dadc04cb429d1d12f2917498a5055d8be8443a0e298be65ac9e320ecd",
       "bcsc-s02-rq014": "9ff4c8bf672b51bca01eab00240e263f15d8bd0dd37e0cca43b50c3bc7204409",
-      "bcsc-s02-rq015": "0e3b6036de7bac01cb6812b7a58b776ac7c8a6b443970fd0908d3f9b8a4d8481",
+      "bcsc-s02-rq015": "a7de3c715d2163750f12c7af9ac0519dafca41a6d676320d0c60a5b0a931af4f",
       "bcsc-s02-rq016": "7dd5f5a531d34087beef3f1d51ddc86cfbb8f9cae9bd8ee3f96697a9e851e482",
       "bcsc-s02-rq017": "b30512f6b34e04f620df94c71acb88144b51d4681ccebb35e08e28879b31054a",
       "bcsc-s02-rq018": "a03911f677782c7a33f2d379dccf18000fd3d97b4d3c26ea9fe5d0081fbbdd18",
@@ -19198,7 +19198,7 @@
       "bcsc-s02-rq028": "42af041e213e32613937cbb28afa251e977c9f115bb66ed797fcf935ee58cc71",
       "bcsc-s02-rq029": "440c1e596ae071e9af4c31154da8998fa9fed61bfff1d34ffdd62aa7494ea779",
       "bcsc-s02-rq030": "537caca6ef319805579f541aff1b7fa9562c6bc4437c62a2b23c51fc11a9d890",
-      "bcsc-s02-rq031": "fb8fa6e0e91203f3f07a42cabf98e943ff7bb1059bfd5d7d77a7c482a587715c",
+      "bcsc-s02-rq031": "3deb4c9381acb562efbf8fda117da9fb7ed392d875983f497e3b750a7d28f10e",
       "bcsc-s02-rq032": "525eb099de8fac657d3ad57d68f89bccd30a6aca091b032622af26805ac5bfb3",
       "bcsc-s02-rq033": "bae52f02325176e644134e0bafe358b67e7685f12759ab6c13791713c47aa54e",
       "bcsc-s02-rq034": "8f80fc5ffb3d7a8b06cf35ffdeeceae988d59b9019685076d82d69c56cc83ae6",
