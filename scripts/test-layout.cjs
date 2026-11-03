@@ -74,7 +74,7 @@ function boot({search = '', fetchImpl, withStudySrs = false} = {}) {
   const qa = context.__qa;
   windowHandlers.get('load')?.();
   const action = (name, value = '') => handlers.get('click')({target: {closest: () => ({dataset: {action: name, value}, disabled: false, setAttribute() {}})}});
-  return {qa, element, handlers, location, action, focused: () => focusedKey, main: () => element('#main').innerHTML, nav: () => element('#nav').innerHTML, tabbar: () => element('#tabbar').innerHTML};
+  return {qa, window, element, handlers, location, action, focused: () => focusedKey, main: () => element('#main').innerHTML, nav: () => element('#nav').innerHTML, tabbar: () => element('#tabbar').innerHTML};
 }
 
 // Balanced-tag check for controlled app templates, not an HTML rendering engine.
@@ -486,6 +486,161 @@ async function test(name, run) {
     const nm = boot({search: '?s=nm'});
     nm.action('tab', 'quiz');
     assert(!nm.main().includes('data-quiz-bank-switcher'));
+  });
+
+  await test('core and specialty #quiz support due/srs-weak modes, non-oph #study hides oph-only banks, and #today renders synchronous per-bank due counts', async () => {
+    let netCalls = 0;
+    const app = boot({
+      withStudySrs: true,
+      fetchImpl: url => {
+        if (!String(url).includes('exam-schedule.json')) netCalls++;
+        return Promise.resolve({ok: true, json: () => Promise.resolve({schemaVersion: 1, hospitals: []})});
+      }
+    });
+    await settle();
+    const pastIso = new Date(Date.now() - 60000).toISOString();
+    const futureIso = new Date(Date.now() + 2 * DAY).toISOString();
+    const mkEntry = (id, dueAt, rating = 'again', correct = false) => ({
+      version: 1, at: pastIso, answerCount: 1,
+      attempt: {id: 'tok-' + id, at: pastIso, correct, rated: true},
+      plan: {step: rating === 'again' ? -1 : 0, dueAt, rating, reviewCount: 1, lapses: correct ? 0 : 1}
+    });
+    const qDue = app.qa.D.questions.find(q => !q.pastExam), qDueKaogu = app.qa.D.questions.find(q => q.pastExam), qWeakFuture = app.qa.D.questions[1], qGoodFuture = app.qa.D.questions[2];
+    app.qa.entries['study:srs:shared:' + qDue.id] = mkEntry(qDue.id, pastIso, 'again', false);
+    app.qa.entries['study:srs:shared:' + qDueKaogu.id] = mkEntry(qDueKaogu.id, pastIso, 'again', false);
+    app.qa.entries['study:srs:shared:' + qWeakFuture.id] = mkEntry(qWeakFuture.id, futureIso, 'hard', true);
+    app.qa.entries['study:srs:shared:' + qGoodFuture.id] = mkEntry(qGoodFuture.id, futureIso, 'good', true);
+    app.qa.entries['study:srs:book:bcsc-s01-rq001'] = mkEntry('bcsc-s01-rq001', pastIso, 'again', false);
+    app.qa.entries['study:srs:extra:extra-20261022-q001'] = mkEntry('extra-20261022-q001', pastIso, 'again', false);
+    app.qa.entries['study:srs:extra:extra-20261020-q001'] = mkEntry('extra-20261020-q001', pastIso, 'again', false);
+    app.qa.entries['study:srs:cram:cram-01'] = mkEntry('cram-01', pastIso, 'again', false);
+    app.qa.entries['study:srs:atlas:atlas-s01-01-case'] = mkEntry('atlas-s01-01-case', pastIso, 'again', false);
+    netCalls = 0;
+    app.qa.render();
+    assert.equal(netCalls, 0, '#today renders SRS per-bank due counts synchronously with 0 extra network fetches');
+    const todayMain = app.main();
+    wellFormed(todayMain);
+    assert(todayMain.includes('data-today-srs-banks'));
+    for (const part of ['共筆自編 1', '考古考點 1', 'BCSC 原書 1', 'Hard 推理 1', '陌生病例 1', '衝刺卡 1', '視覺圖譜 1']) {
+      assert(todayMain.includes(part), 'missing per-bank due badge ' + part);
+    }
+
+    // Core #quiz due and srs-weak modes
+    app.action('tab', 'quiz');
+    assert(app.main().includes('value="due"') && app.main().includes('到期複習（SRS）'));
+    assert(app.main().includes('value="srs-weak"') && app.main().includes('SRS 弱項'));
+    app.handlers.get('change')({target: {id: 'mode-filter', value: 'due', classList: {contains: () => false}, dataset: {}}});
+    assert.deepEqual(Array.from(app.qa.S.ids).sort(), [qDue.id, qDueKaogu.id].sort(), 'core #quiz due mode selects only due shared questions');
+    app.handlers.get('change')({target: {id: 'mode-filter', value: 'srs-weak', classList: {contains: () => false}, dataset: {}}});
+    assert.deepEqual(Array.from(app.qa.S.ids).sort(), [qDue.id, qDueKaogu.id, qWeakFuture.id].sort(), 'core #quiz srs-weak mode selects wrong/again/hard questions');
+
+    // Non-oph specialty (?s=neuro) #quiz due/srs-weak + #study hides oph-only banks
+    const neuro = boot({search: '?s=neuro', withStudySrs: true});
+    const nq0 = neuro.qa.D.questions[0], nq1 = neuro.qa.D.questions[1];
+    neuro.qa.entries['study:srs:shared:' + nq0.id] = mkEntry(nq0.id, pastIso, 'again', false);
+    neuro.qa.entries['study:srs:shared:' + nq1.id] = mkEntry(nq1.id, futureIso, 'hard', true);
+    neuro.action('tab', 'quiz');
+    neuro.handlers.get('change')({target: {id: 'mode-filter', value: 'due', classList: {contains: () => false}, dataset: {}}});
+    assert.deepEqual(Array.from(neuro.qa.S.ids), [nq0.id], 'specialty #quiz due mode works identically');
+    neuro.handlers.get('change')({target: {id: 'mode-filter', value: 'srs-weak', classList: {contains: () => false}, dataset: {}}});
+    assert.deepEqual(Array.from(neuro.qa.S.ids), [nq0.id, nq1.id]);
+
+    // Seed non-shared SRS entries on ?s=neuro (e.g. from crafted progress import) and verify #today ignores them to match #study
+    neuro.qa.entries['study:srs:book:bcsc-s01-rq001'] = mkEntry('b1', pastIso, 'again', false);
+    neuro.qa.entries['study:srs:cram:cram-01'] = mkEntry('c1', pastIso, 'again', false);
+    neuro.action('tab', 'today');
+    const neuroTodayCounts = [...neuro.main().matchAll(/<div><span>(現在到期|今日稍後|弱項)<\/span><strong>(\d+)<\/strong><\/div>/g)].map(m => [m[1], Number(m[2])]);
+    assert.deepEqual(neuroTodayCounts, [['現在到期', 1], ['今日稍後', 0], ['弱項', 2]], 'non-oph 今日 review counts ignore non-shared study:srs:* entries');
+    assert(!neuro.main().includes('data-today-srs-banks'), 'non-oph 今日 hides oph-only bank breakdown line');
+
+    const studyRoot = {isConnected: true, dataset: {}, innerHTML: '', addEventListener() {}};
+    await neuro.window.OphStudy.mount(studyRoot);
+    for (const ophOnly of ['BCSC 13 卷原書題', 'Hard｜深度臨床推理', '共筆考前衝刺卡', '視覺圖譜推演回想']) {
+      assert(!studyRoot.innerHTML.includes(ophOnly), 'non-oph #study must hide ' + ophOnly);
+    }
+    const neuroStudyCounts = [...studyRoot.innerHTML.matchAll(/<section class="card metric"><span>(現在到期|今日稍後|弱項)<\/span><strong>(\d+)<\/strong><\/section>/g)].map(m => [m[1], Number(m[2])]);
+    assert.deepEqual(neuroStudyCounts, neuroTodayCounts, 'non-oph #today and #study review counts match identically');
+  });
+
+  await test('advanced #quiz lazy-loads BCSC volumes on demand, filters due/today/srs-weak before fetching, shows 144/804 counts, and supports non-clobbering multi-card ratings', async () => {
+    const manifest = JSON.parse(fs.readFileSync(path.join(root, 'content/textbook-manifest.json'), 'utf8'));
+    const allVolumes = Object.fromEntries(manifest.books.map(b => [b.bookId, JSON.parse(fs.readFileSync(path.join(root, b.file), 'utf8'))]));
+    const hardPack = JSON.parse(fs.readFileSync(path.join(root, 'content/textbook-depth/advanced-practice.json'), 'utf8'));
+    const extraPack = JSON.parse(fs.readFileSync(path.join(root, 'content/textbook-depth/additional-practice.json'), 'utf8'));
+    const fetchedVols = [];
+    const fetchImpl = url => {
+      const u = String(url);
+      if (u.includes('exam-schedule.json')) return Promise.resolve({ok: true, json: () => Promise.resolve({schemaVersion: 1, hospitals: []})});
+      if (u.includes('textbook-manifest.json')) return Promise.resolve({ok: true, json: () => Promise.resolve(manifest)});
+      const vmMatch = u.match(/(bcsc-s\d{2})\.json/);
+      if (vmMatch && allVolumes[vmMatch[1]]) {
+        fetchedVols.push(vmMatch[1]);
+        return Promise.resolve({ok: true, json: () => Promise.resolve(allVolumes[vmMatch[1]])});
+      }
+      if (u.includes('advanced-practice.json')) return Promise.resolve({ok: true, json: () => Promise.resolve(hardPack)});
+      if (u.includes('additional-practice.json')) return Promise.resolve({ok: true, json: () => Promise.resolve(extraPack)});
+      return Promise.resolve({ok: false});
+    };
+    const app = boot({fetchImpl, withStudySrs: true});
+    await settle();
+    fetchedVols.length = 0;
+    app.action('tab', 'quiz');
+    assert(app.main().includes('（144 題）') && app.main().includes('（804 題）'), 'switcher shows accurate 144 Hard and 804 All-Advanced counts');
+
+    // Open BCSC mode: page 0 (25 items) fits entirely inside bcsc-s01 (35 questions), so ONLY bcsc-s01.json is fetched!
+    app.action('quiz-bank', 'bcsc');
+    await settle();
+    assert.deepEqual(fetchedVols, ['bcsc-s01'], 'opening BCSC page 1 fetches ONLY bcsc-s01.json instead of all 13 volumes');
+
+    // Selecting bcsc-s07 fetches ONLY bcsc-s07.json
+    app.handlers.get('change')({target: {id: 'quiz-adv-volume', value: 'bcsc-s07'}});
+    await settle();
+    assert.deepEqual(fetchedVols, ['bcsc-s01', 'bcsc-s07']);
+
+    // Filter by due across all volumes: stubs filter via entries['study:srs:book:*'] BEFORE fetching, so ONLY bcsc-s11.json is fetched!
+    const s11Q = allVolumes['bcsc-s11'].questions[0];
+    const pastIso = new Date(Date.now() - 60000).toISOString();
+    app.qa.entries['study:srs:book:' + s11Q.id] = {
+      version: 1, at: pastIso, answerCount: 1,
+      attempt: {id: 'tok-s11', at: pastIso, correct: false, rated: true},
+      plan: {step: -1, dueAt: pastIso, rating: 'again', reviewCount: 1, lapses: 1}
+    };
+    app.handlers.get('change')({target: {id: 'quiz-adv-volume', value: 'all'}});
+    app.handlers.get('change')({target: {id: 'quiz-adv-status', value: 'due'}});
+    await settle();
+    assert.deepEqual(fetchedVols, ['bcsc-s01', 'bcsc-s07', 'bcsc-s11'], 'due filter fetches ONLY the volume containing due questions');
+    assert(app.main().includes(`data-question-id="${s11Q.id}"`));
+    for (const statusOpt of ['due', 'today', 'srs-weak']) {
+      assert(app.main().includes(`<option value="${statusOpt}"`), 'missing #quiz-adv-status option ' + statusOpt);
+    }
+
+    // Multi-card non-clobbering familiarity rating
+    app.handlers.get('change')({target: {id: 'quiz-adv-status', value: 'all'}});
+    app.handlers.get('change')({target: {id: 'quiz-adv-volume', value: 'bcsc-s01'}});
+    await settle();
+    const [qA, qB, qC] = allVolumes['bcsc-s01'].questions;
+    app.action('quiz-adv-answer', `${qA.id}|${qA.correctIndex}`);
+    app.action('quiz-adv-answer', `${qB.id}|${qB.correctIndex}`);
+    const main = app.main();
+    wellFormed(main);
+    const cardHtml = id => main.match(new RegExp(`<article[^>]*data-question-id="${id}"[\\s\\S]*?<\\/article>`))?.[0] || '';
+    const cardA = cardHtml(qA.id), cardB = cardHtml(qB.id);
+    assert(cardA && !/data-study-rate="good"[^>]*disabled/.test(cardA), 'first answered card keeps active rating buttons after answering second card');
+    assert(cardB && !/data-study-rate="good"[^>]*disabled/.test(cardB), 'second answered card also has active rating buttons');
+    const tokA = app.qa.entries['study:srs:book:' + qA.id].attempt.id;
+    const tokB = app.qa.entries['study:srs:book:' + qB.id].attempt.id;
+    assert.equal(app.window.OphStudy.grade('book', qA.id, tokA, 'good'), true);
+    assert.equal(app.window.OphStudy.grade('book', qB.id, tokB, 'easy'), true);
+    assert.equal(app.qa.entries['study:srs:book:' + qA.id].plan.rating, 'good');
+    assert.equal(app.qa.entries['study:srs:book:' + qB.id].plan.rating, 'easy');
+
+    // Leaving #quiz clears pending cardTokens so returning does not leave stale gradable tokens
+    app.action('quiz-adv-answer', `${qC.id}|${qC.correctIndex}`);
+    const tokC = app.qa.entries['study:srs:book:' + qC.id].attempt.id;
+    app.action('tab', 'today');
+    app.action('tab', 'quiz');
+    assert.equal(app.window.OphStudy.grade('book', qC.id, tokC, 'good'), false, 'leaving #quiz clears unrated cardTokens');
+    assert(/data-study-rate="good"[^>]*disabled/.test(app.main().match(new RegExp(`<article[^>]*data-question-id="${qC.id}"[\\s\\S]*?<\\/article>`))?.[0] || ''));
   });
 
   console.log(JSON.stringify({passed: results.filter(x => x.pass).length, failed: results.filter(x => !x.pass).length, results}, null, 2));

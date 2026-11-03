@@ -86,5 +86,40 @@ async function test(name,fn){try{await fn();results.push({name,pass:true});}catc
   await a.runTimers(t=>t.ms===400);const b=await fresh(a.local);assert.equal(b.qa.meta['project:check:documents'].done,true);assert.equal(C.totals(b.qa.entries,'2026-10-22').xp,0);
   b.change('sync-autosave',{checked:false});b.bridge.config({targetDate:'',dailyMinutes:15});await b.runTimers(t=>t.ms===400);assert.equal(b.local.getItem('oph-prep:progress-v3'),null);
  });
+ await test('finished Written 10Q/10m supports per-question SRS rating chips and idempotent 1-click Good batch scheduling without touching wrong items',async()=>{
+  n=Date.parse('2026-10-22T03:00:00.000Z');
+  const a=await fresh();
+  a.project.action('project-written','');
+  const exam=a.qa.entries['project:exam:2026-10-22'],[q0,q1,q2]=exam.items;
+  a.project.change({dataset:{projectAnswer:q0.id},value:String(q0.correctIndex)});
+  a.project.change({dataset:{projectAnswer:q1.id},value:String(q1.correctIndex)});
+  a.project.change({dataset:{projectAnswer:q2.id},value:String((q2.correctIndex+1)%q2.options.length)});
+  a.project.action('project-exam-submit','');
+  assert(a.root.innerHTML.includes('答對題一鍵排入 Good 複習（2 題）'));
+  assert(a.root.innerHTML.includes('class="project-correct-srs"'));
+  assert.equal(a.qa.entries['study:srs:shared:'+q0.id].plan,null);
+  assert.equal(a.qa.entries['study:srs:shared:'+q2.id].plan.rating,'again');
+  const wrongDue=a.qa.entries['study:srs:shared:'+q2.id].plan.dueAt;
+
+  // Rate q0 individually as Easy first
+  a.project.action('project-srs-rate',q0.id+'|easy');
+  assert.equal(a.qa.entries['study:srs:shared:'+q0.id].plan.rating,'easy');
+  assert.equal(a.qa.entries['study:srs:shared:'+q0.id].plan.step,1);
+  assert(a.root.innerHTML.includes('答對題一鍵排入 Good 複習（1 題）'));
+
+  // Batch-rate remaining unrated correct items as Good
+  a.project.action('project-srs-batch','');
+  assert.equal(a.qa.entries['study:srs:shared:'+q1.id].plan.rating,'good');
+  assert.equal(a.qa.entries['study:srs:shared:'+q1.id].plan.step,0);
+  assert.equal(a.qa.entries['study:srs:shared:'+q0.id].plan.rating,'easy','already-rated correct item is not overwritten');
+  assert.equal(a.qa.entries['study:srs:shared:'+q2.id].plan.rating,'again','wrong item schedule stays untouched');
+  assert.equal(a.qa.entries['study:srs:shared:'+q2.id].plan.dueAt,wrongDue);
+  assert(a.root.innerHTML.includes('✓ 答對題已排入 SRS 複習'));
+
+  // Repeat click is a safe no-op
+  a.project.action('project-srs-batch','');
+  assert.equal(a.qa.entries['study:srs:shared:'+q1.id].plan.reviewCount,1);
+  n=Date.parse('2026-10-22T01:00:00.000Z');
+ });
  console.log(JSON.stringify({passed:results.filter(x=>x.pass).length,failed:results.filter(x=>!x.pass).length,results},null,2));if(results.some(x=>!x.pass))process.exitCode=1;
 })();

@@ -190,5 +190,43 @@ reject_unit_ids(lambda t:t.update(unitIds=['bcsc-s01-ch002-u01'],unexpectedKey=T
       }
     }
   });
+  await test('atlas retrieval items support Again/Hard/Good/Easy SRS rating, inline card SRS bars, and focusItem deep-link expansion when OphStudyBridge is present',async()=>{
+    const scheduler=require('./study-srs.js');
+    let clock=Date.parse('2026-10-20T14:00:00.000Z');
+    const srsEntries={};
+    const b=boot({integrated:true,hash:'#textbook-atlas-bcsc-s01-atlas-s01-01'});
+    b.window.OphStudyScheduler=scheduler;
+    b.window.OphStudy={leave(){},context(){},now:()=>clock};
+    b.window.OphStudyBridge={
+      read:k=>srsEntries[k]||null,
+      save:(k,v)=>{assert.equal(v.version,1);assert(scheduler.planValid(v.plan));srsEntries[k]=JSON.parse(JSON.stringify(v));},
+      refresh(){}
+    };
+    b.window.OphTextbookAtlas.focusItem('atlas-s01-01-recall');
+    await b.start();
+    assert(b.root.innerHTML.includes('data-atlas-srs-item="atlas-s01-01-recall" open'),'focusItem auto-opens target retrieval details');
+    assert(b.root.innerHTML.includes('class="atlas-srs-bar"')&&b.root.innerHTML.includes('尚未排程'));
+    for(const lbl of ['不熟 10分','微卡 1天','記得','很熟'])assert(b.root.innerHTML.includes(lbl),'missing atlas SRS button '+lbl);
+
+    await b.root.event('click',{target:{closest:s=>s==='[data-atlas-srs-rate]'?{dataset:{itemId:'atlas-s01-01-case',atlasSrsRate:'good'},disabled:false}:null}});
+    assert.equal(srsEntries['study:srs:atlas:atlas-s01-01-case'].plan.rating,'good');
+    assert.equal(srsEntries['study:srs:atlas:atlas-s01-01-case'].plan.dueAt,'2026-10-21T14:00:00.000Z');
+    assert(b.root.innerHTML.includes('（已排程）'));
+
+    await b.root.event('click',{target:{closest:s=>s==='[data-atlas-srs-rate]'?{dataset:{itemId:'atlas-s01-01-recall',atlasSrsRate:'again'},disabled:false}:null}});
+    assert.equal(srsEntries['study:srs:atlas:atlas-s01-01-recall'].attempt.correct,false);
+    assert.equal(srsEntries['study:srs:atlas:atlas-s01-01-recall'].plan.rating,'again');
+    assert.equal(srsEntries['study:srs:atlas:atlas-s01-01-recall'].plan.dueAt,'2026-10-20T14:10:00.000Z');
+
+    clock=Date.parse('2026-10-20T14:15:00.000Z');
+    await b.mount('bcsc-s01','atlas-s01-01');
+    assert(b.root.innerHTML.includes('（現在到期）'),'due atlas item displays 現在到期 once dueAt passes');
+
+    const u0=pack.volumes[0].units[0];
+    const inlineHtml=Array.isArray(u0.unitIds)&&u0.unitIds.length
+      ? b.window.OphTextbookAtlas.renderInlineUnitCards('bcsc-s01',u0.unitIds[0])
+      : b.window.OphTextbookAtlas.renderInlineChapterCards('bcsc-s01',u0.chapterIds[0],[]);
+    assert(inlineHtml.includes('class="tb-inline-atlas-retrievals"')&&inlineHtml.includes('class="atlas-srs-bar"'),'inline atlas cards render retrieval SRS bars');
+  });
   const failed=results.filter(r=>!r.pass);console.log(JSON.stringify({passed:results.length-failed.length,failed:failed.length,results},null,2));if(failed.length)process.exitCode=1;
 })();
