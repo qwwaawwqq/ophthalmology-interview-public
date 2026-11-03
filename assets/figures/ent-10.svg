@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-labelledby="t-ent10 d-ent10">
+  <title id="t-ent10">中顏面力學支柱、Le Fort I–III 骨折線與頭頸顯微重建階梯圖</title>
+  <desc id="d-ent10">左欄呈現中顏面垂直支柱、Le Fort 一至三型骨折線（皆斷裂翼突板）與兒童活門眼眶底骨折；右欄整理外傷性腦脊髓液鼻漏階梯治療與頭頸游離皮瓣配對。</desc>
+  <defs>
+    <marker id="arr-teal10" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M1 1 L9 5 L1 9 Z" fill="#0f766e"/>
+    </marker>
+  </defs>
+  <g font-family="system-ui, -apple-system, 'Noto Sans TC', sans-serif">
+    <rect x="20" y="20" width="920" height="520" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="42" y="54" font-size="21" font-weight="700" fill="#0f172a">中顏面 Le Fort I–III 骨折 · 外傷性腦脊髓液鼻漏 · 頭頸重建皮瓣</text>
+    <text x="42" y="76" font-size="13" fill="#475569">ATLS 氣道頸椎優先（禁盲目經鼻插管）· 蝶骨翼突板共同斷裂 · Beta-2 transferrin 確診與顯微皮瓣選擇</text>
+
+    <!-- Left Panel: Le Fort I-III & Orbital/Nasal Red Flags -->
+    <rect x="36" y="92" width="448" height="428" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="54" y="118" font-size="16" font-weight="700" fill="#1d4ed8">A. 中顏面骨折分型與眼眶／鼻中膈急症</text>
+
+    <!-- Schematic Midface Skull Frontal Diagram -->
+    <rect x="52" y="132" width="184" height="224" rx="10" fill="#f8fafc" stroke="#cbd5e1"/>
+    <!-- Skull contour -->
+    <ellipse cx="144" cy="212" rx="68" ry="64" fill="#f1f5f9" stroke="#64748b" stroke-width="1.8"/>
+    <!-- Orbits -->
+    <rect x="96" y="186" width="34" height="26" rx="6" fill="#ffffff" stroke="#475569" stroke-width="1.5"/>
+    <rect x="158" y="186" width="34" height="26" rx="6" fill="#ffffff" stroke="#475569" stroke-width="1.5"/>
+    <!-- Piriform aperture -->
+    <path d="M144 206 L133 236 L155 236 Z" fill="#e2e8f0" stroke="#475569" stroke-width="1.5"/>
+    <!-- Maxilla alveolar arch -->
+    <rect x="106" y="258" width="76" height="24" rx="4" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5"/>
+
+    <!-- Le Fort III line (Red - Craniofacial disjunction) -->
+    <path d="M74 196 L112 196 L144 178 L176 196 L214 196" fill="none" stroke="#be123c" stroke-width="3"/>
+    <!-- Le Fort II line (Amber - Pyramidal) -->
+    <path d="M96 244 L120 212 L144 182 L168 212 L192 244" fill="none" stroke="#b45309" stroke-width="3"/>
+    <!-- Le Fort I line (Teal - Horizontal floating palate) -->
+    <line x1="94" y1="250" x2="194" y2="250" stroke="#0f766e" stroke-width="3.2"/>
+
+    <text x="60" y="304" font-size="9.8" font-weight="700" fill="#0f766e">─ Le Fort I（20–30%）</text>
+    <text x="60" y="322" font-size="9.8" font-weight="700" fill="#b45309">─ Le Fort II（35–55% 最多）</text>
+    <text x="60" y="340" font-size="9.8" font-weight="700" fill="#be123c">─ Le Fort III（5–15% 最重）</text>
+
+    <!-- Descriptions of Le Fort I-III on right half of Panel A -->
+    <rect x="246" y="132" width="224" height="66" rx="6" fill="#ecfdf5" stroke="#0f766e"/>
+    <text x="255" y="150" font-size="12" font-weight="700" fill="#0f766e">Le Fort I（水平型）</text>
+    <text x="255" y="167" font-size="10.5" fill="#0f172a">橫過梨狀孔與上頷竇下壁</text>
+    <text x="255" y="183" font-size="10.5" fill="#065f46">徵象：浮動上顎 Floating palate</text>
+
+    <rect x="246" y="204" width="224" height="68" rx="6" fill="#fef3c7" stroke="#b45309"/>
+    <text x="255" y="222" font-size="11.5" font-weight="700" fill="#b45309">Le Fort II（金字塔型·最常見）</text>
+    <text x="255" y="239" font-size="10.5" fill="#0f172a">經鼻額縫、淚骨、眶底眶下孔</text>
+    <text x="255" y="255" font-size="10.5" fill="#78350f">徵象：眶下神經 V2 麻木 · 鼻漏</text>
+
+    <rect x="246" y="278" width="224" height="78" rx="6" fill="#fff1f2" stroke="#be123c"/>
+    <text x="255" y="296" font-size="12" font-weight="700" fill="#be123c">Le Fort III（顱顏分離型）</text>
+    <text x="255" y="313" font-size="10.5" fill="#0f172a">經鼻額縫、眶內外壁與顴弓</text>
+    <text x="255" y="329" font-size="10.5" fill="#881337">長臉畸形 · 必斷「蝶骨翼突板」！</text>
+    <text x="255" y="345" font-size="10.5" fill="#be123c" font-weight="700">三型共同特徵：翼突板皆斷裂</text>
+
+    <!-- Pediatric Trapdoor & Nasal Septal Hematoma Red Flags -->
+    <rect x="52" y="366" width="418" height="140" rx="8" fill="#eff6ff" stroke="#1d4ed8"/>
+    <text x="60" y="386" font-size="12.5" font-weight="700" fill="#1d4ed8">眼眶底、顴弓與鼻外傷三大急診陷阱</text>
+    <text x="60" y="406" font-size="9.6" fill="#0f172a">· 成人眼眶底爆裂：無眼球破裂／嚴重眼肌嵌頓／OCR 者觀察 2 週（嚴禁擤鼻！）</text>
+    <text x="60" y="426" font-size="9.6" fill="#be123c" font-weight="700">· 白眼 Trapdoor（眼心反射）：兒童嵌頓骨折 24–48h 急手術鬆解（一般 3–5d）</text>
+    <text x="60" y="446" font-size="9.8" fill="#0f172a">· 單純顴弓凹陷骨折：直接卡壓「下顎冠狀突與顳肌」→ 張口受限（Trismus）</text>
+    <text x="60" y="466" font-size="9.8" fill="#be123c" font-weight="700">· 鼻中膈血腫：雙側紫紅柔軟膨出須「當場切開引流」（防軟骨壞死馬鞍鼻）</text>
+    <text x="60" y="486" font-size="9.8" fill="#475569">· 鼻骨閉鎖復位：成人 5–10d、兒童 3–7d；額竇傷鼻額管須防晚期黏液囊腫</text>
+
+    <!-- Right Panel: CSF Leak Stepwise + Free Flap Reconstructive Pairing -->
+    <rect x="498" y="92" width="426" height="428" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="516" y="118" font-size="16" font-weight="700" fill="#0f766e">B. 外傷性腦脊髓液鼻漏與頭頸重建皮瓣配對</text>
+
+    <!-- CSF Rhinorrhea Flow -->
+    <rect x="514" y="132" width="398" height="144" rx="8" fill="#ecfdf5" stroke="#0f766e"/>
+    <text x="524" y="152" font-size="12.5" font-weight="700" fill="#0f766e">外傷性 CSF 鼻漏（鼻竇外傷約 25%，額竇後壁與篩板最多）</text>
+
+    <rect x="524" y="164" width="120" height="68" rx="6" fill="#ffffff" stroke="#0f766e"/>
+    <text x="531" y="182" font-size="11" font-weight="700" fill="#0f766e">1. 黃金生化確診</text>
+    <text x="531" y="199" font-size="9.6" fill="#0f172a">Beta-2 transferrin</text>
+    <text x="531" y="215" font-size="9.6" fill="#be123c">（禁單憑糖試紙）</text>
+
+    <line x1="644" y1="198" x2="656" y2="198" stroke="#0f766e" stroke-width="2" marker-end="url(#arr-teal10)"/>
+
+    <rect x="658" y="164" width="116" height="68" rx="6" fill="#ffffff" stroke="#0f766e"/>
+    <text x="665" y="182" font-size="10.5" font-weight="700" fill="#0f766e">2. 保守 10–14 天</text>
+    <text x="665" y="199" font-size="10" fill="#0f172a">抬頭 30°·軟便止咳</text>
+    <text x="665" y="215" font-size="10" fill="#065f46">約 85% 自行閉合</text>
+
+    <line x1="774" y1="198" x2="786" y2="198" stroke="#0f766e" stroke-width="2" marker-end="url(#arr-teal10)"/>
+
+    <rect x="788" y="164" width="112" height="68" rx="6" fill="#ffffff" stroke="#1d4ed8"/>
+    <text x="795" y="182" font-size="11" font-weight="700" fill="#1d4ed8">3. 內視鏡修補</text>
+    <text x="795" y="199" font-size="10" fill="#0f172a">HRCT+鞘內螢光素</text>
+    <text x="795" y="215" font-size="10" fill="#1e3a8a">成功率 90–95%</text>
+
+    <text x="522" y="256" font-size="9.5" fill="#334155">· 清澈不黏稠、手帕乾後不變硬；腦膜炎風險 3–11%（肺炎鏈球菌、流感桿菌最多）</text>
+
+    <!-- Free Flap Reconstructive Matrix -->
+    <rect x="514" y="286" width="398" height="220" rx="8" fill="#f8fafc" stroke="#94a3b8"/>
+    <text x="524" y="308" font-size="12.5" font-weight="700" fill="#0f172a">頭頸缺損重建階梯：區域帶蒂皮瓣 vs 三大主力顯微游離皮瓣</text>
+
+    <rect x="526" y="320" width="180" height="72" rx="6" fill="#fef3c7" stroke="#b45309"/>
+    <text x="534" y="338" font-size="12" font-weight="700" fill="#b45309">胸大肌帶蒂皮瓣 PMMC</text>
+    <text x="534" y="355" font-size="10.5" fill="#0f172a">胸肩峰動脈 · 免顯微吻合</text>
+    <text x="534" y="372" font-size="10.5" fill="#78350f">高風險挽救手術／護頸動脈</text>
+
+    <rect x="716" y="320" width="180" height="72" rx="6" fill="#ccfbf1" stroke="#0f766e"/>
+    <text x="724" y="338" font-size="12" font-weight="700" fill="#0f766e">橈側前臂游離瓣 RFFF</text>
+    <text x="724" y="355" font-size="10.5" fill="#0f172a">皮薄柔軟可塑性佳（測 Allen）</text>
+    <text x="724" y="372" font-size="10.5" fill="#065f46">半舌 · 口底 · 下咽管道重建</text>
+
+    <rect x="526" y="400" width="180" height="72" rx="6" fill="#dbeafe" stroke="#1d4ed8"/>
+    <text x="534" y="418" font-size="12" font-weight="700" fill="#1d4ed8">大腿前外側瓣 ALT</text>
+    <text x="534" y="435" font-size="10.5" fill="#0f172a">旋股外側降支 · 供區直接縫合</text>
+    <text x="534" y="452" font-size="10.5" fill="#1e3a8a">全舌 · 頰顎全層大體積缺損</text>
+
+    <rect x="716" y="400" width="180" height="72" rx="6" fill="#ffe4e6" stroke="#be123c"/>
+    <text x="724" y="418" font-size="12" font-weight="700" fill="#be123c">腓骨游離骨皮瓣 Fibula</text>
+    <text x="724" y="435" font-size="10.5" fill="#0f172a">長 20–25cm 雙皮質骨可植牙</text>
+    <text x="724" y="452" font-size="10.5" fill="#881337">下顎骨前弓跨越中線重建首選</text>
+
+    <text x="524" y="492" font-size="9.8" fill="#be123c" font-weight="600">術後 72h 巡房：暗紫腫脹快回充＋刺出黑血＝靜脈血栓（最常見），急返室取栓！</text>
+  </g>
+</svg>
