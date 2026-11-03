@@ -15,29 +15,29 @@
   <text x="48" y="103" fill="#1d4ed8" font-size="13" font-weight="700">1. 專科訓練配題 · 輻防與兒科急症</text>
 
   <rect x="46" y="122" width="264" height="132" rx="7" fill="#eff6ff" stroke="#bfdbfe"/>
-  <text x="56" y="141" fill="#1d4ed8" font-size="11.6" font-weight="700">四年訓練認定與每季閱片配題架構</text>
-  <text x="56" y="159" fill="#334155" font-size="10.3">· 認定基準：專任指導醫師師生比 + 聯合訓練補足</text>
-  <text x="56" y="176" fill="#1d4ed8" font-size="10.3" font-weight="700">· 三大高權重系統：神經頭頸 · 胸腔 · 腹部消化</text>
-  <text x="56" y="193" fill="#334155" font-size="10.3">· 六大專項均衡涵蓋：骨肌 · 泌尿 · 乳房 · 兒科 ·</text>
-  <text x="56" y="208" fill="#334155" font-size="10.3">  心血管 · 影像導引介入處置（筆試 + 跑台口試）</text>
-  <text x="56" y="226" fill="#0f766e" font-size="10.3" font-weight="600">· 四步標準口試：觀察描述 → 定位 → 鑑別 → 處置</text>
-  <text x="56" y="243" fill="#64748b" font-size="10">強制掃描盲區角落，防範滿意終止偏誤</text>
+  <text x="54" y="141" fill="#1d4ed8" font-size="11.5" font-weight="700">四年訓練認定與每季閱片配題架構</text>
+  <text x="54" y="159" fill="#334155" font-size="9.8">· 認定基準：專任指導醫師師生比 + 聯合訓練</text>
+  <text x="54" y="176" fill="#1d4ed8" font-size="9.8" font-weight="700">· 三大高權重系統：神經頭頸·胸腔·腹部消化</text>
+  <text x="54" y="193" fill="#334155" font-size="9.8">· 六大專項均衡涵蓋：骨肌·泌尿·乳房·兒科·</text>
+  <text x="54" y="208" fill="#334155" font-size="9.8">  心血管·影像導引介入處置 (筆試 + 跑台口試)</text>
+  <text x="54" y="226" fill="#0f766e" font-size="9.8" font-weight="600">· 四步標準口試：觀察描述→定位→鑑別→處置</text>
+  <text x="54" y="243" fill="#64748b" font-size="9.8">強制掃描盲區角落，防範滿意終止偏誤</text>
 
   <rect x="46" y="262" width="264" height="98" rx="7" fill="#f0fdfa" stroke="#99f6e4"/>
-  <text x="56" y="281" fill="#0f766e" font-size="11.6" font-weight="700">游離輻射效應與 Image Gently 兒童防護</text>
-  <text x="56" y="299" fill="#334155" font-size="10.3">· 確定性效應：具劑量閾值（皮膚紅斑、水晶體混濁）</text>
-  <text x="56" y="316" fill="#334155" font-size="10.3">· 機率性效應：無閾值、機率隨劑量增（致癌風險）</text>
-  <text x="56" y="333" fill="#0f766e" font-size="10.3" font-weight="600">· 兒童優先選超音波或快速 MRI；CT 依體重調降參數</text>
-  <text x="56" y="349" fill="#64748b" font-size="9.9">孕婦遇危及母體急症經正當性評估後不可延誤檢查</text>
+  <text x="54" y="281" fill="#0f766e" font-size="11.5" font-weight="700">游離輻射效應與 Image Gently 兒童防護</text>
+  <text x="54" y="299" fill="#334155" font-size="9.8">· 確定性效應：具閾值 (皮膚紅斑、水晶體混濁)</text>
+  <text x="54" y="316" fill="#334155" font-size="9.8">· 機率性效應：無閾值、機率隨劑量增 (致癌)</text>
+  <text x="54" y="333" fill="#0f766e" font-size="9.8" font-weight="600">· 兒童優先選音波／快速 MRI；CT 依體重降參數</text>
+  <text x="54" y="349" fill="#64748b" font-size="9.5">孕婦無顯影≤3T MRI各期可行；危急症評估後勿延誤</text>
 
   <rect x="46" y="368" width="264" height="146" rx="7" fill="#fff1f2" stroke="#fecdd3"/>
-  <text x="56" y="387" fill="#be123c" font-size="11.6" font-weight="700">兒科兩大急性腹痛嘔吐影像分流</text>
-  <text x="56" y="406" fill="#0f766e" font-size="10.4" font-weight="700">· 迴盲部腸套疊（3 個月–3 歲）：</text>
-  <text x="56" y="422" fill="#334155" font-size="10.2">  超音波橫切靶徵（Target sign）；確認無游離氣體</text>
-  <text x="56" y="437" fill="#334155" font-size="10.2">  穿孔或腹膜炎後，首選氣體或水溶性灌腸復位</text>
-  <text x="56" y="458" fill="#be123c" font-size="10.4" font-weight="700">· 腸旋轉不良併中腸扭轉（新生兒膽汁嘔吐）：</text>
-  <text x="56" y="474" fill="#334155" font-size="10.2">  UGI 十二指腸鳥嘴螺旋阻塞 · 音波血管順時針漩渦徵</text>
-  <text x="56" y="491" fill="#be123c" font-size="10.4" font-weight="700">  → 第一級外科缺血急症！立即通知小兒外科手術</text>
+  <text x="54" y="387" fill="#be123c" font-size="11.5" font-weight="700">兒科兩大急性腹痛嘔吐影像分流</text>
+  <text x="54" y="406" fill="#0f766e" font-size="10.2" font-weight="700">· 迴盲部腸套疊（3 個月–3 歲）：</text>
+  <text x="54" y="422" fill="#334155" font-size="10">  超音波橫切靶徵（Target sign）；確認無游離氣體</text>
+  <text x="54" y="437" fill="#334155" font-size="10">  穿孔或腹膜炎後，首選氣體或水溶性灌腸復位</text>
+  <text x="54" y="458" fill="#be123c" font-size="10.2" font-weight="700">· 腸旋轉不良併中腸扭轉（新生兒膽汁嘔吐）：</text>
+  <text x="54" y="474" fill="#334155" font-size="9.8">  UGI 十二指腸鳥嘴阻塞·音波血管順時針漩渦徵</text>
+  <text x="54" y="491" fill="#be123c" font-size="10.2" font-weight="700">  → 第一級外科缺血急症！立即通知小兒外科手術</text>
 
   <!-- Column 2: Critical Result Closed-loop & Contrast Shock -->
   <rect x="336" y="82" width="290" height="444" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
@@ -47,41 +47,41 @@
 
   <!-- 4-Step Closed Loop Flowchart -->
   <rect x="348" y="122" width="266" height="54" rx="7" fill="#fff1f2" stroke="#fda4af"/>
-  <text x="358" y="140" fill="#be123c" font-size="11.2" font-weight="700">步驟 1 · 即時辨識第一級致命危急值</text>
-  <text x="358" y="156" fill="#334155" font-size="10">張力氣胸 · 主動脈剝離 · 腦疝脫 · 穿孔氣腹 · 管路誤置</text>
-  <text x="358" y="170" fill="#64748b" font-size="9.6">（第二級非預期惡性腫瘤或開放性結核啟動追蹤通報）</text>
+  <text x="356" y="140" fill="#be123c" font-size="11" font-weight="700">步驟 1 · 即時辨識第一級致命危急值</text>
+  <text x="356" y="156" fill="#334155" font-size="9.8">張力氣胸·主動脈剝離·腦疝脫·穿孔氣腹·管路誤置</text>
+  <text x="356" y="170" fill="#64748b" font-size="9.6">(第二級非預期惡性腫瘤或開放性結核啟動追蹤通報)</text>
 
   <line x1="481" y1="176" x2="481" y2="190" stroke="#be123c" stroke-width="2.2"/>
   <polygon points="481,194 476,186 486,186" fill="#be123c"/>
 
   <rect x="348" y="194" width="266" height="44" rx="7" fill="#fffbeb" stroke="#fde68a"/>
-  <text x="358" y="212" fill="#b45309" font-size="11.2" font-weight="700">步驟 2 · 時限內直接電話聯繫開單／值班醫師</text>
-  <text x="358" y="229" fill="#334155" font-size="10.2">嚴禁僅送出文字報告而未確認臨床端實際接收</text>
+  <text x="356" y="212" fill="#b45309" font-size="11" font-weight="700">步驟 2 · 時限內直接電話聯繫開單／值班醫師</text>
+  <text x="356" y="229" fill="#334155" font-size="10">嚴禁僅送出文字報告而未確認臨床端實際接收</text>
 
   <line x1="481" y1="238" x2="481" y2="252" stroke="#b45309" stroke-width="2.2"/>
   <polygon points="481,256 476,248 486,248" fill="#b45309"/>
 
   <rect x="348" y="256" width="266" height="44" rx="7" fill="#f0fdfa" stroke="#99f6e4"/>
-  <text x="358" y="274" fill="#0f766e" font-size="11.2" font-weight="700">步驟 3 · 執行雙向口頭覆誦確認（Read-back）</text>
-  <text x="358" y="291" fill="#334155" font-size="10.2">核對病患雙重身分識別、危急部位與急迫處置建議</text>
+  <text x="356" y="274" fill="#0f766e" font-size="10.4" font-weight="700">步驟 3 · 執行雙向口頭覆誦確認 (Read-back)</text>
+  <text x="356" y="291" fill="#334155" font-size="10">核對病患雙重身分識別、危急部位與急迫處置建議</text>
 
   <line x1="481" y1="300" x2="481" y2="314" stroke="#0f766e" stroke-width="2.2"/>
   <polygon points="481,318 476,310 486,310" fill="#0f766e"/>
 
   <rect x="348" y="318" width="266" height="48" rx="7" fill="#eff6ff" stroke="#bfdbfe"/>
-  <text x="358" y="336" fill="#1d4ed8" font-size="11.2" font-weight="700">步驟 4 · 報告完整留存閉環紀錄與 RADS 分級</text>
-  <text x="358" y="353" fill="#334155" font-size="10.2">記載受話醫師職稱姓名、精確時間（時：分）與內容</text>
+  <text x="356" y="336" fill="#1d4ed8" font-size="10.4" font-weight="700">步驟 4 · 報告留存閉環紀錄與 RADS 分級</text>
+  <text x="356" y="353" fill="#334155" font-size="10">記載受話醫師職稱姓名、精確時間（時：分）與內容</text>
 
   <!-- Contrast Hypotension Emergency Box -->
   <rect x="348" y="376" width="266" height="138" rx="7" fill="#f8fafc" stroke="#cbd5e1"/>
-  <text x="358" y="395" fill="#0f172a" font-size="11.6" font-weight="700">對比劑注射後嚴重低血壓「脈搏秒判」</text>
+  <text x="356" y="395" fill="#0f172a" font-size="11.5" font-weight="700">對比劑注射後嚴重低血壓「脈搏秒判」</text>
   <rect x="356" y="404" width="250" height="48" rx="5" fill="#fff1f2" stroke="#fecdd3"/>
-  <text x="364" y="421" fill="#be123c" font-size="10.5" font-weight="700">重度類過敏休克：心搏過速 + 支氣管痙攣／喉水腫</text>
-  <text x="364" y="438" fill="#be123c" font-size="10.3" font-weight="700">→ 首選大腿前外側 IM Epinephrine 1:1000（0.3–0.5mg）</text>
+  <text x="362" y="421" fill="#be123c" font-size="9.8" font-weight="700">重度類過敏休克：心搏過速 + 支氣管痙攣／喉水腫</text>
+  <text x="362" y="438" fill="#be123c" font-size="9.6" font-weight="700">→ 大腿 IM Epinephrine 1:1000 (0.3–0.5mg)</text>
 
   <rect x="356" y="458" width="250" height="48" rx="5" fill="#eff6ff" stroke="#bfdbfe"/>
-  <text x="364" y="475" fill="#1d4ed8" font-size="10.5" font-weight="700">迷走神經反應（Vasovagal）：顯著心搏過緩（&lt;60）</text>
-  <text x="364" y="492" fill="#1d4ed8" font-size="10.3" font-weight="700">→ 蒼白盜汗無喘鳴：抬高下肢快輸液 + IV Atropine</text>
+  <text x="362" y="475" fill="#1d4ed8" font-size="9.8" font-weight="700">迷走神經反應 (Vasovagal)：心搏過緩 (&lt;60)</text>
+  <text x="362" y="492" fill="#1d4ed8" font-size="9.6" font-weight="700">→ 蒼白盜汗無喘鳴：抬高下肢輸液 + IV Atropine</text>
 
   <!-- Column 3: Modality Artifacts & Clinical AI Governance -->
   <rect x="640" y="82" width="286" height="444" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
@@ -90,26 +90,26 @@
   <text x="654" y="103" fill="#b45309" font-size="13" font-weight="700">3. 常見影像假影修正與臨床 AI 治理</text>
 
   <rect x="652" y="122" width="262" height="126" rx="7" fill="#fffbeb" stroke="#fde68a"/>
-  <text x="662" y="141" fill="#b45309" font-size="11.5" font-weight="700">電腦斷層（CT）高頻誤診假影與修正</text>
-  <text x="662" y="159" fill="#334155" font-size="10.2">· 光束硬化／金屬條紋：後顱窩暗帶偽裝橋腦梗塞</text>
-  <text x="662" y="175" fill="#0f766e" font-size="10.2" font-weight="600">  對策：提高 kVp、薄切、雙能量單能譜與 MAR</text>
-  <text x="662" y="194" fill="#be123c" font-size="10.2" font-weight="700">· 升主動脈心搏雙影：偽裝 A 型主動脈剝離內膜瓣</text>
-  <text x="662" y="210" fill="#0f766e" font-size="10.2" font-weight="600">  對策：改執行心電圖門控（ECG-gated）主動脈 CTA</text>
-  <text x="662" y="229" fill="#334155" font-size="10.1">· 部分體積平均假影：改用薄層橫切與多平面重組</text>
+  <text x="660" y="141" fill="#b45309" font-size="11.5" font-weight="700">電腦斷層（CT）高頻誤診假影與修正</text>
+  <text x="660" y="159" fill="#334155" font-size="10">· 光束硬化／金屬條紋：後顱窩暗帶偽裝橋腦梗塞</text>
+  <text x="660" y="175" fill="#0f766e" font-size="10" font-weight="600">  對策：提高 kVp、薄切、雙能量單能譜與 MAR</text>
+  <text x="660" y="194" fill="#be123c" font-size="9.8" font-weight="700">· 升主動脈心搏雙影：偽裝 A 型主動脈剝離內膜瓣</text>
+  <text x="660" y="210" fill="#0f766e" font-size="9.6" font-weight="600">  對策：改行心電圖門控 (ECG-gated) 主動脈 CTA</text>
+  <text x="660" y="229" fill="#334155" font-size="10">· 部分體積平均假影：改用薄層橫切與多平面重組</text>
 
   <rect x="652" y="256" width="262" height="126" rx="7" fill="#eff6ff" stroke="#bfdbfe"/>
-  <text x="662" y="275" fill="#1d4ed8" font-size="11.5" font-weight="700">磁振造影（MRI）物理假影與修正</text>
-  <text x="662" y="293" fill="#334155" font-size="10.2">· 捲摺假影（Aliasing）：掃描視野小於解剖部位</text>
-  <text x="662" y="309" fill="#1d4ed8" font-size="10.2" font-weight="600">  對策：擴大 FOV、相位過取樣或置放飽和帶</text>
-  <text x="662" y="328" fill="#334155" font-size="10.2">· 週期性運動鬼影：永遠沿「相位編碼軸」重複投影</text>
-  <text x="662" y="344" fill="#1d4ed8" font-size="10.2" font-weight="600">  對策：交換頻率與相位編碼方向移開目標器官</text>
-  <text x="662" y="363" fill="#334155" font-size="10.1">· 化學位移：同反相位訊號掉落助診斷腎上腺腺瘤</text>
+  <text x="660" y="275" fill="#1d4ed8" font-size="11.5" font-weight="700">磁振造影（MRI）物理假影與修正</text>
+  <text x="660" y="293" fill="#334155" font-size="9.8">· 捲摺假影 (Aliasing)：掃描視野小於解剖部位</text>
+  <text x="660" y="309" fill="#1d4ed8" font-size="10" font-weight="600">  對策：擴大 FOV、相位過取樣或置放飽和帶</text>
+  <text x="660" y="328" fill="#334155" font-size="9.8">· 週期性運動鬼影：沿「相位編碼軸」重複投影</text>
+  <text x="660" y="344" fill="#1d4ed8" font-size="10" font-weight="600">  對策：交換頻率與相位編碼方向移開目標器官</text>
+  <text x="660" y="363" fill="#334155" font-size="10">· 化學位移：同反相位訊號掉落助診斷腎上腺腺瘤</text>
 
   <rect x="652" y="390" width="262" height="124" rx="7" fill="#f0fdfa" stroke="#99f6e4"/>
-  <text x="662" y="409" fill="#0f766e" font-size="11.5" font-weight="700">臨床影像人工智慧（AI）安全治理</text>
-  <text x="662" y="427" fill="#334155" font-size="10.2">· 核心定位：急診危急病灶工作清單優先分流（ICH ·</text>
-  <text x="662" y="443" fill="#334155" font-size="10.2">  LVO · 肺栓塞 · 氣胸）、病灶體積追蹤與低劑量重建</text>
-  <text x="662" y="461" fill="#334155" font-size="10.2">· 外部驗證與持續品管：防範跨廠牌參數改變引發</text>
-  <text x="662" y="477" fill="#334155" font-size="10.2">  資料偏移（Dataset shift）及醫師過度依賴自動化偏誤</text>
-  <text x="662" y="497" fill="#be123c" font-size="10.3" font-weight="700">· 法定醫療責任：最終診斷簽署永遠歸屬專科醫師</text>
+  <text x="660" y="409" fill="#0f766e" font-size="11.5" font-weight="700">臨床影像人工智慧（AI）安全治理</text>
+  <text x="660" y="427" fill="#334155" font-size="9.8">· 核心定位：急診危急病灶優先分流 (ICH·LVO·</text>
+  <text x="660" y="443" fill="#334155" font-size="9.8">  肺栓塞·氣胸)、病灶體積追蹤與低劑量重建</text>
+  <text x="660" y="461" fill="#334155" font-size="10">· 外部驗證與持續品管：防範跨廠牌參數改變引發</text>
+  <text x="660" y="477" fill="#334155" font-size="9.8">  資料偏移 (Dataset shift) 與過度依賴偏誤</text>
+  <text x="660" y="497" fill="#be123c" font-size="10.2" font-weight="700">· 法定醫療責任：最終診斷簽署永遠歸屬專科醫師</text>
 </svg>

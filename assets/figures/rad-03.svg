@@ -34,12 +34,12 @@
     <line x1="124" y1="164" x2="118" y2="148" stroke="#be123c" stroke-width="5"/>
     <line x1="142" y1="162" x2="142" y2="146" stroke="#be123c" stroke-width="5"/>
     <line x1="160" y1="166" x2="168" y2="148" stroke="#be123c" stroke-width="5"/>
-    <text x="196" y="182" font-size="10.5" font-weight="700" fill="#9f1239">絕對外科急症！</text>
-    <text x="196" y="199" font-size="10" fill="#334155">· 心包填塞致死</text>
-    <text x="196" y="215" font-size="10" fill="#334155">· 冠狀動脈口阻塞</text>
-    <text x="196" y="231" font-size="10" fill="#334155">· 急性主動脈瓣逆流</text>
-    <text x="196" y="247" font-size="10" fill="#334155">· 頸動脈腦灌流不良</text>
-    <text x="56" y="298" font-size="10" font-weight="700" fill="#be123c">不論破口位置，凡累及升主動脈皆屬 Type A</text>
+    <text x="188" y="182" font-size="10.2" font-weight="700" fill="#9f1239">絕對外科急症！</text>
+    <text x="188" y="199" font-size="9.6" fill="#334155">· 心包填塞致死</text>
+    <text x="188" y="215" font-size="9.6" fill="#334155">· 冠狀動脈口阻塞</text>
+    <text x="188" y="231" font-size="9.6" fill="#334155">· 急性主動脈瓣逆流</text>
+    <text x="188" y="247" font-size="9.6" fill="#334155">· 頸動脈腦灌流不良</text>
+    <text x="54" y="298" font-size="9.8" font-weight="700" fill="#be123c">不論破口位置，凡累及升主動脈皆屬 Type A</text>
 
     <!-- Type B Box -->
     <rect x="44" y="324" width="258" height="190" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.5"/>
@@ -52,12 +52,12 @@
     <line x1="124" y1="368" x2="118" y2="352" stroke="#1d4ed8" stroke-width="5"/>
     <line x1="142" y1="366" x2="142" y2="350" stroke="#1d4ed8" stroke-width="5"/>
     <line x1="160" y1="370" x2="168" y2="352" stroke="#1d4ed8" stroke-width="5"/>
-    <text x="196" y="386" font-size="10.5" font-weight="700" fill="#1e40af">左鎖骨下動脈遠端</text>
-    <text x="196" y="403" font-size="10" fill="#334155">· 無併發症：嚴格控制</text>
-    <text x="202" y="418" font-size="10" fill="#334155">心率與血壓 (β-blocker)</text>
-    <text x="196" y="436" font-size="10" fill="#be123c">· 併發破裂／臟器缺血</text>
-    <text x="202" y="451" font-size="10" font-weight="700" fill="#be123c">→ 覆膜支架 TEVAR</text>
-    <text x="56" y="500" font-size="10" font-weight="700" fill="#1e3a8a">升主動脈與主動脈弓未受累（DeBakey III）</text>
+    <text x="188" y="386" font-size="10" font-weight="700" fill="#1e40af">左鎖骨下動脈遠端</text>
+    <text x="188" y="403" font-size="9.6" fill="#334155">· 單純型：嚴格控壓</text>
+    <text x="194" y="418" font-size="9.5" fill="#334155">與心率 (β-blocker)</text>
+    <text x="188" y="436" font-size="9.6" fill="#be123c">· 破裂／臟器缺血</text>
+    <text x="194" y="451" font-size="9.6" font-weight="700" fill="#be123c">→ 覆膜支架 TEVAR</text>
+    <text x="54" y="500" font-size="9.8" font-weight="700" fill="#1e3a8a">升主動脈與主動脈弓未受累（DeBakey III）</text>
 
     <!-- Column 2: True vs False Lumen & IMH -->
     <rect x="330" y="80" width="298" height="446" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
@@ -85,36 +85,36 @@
     <text x="454" y="210" font-size="11" font-weight="700" fill="#f8fafc" text-anchor="middle">假腔</text>
 
     <!-- Annotations right of circle -->
-    <text x="502" y="160" font-size="10.5" font-weight="700" fill="#b45309">真腔 (True Lumen)：</text>
-    <text x="502" y="175" font-size="10" fill="#334155">· 管徑較小·早期高強化</text>
-    <text x="502" y="190" font-size="10" fill="#334155">· 外緣伴內膜鈣化內移</text>
-    <text x="502" y="212" font-size="10.5" font-weight="700" fill="#be123c">假腔 (False Lumen)：</text>
-    <text x="502" y="227" font-size="10" fill="#334155">· 管徑較大·常伴附壁血栓</text>
-    <text x="502" y="242" font-size="10" font-weight="700" fill="#be123c">· 銳角鳥嘴徵 (Beak sign)</text>
-    <text x="502" y="257" font-size="10" font-weight="700" fill="#be123c">· 蜘蛛網徵 (Cobweb sign)</text>
+    <text x="496" y="160" font-size="10.2" font-weight="700" fill="#b45309">真腔 (True Lumen)：</text>
+    <text x="496" y="175" font-size="9.6" fill="#334155">· 管徑小·早期高強化</text>
+    <text x="496" y="190" font-size="9.6" fill="#334155">· 外緣伴內膜鈣化內移</text>
+    <text x="496" y="212" font-size="10.2" font-weight="700" fill="#be123c">假腔 (False Lumen)：</text>
+    <text x="496" y="227" font-size="9.5" fill="#334155">· 管徑大·常伴附壁血栓</text>
+    <text x="496" y="242" font-size="9.6" font-weight="700" fill="#be123c">· 鳥嘴徵 (Beak sign)</text>
+    <text x="496" y="257" font-size="9.6" font-weight="700" fill="#be123c">· 蛛網徵 (Cobweb sign)</text>
 
     <line x1="344" y1="286" x2="614" y2="286" stroke="#e2e8f0" stroke-width="1.5"/>
 
     <!-- Lower: IMH on NCCT + ULP vs IBP -->
     <text x="346" y="308" font-size="12" font-weight="700" fill="#0f172a">主動脈壁內血腫 IMH（必做無顯影 NCCT！）</text>
     <circle cx="408" cy="378" r="52" fill="#be123c" stroke="#334155" stroke-width="2.5"/>
-    <circle cx="394" cy="378" r="36" fill="#475569" stroke="#f8fafc" stroke-width="1.5" stroke-dasharray="4,2"/>
-    <text x="394" y="382" font-size="10" font-weight="700" fill="#f8fafc" text-anchor="middle">管腔 40HU</text>
-    <text x="444" y="378" font-size="9.5" font-weight="700" fill="#ffe4e6" text-anchor="middle">新月高密度</text>
-    <text x="444" y="391" font-size="9" fill="#ffe4e6" text-anchor="middle">60–70 HU</text>
+    <circle cx="390" cy="378" r="34" fill="#475569" stroke="#f8fafc" stroke-width="1.5" stroke-dasharray="4,2"/>
+    <text x="390" y="382" font-size="9.5" font-weight="700" fill="#f8fafc" text-anchor="middle">管腔40HU</text>
+    <text x="442" y="374" font-size="9.5" font-weight="700" fill="#ffe4e6" text-anchor="middle">新月高密</text>
+    <text x="442" y="389" font-size="9.5" fill="#ffe4e6" text-anchor="middle">60–70HU</text>
 
-    <text x="472" y="336" font-size="10" font-weight="700" fill="#be123c">NCCT 高密度新月壁厚 ≥5mm</text>
-    <text x="472" y="353" font-size="10" fill="#334155">· 滋養血管破裂無內膜破口</text>
-    <text x="472" y="370" font-size="10" fill="#334155">· 內膜鈣化被血腫推向內側</text>
-    <text x="472" y="392" font-size="10" font-weight="700" fill="#9f1239">· 潰瘍樣投射 (ULP)：</text>
-    <text x="478" y="407" font-size="9.5" fill="#334155">寬口(&gt;3mm)連通主腔→高危惡化</text>
-    <text x="472" y="425" font-size="10" font-weight="700" fill="#0f766e">· 壁內血池 (IBP／九環刀)：</text>
-    <text x="478" y="440" font-size="9.5" fill="#334155">連通肋間動脈分支→多可吸收</text>
+    <text x="472" y="336" font-size="9.8" font-weight="700" fill="#be123c">NCCT 高密度新月壁厚 ≥5mm</text>
+    <text x="472" y="353" font-size="9.6" fill="#334155">· 滋養血管破裂無內膜破口</text>
+    <text x="472" y="370" font-size="9.6" fill="#334155">· 內膜鈣化被血腫推向內側</text>
+    <text x="472" y="391" font-size="9.8" font-weight="700" fill="#9f1239">· 潰瘍樣投射 (ULP)：</text>
+    <text x="478" y="406" font-size="9.5" fill="#334155">寬口(&gt;3mm)連通主腔→高危</text>
+    <text x="472" y="424" font-size="9.8" font-weight="700" fill="#0f766e">· 壁內血池 (IBP／九環刀)：</text>
+    <text x="478" y="439" font-size="9.5" fill="#334155">連通肋間動脈分支→多吸收</text>
 
-    <rect x="344" y="458" width="270" height="54" rx="6" fill="#fffbeb" stroke="#b45309"/>
-    <text x="354" y="476" font-size="10.5" font-weight="700" fill="#b45309">穿透性動脈硬化潰瘍 (PAU) 高危鑑別：</text>
-    <text x="354" y="492" font-size="10" fill="#334155">高齡重度鈣化降主動脈，顯影龕影「蝕穿內彈力層」</text>
-    <text x="354" y="506" font-size="10" fill="#334155">向外突出超越鈣化內膜線呈蘑菇狀外凸，易破裂！</text>
+    <rect x="342" y="456" width="274" height="58" rx="6" fill="#fffbeb" stroke="#b45309"/>
+    <text x="350" y="473" font-size="10.2" font-weight="700" fill="#b45309">穿透性動脈硬化潰瘍 (PAU) 高危鑑別：</text>
+    <text x="350" y="489" font-size="9.6" fill="#334155">重度鈣化降主動脈龕影蝕穿內彈力層外凸</text>
+    <text x="350" y="505" font-size="9.6" font-weight="700" fill="#be123c">高危閾值：直徑≥13–20mm／深度≥10mm 易破！</text>
 
     <!-- Column 3: Acute PE CTPA & RV Strain -->
     <rect x="642" y="80" width="288" height="446" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
@@ -153,8 +153,8 @@
     <!-- Septal bowing label -->
     <text x="786" y="458" font-size="11" font-weight="700" fill="#be123c" text-anchor="middle">RV / LV 短軸內徑比 &gt; 1.0 ＋ 室中隔左偏反弓</text>
 
-    <rect x="656" y="470" width="260" height="44" rx="6" fill="#f0fdfa" stroke="#0f766e"/>
-    <text x="666" y="487" font-size="10" font-weight="700" fill="#0f766e">高死亡率預後警訊（次大面積／大面積 PE）：</text>
-    <text x="666" y="503" font-size="10" fill="#334155">合併下腔靜脈／肝靜脈顯影劑逆流 · 肋膜下楔形肺梗塞</text>
+    <rect x="654" y="470" width="264" height="44" rx="6" fill="#f0fdfa" stroke="#0f766e"/>
+    <text x="662" y="486" font-size="9.8" font-weight="700" fill="#0f766e">高死亡率警訊（次大面積／大面積 PE）：</text>
+    <text x="662" y="503" font-size="9.6" fill="#334155">下腔／肝靜脈顯影逆流 · 肋膜下楔形肺梗塞</text>
   </g>
 </svg>

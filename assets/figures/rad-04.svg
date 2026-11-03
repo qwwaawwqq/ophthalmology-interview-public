@@ -29,20 +29,20 @@
     <path d="M 60 166 Q 96 142, 130 166 Q 96 156, 60 166 Z" fill="#020617" stroke="#38bdf8" stroke-width="1.5"/>
     <path d="M 60 168 Q 96 158, 130 168 L 130 232 L 60 232 Z" fill="#475569"/>
     <text x="96" y="204" font-size="10" fill="#e2e8f0" text-anchor="middle">肝臟實質</text>
-    <text x="132" y="140" font-size="10" font-weight="700" fill="#38bdf8">新月游離氣體 (1–2mL)</text>
+    <text x="130" y="140" font-size="9.5" font-weight="700" fill="#38bdf8">游離氣(1–2mL)</text>
 
     <!-- Right sub-diagram: Supine Rigler Double-Wall Sign -->
     <rect x="230" y="120" width="228" height="126" rx="6" fill="#0f172a"/>
-    <ellipse cx="304" cy="182" rx="46" ry="34" fill="#020617" stroke="#f8fafc" stroke-width="5"/>
-    <text x="304" y="185" font-size="9.5" fill="#94a3b8" text-anchor="middle">腸腔內氣體</text>
-    <text x="360" y="152" font-size="10" font-weight="700" fill="#fbbf24">雙壁徵 Rigler sign</text>
-    <text x="360" y="168" font-size="9.5" fill="#e2e8f0">內外皆有氣體襯托</text>
-    <text x="360" y="184" font-size="9.5" fill="#e2e8f0">白色腸壁雙側銳利</text>
-    <text x="360" y="206" font-size="9.5" fill="#7dd3fc">+ 鐮狀韌帶徵／足球徵</text>
-    <text x="360" y="222" font-size="9.5" fill="#7dd3fc">+ 重症改照左側臥水平</text>
+    <ellipse cx="300" cy="182" rx="44" ry="34" fill="#020617" stroke="#f8fafc" stroke-width="5"/>
+    <text x="300" y="185" font-size="9.5" fill="#94a3b8" text-anchor="middle">腸腔內氣體</text>
+    <text x="354" y="152" font-size="9.6" font-weight="700" fill="#fbbf24">雙壁徵 Rigler</text>
+    <text x="354" y="168" font-size="9.5" fill="#e2e8f0">內外皆有氣襯托</text>
+    <text x="354" y="184" font-size="9.5" fill="#e2e8f0">白腸壁雙側銳利</text>
+    <text x="354" y="204" font-size="9.5" fill="#7dd3fc">+ 鐮狀韌帶／足球</text>
+    <text x="354" y="220" font-size="9.5" fill="#7dd3fc">+ 重症照左側臥位</text>
 
     <rect x="44" y="254" width="414" height="32" rx="5" fill="#fff1f2" stroke="#be123c"/>
-    <text x="54" y="274" font-size="10.5" font-weight="700" fill="#be123c">造影安全鐵律：疑消化道穿孔／腹膜炎「嚴禁硫酸鋇」（防化學性腹膜炎），改低滲水溶性碘劑！</text>
+    <text x="52" y="274" font-size="9.8" font-weight="700" fill="#be123c">鐵律：疑消化道穿孔／腹膜炎「嚴禁硫酸鋇」，改低滲水溶性碘劑！</text>
 
     <!-- Quadrant B: Sigmoid vs Cecal Volvulus -->
     <rect x="488" y="82" width="442" height="214" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
@@ -92,14 +92,14 @@
     <circle cx="182" cy="428" r="4" fill="#38bdf8"/>
     <text x="138" y="502" font-size="10" font-weight="700" fill="#fda4af" text-anchor="middle">雙鳥嘴收束點＋血管漩渦徵</text>
 
-    <text x="244" y="366" font-size="11" font-weight="700" fill="#0f766e">腸管擴張 3-6-9 上限法則：</text>
-    <text x="244" y="383" font-size="10.5" fill="#334155">小腸 &lt; 3 cm · 大腸 &lt; 6 cm · 盲腸 &lt; 9 cm</text>
-    <text x="244" y="406" font-size="11" font-weight="700" fill="#be123c">閉鎖環絞窄性阻塞高危 CT 徵象：</text>
-    <text x="244" y="423" font-size="10" fill="#334155">· 兩鄰近點同時受壓呈 U／C 型放射狀腸環</text>
-    <text x="244" y="440" font-size="10" font-weight="700" fill="#be123c">· 腸繫膜動靜脈纏繞「漩渦徵 Whirlpool」</text>
-    <text x="244" y="457" font-size="10" fill="#334155">· 腸繫膜混濁積液 · 平掃腸壁高密度出血</text>
-    <text x="244" y="474" font-size="10" font-weight="700" fill="#be123c">· 靜脈期腸壁強化減弱／消失 → 緊急開刀！</text>
-    <text x="244" y="496" font-size="9.5" fill="#475569">註：評估腸阻塞打 IV 顯影劑，免喝高密度口服造影劑</text>
+    <text x="240" y="366" font-size="10.8" font-weight="700" fill="#0f766e">腸管擴張 3-6-9 上限法則：</text>
+    <text x="240" y="383" font-size="10" fill="#334155">小腸 &lt;3 cm · 大腸 &lt;6 cm · 盲腸 &lt;9 cm</text>
+    <text x="240" y="406" font-size="10.8" font-weight="700" fill="#be123c">閉鎖環絞窄性阻塞高危 CT 徵象：</text>
+    <text x="240" y="423" font-size="9.8" fill="#334155">· 兩鄰近點受壓呈 U／C 型放射狀腸環</text>
+    <text x="240" y="440" font-size="9.8" font-weight="700" fill="#be123c">· 腸繫膜動靜脈纏繞「漩渦徵 Whirlpool」</text>
+    <text x="240" y="457" font-size="9.8" fill="#334155">· 腸繫膜混濁積液 · 平掃腸壁高密度出血</text>
+    <text x="240" y="474" font-size="9.8" font-weight="700" fill="#be123c">· 靜脈期腸壁強化減弱／消失 → 緊急開刀！</text>
+    <text x="240" y="496" font-size="9.5" fill="#475569">註：腸阻塞打 IV 顯影劑，免喝高密度口服劑</text>
 
     <!-- Quadrant D: Pneumatosis Intestinalis & Portal Venous Gas -->
     <rect x="488" y="310" width="442" height="216" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
@@ -123,18 +123,18 @@
     <circle cx="663" cy="485" r="3" fill="#020617" stroke="#fde047" stroke-width="1"/>
     <circle cx="620" cy="485" r="3" fill="#020617" stroke="#fde047" stroke-width="1"/>
     <circle cx="610" cy="462" r="3" fill="#020617" stroke="#fde047" stroke-width="1"/>
-    <text x="562" y="486" font-size="9.5" font-weight="700" fill="#fde047" text-anchor="middle">腸壁積氣</text>
-    <text x="562" y="500" font-size="9" fill="#cbd5e1" text-anchor="middle">(Pneumatosis)</text>
+    <text x="562" y="484" font-size="9.5" font-weight="700" fill="#fde047" text-anchor="middle">腸壁積氣</text>
+    <text x="562" y="499" font-size="9.5" fill="#cbd5e1" text-anchor="middle">(Pneumatosis)</text>
 
-    <text x="710" y="366" font-size="11" font-weight="700" fill="#be123c">急性腸繫膜缺血（SMA 栓塞最急）：</text>
-    <text x="710" y="383" font-size="10" fill="#334155">· 首選「平掃＋動脈期＋門脈期」多相 CTA</text>
-    <text x="710" y="400" font-size="10" fill="#334155">· 早期：SMA 充盈缺損·腸壁紙樣變薄不強化</text>
-    <text x="710" y="417" font-size="10" font-weight="700" fill="#be123c">· 晚期跨壁壞死：腸壁積氣＋門靜脈積氣</text>
+    <text x="708" y="366" font-size="10.8" font-weight="700" fill="#be123c">急性腸繫膜缺血（SMA 栓塞最急）：</text>
+    <text x="708" y="383" font-size="9.8" fill="#334155">· 首選「平掃＋動脈期＋門脈期」多相 CTA</text>
+    <text x="708" y="400" font-size="9.8" fill="#334155">· 早期：SMA 栓塞 · 腸壁紙薄不強化</text>
+    <text x="708" y="417" font-size="9.8" font-weight="700" fill="#be123c">· 晚期跨壁壞死：腸壁積氣＋門靜脈積氣</text>
 
-    <rect x="708" y="432" width="210" height="80" rx="6" fill="#eff6ff" stroke="#1d4ed8"/>
-    <text x="716" y="450" font-size="10.5" font-weight="700" fill="#1d4ed8">肝內樹枝狀氣體秒判口訣：</text>
-    <text x="716" y="468" font-size="10" font-weight="700" fill="#be123c">· 門脈積氣：離心血流推至「包膜下 2cm」</text>
-    <text x="716" y="486" font-size="10" fill="#0f766e">· 膽道積氣 (Pneumobilia)：向心膽汁匯流，</text>
-    <text x="724" y="502" font-size="10" fill="#334155">集中於「肝門中央區」（括約肌切開／膽腸瘻管）</text>
+    <rect x="706" y="432" width="214" height="80" rx="6" fill="#eff6ff" stroke="#1d4ed8"/>
+    <text x="714" y="450" font-size="10.2" font-weight="700" fill="#1d4ed8">肝內樹枝狀氣體秒判口訣：</text>
+    <text x="714" y="467" font-size="9.6" font-weight="700" fill="#be123c">· 門脈積氣：離心推至「包膜下 2cm」</text>
+    <text x="714" y="484" font-size="9.6" fill="#0f766e">· 膽道積氣 (Pneumobilia)：向心匯流</text>
+    <text x="720" y="501" font-size="9.6" fill="#334155">集中「肝門中央」（括約肌切開／膽腸瘻）</text>
   </g>
 </svg>

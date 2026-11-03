@@ -32,24 +32,24 @@
     <circle cx="301" cy="186" r="34" fill="#dbeafe" stroke="#0284c7" stroke-width="1.6"/>
     <line x1="274" y1="166" x2="328" y2="204" stroke="#0284c7" stroke-width="1.2"/>
     <line x1="276" y1="204" x2="324" y2="168" stroke="#0284c7" stroke-width="1.2"/>
-    <text x="228" y="240" font-size="10" font-weight="700" fill="#0369a1">· 1–3 條 ≤2 mm 纖細中隔</text>
-    <text x="228" y="256" font-size="10" fill="#334155">· 或 &lt;3 cm 均質高密度</text>
-    <text x="234" y="272" font-size="9.5" fill="#475569">(≥20 HU 出血囊腫·無強化)</text>
+    <text x="224" y="238" font-size="9.5" font-weight="700" fill="#0369a1">· 1–3條≤2mm薄隔／平滑鈣化</text>
+    <text x="224" y="254" font-size="9.5" fill="#334155">· CT 均質 ≥70HU 無強化</text>
+    <text x="226" y="270" font-size="9.5" fill="#475569">(v2019廢CT 3cm上限)</text>
     <rect x="228" y="286" width="146" height="48" rx="5" fill="#ccfbf1"/>
     <text x="301" y="305" font-size="10.5" font-weight="700" fill="#115e59" text-anchor="middle">惡性率 ~0%</text>
     <text x="301" y="323" font-size="10" fill="#134e4a" text-anchor="middle">確定良性 · 免常規追蹤</text>
 
     <!-- Class IIF -->
     <rect x="394" y="118" width="172" height="228" rx="8" fill="#fffbeb" stroke="#b45309" stroke-width="1.5"/>
-    <text x="480" y="138" font-size="12.5" font-weight="700" fill="#b45309" text-anchor="middle">Bosniak IIF (Follow-up)</text>
+    <text x="480" y="138" font-size="11.5" font-weight="700" fill="#b45309" text-anchor="middle">Bosniak IIF (Follow-up)</text>
     <circle cx="480" cy="186" r="34" fill="#fef3c7" stroke="#d97706" stroke-width="3"/>
     <line x1="452" y1="170" x2="508" y2="170" stroke="#d97706" stroke-width="1.4"/>
     <line x1="448" y1="186" x2="512" y2="186" stroke="#d97706" stroke-width="1.4"/>
     <line x1="452" y1="202" x2="508" y2="202" stroke="#d97706" stroke-width="1.4"/>
     <line x1="480" y1="152" x2="480" y2="220" stroke="#d97706" stroke-width="1.4"/>
-    <text x="404" y="240" font-size="10" font-weight="700" fill="#b45309">· ≥4 條 ≤2 mm 細強化隔</text>
-    <text x="404" y="256" font-size="10" fill="#334155">· 或 3 mm 平滑微厚強化壁</text>
-    <text x="404" y="272" font-size="10" fill="#334155">· 或 ≥3 cm 高密度無強化</text>
+    <text x="402" y="238" font-size="9.6" font-weight="700" fill="#b45309">· ≥4 條 ≤2 mm 細強化隔</text>
+    <text x="402" y="254" font-size="9.6" fill="#334155">· 或 3 mm 平滑微厚強化壁</text>
+    <text x="402" y="270" font-size="9.5" fill="#334155">· CT異質高密／MRI&gt;3cm T1亮</text>
     <rect x="404" y="286" width="152" height="48" rx="5" fill="#fde68a"/>
     <text x="480" y="305" font-size="10.5" font-weight="700" fill="#92400e" text-anchor="middle">惡性率 ~5–10%</text>
     <text x="480" y="323" font-size="10" fill="#78350f" text-anchor="middle">6·12 個月起追蹤 5 年</text>
@@ -72,8 +72,8 @@
     <text x="835" y="138" font-size="12.5" font-weight="700" fill="#881337" text-anchor="middle">Bosniak IV</text>
     <circle cx="835" cy="186" r="34" fill="#ffe4e6" stroke="#9f1239" stroke-width="5"/>
     <!-- Enhancing Mural Soft-tissue Nodule -->
-    <circle cx="852" cy="196" r="13" fill="#be123c" stroke="#881337" stroke-width="1.5"/>
-    <text x="852" y="200" font-size="8.5" font-weight="700" fill="#ffffff" text-anchor="middle">結節</text>
+    <circle cx="852" cy="196" r="14" fill="#be123c" stroke="#881337" stroke-width="1.5"/>
+    <text x="852" y="200" font-size="9.5" font-weight="700" fill="#ffffff" text-anchor="middle">結節</text>
     <text x="762" y="240" font-size="10" font-weight="700" fill="#881337">· 具獨立強化軟組織結節</text>
     <text x="762" y="256" font-size="10" fill="#334155">· 結節凸起 ≥4 mm 或銳角</text>
     <text x="762" y="272" font-size="10" fill="#334155">· 高度確立囊狀腎細胞癌</text>
@@ -84,16 +84,16 @@
     <!-- Lower Left Card: Adrenal Washout & Renal AML -->
     <rect x="30" y="370" width="442" height="156" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
     <rect x="30" y="370" width="442" height="28" rx="10" fill="#dbeafe"/>
-    <text x="251" y="389" font-size="12.5" font-weight="700" fill="#1e3a8a" text-anchor="middle">腎上腺偶發瘤洗脫率 ＆ 腎血管平滑肌脂肪瘤 (AML) 定量閾值</text>
+    <text x="251" y="389" font-size="12" font-weight="700" fill="#1e3a8a" text-anchor="middle">腎上腺偶發瘤洗脫率 ＆ 腎血管平滑肌脂肪瘤 (AML) 定量閾值</text>
 
-    <text x="44" y="416" font-size="10.5" font-weight="700" fill="#0f766e">1. 富含脂質腎上腺腺瘤（約佔 70%）：</text>
-    <text x="54" y="433" font-size="10.5" fill="#334155">無顯影 CT ≤ 10 HU（或化學位移 MRI 反相位訊號下降）→ 直接確診良性！</text>
+    <text x="42" y="416" font-size="10.2" font-weight="700" fill="#0f766e">1. 富含脂質腎上腺腺瘤（約佔 70%）：</text>
+    <text x="50" y="433" font-size="10" fill="#334155">無顯影 CT ≤ 10 HU（或化學位移 MRI 反相位訊號下降）→ 直接確診良性！</text>
 
-    <text x="44" y="454" font-size="10.5" font-weight="700" fill="#1d4ed8">2. 乏脂型腺瘤（無顯影 &gt; 10 HU）→ 15 分鐘延遲腎上腺動態 CT：</text>
-    <text x="54" y="471" font-size="10.5" font-weight="700" fill="#1e40af">絕對洗脫率 APW ≥ 60% 或 相對洗脫率 RPW ≥ 40% → 支持良性腺瘤</text>
-    <text x="54" y="488" font-size="10" fill="#be123c">警訊：嗜鉻細胞瘤（T2 燈泡亮·嚴禁未備藥生檢）與 RCC／HCC 轉移可假陽性洗脫！</text>
+    <text x="42" y="454" font-size="10.2" font-weight="700" fill="#1d4ed8">2. 乏脂型腺瘤（無顯影 &gt; 10 HU）→ 15 分鐘延遲腎上腺動態 CT：</text>
+    <text x="50" y="471" font-size="10" font-weight="700" fill="#1e40af">絕對洗脫率 APW ≥ 60% 或 相對洗脫率 RPW ≥ 40% → 支持良性腺瘤</text>
+    <text x="50" y="488" font-size="9.6" fill="#be123c">警訊：嗜鉻細胞瘤（T2 燈泡亮·嚴禁未備藥生檢）與 RCC／HCC 轉移可假陽性洗脫！</text>
 
-    <text x="44" y="510" font-size="10.5" font-weight="700" fill="#b45309">3. 典型腎 AML：無顯影薄切含巨觀脂肪（≤ -10 至 -20 HU）且無鈣化（&gt;4cm 防自發出血）</text>
+    <text x="42" y="510" font-size="9.8" font-weight="700" fill="#b45309">3. 典型腎 AML：平掃含巨觀脂肪（≤ -10~-20 HU）無鈣化（&gt;4cm 防出血）</text>
 
     <!-- Lower Right Card: Prostate PI-RADS v2.1 & Scrotal Emergency -->
     <rect x="488" y="370" width="442" height="156" rx="10" fill="#ffffff" stroke="#cbd5e1"/>

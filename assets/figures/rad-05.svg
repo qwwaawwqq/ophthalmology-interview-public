@@ -87,13 +87,13 @@
     <circle cx="204" cy="356" r="22" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
     <text x="204" y="360" font-size="9.5" font-weight="700" fill="#cbd5e1" text-anchor="middle">肝膽暗</text>
 
-    <text x="42" y="400" font-size="10" font-weight="700" fill="#be123c">· 適用：肝硬化／慢性 B 肝高危群</text>
-    <text x="42" y="418" font-size="10" fill="#334155">· 非環狀動脈高強化 (Non-rim APHE)</text>
-    <text x="42" y="436" font-size="10" fill="#334155">· 門脈／延遲期洗脫＋強化纖維包膜</text>
-    <text x="42" y="454" font-size="10" fill="#334155">· ≥20mm(≥1項) 或 10–19mm(洗脫)</text>
-    <text x="42" y="472" font-size="10" font-weight="700" fill="#9f1239">→ LR-5 免穿刺切片直接確診！</text>
-    <text x="42" y="492" font-size="9.5" fill="#475569">· 門脈腫瘤血栓 (LR-TIV)：撐大＋強化</text>
-    <text x="42" y="508" font-size="9.5" fill="#475569">· 浸潤型 HCC 界線模糊易侵犯門脈</text>
+    <text x="38" y="400" font-size="10" font-weight="700" fill="#be123c">· 適用：肝硬化／慢性 B 肝高危群</text>
+    <text x="38" y="418" font-size="9.8" fill="#334155">· 非環狀動脈高強化 (Non-rim APHE)</text>
+    <text x="38" y="436" font-size="9.5" fill="#334155">· 洗脫·強化包膜·閾值(≤6月增≥50%)</text>
+    <text x="38" y="454" font-size="9.5" fill="#334155">· ≥20mm(≥1項)／10–19mm(洗脫或閾值)</text>
+    <text x="38" y="472" font-size="9.8" font-weight="700" fill="#9f1239">→ LR-5 免穿刺切片直接確診！</text>
+    <text x="38" y="492" font-size="9.5" fill="#475569">· 門脈腫瘤血栓 (LR-TIV)：撐大＋強化</text>
+    <text x="38" y="508" font-size="9.5" fill="#475569">· 浸潤型 HCC 界線模糊易侵犯門脈</text>
 
     <!-- Card 2: Cavernous Hemangioma -->
     <rect x="258" y="290" width="216" height="236" rx="10" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.4"/>
@@ -142,18 +142,18 @@
     <text x="822" y="309" font-size="12" font-weight="700" fill="#92400e" text-anchor="middle">4. 轉移瘤／膽管癌 (LR-M)</text>
     <!-- Continuous Rim APHE -> Delayed central fibrous enhancement -->
     <circle cx="756" cy="356" r="22" fill="#1e293b" stroke="#fbbf24" stroke-width="5"/>
-    <text x="756" y="360" font-size="9" font-weight="700" fill="#fef3c7" text-anchor="middle">環狀強化</text>
+    <text x="756" y="360" font-size="9.5" font-weight="700" fill="#fef3c7" text-anchor="middle">環狀強化</text>
     <circle cx="822" cy="356" r="22" fill="#fde68a" stroke="#92400e" stroke-width="2"/>
-    <text x="822" y="360" font-size="9" font-weight="700" fill="#78350f" text-anchor="middle">延遲滯留</text>
+    <text x="822" y="360" font-size="9.5" font-weight="700" fill="#78350f" text-anchor="middle">延遲滯留</text>
     <circle cx="888" cy="356" r="22" fill="#1e293b" stroke="#fbbf24" stroke-width="2" stroke-dasharray="3,2"/>
-    <text x="888" y="360" font-size="9" font-weight="700" fill="#cbd5e1" text-anchor="middle">標靶徵</text>
+    <text x="888" y="360" font-size="9.5" font-weight="700" fill="#cbd5e1" text-anchor="middle">標靶徵</text>
 
-    <text x="726" y="400" font-size="10" font-weight="700" fill="#b45309">· 連續完整「周邊環狀強化 Rim APHE」</text>
-    <text x="726" y="418" font-size="10" fill="#334155">· 大腸胃胰腺癌：多發乏血管牛眼轉移</text>
-    <text x="726" y="436" font-size="10" fill="#334155">· NET／RCC／甲狀腺／黑色素瘤：富血管</text>
-    <text x="726" y="454" font-size="10" fill="#334155">· 肝內膽管癌 (iCCA)：延遲期中央纖維</text>
-    <text x="734" y="470" font-size="10" fill="#334155">強化＋肝包膜凹陷＋遠端膽管擴張</text>
-    <text x="726" y="490" font-size="9.5" font-weight="700" fill="#0f766e">· 化膿性肝膿瘍：雙環徵＋團簇徵＋</text>
-    <text x="734" y="508" font-size="9.5" fill="#475569">中央膿腔 DWI 強烈擴散受限 (ADC 低)</text>
+    <text x="722" y="400" font-size="9.8" font-weight="700" fill="#b45309">· 連續完整「周邊環狀強化 Rim APHE」</text>
+    <text x="722" y="418" font-size="9.8" fill="#334155">· 大腸胃胰腺癌：多發乏血管牛眼轉移</text>
+    <text x="722" y="436" font-size="9.8" fill="#334155">· NET／RCC／甲狀腺／黑色素瘤：富血管</text>
+    <text x="722" y="454" font-size="9.8" fill="#334155">· 肝內膽管癌 (iCCA)：延遲期中央纖維</text>
+    <text x="730" y="470" font-size="9.8" fill="#334155">強化＋肝包膜凹陷＋遠端膽管擴張</text>
+    <text x="722" y="490" font-size="9.5" font-weight="700" fill="#0f766e">· 化膿性肝膿瘍：雙環徵＋團簇徵＋</text>
+    <text x="730" y="508" font-size="9.5" fill="#475569">中央膿腔 DWI 強烈擴散受限 (ADC 低)</text>
   </g>
 </svg>

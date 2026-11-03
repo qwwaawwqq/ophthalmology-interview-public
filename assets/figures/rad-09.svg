@@ -38,32 +38,32 @@
 
   <!-- Zone Cards -->
   <rect x="150" y="122" width="276" height="74" rx="7" fill="#eff6ff" stroke="#bfdbfe"/>
-  <text x="160" y="140" fill="#1d4ed8" font-size="11.8" font-weight="700">骨骺區（Epiphysis）</text>
-  <text x="160" y="157" fill="#334155" font-size="10.5">· 生長板閉合前：軟骨母細胞瘤（Chondroblastoma）</text>
-  <text x="160" y="173" fill="#334155" font-size="10.5">· 生長板閉合後：骨巨細胞瘤 GCT（偏心貼關節面無硬化）</text>
-  <text x="160" y="189" fill="#64748b" font-size="10">（鑑別：透明細胞軟骨肉瘤 · Geode 軟骨下囊腫）</text>
+  <text x="156" y="140" fill="#1d4ed8" font-size="11.8" font-weight="700">骨骺區（Epiphysis）</text>
+  <text x="156" y="157" fill="#334155" font-size="9.8">· 生長板閉合前：軟骨母細胞瘤 (Chondroblastoma)</text>
+  <text x="156" y="173" fill="#334155" font-size="9.8">· 生長板閉合後：骨巨細胞瘤 GCT (偏心貼關節無硬化)</text>
+  <text x="156" y="189" fill="#64748b" font-size="9.8">（鑑別：透明細胞軟骨肉瘤 · Geode 軟骨下囊腫）</text>
 
   <rect x="150" y="204" width="276" height="90" rx="7" fill="#fffbeb" stroke="#fde68a"/>
-  <text x="160" y="222" fill="#b45309" font-size="11.8" font-weight="700">幹骺端（Metaphysis · 血流最豐富）</text>
-  <text x="160" y="239" fill="#be123c" font-size="10.5" font-weight="700">· 骨肉瘤：雲絮類骨質 + 日光放射／Codman 三角</text>
-  <text x="160" y="255" fill="#334155" font-size="10.5">· 骨軟骨瘤：皮質骨髓與母骨相連（帽 &gt;2 cm 警覺惡變）</text>
-  <text x="160" y="271" fill="#334155" font-size="10.5">· 良性囊性／纖維灶：SBC · ABC（液液平面）· NOF</text>
-  <text x="160" y="287" fill="#64748b" font-size="10">兒童血源性骨髓炎亦好發於幹骺端靜脈竇</text>
+  <text x="156" y="222" fill="#b45309" font-size="11.8" font-weight="700">幹骺端（Metaphysis · 血流最豐富）</text>
+  <text x="156" y="239" fill="#be123c" font-size="10" font-weight="700">· 骨肉瘤：雲絮類骨質 + 日光放射／Codman 三角</text>
+  <text x="156" y="255" fill="#334155" font-size="9.8">· 骨軟骨瘤：皮質骨髓與母骨相連 (帽&gt;2cm防惡變)</text>
+  <text x="156" y="271" fill="#334155" font-size="10">· 良性囊／纖維灶：SBC·ABC (液液平面)·NOF</text>
+  <text x="156" y="287" fill="#64748b" font-size="9.8">兒童血源性骨髓炎亦好發於幹骺端靜脈竇</text>
 
   <rect x="150" y="302" width="276" height="84" rx="7" fill="#f0fdfa" stroke="#99f6e4"/>
-  <text x="160" y="320" fill="#0f766e" font-size="11.8" font-weight="700">骨幹區（Diaphysis）</text>
-  <text x="160" y="337" fill="#be123c" font-size="10.5" font-weight="700">· 尤文氏肉瘤：滲透性蟲蝕破壞 + 洋蔥皮層狀骨膜反應</text>
-  <text x="160" y="353" fill="#334155" font-size="10.5">· 纖維性發育不良：毛玻璃樣基質（Ground-glass）</text>
-  <text x="160" y="369" fill="#334155" font-size="10.5">· 類骨質骨瘤：緻密皮質增生伴 &lt;1.5 cm 透亮 Nidus</text>
+  <text x="156" y="320" fill="#0f766e" font-size="11.8" font-weight="700">骨幹區（Diaphysis）</text>
+  <text x="156" y="337" fill="#be123c" font-size="9.8" font-weight="700">· 尤文氏肉瘤：滲透蟲蝕破壞 + 洋蔥皮骨膜反應</text>
+  <text x="156" y="353" fill="#334155" font-size="10">· 纖維性發育不良：毛玻璃基質 (Ground-glass)</text>
+  <text x="156" y="369" fill="#334155" font-size="9.8">· 類骨質骨瘤：緻密皮質增生伴 &lt;1.5cm 透亮 Nidus</text>
 
   <!-- Bottom Margin & Age Rule Box -->
   <rect x="46" y="396" width="380" height="118" rx="7" fill="#fff1f2" stroke="#fecdd3"/>
-  <text x="58" y="415" fill="#be123c" font-size="12" font-weight="700">Lodwick 邊緣過渡帶與年齡鐵律</text>
-  <text x="58" y="434" fill="#334155" font-size="10.6">· 窄過渡帶（地圖狀 IA 硬化邊／IB）：生長慢、多屬良性</text>
-  <text x="58" y="451" fill="#334155" font-size="10.6">· 寬過渡帶（蟲蝕狀 II／滲透狀 III）+ 中斷骨膜反應：高度惡性或急性感染</text>
-  <text x="58" y="468" fill="#be123c" font-size="10.6" font-weight="700">· ≥ 40 歲多發蝕骨病灶：永遠首查骨轉移癌與多發性骨髓瘤（骨掃描常冷區）</text>
-  <text x="58" y="486" fill="#0f766e" font-size="10.5" font-weight="600">· DXA 骨鬆基準：停經女／≥50 歲男看 T-score ≤ -2.5；年輕族群看 Z-score ≤ -2.0</text>
-  <text x="58" y="503" fill="#64748b" font-size="10.2">· 副甲狀腺亢進特異徵象：食指與中指中節指骨「橈側」骨膜下骨吸收</text>
+  <text x="54" y="415" fill="#be123c" font-size="12" font-weight="700">Lodwick 邊緣過渡帶與年齡鐵律</text>
+  <text x="54" y="434" fill="#334155" font-size="10">· 窄過渡帶 (地圖狀 IA 硬化邊／IB)：生長慢、多屬良性</text>
+  <text x="54" y="451" fill="#334155" font-size="10">· 寬過渡帶 (蟲蝕 II／滲透 III) + 中斷骨膜：高度惡性／感染</text>
+  <text x="54" y="468" fill="#be123c" font-size="10" font-weight="700">· ≥40 歲多發蝕骨灶：首查骨轉移與多發性骨髓瘤 (骨掃描冷區)</text>
+  <text x="54" y="486" fill="#0f766e" font-size="9.8" font-weight="600">· DXA 骨鬆：停經女／≥50男 T-score≤-2.5；年輕 Z-score≤-2.0</text>
+  <text x="54" y="503" fill="#64748b" font-size="10">· 副甲狀腺亢進特異徵象：食中指中節指骨「橈側」骨膜下骨吸收</text>
 
   <!-- Right Panel: 5 Arthritides Matrix + Sports MRI Pearls -->
   <rect x="452" y="82" width="474" height="444" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
@@ -73,59 +73,59 @@
 
   <!-- Table Header -->
   <rect x="464" y="122" width="450" height="25" rx="5" fill="#0f172a"/>
-  <text x="474" y="139" fill="#ffffff" font-size="11" font-weight="700">關節炎類型（好發部位）</text>
-  <text x="634" y="139" fill="#ffffff" font-size="11" font-weight="700">骨密度 · 關節腔</text>
-  <text x="760" y="139" fill="#ffffff" font-size="11" font-weight="700">骨侵蝕與新骨增生標誌</text>
+  <text x="472" y="139" fill="#ffffff" font-size="11" font-weight="700">關節炎類型（好發部位）</text>
+  <text x="630" y="139" fill="#ffffff" font-size="11" font-weight="700">骨密度 · 關節腔</text>
+  <text x="748" y="139" fill="#ffffff" font-size="11" font-weight="700">骨侵蝕與新骨增生標誌</text>
 
   <!-- Row 1: OA -->
   <rect x="464" y="152" width="450" height="50" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
-  <text x="474" y="171" fill="#0f172a" font-size="11.5" font-weight="700">退化性 OA</text>
-  <text x="474" y="189" fill="#64748b" font-size="10.2">膝髖負重 · 手 DIP／PIP／CMC1</text>
-  <text x="634" y="171" fill="#334155" font-size="10.6">骨密度正常</text>
-  <text x="634" y="189" fill="#1d4ed8" font-size="10.6" font-weight="600">非均勻狹窄</text>
-  <text x="760" y="171" fill="#334155" font-size="10.5">無發炎性邊緣侵蝕</text>
-  <text x="760" y="189" fill="#0f766e" font-size="10.5" font-weight="700">軟骨下硬化 · 囊腫 · 邊緣骨刺</text>
+  <text x="472" y="171" fill="#0f172a" font-size="11.5" font-weight="700">退化性 OA</text>
+  <text x="472" y="189" fill="#64748b" font-size="9.8">膝髖負重·手 DIP／PIP／CMC1</text>
+  <text x="630" y="171" fill="#334155" font-size="10.4">骨密度正常</text>
+  <text x="630" y="189" fill="#1d4ed8" font-size="10.4" font-weight="600">非均勻狹窄</text>
+  <text x="748" y="171" fill="#334155" font-size="10.2">無發炎性邊緣侵蝕</text>
+  <text x="748" y="189" fill="#0f766e" font-size="10" font-weight="700">軟骨下硬化·囊腫·邊緣骨刺</text>
 
   <!-- Row 2: RA -->
   <rect x="464" y="208" width="450" height="50" rx="6" fill="#fff1f2" stroke="#fecdd3"/>
-  <text x="474" y="227" fill="#be123c" font-size="11.5" font-weight="700">類風濕性 RA</text>
-  <text x="474" y="245" fill="#64748b" font-size="10.2">雙側對稱腕 · MCP · PIP · 環樞椎</text>
-  <text x="634" y="227" fill="#be123c" font-size="10.6" font-weight="600">關節旁骨鬆</text>
-  <text x="634" y="245" fill="#334155" font-size="10.6">早期均勻狹窄</text>
-  <text x="760" y="227" fill="#be123c" font-size="10.5" font-weight="700">裸區邊緣侵蝕（Marginal）</text>
-  <text x="760" y="245" fill="#334155" font-size="10.5">缺乏新骨增生（C1–2 ADI &gt;3mm）</text>
+  <text x="472" y="227" fill="#be123c" font-size="11.5" font-weight="700">類風濕性 RA</text>
+  <text x="472" y="245" fill="#64748b" font-size="9.8">對稱腕·MCP·PIP·環樞椎</text>
+  <text x="630" y="227" fill="#be123c" font-size="10.4" font-weight="600">關節旁骨鬆</text>
+  <text x="630" y="245" fill="#334155" font-size="10.4">早期均勻狹窄</text>
+  <text x="748" y="227" fill="#be123c" font-size="10" font-weight="700">裸區邊緣侵蝕 (Marginal)</text>
+  <text x="748" y="245" fill="#334155" font-size="9.8">缺新骨增生 (C1-2 ADI&gt;3mm)</text>
 
   <!-- Row 3: AS -->
   <rect x="464" y="264" width="450" height="50" rx="6" fill="#eff6ff" stroke="#bfdbfe"/>
-  <text x="474" y="283" fill="#1d4ed8" font-size="11.5" font-weight="700">僵直性脊椎炎 AS</text>
-  <text x="474" y="301" fill="#64748b" font-size="10.2">雙側對稱薦腸關節（腸骨側早）</text>
-  <text x="634" y="283" fill="#334155" font-size="10.6">晚期骨強直</text>
-  <text x="634" y="301" fill="#1d4ed8" font-size="10.6" font-weight="600">STIR 早期水腫</text>
-  <text x="760" y="283" fill="#334155" font-size="10.5">椎體角發亮方形椎（Romanus）</text>
-  <text x="760" y="301" fill="#1d4ed8" font-size="10.5" font-weight="700">細垂直韌帶骨贅 → 竹節狀脊椎</text>
+  <text x="472" y="283" fill="#1d4ed8" font-size="11.5" font-weight="700">僵直性脊椎炎 AS</text>
+  <text x="472" y="301" fill="#64748b" font-size="9.8">雙側對稱薦腸關節 (腸骨側早)</text>
+  <text x="630" y="283" fill="#334155" font-size="10.4">晚期骨強直</text>
+  <text x="630" y="301" fill="#1d4ed8" font-size="10.4" font-weight="600">STIR 早期水腫</text>
+  <text x="748" y="283" fill="#334155" font-size="10">椎體角發亮方形椎 (Romanus)</text>
+  <text x="748" y="301" fill="#1d4ed8" font-size="10" font-weight="700">細垂直韌帶骨贅→竹節脊椎</text>
 
   <!-- Row 4: Psoriatic -->
   <rect x="464" y="320" width="450" height="50" rx="6" fill="#fffbeb" stroke="#fde68a"/>
-  <text x="474" y="339" fill="#b45309" font-size="11.5" font-weight="700">乾癬性關節炎 PsA</text>
-  <text x="474" y="357" fill="#64748b" font-size="10.2">手足非對稱 DIP · 臘腸指</text>
-  <text x="634" y="339" fill="#334155" font-size="10.6">骨密度多保留</text>
-  <text x="634" y="357" fill="#334155" font-size="10.6">關節毀損強直</text>
-  <text x="760" y="339" fill="#b45309" font-size="10.5" font-weight="700">侵蝕與絨毛骨膜增生並存</text>
-  <text x="760" y="357" fill="#334155" font-size="10.5">典型筆套杯畸形（Pencil-in-cup）</text>
+  <text x="472" y="339" fill="#b45309" font-size="11.5" font-weight="700">乾癬性關節炎 PsA</text>
+  <text x="472" y="357" fill="#64748b" font-size="9.8">手足非對稱 DIP·臘腸指</text>
+  <text x="630" y="339" fill="#334155" font-size="10.4">骨密度多保留</text>
+  <text x="630" y="357" fill="#334155" font-size="10.4">關節毀損強直</text>
+  <text x="748" y="339" fill="#b45309" font-size="10" font-weight="700">侵蝕與絨毛骨膜增生並存</text>
+  <text x="748" y="357" fill="#334155" font-size="9.8">筆套杯畸形 (Pencil-in-cup)</text>
 
   <!-- Row 5: Gout & CPPD -->
   <rect x="464" y="376" width="450" height="54" rx="6" fill="#f0fdfa" stroke="#99f6e4"/>
-  <text x="474" y="395" fill="#0f766e" font-size="11.5" font-weight="700">慢性痛風 Gout</text>
-  <text x="474" y="413" fill="#64748b" font-size="10.2">第一蹠趾 MTP1 · 耳廓手足痛風石</text>
-  <text x="634" y="395" fill="#0f766e" font-size="10.6" font-weight="600">骨密度正常</text>
-  <text x="634" y="413" fill="#0f766e" font-size="10.6" font-weight="600">關節腔長期保留</text>
-  <text x="760" y="395" fill="#0f766e" font-size="10.5" font-weight="700">偏心打孔侵蝕 + 懸垂骨緣</text>
-  <text x="760" y="413" fill="#64748b" font-size="10.2">（CPPD：半月板／TFCC 軟骨鈣化）</text>
+  <text x="472" y="395" fill="#0f766e" font-size="11.5" font-weight="700">慢性痛風 Gout</text>
+  <text x="472" y="413" fill="#64748b" font-size="9.8">第一蹠趾 MTP1·耳手足痛風石</text>
+  <text x="630" y="395" fill="#0f766e" font-size="10.4" font-weight="600">骨密度正常</text>
+  <text x="630" y="413" fill="#0f766e" font-size="10.4" font-weight="600">關節腔長期保留</text>
+  <text x="748" y="395" fill="#0f766e" font-size="10" font-weight="700">偏心打孔侵蝕 + 懸垂骨緣</text>
+  <text x="748" y="413" fill="#64748b" font-size="9.8">(CPPD：半月板／TFCC 軟骨鈣化)</text>
 
   <!-- Sports MRI & MSK US Callout -->
   <rect x="464" y="438" width="450" height="76" rx="7" fill="#f8fafc" stroke="#cbd5e1"/>
-  <text x="476" y="457" fill="#0f172a" font-size="11.5" font-weight="700">運動傷害 MRI 與骨骼肌肉超音波必考配對</text>
-  <text x="476" y="475" fill="#334155" font-size="10.5">· 肩前下脫位：前下盂唇撕裂（Bankart）+ 肱骨頭後外側壓陷骨折（Hill-Sachs）</text>
-  <text x="476" y="492" fill="#334155" font-size="10.5">· 膝前十字韌帶斷裂：股骨外髁溝與外側脛骨平台後緣接吻骨挫傷 · Segond 撕脫骨折</text>
-  <text x="476" y="508" fill="#1d4ed8" font-size="10.5" font-weight="600">· 桶柄狀半月板撕裂：矢狀面雙後十字韌帶徵（Double PCL） · 肌腱音波須垂直避開順向異性假影</text>
+  <text x="474" y="457" fill="#0f172a" font-size="11.5" font-weight="700">運動傷害 MRI 與骨骼肌肉超音波必考配對</text>
+  <text x="474" y="475" fill="#334155" font-size="10">· 肩前下脫位：前下盂唇撕裂 (Bankart) + 肱骨頭後外壓陷 (Hill-Sachs)</text>
+  <text x="474" y="492" fill="#334155" font-size="10">· 膝 ACL 斷裂：股骨外髁與外脛平台後緣接吻骨挫傷 · Segond 撕脫骨折</text>
+  <text x="474" y="508" fill="#1d4ed8" font-size="9.8" font-weight="600">· 桶柄半月板撕裂：雙 PCL 徵 (Double PCL) · 肌腱音波垂直避順向異性假影</text>
 </svg>
