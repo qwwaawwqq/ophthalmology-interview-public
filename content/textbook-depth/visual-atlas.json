@@ -85128,7 +85128,7 @@
         },
         {
           "id": "atlas-s13-10",
-          "title": "眼部與全身共病屈光手術決策紅綠燈（EBMD vs 格狀／Fuchs · HSV 預防 · PKP 時機 · 自體免疫融解與青光眼）",
+          "title": "眼表淚膜與角膜五層解剖分流及全身共病紅綠燈（EBMD · TGFBI · Fuchs · HSV · 自體免疫與青光眼）",
           "chapterIds": [
             "bcsc-s13-ch002",
             "bcsc-s13-ch007",
@@ -85155,17 +85155,17 @@
           ],
           "diagram": {
             "kind": "anatomy",
-            "title": "角膜五層解剖分流與全眼／全身篩檢四關卡",
-            "alt": "原創雙欄解剖與臨床決策圖：左欄由前至後繪出淚膜、上皮基底膜（EBMD 選 PRK/PTK）、前彈力層、前基質（TGFBI 絕對禁忌）與後基質內皮（Fuchs 禁 LASIK）剖面；右欄列出暗室瞳孔與 kappa 角、水晶體核硬化、散瞳周邊視網膜及眼壓視神經四道全眼篩檢關卡。",
+            "title": "眼表淚膜（角膜五層之外）與角膜解剖五層分流 × 全眼篩檢四關卡",
+            "alt": "原創雙欄解剖與臨床決策圖：左欄最上方於角膜五層之外獨立繪出眼表淚膜／瞼板腺脂質層（乾眼／MGD 先治癒再量地形），其下方角膜組織框內依序獨立繪出真正角膜解剖五層——①上皮層 Epithelium（含基底膜 EBMD，禁 LASIK 選 PRK／PTK）、②Bowman 層 Bowman Layer（無再生力前彈力層）、③基質層 Stroma（TGFBI 顆粒狀／格狀／Avellino 營養不良，雷射絕對禁忌）、④Descemet 膜 Descemet Membrane（Fuchs 贅生物 guttae）與⑤內皮層 Endothelium（單層六角細胞幫浦功能，失償禁 LASIK）；右欄列出暗室瞳孔與 kappa 角、水晶體核硬化、散瞳周邊視網膜及眼壓視神經四道全眼篩檢關卡。",
             "width": 900,
             "height": 460,
             "elements": [
               {
                 "type": "rect",
-                "x": 24,
-                "y": 10,
-                "width": 852,
-                "height": 34,
+                "x": 20,
+                "y": 8,
+                "width": 860,
+                "height": 32,
                 "rx": 6,
                 "fill": "pale-teal",
                 "stroke": "teal",
@@ -85174,20 +85174,20 @@
               {
                 "type": "text",
                 "x": 450,
-                "y": 33,
+                "y": 30,
                 "anchor": "middle",
                 "fontSize": 19,
                 "fill": "ink",
                 "lines": [
-                  "角膜五層剖面術式分流 × 全眼與全身術前篩檢四關卡"
+                  "眼表淚膜（五層外）＋ 角膜解剖五層分流 × 全眼全身篩檢四關卡"
                 ]
               },
               {
                 "type": "rect",
-                "x": 24,
-                "y": 52,
-                "width": 441,
-                "height": 396,
+                "x": 20,
+                "y": 46,
+                "width": 458,
+                "height": 406,
                 "rx": 8,
                 "fill": "white",
                 "stroke": "teal",
@@ -85195,149 +85195,149 @@
               },
               {
                 "type": "text",
-                "x": 244,
-                "y": 76,
+                "x": 249,
+                "y": 67,
                 "anchor": "middle",
-                "fontSize": 19,
+                "fontSize": 18,
                 "fill": "teal",
                 "lines": [
-                  "角膜五層剖面與手術選擇（前 → 後）"
+                  "眼表淚膜（角膜外）與角膜五層剖面（①→⑤）"
                 ]
               },
               {
                 "type": "path",
-                "d": "M 38 92 Q 140 84 244 92 T 451 92",
+                "d": "M 32 75 Q 140 70 249 75 T 466 75",
                 "fill": "none",
                 "stroke": "blue",
-                "strokeWidth": 3
-              },
-              {
-                "type": "rect",
-                "x": 38,
-                "y": 96,
-                "width": 413,
-                "height": 72,
-                "rx": 6,
-                "fill": "pale-amber",
-                "stroke": "amber",
                 "strokeWidth": 2
               },
               {
-                "type": "circle",
-                "cx": 56,
-                "cy": 114,
-                "r": 5,
-                "fill": "amber",
-                "stroke": "none"
-              },
-              {
-                "type": "circle",
-                "cx": 432,
-                "cy": 114,
-                "r": 5,
-                "fill": "amber",
-                "stroke": "none"
+                "type": "rect",
+                "x": 32,
+                "y": 79,
+                "width": 434,
+                "height": 48,
+                "rx": 5,
+                "fill": "pale-amber",
+                "stroke": "amber",
+                "strokeWidth": 2,
+                "dash": true
               },
               {
                 "type": "text",
-                "x": 244,
-                "y": 120,
+                "x": 249,
+                "y": 98,
                 "anchor": "middle",
                 "fontSize": 18,
                 "fill": "ink",
                 "lines": [
-                  "淚膜層（乾眼／MGD）"
+                  "淚膜／瞼板腺脂質層（角膜五層之外）"
                 ]
               },
               {
-                "type": "rect",
-                "x": 74,
-                "y": 130,
-                "width": 340,
-                "height": 30,
-                "rx": 12,
-                "fill": "white",
-                "stroke": "amber",
-                "strokeWidth": 2
-              },
-              {
                 "type": "text",
-                "x": 244,
-                "y": 151,
+                "x": 249,
+                "y": 120,
                 "anchor": "middle",
                 "fontSize": 18,
                 "fill": "amber",
                 "lines": [
-                  "先治乾眼再量地形圖"
+                  "眼表淚膜層：乾眼／MGD 先治再量地形"
                 ]
               },
               {
                 "type": "rect",
-                "x": 38,
-                "y": 174,
-                "width": 413,
-                "height": 78,
+                "x": 28,
+                "y": 133,
+                "width": 442,
+                "height": 313,
                 "rx": 6,
+                "fill": "pale-teal",
+                "opacity": 0.22,
+                "stroke": "teal",
+                "strokeWidth": 2
+              },
+              {
+                "type": "rect",
+                "x": 34,
+                "y": 138,
+                "width": 430,
+                "height": 52,
+                "rx": 4,
                 "fill": "pale-teal",
                 "stroke": "teal",
                 "strokeWidth": 2
               },
               {
                 "type": "text",
-                "x": 244,
-                "y": 198,
+                "x": 249,
+                "y": 158,
                 "anchor": "middle",
                 "fontSize": 18,
                 "fill": "ink",
                 "lines": [
-                  "上皮與基底膜（EBMD 地圖點狀指紋）"
+                  "① 上皮層 Epithelium（含基底膜 EBMD）"
                 ]
               },
               {
-                "type": "rect",
-                "x": 64,
-                "y": 208,
-                "width": 360,
-                "height": 30,
-                "rx": 12,
-                "fill": "white",
-                "stroke": "teal",
-                "strokeWidth": 2
-              },
-              {
                 "type": "text",
-                "x": 244,
-                "y": 229,
+                "x": 249,
+                "y": 182,
                 "anchor": "middle",
                 "fontSize": 18,
                 "fill": "teal",
                 "lines": [
-                  "禁 LASIK 掀皮 · 選 PRK/PTK"
+                  "EBMD 禁 LASIK 掀瓣 · 選 PRK／PTK"
                 ]
               },
               {
-                "type": "path",
-                "d": "M 42 255 Q 92 249 142 255 T 242 255 T 342 255 T 446 255",
-                "fill": "none",
-                "stroke": "teal",
-                "strokeWidth": 2,
-                "dash": true
+                "type": "rect",
+                "x": 34,
+                "y": 194,
+                "width": 430,
+                "height": 50,
+                "rx": 4,
+                "fill": "white",
+                "stroke": "blue",
+                "strokeWidth": 2
+              },
+              {
+                "type": "text",
+                "x": 249,
+                "y": 214,
+                "anchor": "middle",
+                "fontSize": 18,
+                "fill": "ink",
+                "lines": [
+                  "② Bowman 層 Bowman Layer"
+                ]
+              },
+              {
+                "type": "text",
+                "x": 249,
+                "y": 237,
+                "anchor": "middle",
+                "fontSize": 18,
+                "fill": "blue",
+                "lines": [
+                  "前彈力層：無再生力緻密無細胞膠原膜"
+                ]
               },
               {
                 "type": "rect",
-                "x": 38,
-                "y": 260,
-                "width": 413,
-                "height": 80,
-                "rx": 6,
+                "x": 34,
+                "y": 248,
+                "width": 430,
+                "height": 78,
+                "rx": 4,
                 "fill": "pale-red",
                 "stroke": "red",
                 "strokeWidth": 2
               },
               {
                 "type": "circle",
-                "cx": 56,
-                "cy": 280,
+                "cx": 48,
+                "cy": 268,
                 "r": 4,
                 "fill": "white",
                 "stroke": "red",
@@ -85345,26 +85345,8 @@
               },
               {
                 "type": "circle",
-                "cx": 70,
-                "cy": 286,
-                "r": 3,
-                "fill": "white",
-                "stroke": "red",
-                "strokeWidth": 2
-              },
-              {
-                "type": "circle",
-                "cx": 418,
-                "cy": 286,
-                "r": 3,
-                "fill": "white",
-                "stroke": "red",
-                "strokeWidth": 2
-              },
-              {
-                "type": "circle",
-                "cx": 432,
-                "cy": 280,
+                "cx": 450,
+                "cy": 268,
                 "r": 4,
                 "fill": "white",
                 "stroke": "red",
@@ -85372,94 +85354,116 @@
               },
               {
                 "type": "text",
-                "x": 244,
-                "y": 285,
+                "x": 249,
+                "y": 271,
                 "anchor": "middle",
                 "fontSize": 18,
                 "fill": "ink",
                 "lines": [
-                  "前基質層（TGFBI 顆粒／Avellino）"
+                  "③ 基質層 Stroma（佔角膜厚度約 90%）"
                 ]
               },
               {
-                "type": "rect",
-                "x": 64,
-                "y": 296,
-                "width": 360,
-                "height": 32,
-                "rx": 12,
-                "fill": "white",
-                "stroke": "red",
-                "strokeWidth": 2
+                "type": "text",
+                "x": 249,
+                "y": 295,
+                "anchor": "middle",
+                "fontSize": 18,
+                "fill": "red",
+                "lines": [
+                  "TGFBI 顆粒狀／格狀／Avellino 營養不良"
+                ]
               },
               {
                 "type": "text",
-                "x": 244,
+                "x": 249,
                 "y": 318,
                 "anchor": "middle",
                 "fontSize": 18,
                 "fill": "red",
                 "lines": [
-                  "雷射消融絕對禁忌（混濁惡化）"
+                  "所有角膜雷射減薄手術皆屬絕對禁忌"
                 ]
               },
               {
                 "type": "rect",
-                "x": 38,
-                "y": 348,
-                "width": 413,
-                "height": 82,
-                "rx": 6,
-                "fill": "pale-red",
-                "stroke": "red",
+                "x": 34,
+                "y": 330,
+                "width": 430,
+                "height": 52,
+                "rx": 4,
+                "fill": "pale-amber",
+                "stroke": "amber",
+                "strokeWidth": 2
+              },
+              {
+                "type": "path",
+                "d": "M 42 382 Q 49 387 56 382 M 442 382 Q 449 387 456 382",
+                "fill": "pale-amber",
+                "stroke": "amber",
                 "strokeWidth": 2
               },
               {
                 "type": "text",
-                "x": 244,
-                "y": 373,
+                "x": 249,
+                "y": 350,
                 "anchor": "middle",
                 "fontSize": 18,
                 "fill": "ink",
                 "lines": [
-                  "後基質與內皮層（Fuchs 滴狀贅生物）"
+                  "④ Descemet 膜 Descemet Membrane"
+                ]
+              },
+              {
+                "type": "text",
+                "x": 249,
+                "y": 374,
+                "anchor": "middle",
+                "fontSize": 18,
+                "fill": "amber",
+                "lines": [
+                  "後彈力層：Fuchs 贅生物（guttae）沉積"
                 ]
               },
               {
                 "type": "rect",
-                "x": 60,
-                "y": 384,
-                "width": 368,
-                "height": 32,
-                "rx": 12,
-                "fill": "white",
-                "stroke": "red",
-                "strokeWidth": 2
-              },
-              {
-                "type": "text",
-                "x": 244,
-                "y": 406,
-                "anchor": "middle",
-                "fontSize": 18,
-                "fill": "red",
-                "lines": [
-                  "泵浦失償＜1500/mm² 禁 LASIK"
-                ]
-              },
-              {
-                "type": "path",
-                "d": "M 70 430 Q 80 441 90 430 M 176 430 Q 186 441 196 430 M 292 430 Q 302 441 312 430 M 398 430 Q 408 441 418 430",
+                "x": 34,
+                "y": 388,
+                "width": 430,
+                "height": 53,
+                "rx": 4,
                 "fill": "pale-red",
                 "stroke": "red",
                 "strokeWidth": 2
               },
               {
+                "type": "text",
+                "x": 249,
+                "y": 408,
+                "anchor": "middle",
+                "fontSize": 18,
+                "fill": "ink",
+                "lines": [
+                  "⑤ 內皮層 Endothelium（單層六角細胞）"
+                ]
+              },
+              {
+                "type": "text",
+                "x": 249,
+                "y": 432,
+                "anchor": "middle",
+                "fontSize": 18,
+                "fill": "red",
+                "lines": [
+                  "幫浦功能：失償或＜1500/mm² 禁 LASIK"
+                ]
+              },
+              {
                 "type": "rect",
-                "x": 485,
-                "y": 52,
-                "width": 391,
-                "height": 396,
+                "x": 490,
+                "y": 46,
+                "width": 390,
+                "height": 406,
                 "rx": 8,
                 "fill": "white",
                 "stroke": "blue",
@@ -85467,10 +85471,10 @@
               },
               {
                 "type": "text",
-                "x": 680,
-                "y": 76,
+                "x": 685,
+                "y": 68,
                 "anchor": "middle",
-                "fontSize": 19,
+                "fontSize": 18,
                 "fill": "blue",
                 "lines": [
                   "全眼與全身篩檢四關卡"
@@ -85478,10 +85482,10 @@
               },
               {
                 "type": "rect",
-                "x": 499,
-                "y": 92,
-                "width": 363,
-                "height": 80,
+                "x": 503,
+                "y": 82,
+                "width": 364,
+                "height": 82,
                 "rx": 6,
                 "fill": "pale-blue",
                 "stroke": "blue",
@@ -85489,24 +85493,24 @@
               },
               {
                 "type": "circle",
-                "cx": 522,
-                "cy": 116,
+                "cx": 525,
+                "cy": 107,
                 "r": 9,
                 "fill": "blue",
                 "stroke": "none"
               },
               {
                 "type": "circle",
-                "cx": 524,
-                "cy": 116,
+                "cx": 527,
+                "cy": 107,
                 "r": 3,
                 "fill": "white",
                 "stroke": "none"
               },
               {
                 "type": "text",
-                "x": 542,
-                "y": 122,
+                "x": 544,
+                "y": 113,
                 "anchor": "start",
                 "fontSize": 18,
                 "fill": "blue",
@@ -85516,8 +85520,8 @@
               },
               {
                 "type": "text",
-                "x": 680,
-                "y": 154,
+                "x": 685,
+                "y": 146,
                 "anchor": "middle",
                 "fontSize": 18,
                 "fill": "ink",
@@ -85527,10 +85531,10 @@
               },
               {
                 "type": "rect",
-                "x": 499,
-                "y": 180,
-                "width": 363,
-                "height": 80,
+                "x": 503,
+                "y": 174,
+                "width": 364,
+                "height": 82,
                 "rx": 6,
                 "fill": "pale-amber",
                 "stroke": "amber",
@@ -85538,8 +85542,8 @@
               },
               {
                 "type": "ellipse",
-                "cx": 522,
-                "cy": 204,
+                "cx": 525,
+                "cy": 199,
                 "rx": 10,
                 "ry": 7,
                 "fill": "amber",
@@ -85548,8 +85552,8 @@
               },
               {
                 "type": "text",
-                "x": 542,
-                "y": 210,
+                "x": 544,
+                "y": 205,
                 "anchor": "start",
                 "fontSize": 18,
                 "fill": "amber",
@@ -85559,8 +85563,8 @@
               },
               {
                 "type": "text",
-                "x": 680,
-                "y": 242,
+                "x": 685,
+                "y": 238,
                 "anchor": "middle",
                 "fontSize": 18,
                 "fill": "ink",
@@ -85570,10 +85574,10 @@
               },
               {
                 "type": "rect",
-                "x": 499,
-                "y": 268,
-                "width": 363,
-                "height": 80,
+                "x": 503,
+                "y": 266,
+                "width": 364,
+                "height": 82,
                 "rx": 6,
                 "fill": "pale-teal",
                 "stroke": "teal",
@@ -85581,15 +85585,15 @@
               },
               {
                 "type": "path",
-                "d": "M 514 286 Q 528 292 514 298",
+                "d": "M 517 285 Q 531 291 517 297",
                 "fill": "none",
                 "stroke": "teal",
                 "strokeWidth": 3
               },
               {
                 "type": "text",
-                "x": 542,
-                "y": 298,
+                "x": 544,
+                "y": 297,
                 "anchor": "start",
                 "fontSize": 18,
                 "fill": "teal",
@@ -85599,7 +85603,7 @@
               },
               {
                 "type": "text",
-                "x": 680,
+                "x": 685,
                 "y": 330,
                 "anchor": "middle",
                 "fontSize": 18,
@@ -85610,10 +85614,10 @@
               },
               {
                 "type": "rect",
-                "x": 499,
-                "y": 356,
-                "width": 363,
-                "height": 80,
+                "x": 503,
+                "y": 358,
+                "width": 364,
+                "height": 82,
                 "rx": 6,
                 "fill": "pale-red",
                 "stroke": "red",
@@ -85621,8 +85625,8 @@
               },
               {
                 "type": "circle",
-                "cx": 522,
-                "cy": 380,
+                "cx": 525,
+                "cy": 383,
                 "r": 9,
                 "fill": "white",
                 "stroke": "red",
@@ -85630,16 +85634,16 @@
               },
               {
                 "type": "circle",
-                "cx": 522,
-                "cy": 380,
+                "cx": 525,
+                "cy": 383,
                 "r": 4,
                 "fill": "red",
                 "stroke": "none"
               },
               {
                 "type": "text",
-                "x": 542,
-                "y": 386,
+                "x": 544,
+                "y": 389,
                 "anchor": "start",
                 "fontSize": 18,
                 "fill": "red",
@@ -85649,8 +85653,8 @@
               },
               {
                 "type": "text",
-                "x": 680,
-                "y": 418,
+                "x": 685,
+                "y": 422,
                 "anchor": "middle",
                 "fontSize": 18,
                 "fill": "ink",
@@ -85662,8 +85666,8 @@
           },
           "figureReading": [
             {
-              "label": "左欄剖面（淚膜層 → 上皮基底膜 → 前基質 → 後基質與內皮層）",
-              "meaning": "由淺至深區分治療策略：乾眼／MGD 先治癒再量地形；EBMD 禁 LASIK 掀瓣而選 PRK/PTK 兼治破皮；TGFBI 顆粒／Avellino 屬雷射絕對禁忌；Fuchs 內皮失償（＜1500/mm²）禁做 LASIK。"
+              "label": "左欄剖面：眼表淚膜（角膜五層之外）＋ 角膜解剖五層（①上皮層 → ②Bowman 層 → ③基質層 → ④Descemet 膜 → ⑤內皮層）",
+              "meaning": "淚膜／瞼板腺脂質層屬眼表淚膜層，位於角膜五層之外，乾眼／MGD 須先治癒再量地形；角膜真正五層依序為：①上皮層 Epithelium（含基底膜 EBMD，禁 LASIK 掀瓣而選 PRK／PTK 兼治破皮）、②Bowman 層 Bowman Layer（無再生力前彈力層）、③基質層 Stroma（TGFBI 顆粒狀／格狀／Avellino 營養不良，所有角膜雷射減薄手術絕對禁忌）、④Descemet 膜 Descemet Membrane（Fuchs 滴狀贅生物 guttae 沉積增厚處）與⑤內皮層 Endothelium（單層六角細胞幫浦失償或＜1500/mm² 禁做 LASIK）。"
             },
             {
               "label": "右欄關卡 ①–②（暗室瞳孔與 kappa 角、水晶體核硬化）",
@@ -85695,10 +85699,10 @@
                 "創傷活化 TGFBI 突變蛋白加速異常澱粉樣／透明質沉積（東亞必做基因或裂隙燈細查！）"
               ],
               [
-                "Fuchs 內皮失養症",
+                "Fuchs 內皮失養症（Descemet 膜 guttae ＋ 內皮層）",
                 "禁忌（缺內皮幫浦致瓣貼附不良與水腫失代償）",
                 "明顯病變亦禁忌（創傷加速內皮失代償混濁）",
-                "內皮 Na⁺/K⁺-ATPase 幫浦是維持基質脫水透明與 LASIK 瓣即刻吸附的命脈"
+                "Descemet 膜滴狀贅生物（guttae）合併內皮單層六角細胞 Na⁺/K⁺-ATPase 幫浦減損，無法維持基質脫水透明與 LASIK 瓣吸附"
               ],
               [
                 "單純疱疹角膜炎史（HSV）",
