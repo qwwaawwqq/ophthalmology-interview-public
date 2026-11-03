@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-labelledby="neuro09-title neuro09-desc" font-family="system-ui, -apple-system, 'Noto Sans TC', sans-serif">
+  <title id="neuro09-title">脊髓橫切面三大傳導徑路症候群定位與周邊神經病變（GBS · CIDP · 代謝遺傳型）電生理分流圖</title>
+  <desc id="neuro09-desc">左側繪製脊髓橫切面後索、外側皮質脊髓徑與前外側脊髓視丘徑及其內頸外薦體位排列，對照中央髓、前髓、Brown-Sequard 半切與圓錐馬尾症候群；右側整合格林巴利症候群 20/30/40 插管警戒值、神經傳導檢查軸索對脫髓鞘波形比較及糖尿病、CMT1A 與台灣晚發型 ATTRv 類澱粉神經病變鑑別。</desc>
+
+  <!-- Outer background and header -->
+  <rect x="20" y="20" width="920" height="520" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="20" y="20" width="920" height="50" rx="14" fill="#0f172a"/>
+  <rect x="20" y="54" width="920" height="16" fill="#0f172a"/>
+  <text x="40" y="51" fill="#ffffff" font-size="16" font-weight="700">脊髓橫切面三大徑路症候群定位 · GBS 呼吸門檻與周邊神經病變電生理分流</text>
+  <text x="920" y="50" fill="#94a3b8" font-size="12" text-anchor="end">Neuro-09 · 脊髓與周邊神經</text>
+
+  <!-- Left Panel: Spinal Cord Cross-Section & Syndromes -->
+  <rect x="30" y="82" width="474" height="446" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+  <text x="42" y="104" fill="#0f172a" font-size="13" font-weight="700">一、脊髓橫切面三大傳導徑路（體位排列）與經典脊髓症候群</text>
+
+  <!-- Large Spinal Cord Cross-Section -->
+  <rect x="40" y="112" width="454" height="178" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <!-- Cord oval -->
+  <ellipse cx="182" cy="192" rx="84" ry="56" fill="#ffffff" stroke="#334155" stroke-width="2"/>
+  <line x1="182" y1="136" x2="182" y2="170" stroke="#64748b" stroke-width="1.2"/>
+  <line x1="182" y1="214" x2="182" y2="248" stroke="#64748b" stroke-width="2"/>
+  <path d="M148,154 C158,168 165,180 165,192 C165,204 154,216 146,226 C160,230 170,216 172,200 L192,200 C194,216 204,230 218,226 C210,216 199,204 199,192 C199,180 206,168 216,154 C204,158 196,172 192,184 L172,184 C168,172 160,158 148,154 Z" fill="#e2e8f0" stroke="#64748b" stroke-width="1.2"/>
+
+  <!-- Dorsal columns (Blue) -->
+  <path d="M154,141 Q182,135 210,141 L197,172 L167,172 Z" fill="#1d4ed8" opacity="0.82"/>
+  <text x="182" y="159" fill="#ffffff" font-size="9.5" font-weight="700" text-anchor="middle">後索</text>
+
+  <!-- Lateral Corticospinal Tracts (Red) -->
+  <ellipse cx="124" cy="186" rx="22" ry="14" fill="#be123c" opacity="0.85"/>
+  <text x="124" y="190" fill="#ffffff" font-size="9.5" font-weight="700" text-anchor="middle">S←C</text>
+  <ellipse cx="240" cy="186" rx="22" ry="14" fill="#be123c" opacity="0.85"/>
+  <text x="240" y="190" fill="#ffffff" font-size="9.5" font-weight="700" text-anchor="middle">C→S</text>
+
+  <!-- Spinothalamic Tracts (Teal) -->
+  <path d="M108,210 Q124,236 156,242 L160,228 Q134,222 124,206 Z" fill="#0f766e" opacity="0.88"/>
+  <path d="M256,210 Q240,236 208,242 L204,228 Q230,222 240,206 Z" fill="#0f766e" opacity="0.88"/>
+  <text x="164" y="274" fill="#475569" font-size="9.5" font-weight="600" text-anchor="middle">前脊髓動脈灌流前 2/3 · 內 C → 外 S</text>
+
+  <!-- Callout legends on right of cord -->
+  <rect x="292" y="118" width="194" height="50" rx="5" fill="#eff6ff"/>
+  <text x="300" y="133" fill="#1e3a8a" font-size="9.8" font-weight="700">後索（藍）</text>
+  <text x="300" y="148" fill="#334155" font-size="9.5">同側震動本體覺 · 延髓交叉</text>
+  <text x="300" y="163" fill="#334155" font-size="9.5">內側下肢（薄束）／外側上肢</text>
+
+  <rect x="292" y="172" width="194" height="50" rx="5" fill="#fff1f2"/>
+  <text x="300" y="187" fill="#9f1239" font-size="9.8" font-weight="700">外側皮質脊髓徑（紅）</text>
+  <text x="300" y="202" fill="#334155" font-size="9.5">同側運動 · 延髓錐體交叉</text>
+  <text x="300" y="217" fill="#be123c" font-size="9.5" font-weight="600">內側頸上肢 · 外側薦下肢</text>
+
+  <rect x="292" y="226" width="194" height="52" rx="5" fill="#f0fdfa"/>
+  <text x="300" y="241" fill="#115e59" font-size="9.8" font-weight="700">脊髓視丘徑（綠）</text>
+  <text x="300" y="256" fill="#334155" font-size="9.5">對側痛溫覺 · 入髓升 1–2 節</text>
+  <text x="300" y="271" fill="#0f766e" font-size="9.5" font-weight="600">經白質前連合交叉至對側</text>
+
+  <!-- 2x2 Spinal Syndrome Cards -->
+  <rect x="40" y="298" width="222" height="104" rx="7" fill="#fff1f2" stroke="#fda4af" stroke-width="1.1"/>
+  <text x="48" y="316" fill="#9f1239" font-size="10.5" font-weight="700">1. 中央髓症候群（最常見不完全傷）</text>
+  <text x="48" y="333" fill="#0f172a" font-size="9.5">· 高齡頸椎狹窄跌倒致頸過度伸展</text>
+  <text x="48" y="349" fill="#be123c" font-size="9.5" font-weight="700">· 特徵：上肢無力遠重於下肢（內頸）</text>
+  <text x="48" y="365" fill="#0f172a" font-size="9.5">· 披肩痛溫覺減退 · 薦髓感覺常保留</text>
+  <text x="48" y="381" fill="#475569" font-size="9.5">· 脊髓空洞症亦致披肩分離感覺喪失</text>
+
+  <rect x="268" y="298" width="228" height="104" rx="7" fill="#fffbeb" stroke="#fcd34d" stroke-width="1.1"/>
+  <text x="274" y="316" fill="#92400e" font-size="10.5" font-weight="700">2. 前髓症候群 vs Brown-Séquard</text>
+  <text x="274" y="333" fill="#0f172a" font-size="9.5">· 前髓（前脊髓動脈缺血）：下肢癱＋痛溫失</text>
+  <text x="280" y="349" fill="#b45309" font-size="9.5" font-weight="700">但後索本體覺與震動覺完整保留！</text>
+  <text x="274" y="365" fill="#0f172a" font-size="9.5">· 半切（Brown-Séquard）：同側無力本體失</text>
+  <text x="280" y="381" fill="#0f766e" font-size="9.5" font-weight="700">＋對側低 1–2 節以下痛溫覺喪失</text>
+
+  <rect x="40" y="410" width="222" height="108" rx="7" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.1"/>
+  <text x="48" y="428" fill="#1e3a8a" font-size="10.5" font-weight="700">3. 圓錐（L1–L2）vs 馬尾急症</text>
+  <text x="48" y="445" fill="#0f172a" font-size="9.5">· 圓錐：對稱鞍麻、極早期大小便失禁</text>
+  <text x="54" y="461" fill="#334155" font-size="9.5">膝反射保留／亢進，踝無反射（混合）</text>
+  <text x="48" y="477" fill="#0f172a" font-size="9.5">· 馬尾：劇烈不對稱根痛、膝踝無反射</text>
+  <text x="48" y="493" fill="#1d4ed8" font-size="9.5" font-weight="700">· 尿滯留急排 MRI → 24–48h 內減壓</text>
+
+  <rect x="268" y="410" width="228" height="108" rx="7" fill="#f0fdf4" stroke="#86efac" stroke-width="1.1"/>
+  <text x="274" y="428" fill="#14532d" font-size="10.5" font-weight="700">4. 外傷休克與腰椎狹窄跛行鑑別</text>
+  <text x="274" y="445" fill="#0f172a" font-size="9.5">· 神經性休克（T6↑）：低血壓＋心搏過緩</text>
+  <text x="274" y="461" fill="#0f172a" font-size="9.5">· 脊髓休克：急性期暫時全反射張力消失</text>
+  <text x="274" y="477" fill="#166534" font-size="9.5" font-weight="700">· 腰椎狹窄跛行：前傾推購物車可緩解</text>
+  <text x="280" y="493" fill="#334155" font-size="9.5">（SLRT 陰性 · 足背脈正常異於血管型）</text>
+
+  <!-- Right Panel: GBS, NCS Waveforms & Peripheral Neuropathy -->
+  <rect x="512" y="82" width="418" height="446" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+  <text x="524" y="104" fill="#0f172a" font-size="13" font-weight="700">二、GBS 呼吸門檻 · 電生理波形與周邊神經病變分流</text>
+
+  <!-- GBS vs CIDP & 20/30/40 rule -->
+  <rect x="522" y="114" width="398" height="134" rx="8" fill="#fff1f2" stroke="#fda4af" stroke-width="1.1"/>
+  <text x="530" y="131" fill="#9f1239" font-size="10.8" font-weight="700">格林-巴利症候群（GBS ≤4 週達峰）vs CIDP（&gt;8 週進展）</text>
+  <text x="530" y="148" fill="#0f172a" font-size="9.5">· GBS：感染後上行無力無反射 · 2 週蛋白細胞分離 · MFS 查 GQ1b</text>
+  <text x="530" y="164" fill="#be123c" font-size="9.5" font-weight="700">· 鐵律：GBS 選 IVIG／PLEX（類固醇無效！）；CIDP 三者皆有效</text>
+
+  <rect x="530" y="174" width="382" height="66" rx="6" fill="#0f172a"/>
+  <text x="721" y="192" fill="#fda4af" font-size="10.2" font-weight="700" text-anchor="middle">GBS 預防性插管「20 / 30 / 40」紅線（勿等血氧 SpO2 掉！）</text>
+  <text x="594" y="213" fill="#38bdf8" font-size="10.5" font-weight="700" text-anchor="middle">肺活量 VC</text>
+  <text x="594" y="230" fill="#ffffff" font-size="10" text-anchor="middle">&lt; 20 mL/kg</text>
+  <text x="721" y="213" fill="#fcd34d" font-size="10.5" font-weight="700" text-anchor="middle">最大吸氣壓 MIP</text>
+  <text x="721" y="230" fill="#ffffff" font-size="10" text-anchor="middle">弱於 −30 cmH2O</text>
+  <text x="848" y="213" fill="#4ade80" font-size="10.5" font-weight="700" text-anchor="middle">最大吐氣壓 MEP</text>
+  <text x="848" y="230" fill="#ffffff" font-size="10" text-anchor="middle">&lt; 40 cmH2O</text>
+
+  <!-- NCS Waveforms: Normal vs Axonal vs Demyelinating -->
+  <rect x="522" y="256" width="398" height="124" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.1"/>
+  <text x="530" y="274" fill="#0f172a" font-size="10.8" font-weight="700">神經傳導檢查（NCS）複合肌肉動作電位（CMAP）鑑別</text>
+
+  <!-- Waveform 1: Normal -->
+  <rect x="530" y="282" width="124" height="90" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="592" y="298" fill="#334155" font-size="10" font-weight="700" text-anchor="middle">正常傳導</text>
+  <path d="M540,330 L558,330 Q568,298 578,330 Q588,350 598,330 L644,330" fill="none" stroke="#334155" stroke-width="2.2"/>
+  <text x="592" y="362" fill="#475569" font-size="9.5" text-anchor="middle">潛時短 · 振幅高</text>
+
+  <!-- Waveform 2: Axonal -->
+  <rect x="659" y="282" width="124" height="90" rx="6" fill="#fffbeb" stroke="#fcd34d"/>
+  <text x="721" y="298" fill="#92400e" font-size="10" font-weight="700" text-anchor="middle">軸索退化型</text>
+  <path d="M669,328 L688,328 Q696,317 704,328 Q712,335 720,328 L773,328" fill="none" stroke="#b45309" stroke-width="2.2"/>
+  <text x="721" y="348" fill="#92400e" font-size="9.5" font-weight="600" text-anchor="middle">CMAP/SNAP↓↓</text>
+  <text x="721" y="364" fill="#475569" font-size="9.5" text-anchor="middle">糖尿病／AMAN</text>
+
+  <!-- Waveform 3: Demyelinating -->
+  <rect x="788" y="282" width="124" height="90" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="850" y="298" fill="#1e3a8a" font-size="10" font-weight="700" text-anchor="middle">脫髓鞘病變型</text>
+  <path d="M798,328 L828,328 Q836,310 844,326 Q850,316 858,330 Q866,340 876,328 L902,328" fill="none" stroke="#1d4ed8" stroke-width="2.2"/>
+  <text x="850" y="348" fill="#1e3a8a" font-size="9.5" font-weight="600" text-anchor="middle">速度↓↓ · 阻滯</text>
+  <text x="850" y="364" fill="#475569" font-size="9.5" text-anchor="middle">AIDP／CIDP／CMT</text>
+
+  <!-- Chronic Polyneuropathy 4W + CMT1A vs Taiwan ATTRv -->
+  <rect x="522" y="388" width="398" height="130" rx="8" fill="#f0fdfa" stroke="#5eead4" stroke-width="1.1"/>
+  <text x="530" y="405" fill="#115e59" font-size="10.8" font-weight="700">慢性多發神經病變篩檢與台灣關鍵遺傳鑑別</text>
+  <text x="530" y="422" fill="#0f172a" font-size="9.5">· 後天首因：糖尿病（襪套手套樣）· 初篩 HbA1c、B12、電泳 SPEP</text>
+  <text x="530" y="438" fill="#0f172a" font-size="9.5">· 多發單神經炎（接連垂足／尺麻痺）：急查 ANCA／PAN 血管炎</text>
+  <text x="530" y="454" fill="#1e3a8a" font-size="9.5" font-weight="700">· CMT1A（PMP22 倍增）：高足弓鶴腿 · 禁 Vincristine（缺失＝HNPP）</text>
+  <rect x="528" y="464" width="386" height="46" rx="5" fill="#ccfbf1"/>
+  <text x="535" y="480" fill="#115e59" font-size="9.5" font-weight="700">· 台灣晚發 ATTRv（Ala97Ser）：&gt;50 歲痛麻無力＋腹瀉便秘＋低血壓</text>
+  <text x="541" y="496" fill="#0f766e" font-size="9.5" font-weight="600">雙側腕隧道史＋心肌肥厚 → 勿誤診 CIDP！及早給 Tafamidis／靜默藥</text>
+</svg>
