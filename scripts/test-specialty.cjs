@@ -22,7 +22,7 @@ const jsonBlocks = Object.fromEntries(blockMatches.map(m => [m[1], m[2]]));
 const source = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].at(-1)[1];
 const end = /render\(\);\s*\}\)\(\);\s*$/;
 assert(end.test(source), 'The test hook must match the app bootstrap.');
-const hooked = source.replace(end, 'globalThis.__qa={D,S,SPEC,get entries(){return entries;},get meta(){return meta;},put,syncState,cloudConfig,progressPayload,mergeProgress,exportProgress,render,navs,switchTab,openRoute,parseRoute,normalizeLinkUrl,tabAllowed};render();})();');
+const hooked = source.replace(end, 'globalThis.__qa={D,S,SPEC,get entries(){return entries;},get meta(){return meta;},put,syncState,cloudConfig,progressPayload,mergeProgress,exportProgress,render,navs,switchTab,openRoute,parseRoute,normalizeLinkUrl,tabAllowed,notebookIndex,coverageFocus,coverageRestoreHash};render();})();');
 const bootScript = new vm.Script(bootSource);
 const hookedScript = new vm.Script(hooked);
 
@@ -51,7 +51,7 @@ const FULL_TAB_SPECIALTIES = ['ent', 'rad', 'nm', 'neuro'];
 // Specialties without a 甄選面試 that were removed from the registry/picker on 2026-11-02 (old ?s= links fall back to oph).
 const REMOVED_SPECIALTIES = ['radonc', 'gs', 'prs', 'ortho', 'uro', 'ns', 'gm', 'cv', 'pulm', 'gi', 'nephro', 'endo', 'hemeonc', 'id', 'rheu', 'ped', 'obgyn', 'derm', 'psych', 'pmr', 'anes', 'fm'];
 const OPH_ONLY_TABS = ['textbook', 'cram', 'advanced', 'schedule', 'project'];
-const OPH_LEAK_TERMS = ['BCSC', 'RAPD', '白瞳', '共筆', '急性視力喪失', '糖尿病黃斑水腫', '#pbl-dr', '#wf-chemical', '#notes-02'];
+const OPH_LEAK_TERMS = ['BCSC', 'RAPD', '白瞳', '眼科學No.', '急性視力喪失', '糖尿病黃斑水腫', '#pbl-dr', '#wf-chemical', '#notes-02'];
 
 function wellFormed(markup) {
   const stack = [];
@@ -682,6 +682,24 @@ async function practise(app) {
           'nm-thyroid': {
             source: 'SNMMI Procedure Standard 4.0',
             resources: [{id: 'nm-res-snmmi', title: 'SNMMI Thyroid Guideline', url: 'https://www.snmmi.org/', kind: '指南', provider: 'SNMMI', note: '攝取率與掃描標準'}],
+            figure: {
+              title: '甲狀腺毒症核醫攝取鑑別圖',
+              caption: '結合頸部壓痛與 24 小時攝取率區分高攝取與破壞性甲狀腺炎。',
+              alt: '甲狀腺毒症高攝取與低攝取流程示意圖',
+              src: 'assets/figures/nm-thyroid.svg',
+              sourceIds: ['nm-res-snmmi'],
+            },
+            summaryTables: [{
+              id: 't1',
+              title: '甲狀腺毒症核醫攝取對照表',
+              caption: '整合 24 小時攝取率與首選處置方向',
+              headers: ['診斷', '24h RAIU', '掃描表現', '處置重點'],
+              rows: [
+                ['Graves 病', '瀰漫升高', '雙葉均勻高攝取', '抗甲狀腺藥物或評估碘-131'],
+                ['亞急性甲狀腺炎', '顯著受抑 (<2%)', '雙葉低顯影', '消炎止痛並追蹤功能演變'],
+              ],
+              sourceIds: ['nm-res-snmmi'],
+            }],
             deepDive: [{heading: '碘池擴張如何壓低攝取率', paragraphs: ['近期含碘顯影劑會競爭 NIS 轉運，造成假性低攝取。'], sourceIds: ['nm-res-snmmi']}],
             oralChallenge: {question: '如何分辨亞急性甲狀腺炎與顯影劑干擾？', answer: '結合頸部壓痛、發炎指標、病史與尿碘或追蹤時序。', sourceIds: ['nm-res-snmmi']},
             integrated: {
@@ -692,6 +710,7 @@ async function practise(app) {
                 title: '攝取機轉與鑑別',
                 sectionIndexes: [0, 1],
                 deepDiveIndexes: [0],
+                showFigure: true,
                 synthesis: ['先看臨床壓痛與病史，再解讀攝取率高低。'],
                 decisions: [{finding: 'TSH 低且 RAIU 1%', interpretation: '破壞性甲狀腺炎或碘干擾', nextStep: '症狀控制並避免誤用碘-131'}],
                 sourceIds: ['nm-res-snmmi'],
@@ -704,8 +723,110 @@ async function practise(app) {
               connections: [{topicId: 'nm-pet', reason: '甲狀腺偶發高 FDG 攝取結節需進一步超音波評估'}],
             },
           },
+          'nm-pet': {
+            source: 'EANM FDG PET/CT Tumour Imaging Guideline v2.0',
+            resources: [{id: 'nm-res-eanm', title: 'EANM FDG PET/CT Guideline', url: 'https://www.eanm.org/', kind: '指南', provider: 'EANM', note: '腫瘤代謝影像受檢前準備'}],
+            figure: {
+              title: 'FDG 受檢前血糖與胰島素間隔示意圖',
+              caption: '避免內生性與外源性胰島素造成肌肉瀰漫攝取假影。',
+              alt: 'FDG 受檢前血糖與胰島素處置流程圖',
+              src: 'assets/figures/nm-pet.svg',
+              sourceIds: ['nm-res-eanm'],
+            },
+            summaryTables: [{
+              id: 't1',
+              title: 'FDG 生理攝取與假影對照表',
+              headers: ['情境', '主要機轉', '預防對策'],
+              rows: [
+                ['速效胰島素注射後', 'GLUT4 轉位致骨骼肌與心肌高攝取', '維持至少 4 小時以上間隔'],
+                ['低溫受寒環境', '交感神經活化棕色脂肪攝取', '給藥前後保溫並安靜休息'],
+              ],
+              sourceIds: ['nm-res-eanm'],
+            }],
+            deepDive: [{heading: '胰島素與 GLUT4 轉位效應', paragraphs: ['胰島素會把 FDG 導向骨骼肌與心肌，顯著降低腫瘤背景對比。'], sourceIds: ['nm-res-eanm']}],
+            oralChallenge: {question: '受檢者報到時指尖血糖偏高，能否直接注射速效胰島素後立刻打 FDG？', answer: '不可，會造成全身肌肉瀰漫高攝取假影，應依規範改期或拉長間隔。', sourceIds: ['nm-res-eanm']},
+            integrated: {
+              framing: '掌握受檢前血糖控制與生理分布，避免判讀假影。',
+              objectives: ['辨識胰島素相關肌肉高攝取假影', '落實禁食與保溫準備流程'],
+              units: [{
+                id: 'nm-pet-u1',
+                title: '血糖準備與生理攝取控制',
+                sectionIndexes: [0],
+                deepDiveIndexes: [0],
+                showFigure: true,
+                synthesis: ['注射 FDG 前先確認禁食、輸液成分與最後一次胰島素時間。'],
+                decisions: [{finding: '剛施打速效胰島素 1 小時', interpretation: '高風險產生肌肉瀰漫攝取', nextStep: '延後給藥或重新排程'}],
+                sourceIds: ['nm-res-eanm'],
+              }],
+              case: {
+                title: '糖尿病受檢者的 FDG 排程評估',
+                stem: '62 歲肺癌分期受檢者早餐後自行注射速效胰島素。',
+                steps: [{newInfo: '距注射僅 90 分鐘。', prompt: '是否立即注射 FDG？', answer: '暫緩注射並向核醫主治醫師確認改期或等待間隔。', rationale: '避免肌肉攝取掩蓋縱膈與骨轉移病灶。', sourceIds: ['nm-res-eanm']}],
+              },
+              connections: [{topicId: 'nm-thyroid', reason: 'PET 偶發焦點性甲狀腺高攝取須安排超音波評估惡性風險'}],
+            },
+          },
         },
-        learningPaths: [{title: '甲狀腺與全身代謝影像', question: '如何串連攝取機轉與全身分子影像？', topicIds: ['nm-thyroid', 'nm-pet']}],
+        learningPaths: [{id: 'nm-path-01', title: '甲狀腺與全身代謝影像', question: '如何串連攝取機轉與全身分子影像？', topicIds: ['nm-thyroid', 'nm-pet']}],
+      });
+      writeJson('source-coverage.json', {
+        reviewedDate: '2026-11-03',
+        scopeNote: '逐頁核對核醫科測試講義，全數以繁體中文原創重述整理。',
+        chapters: {
+          'nm-thyroid': {
+            sourceFile: '核醫甲狀腺講義.pdf',
+            pageCount: 6,
+            sourceSha256: '0123456789ABCDEF0123456789abcdef0123456789abcdef0123456789abcdef',
+            companionSources: [{sourceFile: '放射碘防護補充講義.pdf', pageCount: 4, note: '合併核對妊娠哺乳與居家防護'}],
+            reviewedPages: [
+              {from: 1, to: 1, kind: 'administrative', note: '封面與課綱'},
+              {from: 2, to: 6, kind: 'teaching', note: 'NIS 攝取機轉、掃描鑑別與防護'},
+            ],
+            unresolved: [],
+            sourceLimitations: [{pages: [5], reason: '掃描示意圖對比較淡', handling: '改依標準文字描述判讀原則'}],
+            entries: [{
+              id: 'c01',
+              title: 'NIS 轉運機轉與碘池干擾詳解',
+              pages: [2, 3, 4, 5, 6],
+              unitId: 'u1',
+              sectionIndexes: [0, 1],
+              terms: ['NIS', 'RAIU', '含碘顯影劑'],
+              keyPoints: [
+                '甲狀腺濾泡細胞透過基底膜鈉碘共同轉運蛋白主動濃縮碘離子，構成核醫攝取率與放射碘治療的共同基礎。',
+                '近期接受含碘顯影劑或高碘藥物會擴張體內無機碘池並競爭轉運，導致 24 小時攝取率呈現假性低值。',
+              ],
+              clinicalLink: '判讀低攝取率合併甲狀腺毒症時，須同時比對頸部壓痛與近期顯影劑暴露紀錄。',
+              pitfall: '漏問近期胸部或腹部顯影 CT 病史，誤把碘干擾當成單純甲狀腺炎。',
+              recall: {question: '為何含碘顯影劑會壓低放射碘攝取率？', answer: '無機碘池擴張稀釋放射性碘並競爭 NIS 主動轉運。'},
+              relatedTopics: ['nm-pet'],
+              sourceIds: ['nm-res-snmmi'],
+            }],
+          },
+          'nm-pet': {
+            sourceFile: 'FDG代謝影像講義.pdf',
+            pageCount: 4,
+            reviewedPages: [{from: 1, to: 4, kind: 'teaching', note: 'FDG 生理分布與血糖胰島素準備'}],
+            unresolved: [],
+            sourceLimitations: [],
+            entries: [{
+              id: 'c01',
+              title: '速效胰島素與骨骼肌瀰漫攝取假影',
+              pages: [1, 2, 3, 4],
+              unitId: 'nm-pet-u1',
+              sectionIndexes: [0],
+              terms: ['GLUT4', '速效胰島素'],
+              keyPoints: [
+                '胰島素會促使骨骼肌與心肌細胞膜表現 GLUT4 轉運蛋白，使大量 FDG 轉入正常肌肉組織。',
+                '受檢前維持 4–6 小時禁食並確認無含糖輸液與近期速效胰島素，才能維持腫瘤病灶清晰對比。',
+              ],
+              clinicalLink: '報到時除量測指尖血糖外，必問最後一次皮下胰島素施打時間。',
+              pitfall: '在檢查室為降血糖直接施打速效胰島素後立即注射 FDG。',
+              recall: {question: '剛施打速效胰島素對 FDG PET 有何影響？', answer: '造成全身骨骼肌與心肌瀰漫性高攝取，降低病灶偵測靈敏度。'},
+              relatedTopics: ['nm-thyroid'],
+              sourceIds: ['nm-res-eanm'],
+            }],
+          },
+        },
       });
       writeJson('workflows.json', {
         reviewedDate: '2026-11-01',
@@ -767,6 +888,8 @@ async function practise(app) {
       assert.equal(buildOut.specialties.nm.interview, 2);
       assert.equal(buildOut.specialties.nm.pbl_cases, 1);
       assert.equal(buildOut.specialties.nm.workflows, 1);
+      assert.equal(buildOut.specialties.nm.coverage_topics, 2);
+      assert.equal(buildOut.specialties.nm.summary_tables, 2);
 
       // Now --check passes and reports changed: false.
       const checkOut = JSON.parse(execFileSync('python3', [scriptPath, '--s', 'nm', '--content-root', contentRoot, '--index', tmpIndex, '--check'], {encoding: 'utf8'}));
@@ -780,6 +903,9 @@ async function practise(app) {
       for (const otherId of Object.keys(OTHERS).filter(id => id !== 'nm')) {
         assert.equal(builtBlocks['course-data-' + otherId], jsonBlocks['course-data-' + otherId], otherId + ' block untouched');
       }
+      const parsedNm = JSON.parse(builtBlocks['course-data-nm']);
+      assert.equal(parsedNm.coverage.chapters['nm-thyroid'].sourceSha256, '0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef');
+      assert.equal(parsedNm.enrichment.learningPaths[0].id, 'nm-path-01');
 
       // Boot the built index.html with ?s=nm and exercise every populated feature!
       const app = boot({search: '?s=nm', blocks: builtBlocks});
@@ -788,13 +914,72 @@ async function practise(app) {
       app.action('tab', 'notebook');
       assert(!app.main().includes('specialty-pending'), 'populated nm chapters must not show 內容待補');
       assert(app.main().includes('甲狀腺與全身代謝影像'));
+      assert(app.main().includes('從共筆找到每個主題的位置'), 'notebook tab renders coverageOverview');
+      const indexEntries = plain(app.qa.notebookIndex());
+      assert(indexEntries.some(x => x.type === '共筆主題詳解' && x.title === 'NIS 轉運機轉與碘池干擾詳解'), 'notebookIndex includes coverage entries');
+      assert(indexEntries.some(x => x.type === '重點表格' && x.title === '甲狀腺毒症核醫攝取對照表' && x.body.includes('亞急性甲狀腺炎')), 'notebookIndex includes summaryTables');
       wellFormed(app.main());
 
-      // Deep-link routes into integrated unit, PBL, workflow, and interview
+      // Deep-link routes into integrated unit, coverage outline, companionSources, SVG figure, and summaryTables
       assert.equal(app.qa.openRoute('#nm-thyroid-u1'), true);
       assert.equal(app.qa.S.tab, 'learn');
       assert(app.main().includes('碘池擴張如何壓低攝取率') && app.main().includes('心悸與頸部疼痛的年輕女性'));
+      assert(app.main().includes('本章共筆對照') && app.main().includes('合併對照：放射碘防護補充講義.pdf（4 頁）'), 'coverageOutline renders companionSources');
+      assert(app.main().includes('表格重點整理') && app.main().includes('甲狀腺毒症核醫攝取對照表') && app.main().includes('enrichment-summary-table'), 'summaryTables renders in learn view');
+      assert(app.main().includes('href="#nm-thyroid-tables">重點表格</a>'), 'enrichmentNav links to #nm-thyroid-tables');
+      assert(app.main().includes('id="nm-thyroid-figure"') && app.main().includes('src="assets/figures/nm-thyroid.svg"'), 'SVG figure renders in integrated unit');
       wellFormed(app.main());
+
+      // Active recall conceals summaryTables inside closed <details class="enrichment-detail">
+      app.action('recall', 'on');
+      assert.equal(app.qa.S.recall, true);
+      assert(app.main().includes('<details class="enrichment-detail"><summary>回想後，展開「甲狀腺毒症核醫攝取對照表」表格</summary>'), 'S.recall conceals summaryTables behind closed details');
+      wellFormed(app.main());
+      app.action('recall', 'off');
+
+      // Deep-link focus on coverage entry and <tid>-u1 unit IDs + initial hash load restoration
+      assert.equal(app.qa.openRoute('#nm-thyroid-coverage-c01'), true);
+      assert.equal(app.location.hash, '#nm-thyroid-coverage-c01');
+      assert.equal(app.location.search, '?s=nm');
+      assert.equal(app.qa.openRoute('#nm-pet-nm-pet-u1'), true);
+      assert.equal(app.qa.S.learn, 'nm-pet');
+      assert.equal(app.location.hash, '#nm-pet-nm-pet-u1');
+      assert.equal(app.qa.openRoute('#nm-pet-coverage-c01'), true);
+      assert.equal(app.location.hash, '#nm-pet-coverage-c01');
+
+      const hashBootApp = boot({search: '?s=nm', hash: '#nm-thyroid-coverage-c01', blocks: builtBlocks});
+      hashBootApp.windowHandlers.get('load')?.();
+      assert.equal(hashBootApp.qa.S.tab, 'learn');
+      assert.equal(hashBootApp.qa.S.learn, 'nm-thyroid');
+      assert.equal(hashBootApp.location.search, '?s=nm');
+
+      // Also verify numeric specialty IDs (#nm-01-coverage-c01, #ent-01-ent-01-u1) and ophthalmology (#notes-01-coverage-c01)
+      const numericNm = JSON.parse(builtBlocks['course-data-nm']);
+      numericNm.topics[0].id = 'nm-01';
+      numericNm.enrichment.chapters['nm-01'] = numericNm.enrichment.chapters['nm-thyroid'];
+      delete numericNm.enrichment.chapters['nm-thyroid'];
+      numericNm.coverage.chapters['nm-01'] = numericNm.coverage.chapters['nm-thyroid'];
+      delete numericNm.coverage.chapters['nm-thyroid'];
+      const numApp = boot({search: '?s=nm', hash: '#nm-01-coverage-c01', blocks: {...builtBlocks, 'course-data-nm': JSON.stringify(numericNm)}});
+      numApp.windowHandlers.get('load')?.();
+      assert.equal(numApp.qa.S.tab, 'learn');
+      assert.equal(numApp.qa.S.learn, 'nm-01');
+      assert.equal(numApp.qa.parseRoute('#nm-01-coverage-c01')?.target, 'coverage-c01');
+
+      const entCustom = JSON.parse(builtBlocks['course-data-ent']);
+      if (entCustom.topics[0] && entCustom.enrichment?.chapters?.[entCustom.topics[0].id]?.integrated?.units?.[0]) {
+        const tid0 = entCustom.topics[0].id;
+        entCustom.enrichment.chapters[tid0].integrated.units[0].id = `${tid0}-u1`;
+        const entApp = boot({search: '?s=ent', hash: `#${tid0}-${tid0}-u1`, blocks: {...builtBlocks, 'course-data-ent': JSON.stringify(entCustom)}});
+        entApp.windowHandlers.get('load')?.();
+        assert.equal(entApp.qa.S.tab, 'learn');
+        assert.equal(entApp.qa.S.learn, tid0);
+      }
+
+      const ophHashApp = boot({hash: '#notes-01-coverage-c01'});
+      ophHashApp.windowHandlers.get('load')?.();
+      assert.equal(ophHashApp.qa.S.tab, 'learn');
+      assert.equal(ophHashApp.qa.S.learn, 'notes-01');
 
       app.action('tab', 'quiz');
       assert(app.main().includes('34 歲女性頸部疼痛合併甲狀腺毒症'));
@@ -833,6 +1018,43 @@ async function practise(app) {
     const baseTopic = [{id: 'nm-t1', chapter: 1, title: '主題一', summary: '摘要', source: 'SNMMI 2024', sections: [{title: '重點', points: ['內容']}]}];
     const validQuestion = {id: 'nm-q1', topicId: 'nm-t1', stem: '題幹？', options: ['選項A', '選項B', '選項C', '選項D'], correctIndex: 0, explanation: '解析文字', source: 'SNMMI 2024'};
     const validInterview = {id: 'nm-iv1', title: '口試一', question: '問題？', clinical: true, topicId: 'nm-t1', answer: '參考回答', rubric: ['1', '2', '3', '4', '5'], source: 'ICRP 105'};
+    const validEnrichment = {
+      reviewedDate: '2026-11-03',
+      chapters: {
+        'nm-t1': {
+          source: 'SNMMI 2024',
+          resources: [{id: 'nm-res-1', title: 'SNMMI', url: 'https://www.snmmi.org/', kind: '指南', provider: 'SNMMI', note: '指引'}],
+          deepDive: [],
+          integrated: {
+            framing: '導讀',
+            objectives: ['目標一', '目標二'],
+            units: [{id: 'u1', title: '單元一', sectionIndexes: [0], deepDiveIndexes: [], synthesis: ['整合說明'], decisions: [], sourceIds: ['nm-res-1']}],
+          },
+        },
+      },
+    };
+    const validCoverageChapter = {
+      sourceFile: '講義一.pdf',
+      pageCount: 3,
+      reviewedPages: [{from: 1, to: 1, kind: 'administrative', note: '封面'}, {from: 2, to: 3, kind: 'teaching', note: '正文'}],
+      unresolved: [],
+      sourceLimitations: [],
+      entries: [{
+        id: 'c01',
+        title: '主題詳解一',
+        pages: [2, 3],
+        unitId: 'u1',
+        sectionIndexes: [0],
+        terms: ['術語一'],
+        keyPoints: ['第一段原創重點說明。', '第二段原創重點說明。'],
+        clinicalLink: '臨床判斷連結',
+        pitfall: '常見判讀陷阱',
+        recall: {question: '回想問題？', answer: '回想答案。'},
+        relatedTopics: [],
+        sourceIds: ['nm-res-1'],
+      }],
+    };
+    const validCoverage = {reviewedDate: '2026-11-03', scopeNote: '核對範圍說明', chapters: {'nm-t1': validCoverageChapter}};
 
     const badCases = [
       ['question missing answer and correctIndex', {
@@ -890,6 +1112,74 @@ async function practise(app) {
         'topics.json': baseTopic,
         'pbl.json': {reviewedDate: '2026-11-01', intro: '簡介', disclaimer: '聲明', cases: [{id: 'pbl-nm-1', title: '個案', theme: '主題', trigger: '觸發', topicIds: ['nm-t1'], stages: [{title: '第一幕', info: '資訊', prompts: ['提問'], facts: ['事實'], hypotheses: ['假說'], needToKnow: ['待補'], discussion: '討論'}, {title: '第二幕', info: '資訊', prompts: ['提問'], facts: ['事實'], hypotheses: ['假說'], needToKnow: ['待補'], discussion: '討論'}], learningIssues: [{issue: '議題', why: '原因'}], humanities: {title: '人文', points: ['重點']}, examinerFollowups: [{q: '問', a: '答'}], takeaway: '帶走一句'}]},
       }, /source reference required/],
+      ['summaryTables fewer than 2 headers', {
+        'topics.json': baseTopic,
+        'enrichment.json': {
+          ...validEnrichment,
+          chapters: {'nm-t1': {...validEnrichment.chapters['nm-t1'], summaryTables: [{id: 't1', title: '表一', headers: ['單欄'], rows: [['值']]}]}},
+        },
+      }, /summaryTables.*headers/],
+      ['summaryTables empty rows', {
+        'topics.json': baseTopic,
+        'enrichment.json': {
+          ...validEnrichment,
+          chapters: {'nm-t1': {...validEnrichment.chapters['nm-t1'], summaryTables: [{id: 't1', title: '表一', headers: ['欄一', '欄二'], rows: []}]}},
+        },
+      }, /summaryTables.*rows/],
+      ['summaryTables row column mismatch', {
+        'topics.json': baseTopic,
+        'enrichment.json': {
+          ...validEnrichment,
+          chapters: {'nm-t1': {...validEnrichment.chapters['nm-t1'], summaryTables: [{id: 't1', title: '表一', headers: ['欄一', '欄二'], rows: [['僅一欄']]}]}},
+        },
+      }, /2 cells matching headers/],
+      ['summaryTables unknown sourceIds', {
+        'topics.json': baseTopic,
+        'enrichment.json': {
+          ...validEnrichment,
+          chapters: {'nm-t1': {...validEnrichment.chapters['nm-t1'], summaryTables: [{id: 't1', title: '表一', headers: ['欄一', '欄二'], rows: [['甲', '乙']], sourceIds: ['nm-res-missing']}]}},
+        },
+      }, /unresolved resource IDs/],
+      ['source-coverage without enrichment integrated lessons', {
+        'topics.json': baseTopic,
+        'source-coverage.json': validCoverage,
+      }, /enrichment with integrated lessons/],
+      ['source-coverage missing topic key', {
+        'topics.json': [...baseTopic, {id: 'nm-t2', chapter: 2, title: '主題二', summary: '摘要二', source: 'SNMMI 2024', sections: [{title: '重點', points: ['內容']}]}],
+        'enrichment.json': {
+          reviewedDate: '2026-11-03',
+          chapters: {
+            'nm-t1': validEnrichment.chapters['nm-t1'],
+            'nm-t2': {...validEnrichment.chapters['nm-t1'], resources: [{id: 'nm-res-2', title: 'SNMMI 2', url: 'https://www.snmmi.org/', kind: '指南', provider: 'SNMMI', note: '指引'}], integrated: {...validEnrichment.chapters['nm-t1'].integrated, units: [{...validEnrichment.chapters['nm-t1'].integrated.units[0], sourceIds: ['nm-res-2']}]}},
+          },
+        },
+        'source-coverage.json': validCoverage,
+      }, /keys must match all specialty topic IDs/],
+      ['source-coverage reviewedPages gap', {
+        'topics.json': baseTopic,
+        'enrichment.json': validEnrichment,
+        'source-coverage.json': {...validCoverage, chapters: {'nm-t1': {...validCoverageChapter, reviewedPages: [{from: 1, to: 1, kind: 'administrative', note: '封面'}, {from: 3, to: 3, kind: 'teaching', note: '缺第2頁'}]}}},
+      }, /partition every PDF page/],
+      ['source-coverage uncovered teaching page', {
+        'topics.json': baseTopic,
+        'enrichment.json': validEnrichment,
+        'source-coverage.json': {...validCoverage, chapters: {'nm-t1': {...validCoverageChapter, entries: [{...validCoverageChapter.entries[0], pages: [2]}]}}},
+      }, /teaching\/exam pages without topic entries/],
+      ['source-coverage non-empty unresolved', {
+        'topics.json': baseTopic,
+        'enrichment.json': validEnrichment,
+        'source-coverage.json': {...validCoverage, chapters: {'nm-t1': {...validCoverageChapter, unresolved: ['待確認第3頁']}}},
+      }, /unresolved audit findings/],
+      ['source-coverage malformed sourceSha256', {
+        'topics.json': baseTopic,
+        'enrichment.json': validEnrichment,
+        'source-coverage.json': {...validCoverage, chapters: {'nm-t1': {...validCoverageChapter, sourceSha256: 'not-a-sha256'}}},
+      }, /64-hex sha256 required/],
+      ['source-coverage unknown unitId', {
+        'topics.json': baseTopic,
+        'enrichment.json': validEnrichment,
+        'source-coverage.json': {...validCoverage, chapters: {'nm-t1': {...validCoverageChapter, entries: [{...validCoverageChapter.entries[0], unitId: 'u3'}]}}},
+      }, /unresolved integrated unit/],
       ['unknown json filename typo', {
         'question.json': [validQuestion],
       }, /unknown JSON file question\.json/],

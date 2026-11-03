@@ -15,14 +15,14 @@ function practiceSources(ids,src){const items=(ids||[]).map(id=>allResources().g
 function practiceRelated(topicIds,extra=''){return `<div class="practice-related"><span class="small">相關內容</span>${(topicIds||[]).filter(id=>D.topics.some(t=>t.id===id)).map(id=>btn(esc(shortTitle(id)),'learn-topic',id,'small subtle')).join('')}${extra}</div>`;}
 
 /* Routes: every view and lesson anchor can be expressed as a hash so it can be saved and shared. */
-function anchorValid(t,target){if(t.chapter&&typeof coverageTarget==='function'&&chapterCoverage(t))return coverageTarget(t,target);if(/^u[1-3]$/.test(target))return !!chapterEnrichment(t)?.integrated?.units.some(u=>u.id===target);const m=target.match(/^section-(\d+)$/);return !!m&&Number(m[1])<t.sections.length;}
+function anchorValid(t,target){if(typeof coverageTarget==='function'&&chapterCoverage(t))return coverageTarget(t,target);if(chapterEnrichment(t)?.integrated?.units.some(u=>u.id===target))return true;const m=target.match(/^section-(\d+)$/);return !!m&&Number(m[1])<t.sections.length;}
 function parseRoute(hash){
   if(typeof hash!=='string')return null;
   const h=hash.trim();let m;
   if(SPEC.id!=='oph'&&h.startsWith('#textbook'))return null;
   if(/^#textbook-atlas(?:-bcsc-s(?:0[1-9]|1[0-3])(?:-atlas-s(?:0[1-9]|1[0-3])-(?:0[1-9]|[1-9]\d))?)?$/.test(h))return {kind:'tab',tab:'textbook',hash:h};
   if(/^#textbook(?:-extra(?:-extra-\d{8}-q\d{3})?|-bcsc-s(?:0[1-9]|1[0-3])(?:-(?:ch\d{3}(?:-iq\d{3}|-u\d{2})?|rq\d{3}))?)?$/.test(h))return {kind:'tab',tab:'textbook',hash:h};
-  if((m=h.match(/^#([a-z0-9-]+?)-(section-\d+|coverage(?:-[a-z][a-z0-9-]*)?|u[1-3])$/))){const t=D.topics.find(x=>x.id===m[1]);if(t&&anchorValid(t,m[2]))return {kind:'anchor',topicId:t.id,target:m[2],hash:h};}
+  if(/^#[a-z0-9-]+$/.test(h)){for(const t of D.topics){if(h.startsWith('#'+t.id+'-')){const target=h.slice(t.id.length+2);if(anchorValid(t,target))return {kind:'anchor',topicId:t.id,target,hash:h};}}}
   if((m=h.match(/^#topic-([a-z0-9-]+)$/))&&D.topics.some(t=>t.id===m[1]))return {kind:'topic',id:m[1],hash:h};
   if(h==='#pbl')return {kind:'pbl',id:null,hash:h};
   if(/^#pbl-[a-z0-9-]+$/.test(h)&&pblCases().some(c=>'#'+c.id===h))return {kind:'pbl',id:h.slice(1),hash:h};
@@ -74,7 +74,7 @@ function openRoute(hash,updateHash=true){
   if(!route)return false;
   if(route.kind==='anchor'){
     const t=D.topics.find(x=>x.id===route.topicId);
-    if(t.chapter&&chapterCoverage(t))return coverageFocus(t.id+'|'+route.target,updateHash);
+    if(chapterCoverage(t))return coverageFocus(t.id+'|'+route.target,updateHash);
     S.learn=t.id;switchTab('learn');
     if(updateHash&&window.history?.replaceState)window.history.replaceState(null,'',route.hash);
     const node=document.getElementById(t.id+'-'+route.target);if(node)node.scrollIntoView({block:'start'});
@@ -92,7 +92,7 @@ function appRestoreHash(){
   practiceHashReady=true;
   const route=parseRoute(window.location?.hash||'');
   if(!route)return;
-  if(route.kind==='anchor'&&/^notes-\d{2}$/.test(route.topicId)){coverageRestoreHash();return;}
+  if(route.kind==='anchor'&&chapterCoverage(D.topics.find(x=>x.id===route.topicId))){coverageRestoreHash();return;}
   if(!routeMatchesView(route))openRoute(route.hash,false);
 }
 
