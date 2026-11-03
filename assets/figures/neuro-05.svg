@@ -1,118 +1,113 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-labelledby="neuro05-title neuro05-desc" font-family="system-ui, -apple-system, 'Noto Sans TC', sans-serif">
   <title id="neuro05-title">失智症腦萎縮代謝圖譜、常壓性水腦症 Evans 指數與庫賈氏病皮質緞帶徵</title>
-  <desc id="neuro05-desc">五面板神經影像與生物標記比較：阿茲海默症內側顳葉海馬迴萎縮與 AT(N) 標記、額顳葉失智刀刃狀額前顳萎縮、路易氏體失智枕葉低代謝與多巴胺掃描下降、常壓性水腦症 Evans 指數大於 0.3 與顱頂腦溝擠壓 DESH，以及散發型庫賈氏病 DWI 皮質緞帶徵與 RT-QuIC。</desc>
+  <desc id="neuro05-desc">五面板神經影像與生物標記比較：阿茲海默症內側顳葉海馬迴萎縮與 AT(N) 標記、額顳葉失智刀刃狀額前顳萎縮、路易氏體失智枕葉低代謝與多巴胺掃描下降、常壓性水腦症 Evans 指數大於 0.3 與顱頂腦溝擠壓 DESH，以及散發型庫賈氏病 DWI 皮質緞帶徵伴 ADC 低訊號與 RT-QuIC。</desc>
   <rect x="20" y="20" width="920" height="520" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
   <rect x="20" y="20" width="920" height="50" rx="14" fill="#0f172a"/>
   <rect x="20" y="54" width="920" height="16" fill="#0f172a"/>
-  <text x="42" y="51" fill="#ffffff" font-size="18" font-weight="700">失智症腦萎縮／代謝圖譜（AD·FTD·DLB）、iNPH（Evans &gt;0.3）與 sCJD 皮質緞帶徵</text>
+  <text x="40" y="51" fill="#ffffff" font-size="15" font-weight="700">失智症腦萎縮／代謝圖譜（AD·FTD·DLB）、iNPH（Evans &gt;0.3）與 sCJD 皮質緞帶徵</text>
   <text x="918" y="50" fill="#94a3b8" font-size="12" text-anchor="end">Neuro-05 · 失智症生物標記與影像鑑別</text>
 
   <!-- Top Row: 3 Degenerative Dementias -->
   <!-- Card 1: AD -->
   <rect x="34" y="82" width="288" height="222" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
   <rect x="34" y="82" width="288" height="30" rx="10" fill="#eff6ff"/>
-  <text x="48" y="102" fill="#1d4ed8" font-size="13" font-weight="700">1. 阿茲海默症（AD · 最常見 60–70%）</text>
+  <text x="46" y="102" fill="#1d4ed8" font-size="12.2" font-weight="700">1. 阿茲海默症（AD · 最常見 60–70%）</text>
   <!-- Coronal Hippocampal atrophy graphic -->
-  <ellipse cx="96" cy="160" rx="44" ry="36" fill="#f8fafc" stroke="#475569" stroke-width="1.6"/>
-  <path d="M84,148 L92,162 L84,170" fill="none" stroke="#1d4ed8" stroke-width="2"/>
-  <path d="M108,148 L100,162 L108,170" fill="none" stroke="#1d4ed8" stroke-width="2"/>
-  <!-- Enlarged temporal horns / hippocampal atrophy -->
-  <circle cx="72" cy="176" r="8" fill="#fecdd3" stroke="#be123c" stroke-width="1.5"/>
-  <circle cx="120" cy="176" r="8" fill="#fecdd3" stroke="#be123c" stroke-width="1.5"/>
-  <text x="150" y="136" fill="#be123c" font-size="11" font-weight="700">內側顳葉／海馬迴萎縮</text>
-  <text x="150" y="153" fill="#334155" font-size="10.5">顳角擴大＋頂顳葉低代謝</text>
-  <text x="150" y="170" fill="#1d4ed8" font-size="10.5" font-weight="600">AT(N) 生物標記：</text>
-  <text x="150" y="185" fill="#334155" font-size="10.3">CSF Aβ42↓、p-tau↑</text>
-  <text x="48" y="214" fill="#334155" font-size="10.6">• 首發近程情節記憶編碼受損（提示無助回憶）</text>
-  <text x="48" y="231" fill="#334155" font-size="10.6">• 症狀治療：AChEI（輕中度）＋Memantine（中重）</text>
-  <text x="48" y="248" fill="#be123c" font-size="10.5" font-weight="600">• 抗類澱粉單株抗體：必查 APOE ε4 並以 MRI</text>
-  <text x="56" y="264" fill="#be123c" font-size="10.5" font-weight="600">嚴密監測 ARIA-E（腦水腫）與 ARIA-H（微出血）</text>
-  <text x="48" y="286" fill="#64748b" font-size="10.2">• MCI：認知客觀下降但日常生活獨立功能保留</text>
+  <ellipse cx="94" cy="158" rx="42" ry="35" fill="#f8fafc" stroke="#475569" stroke-width="1.6"/>
+  <path d="M82,146 L90,160 L82,168" fill="none" stroke="#1d4ed8" stroke-width="2"/>
+  <path d="M106,146 L98,160 L106,168" fill="none" stroke="#1d4ed8" stroke-width="2"/>
+  <circle cx="70" cy="174" r="8" fill="#fecdd3" stroke="#be123c" stroke-width="1.5"/>
+  <circle cx="118" cy="174" r="8" fill="#fecdd3" stroke="#be123c" stroke-width="1.5"/>
+  <text x="146" y="135" fill="#be123c" font-size="10.8" font-weight="700">內側顳葉／海馬迴萎縮</text>
+  <text x="146" y="151" fill="#334155" font-size="10.2">顳角擴大＋頂顳葉低代謝</text>
+  <text x="146" y="168" fill="#1d4ed8" font-size="10.2" font-weight="600">AT(N) 生物標記：</text>
+  <text x="146" y="184" fill="#334155" font-size="10">CSF Aβ42↓、p-tau↑</text>
+  <text x="46" y="212" fill="#334155" font-size="10.2">• 首發近程情節記憶編碼受損（提示無助回憶）</text>
+  <text x="46" y="229" fill="#334155" font-size="10">• 症狀：AChEI（輕中度）＋Memantine（中重）</text>
+  <text x="46" y="246" fill="#be123c" font-size="10" font-weight="600">• 抗類澱粉單株抗體：必查 APOE ε4 並以 MRI</text>
+  <text x="54" y="262" fill="#be123c" font-size="9.8" font-weight="600">監測 ARIA-E（腦水腫）與 ARIA-H（微出血）</text>
+  <text x="46" y="284" fill="#64748b" font-size="9.8">• MCI：認知客觀下降但日常生活獨立功能保留</text>
 
   <!-- Card 2: FTD -->
   <rect x="336" y="82" width="288" height="222" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
   <rect x="336" y="82" width="288" height="30" rx="10" fill="#fffbeb"/>
-  <text x="350" y="102" fill="#b45309" font-size="13" font-weight="700">2. 額顳葉失智症（bvFTD／PPA · 早發性）</text>
+  <text x="348" y="102" fill="#b45309" font-size="12" font-weight="700">2. 額顳葉失智症（bvFTD／PPA · 早發性）</text>
   <!-- Axial Asymmetric Frontal/Temporal Knife-edge graphic -->
-  <ellipse cx="398" cy="160" rx="40" ry="38" fill="#f8fafc" stroke="#475569" stroke-width="1.6"/>
-  <path d="M372,130 C384,144 412,144 424,130" fill="#fde68a" stroke="#b45309" stroke-width="2"/>
-  <ellipse cx="378" cy="142" rx="10" ry="8" fill="#fecdd3" stroke="#be123c" stroke-width="1.4"/>
-  <text x="448" y="136" fill="#b45309" font-size="11" font-weight="700">額葉／前顳葉刀刃狀萎縮</text>
-  <text x="448" y="153" fill="#334155" font-size="10.5">常呈不對稱腦溝極度加寬</text>
-  <text x="448" y="170" fill="#334155" font-size="10.5">病理：Tau 或 TDP-43</text>
-  <text x="448" y="185" fill="#334155" font-size="10.3">20–40% 具顯著家族遺傳史</text>
-  <text x="350" y="214" fill="#334155" font-size="10.6">• bvFTD：早期人格脫序、去抑制、冷漠、嗜甜強迫</text>
-  <text x="350" y="231" fill="#334155" font-size="10.6">• PPA 語言型：非流暢語法缺失 vs 語意詞彙喪失</text>
-  <text x="350" y="248" fill="#334155" font-size="10.6">• 空間定向與近程記憶於病程初期相對保留</text>
-  <text x="350" y="266" fill="#be123c" font-size="10.5" font-weight="600">• 治療警示：AChEI 對 FTD 無效且易惡化躁動！</text>
-  <text x="350" y="286" fill="#64748b" font-size="10.2">• 行為症狀可評估 SSRI；須留意合併運動神經元病變</text>
+  <ellipse cx="396" cy="158" rx="39" ry="36" fill="#f8fafc" stroke="#475569" stroke-width="1.6"/>
+  <path d="M370,129 C382,143 410,143 422,129" fill="#fde68a" stroke="#b45309" stroke-width="2"/>
+  <ellipse cx="376" cy="141" rx="10" ry="8" fill="#fecdd3" stroke="#be123c" stroke-width="1.4"/>
+  <text x="444" y="135" fill="#b45309" font-size="10.8" font-weight="700">額葉／前顳葉刀刃狀萎縮</text>
+  <text x="444" y="151" fill="#334155" font-size="10.2">常呈不對稱腦溝極度加寬</text>
+  <text x="444" y="168" fill="#334155" font-size="10.2">病理：Tau 或 TDP-43</text>
+  <text x="444" y="184" fill="#334155" font-size="10">20–40% 具顯著家族遺傳史</text>
+  <text x="348" y="212" fill="#334155" font-size="10.2">• bvFTD：早期人格脫序、去抑制、冷漠、嗜甜</text>
+  <text x="348" y="229" fill="#334155" font-size="10.2">• PPA 語言型：非流暢語法缺失 vs 語意喪失</text>
+  <text x="348" y="246" fill="#334155" font-size="10.2">• 空間定向與近程記憶於病程初期相對保留</text>
+  <text x="348" y="264" fill="#be123c" font-size="10" font-weight="600">• 治療警示：AChEI 對 FTD 無效且惡化躁動！</text>
+  <text x="348" y="284" fill="#64748b" font-size="9.8">• 行為症狀可評估 SSRI；留意合併運動神經元病</text>
 
   <!-- Card 3: DLB -->
   <rect x="638" y="82" width="288" height="222" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
   <rect x="638" y="82" width="288" height="30" rx="10" fill="#f0fdfa"/>
-  <text x="652" y="102" fill="#0f766e" font-size="13" font-weight="700">3. 路易氏體失智症（DLB · α-Synuclein）</text>
+  <text x="648" y="102" fill="#0f766e" font-size="11.8" font-weight="700">3. 路易氏體失智症（DLB · α-Synuclein）</text>
   <!-- Axial Occipital hypometabolism + Cingulate island -->
-  <ellipse cx="700" cy="160" rx="40" ry="38" fill="#ccfbf1" stroke="#0f766e" stroke-width="1.6"/>
-  <path d="M672,184 C688,198 712,198 728,184 L718,174 L682,174 Z" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.8"/>
-  <circle cx="700" cy="170" r="5" fill="#0f766e"/>
-  <text x="750" y="136" fill="#0f766e" font-size="11" font-weight="700">枕葉低代謝＋後扣帶保留</text>
-  <text x="750" y="153" fill="#334155" font-size="10.5">Cingulate island sign</text>
-  <text x="750" y="170" fill="#1d4ed8" font-size="10.5" font-weight="600">DaTscan／TRODAT-1：</text>
-  <text x="750" y="185" fill="#334155" font-size="10.3">基底核多巴胺轉運體顯著↓</text>
-  <text x="652" y="214" fill="#334155" font-size="10.6">• 四大核心：認知劇烈起伏、鮮明人物動物視幻覺、</text>
-  <text x="660" y="230" fill="#334155" font-size="10.6">快速動眼睡眠行為障礙（RBD）、自發巴金森症狀</text>
-  <text x="652" y="248" fill="#334155" font-size="10.6">• 1 年法則：失智先於或巴金森 1 年內出現為 DLB</text>
-  <text x="652" y="266" fill="#be123c" font-size="10.5" font-weight="700">★ 絕對禁忌：Haloperidol 等典型抗精神病藥（致死僵硬）</text>
-  <text x="652" y="286" fill="#64748b" font-size="10.2">• 首選 Rivastigmine／Donepezil 改善認知波動與視幻覺</text>
+  <ellipse cx="698" cy="158" rx="39" ry="36" fill="#ccfbf1" stroke="#0f766e" stroke-width="1.6"/>
+  <path d="M670,182 C686,196 710,196 726,182 L716,172 L680,172 Z" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.8"/>
+  <circle cx="698" cy="168" r="5" fill="#0f766e"/>
+  <text x="746" y="135" fill="#0f766e" font-size="10.8" font-weight="700">枕葉低代謝＋後扣帶保留</text>
+  <text x="746" y="151" fill="#334155" font-size="10.2">Cingulate island sign</text>
+  <text x="746" y="168" fill="#1d4ed8" font-size="10.2" font-weight="600">DaTscan／TRODAT-1：</text>
+  <text x="746" y="184" fill="#334155" font-size="10">基底核多巴胺轉運體顯著↓</text>
+  <text x="648" y="212" fill="#334155" font-size="10.2">• 四大核心：認知劇烈起伏、鮮明視幻覺、</text>
+  <text x="656" y="228" fill="#334155" font-size="10.2">動眼期睡眠行為障礙（RBD）、自發巴金森症</text>
+  <text x="648" y="246" fill="#334155" font-size="10.2">• 1 年法則：失智先於或巴金森 1 年內屬 DLB</text>
+  <text x="648" y="264" fill="#be123c" font-size="9.8" font-weight="700">★ 禁忌：Haloperidol 等抗精神病藥（致死僵硬）</text>
+  <text x="648" y="284" fill="#64748b" font-size="9.8">• 首選 Rivastigmine／Donepezil 改善波動幻覺</text>
 
   <!-- Bottom Row: iNPH vs sCJD -->
   <!-- Card 4: iNPH -->
   <rect x="34" y="316" width="444" height="212" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
   <rect x="34" y="316" width="444" height="30" rx="10" fill="#eff6ff"/>
-  <text x="48" y="336" fill="#1e3a8a" font-size="13.5" font-weight="700">4. 特發性常壓性水腦症（iNPH）— 可逆性手術矯正失智</text>
+  <text x="48" y="336" fill="#1e3a8a" font-size="13" font-weight="700">4. 特發性常壓性水腦症（iNPH）— 可逆性手術矯正失智</text>
 
   <!-- Axial Evans Index > 0.3 diagram -->
-  <ellipse cx="112" cy="422" rx="54" ry="62" fill="#f8fafc" stroke="#334155" stroke-width="1.8"/>
-  <!-- Enlarged butterfly frontal horns -->
-  <path d="M84,394 C94,380 108,396 112,408 C116,396 130,380 140,394 C144,414 128,442 112,430 C96,442 80,414 84,394 Z" fill="#93c5fd" stroke="#1d4ed8" stroke-width="1.8"/>
-  <!-- Measurement A (frontal horn width) and B (inner skull width) -->
-  <line x1="82" y1="402" x2="142" y2="402" stroke="#be123c" stroke-width="2"/>
-  <line x1="58" y1="448" x2="166" y2="448" stroke="#0f766e" stroke-width="2" stroke-dasharray="4,2"/>
-  <text x="112" y="398" fill="#be123c" font-size="10" font-weight="700" text-anchor="middle">A</text>
-  <text x="112" y="462" fill="#0f766e" font-size="10" font-weight="700" text-anchor="middle">B（Evans = A/B &gt; 0.3）</text>
-  <text x="112" y="502" fill="#475569" font-size="10" text-anchor="middle">冠狀切面 DESH＋胼胝體角 &lt;90°</text>
+  <ellipse cx="106" cy="418" rx="48" ry="56" fill="#f8fafc" stroke="#334155" stroke-width="1.8"/>
+  <path d="M80,392 C90,378 102,394 106,405 C110,394 122,378 132,392 C136,410 120,436 106,425 C92,436 76,410 80,392 Z" fill="#93c5fd" stroke="#1d4ed8" stroke-width="1.8"/>
+  <line x1="78" y1="400" x2="134" y2="400" stroke="#be123c" stroke-width="2"/>
+  <line x1="58" y1="442" x2="154" y2="442" stroke="#0f766e" stroke-width="2" stroke-dasharray="4,2"/>
+  <text x="106" y="395" fill="#be123c" font-size="9.8" font-weight="700" text-anchor="middle">A</text>
+  <text x="106" y="458" fill="#0f766e" font-size="9.6" font-weight="700" text-anchor="middle">B（Evans = A/B &gt; 0.3）</text>
+  <text x="108" y="494" fill="#475569" font-size="9.6" text-anchor="middle">冠狀 DESH＋胼胝體角 &lt;90°</text>
 
-  <text x="184" y="368" fill="#0f172a" font-size="11.5" font-weight="700">● 經典 Hakim 三聯徵（口訣 Wet · Wobbly · Wacky）：</text>
-  <text x="192" y="386" fill="#334155" font-size="10.8">1. 磁性步態（最早且對引流反應最佳：寬底小碎步黏地）</text>
-  <text x="192" y="403" fill="#334155" font-size="10.8">2. 頻尿急尿至尿失禁（額葉排尿抑制徑路受牽拉）</text>
-  <text x="192" y="420" fill="#334155" font-size="10.8">3. 額葉皮質下執行功能減退與反應遲緩</text>
-  <text x="184" y="442" fill="#1d4ed8" font-size="11.2" font-weight="700">● 關鍵影像與大容量抽水測試（Tap test）：</text>
-  <text x="192" y="459" fill="#334155" font-size="10.7">• 與 AD 腦萎縮區別：iNPH 顱頂腦溝緊密擠壓、外裂池擴大</text>
-  <text x="192" y="476" fill="#334155" font-size="10.7">• 腰椎穿刺初壓正常，引流 30–50 mL CSF 前後定量測步速</text>
-  <text x="192" y="493" fill="#0f766e" font-size="10.7" font-weight="600">• 步態顯著改善者安排可調壓式腦室腹腔引流術（VP shunt）</text>
-  <text x="192" y="510" fill="#64748b" font-size="10.2">• 常規失智初篩必驗：B12、TSH、RPR 梅毒、電解質肝腎與腦 MRI</text>
+  <text x="176" y="366" fill="#0f172a" font-size="10.6" font-weight="700">● 經典 Hakim 三聯徵（Wet · Wobbly · Wacky）：</text>
+  <text x="182" y="382" fill="#334155" font-size="10">1. 磁性步態（最早且引流反應最佳：寬底小碎步）</text>
+  <text x="182" y="398" fill="#334155" font-size="10">2. 頻尿急尿至尿失禁（額葉排尿抑制徑路受牽拉）</text>
+  <text x="182" y="414" fill="#334155" font-size="10">3. 額葉皮質下執行功能減退與反應遲緩</text>
+  <text x="176" y="434" fill="#1d4ed8" font-size="10.5" font-weight="700">● 關鍵影像與大容量抽水測試（Tap test）：</text>
+  <text x="182" y="450" fill="#334155" font-size="9.8">• 區別 AD 萎縮：iNPH 顱頂腦溝擠壓、外裂池擴大</text>
+  <text x="182" y="466" fill="#334155" font-size="9.8">• 腰穿初壓正常，引流 30–50 mL CSF 前後測步速</text>
+  <text x="182" y="482" fill="#0f766e" font-size="9.8" font-weight="600">• 步態改善者行可調壓腦室腹腔引流（VP shunt）</text>
+  <text x="182" y="498" fill="#64748b" font-size="9.6">• 失智初篩必驗：B12、TSH、RPR、肝腎電解質、MRI</text>
 
   <!-- Card 5: sCJD -->
   <rect x="490" y="316" width="436" height="212" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
   <rect x="490" y="316" width="436" height="30" rx="10" fill="#fef2f2"/>
-  <text x="504" y="336" fill="#991b1b" font-size="13.5" font-weight="700">5. 散發型庫賈氏病（sCJD）— 快速進展型失智（RPD）鑑別</text>
+  <text x="504" y="336" fill="#991b1b" font-size="13" font-weight="700">5. 散發型庫賈氏病（sCJD）— 快速進展型失智（RPD）鑑別</text>
 
   <!-- Axial DWI Cortical ribboning + Basal ganglia hyperintensity -->
-  <ellipse cx="564" cy="422" rx="52" ry="60" fill="#1e293b" stroke="#475569" stroke-width="1.8"/>
-  <!-- Glowing cortical ribboning -->
-  <path d="M524,390 C534,370 558,366 574,368 C594,372 608,392 608,418 C608,444 594,466 574,474" fill="none" stroke="#fef08a" stroke-width="4" stroke-linecap="round"/>
-  <!-- Caudate / Putamen bright hockey-stick -->
-  <ellipse cx="550" cy="412" rx="7" ry="13" fill="#fef08a"/>
-  <ellipse cx="578" cy="412" rx="7" ry="13" fill="#fef08a"/>
-  <text x="564" y="502" fill="#be123c" font-size="10" font-weight="700" text-anchor="middle">DWI 皮質緞帶徵＋基底核亮訊號</text>
+  <ellipse cx="556" cy="418" rx="46" ry="54" fill="#1e293b" stroke="#475569" stroke-width="1.8"/>
+  <path d="M520,388 C529,370 550,366 565,368 C583,372 596,390 596,414 C596,438 583,458 565,466" fill="none" stroke="#fef08a" stroke-width="3.8" stroke-linecap="round"/>
+  <ellipse cx="543" cy="410" rx="6.5" ry="12" fill="#fef08a"/>
+  <ellipse cx="569" cy="410" rx="6.5" ry="12" fill="#fef08a"/>
+  <text x="558" y="494" fill="#be123c" font-size="9.5" font-weight="700" text-anchor="middle">DWI 緞帶高訊號＋ADC 低</text>
 
-  <text x="632" y="368" fill="#0f172a" font-size="11.5" font-weight="700">● 臨床紅旗（數週至數月急速惡化 · 普利昂蛋白 PrPSc）：</text>
-  <text x="640" y="386" fill="#334155" font-size="10.8">• 快速認知崩潰＋驚嚇誘發肌陣攣（Startle myoclonus）</text>
-  <text x="640" y="403" fill="#334155" font-size="10.8">• 小腦共濟失調、皮質盲（Heidenhain 變異）→ 運動不能緘默</text>
-  <text x="632" y="425" fill="#be123c" font-size="11.2" font-weight="700">● 三大確診檢查與可逆模仿症排除：</text>
-  <text x="640" y="442" fill="#334155" font-size="10.7">1. 腦部 MRI（DWI／FLAIR）：皮質緞帶徵與尾狀核／殼核高訊號</text>
-  <text x="640" y="459" fill="#334155" font-size="10.7">2. 腦波（EEG）：約 1 Hz 雙側週期性尖慢複合波（PSWC）</text>
-  <text x="640" y="476" fill="#334155" font-size="10.7">3. CSF：RT-QuIC 特異度近 99%（優於非特異之 14-3-3／總 tau）</text>
-  <text x="640" y="495" fill="#0f766e" font-size="10.6" font-weight="700">★ 必先排除可逆性 RPD：自體免疫腦炎（抗 NMDAR／LGI1）、</text>
-  <text x="648" y="510" fill="#0f766e" font-size="10.6" font-weight="700">中樞感染、非痙攣重積狀態（NCSE）、Wernicke 及橋本氏腦病變</text>
+  <text x="616" y="366" fill="#0f172a" font-size="10.5" font-weight="700">● 臨床紅旗（數週至數月惡化 · 普利昂 PrPSc）：</text>
+  <text x="622" y="382" fill="#334155" font-size="9.8">• 快速認知崩潰＋驚嚇誘發肌陣攣（Startle myoclonus）</text>
+  <text x="622" y="398" fill="#334155" font-size="9.8">• 小腦失調、皮質盲（Heidenhain 型）→ 無動性緘默</text>
+  <text x="616" y="418" fill="#be123c" font-size="10.5" font-weight="700">● 三大確診檢查與可逆模仿症排除：</text>
+  <text x="622" y="434" fill="#334155" font-size="9.8">1. MRI：DWI 皮質緞帶／尾狀殼核高訊號伴 ADC 低訊號</text>
+  <text x="622" y="450" fill="#334155" font-size="9.8">2. 腦波（EEG）：約 1 Hz 雙側週期性尖慢複合波（PSWC）</text>
+  <text x="622" y="466" fill="#334155" font-size="9.8">3. CSF：RT-QuIC 特異度近 99%（優於 14-3-3／總 tau）</text>
+  <text x="622" y="484" fill="#0f766e" font-size="9.8" font-weight="700">★ 必先排除可逆 RPD：自體免疫腦炎（NMDAR／LGI1）、</text>
+  <text x="628" y="500" fill="#0f766e" font-size="9.8" font-weight="700">中樞感染、非痙攣重積（NCSE）、Wernicke、橋本腦病</text>
 </svg>
