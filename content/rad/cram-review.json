@@ -142,7 +142,7 @@
         },
         {
           "question": "Bosniak v2019 腎囊腫分級廢除了哪項舊門檻？Class I、II、IIF、III、IV 的毫米級厚度與強化標準為何？",
-          "answer": "Bosniak v2019 同步廢除舊版 CT 與 MRI 之 3 公分大小上限：平滑邊界且均質高密度（NCCT ≥70 HU）無強化囊腫，或平滑、MRI 抑脂 T1 均質顯著高訊號（≥2.5× 腎皮質）無強化囊腫，「不論大小」皆歸為良性 Class II（免追蹤）。毫米級分界：Class I 為 ≤2 mm 髮絲平滑薄壁、水密度（-9 至 20 HU）、無中隔鈣化與強化；Class II 含 1–3 條 ≤2 mm 薄中隔，或平滑薄壁／中隔具良性鈣化且無強化軟組織（免追蹤）；Class IIF 為 ≥4 條 ≤2 mm 薄強化中隔、3 mm 平滑輕度增厚強化壁／隔、NCCT 異質性高密度無強化囊腫，或 MRI 抑脂 T1 呈不均質（heterogeneously）高訊號之無強化囊腫（不論大小）（建議第 6、12 個月再每年追蹤至滿 5 年）；Class III 為 ≥4 mm 平滑增厚強化壁／隔或 ≤3 mm 鈍角不規則強化突起（約 50% 惡性）；Class IV 為具明確強化軟組織結節（≥4 mm 鈍角或任意大小銳角突起，約 90% 惡性）。",
+          "answer": "Bosniak v2019 同步廢除舊版 CT 與 MRI 之 3 公分大小上限：平滑邊界且均質高密度（NCCT ≥70 HU）無強化囊腫，或平滑、MRI 抑脂 T1 均質顯著高訊號（≥2.5× 腎皮質）無強化囊腫，「不論大小」皆歸為良性 Class II（免追蹤）。毫米級分界：Class I 為 ≤2 mm 髮絲平滑薄壁、水密度（-9 至 20 HU）、無中隔鈣化與強化；Class II 含 1–3 條 ≤2 mm 薄中隔，或平滑薄壁／中隔具良性鈣化且無強化軟組織（免追蹤）；Class IIF 為 ≥4 條 ≤2 mm 薄強化中隔、3 mm 平滑輕度增厚強化壁／隔，或「MRI 抑脂 T1 加權（fat-suppressed T1WI）呈不均質（heterogeneously）高訊號之無強化囊腫（不論大小）」（建議第 6、12 個月再每年追蹤至滿 5 年；注意：若是在 CT／NCCT 見到異質性無強化腎臟腫塊，依 Bosniak v2019 不可直接歸為 Class IIF 追蹤，必須先安排腎臟 MRI 才能分級以排除潛藏微弱強化之實質腫瘤）；Class III 為 ≥4 mm 平滑增厚強化壁／隔或 ≤3 mm 鈍角不規則強化突起（約 50% 惡性）；Class IV 為具明確強化軟組織結節（≥4 mm 鈍角或任意大小銳角突起，約 90% 惡性）。",
           "trap": "腎臟實質病灶在單次門脈期 CT 測得 20–70 HU 絕不可逕判良性囊腫，可能隱藏乏血管乳突狀腎細胞癌（Papillary RCC），必須加做含無顯影與腎實質相之多相 CT 或減影 MRI（CT 真實強化定義為增加 ≥20 HU）。",
           "source": {
             "chapter": "Ch.06 (陽明醫四 · 影像診斷學05.pdf p.10–44 暨 區段 · 影像診斷學02.pdf p.3–16、Bosniak v2019 指引補充)",
@@ -637,7 +637,7 @@
       "chapterId": "rad-06",
       "question": "無顯影 CT 偶然發現一顆 4.2 cm、邊界平滑均質 78 HU 且顯影後無強化的腎臟囊腫，依 Bosniak v2019 屬第幾級？如何處置？",
       "answer": "屬 Bosniak Class II（良性高蛋白／出血性腎囊腫），惡性率趨近 0%，免追蹤！Bosniak v2019 已同步廢除舊版 CT 與 MRI 之 3 公分大小分界，凡平滑、NCCT 均質 ≥70 HU 無強化囊腫，或平滑、MRI 抑脂 T1 均質顯著高訊號（≥2.5× 腎皮質）無強化囊腫，不論大小一律歸入 Class II（免追蹤）。",
-      "trap": "若 NCCT 呈「異質性」高密度無強化囊腫，或 MRI 抑脂 T1 呈不均質（heterogeneously）高訊號之無強化囊腫（不論大小），則歸入 Bosniak IIF（建議第 6、12 個月再每年追蹤至滿 5 年）；一旦出現強化軟組織結節則直上 Class IV 手術。",
+      "trap": "若 CT／NCCT 見「異質性」無強化腎臟腫塊，依 Bosniak v2019 不可直接歸為 Class IIF 追蹤，必須先安排腎臟 MRI 排除潛藏微弱強化之實質成分後再行分級；「異質性無強化歸入 Bosniak IIF（不論大小，建議第 6、12 個月再每年追蹤至滿 5 年）」之標準僅適用於 MRI 抑脂 T1 加權影像（fat-suppressed T1WI），一旦出現強化軟組織結節則直上 Class IV 手術。",
       "source": {
         "chapter": "Ch.06 (陽明醫四 · 影像診斷學05.pdf p.10–44 暨 區段 · 影像診斷學02.pdf p.3–16、Bosniak v2019 指引補充)",
         "pages": "p.10–44",
@@ -819,7 +819,7 @@
       "id": "rad-corr-01",
       "title": "Bosniak v2019 腎臟囊腫分級更新：廢除舊版 CT／MRI 3 公分門檻，強化與毫米厚度定量化",
       "sourceWording": "舊版分類講義將無顯影高密度腎囊腫以 3 公分作為良性 II 級與需追蹤 IIF 級之分水嶺，且壁／中隔增厚未給予定量毫米界線。",
-      "correction": "依 Bosniak Classification v2019，平滑且均質高密度（NCCT ≥70 HU）無強化腎囊腫，以及平滑、MRI 抑脂 T1 均質顯著高訊號（≥2.5× 腎皮質）無強化腎囊腫，「不論大小（同步廢除 CT 與 MRI 3 cm 限制）」一律歸為良性 Class II 免追蹤（平滑薄壁 ≤2 mm 或薄中隔鈣化無強化軟組織亦留存 Class II）；Class IIF 明確定義為 ≥4 條 ≤2 mm 薄強化中隔、3 mm 平滑輕度增厚強化壁／隔、NCCT 異質性高密度無強化囊腫，或 MRI 抑脂 T1 呈不均質（heterogeneously）高訊號之無強化囊腫（不論大小，建議第 6、12 個月再每年追蹤至滿 5 年）；Class III 為 ≥4 mm 平滑增厚強化壁／隔或 ≤3 mm 鈍角不規則強化突起；Class IV 為具明確強化軟組織結節（≥4 mm 鈍角或任意大小銳角突起）。",
+      "correction": "依 Bosniak Classification v2019，平滑且均質高密度（NCCT ≥70 HU）無強化腎囊腫，以及平滑、MRI 抑脂 T1 均質顯著高訊號（≥2.5× 腎皮質）無強化腎囊腫，「不論大小（同步廢除 CT 與 MRI 3 cm 限制）」一律歸為良性 Class II 免追蹤（平滑薄壁 ≤2 mm 或薄中隔鈣化無強化軟組織亦留存 Class II）；Class IIF 明確定義為 ≥4 條 ≤2 mm 薄強化中隔、3 mm 平滑輕度增厚強化壁／隔，或「MRI 抑脂 T1 加權（fat-suppressed T1WI）呈不均質（heterogeneously）高訊號之無強化囊腫」（不論大小，建議第 6、12 個月再每年追蹤至滿 5 年；惟若於 CT／NCCT 見異質性無強化腎臟腫塊，依 Bosniak v2019 不得逕歸入 Class IIF，須先接受腎臟 MRI 排除潛藏強化實質成分後始能分級）；Class III 為 ≥4 mm 平滑增厚強化壁／隔或 ≤3 mm 鈍角不規則強化突起；Class IV 為具明確強化軟組織結節（≥4 mm 鈍角或任意大小銳角突起）。",
       "source": {
         "chapter": "Ch.06 (陽明醫四 · 影像診斷學05.pdf p.10–44 暨 區段 · 影像診斷學02.pdf p.3–16、Bosniak v2019 指引補充)",
         "pages": "p.10–44",
