@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-labelledby="rad01-title rad01-desc">
+  <title id="rad01-title">CT Hounsfield Unit 衰減標尺、MRI T1／T2 弛豫曲線與對比劑 eGFR 安全閾值整合圖</title>
+  <desc id="rad01-desc">三欄式放射物理與對比劑安全示意圖：左側為 CT Hounsfield 衰減數值標尺與窗寬窗位範圍，中側為 MRI T1 與 T2 組織弛豫時間曲線及孕期無顯影 MRI 安全原則，右側為依 eGFR 45 與 30 分界之含碘及含釓顯影劑處置流程。</desc>
+  <defs>
+    <linearGradient id="huGrad" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="28%" stop-color="#334155"/>
+      <stop offset="50%" stop-color="#64748b"/>
+      <stop offset="72%" stop-color="#cbd5e1"/>
+      <stop offset="100%" stop-color="#ffffff"/>
+    </linearGradient>
+    <marker id="arrTeal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#0f766e"/>
+    </marker>
+    <marker id="arrSlate" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <g font-family="system-ui, -apple-system, 'Noto Sans TC', sans-serif">
+    <rect x="20" y="20" width="920" height="520" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+
+    <!-- Header -->
+    <text x="36" y="48" font-size="18" font-weight="700" fill="#0f172a">CT Hounsfield Unit 衰減標尺 · MRI T1／T2 弛豫曲線 · 對比劑 eGFR 安全處置</text>
+    <text x="36" y="68" font-size="12" fill="#475569">放射物理定量判讀核心：X 光線性衰減轉換（HU）· 磁振縱橫向磁化弛豫 · 顯影劑腎毒性與過敏急救閾值</text>
+
+    <!-- Panel 1: CT HU Scale -->
+    <rect x="30" y="80" width="290" height="446" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+    <rect x="30" y="80" width="290" height="32" rx="10" fill="#e2e8f0"/>
+    <text x="175" y="101" font-size="13.5" font-weight="700" fill="#0f172a" text-anchor="middle">1. CT Hounsfield Unit (HU) 標尺</text>
+
+    <!-- HU Bar -->
+    <rect x="46" y="128" width="28" height="340" rx="4" fill="url(#huGrad)" stroke="#475569" stroke-width="1.2"/>
+
+    <!-- Tick rows -->
+    <line x1="74" y1="138" x2="88" y2="138" stroke="#0f172a" stroke-width="1.5"/>
+    <text x="92" y="142" font-size="11.5" font-weight="700" fill="#0f172a">+1000 HU</text>
+    <text x="154" y="142" font-size="11" fill="#334155">緻密皮質骨 · 高鈣化</text>
+
+    <line x1="74" y1="184" x2="88" y2="184" stroke="#1d4ed8" stroke-width="1.5"/>
+    <text x="92" y="188" font-size="11.5" font-weight="700" fill="#1d4ed8">+200~400</text>
+    <text x="154" y="188" font-size="11" fill="#1e3a8a">動脈顯影血管 (CTA)</text>
+
+    <line x1="74" y1="232" x2="88" y2="232" stroke="#be123c" stroke-width="1.5"/>
+    <text x="92" y="236" font-size="11.5" font-weight="700" fill="#be123c">+60~80 HU</text>
+    <text x="156" y="236" font-size="11" fill="#881337">急性凝血塊 (ICH/IMH)</text>
+
+    <line x1="74" y1="276" x2="88" y2="276" stroke="#0f766e" stroke-width="1.5"/>
+    <text x="92" y="280" font-size="11.5" font-weight="700" fill="#0f766e">+30~60 HU</text>
+    <text x="156" y="280" font-size="11" fill="#115e59">腦實質 · 肝脾軟組織</text>
+
+    <line x1="44" y1="322" x2="88" y2="322" stroke="#0284c7" stroke-width="2" stroke-dasharray="3,2"/>
+    <text x="92" y="326" font-size="11.5" font-weight="700" fill="#0369a1">0 HU (基準)</text>
+    <text x="158" y="326" font-size="11" fill="#0c4a6e">純水 · 單純囊液 (0–20)</text>
+
+    <line x1="74" y1="376" x2="88" y2="376" stroke="#b45309" stroke-width="1.5"/>
+    <text x="92" y="380" font-size="11.5" font-weight="700" fill="#b45309">-50~-100</text>
+    <text x="154" y="380" font-size="11" fill="#78350f">脂肪 (腎 AML ≤ -20)</text>
+
+    <line x1="74" y1="454" x2="88" y2="454" stroke="#0f172a" stroke-width="1.5"/>
+    <text x="92" y="458" font-size="11.5" font-weight="700" fill="#0f172a">-1000 HU</text>
+    <text x="154" y="458" font-size="11" fill="#334155">空氣 (肺泡·氣胸·氣腹)</text>
+
+    <!-- Windowing note -->
+    <rect x="42" y="476" width="268" height="40" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="48" y="491" font-size="10.2" font-weight="700" fill="#0f766e">常用窗寬／窗位 (WW / WL)：</text>
+    <text x="48" y="508" font-size="10" fill="#334155">肺 1500/-600 · 縱膈 350/+40 · 腦 80/+40</text>
+
+    <!-- Panel 2: MRI T1 & T2 Curves -->
+    <rect x="332" y="80" width="296" height="446" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+    <rect x="332" y="80" width="296" height="32" rx="10" fill="#e2e8f0"/>
+    <text x="480" y="101" font-size="13.5" font-weight="700" fill="#0f172a" text-anchor="middle">2. MRI T1 回復與 T2 衰減曲線</text>
+
+    <!-- T1 Subchart -->
+    <text x="348" y="130" font-size="12" font-weight="700" fill="#0f172a">T1 縱向弛豫回復 (Mz 隨 TR 增長)</text>
+    <line x1="364" y1="264" x2="606" y2="264" stroke="#475569" stroke-width="1.4" marker-end="url(#arrSlate)"/>
+    <line x1="364" y1="264" x2="364" y2="142" stroke="#475569" stroke-width="1.4" marker-end="url(#arrSlate)"/>
+    <text x="346" y="152" font-size="10.5" fill="#475569">Mz</text>
+    <text x="586" y="278" font-size="10.5" fill="#475569">TR</text>
+
+    <!-- T1 Fat (fast recovery -> bright) -->
+    <path d="M 364 264 Q 395 162, 600 154" fill="none" stroke="#b45309" stroke-width="2.4"/>
+    <text x="444" y="166" font-size="10.2" font-weight="700" fill="#b45309">脂肪·亞急性血塊·Gd (短T1亮)</text>
+    <!-- T1 White Matter -->
+    <path d="M 364 264 Q 430 196, 600 176" fill="none" stroke="#0f766e" stroke-width="2"/>
+    <text x="478" y="202" font-size="10.2" fill="#0f766e">腦白質／實質 (中T1)</text>
+    <!-- T1 CSF (slow recovery -> dark) -->
+    <path d="M 364 264 Q 475 244, 600 212" fill="none" stroke="#1d4ed8" stroke-width="2" stroke-dasharray="5,3"/>
+    <text x="480" y="248" font-size="10.2" fill="#1d4ed8">純水／CSF (長T1暗)</text>
+
+    <!-- T2 Subchart -->
+    <text x="348" y="302" font-size="12" font-weight="700" fill="#0f172a">T2 橫向弛豫衰減 (Mxy 隨 TE 衰減)</text>
+    <line x1="364" y1="444" x2="606" y2="444" stroke="#475569" stroke-width="1.4" marker-end="url(#arrSlate)"/>
+    <line x1="364" y1="444" x2="364" y2="316" stroke="#475569" stroke-width="1.4" marker-end="url(#arrSlate)"/>
+    <text x="342" y="326" font-size="10.5" fill="#475569">Mxy</text>
+    <text x="588" y="458" font-size="10" fill="#475569">TE</text>
+
+    <!-- T2 CSF (slow decay -> bright) -->
+    <path d="M 364 328 Q 490 336, 600 358" fill="none" stroke="#1d4ed8" stroke-width="2.4"/>
+    <text x="454" y="344" font-size="10.2" font-weight="700" fill="#1d4ed8">純水／CSF／囊腫 (長T2亮)</text>
+    <!-- T2 Edema -->
+    <path d="M 364 328 Q 445 382, 600 406" fill="none" stroke="#be123c" stroke-width="2"/>
+    <text x="462" y="388" font-size="10.2" font-weight="700" fill="#be123c">組織水腫／發炎腫瘤 (亮)</text>
+    <!-- T2 Fibrous / Cortical -->
+    <path d="M 364 328 Q 392 428, 600 438" fill="none" stroke="#475569" stroke-width="1.8" stroke-dasharray="4,3"/>
+    <text x="424" y="432" font-size="10.2" fill="#475569">纖維疤痕／皮質骨 (短T2暗)</text>
+
+    <rect x="342" y="468" width="276" height="48" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="350" y="485" font-size="9.8" font-weight="700" fill="#1d4ed8">FLAIR 抑自由水 · DWI亮+ADC暗看超急性梗塞</text>
+    <text x="350" y="505" font-size="9.8" fill="#334155">孕期：無顯影 ≤3T MRI 各孕期可行（避 GBCA）</text>
+
+    <!-- Panel 3: Contrast Safety by eGFR -->
+    <rect x="640" y="80" width="290" height="446" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+    <rect x="640" y="80" width="290" height="32" rx="10" fill="#e2e8f0"/>
+    <text x="785" y="101" font-size="13.5" font-weight="700" fill="#0f172a" text-anchor="middle">3. 顯影劑 eGFR 閾值與急救準則</text>
+
+    <!-- Tier 1: eGFR >= 45 -->
+    <rect x="652" y="122" width="266" height="84" rx="8" fill="#f0fdfa" stroke="#0f766e" stroke-width="1.5"/>
+    <text x="662" y="142" font-size="11.5" font-weight="700" fill="#0f766e">eGFR ≥ 45 mL/min/1.73m²（低風險）</text>
+    <text x="662" y="160" font-size="10" fill="#1e293b">· 靜脈含碘顯影劑：常規施打，免預防性水化</text>
+    <text x="662" y="177" font-size="10" fill="#1e293b">· 含釓顯影劑：標準劑量施打（孕期避用）</text>
+    <text x="662" y="194" font-size="10" fill="#0f766e">· Metformin：無急性腎損傷時「不須停藥」</text>
+
+    <line x1="785" y1="206" x2="785" y2="222" stroke="#0f766e" stroke-width="1.6" marker-end="url(#arrTeal)"/>
+
+    <!-- Tier 2: eGFR 30-44 -->
+    <rect x="652" y="226" width="266" height="84" rx="8" fill="#fffbeb" stroke="#b45309" stroke-width="1.5"/>
+    <text x="662" y="246" font-size="11.5" font-weight="700" fill="#b45309">eGFR 30 – 44（中度邊緣風險）</text>
+    <text x="662" y="264" font-size="10" fill="#1e293b">· 靜脈含碘 CA-AKI 極低，避免脫水／NSAIDs</text>
+    <text x="662" y="281" font-size="10" fill="#1e293b">· 多重風險因子者：可予等張生理食鹽水水化</text>
+    <text x="662" y="298" font-size="10" fill="#b45309">· 動脈內施打顯影劑：Metformin 暫停 48 小時</text>
+
+    <line x1="785" y1="310" x2="785" y2="326" stroke="#0f766e" stroke-width="1.6" marker-end="url(#arrTeal)"/>
+
+    <!-- Tier 3: eGFR < 30 or AKI -->
+    <rect x="652" y="330" width="266" height="120" rx="8" fill="#fff1f2" stroke="#be123c" stroke-width="1.6"/>
+    <text x="662" y="349" font-size="11.5" font-weight="700" fill="#be123c">eGFR &lt; 30 或合併 AKI（高危警戒）</text>
+    <text x="662" y="367" font-size="10" fill="#1e293b">· 含碘 CT：先評估 US／平掃／無顯影 MRI</text>
+    <text x="662" y="384" font-size="10" font-weight="700" fill="#9f1239">· 必打含碘：0.9% NaCl 靜脈水化（前後補充）</text>
+    <text x="662" y="401" font-size="10" font-weight="700" fill="#9f1239">· Metformin：當下停藥，48h 複查穩再復藥</text>
+    <text x="662" y="418" font-size="10" fill="#1e293b">· 含釓 MRI：防 NSF 禁線性，僅必要時選用</text>
+    <text x="670" y="435" font-size="10" font-weight="700" fill="#be123c">第 II 類高穩定巨環類（Macrocyclic）</text>
+
+    <!-- Emergency Box -->
+    <rect x="652" y="458" width="266" height="58" rx="6" fill="#0f172a"/>
+    <text x="660" y="475" font-size="10" font-weight="700" fill="#fbbf24">重度過敏樣休克 vs 迷走神經反射：</text>
+    <text x="660" y="492" font-size="9.5" fill="#f8fafc">過敏(脈快+喘鳴) → IM Epinephrine 0.3–0.5mg</text>
+    <text x="660" y="508" font-size="9.5" fill="#cbd5e1">迷走(脈慢&lt;60) → 抬高下肢＋輸液＋Atropine</text>
+  </g>
+</svg>
