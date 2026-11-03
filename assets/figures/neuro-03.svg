@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-labelledby="neuro03-title neuro03-desc" font-family="system-ui, -apple-system, 'Noto Sans TC', sans-serif">
+  <title id="neuro03-title">自發性腦內出血定位與逆轉劑、蜘蛛膜下腔出血時序及腦靜脈竇栓塞影像圖</title>
+  <desc id="neuro03-desc">三欄整合圖：左欄呈現高血壓性深部腦出血（殼核、視丘、橋腦、小腦）與腦葉澱粉樣血管病變、CTA Spot Sign 及抗凝血逆轉劑；中欄呈現動脈瘤性蜘蛛膜下腔出血再出血、血管痙攣與水腦症三大時序關卡；右欄呈現腦靜脈竇栓塞空三角徵與腦動靜脈畸形伽瑪刀適應症。</desc>
+  <rect x="20" y="20" width="920" height="520" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="20" y="20" width="920" height="50" rx="14" fill="#0f172a"/>
+  <rect x="20" y="54" width="920" height="16" fill="#0f172a"/>
+  <text x="40" y="51" fill="#ffffff" font-size="15.2" font-weight="700">自發性腦出血（ICH）逆轉、蜘蛛膜下腔出血（SAH）時序與腦靜脈竇栓塞（CVST）</text>
+  <text x="918" y="50" fill="#94a3b8" font-size="12" text-anchor="end">Neuro-03 · 出血性腦血管疾病與次級預防</text>
+
+  <!-- Column 1: ICH Location, Spot Sign & Reversal -->
+  <rect x="34" y="82" width="292" height="446" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+  <rect x="34" y="82" width="292" height="32" rx="10" fill="#fef2f2"/>
+  <text x="46" y="103" fill="#991b1b" font-size="12.6" font-weight="700">1. 自發性 ICH 定位、Spot Sign 與逆轉</text>
+
+  <!-- Axial Brain ICH schematic -->
+  <ellipse cx="180" cy="182" rx="74" ry="56" fill="#f8fafc" stroke="#475569" stroke-width="1.8"/>
+  <path d="M180,126 L180,238" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3,2"/>
+  <ellipse cx="146" cy="178" rx="18" ry="24" fill="#be123c" opacity="0.88"/>
+  <circle cx="142" cy="172" r="4.5" fill="#fef08a" stroke="#ffffff" stroke-width="1.2"/>
+  <ellipse cx="226" cy="154" rx="16" ry="12" fill="#f97316" opacity="0.82"/>
+  <text x="108" y="226" fill="#be123c" font-size="10.2" font-weight="700">深部高血壓血腫＋Spot sign</text>
+  <text x="196" y="138" fill="#b45309" font-size="10.2" font-weight="700">皮質腦葉（CAA）</text>
+
+  <text x="46" y="254" fill="#0f172a" font-size="11.2" font-weight="700">● 四大高血壓穿通支定位特徵：</text>
+  <text x="50" y="271" fill="#334155" font-size="10.2">殼核：對側偏癱＋雙眼偏向病灶同側</text>
+  <text x="50" y="287" fill="#334155" font-size="10.2">視丘：對側全感覺喪失＋眼球內下看鼻尖</text>
+  <text x="50" y="303" fill="#334155" font-size="10.2">橋腦：深昏迷、四肢癱、針尖樣瞳孔（1 mm）</text>
+  <text x="50" y="319" fill="#be123c" font-size="10" font-weight="600">小腦：眩暈嘔吐失調；&gt;3 cm 急做後顱窩減壓</text>
+
+  <line x1="46" y1="330" x2="314" y2="330" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="46" y="348" fill="#1d4ed8" font-size="11.2" font-weight="700">● 急性降壓與抗凝血劑專一逆轉：</text>
+  <text x="50" y="365" fill="#334155" font-size="10">SBP 150–220：平穩降至 140（禁 &lt;130）</text>
+  <text x="50" y="382" fill="#334155" font-size="10">CTA Spot sign 陽性：預示活動外滲擴大</text>
+  <rect x="46" y="392" width="268" height="122" rx="7" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="54" y="411" fill="#0f766e" font-size="10.6" font-weight="700">抗凝藥物相關 ICH 緊急解毒劑：</text>
+  <text x="54" y="428" fill="#334155" font-size="10">• Dabigatran → Idarucizumab 5 g IV</text>
+  <text x="54" y="445" fill="#334155" font-size="10">• Xa 抑制劑（Apixaban / Rivaroxaban）</text>
+  <text x="64" y="461" fill="#334155" font-size="10">→ Andexanet alfa 或 4-factor PCC</text>
+  <text x="54" y="478" fill="#334155" font-size="10">• Warfarin → 4F-PCC＋Vit K1 10 mg IV</text>
+  <text x="54" y="495" fill="#334155" font-size="10">• Unfractionated Heparin → Protamine</text>
+  <text x="54" y="510" fill="#64748b" font-size="9.8">（CPP = MAP − ICP 維持 60–75 mmHg）</text>
+
+  <!-- Column 2: Aneurysmal SAH Timeline & Three Hurdles -->
+  <rect x="336" y="82" width="292" height="446" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+  <rect x="336" y="82" width="292" height="32" rx="10" fill="#fffbeb"/>
+  <text x="348" y="103" fill="#92400e" font-size="12.8" font-weight="700">2. 動脈瘤性 SAH 與三大併發症時序</text>
+
+  <!-- Timeline chart -->
+  <rect x="348" y="124" width="268" height="132" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="366" y1="232" x2="600" y2="232" stroke="#475569" stroke-width="1.4"/>
+  <line x1="366" y1="138" x2="366" y2="232" stroke="#475569" stroke-width="1.4"/>
+  <path d="M366,146 Q382,150 402,205 T458,228" fill="none" stroke="#be123c" stroke-width="2.4"/>
+  <path d="M400,230 Q440,226 470,152 Q500,152 534,228" fill="none" stroke="#b45309" stroke-width="2.4"/>
+  <path d="M370,188 Q418,218 508,204 Q554,192 594,180" fill="none" stroke="#1d4ed8" stroke-width="2" stroke-dasharray="4,3"/>
+  <text x="370" y="142" fill="#be123c" font-size="9.6" font-weight="700">再出血高峰(首24h)</text>
+  <text x="448" y="160" fill="#b45309" font-size="9.6" font-weight="700">血管痙攣(D4–14, 峰7–10)</text>
+  <text x="520" y="178" fill="#1d4ed8" font-size="9.6" font-weight="700">慢性水腦(&gt;2週)</text>
+  <text x="366" y="246" fill="#475569" font-size="9.8">D0</text>
+  <text x="422" y="246" fill="#475569" font-size="9.8">D4</text>
+  <text x="476" y="246" fill="#475569" font-size="9.8">D7–10</text>
+  <text x="534" y="246" fill="#475569" font-size="9.8">D14</text>
+  <text x="578" y="246" fill="#475569" font-size="9.8">D21</text>
+
+  <text x="348" y="274" fill="#0f172a" font-size="11.2" font-weight="700">● 診斷與動脈瘤定位鐵律：</text>
+  <text x="350" y="291" fill="#334155" font-size="10">雷擊頭痛（1 分鐘達峰）：6h 內薄切 CT 高敏感；</text>
+  <text x="350" y="307" fill="#334155" font-size="10">&gt;6h CT 陰性仍高度懷疑須做腰椎穿刺驗黃變症</text>
+  <text x="350" y="324" fill="#be123c" font-size="10" font-weight="600">PComA 動脈瘤壓迫 CN III 外層副交感纖維：</text>
+  <text x="350" y="340" fill="#be123c" font-size="9.9" font-weight="600">→ 同側動眼神經麻痺伴散瞳無光反應（急做 CTA）</text>
+  <text x="350" y="356" fill="#334155" font-size="10">好發分岔處：AComA 最常見、PComA、MCA 分岔</text>
+
+  <line x1="348" y1="367" x2="616" y2="367" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="348" y="384" fill="#0f766e" font-size="11.2" font-weight="700">● 三大次發關卡標準處置：</text>
+  <text x="350" y="401" fill="#be123c" font-size="9.8" font-weight="700">1. 防再出血：盡早（越快越好，優先 &lt;24h 內）</text>
+  <text x="358" y="416" fill="#334155" font-size="9.8">完成栓塞（Coiling）或夾除（Clipping）；</text>
+  <text x="358" y="431" fill="#334155" font-size="9.8">動脈瘤封閉前收縮壓嚴控於 &lt;160 mmHg</text>
+  <text x="350" y="448" fill="#334155" font-size="9.8">2. 防血管痙攣與遲發腦缺血（DCI）：</text>
+  <text x="358" y="463" fill="#0f766e" font-size="9.8" font-weight="600">口服 Nimodipine 60mg q4h×21天＋正常血容</text>
+  <text x="358" y="478" fill="#334155" font-size="9.8">症狀性痙攣：誘導升壓或動脈內擴張／成形術</text>
+  <text x="350" y="495" fill="#334155" font-size="9.8">3. 水腦症：急性置 EVD，慢性交通評 VP shunt</text>
+  <text x="350" y="511" fill="#64748b" font-size="9.6">（mFisher 依基底池血塊與腦室出血預測痙攣）</text>
+
+  <!-- Column 3: CVST Empty Delta & AVM / Secondary Prevention -->
+  <rect x="638" y="82" width="288" height="446" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+  <rect x="638" y="82" width="288" height="32" rx="10" fill="#f0fdfa"/>
+  <text x="650" y="103" fill="#0f766e" font-size="12.8" font-weight="700">3. CVST 空三角徵、AVM 與次級預防</text>
+
+  <!-- Empty Delta Sign Schematic -->
+  <rect x="650" y="124" width="264" height="104" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="704" cy="176" r="38" fill="#e2e8f0" stroke="#475569" stroke-width="1.6"/>
+  <polygon points="704,196 691,212 717,212" fill="#ffffff" stroke="#be123c" stroke-width="2.5"/>
+  <circle cx="704" cy="206" r="4" fill="#334155"/>
+  <text x="752" y="148" fill="#be123c" font-size="11" font-weight="700">Empty Delta Sign</text>
+  <text x="752" y="165" fill="#334155" font-size="10">顯影 CT／MRV 見上矢狀竇</text>
+  <text x="752" y="180" fill="#334155" font-size="10">硬膜壁強化包圍中央血栓</text>
+  <text x="752" y="198" fill="#0f766e" font-size="10" font-weight="700">★ 伴靜脈性出血仍首選</text>
+  <text x="752" y="213" fill="#0f766e" font-size="10" font-weight="700">LMWH／UFH 抗凝治療！</text>
+
+  <text x="650" y="248" fill="#0f172a" font-size="11.2" font-weight="700">● 腦血管畸形與煙霧病（Moyamoya）：</text>
+  <text x="650" y="265" fill="#334155" font-size="10">• AVM（動靜脈畸形）：動脈期見早期引流靜脈，</text>
+  <text x="656" y="281" fill="#334155" font-size="10">病理夾雜腦實質；深部小型病灶適用伽瑪刀</text>
+  <text x="656" y="297" fill="#334155" font-size="10">立體定位放射手術（高劑量漸進閉塞血管巢）</text>
+  <text x="650" y="314" fill="#334155" font-size="10">• 海綿狀血管瘤：MRI 爆米花樣含鐵血黃素環，</text>
+  <text x="656" y="330" fill="#334155" font-size="10">無腦實質夾雜、DSA 隱匿，症狀者手術切除</text>
+  <text x="650" y="347" fill="#334155" font-size="10">• 煙霧病：雙側 ICA 末端狹窄伴顱底煙霧側枝</text>
+  <text x="656" y="363" fill="#334155" font-size="9.8">（兒過度換氣缺血、成人出血），評顱內外吻合</text>
+
+  <line x1="650" y1="375" x2="914" y2="375" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="650" y="393" fill="#1d4ed8" font-size="11.2" font-weight="700">● 缺血性中風精準抗血栓次級預防：</text>
+  <text x="650" y="410" fill="#334155" font-size="9.8">• 輕微非心因中風(NIHSS≤3)／高危 TIA(ABCD2≥4)</text>
+  <text x="656" y="426" fill="#334155" font-size="9.8">24h 內啟動 DAPT 21 天轉單抗（禁長期雙抗）</text>
+  <text x="650" y="443" fill="#334155" font-size="9.8">• 臺灣 CYP2C19 失能率高：帶因改 Ticagrelor</text>
+  <text x="650" y="460" fill="#334155" font-size="9.8">• 顱內大動脈 70–99% 狹窄：首選內科雙抗 90 天</text>
+  <text x="656" y="476" fill="#334155" font-size="9.8">＋LDL &lt;70 mg/dL（SAMMPRIS 常規支架不利）</text>
+  <text x="650" y="493" fill="#334155" font-size="9.8">• 非瓣膜 AF：依梗塞大小銜接 DOAC；機械瓣膜</text>
+  <text x="656" y="509" fill="#334155" font-size="9.8">或中重度二尖瓣狹窄則必須使用 Warfarin</text>
+</svg>
