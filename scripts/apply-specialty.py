@@ -54,6 +54,7 @@ FILE_ALIASES = {
     'workflows': ('workflows.json', 'clinical-workflows.json'),
     'pbl': ('pbl.json', 'pbl-cases.json'),
     'enrichment': ('enrichment.json', 'study-enrichment.json'),
+    'coverage': ('source-coverage.json', 'coverage.json'),
 }
 KNOWN_JSON_FILES = {name for names in FILE_ALIASES.values() for name in names}
 RESOURCE_KINDS = {'圖譜', '影片', '期刊', '指南'}
@@ -620,8 +621,14 @@ def validate_enrichment(raw_enrichment, sid, topics_by_id):
                 'sourceIds': check_res_refs(fig.get('sourceIds'), f'{clabel}.figure.sourceIds'),
             }
             if fig.get('src'):
-                f_out['src'] = require_text(fig['src'], f'{clabel}.figure.src')
+                src = require_text(fig['src'], f'{clabel}.figure.src')
+                if '..' in src or not re.fullmatch(r'assets/[A-Za-z0-9/_-]+\.(?:svg|png|webp|jpg|jpeg)', src):
+                    raise ValueError(f'{clabel}.figure.src: must be a relative assets/ image path')
+                f_out['src'] = src
             ch_out['figure'] = f_out
+
+        if 'summaryTables' in ch and ch['summaryTables'] is not None:
+            ch_out['summaryTables'] = _ENRICH.validate_summary_tables(ch['summaryTables'], f'{clabel}.summaryTables', ch_res_ids)
 
         if ch.get('oralChallenge') is not None:
             oc = ch['oralChallenge']
@@ -651,8 +658,9 @@ def validate_enrichment(raw_enrichment, sid, topics_by_id):
                 if not isinstance(u, dict):
                     raise ValueError(f'{ulabel}: object required')
                 uid = require_text(u.get('id'), f'{ulabel}.id')
-                if uid not in {'u1', 'u2', 'u3'} or uid in seen_uids:
-                    raise ValueError(f'{ulabel}.id: unique id in u1..u3 required')
+                valid_uid = uid in {'u1', 'u2', 'u3'} or bool(re.fullmatch(rf'{re.escape(tid)}-u[1-3]', uid))
+                if not valid_uid or uid in seen_uids:
+                    raise ValueError(f'{ulabel}.id: unique id in u1..u3 (or {tid}-u1..u3) required')
                 seen_uids.add(uid)
                 sec_idxs = u.get('sectionIndexes', [])
                 if not isinstance(sec_idxs, list) or not all(type(x) is int and 0 <= x < n_sec for x in sec_idxs):
@@ -717,19 +725,193 @@ def validate_enrichment(raw_enrichment, sid, topics_by_id):
         chapters[tid] = ch_out
 
     paths = []
+    seen_path_ids = set()
     for p_idx, p in enumerate(raw_enrichment.get('learningPaths', []) or []):
         plabel = f'{label}.learningPaths[{p_idx}]'
         if not isinstance(p, dict):
             raise ValueError(f'{plabel}: object required')
         tids = require_str_list(p.get('topicIds'), f'{plabel}.topicIds', low=2, high=8)
-        if not set(tids) <= set(topics_by_id):
-            raise ValueError(f'{plabel}.topicIds: unknown topicIds {sorted(set(tids) - set(topics_by_id))}')
-        paths.append({
+        if len(set(tids)) != len(tids) or not set(tids) <= set(topics_by_id):
+            raise ValueError(f'{plabel}.topicIds: unique existing topicIds required')
+        p_out = {
             'title': require_text(p.get('title'), f'{plabel}.title'),
             'question': require_text(p.get('question'), f'{plabel}.question'),
             'topicIds': tids,
-        })
+        }
+        if p.get('id') is not None:
+            pid = require_text(p['id'], f'{plabel}.id')
+            if pid in seen_path_ids:
+                raise ValueError(f'{plabel}.id: duplicate learning path id {pid!r}')
+            seen_path_ids.add(pid)
+            p_out = {'id': pid, **p_out}
+        paths.append(p_out)
     return {'version': 1, 'reviewedDate': reviewed, 'chapters': chapters, 'learningPaths': paths}, all_resource_ids
+
+
+def validate_coverage(raw_coverage, sid, enrichment_obj, topics_by_id):
+    label = f'{sid} coverage'
+    if not isinstance(raw_coverage, dict):
+        raise ValueError(f'{label}: object required')
+    if not topics_by_id:
+        raise ValueError(f'{label}: topics.json required when coverage is present')
+    if (
+        not enrichment_obj
+        or set(enrichment_obj.get('chapters', {})) != set(topics_by_id)
+        or any('integrated' not in enrichment_obj['chapters'][tid] for tid in topics_by_id)
+    ):
+        raise ValueError(f'{label}: enrichment with integrated lessons on all chapters is required when coverage is present')
+    reviewed_date = require_text(raw_coverage.get('reviewedDate'), f'{label}.reviewedDate')
+    scope_note = require_text(raw_coverage.get('scopeNote'), f'{label}.scopeNote')
+    chapters_in = raw_coverage.get('chapters')
+    if not isinstance(chapters_in, dict) or set(chapters_in) != set(topics_by_id):
+        raise ValueError(f'{label}.chapters: keys must match all specialty topic IDs')
+    chapters = {}
+    for tid, ch in chapters_in.items():
+        clabel = f'{label}.chapters.{tid}'
+        if not isinstance(ch, dict):
+            raise ValueError(f'{clabel}: object required')
+        source_file = require_text(ch.get('sourceFile'), f'{clabel}.sourceFile')
+        page_count = ch.get('pageCount')
+        if type(page_count) is not int or page_count < 1:
+            raise ValueError(f'{clabel}.pageCount: positive integer required')
+        ch_out = {'sourceFile': source_file, 'pageCount': page_count}
+        if 'sourceSha256' in ch and ch['sourceSha256'] is not None:
+            sha = require_text(ch['sourceSha256'], f'{clabel}.sourceSha256')
+            if not re.fullmatch(r'[0-9a-fA-F]{64}', sha):
+                raise ValueError(f'{clabel}.sourceSha256: 64-hex sha256 required')
+            ch_out['sourceSha256'] = sha.lower()
+        if 'companionSources' in ch and ch['companionSources'] is not None:
+            comp_in = ch['companionSources']
+            if not isinstance(comp_in, list):
+                raise ValueError(f'{clabel}.companionSources: list required')
+            companions = []
+            for c_idx, comp in enumerate(comp_in):
+                cs_label = f'{clabel}.companionSources[{c_idx}]'
+                if not isinstance(comp, dict):
+                    raise ValueError(f'{cs_label}: object required')
+                cs_file = require_text(comp.get('sourceFile'), f'{cs_label}.sourceFile')
+                cs_pages = comp.get('pageCount')
+                if type(cs_pages) is not int or cs_pages < 1:
+                    raise ValueError(f'{cs_label}.pageCount: positive integer required')
+                cs_note = require_text(comp.get('note'), f'{cs_label}.note')
+                cs_obj = {'sourceFile': cs_file, 'pageCount': cs_pages, 'note': cs_note}
+                if comp.get('sourceSha256') is not None:
+                    csha = require_text(comp['sourceSha256'], f'{cs_label}.sourceSha256')
+                    if not re.fullmatch(r'[0-9a-fA-F]{64}', csha):
+                        raise ValueError(f'{cs_label}.sourceSha256: 64-hex sha256 required')
+                    cs_obj['sourceSha256'] = csha.lower()
+                companions.append(cs_obj)
+            ch_out['companionSources'] = companions
+        reviewed_in = ch.get('reviewedPages')
+        if not isinstance(reviewed_in, list) or not reviewed_in:
+            raise ValueError(f'{clabel}.reviewedPages: non-empty list required')
+        seen_pages, teaching_pages, reviewed = [], set(), []
+        for r_idx, span in enumerate(reviewed_in):
+            rlabel = f'{clabel}.reviewedPages[{r_idx}]'
+            if not isinstance(span, dict):
+                raise ValueError(f'{rlabel}: object required')
+            start, end = span.get('from'), span.get('to')
+            if type(start) is not int or type(end) is not int or not 1 <= start <= end <= page_count:
+                raise ValueError(f'{rlabel}: invalid reviewed page range')
+            kind = span.get('kind')
+            if kind not in {'teaching', 'exam', 'administrative'}:
+                raise ValueError(f'{rlabel}.kind: invalid reviewed page kind')
+            note = require_text(span.get('note'), f'{rlabel}.note')
+            seen_pages.extend(range(start, end + 1))
+            if kind in {'teaching', 'exam'}:
+                teaching_pages.update(range(start, end + 1))
+            reviewed.append({'from': start, 'to': end, 'kind': kind, 'note': note})
+        if sorted(seen_pages) != list(range(1, page_count + 1)):
+            raise ValueError(f'{clabel}.reviewedPages: must partition every PDF page 1..{page_count} exactly once')
+        if ch.get('unresolved') != []:
+            raise ValueError(f'{clabel}.unresolved: unresolved audit findings must be resolved before publishing')
+        lims_in = ch.get('sourceLimitations', [])
+        if not isinstance(lims_in, list):
+            raise ValueError(f'{clabel}.sourceLimitations: list required')
+        limitations = []
+        for l_idx, lim in enumerate(lims_in):
+            llabel = f'{clabel}.sourceLimitations[{l_idx}]'
+            if not isinstance(lim, dict):
+                raise ValueError(f'{llabel}: object required')
+            pages = lim.get('pages')
+            if not isinstance(pages, list) or not pages or not all(type(p) is int and 1 <= p <= page_count for p in pages) or len(set(pages)) != len(pages):
+                raise ValueError(f'{llabel}.pages: unique in-range pages required')
+            limitations.append({
+                'pages': pages,
+                'reason': require_text(lim.get('reason'), f'{llabel}.reason'),
+                'handling': require_text(lim.get('handling'), f'{llabel}.handling'),
+            })
+        entries_in = ch.get('entries')
+        if not isinstance(entries_in, list) or not entries_in:
+            raise ValueError(f'{clabel}.entries: non-empty list required')
+        lesson = enrichment_obj['chapters'][tid]
+        units = {u['id'] for u in lesson.get('integrated', {}).get('units', [])}
+        ch_res_ids = {r['id'] for r in lesson['resources']}
+        n_sec = len(topics_by_id[tid]['sections'])
+        seen_ids, linked_pages, entries = set(), set(), []
+        for e_idx, entry in enumerate(entries_in):
+            if not isinstance(entry, dict):
+                raise ValueError(f'{clabel}.entries[{e_idx}]: object required')
+            eid = entry.get('id')
+            if not isinstance(eid, str) or not re.fullmatch(r'[a-z][a-z0-9-]*', eid) or eid in seen_ids:
+                raise ValueError(f'{clabel}: invalid or duplicate coverage entry ID {eid!r}')
+            seen_ids.add(eid)
+            elabel = f'{clabel}.entries.{eid}'
+            etitle = require_text(entry.get('title'), f'{elabel}.title')
+            clinical_link = require_text(entry.get('clinicalLink'), f'{elabel}.clinicalLink')
+            pitfall = require_text(entry.get('pitfall'), f'{elabel}.pitfall')
+            pages = entry.get('pages')
+            if not isinstance(pages, list) or not pages or not all(type(p) is int and 1 <= p <= page_count for p in pages) or len(set(pages)) != len(pages):
+                raise ValueError(f'{elabel}.pages: unique in-range source pages required')
+            linked_pages.update(pages)
+            unit_id = entry.get('unitId')
+            if unit_id not in units:
+                raise ValueError(f'{elabel}.unitId: unresolved integrated unit {unit_id!r}')
+            sec_idxs = entry.get('sectionIndexes')
+            if not isinstance(sec_idxs, list) or not sec_idxs or not all(type(i) is int and 0 <= i < n_sec for i in sec_idxs) or len(set(sec_idxs)) != len(sec_idxs):
+                raise ValueError(f'{elabel}.sectionIndexes: valid original sectionIndexes required')
+            terms = require_str_list(entry.get('terms'), f'{elabel}.terms', low=1)
+            key_points = require_str_list(entry.get('keyPoints'), f'{elabel}.keyPoints', low=2, high=4)
+            recall_in = entry.get('recall')
+            if not isinstance(recall_in, dict):
+                raise ValueError(f'{elabel}.recall: object required')
+            recall = {
+                'question': require_text(recall_in.get('question'), f'{elabel}.recall.question'),
+                'answer': require_text(recall_in.get('answer'), f'{elabel}.recall.answer'),
+            }
+            related_in = entry.get('relatedTopics')
+            if not isinstance(related_in, list) or not all(isinstance(x, str) and x.strip() for x in related_in):
+                raise ValueError(f'{elabel}.relatedTopics: list of topic ID strings required')
+            related = [x.strip() for x in related_in]
+            if len(set(related)) != len(related) or not set(related) <= set(topics_by_id):
+                raise ValueError(f'{elabel}.relatedTopics: unresolved relatedTopics')
+            refs = require_str_list(entry.get('sourceIds'), f'{elabel}.sourceIds', low=1)
+            if not set(refs) <= ch_res_ids:
+                raise ValueError(f'{elabel}.sourceIds: unresolved clinical sourceIds')
+            entries.append({
+                'id': eid,
+                'title': etitle,
+                'pages': pages,
+                'unitId': unit_id,
+                'sectionIndexes': sec_idxs,
+                'terms': terms,
+                'keyPoints': key_points,
+                'clinicalLink': clinical_link,
+                'pitfall': pitfall,
+                'recall': recall,
+                'relatedTopics': related,
+                'sourceIds': refs,
+            })
+        if teaching_pages - linked_pages:
+            raise ValueError(f'{clabel}: teaching/exam pages without topic entries: {sorted(teaching_pages - linked_pages)}')
+        ch_out.update({
+            'reviewedPages': reviewed,
+            'entries': entries,
+            'unresolved': [],
+            'sourceLimitations': limitations,
+        })
+        chapters[tid] = ch_out
+    return {'reviewedDate': reviewed_date, 'scopeNote': scope_note, 'chapters': chapters}
 
 
 def validate_workflows(raw_workflows, sid, topic_ids, resource_ids):
@@ -1022,10 +1204,14 @@ def build_specialty_payload(sid, content_root=DEFAULT_CONTENT_ROOT):
     if 'detailed' in files:
         shell['interviewDetailed'] = validate_detailed(files['detailed'], sid, interview_by_id)
 
+    enrichment_obj = None
     resource_ids = set()
     if 'enrichment' in files:
         enrichment_obj, resource_ids = validate_enrichment(files['enrichment'], sid, topics_by_id)
         shell['enrichment'] = enrichment_obj
+
+    if 'coverage' in files:
+        shell['coverage'] = validate_coverage(files['coverage'], sid, enrichment_obj, topics_by_id)
 
     workflow_ids = set()
     if 'workflows' in files:
@@ -1076,6 +1262,11 @@ def apply_specialties(html, specialties=None, content_root=DEFAULT_CONTENT_ROOT)
             'interview': len(payload_obj['interview']),
             'pbl_cases': len(payload_obj['pbl']['cases']),
             'workflows': len(payload_obj['workflows']['workflows']),
+            'coverage_topics': len(payload_obj.get('coverage', {}).get('chapters', {})),
+            'summary_tables': sum(
+                len(ch.get('summaryTables', []))
+                for ch in payload_obj.get('enrichment', {}).get('chapters', {}).values()
+            ),
             'sha256': hashlib.sha256(encoded.encode('utf-8')).hexdigest(),
         }
 
