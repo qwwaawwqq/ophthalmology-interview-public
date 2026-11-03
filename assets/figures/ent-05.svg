@@ -20,11 +20,11 @@
 
   <!-- Top Box: Cavernous Sinus (Anterior-Superior Route via Foramen Lacerum) -->
   <rect x="64" y="136" width="424" height="72" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
-  <text x="276" y="155" text-anchor="middle" fill="#1e3a8a" font-size="11.5" font-weight="700">前上方顱內路徑：經「破裂孔（Foramen lacerum）／卵圓孔」侵入海綿竇</text>
-  <rect x="80" y="164" width="184" height="34" rx="5" fill="#dbeafe" stroke="#1d4ed8"/>
-  <text x="172" y="185" text-anchor="middle" fill="#be123c" font-size="10.5" font-weight="700">竇腔中央：CN VI 最早麻痺（外展複視）</text>
-  <rect x="276" y="164" width="196" height="34" rx="5" fill="#ffffff" stroke="#1d4ed8"/>
-  <text x="374" y="185" text-anchor="middle" fill="#1e293b" font-size="10.2" font-weight="600">海綿竇側壁：CN III · IV · V1 · V2</text>
+  <text x="276" y="155" text-anchor="middle" fill="#1e3a8a" font-size="11" font-weight="700">前上方顱內路徑：經「破裂孔（Foramen lacerum）／卵圓孔」侵入海綿竇</text>
+  <rect x="72" y="164" width="204" height="34" rx="5" fill="#dbeafe" stroke="#1d4ed8"/>
+  <text x="174" y="185" text-anchor="middle" fill="#be123c" font-size="9.6" font-weight="700">竇腔中央：CN VI 最早麻痺（複視）</text>
+  <rect x="282" y="164" width="198" height="34" rx="5" fill="#ffffff" stroke="#1d4ed8"/>
+  <text x="381" y="185" text-anchor="middle" fill="#1e293b" font-size="9.6" font-weight="600">海綿竇側壁：CN III·IV·V1·V2</text>
 
   <!-- Upward Invasion Arrow -->
   <line x1="236" y1="248" x2="236" y2="212" stroke="#be123c" stroke-width="3"/>
@@ -37,36 +37,36 @@
   <text x="236" y="298" text-anchor="middle" fill="#be123c" font-size="10" font-weight="600">咽隱窩（Fossa of Rosenmüller）</text>
 
   <!-- Anterior-Lateral Box: Eustachian Tube -> Unilateral OME -->
-  <rect x="54" y="256" width="90" height="58" rx="7" fill="#fef3c7" stroke="#b45309" stroke-width="1.4"/>
-  <text x="99" y="276" text-anchor="middle" fill="#92400e" font-size="10" font-weight="700">耳咽管圓枕受壓</text>
-  <text x="99" y="293" text-anchor="middle" fill="#0f172a" font-size="9.5">單側成人 OME</text>
-  <text x="99" y="307" text-anchor="middle" fill="#b45309" font-size="9" font-weight="600">Type B 鼓室圖</text>
-  <line x1="162" y1="284" x2="146" y2="284" stroke="#b45309" stroke-width="2.2"/>
-  <polygon points="144,284 151,280 151,288" fill="#b45309"/>
+  <rect x="50" y="254" width="96" height="62" rx="7" fill="#fef3c7" stroke="#b45309" stroke-width="1.4"/>
+  <text x="98" y="274" text-anchor="middle" fill="#92400e" font-size="9.8" font-weight="700">耳咽管圓枕受壓</text>
+  <text x="98" y="290" text-anchor="middle" fill="#0f172a" font-size="9.5">單側成人 OME</text>
+  <text x="98" y="306" text-anchor="middle" fill="#b45309" font-size="9.5" font-weight="600">Type B 鼓室圖</text>
+  <line x1="162" y1="284" x2="148" y2="284" stroke="#b45309" stroke-width="2.2"/>
+  <polygon points="146,284 153,280 153,288" fill="#b45309"/>
 
   <!-- Posterolateral Box: Post-styloid Parapharyngeal Space & Jugular Foramen -->
-  <rect x="342" y="242" width="156" height="86" rx="8" fill="#fdf4ff" stroke="#7e22ce" stroke-width="1.5"/>
-  <text x="420" y="261" text-anchor="middle" fill="#581c87" font-size="10.5" font-weight="700">後外側：莖突後咽旁間隙</text>
-  <text x="420" y="278" text-anchor="middle" fill="#0f172a" font-size="9.8">頸靜脈孔／舌下神經管</text>
-  <text x="420" y="295" text-anchor="middle" fill="#7e22ce" font-size="10" font-weight="700">CN IX · X · XI · XII</text>
-  <text x="420" y="311" text-anchor="middle" fill="#475569" font-size="9.5">嗆咳嘶啞 · 聳肩伸舌偏斜</text>
-  <text x="420" y="324" text-anchor="middle" fill="#475569" font-size="9">＋交感鏈 Horner 症候群</text>
+  <rect x="342" y="238" width="158" height="92" rx="8" fill="#fdf4ff" stroke="#7e22ce" stroke-width="1.5"/>
+  <text x="421" y="257" text-anchor="middle" fill="#581c87" font-size="10" font-weight="700">後外側：莖突後咽旁間隙</text>
+  <text x="421" y="273" text-anchor="middle" fill="#0f172a" font-size="9.6">頸靜脈孔／舌下神經管</text>
+  <text x="421" y="289" text-anchor="middle" fill="#7e22ce" font-size="9.8" font-weight="700">CN IX · X · XI · XII</text>
+  <text x="421" y="305" text-anchor="middle" fill="#475569" font-size="9.5">嗆咳嘶啞 · 聳肩伸舌偏斜</text>
+  <text x="421" y="321" text-anchor="middle" fill="#475569" font-size="9.5">＋交感鏈 Horner 症候群</text>
   <line x1="310" y1="284" x2="338" y2="284" stroke="#7e22ce" stroke-width="2.5"/>
   <polygon points="341,284 334,280 334,288" fill="#7e22ce"/>
 
   <!-- Bottom Nodal Spread inside schematic -->
-  <rect x="64" y="338" width="424" height="46" rx="7" fill="#ecfdf5" stroke="#0f766e" stroke-width="1.3"/>
-  <text x="276" y="357" text-anchor="middle" fill="#0f766e" font-size="10.5" font-weight="700">最常見首發表現（60–80%）：無痛性頸部淋巴結腫大（咽後 Rouvière → Level II／Va）</text>
-  <text x="276" y="375" text-anchor="middle" fill="#0f172a" font-size="10">AJCC 8th N3：淋巴結 &gt;6 cm 或延伸至「環狀軟骨下緣以下（鎖骨上窩）」</text>
+  <rect x="52" y="338" width="448" height="46" rx="7" fill="#ecfdf5" stroke="#0f766e" stroke-width="1.3"/>
+  <text x="276" y="357" text-anchor="middle" fill="#0f766e" font-size="9.6" font-weight="700">最常見首發（60–80%）：無痛性頸部淋巴結腫大（咽後 Rouvière → Level II／Va）</text>
+  <text x="276" y="375" text-anchor="middle" fill="#0f172a" font-size="9.6">AJCC 8th N3：淋巴結 &gt;6 cm 或延伸至「環狀軟骨下緣以下（鎖骨上窩）」</text>
 
   <!-- Left Panel Pearls Box -->
   <rect x="42" y="402" width="468" height="116" rx="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
-  <text x="54" y="421" fill="#0f172a" font-size="10.5" font-weight="700">· 台灣 &gt;95% 為 WHO 第 II／III 型非角化癌：與 EBV 強相關，對放化療高度敏感</text>
-  <text x="54" y="439" fill="#0f172a" font-size="10.5">· 確診黃金標準：鼻咽內視鏡原發灶直接切片（嚴禁未檢視鼻咽即先切頸部淋巴結！）</text>
-  <text x="54" y="457" fill="#0f766e" font-size="10.5" font-weight="700">· 初治原則：第 I 期單獨 IMRT 放療；第 II–IVA 期含順鉑同步放化療（CCRT）為主軸</text>
-  <text x="54" y="475" fill="#0f172a" font-size="10.5">· 手術角色：初治絕不手術，僅用於放化療後局部復發或頸部殘留之挽救切除</text>
-  <text x="54" y="493" fill="#be123c" font-size="10.2" font-weight="700">· 血漿游離 EBV DNA 定量：分期預後分層、療效評估與治療後復發早期偵測指標</text>
-  <text x="54" y="510" fill="#334155" font-size="9.8">· 顱底骨侵蝕屬 T3；侵犯腦神經、海綿竇、眼眶、下咽或逾翼外肌外側緣屬 T4</text>
+  <text x="52" y="421" fill="#0f172a" font-size="9.8" font-weight="700">· 台灣 &gt;95% 為 WHO 第 II／III 型非角化癌：與 EBV 強相關，對放化療高度敏感</text>
+  <text x="52" y="439" fill="#0f172a" font-size="9.8">· 確診黃金標準：鼻咽內視鏡原發灶直接切片（嚴禁未檢視鼻咽即先切頸部淋巴結！）</text>
+  <text x="52" y="457" fill="#0f766e" font-size="9.8" font-weight="700">· 初治原則：第 I 期單獨 IMRT 放療；第 II–IVA 期含順鉑同步放化療（CCRT）為主軸</text>
+  <text x="52" y="475" fill="#0f172a" font-size="9.8">· 手術角色：初治絕不手術，僅用於放化療後局部復發或頸部殘留之挽救切除</text>
+  <text x="52" y="493" fill="#be123c" font-size="9.8" font-weight="700">· 血漿游離 EBV DNA 定量：分期預後分層、療效評估與治療後復發早期偵測指標</text>
+  <text x="52" y="510" fill="#334155" font-size="9.6">· 顱底骨侵蝕屬 T3；侵犯腦神經、海綿竇、眼眶、下咽或逾翼外肌外側緣屬 T4</text>
 
   <!-- ==================== RIGHT PANEL: INVERTED PAPILLOMA & SINONASAL TUMORS ==================== -->
   <rect x="538" y="84" width="394" height="446" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
@@ -91,28 +91,28 @@
   <text x="692" y="268" text-anchor="middle" fill="#0f766e" font-size="9.5">上頷竇腔</text>
 
   <!-- Annotations on right of mini diagram -->
-  <text x="740" y="168" fill="#0f172a" font-size="10.2" font-weight="700">· 好發起源：鼻腔側壁（中鼻道）</text>
-  <text x="740" y="187" fill="#0f172a" font-size="10">· 病理：上皮向基質「內翻生長」</text>
-  <text x="748" y="203" fill="#475569" font-size="9.6">基底膜仍完整（MRI 呈腦迴狀）</text>
-  <text x="740" y="222" fill="#b45309" font-size="10.2" font-weight="700">· CT 局部錐狀骨增生＝根部附著點</text>
-  <text x="740" y="241" fill="#be123c" font-size="10.2" font-weight="700">· 5–15% 惡變為鱗狀細胞癌（SCC）</text>
-  <text x="740" y="260" fill="#0f766e" font-size="10" font-weight="700">· 手術：內視鏡完整切除＋磨除</text>
-  <text x="748" y="276" fill="#0f766e" font-size="10" font-weight="700">根部附著骨皮質防高復發</text>
-  <text x="748" y="293" fill="#475569" font-size="9.5">（全數檢體須連續切片排查惡變）</text>
+  <text x="736" y="168" fill="#0f172a" font-size="9.8" font-weight="700">· 好發起源：鼻腔側壁（中鼻道）</text>
+  <text x="736" y="187" fill="#0f172a" font-size="9.6">· 病理：上皮向基質「內翻生長」</text>
+  <text x="744" y="203" fill="#475569" font-size="9.5">基底膜仍完整（MRI 呈腦迴狀）</text>
+  <text x="736" y="222" fill="#b45309" font-size="9.6" font-weight="700">· CT 錐狀骨增生＝根部附著點</text>
+  <text x="736" y="241" fill="#be123c" font-size="9.6" font-weight="700">· 5–15% 惡變為鱗狀細胞癌（SCC）</text>
+  <text x="736" y="260" fill="#0f766e" font-size="9.6" font-weight="700">· 手術：內視鏡完整切除＋磨除</text>
+  <text x="744" y="276" fill="#0f766e" font-size="9.6" font-weight="700">根部附著骨皮質防高復發</text>
+  <text x="744" y="293" fill="#475569" font-size="9.5">（全數檢體須連續切片排查惡變）</text>
 
   <!-- Three High-Yield Tumor Cards: y=312..518 -->
   <rect x="552" y="312" width="366" height="64" rx="7" fill="#fff1f2" stroke="#be123c" stroke-width="1.3"/>
-  <text x="562" y="331" fill="#9f1239" font-size="10.8" font-weight="700">青少年鼻咽血管纖維瘤（JNA）· 絕對禁止門診切片！</text>
-  <text x="562" y="349" fill="#0f172a" font-size="10">青春期男性單側反覆大量鼻出血；起源蝶腭孔、上頷竇後壁前弓（Holman-Miller）</text>
-  <text x="562" y="366" fill="#be123c" font-size="10" font-weight="600">→ 靠顯影 CT／MRI 確診，術前上頷內動脈栓塞後完整手術切除</text>
+  <text x="560" y="331" fill="#9f1239" font-size="10.2" font-weight="700">青少年鼻咽血管纖維瘤（JNA）· 絕對禁止門診切片！</text>
+  <text x="558" y="349" fill="#0f172a" font-size="9.5">青春期男單側反覆大鼻血；起源蝶腭孔、上頷竇後壁前弓（Holman-Miller）</text>
+  <text x="560" y="366" fill="#be123c" font-size="9.6" font-weight="600">→ 靠顯影 CT／MRI 確診，術前上頷內動脈栓塞後完整手術切除</text>
 
   <rect x="552" y="384" width="366" height="64" rx="7" fill="#fffbeb" stroke="#b45309" stroke-width="1.3"/>
-  <text x="562" y="403" fill="#92400e" font-size="10.8" font-weight="700">鼻竇上皮癌與嗅神經母細胞瘤職業／影像特徵</text>
-  <text x="562" y="421" fill="#0f172a" font-size="10">· 最常見：上頷竇鱗狀細胞癌（Ohngren 線後上區預後差）</text>
-  <text x="562" y="438" fill="#0f172a" font-size="10">· 硬木粉塵木工：篩竇腸型腺癌 ｜ 跨篩板啞鈴狀腫塊：嗅神經母細胞瘤</text>
+  <text x="560" y="403" fill="#92400e" font-size="10.2" font-weight="700">鼻竇上皮癌與嗅神經母細胞瘤職業／影像特徵</text>
+  <text x="560" y="421" fill="#0f172a" font-size="9.6">· 最常見：上頷竇鱗狀細胞癌（Ohngren 線後上區預後差）</text>
+  <text x="560" y="438" fill="#0f172a" font-size="9.6">· 硬木粉塵木工：篩竇腸型腺癌｜跨篩板啞鈴狀腫塊：嗅神經母細胞瘤</text>
 
   <rect x="552" y="456" width="366" height="62" rx="7" fill="#f1f5f9" stroke="#334155" stroke-width="1.2"/>
-  <text x="562" y="475" fill="#0f172a" font-size="10.8" font-weight="700">鼻型結外 NK/T 細胞淋巴瘤（EBV 100% 強相關）</text>
-  <text x="562" y="493" fill="#334155" font-size="10">CD56+ · EBER+ 血管中心壞死致鼻中膈與硬腭穿孔；放療＋含 L-asparaginase 化療</text>
-  <text x="562" y="509" fill="#475569" font-size="9.6">影像分工：CT 看薄骨板侵蝕鈣化；MRI 區分 T2 高亮滯留液 vs 實質腫瘤</text>
+  <text x="560" y="475" fill="#0f172a" font-size="10.2" font-weight="700">鼻型結外 NK/T 細胞淋巴瘤（EBV 100% 強相關）</text>
+  <text x="560" y="493" fill="#334155" font-size="9.5">CD56+·EBER+ 血管中心壞死致中膈硬腭穿孔；放療＋L-asparaginase 化療</text>
+  <text x="560" y="509" fill="#475569" font-size="9.5">影像分工：CT 看薄骨板侵蝕鈣化；MRI 區分 T2 高亮滯留液 vs 實質腫瘤</text>
 </svg>

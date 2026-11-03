@@ -33,89 +33,90 @@
     <text x="102" y="258" font-size="11.5" font-weight="700" fill="#b45309">環狀軟骨</text>
 
     <!-- 1st Tracheal Ring -->
-    <rect x="92" y="274" width="80" height="24" rx="4" fill="#e2e8f0" stroke="#64748b"/>
-    <text x="102" y="290" font-size="10.5" font-weight="600" fill="#475569">第 1 氣管環</text>
+    <rect x="86" y="274" width="92" height="24" rx="4" fill="#e2e8f0" stroke="#64748b"/>
+    <text x="98" y="290" font-size="10" font-weight="600" fill="#475569">第 1 氣管環</text>
 
     <!-- 2nd-3rd Tracheal Rings (Target 2: Standard Tracheostomy!) -->
-    <rect x="92" y="302" width="80" height="54" rx="5" fill="#ccfbf1" stroke="#0f766e" stroke-width="2.4"/>
-    <text x="99" y="324" font-size="11.5" font-weight="700" fill="#0f766e">第 2–3 氣管環</text>
-    <text x="100" y="342" font-size="10" fill="#065f46">（標準氣切窗）</text>
+    <rect x="86" y="302" width="92" height="54" rx="5" fill="#ccfbf1" stroke="#0f766e" stroke-width="2.4"/>
+    <text x="94" y="323" font-size="9.8" font-weight="700" fill="#0f766e">第 2–3 氣管環</text>
+    <text x="95" y="342" font-size="9.8" fill="#065f46">（標準氣切窗）</text>
 
     <!-- 4th-5th Tracheal Rings + Innominate Artery crossing -->
-    <rect x="92" y="360" width="80" height="50" rx="4" fill="#fff1f2" stroke="#be123c" stroke-dasharray="4 2"/>
+    <rect x="86" y="360" width="92" height="54" rx="4" fill="#fff1f2" stroke="#be123c" stroke-dasharray="4 2"/>
     <path d="M68 398 Q132 374 196 392" fill="none" stroke="#be123c" stroke-width="5" stroke-linecap="round"/>
-    <text x="98" y="378" font-size="10.5" font-weight="700" fill="#be123c">第 4 環以下</text>
-    <text x="96" y="408" font-size="10" font-weight="700" fill="#881337">無名動脈跨越</text>
+    <text x="98" y="378" font-size="10.2" font-weight="700" fill="#be123c">第 4 環以下</text>
+    <text x="96" y="405" font-size="9.8" font-weight="700" fill="#881337">無名動脈跨越</text>
 
     <!-- Callout Cards on Right Side of Panel A -->
-    <rect x="214" y="182" width="252" height="72" rx="6" fill="#fff1f2" stroke="#be123c"/>
+    <rect x="214" y="182" width="256" height="72" rx="6" fill="#fff1f2" stroke="#be123c"/>
     <line x1="170" y1="220" x2="212" y2="214" stroke="#be123c" stroke-width="2" marker-end="url(#arr-red11)"/>
     <text x="224" y="200" font-size="12" font-weight="700" fill="#be123c">1. 緊急環甲膜切開（CICO 首選）</text>
     <text x="224" y="217" font-size="10.5" fill="#0f172a">表淺無大血管，1–2 分鐘最快通氣</text>
     <text x="224" y="233" font-size="10.5" fill="#881337">· 穩定後 24–48h 轉正式氣切防狹窄</text>
     <text x="224" y="248" font-size="10.5" fill="#be123c" font-weight="600">· &lt;12 歲小兒環狀軟骨狹小禁切！</text>
 
-    <rect x="214" y="260" width="252" height="36" rx="6" fill="#fef3c7" stroke="#b45309"/>
+    <rect x="214" y="260" width="256" height="36" rx="6" fill="#fef3c7" stroke="#b45309"/>
     <text x="224" y="282" font-size="11" font-weight="700" fill="#b45309">禁切環狀軟骨與第 1 環 → 嚴防聲門下狹窄</text>
 
-    <rect x="214" y="302" width="252" height="54" rx="6" fill="#ecfdf5" stroke="#0f766e"/>
-    <line x1="172" y1="328" x2="212" y2="328" stroke="#0f766e" stroke-width="2" marker-end="url(#arr-teal11)"/>
-    <text x="224" y="321" font-size="12" font-weight="700" fill="#0f766e">2. 標準氣管切開（第 2–3 環）</text>
-    <text x="224" y="338" font-size="10.5" fill="#0f172a">撥開或切斷結紮甲狀腺峽部 · 留防脫牽引線</text>
-    <text x="224" y="351" font-size="10" fill="#065f46">術後 5 天內滑脫忌盲塞假道 → 改經口插管</text>
+    <rect x="214" y="302" width="256" height="56" rx="6" fill="#ecfdf5" stroke="#0f766e"/>
+    <line x1="178" y1="328" x2="212" y2="328" stroke="#0f766e" stroke-width="2" marker-end="url(#arr-teal11)"/>
+    <text x="224" y="319" font-size="11.8" font-weight="700" fill="#0f766e">2. 標準氣管切開（第 2–3 環）</text>
+    <text x="224" y="335" font-size="10" fill="#0f172a">撥開或切斷結紮甲狀腺峽部 · 留防脫牽引線</text>
+    <text x="224" y="350" font-size="9.8" fill="#065f46">術後 5 天內滑脫忌盲塞假道 → 改經口插管</text>
 
-    <rect x="214" y="362" width="252" height="52" rx="6" fill="#fff1f2" stroke="#be123c"/>
-    <text x="224" y="380" font-size="11.5" font-weight="700" fill="#be123c">低位氣切致命紅旗：氣管無名動脈瘻管</text>
-    <text x="224" y="396" font-size="10.5" fill="#0f172a">套管搏動或噴鮮血 → 氣囊過度充氣頂前壁</text>
-    <text x="224" y="409" font-size="10" fill="#881337">壓迫胸骨柄後方並分秒必爭直送手術室！</text>
+    <rect x="214" y="362" width="256" height="56" rx="6" fill="#fff1f2" stroke="#be123c"/>
+    <text x="224" y="379" font-size="11.2" font-weight="700" fill="#be123c">低位氣切致命紅旗：氣管無名動脈瘻管</text>
+    <text x="224" y="395" font-size="10" fill="#0f172a">套管搏動或噴鮮血 → 氣囊過度充氣頂前壁</text>
+    <text x="224" y="410" font-size="9.8" fill="#881337">壓迫胸骨柄後方並分秒必爭直送手術室！</text>
 
-    <rect x="52" y="426" width="414" height="80" rx="8" fill="#f8fafc" stroke="#94a3b8"/>
-    <text x="64" y="446" font-size="12.5" font-weight="700" fill="#0f172a">全領域病安速記：強酸強鹼與 FESS 眼眶血腫</text>
-    <text x="64" y="466" font-size="11" fill="#334155">· 強鹼＝液化性壞死深穿食道（禁催吐、禁酸鹼中和、禁盲插鼻胃管；12–24h 內視鏡）</text>
-    <text x="64" y="486" font-size="11" fill="#be123c" font-weight="600">· FESS 傷篩前動脈致眼眶血腫緊繃：拔鼻填塞＋90 分鐘內床邊外眥切開減壓救視力！</text>
+    <rect x="52" y="424" width="418" height="82" rx="8" fill="#f8fafc" stroke="#94a3b8"/>
+    <text x="60" y="444" font-size="12" font-weight="700" fill="#0f172a">全領域病安速記：強酸強鹼與 FESS 眼眶血腫</text>
+    <text x="60" y="464" font-size="9.8" fill="#334155">· 強鹼＝液化壞死深穿食道（禁催吐、禁酸鹼中和、禁盲插NG；12–24h內視鏡）</text>
+    <text x="60" y="484" font-size="9.8" fill="#be123c" font-weight="600">· FESS 傷篩前動脈眼眶血腫緊繃：拔鼻填塞＋90m 內床邊外眥切開減壓救視力！</text>
 
     <!-- Right Panel: Post-op Hemorrhage Rescue & ENT Residency Tiered Governance -->
     <rect x="498" y="92" width="426" height="428" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
     <text x="516" y="118" font-size="16" font-weight="700" fill="#be123c">B. 術後出血搶救流程與專科訓練分層制度</text>
 
     <!-- Thyroid / Neck Hematoma SCOOP Protocol -->
-    <rect x="514" y="132" width="394" height="122" rx="8" fill="#fff1f2" stroke="#be123c"/>
-    <text x="526" y="152" font-size="13.5" font-weight="700" fill="#be123c">1. 甲狀腺／頸部術後急性壓迫性血腫（病房救命第一動作）</text>
-    <text x="526" y="172" font-size="11" fill="#0f172a">· 機轉：密閉筋膜高壓阻斷靜脈淋巴回流 → 數分鐘內引發「劇烈聲門上喉水腫窒息」</text>
+    <rect x="512" y="132" width="400" height="122" rx="8" fill="#fff1f2" stroke="#be123c"/>
+    <text x="522" y="151" font-size="12.5" font-weight="700" fill="#be123c">1. 甲狀腺／頸部術後急性壓迫性血腫（病房救命第一動作）</text>
+    <text x="522" y="171" font-size="9.8" fill="#0f172a">· 機轉：密閉筋膜高壓阻斷靜脈淋巴回流 → 數分鐘內「劇烈聲門上喉水腫窒息」</text>
 
-    <rect x="526" y="182" width="118" height="58" rx="6" fill="#be123c"/>
-    <text x="534" y="201" font-size="11.5" font-weight="700" fill="#ffffff">床邊即刻拆線</text>
-    <text x="534" y="218" font-size="10.5" fill="#ffe4e6">剪開皮膚頸闊肌</text>
-    <text x="534" y="232" font-size="10.5" fill="#ffe4e6">與深層帶狀肌！</text>
+    <rect x="524" y="182" width="118" height="58" rx="6" fill="#be123c"/>
+    <text x="532" y="200" font-size="11.2" font-weight="700" fill="#ffffff">床邊即刻拆線</text>
+    <text x="532" y="216" font-size="10" fill="#ffe4e6">剪開皮膚頸闊肌</text>
+    <text x="532" y="231" font-size="10" fill="#ffe4e6">與深層帶狀肌！</text>
 
-    <line x1="644" y1="211" x2="656" y2="211" stroke="#be123c" stroke-width="2" marker-end="url(#arr-red11)"/>
+    <line x1="642" y1="211" x2="654" y2="211" stroke="#be123c" stroke-width="2" marker-end="url(#arr-red11)"/>
 
-    <rect x="658" y="182" width="114" height="58" rx="6" fill="#ffffff" stroke="#be123c"/>
-    <text x="666" y="201" font-size="11.5" font-weight="700" fill="#be123c">挖出血塊減壓</text>
-    <text x="666" y="218" font-size="10.5" fill="#0f172a">緩解靜脈鬱血</text>
-    <text x="666" y="232" font-size="10" fill="#881337">（忌外加壓包紮）</text>
+    <rect x="656" y="182" width="118" height="58" rx="6" fill="#ffffff" stroke="#be123c"/>
+    <text x="664" y="200" font-size="11.2" font-weight="700" fill="#be123c">挖出血塊減壓</text>
+    <text x="664" y="216" font-size="10" fill="#0f172a">緩解靜脈鬱血</text>
+    <text x="664" y="231" font-size="9.8" fill="#881337">（忌外加壓包紮）</text>
 
-    <line x1="772" y1="211" x2="784" y2="211" stroke="#be123c" stroke-width="2" marker-end="url(#arr-red11)"/>
+    <line x1="774" y1="211" x2="786" y2="211" stroke="#be123c" stroke-width="2" marker-end="url(#arr-red11)"/>
 
-    <rect x="786" y="182" width="110" height="58" rx="6" fill="#ffffff" stroke="#0f766e"/>
-    <text x="794" y="201" font-size="11.5" font-weight="700" fill="#0f766e">資深團隊插管</text>
-    <text x="794" y="218" font-size="10.5" fill="#0f172a">返手術室探查</text>
-    <text x="794" y="232" font-size="10.5" fill="#065f46">徹底結紮止血</text>
+    <rect x="788" y="182" width="112" height="58" rx="6" fill="#ffffff" stroke="#0f766e"/>
+    <text x="796" y="200" font-size="11.2" font-weight="700" fill="#0f766e">資深團隊插管</text>
+    <text x="796" y="216" font-size="10" fill="#0f172a">返手術室探查</text>
+    <text x="796" y="231" font-size="10" fill="#065f46">徹底結紮止血</text>
 
     <!-- Post-Tonsillectomy Hemorrhage Card -->
-    <rect x="514" y="264" width="394" height="96" rx="8" fill="#fef3c7" stroke="#b45309"/>
-    <text x="526" y="284" font-size="13.5" font-weight="700" fill="#b45309">2. 扁桃腺切除術後出血：原發（&lt;24h）vs 繼發（第 5–10 天白膜脫落）</text>
-    <text x="526" y="304" font-size="11" fill="#0f172a">· 嚴肅對待「哨兵出血（Sentinel bleed）」：到急診看似止血仍必收治住院禁食、雙靜脈管備血</text>
-    <text x="526" y="324" font-size="11" fill="#78350f" font-weight="600">· 主動大出血返室麻醉：視同滿胃（胃內吞血）採 RSI 插管＋預備「雙套獨立大口徑抽吸」</text>
-    <text x="526" y="344" font-size="11" fill="#334155">· 口腔癌根治術後具 ENE(+) 或邊緣(+)：強制於「術後 6 週內」啟動順鉑同步放化療（MDT）</text>
+    <rect x="512" y="262" width="400" height="96" rx="8" fill="#fef3c7" stroke="#b45309"/>
+    <text x="522" y="281" font-size="11.4" font-weight="700" fill="#b45309">2. 扁桃腺術後出血：原發（&lt;24h）vs 繼發（第 5–10 天白膜脫落）</text>
+    <text x="522" y="302" font-size="9.8" fill="#0f172a">· 哨兵出血（Sentinel bleed）：急診看似止血仍必收住院禁食、雙靜脈管備血</text>
+    <text x="520" y="322" font-size="9.5" fill="#78350f" font-weight="600">· 主動大出血返室：視同滿胃（吞血）採 RSI 插管＋備「雙套獨立大口徑抽吸」</text>
+    <text x="520" y="342" font-size="9.5" fill="#334155">· 口腔癌 ENE(+)／邊緣(+)：須「術後 6 週內」啟動順鉑同步放化療（MDT）</text>
 
     <!-- Residency Training Governance Card -->
-    <rect x="514" y="370" width="394" height="136" rx="8" fill="#eff6ff" stroke="#1d4ed8"/>
-    <text x="526" y="390" font-size="13.5" font-weight="700" fill="#1d4ed8">3. 衛福部耳鼻喉專科訓練人力門檻與住院醫師分層授權</text>
-    <text x="526" y="410" font-size="11" fill="#0f172a">· 師資與聽語人力：至少 6 位專任主治收 1 名 R（每增 1 名 R 加 4 位，上限 5 名）；配 ≥2 或 ≥4 位聽語師</text>
-    <text x="526" y="430" font-size="11" fill="#0f172a">· 低年資 R1–R2：病房上限 ≤15 床 · 六大基本手術（扁桃腺／氣切／鼻中膈／喉顯微／通氣管／頸切片）</text>
-    <text x="526" y="450" font-size="11" fill="#1e3a8a" font-weight="600">· 高年資 R3+：主治監督下始得第一線執行跨科照會 · 進階 20 項耳鼻顱底頭頸特殊手術</text>
-    <text x="526" y="470" font-size="11" fill="#0f766e" font-weight="700">· 病歷認定基準強制要求：所有手術紀錄必須附上「解剖與病灶圖示」；聯訓主訓每年 ≥6 個月</text>
-    <text x="526" y="490" font-size="10.5" fill="#475569">· 耳科聽篩核心：純音右紅 O 左藍 X（氣骨差 &gt;10dB）· 溫差試驗頭高 30°（COWS）· 新生兒 24–36h aABR</text>
+    <rect x="512" y="366" width="400" height="142" rx="8" fill="#eff6ff" stroke="#1d4ed8"/>
+    <text x="522" y="385" font-size="12.2" font-weight="700" fill="#1d4ed8">3. 衛福部耳鼻喉專科訓練人力門檻與住院醫師分層授權</text>
+    <text x="520" y="404" font-size="9.5" fill="#0f172a">· 師資：≥6主治收1名R（每增1名加4位，上限5名）；配≥2或≥4位聽語師</text>
+    <text x="522" y="422" font-size="9.6" fill="#0f172a">· 低年資 R1–R2（≤15 床）六大基本術式：鼓室乳突／通氣管／鼻中隔鼻甲／</text>
+    <text x="534" y="438" font-size="9.6" fill="#0f172a">FESS／扁桃腺腺樣體／喉顯微（共 6 項基本手術；氣切與頸部切片非該表項目）</text>
+    <text x="522" y="456" font-size="9.6" fill="#1e3a8a" font-weight="600">· 高年資 R3+：主治監督下始得第一線跨科照會 · 進階 20 項耳鼻顱底頭頸手術</text>
+    <text x="522" y="474" font-size="9.6" fill="#0f766e" font-weight="700">· 病歷認定基準強制：所有手術紀錄必附「解剖與病灶圖示」；聯訓主訓每年 ≥6 月</text>
+    <text x="522" y="492" font-size="9.6" fill="#475569">· 聽篩：右紅O左藍X（ABG&gt;10dB）·溫差30°（COWS）·新生兒24–36h aABR</text>
   </g>
 </svg>

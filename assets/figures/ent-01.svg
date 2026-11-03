@@ -45,7 +45,7 @@
   <text x="63" y="289" text-anchor="end" fill="#475569" font-size="10">65</text>
   <text x="63" y="333" text-anchor="end" fill="#475569" font-size="10">85</text>
   <text x="45" y="255" text-anchor="middle" fill="#334155" font-size="10" transform="rotate(-90 45 255)">聽閾 (dB HL)</text>
-  <text x="298" y="194" text-anchor="end" fill="#0f766e" font-size="9.5" font-weight="600">成人正常 ≤25 dB</text>
+  <text x="294" y="194" text-anchor="end" fill="#0f766e" font-size="9.5" font-weight="600">成人正常 ≤25 dB</text>
 
   <!-- Curve A: Otosclerosis BC with 2 kHz Carhart notch (Amber) -->
   <polyline points="88,172 128,176 168,182 208,218 248,184 286,180" fill="none" stroke="#b45309" stroke-width="2" stroke-dasharray="5,3"/>
@@ -68,68 +68,68 @@
   <polyline points="88,176 128,178 168,184 208,196 248,308 286,232" fill="none" stroke="#1d4ed8" stroke-width="2.2"/>
   <circle cx="248" cy="308" r="4" fill="#1d4ed8"/>
   <text x="242" y="324" text-anchor="middle" fill="#1d4ed8" font-size="9.5" font-weight="700">4k 噪音凹陷</text>
-  <text x="284" y="224" text-anchor="end" fill="#1d4ed8" font-size="9">8k 回升</text>
+  <text x="284" y="224" text-anchor="end" fill="#1d4ed8" font-size="9.5">8k 回升</text>
 
   <!-- Legend & Pearls Box Panel 1 -->
   <rect x="40" y="370" width="268" height="148" rx="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
-  <text x="50" y="389" fill="#be123c" font-size="11" font-weight="700">● 紅圓右耳氣導（○） · 傳導性聽損氣骨導差</text>
-  <text x="50" y="407" fill="#b45309" font-size="11" font-weight="700">● 骨導 2 kHz Carhart 凹陷：耳硬化症足板固著</text>
-  <text x="50" y="425" fill="#1d4ed8" font-size="11" font-weight="700">● 雙側對稱 4 kHz 凹陷：慢性噪音性外毛細胞傷</text>
-  <line x1="50" y1="435" x2="298" y2="435" stroke="#cbd5e1" stroke-width="1"/>
-  <text x="50" y="453" fill="#0f172a" font-size="10.5">· PTA 四頻平均：500、1000、2000、4000 Hz</text>
-  <text x="50" y="471" fill="#0f172a" font-size="10.5">· 氣導跨顱衰減約 40 dB；骨導近 0 dB 須積極遮蔽</text>
-  <text x="50" y="489" fill="#0f172a" font-size="10.5">· SRT 與 PTA 應相差 ≤10 dB；Rollover 提示</text>
-  <text x="58" y="506" fill="#0f172a" font-size="10.5">耳蝸後第八對腦神經病變（如前庭神經鞘瘤）</text>
+  <text x="48" y="389" fill="#be123c" font-size="10" font-weight="700">● 紅圓右耳氣導（○）· 傳導聽損氣骨導差</text>
+  <text x="48" y="407" fill="#b45309" font-size="10" font-weight="700">● 骨導 2 kHz Carhart 凹陷：耳硬化足板固著</text>
+  <text x="48" y="425" fill="#1d4ed8" font-size="10" font-weight="700">● 雙側對稱 4 kHz 凹陷：慢性噪音外毛細胞傷</text>
+  <line x1="48" y1="435" x2="298" y2="435" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="48" y="453" fill="#0f172a" font-size="9.8">· PTA 四頻平均：500、1000、2000、4000 Hz</text>
+  <text x="48" y="471" fill="#0f172a" font-size="9.8">· 氣導跨顱衰減 40 dB；骨導 0 dB 須積極遮蔽</text>
+  <text x="48" y="489" fill="#0f172a" font-size="9.8">· SRT 與 PTA 差 ≤10 dB；Rollover 提示耳蝸後</text>
+  <text x="56" y="506" fill="#0f172a" font-size="9.8">第八對腦神經病變（如前庭神經鞘瘤）</text>
 
   <!-- ==================== PANEL 2: TYMPANOMETRY ==================== -->
   <rect x="334" y="84" width="292" height="446" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
   <rect x="334" y="84" width="292" height="32" rx="10" fill="#ccfbf1"/>
   <text x="480" y="105" text-anchor="middle" fill="#0f172a" font-size="13.5" font-weight="700">② Jerger 鼓室圖五分型（226 Hz）</text>
 
-  <!-- Tympanogram Plot Area: x=372..608, y=140..355 -->
-  <rect x="372" y="140" width="236" height="215" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <!-- Tympanogram Plot Area: x=370..616, y=140..355 -->
+  <rect x="370" y="140" width="246" height="215" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
   <!-- Zero daPa vertical reference & normal zone (-100 to +50) -->
-  <rect x="490" y="140" width="52" height="215" fill="#ecfdf5"/>
-  <line x1="525" y1="140" x2="525" y2="355" stroke="#0f766e" stroke-width="1.2" stroke-dasharray="4,3"/>
-  <line x1="436" y1="140" x2="436" y2="355" stroke="#e2e8f0" stroke-width="0.8"/>
+  <rect x="470" y="140" width="44" height="215" fill="#ecfdf5"/>
+  <line x1="502" y1="140" x2="502" y2="355" stroke="#0f766e" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <line x1="426" y1="140" x2="426" y2="355" stroke="#e2e8f0" stroke-width="0.8"/>
 
   <!-- Pressure X-axis labels -->
   <text x="380" y="370" text-anchor="middle" fill="#475569" font-size="9.5">-400</text>
-  <text x="436" y="370" text-anchor="middle" fill="#475569" font-size="9.5">-200</text>
-  <text x="490" y="370" text-anchor="middle" fill="#0f766e" font-size="9.5">-100</text>
-  <text x="525" y="370" text-anchor="middle" fill="#0f766e" font-size="10" font-weight="700">0</text>
-  <text x="595" y="370" text-anchor="middle" fill="#475569" font-size="9.5">+200 daPa</text>
+  <text x="426" y="370" text-anchor="middle" fill="#475569" font-size="9.5">-200</text>
+  <text x="470" y="370" text-anchor="middle" fill="#0f766e" font-size="9.5">-100</text>
+  <text x="502" y="370" text-anchor="middle" fill="#0f766e" font-size="10" font-weight="700">0</text>
+  <text x="582" y="370" text-anchor="middle" fill="#475569" font-size="9.5">+200 daPa</text>
   <text x="352" y="250" text-anchor="middle" fill="#334155" font-size="10" transform="rotate(-90 352 250)">聲順 Compliance (mL)</text>
 
   <!-- Type Ad (Blue, tall peak at 0 daPa) -->
-  <path d="M 380 336 Q 485 332 512 162 L 525 148 L 538 162 Q 565 332 600 336" fill="none" stroke="#1d4ed8" stroke-width="2.3"/>
-  <text x="562" y="162" fill="#1d4ed8" font-size="10.5" font-weight="700">Type Ad（超高峰）</text>
+  <path d="M 378 336 Q 466 332 490 162 L 502 148 L 514 162 Q 540 332 596 336" fill="none" stroke="#1d4ed8" stroke-width="2.3"/>
+  <text x="515" y="162" fill="#1d4ed8" font-size="9.5" font-weight="700">Type Ad（超高峰）</text>
 
   <!-- Type A (Teal, normal peak at 0 daPa) -->
-  <path d="M 380 338 Q 485 334 525 224 Q 565 334 600 338" fill="none" stroke="#0f766e" stroke-width="2.5"/>
-  <text x="566" y="232" fill="#0f766e" font-size="10.5" font-weight="700">Type A（正常）</text>
+  <path d="M 378 338 Q 466 334 502 224 Q 540 334 596 338" fill="none" stroke="#0f766e" stroke-width="2.5"/>
+  <text x="518" y="232" fill="#0f766e" font-size="9.5" font-weight="700">Type A（正常）</text>
 
   <!-- Type As (Amber, shallow peak at 0 daPa) -->
-  <path d="M 380 340 Q 492 338 525 298 Q 558 338 600 340" fill="none" stroke="#b45309" stroke-width="2.2"/>
-  <text x="556" y="302" fill="#b45309" font-size="10.5" font-weight="700">Type As（低峰）</text>
+  <path d="M 378 340 Q 472 338 502 298 Q 534 338 596 340" fill="none" stroke="#b45309" stroke-width="2.2"/>
+  <text x="516" y="302" fill="#b45309" font-size="9.5" font-weight="700">Type As（低峰）</text>
 
-  <!-- Type C (Purple/Slate, negative peak at -220 daPa) -->
-  <path d="M 380 338 Q 412 334 436 236 Q 462 334 600 340" fill="none" stroke="#6d28d9" stroke-width="2.2" stroke-dasharray="5,2"/>
-  <text x="428" y="226" text-anchor="middle" fill="#6d28d9" font-size="10.5" font-weight="700">Type C（負壓）</text>
+  <!-- Type C (Purple/Slate, negative peak at -200 daPa) -->
+  <path d="M 378 338 Q 404 334 426 236 Q 450 334 596 340" fill="none" stroke="#6d28d9" stroke-width="2.2" stroke-dasharray="5,2"/>
+  <text x="424" y="226" text-anchor="middle" fill="#6d28d9" font-size="9.8" font-weight="700">Type C（負壓）</text>
 
   <!-- Type B (Crimson, flat line) -->
-  <path d="M 380 346 Q 490 344 600 346" fill="none" stroke="#be123c" stroke-width="2.6"/>
-  <text x="438" y="340" fill="#be123c" font-size="10.5" font-weight="700">Type B（平坦無峰）</text>
+  <path d="M 378 346 Q 480 344 596 346" fill="none" stroke="#be123c" stroke-width="2.6"/>
+  <text x="428" y="340" fill="#be123c" font-size="9.8" font-weight="700">Type B（平坦無峰）</text>
 
   <!-- Tympanogram Table/Pearls -->
   <rect x="346" y="380" width="268" height="138" rx="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
-  <text x="356" y="399" fill="#1d4ed8" font-size="10.5" font-weight="700">· Type Ad：聽小骨鏈斷裂、萎縮鬆弛鼓膜</text>
-  <text x="356" y="417" fill="#b45309" font-size="10.5" font-weight="700">· Type As：耳硬化症（鐙骨固著）、鼓室硬化</text>
-  <text x="356" y="435" fill="#6d28d9" font-size="10.5" font-weight="700">· Type C（&lt;-100 daPa）：耳咽管功能不良／OME 早期</text>
-  <text x="356" y="453" fill="#be123c" font-size="10.5" font-weight="700">· Type B＋ECV 鑑別：正常＝中耳積液；過小＝耳垢；</text>
-  <text x="364" y="470" fill="#be123c" font-size="10.5">ECV &gt;2.0–2.5 mL＝鼓膜穿孔或中耳通氣管暢通</text>
-  <text x="356" y="490" fill="#0f766e" font-size="10.5" font-weight="600">· 嬰兒（≤6 月齡）須改用 1000 Hz 高頻探測音</text>
-  <text x="356" y="507" fill="#334155" font-size="10">· 鐙骨肌反射：CN VIII 傳入 → 上橄欖核 → 雙側 CN VII</text>
+  <text x="354" y="399" fill="#1d4ed8" font-size="9.8" font-weight="700">· Type Ad：聽小骨鏈斷裂、萎縮鬆弛鼓膜</text>
+  <text x="354" y="417" fill="#b45309" font-size="9.8" font-weight="700">· Type As：耳硬化症（鐙骨固著）、鼓室硬化</text>
+  <text x="354" y="435" fill="#6d28d9" font-size="9.6" font-weight="700">· Type C（&lt;-100 daPa）：耳咽管不良／OME 早期</text>
+  <text x="354" y="453" fill="#be123c" font-size="9.6" font-weight="700">· Type B＋ECV：正常＝積液；小＝耳垢；大＝穿孔</text>
+  <text x="362" y="470" fill="#be123c" font-size="9.6">（ECV &gt;2.0–2.5 mL 亦見於中耳通氣管暢通）</text>
+  <text x="354" y="489" fill="#0f766e" font-size="9.6" font-weight="600">· 嬰兒（≤6 月齡）須改用 1000 Hz 高頻探測音</text>
+  <text x="354" y="507" fill="#334155" font-size="9.5">· 鐙骨肌反射：CN VIII→上橄欖核→雙側 CN VII</text>
 
   <!-- ==================== PANEL 3: ABR ==================== -->
   <rect x="640" y="84" width="292" height="446" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
@@ -138,52 +138,52 @@
 
   <!-- ABR Waveform Box: x=654..918, y=128..290 -->
   <rect x="654" y="128" width="264" height="162" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
-  <text x="662" y="144" fill="#0f766e" font-size="10" font-weight="700">正常波形（1–10 ms）</text>
+  <text x="662" y="143" fill="#0f766e" font-size="9.8" font-weight="700">正常波形（1–10 ms）</text>
   <!-- Normal ABR Waveform -->
-  <path d="M 664 186 L 684 186 L 696 164 L 707 194 L 722 168 L 733 192 L 750 160 L 764 196 L 780 156 L 789 174 L 804 142 L 824 202 L 856 186 L 908 186" fill="none" stroke="#0f766e" stroke-width="2.3"/>
-  <text x="696" y="158" text-anchor="middle" fill="#0f766e" font-size="10.5" font-weight="700">I</text>
-  <text x="722" y="162" text-anchor="middle" fill="#0f766e" font-size="10.5" font-weight="700">II</text>
-  <text x="750" y="154" text-anchor="middle" fill="#0f766e" font-size="10.5" font-weight="700">III</text>
-  <text x="780" y="150" text-anchor="middle" fill="#0f766e" font-size="10.5" font-weight="700">IV</text>
-  <text x="804" y="137" text-anchor="middle" fill="#0f766e" font-size="11" font-weight="700">V（最穩定）</text>
+  <path d="M 664 192 L 684 192 L 696 170 L 707 200 L 722 174 L 733 198 L 750 166 L 764 202 L 780 164 L 789 180 L 814 148 L 832 206 L 858 192 L 908 192" fill="none" stroke="#0f766e" stroke-width="2.3"/>
+  <text x="696" y="164" text-anchor="middle" fill="#0f766e" font-size="10" font-weight="700">I</text>
+  <text x="722" y="168" text-anchor="middle" fill="#0f766e" font-size="10" font-weight="700">II</text>
+  <text x="750" y="160" text-anchor="middle" fill="#0f766e" font-size="10" font-weight="700">III</text>
+  <text x="780" y="159" text-anchor="middle" fill="#0f766e" font-size="10" font-weight="700">IV</text>
+  <text x="822" y="144" text-anchor="middle" fill="#0f766e" font-size="10" font-weight="700">V（最穩定）</text>
 
   <!-- Retrocochlear Delayed ABR Waveform -->
-  <text x="662" y="222" fill="#be123c" font-size="10" font-weight="700">耳蝸後病變（聽神經瘤）</text>
-  <path d="M 664 256 L 684 256 L 696 238 L 708 262 L 738 256 L 774 242 L 788 262 L 826 254 L 852 228 L 872 268 L 908 256" fill="none" stroke="#be123c" stroke-width="2.2" stroke-dasharray="4,2"/>
-  <text x="696" y="233" text-anchor="middle" fill="#be123c" font-size="10" font-weight="700">I</text>
-  <text x="852" y="222" text-anchor="middle" fill="#be123c" font-size="10.5" font-weight="700">V 延遲</text>
+  <text x="662" y="218" fill="#be123c" font-size="9.8" font-weight="700">耳蝸後病變（聽神經瘤）</text>
+  <path d="M 664 258 L 684 258 L 696 240 L 708 264 L 738 258 L 774 244 L 788 264 L 826 256 L 852 230 L 872 270 L 908 258" fill="none" stroke="#be123c" stroke-width="2.2" stroke-dasharray="4,2"/>
+  <text x="696" y="235" text-anchor="middle" fill="#be123c" font-size="9.8" font-weight="700">I</text>
+  <text x="852" y="224" text-anchor="middle" fill="#be123c" font-size="10" font-weight="700">V 延遲</text>
 
   <!-- I-V Interpeak Latency Arrow -->
   <line x1="696" y1="276" x2="852" y2="276" stroke="#be123c" stroke-width="1.5"/>
   <polygon points="696,276 703,272 703,280" fill="#be123c"/>
   <polygon points="852,276 845,272 845,280" fill="#be123c"/>
-  <text x="774" y="286" text-anchor="middle" fill="#be123c" font-size="9.5" font-weight="700">第 I–V 波間潛時延長 / 雙耳 V 波差 &gt;0.2 ms</text>
+  <text x="786" y="286" text-anchor="middle" fill="#be123c" font-size="9.5" font-weight="700">第 I–V 波間潛時延長 / 雙耳 V 波差 &gt;0.2 ms</text>
 
-  <!-- Anatomical Ladder (ECMA) -->
+  <!-- Anatomical Ladder (ECOLI) -->
   <rect x="654" y="300" width="264" height="218" rx="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
-  <text x="664" y="319" fill="#0f172a" font-size="11" font-weight="700">ABR 解剖定位階梯（ECMA 記憶順序）：</text>
+  <text x="664" y="319" fill="#0f172a" font-size="10.5" font-weight="700">ABR ECOLI 口訣（人腦 Møller 定位）</text>
 
   <rect x="664" y="327" width="244" height="24" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="672" y="343" fill="#0f766e" font-size="10.5" font-weight="700">Wave I</text>
-  <text x="728" y="343" fill="#0f172a" font-size="10.5">第八對腦神經遠端（耳蝸側）</text>
+  <text x="672" y="343" fill="#0f766e" font-size="10" font-weight="700">Wave I</text>
+  <text x="726" y="343" fill="#0f172a" font-size="10">遠端聽神經（耳蝸側，E）</text>
 
   <rect x="664" y="355" width="244" height="24" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="672" y="371" fill="#0f766e" font-size="10.5" font-weight="700">Wave II</text>
-  <text x="728" y="371" fill="#0f172a" font-size="10.5">聽神經顱內近端 ／ 耳蝸核（CN）</text>
+  <text x="672" y="371" fill="#0f766e" font-size="10" font-weight="700">Wave II</text>
+  <text x="726" y="371" fill="#0f172a" font-size="10">近端聽神經（顱內段，E）</text>
 
   <rect x="664" y="383" width="244" height="24" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="672" y="399" fill="#1d4ed8" font-size="10.5" font-weight="700">Wave III</text>
-  <text x="728" y="399" fill="#0f172a" font-size="10.5">橋腦下段 上橄欖複合體（SOC）</text>
+  <text x="672" y="399" fill="#1d4ed8" font-size="10" font-weight="700">Wave III</text>
+  <text x="726" y="399" fill="#0f172a" font-size="10">耳蝸核（橋腦下段 CN，C）</text>
 
   <rect x="664" y="411" width="244" height="24" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
-  <text x="672" y="427" fill="#1d4ed8" font-size="10.5" font-weight="700">Wave IV</text>
-  <text x="728" y="427" fill="#0f172a" font-size="10.5">橋腦上段 外側蹄系（LL）</text>
+  <text x="672" y="427" fill="#1d4ed8" font-size="10" font-weight="700">Wave IV</text>
+  <text x="726" y="427" fill="#0f172a" font-size="10">上橄欖／外側蹄系（O／L）</text>
 
   <rect x="664" y="439" width="244" height="24" rx="4" fill="#ecfdf5" stroke="#0f766e"/>
-  <text x="672" y="455" fill="#0f766e" font-size="10.5" font-weight="700">Wave V</text>
-  <text x="728" y="455" fill="#0f172a" font-size="10.5" font-weight="600">中腦下丘（IC）· 客觀聽閾指標</text>
+  <text x="672" y="455" fill="#0f766e" font-size="10" font-weight="700">Wave V</text>
+  <text x="726" y="455" fill="#0f172a" font-size="10" font-weight="600">下丘（中腦 IC，I）· 聽閾指標</text>
 
-  <text x="664" y="482" fill="#b45309" font-size="10" font-weight="700">· OAE 正常＋ABR 缺失＝聽神經譜系障礙（ANSD）</text>
-  <text x="664" y="498" fill="#334155" font-size="10">· 新生兒聽篩 1-3-6：1 月篩檢 · 3 月確診 · 6 月早療</text>
-  <text x="664" y="513" fill="#334155" font-size="10">· NICU 高危嬰兒必用 aABR 篩檢防漏診 ANSD</text>
+  <text x="664" y="481" fill="#b45309" font-size="9.6" font-weight="700">· OAE 正常＋ABR 異常＝聽神經譜系障礙（ANSD）</text>
+  <text x="664" y="497" fill="#334155" font-size="9.6">· 新生兒聽篩 1-3-6：1月篩檢 · 3月確診 · 6月早療</text>
+  <text x="664" y="513" fill="#334155" font-size="9.6">· NICU 高危嬰兒必用 aABR 篩檢防漏診 ANSD</text>
 </svg>

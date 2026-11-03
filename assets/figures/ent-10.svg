@@ -34,9 +34,9 @@
     <!-- Le Fort I line (Teal - Horizontal floating palate) -->
     <line x1="94" y1="250" x2="194" y2="250" stroke="#0f766e" stroke-width="3.2"/>
 
-    <text x="64" y="304" font-size="11" font-weight="700" fill="#0f766e">── Le Fort I（20–30%）</text>
-    <text x="64" y="322" font-size="11" font-weight="700" fill="#b45309">── Le Fort II（35–55% 最多）</text>
-    <text x="64" y="340" font-size="11" font-weight="700" fill="#be123c">── Le Fort III（5–15% 最重）</text>
+    <text x="60" y="304" font-size="9.8" font-weight="700" fill="#0f766e">─ Le Fort I（20–30%）</text>
+    <text x="60" y="322" font-size="9.8" font-weight="700" fill="#b45309">─ Le Fort II（35–55% 最多）</text>
+    <text x="60" y="340" font-size="9.8" font-weight="700" fill="#be123c">─ Le Fort III（5–15% 最重）</text>
 
     <!-- Descriptions of Le Fort I-III on right half of Panel A -->
     <rect x="246" y="132" width="224" height="66" rx="6" fill="#ecfdf5" stroke="#0f766e"/>
@@ -45,7 +45,7 @@
     <text x="255" y="183" font-size="10.5" fill="#065f46">徵象：浮動上顎 Floating palate</text>
 
     <rect x="246" y="204" width="224" height="68" rx="6" fill="#fef3c7" stroke="#b45309"/>
-    <text x="255" y="222" font-size="12" font-weight="700" fill="#b45309">Le Fort II（金字塔型 · 最常見）</text>
+    <text x="255" y="222" font-size="11.5" font-weight="700" fill="#b45309">Le Fort II（金字塔型·最常見）</text>
     <text x="255" y="239" font-size="10.5" fill="#0f172a">經鼻額縫、淚骨、眶底眶下孔</text>
     <text x="255" y="255" font-size="10.5" fill="#78350f">徵象：眶下神經 V2 麻木 · 鼻漏</text>
 
@@ -57,45 +57,45 @@
 
     <!-- Pediatric Trapdoor & Nasal Septal Hematoma Red Flags -->
     <rect x="52" y="366" width="418" height="140" rx="8" fill="#eff6ff" stroke="#1d4ed8"/>
-    <text x="64" y="386" font-size="13" font-weight="700" fill="#1d4ed8">眼眶底、顴弓與鼻外傷三大急診陷阱</text>
-    <text x="64" y="406" font-size="11" fill="#0f172a">· 成人眼眶底爆裂（淚滴徵）：無眼球破裂先消腫觀察 2 週（嚴禁擤鼻防眼眶氣腫！）</text>
-    <text x="64" y="426" font-size="11" fill="#be123c" font-weight="700">· 兒童白眼活門骨折（Trapdoor）：彈性骨夾死下直肌伴嘔吐心搏慢（眼心反射）→ 3–5 天急開刀</text>
-    <text x="64" y="446" font-size="11" fill="#0f172a">· 單純顴弓凹陷骨折：直接卡壓「下顎骨冠狀突與顳肌」→ 張口受限（Trismus）</text>
-    <text x="64" y="466" font-size="11" fill="#be123c" font-weight="700">· 鼻中膈血腫：雙側紫紅柔軟膨出須「當場切開引流」（防軟骨壞死成馬鞍鼻）</text>
-    <text x="64" y="486" font-size="11" fill="#475569">· 單純鼻骨歪斜閉鎖復位時窗：消腫後成人 5–10 天內、兒童 3–7 天內；額竇傷鼻額管防黏液囊腫</text>
+    <text x="60" y="386" font-size="12.5" font-weight="700" fill="#1d4ed8">眼眶底、顴弓與鼻外傷三大急診陷阱</text>
+    <text x="60" y="406" font-size="9.8" fill="#0f172a">· 成人眼眶底爆裂（淚滴徵）：無眼球破裂先觀察 2 週（嚴禁擤鼻防眼眶氣腫！）</text>
+    <text x="60" y="426" font-size="9.6" fill="#be123c" font-weight="700">· 白眼 Trapdoor（眼心反射）：兒童嵌頓骨折 24–48h 急手術鬆解（一般 3–5d）</text>
+    <text x="60" y="446" font-size="9.8" fill="#0f172a">· 單純顴弓凹陷骨折：直接卡壓「下顎冠狀突與顳肌」→ 張口受限（Trismus）</text>
+    <text x="60" y="466" font-size="9.8" fill="#be123c" font-weight="700">· 鼻中膈血腫：雙側紫紅柔軟膨出須「當場切開引流」（防軟骨壞死馬鞍鼻）</text>
+    <text x="60" y="486" font-size="9.8" fill="#475569">· 鼻骨閉鎖復位：成人 5–10d、兒童 3–7d；額竇傷鼻額管須防晚期黏液囊腫</text>
 
     <!-- Right Panel: CSF Leak Stepwise + Free Flap Reconstructive Pairing -->
     <rect x="498" y="92" width="426" height="428" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
     <text x="516" y="118" font-size="16" font-weight="700" fill="#0f766e">B. 外傷性腦脊髓液鼻漏與頭頸重建皮瓣配對</text>
 
     <!-- CSF Rhinorrhea Flow -->
-    <rect x="514" y="132" width="394" height="144" rx="8" fill="#ecfdf5" stroke="#0f766e"/>
-    <text x="526" y="152" font-size="13.5" font-weight="700" fill="#0f766e">外傷性 CSF 鼻漏（鼻竇外傷約 25%，額竇後壁與篩板最多）</text>
+    <rect x="514" y="132" width="398" height="144" rx="8" fill="#ecfdf5" stroke="#0f766e"/>
+    <text x="524" y="152" font-size="12.5" font-weight="700" fill="#0f766e">外傷性 CSF 鼻漏（鼻竇外傷約 25%，額竇後壁與篩板最多）</text>
 
-    <rect x="526" y="164" width="116" height="68" rx="6" fill="#ffffff" stroke="#0f766e"/>
-    <text x="534" y="182" font-size="11.5" font-weight="700" fill="#0f766e">1. 黃金生化確診</text>
-    <text x="534" y="199" font-size="10.5" fill="#0f172a">Beta-2 transferrin</text>
-    <text x="534" y="214" font-size="10" fill="#be123c">（禁單憑葡萄糖試紙）</text>
+    <rect x="524" y="164" width="120" height="68" rx="6" fill="#ffffff" stroke="#0f766e"/>
+    <text x="531" y="182" font-size="11" font-weight="700" fill="#0f766e">1. 黃金生化確診</text>
+    <text x="531" y="199" font-size="9.6" fill="#0f172a">Beta-2 transferrin</text>
+    <text x="531" y="215" font-size="9.6" fill="#be123c">（禁單憑糖試紙）</text>
 
-    <line x1="642" y1="198" x2="654" y2="198" stroke="#0f766e" stroke-width="2" marker-end="url(#arr-teal10)"/>
+    <line x1="644" y1="198" x2="656" y2="198" stroke="#0f766e" stroke-width="2" marker-end="url(#arr-teal10)"/>
 
-    <rect x="656" y="164" width="116" height="68" rx="6" fill="#ffffff" stroke="#0f766e"/>
-    <text x="664" y="182" font-size="11.5" font-weight="700" fill="#0f766e">2. 保守 10–14 天</text>
-    <text x="664" y="199" font-size="10.5" fill="#0f172a">抬頭 30°·軟便止咳</text>
-    <text x="664" y="214" font-size="10.5" fill="#065f46">約 85% 自行閉合</text>
+    <rect x="658" y="164" width="116" height="68" rx="6" fill="#ffffff" stroke="#0f766e"/>
+    <text x="665" y="182" font-size="10.5" font-weight="700" fill="#0f766e">2. 保守 10–14 天</text>
+    <text x="665" y="199" font-size="10" fill="#0f172a">抬頭 30°·軟便止咳</text>
+    <text x="665" y="215" font-size="10" fill="#065f46">約 85% 自行閉合</text>
 
-    <line x1="772" y1="198" x2="784" y2="198" stroke="#0f766e" stroke-width="2" marker-end="url(#arr-teal10)"/>
+    <line x1="774" y1="198" x2="786" y2="198" stroke="#0f766e" stroke-width="2" marker-end="url(#arr-teal10)"/>
 
-    <rect x="786" y="164" width="110" height="68" rx="6" fill="#ffffff" stroke="#1d4ed8"/>
-    <text x="794" y="182" font-size="11.5" font-weight="700" fill="#1d4ed8">3. 內視鏡修補</text>
-    <text x="794" y="199" font-size="10.5" fill="#0f172a">HRCT+鞘內螢光素</text>
-    <text x="794" y="214" font-size="10.5" fill="#1e3a8a">成功率 90–95%</text>
+    <rect x="788" y="164" width="112" height="68" rx="6" fill="#ffffff" stroke="#1d4ed8"/>
+    <text x="795" y="182" font-size="11" font-weight="700" fill="#1d4ed8">3. 內視鏡修補</text>
+    <text x="795" y="199" font-size="10" fill="#0f172a">HRCT+鞘內螢光素</text>
+    <text x="795" y="215" font-size="10" fill="#1e3a8a">成功率 90–95%</text>
 
-    <text x="526" y="256" font-size="11" fill="#334155">· 清澈不黏稠、手帕乾後不變硬；腦膜炎風險 3–11%（肺炎鏈球菌與流感嗜血桿菌最多）</text>
+    <text x="522" y="256" font-size="9.5" fill="#334155">· 清澈不黏稠、手帕乾後不變硬；腦膜炎風險 3–11%（肺炎鏈球菌、流感桿菌最多）</text>
 
     <!-- Free Flap Reconstructive Matrix -->
-    <rect x="514" y="286" width="394" height="220" rx="8" fill="#f8fafc" stroke="#94a3b8"/>
-    <text x="526" y="308" font-size="13.5" font-weight="700" fill="#0f172a">頭頸缺損重建階梯：區域帶蒂皮瓣 vs 三大主力顯微游離皮瓣</text>
+    <rect x="514" y="286" width="398" height="220" rx="8" fill="#f8fafc" stroke="#94a3b8"/>
+    <text x="524" y="308" font-size="12.5" font-weight="700" fill="#0f172a">頭頸缺損重建階梯：區域帶蒂皮瓣 vs 三大主力顯微游離皮瓣</text>
 
     <rect x="526" y="320" width="180" height="72" rx="6" fill="#fef3c7" stroke="#b45309"/>
     <text x="534" y="338" font-size="12" font-weight="700" fill="#b45309">胸大肌帶蒂皮瓣 PMMC</text>
@@ -117,6 +117,6 @@
     <text x="724" y="435" font-size="10.5" fill="#0f172a">長 20–25cm 雙皮質骨可植牙</text>
     <text x="724" y="452" font-size="10.5" fill="#881337">下顎骨前弓跨越中線重建首選</text>
 
-    <text x="526" y="492" font-size="11" fill="#be123c" font-weight="600">術後 72h 巡房：暗紫腫脹快回充＋刺出黑血＝靜脈血栓（最常見），分秒必爭返室取栓！</text>
+    <text x="524" y="492" font-size="9.8" fill="#be123c" font-weight="600">術後 72h 巡房：暗紫腫脹快回充＋刺出黑血＝靜脈血栓（最常見），急返室取栓！</text>
   </g>
 </svg>

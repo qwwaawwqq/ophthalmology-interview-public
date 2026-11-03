@@ -28,18 +28,18 @@
     <!-- Columns representing sagittal layers from Anterior (left) to Posterior (right) -->
     <!-- Trachea/Esophagus + Buccopharyngeal fascia -->
     <rect x="142" y="146" width="66" height="212" rx="4" fill="#ecfdf5" stroke="#0f766e"/>
-    <text x="150" y="172" font-size="11.5" font-weight="700" fill="#0f766e">咽 · 食道</text>
-    <text x="150" y="190" font-size="10.5" fill="#065f46">氣管前層</text>
-    <text x="150" y="208" font-size="10" fill="#475569">頰咽筋膜</text>
-    <text x="150" y="226" font-size="10" fill="#475569">（前界）</text>
+    <text x="148" y="172" font-size="10.5" font-weight="700" fill="#0f766e">咽·食道</text>
+    <text x="148" y="190" font-size="10" fill="#065f46">氣管前層</text>
+    <text x="148" y="208" font-size="10" fill="#475569">頰咽筋膜</text>
+    <text x="148" y="226" font-size="10" fill="#475569">（前界）</text>
 
     <!-- Retropharyngeal Space (stops at T1-T4!) -->
     <rect x="214" y="146" width="76" height="116" rx="4" fill="#fef3c7" stroke="#b45309" stroke-width="1.8"/>
-    <text x="220" y="170" font-size="11.5" font-weight="700" fill="#b45309">咽後間隙</text>
-    <text x="220" y="188" font-size="10" fill="#78350f">幼童淋巴化膿</text>
-    <text x="220" y="204" font-size="10" fill="#78350f">成人魚刺穿刺</text>
-    <text x="220" y="224" font-size="10" font-weight="700" fill="#b45309">止於 T1–T4</text>
-    <text x="220" y="242" font-size="10" fill="#be123c">破翼狀筋膜→</text>
+    <text x="219" y="170" font-size="11" font-weight="700" fill="#b45309">咽後間隙</text>
+    <text x="219" y="188" font-size="9.5" fill="#78350f">幼童淋巴化膿</text>
+    <text x="219" y="204" font-size="9.5" fill="#78350f">成人魚刺穿刺</text>
+    <text x="219" y="224" font-size="9.8" font-weight="700" fill="#b45309">止於 T1–T4</text>
+    <text x="219" y="242" font-size="9.5" fill="#be123c">破翼狀筋膜→</text>
 
     <!-- Alar fascia vertical line -->
     <line x1="295" y1="142" x2="295" y2="362" stroke="#be123c" stroke-width="2" stroke-dasharray="5 2"/>
@@ -47,55 +47,55 @@
 
     <!-- Danger Space (Skull base all the way to Diaphragm!) -->
     <rect x="300" y="146" width="84" height="212" rx="4" fill="#ffe4e6" stroke="#be123c" stroke-width="2"/>
-    <text x="307" y="170" font-size="12" font-weight="700" fill="#be123c">危險間隙</text>
-    <text x="307" y="186" font-size="10.5" font-weight="700" fill="#881337">Danger Space</text>
-    <text x="307" y="204" font-size="10" fill="#881337">翼狀與椎前間</text>
+    <text x="305" y="170" font-size="11.5" font-weight="700" fill="#be123c">危險間隙</text>
+    <text x="305" y="186" font-size="9.5" font-weight="700" fill="#881337">Danger Space</text>
+    <text x="305" y="204" font-size="9.8" fill="#881337">翼狀與椎前間</text>
     <line x1="342" y1="214" x2="342" y2="314" stroke="#be123c" stroke-width="2.5" marker-end="url(#arr-red9)"/>
-    <text x="306" y="334" font-size="10.5" font-weight="700" fill="#be123c">直通後縱膈！</text>
-    <text x="306" y="350" font-size="10" fill="#881337">壞死性縱膈炎</text>
+    <text x="305" y="334" font-size="10.2" font-weight="700" fill="#be123c">直通後縱膈！</text>
+    <text x="305" y="350" font-size="9.8" fill="#881337">壞死性縱膈炎</text>
 
     <!-- Prevertebral Space + Spine (to coccyx) -->
     <rect x="390" y="146" width="74" height="236" rx="4" fill="#e2e8f0" stroke="#475569"/>
     <text x="396" y="170" font-size="11.5" font-weight="700" fill="#1e293b">椎前間隙</text>
-    <text x="396" y="188" font-size="10" fill="#334155">椎前筋膜後</text>
-    <text x="396" y="206" font-size="10" fill="#334155">脊椎骨髓炎</text>
-    <text x="396" y="224" font-size="10" fill="#334155">延伸至尾骨</text>
+    <text x="396" y="188" font-size="9.8" fill="#334155">椎前筋膜後</text>
+    <text x="396" y="206" font-size="9.8" fill="#334155">脊椎骨髓炎</text>
+    <text x="396" y="224" font-size="9.8" fill="#334155">延伸至尾骨</text>
     <text x="396" y="374" font-size="10" font-weight="700" fill="#1e293b">↓ 達尾骨</text>
 
     <!-- Bottom Key Deep Neck Pearls -->
     <rect x="50" y="392" width="416" height="114" rx="8" fill="#fff1f2" stroke="#be123c"/>
-    <text x="62" y="412" font-size="13" font-weight="700" fill="#be123c">深頸部感染（DNI）三大致命考點</text>
-    <text x="62" y="432" font-size="11" fill="#0f172a">· 魯氏咽峽炎（Ludwig）：下顎第 2、3 臼齒根尖低於下頷舌骨肌 → 雙側口底木板硬腫推舌窒息</text>
-    <text x="62" y="452" font-size="11" fill="#0f172a">· 咽旁莖突前室：內翼肌牙關緊閉 + 扁桃腺內移；莖突後室（頸動脈鞘）：Lemierre 血栓／Horner</text>
-    <text x="62" y="472" font-size="11" fill="#881337" font-weight="600">· 台灣糖尿病患頭號致病菌：克雷伯氏肺炎桿菌（K. pneumoniae）；優先清醒光纖插管或氣切！</text>
-    <text x="62" y="492" font-size="11" fill="#475569">· 側頸 X 光咽後軟組織正常上限：C2 前 ≤7 mm；C6 前小兒 ≤14 mm、成人 ≤22 mm</text>
+    <text x="60" y="412" font-size="12.5" font-weight="700" fill="#be123c">深頸部感染（DNI）三大致命考點</text>
+    <text x="60" y="431" font-size="9.8" fill="#0f172a">· 魯氏咽峽炎（Ludwig）：下顎2·3臼齒根尖低於下頷舌骨肌→口底木板硬腫窒息</text>
+    <text x="60" y="450" font-size="9.8" fill="#0f172a">· 咽旁前室：內翼肌牙關緊閉＋扁桃腺內移；後室（頸動脈鞘）：Lemierre／Horner</text>
+    <text x="60" y="469" font-size="9.8" fill="#881337" font-weight="600">· 台灣糖尿病患首見克雷伯氏菌（K. pneumoniae）；優先清醒光纖插管或氣切！</text>
+    <text x="60" y="488" font-size="9.8" fill="#475569">· 側頸 X 光咽後軟組織上限：C2 前 ≤7mm；C6 前小兒 ≤14mm、成人 ≤22mm</text>
 
     <!-- Right Panel: Stridor Level Localization & Foreign Body -->
     <rect x="496" y="92" width="428" height="428" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
     <text x="514" y="118" font-size="16" font-weight="700" fill="#0f766e">B. 喘鳴呼吸音解剖定位與氣管食道異物急症</text>
 
     <!-- Tier 1: Supraglottis / Glottis -> Inspiratory Stridor -->
-    <rect x="514" y="132" width="392" height="110" rx="8" fill="#ecfdf5" stroke="#0f766e"/>
-    <text x="526" y="152" font-size="13.5" font-weight="700" fill="#0f766e">1. 聲門上／聲門區阻塞 → 「吸氣性喘鳴 Inspiratory Stridor」</text>
-    <text x="526" y="172" font-size="11.5" fill="#0f172a">· 先天軟喉症（占 75%）：Omega 會厭 · 仰臥哭鬧餵食加重、趴睡緩解 · 18–24 月自癒</text>
-    <text x="526" y="192" font-size="11.5" fill="#be123c" font-weight="700">· 急性會厭炎：高燒流涎三腳架坐姿 · 側頸 X 光「拇指徵」· 禁壓舌！手術室備氣切插管</text>
-    <text x="526" y="212" font-size="11.5" fill="#334155">· 雙側聲帶麻痺：雙聲帶卡近中線 · 哭聲尚亮但靜息吸氣喘鳴發紺</text>
+    <rect x="514" y="132" width="398" height="110" rx="8" fill="#ecfdf5" stroke="#0f766e"/>
+    <text x="524" y="151" font-size="11.8" font-weight="700" fill="#0f766e">1. 聲門上／聲門阻塞 →「吸氣性喘鳴 Inspiratory Stridor」</text>
+    <text x="524" y="171" font-size="9.8" fill="#0f172a">· 先天軟喉症（75%）：Omega會厭·仰臥餵食加重、趴睡緩解·18–24月自癒</text>
+    <text x="524" y="191" font-size="9.8" fill="#be123c" font-weight="700">· 急性會厭炎：高燒流涎三腳架姿·側頸X光「拇指徵」·禁壓舌！手術室備氣切插管</text>
+    <text x="524" y="211" font-size="10" fill="#334155">· 雙側聲帶麻痺：雙聲帶卡近中線 · 哭聲尚亮但靜息吸氣喘鳴發紺</text>
 
     <!-- Tier 2: Subglottis / Extrathoracic Trachea -> Biphasic Stridor -->
-    <rect x="514" y="252" width="392" height="114" rx="8" fill="#eff6ff" stroke="#1d4ed8"/>
-    <text x="526" y="272" font-size="13.5" font-weight="700" fill="#1d4ed8">2. 聲門下／頸段氣管固定狹窄 → 「雙相性喘鳴 Biphasic Stridor」</text>
-    <text x="526" y="292" font-size="11.5" fill="#0f172a">· 病毒性哮吼（Croup）：副流感病毒 · 犬吠樣咳嗽 · 正面 X 光「尖塔徵」· 類固醇 + 腎上腺素</text>
-    <text x="526" y="312" font-size="11.5" fill="#1e3a8a">· 聲門下血管瘤：出生 1–3 月增生伴皮膚血管瘤 · 首選口服 Propranolol</text>
-    <text x="526" y="332" font-size="11.5" fill="#0f172a">· 插管後聲門下狹窄（Cotton-Myer）：I（≤50%）、II（51–70%）氣球擴張；III–IV 開放重建</text>
-    <text x="526" y="352" font-size="11" fill="#475569">（預防：氣囊壓維持 20–30 cmH2O · 床頭抬高 30–45 度防胃酸逆流）</text>
+    <rect x="514" y="252" width="398" height="114" rx="8" fill="#eff6ff" stroke="#1d4ed8"/>
+    <text x="524" y="271" font-size="11.2" font-weight="700" fill="#1d4ed8">2. 聲門下／頸段氣管狹窄 →「雙相性喘鳴 Biphasic Stridor」</text>
+    <text x="524" y="291" font-size="9.5" fill="#0f172a">· 病毒性哮吼（Croup）：副流感·犬吠咳·正面X光「尖塔徵」·類固醇＋腎上腺素</text>
+    <text x="524" y="310" font-size="10" fill="#1e3a8a">· 聲門下血管瘤：出生 1–3 月增生伴皮膚血管瘤 · 首選口服 Propranolol</text>
+    <text x="522" y="329" font-size="9.5" fill="#0f172a">· Cotton-Myer 狹窄：I（≤50%）·II（51–70%）氣球擴張；III–IV 開放重建</text>
+    <text x="524" y="348" font-size="9.8" fill="#475569">（預防：氣囊壓維持 20–30 cmH2O · 床頭抬高 30–45° 防胃酸逆流）</text>
 
     <!-- Tier 3: Bronchus & Esophagus Foreign Bodies -->
-    <rect x="514" y="376" width="392" height="130" rx="8" fill="#fef3c7" stroke="#b45309"/>
-    <text x="526" y="396" font-size="13.5" font-weight="700" fill="#b45309">3. 胸腔內支氣管（「呼氣喘鳴」）與食道環咽肌異物急症</text>
-    <text x="526" y="416" font-size="11.5" fill="#0f172a">· 支氣管花生異物（1–3 歲）：單向活瓣致呼氣 CXR 患側過度充氣透亮 → 硬式通氣支氣管鏡取出</text>
-    <text x="526" y="436" font-size="11.5" fill="#0f172a">· 食道異物（占 85%）：最常卡在 C6 環咽肌（正面 X 光硬幣呈圓盤面，氣管則呈側面細線）</text>
-    <rect x="526" y="448" width="368" height="46" rx="6" fill="#be123c"/>
-    <text x="538" y="467" font-size="11.5" font-weight="700" fill="#ffffff">鈕扣電池紅旗：正面 X 光見「雙環徵（Double-ring sign）」！</text>
-    <text x="538" y="485" font-size="11" fill="#ffe4e6">放電產強鹼 2 小時內液化壞死穿孔 → 無視禁食時間立即急診內視鏡取出！</text>
+    <rect x="514" y="376" width="398" height="130" rx="8" fill="#fef3c7" stroke="#b45309"/>
+    <text x="524" y="395" font-size="12.5" font-weight="700" fill="#b45309">3. 胸腔內支氣管（「呼氣喘鳴」）與食道環咽肌異物急症</text>
+    <text x="524" y="415" font-size="9.8" fill="#0f172a">· 支氣管花生異物（1–3歲）：單向活瓣呼氣CXR患側過度透亮→硬式支氣管鏡取出</text>
+    <text x="524" y="435" font-size="9.8" fill="#0f172a">· 食道異物（占 2/3–85%）：卡C6環咽肌（正面X光硬幣圓盤面、氣管側面細線）</text>
+    <rect x="524" y="448" width="376" height="46" rx="6" fill="#be123c"/>
+    <text x="534" y="467" font-size="10.5" font-weight="700" fill="#ffffff">鈕扣電池紅旗：正面 X 光見「雙環徵（Double-ring sign）」！</text>
+    <text x="534" y="485" font-size="10" fill="#ffe4e6">放電產強鹼 2h 內液化壞死穿孔 → 無視禁食立即急診內視鏡取出！</text>
   </g>
 </svg>

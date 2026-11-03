@@ -31,104 +31,104 @@
 
     <!-- Level boxes (Anterior left -> Posterior right) -->
     <rect x="116" y="156" width="106" height="56" rx="6" fill="#ccfbf1" stroke="#0f766e"/>
-    <text x="124" y="176" font-size="12.5" font-weight="700" fill="#0f766e">Level Ia / Ib</text>
-    <text x="124" y="193" font-size="10.5" fill="#0f172a">口腔唇舌口底</text>
-    <text x="124" y="207" font-size="10.5" fill="#065f46">頷下腺（Wharton）</text>
+    <text x="122" y="175" font-size="10.5" font-weight="700" fill="#0f766e">Level Ia/Ib</text>
+    <text x="122" y="191" font-size="9.6" fill="#0f172a">口腔唇舌口底</text>
+    <text x="122" y="206" font-size="9.5" fill="#065f46">頷下腺 Wharton</text>
 
     <rect x="228" y="156" width="110" height="56" rx="6" fill="#dbeafe" stroke="#1d4ed8"/>
-    <text x="236" y="176" font-size="12.5" font-weight="700" fill="#1d4ed8">Level IIa / IIb</text>
-    <text x="236" y="193" font-size="10.5" fill="#0f172a">口咽扁桃腺(HPV+)</text>
-    <text x="236" y="207" font-size="10.5" fill="#1e3a8a">鼻咽 · 護 CN XI</text>
+    <text x="234" y="175" font-size="10.5" font-weight="700" fill="#1d4ed8">Level IIa/IIb</text>
+    <text x="234" y="191" font-size="9.5" fill="#0f172a">口咽扁桃(HPV+)</text>
+    <text x="234" y="206" font-size="9.5" fill="#1e3a8a">鼻咽 · 護 CN XI</text>
 
     <rect x="116" y="220" width="90" height="120" rx="6" fill="#fef3c7" stroke="#b45309"/>
-    <text x="124" y="242" font-size="12.5" font-weight="700" fill="#b45309">Level VI</text>
-    <text x="124" y="260" font-size="10.5" fill="#78350f">前中央氣管旁</text>
-    <text x="124" y="278" font-size="10.5" fill="#0f172a">· 甲狀腺癌</text>
-    <text x="124" y="294" font-size="10.5" fill="#0f172a">· 聲門下喉癌</text>
-    <text x="124" y="310" font-size="10.5" fill="#0f172a">· 頸段食道癌</text>
+    <text x="122" y="242" font-size="11" font-weight="700" fill="#b45309">Level VI</text>
+    <text x="122" y="260" font-size="9.8" fill="#78350f">前中央氣管旁</text>
+    <text x="122" y="278" font-size="9.8" fill="#0f172a">· 甲狀腺癌</text>
+    <text x="122" y="294" font-size="9.8" fill="#0f172a">· 聲門下喉癌</text>
+    <text x="122" y="310" font-size="9.8" fill="#0f172a">· 頸段食道癌</text>
 
     <rect x="212" y="220" width="126" height="56" rx="6" fill="#e0e7ff" stroke="#1d4ed8"/>
-    <text x="220" y="240" font-size="12.5" font-weight="700" fill="#1d4ed8">Level III（中頸鏈）</text>
-    <text x="220" y="258" font-size="10.5" fill="#0f172a">聲門上喉癌 · 下咽癌</text>
+    <text x="218" y="240" font-size="10.5" font-weight="700" fill="#1d4ed8">Level III 中頸鏈</text>
+    <text x="218" y="258" font-size="9.5" fill="#0f172a">聲門上喉癌·下咽癌</text>
 
     <rect x="212" y="284" width="126" height="56" rx="6" fill="#ede9fe" stroke="#6d28d9"/>
-    <text x="220" y="304" font-size="12.5" font-weight="700" fill="#5b21b6">Level IV（下頸鏈）</text>
-    <text x="220" y="320" font-size="10.5" fill="#0f172a">下咽 · 甲狀腺 · 食道</text>
-    <text x="220" y="334" font-size="10" fill="#be123c">左 Virchow 查胸腹癌</text>
+    <text x="218" y="303" font-size="10.5" font-weight="700" fill="#5b21b6">Level IV 下頸鏈</text>
+    <text x="218" y="319" font-size="9.5" fill="#0f172a">下咽·甲狀腺·食道</text>
+    <text x="218" y="334" font-size="9.5" fill="#be123c">左 Virchow 查胸腹</text>
 
     <rect x="346" y="176" width="122" height="164" rx="6" fill="#fff1f2" stroke="#be123c"/>
-    <text x="354" y="198" font-size="12.5" font-weight="700" fill="#be123c">Level Va / Vb</text>
-    <text x="354" y="216" font-size="10.5" fill="#881337">後頸三角(SCM後)</text>
-    <text x="354" y="238" font-size="11" font-weight="700" fill="#be123c">台灣首推：鼻咽癌</text>
-    <text x="354" y="256" font-size="10.5" fill="#0f172a">· 甲狀腺乳突癌</text>
-    <text x="354" y="274" font-size="10.5" fill="#0f172a">· 後頭皮皮膚癌</text>
-    <text x="354" y="298" font-size="10" fill="#475569">CN XI 斜穿須保留</text>
-    <text x="354" y="316" font-size="10" fill="#be123c">先查鼻咽勿亂切開</text>
+    <text x="352" y="198" font-size="11" font-weight="700" fill="#be123c">Level Va/Vb</text>
+    <text x="352" y="216" font-size="9.8" fill="#881337">後頸三角(SCM後)</text>
+    <text x="352" y="238" font-size="10.2" font-weight="700" fill="#be123c">台灣首推：鼻咽癌</text>
+    <text x="352" y="256" font-size="9.8" fill="#0f172a">· 甲狀腺乳突癌</text>
+    <text x="352" y="274" font-size="9.8" fill="#0f172a">· 後頭皮皮膚癌</text>
+    <text x="352" y="298" font-size="9.6" fill="#475569">CN XI 斜穿須保留</text>
+    <text x="352" y="316" font-size="9.6" fill="#be123c">先查鼻咽勿亂切開</text>
 
     <!-- Salivary Gland Inverse Malignancy Rule -->
     <rect x="52" y="358" width="416" height="148" rx="8" fill="#f8fafc" stroke="#94a3b8"/>
-    <text x="64" y="378" font-size="13.5" font-weight="700" fill="#0f172a">唾液腺腫瘤「腺體越小 · 惡性率越高」反比法則與代表病理</text>
+    <text x="62" y="378" font-size="12.5" font-weight="700" fill="#0f172a">唾液腺腫瘤「腺體越小 · 惡性率越高」反比法則與代表病理</text>
     <rect x="64" y="390" width="126" height="66" rx="6" fill="#ecfdf5" stroke="#0f766e"/>
-    <text x="72" y="408" font-size="12" font-weight="700" fill="#0f766e">腮腺（占 70%）</text>
-    <text x="72" y="425" font-size="11" fill="#0f172a">惡性僅 20–25%</text>
-    <text x="72" y="442" font-size="10.5" fill="#065f46">多形性腺瘤 · Warthin</text>
+    <text x="70" y="408" font-size="11" font-weight="700" fill="#0f766e">腮腺（占 70%）</text>
+    <text x="70" y="425" font-size="10" fill="#0f172a">惡性僅 20–25%</text>
+    <text x="70" y="442" font-size="9.5" fill="#065f46">多形性腺瘤·Warthin</text>
 
     <rect x="198" y="390" width="126" height="66" rx="6" fill="#fef3c7" stroke="#b45309"/>
-    <text x="206" y="408" font-size="12" font-weight="700" fill="#b45309">頷下腺（占 10%）</text>
-    <text x="206" y="425" font-size="11" fill="#0f172a">惡性約 40–50%</text>
-    <text x="206" y="442" font-size="10.5" fill="#78350f">結石占 85% 最多</text>
+    <text x="206" y="408" font-size="11" font-weight="700" fill="#b45309">頷下腺（占 10%）</text>
+    <text x="206" y="425" font-size="10" fill="#0f172a">惡性約 40–50%</text>
+    <text x="206" y="442" font-size="9.8" fill="#78350f">結石占 85% 最多</text>
 
     <rect x="332" y="390" width="124" height="66" rx="6" fill="#ffe4e6" stroke="#be123c"/>
-    <text x="340" y="408" font-size="12" font-weight="700" fill="#be123c">小唾液腺（20%）</text>
-    <text x="340" y="425" font-size="11" font-weight="700" fill="#be123c">惡性高達 50–75%</text>
-    <text x="340" y="442" font-size="10.5" fill="#881337">ACC 嗜神經侵犯</text>
+    <text x="340" y="408" font-size="11" font-weight="700" fill="#be123c">小唾液腺（20%）</text>
+    <text x="340" y="425" font-size="10" font-weight="700" fill="#be123c">惡性高達 50–75%</text>
+    <text x="340" y="442" font-size="9.8" fill="#881337">ACC 嗜神經侵犯</text>
 
-    <text x="64" y="476" font-size="11" fill="#334155">· 惡性整體第一：黏液表皮樣癌（MEC）；多形性腺瘤禁單純剜除（防復發與 CXPA）</text>
-    <text x="64" y="494" font-size="11" fill="#334155">· 腮腺術後進食臉頰冒汗潮紅（Frey 症候群）：耳顳神經錯接汗腺 → 皮內打肉毒桿菌素</text>
+    <text x="60" y="476" font-size="9.6" fill="#334155">· 惡性總數第一：黏液表皮樣癌（MEC）；多形性腺瘤禁單純剜除（防 CXPA）</text>
+    <text x="60" y="494" font-size="9.6" fill="#334155">· 腮腺術後進食冒汗潮紅（Frey 症候群）：耳顳神經錯接汗腺 → 皮內肉毒桿菌</text>
 
     <!-- Right Panel: Congenital Tracts & Adult Neck Mass Algorithm -->
     <rect x="498" y="92" width="426" height="428" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
-    <text x="516" y="118" font-size="16" font-weight="700" fill="#1d4ed8">B. 先天性頸部囊腫路徑與成人無痛腫塊診斷流程</text>
+    <text x="516" y="118" font-size="15.5" font-weight="700" fill="#1d4ed8">B. 先天性頸部囊腫路徑與成人無痛腫塊診斷流程</text>
 
     <!-- Midline TGDC Card -->
     <rect x="516" y="132" width="390" height="86" rx="8" fill="#ecfdf5" stroke="#0f766e"/>
-    <text x="528" y="152" font-size="13.5" font-weight="700" fill="#0f766e">正中線：甲狀舌管囊腫 TGDC（占小兒先天頸腫塊 70%）</text>
-    <text x="528" y="172" font-size="11.5" fill="#0f172a">· 路徑：舌根盲孔 → 穿過「舌骨體中央」→ 甲狀腺峽部上方</text>
-    <text x="528" y="190" font-size="11.5" fill="#065f46" font-weight="600">· 徵象與術式：隨吞嚥與「伸舌」上移；必做 Sistrunk 併切舌骨中段</text>
-    <text x="528" y="208" font-size="11" fill="#be123c">· 術前超音波確認正常甲狀腺存在，防誤切唯一異位甲狀腺！</text>
+    <text x="526" y="152" font-size="11.5" font-weight="700" fill="#0f766e">正中線：甲狀舌管囊腫 TGDC（占小兒先天頸腫塊 70%）</text>
+    <text x="526" y="171" font-size="10" fill="#0f172a">· 路徑：舌根盲孔 → 穿過「舌骨體中央」→ 甲狀腺峽部上方</text>
+    <text x="526" y="189" font-size="10" fill="#065f46" font-weight="600">· 徵象與術式：隨吞嚥與「伸舌」上移；必做 Sistrunk 併切舌骨中段</text>
+    <text x="526" y="207" font-size="9.8" fill="#be123c">· 術前超音波確認正常甲狀腺存在，防誤切唯一異位甲狀腺！</text>
 
     <!-- Lateral Branchial Cleft Card -->
     <rect x="516" y="228" width="390" height="122" rx="8" fill="#eff6ff" stroke="#1d4ed8"/>
-    <text x="528" y="248" font-size="13.5" font-weight="700" fill="#1d4ed8">側頸部：第一至第四鰓裂異常（Branchial Cleft Anomalies）</text>
-    <text x="528" y="268" font-size="11.5" fill="#0f172a">· 第一型：緊鄰外耳道與腮腺，瘻管穿梭「顏面神經」主幹分支間</text>
-    <text x="528" y="288" font-size="11.5" fill="#1e3a8a" font-weight="700">· 第二型（占 90% 最多）：SCM 前緣 → 穿內外頸動脈分叉 → 扁桃腺窩</text>
-    <text x="528" y="308" font-size="11.5" fill="#0f172a">· 第三／四型：起自下咽「梨狀窩底部（90% 左側）」→ 反覆左側化膿甲狀腺炎</text>
-    <text x="528" y="328" font-size="11" fill="#be123c">· 陷阱：&gt;40 歲成人側頸囊性腫塊須先當 HPV+ 扁桃腺癌囊性轉移排查！</text>
+    <text x="526" y="248" font-size="11" font-weight="700" fill="#1d4ed8">側頸部：第一至第四鰓裂異常（Branchial Cleft）</text>
+    <text x="526" y="268" font-size="9.8" fill="#0f172a">· 第一型：鄰外耳道與腮腺，瘻管穿梭「顏面神經」主幹分支間</text>
+    <text x="526" y="288" font-size="9.8" fill="#1e3a8a" font-weight="700">· 第二型（占 90% 最多）：SCM 前緣 → 穿內外頸動脈分叉 → 扁桃腺窩</text>
+    <text x="526" y="308" font-size="9.8" fill="#0f172a">· 第三／四型：起自下咽「梨狀窩底（90% 左側）」→ 左側化膿甲狀腺炎</text>
+    <text x="526" y="328" font-size="9.8" fill="#be123c">· 陷阱：&gt;40 歲成人側頸囊性腫塊先當 HPV+ 扁桃腺癌轉移排查！</text>
 
     <!-- Adult Neck Mass & CUP Stepwise Flow -->
     <rect x="516" y="360" width="390" height="146" rx="8" fill="#fff1f2" stroke="#be123c"/>
-    <text x="528" y="380" font-size="13.5" font-weight="700" fill="#be123c">成人頸部腫塊（&gt;2–4 週無痛堅硬）與未知原發癌（CUP）鐵律</text>
+    <text x="526" y="380" font-size="11" font-weight="700" fill="#be123c">成人頸部腫塊（&gt;2–4 週無痛堅硬）與未知原發癌（CUP）鐵律</text>
 
     <rect x="528" y="392" width="112" height="54" rx="6" fill="#ffffff" stroke="#be123c"/>
-    <text x="536" y="411" font-size="11.5" font-weight="700" fill="#be123c">1. 內視鏡 + FNAB</text>
-    <text x="536" y="427" font-size="10.5" fill="#0f172a">鼻咽喉鏡尋原發</text>
-    <text x="536" y="441" font-size="10.5" fill="#0f172a">驗 p16 / EBER</text>
+    <text x="534" y="410" font-size="10" font-weight="700" fill="#be123c">1. 內視鏡+FNAB</text>
+    <text x="534" y="426" font-size="9.8" fill="#0f172a">鼻咽喉鏡尋原發</text>
+    <text x="534" y="441" font-size="9.8" fill="#0f172a">驗 p16 / EBER</text>
 
     <line x1="640" y1="419" x2="654" y2="419" stroke="#1d4ed8" stroke-width="2" marker-end="url(#arr-blue8)"/>
 
     <rect x="656" y="392" width="112" height="54" rx="6" fill="#ffffff" stroke="#1d4ed8"/>
-    <text x="664" y="411" font-size="11.5" font-weight="700" fill="#1d4ed8">2. CT/MRI + PET</text>
-    <text x="664" y="427" font-size="10.5" fill="#0f172a">必須排在全麻活檢</text>
-    <text x="664" y="441" font-size="10.5" fill="#be123c">「之前」防偽陽性</text>
+    <text x="662" y="410" font-size="10" font-weight="700" fill="#1d4ed8">2. CT/MRI+PET</text>
+    <text x="662" y="426" font-size="9.8" fill="#0f172a">必須排在全麻活檢</text>
+    <text x="662" y="441" font-size="9.8" fill="#be123c">「之前」防偽陽性</text>
 
     <line x1="768" y1="419" x2="782" y2="419" stroke="#1d4ed8" stroke-width="2" marker-end="url(#arr-blue8)"/>
 
     <rect x="784" y="392" width="110" height="54" rx="6" fill="#ffffff" stroke="#0f766e"/>
-    <text x="792" y="411" font-size="11.5" font-weight="700" fill="#0f766e">3. 泛內視鏡尋灶</text>
-    <text x="792" y="427" font-size="10.5" fill="#0f172a">可疑黏膜切片與</text>
-    <text x="792" y="441" font-size="10.5" fill="#0f172a">扁桃腺舌根切除</text>
+    <text x="790" y="410" font-size="10" font-weight="700" fill="#0f766e">3. 泛內視鏡尋灶</text>
+    <text x="790" y="426" font-size="9.8" fill="#0f172a">可疑黏膜切片與</text>
+    <text x="790" y="441" font-size="9.8" fill="#0f172a">扁桃腺舌根切除</text>
 
     <rect x="528" y="456" width="366" height="38" rx="6" fill="#881337"/>
-    <text x="540" y="480" font-size="12" font-weight="700" fill="#ffffff">絕對禁忌：未完成黏膜內視鏡評估前，嚴禁直接切開頸部腫塊（Open biopsy）！</text>
+    <text x="536" y="479" font-size="9.8" font-weight="700" fill="#ffffff">絕對禁忌：未完成黏膜內視鏡前，嚴禁切開頸部腫塊（Open biopsy）！</text>
   </g>
 </svg>

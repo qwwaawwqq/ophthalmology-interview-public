@@ -58,7 +58,7 @@
   <path d="M 286 268 L 320 260 M 286 268 L 320 276 M 320 256 L 320 280" stroke="#1d4ed8" stroke-width="2.5"/>
   <!-- Medial wall: LSCC, CN VII, Promontory, Round window -->
   <path d="M 356 196 C 326 196, 326 226, 356 226" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2.5"/>
-  <text x="398" y="214" text-anchor="middle" fill="#1d4ed8" font-size="10" font-weight="700">水平半規管（LSCC）</text>
+  <text x="394" y="214" text-anchor="middle" fill="#1d4ed8" font-size="10" font-weight="700">水平半規管（LSCC）</text>
 
   <!-- Facial nerve tympanic segment -->
   <circle cx="332" cy="242" r="7" fill="#fef08a" stroke="#b45309" stroke-width="2"/>
@@ -82,12 +82,12 @@
 
   <!-- Left Panel Summary Box -->
   <rect x="42" y="404" width="414" height="114" rx="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
-  <text x="52" y="423" fill="#be123c" font-size="10.5" font-weight="700">· 骨侵蝕四大危險併發症（須急做高解析度顳骨 CT／MRI 並手術清創）：</text>
-  <text x="58" y="441" fill="#0f172a" font-size="10.5">1. 向外後侵蝕盾板（Scutum）與砧骨長突 → 進行性傳導性／混合性聽損</text>
-  <text x="58" y="459" fill="#0f172a" font-size="10.5">2. 向內侵蝕水平半規管 → 迷路瘻管（耳道加壓誘發眩暈眼震 Fistula sign+）</text>
-  <text x="58" y="477" fill="#0f172a" font-size="10.5">3. 侵犯顏面神經骨管 → 周邊型面癱（須緊急乳突手術減壓，非單純觀察）</text>
-  <text x="58" y="495" fill="#0f172a" font-size="10.5">4. 向上穿破鼓室蓋／向後波及乙狀竇 → 硬膜外／顳葉膿瘍、弛張熱血栓靜脈炎</text>
-  <text x="52" y="512" fill="#0f766e" font-size="10" font-weight="600">· 先天性膽脂瘤：完整鼓膜前上象限後方白色球狀腫塊，無中耳炎或穿孔病史</text>
+  <text x="50" y="423" fill="#be123c" font-size="10" font-weight="700">· 骨侵蝕四大危險併發症（須急做高解析度顳骨 CT／MRI 並手術清創）：</text>
+  <text x="54" y="441" fill="#0f172a" font-size="9.8">1. 向外後侵蝕盾板（Scutum）與砧骨長突 → 進行性傳導性／混合性聽損</text>
+  <text x="54" y="459" fill="#0f172a" font-size="9.8">2. 向內侵蝕水平半規管 → 迷路瘻管（耳道加壓眩暈眼震 Fistula sign+）</text>
+  <text x="54" y="477" fill="#0f172a" font-size="9.8">3. 侵犯顏面神經骨管 → 周邊型面癱（須緊急乳突手術減壓，非單純觀察）</text>
+  <text x="54" y="495" fill="#0f172a" font-size="9.8">4. 穿破鼓室蓋／波及乙狀竇 → 硬膜外或顳葉膿瘍、乙狀竇弛張熱血栓炎</text>
+  <text x="50" y="512" fill="#0f766e" font-size="9.8" font-weight="600">· 先天性膽脂瘤：完整鼓膜前上象限後方白色球狀腫塊，無中耳炎或穿孔病史</text>
 
   <!-- ==================== RIGHT PANEL: WULLSTEIN I-V ==================== -->
   <rect x="484" y="84" width="448" height="446" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
@@ -96,64 +96,64 @@
 
   <!-- Row 1: Type I -->
   <rect x="498" y="126" width="420" height="58" rx="7" fill="#f8fafc" stroke="#0f766e" stroke-width="1.3"/>
-  <rect x="498" y="126" width="76" height="58" rx="7" fill="#0f766e"/>
-  <text x="536" y="151" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">第 I 型</text>
-  <text x="536" y="169" text-anchor="middle" fill="#ccfbf1" font-size="9.5">鼓膜成形術</text>
+  <rect x="498" y="126" width="80" height="58" rx="7" fill="#0f766e"/>
+  <text x="538" y="151" text-anchor="middle" fill="#ffffff" font-size="11.5" font-weight="700">第 I 型</text>
+  <text x="538" y="169" text-anchor="middle" fill="#ccfbf1" font-size="9.5">鼓膜成形術</text>
   <!-- Mini schematic I -->
   <line x1="590" y1="134" x2="590" y2="176" stroke="#0f766e" stroke-width="3.5"/>
-  <polyline points="590,150 612,140 632,155 652,155" fill="none" stroke="#334155" stroke-width="2.5"/>
-  <line x1="652" y1="146" x2="652" y2="164" stroke="#1d4ed8" stroke-width="3"/>
-  <text x="670" y="148" fill="#0f172a" font-size="11" font-weight="700">錘 · 砧 · 鐙三骨完整且可動（Myringoplasty）</text>
-  <text x="670" y="168" fill="#475569" font-size="10.2">取自體顳肌筋膜或耳珠軟骨膜修補穿孔，完全恢復面積比增益</text>
+  <polyline points="590,150 612,140 632,155 650,155" fill="none" stroke="#334155" stroke-width="2.5"/>
+  <line x1="650" y1="146" x2="650" y2="164" stroke="#1d4ed8" stroke-width="3"/>
+  <text x="662" y="148" fill="#0f172a" font-size="10.5" font-weight="700">錘·砧·鐙三骨完整且可動（Myringoplasty）</text>
+  <text x="662" y="168" fill="#475569" font-size="9.6">取自體顳肌筋膜或耳珠軟骨膜補穿孔，恢復面積比增益</text>
 
   <!-- Row 2: Type II -->
   <rect x="498" y="192" width="420" height="58" rx="7" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
-  <rect x="498" y="192" width="76" height="58" rx="7" fill="#334155"/>
-  <text x="536" y="217" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">第 II 型</text>
-  <text x="536" y="235" text-anchor="middle" fill="#e2e8f0" font-size="9.5">搭接砧骨</text>
+  <rect x="498" y="192" width="80" height="58" rx="7" fill="#334155"/>
+  <text x="538" y="217" text-anchor="middle" fill="#ffffff" font-size="11.5" font-weight="700">第 II 型</text>
+  <text x="538" y="235" text-anchor="middle" fill="#e2e8f0" font-size="9.5">搭接砧骨</text>
   <line x1="604" y1="200" x2="604" y2="242" stroke="#0f766e" stroke-width="3.5"/>
-  <polyline points="604,214 630,221 652,221" fill="none" stroke="#334155" stroke-width="2.5"/>
-  <line x1="652" y1="212" x2="652" y2="230" stroke="#1d4ed8" stroke-width="3"/>
-  <text x="670" y="214" fill="#0f172a" font-size="11" font-weight="700">錘骨柄缺損 · 砧骨與鐙骨完整</text>
-  <text x="670" y="234" fill="#475569" font-size="10.2">新鼓膜移植物直接貼附於砧骨長突或殘餘錘骨以維持槓桿傳導</text>
+  <polyline points="604,214 630,221 650,221" fill="none" stroke="#334155" stroke-width="2.5"/>
+  <line x1="650" y1="212" x2="650" y2="230" stroke="#1d4ed8" stroke-width="3"/>
+  <text x="662" y="214" fill="#0f172a" font-size="10.5" font-weight="700">錘骨柄缺損 · 砧骨與鐙骨完整</text>
+  <text x="662" y="234" fill="#475569" font-size="9.6">新鼓膜移植物貼附砧骨長突或殘餘錘骨以維持槓桿傳導</text>
 
   <!-- Row 3: Type III -->
   <rect x="498" y="258" width="420" height="62" rx="7" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.4"/>
-  <rect x="498" y="258" width="76" height="62" rx="7" fill="#1d4ed8"/>
-  <text x="536" y="284" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">第 III 型</text>
-  <text x="536" y="302" text-anchor="middle" fill="#dbeafe" font-size="9.5">PORP／小柱</text>
+  <rect x="498" y="258" width="80" height="62" rx="7" fill="#1d4ed8"/>
+  <text x="538" y="284" text-anchor="middle" fill="#ffffff" font-size="11.5" font-weight="700">第 III 型</text>
+  <text x="538" y="302" text-anchor="middle" fill="#dbeafe" font-size="9.5">PORP／小柱</text>
   <line x1="604" y1="266" x2="604" y2="312" stroke="#0f766e" stroke-width="3.5"/>
   <rect x="606" y="284" width="26" height="10" rx="2" fill="#93c5fd" stroke="#1d4ed8" stroke-width="1.5"/>
-  <path d="M 632 289 L 652 282 M 632 289 L 652 296 M 652 279 L 652 299" stroke="#1d4ed8" stroke-width="2.5"/>
-  <text x="670" y="280" fill="#1e3a8a" font-size="11" font-weight="700">錘砧缺損 · 鐙骨上部結構完整（臨床極常考！）</text>
-  <text x="670" y="298" fill="#1e293b" font-size="10.2">新鼓膜或部分聽小骨贗復物（PORP）直連鐙骨頭（Columella 效應）</text>
-  <text x="670" y="313" fill="#475569" font-size="9.6">常於表面加墊耳珠軟骨片防止人工聽小骨穿出移植物</text>
+  <path d="M 632 289 L 650 282 M 632 289 L 650 296 M 650 279 L 650 299" stroke="#1d4ed8" stroke-width="2.5"/>
+  <text x="662" y="279" fill="#1e3a8a" font-size="10.5" font-weight="700">錘砧缺損 · 鐙骨上部結構完整（臨床極常考）</text>
+  <text x="662" y="296" fill="#1e293b" font-size="9.6">新鼓膜或 PORP 直連鐙骨頭（Columella 小柱效應）</text>
+  <text x="662" y="313" fill="#475569" font-size="9.5">常於表面加墊耳珠軟骨片，防人工聽小骨穿出移植物</text>
 
   <!-- Row 4: Type IV -->
   <rect x="498" y="328" width="420" height="62" rx="7" fill="#fffbeb" stroke="#b45309" stroke-width="1.3"/>
-  <rect x="498" y="328" width="76" height="62" rx="7" fill="#b45309"/>
-  <text x="536" y="354" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">第 IV 型</text>
-  <text x="536" y="372" text-anchor="middle" fill="#fef3c7" font-size="9.5">TORP／足板</text>
+  <rect x="498" y="328" width="80" height="62" rx="7" fill="#b45309"/>
+  <text x="538" y="354" text-anchor="middle" fill="#ffffff" font-size="11.5" font-weight="700">第 IV 型</text>
+  <text x="538" y="372" text-anchor="middle" fill="#fef3c7" font-size="9.5">TORP／足板</text>
   <line x1="604" y1="336" x2="604" y2="382" stroke="#0f766e" stroke-width="3.5"/>
-  <rect x="606" y="352" width="44" height="8" rx="2" fill="#fde68a" stroke="#b45309" stroke-width="1.5"/>
-  <line x1="652" y1="346" x2="652" y2="366" stroke="#1d4ed8" stroke-width="3"/>
-  <text x="670" y="350" fill="#78350f" font-size="11" font-weight="700">鐙骨上部缺損 · 僅剩「可活動」之鐙骨足板</text>
-  <text x="670" y="368" fill="#1e293b" font-size="10.2">聲波直入卵圓窗或以全聽小骨贗復物（TORP）連結新鼓膜至足板</text>
-  <text x="670" y="383" fill="#475569" font-size="9.6">必須維持耳咽管至圓窗小鼓室氣腔（Cavum minor）確保雙窗相位差</text>
+  <rect x="606" y="352" width="42" height="8" rx="2" fill="#fde68a" stroke="#b45309" stroke-width="1.5"/>
+  <line x1="650" y1="346" x2="650" y2="366" stroke="#1d4ed8" stroke-width="3"/>
+  <text x="662" y="349" fill="#78350f" font-size="10.5" font-weight="700">鐙骨上部缺損 · 僅剩「可活動」之鐙骨足板</text>
+  <text x="662" y="366" fill="#1e293b" font-size="9.6">聲波直入卵圓窗或以 TORP 連結新鼓膜至活動足板</text>
+  <text x="662" y="383" fill="#475569" font-size="9.5">維持耳咽管至圓窗小鼓室氣腔（Cavum minor）保相位</text>
 
   <!-- Row 5: Type V -->
   <rect x="498" y="398" width="420" height="54" rx="7" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
-  <rect x="498" y="398" width="76" height="54" rx="7" fill="#be123c"/>
-  <text x="536" y="422" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">第 V 型</text>
-  <text x="536" y="439" text-anchor="middle" fill="#ffe4e6" font-size="9.5">開窗手術</text>
+  <rect x="498" y="398" width="80" height="54" rx="7" fill="#be123c"/>
+  <text x="538" y="422" text-anchor="middle" fill="#ffffff" font-size="11.5" font-weight="700">第 V 型</text>
+  <text x="538" y="439" text-anchor="middle" fill="#ffe4e6" font-size="9.5">開窗手術</text>
   <path d="M 608 416 C 646 410, 646 440, 608 434" fill="none" stroke="#be123c" stroke-width="2.5"/>
   <circle cx="636" cy="425" r="5" fill="#ffffff" stroke="#be123c" stroke-width="2"/>
-  <text x="670" y="419" fill="#881337" font-size="11" font-weight="700">鐙骨足板固著不動（如耳硬化症／重度鼓室硬化）</text>
-  <text x="670" y="438" fill="#475569" font-size="10.2">傳統行水平半規管開窗（Va）或現代鐙骨足板開窗置放活塞（Vb）</text>
+  <text x="662" y="419" fill="#881337" font-size="10.5" font-weight="700">鐙骨足板固著不動（耳硬化症／重度鼓室硬化）</text>
+  <text x="662" y="438" fill="#475569" font-size="9.6">傳統半規管開窗（Va）或現代鐙骨足板開窗活塞（Vb）</text>
 
   <!-- Bottom Surgical Safety Bar -->
   <rect x="498" y="460" width="420" height="58" rx="7" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
-  <text x="508" y="479" fill="#0f172a" font-size="10.5" font-weight="700">· 乳突切除術抉擇：CWU（保留後耳道壁、防水佳但膽脂瘤復發率較高）vs</text>
-  <text x="516" y="495" fill="#0f172a" font-size="10.5">CWD（移除後壁形成開放乳突腔、根除率高，但灌冷水易致溫差眩暈）</text>
-  <text x="508" y="511" fill="#be123c" font-size="10.2" font-weight="700">· 鼓膜穿孔耳漏僅能點 Fluoroquinolone 耳滴劑，嚴禁耳毒性 Aminoglycoside！</text>
+  <text x="508" y="479" fill="#0f172a" font-size="10" font-weight="700">· 乳突切除術抉擇：CWU（保留後耳道壁、防水佳但膽脂瘤復發率較高）vs</text>
+  <text x="516" y="495" fill="#0f172a" font-size="10">CWD（移除後壁形成開放乳突腔、根除率高，但灌冷水易致溫差眩暈）</text>
+  <text x="508" y="511" fill="#be123c" font-size="9.8" font-weight="700">· 鼓膜穿孔耳漏僅能點 Fluoroquinolone 耳滴劑，嚴禁耳毒性 Aminoglycoside！</text>
 </svg>
