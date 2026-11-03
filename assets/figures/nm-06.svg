@@ -42,7 +42,7 @@
   <rect x="52" y="376" width="412" height="132" rx="10" fill="#fff1f2" stroke="#fda4af" stroke-width="1.5"/>
   <text x="64" y="397" font-size="12.5" font-weight="700" fill="#9f1239">必考防呆：診斷阻塞前先排除「四大假性阻塞（偽陽性）」</text>
   <text x="64" y="418" font-size="11" fill="#0f172a">1. 脫水低尿量 → 受檢前充分口服／靜脈水化（5–10 mL/kg）</text>
-  <text x="64" y="438" font-size="11" fill="#0f172a">2. 患側腎小管功能重度受損 → 選 MAG3 並調升 Lasix 劑量</text>
+  <text x="64" y="438" font-size="10.4" fill="#0f172a">2. 腎功能受損 → 選 MAG3、調升 Lasix 並測尿量（尿少仍屬未定）</text>
   <text x="64" y="458" font-size="11" fill="#0f172a">3. 巨大腎盂水庫稀釋效應（Reservoir）→ 大水池置換緩慢</text>
   <text x="64" y="478" font-size="11" fill="#0f172a">4. 脹滿膀胱背壓 → 下床解尿（或導尿）加拍直立延遲像！</text>
 
