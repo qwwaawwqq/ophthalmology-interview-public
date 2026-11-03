@@ -1,0 +1,903 @@
+{
+  "version": 1,
+  "title": "放射診斷共筆考點衝刺",
+  "updated": "2026-11-03",
+  "disclaimer": "本頁為放射診斷考前高頻考點、急症徵象與標準化分級（RADS）之原創重述整理，絕非逐字轉錄講義原文，亦不代表任何醫院甄選命題預測。建議先遮住答案口頭作答再展開核對；臨床影像適應症與顯影安全請以最新專科指引及各院規範為準。",
+  "sourceNotice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。",
+  "groups": [
+    {
+      "id": "rad-physics-contrast-safety",
+      "title": "成像物理、對比劑腎安全與孕期／危急值規範",
+      "priority": 1,
+      "summary": "先掌握碘／釓顯影劑 eGFR <30 門檻與全孕期 ≤3T 無顯影 MRI 安全，再熟記過敏休克急救與危急值閉環通報。",
+      "chapterIds": [
+        "rad-01",
+        "rad-12"
+      ],
+      "points": [
+        {
+          "question": "靜脈注射含碘顯影劑之腎功能風險篩檢門檻（eGFR <30／AKI）與 Metformin 停藥原則為何？",
+          "answer": "依 ACR Contrast Manual，靜脈含碘顯影劑引發顯影劑相關急性腎損傷（CI-AKI）之主要高風險門檻為 eGFR <30 mL/min/1.73m² 或急性腎損傷（AKI）；高風險病患檢查前給予等張生理食鹽水靜脈擴容（危及生命之急症如主動脈剝離或大出血不因等待肌酸酐而延誤）。服用 Metformin 者若 eGFR ≥30 且無 AKI 無須停藥；若 eGFR <30、合併 AKI 或接受經動脈導管可能栓塞腎動脈之檢查，則於檢查時暫停 Metformin 48 小時，待複查腎功能穩定後復藥。",
+          "trap": "切勿把舊版 eGFR <45 或 <60 當作靜脈注射含碘顯影劑常規禁用門檻而拒絕必要的腫瘤或急症顯影 CT；Metformin 本身不具腎毒性，停藥目的是防範萬一發生 AKI 時藥物蓄積引發乳酸性酸中毒。",
+          "source": {
+            "chapter": "Ch.01 (區段 · 影像診斷學01.pdf 暨 ACR Contrast Manual 指引補充)",
+            "pages": "p.18–20",
+            "kind": "guideline",
+            "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+          },
+          "links": [
+            {
+              "label": "ACR：對比劑安全手冊（Contrast Manual）",
+              "url": "https://www.acr.org/clinical-resources/clinical-tools-and-reference/contrast-manual"
+            }
+          ]
+        },
+        {
+          "question": "含釓顯影劑（GBCA）腎源性全身纖維化（NSF）風險分級與第 II 類巨環類製劑準則為何？",
+          "answer": "重度慢性腎病（eGFR <30 mL/min/1.73m²）、長期透析或 AKI 患者嚴禁使用 ACR 第 I 類線性含釓顯影劑；相對地，ACR 第 II 類高穩定度巨環類含釓製劑（如 Gadobutrol、Gadoterate meglumine、Gadoteridol）之 NSF 風險極低，臨床確有顯影必要時可使用最低診斷劑量，且無須為此安排緊急預防性血液透析。",
+          "trap": "順磁性釓離子因具多個不成對電子縮短周圍氫質子 T1 弛豫時間而使 T1WI 變亮；若誤給超高濃度含釓製劑反而會因顯著 T2* 去相位效應造成訊號反常變暗。",
+          "source": {
+            "chapter": "Ch.01 (區段 · 影像診斷學01.pdf 暨 ACR Contrast Manual 指引補充)",
+            "pages": "p.18–20",
+            "kind": "guideline",
+            "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+          }
+        },
+        {
+          "question": "妊娠期與哺乳期婦女接受 MRI 與含碘／含釓顯影劑的現行安全共識為何？",
+          "answer": "具備明確臨床適應症之「無顯影劑 ≤3 T MRI（一般操作模式）」於妊娠任一孕期（包含第一孕期）皆可安全執行，超音波無法確診之孕期急症（如急性闌尾炎）應直接銜接無顯影 MRI 而不應延誤。含釓顯影劑（GBCA）可穿過胎盤進入羊水循環反覆吞入，除非對母體或胎兒預後絕對必要，全孕期原則避免常規施打。哺乳婦女施打水溶性含碘或巨環類含釓顯影劑後乳汁排出量 <1%、嬰兒腸道吸收 <0.01%，國際指引確認無須中斷哺乳。",
+          "trap": "不要再沿用「懷孕前三個月絕對禁止做無顯影 MRI」或「打完顯影劑必須擠奶丟棄 24 小時」的過時舊說法。",
+          "source": {
+            "chapter": "Ch.01 (區段 · 影像診斷學01.pdf p.18–20 暨 陽明醫四 · 影像診斷學06.pdf p.8–11、ACR Contrast Manual 指引補充)",
+            "pages": "p.18–20",
+            "kind": "guideline",
+            "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+          }
+        },
+        {
+          "question": "重度對比劑過敏樣休克之首選腎上腺素給藥劑量途徑，以及第一級影像危急值閉環通報要素為何？",
+          "answer": "重度支氣管痙攣喉頭水腫或低血壓過敏性休克首選腎上腺素：大腿前外側「肌肉注射（IM）1:1000（1 mg/mL）成人 0.3–0.5 mg」最快且最安全；若已建立靜脈管路需靜脈給藥，必須改用稀釋十倍之「1:10,000（0.1 mg/mL）1–3 mL（0.1–0.3 mg）緩慢靜脈推注」。發現張力性氣胸、主動脈剝離、腦疝脫、氣腹或中腸扭轉等危急值，須即時直接聯繫臨床照護醫師完成「雙向口頭覆誦確認（Read-back）」，並於正式報告記錄通報對象與精確時間。",
+          "trap": "嚴禁把未稀釋之 1:1000 高濃度腎上腺素直接快速靜脈推注（易致致命心室心律不整與腦出血）；僅發文字報告而未電話覆誦確認違反危急值安全規範。",
+          "source": {
+            "chapter": "Ch.12 (區段 · 影像診斷學01.pdf 暨 ACR 對比劑與危急值通報指引補充)",
+            "pages": "p.18–20、28–31",
+            "kind": "guideline",
+            "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "rad-chest-cardio-aorta",
+      "title": "胸腔肺結節間質病與急性主動脈／肺栓塞急症",
+      "priority": 2,
+      "summary": "串聯主動脈剝離 Stanford 分類、IMH、PAU 高危尺寸與 AAA 瀕臨破裂徵象，並掌握 HRCT 間質肺炎與輪廓徵。",
+      "chapterIds": [
+        "rad-02",
+        "rad-03"
+      ],
+      "points": [
+        {
+          "question": "急性主動脈症候群（典型剝離、壁內血腫 IMH、穿透性動脈硬化潰瘍 PAU）影像鑑別與 PAU 高危尺寸為何？",
+          "answer": "凡波及升主動脈者（不論裂口原位）一律屬 Stanford Type A 外科急症；橫斷面真腔常受鈣化內膜包圍且管徑較小，假腔較大、強化較慢並可見殘留中層纖維束之蜘蛛網徵（Cobweb sign）與鳥嘴徵（Beak sign）。IMH 為血管滋養管破裂於「無顯影 CT」呈現主動脈壁新月形高密度血腫；PAU 多見於高齡重度粥狀硬化降胸主動脈，表現為顯影劑火山口狀向外穿破鈣化內膜進入中層，依 SVS／STS 指引當 CT 測得潰瘍最大直徑（寬度）≥13–20 mm 及深度 ≥10 mm、伴持續胸背痛或囊狀假性動脈瘤擴大時破裂風險極高，優先評估 TEVAR。",
+          "trap": "胸痛懷疑急性主動脈症候群必先掃「無顯影 CT」再打動脈期 CTA，否則極盛之管腔顯影劑會完全掩蓋薄層高密度壁內血腫（IMH）；切勿把升主動脈根部非門控心搏雙影誤診為 Type A 剝離。",
+          "source": {
+            "chapter": "Ch.03 (區段 · 影像診斷學04.pdf 暨 SVS／STS 主動脈指引補充)",
+            "pages": "p.23–38",
+            "kind": "guideline",
+            "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+          }
+        },
+        {
+          "question": "腹主動脈瘤（AAA）瀕臨破裂三大 CT 徵象與急性肺栓塞（CTPA）右心室負荷指標為何？",
+          "answer": "AAA 達 ≥5.5 cm 或半年增大 ≥0.5 cm 需預防性修補；當附壁血栓內於 NCCT 出現新月形高密度出血（Hyperattenuating crescent sign）、鈣化內膜局部中斷向外偏轉（Tangential calcium sign）或主動脈後壁界線消失緊貼椎體前緣（Draped aorta sign）時，代表瀕臨破裂或包覆性破裂。急性肺栓塞 CTPA 見肺動脈腔內充盈缺損（馬鞍栓塞或鐵軌徵／Polo mint sign），若四腔切面右心室／左心室短軸比 RV/LV >1.0 伴室中隔左偏與下腔靜脈顯影劑逆流，提示急性右心衰竭高風險。",
+          "trap": "呼吸運動或上腔靜脈高濃度顯影劑條紋假影可能模仿肺小動脈充盈缺損，判讀時須切換肺窗與縱膈窗連續追蹤血管分支。",
+          "source": {
+            "chapter": "Ch.03 (區段 · 影像診斷學04.pdf)",
+            "pages": "p.36–42",
+            "kind": "verified-handout",
+            "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+          }
+        },
+        {
+          "question": "正面輪廓徵象（Silhouette Sign）、側面脊椎徵象（Spine Sign）與 HRCT UIP vs NSIP 判讀重點為何？",
+          "answer": "正面平片相鄰等密度接觸使邊界消失：右心緣模糊定位右中葉、左心緣模糊定位左上葉舌區、主動脈弓模糊定位左上葉尖後段、橫膈模糊定位下葉；側面胸部 X 光正常胸椎因下方軟組織重疊減少應「向下漸黑（愈透亮）」，若「正常向下漸黑消失、下胸椎反而變白」即為脊椎徵陽性（Spine sign），定位下肺葉後基底段實變或積液。HRCT UIP／IPF 呈雙側下肺基底胸膜下網狀纖維化、牽引性支氣管擴張及成排囊狀蜂窩肺；NSIP 則以對稱毛玻璃影為主、極少蜂窩且常見胸膜下保留（Subpleural sparing）。",
+          "trap": "張力性氣胸在仰臥位重症床邊 X 光不一定見肺尖氣胸線，反而常表現為患側肋膈角異常深邃透亮之「深溝徵（Deep sulcus sign）」伴縱膈向健側移位，須立即臨床減壓。",
+          "source": {
+            "chapter": "Ch.02 (陽明醫四 · 影像診斷學06.pdf 暨 Fleischner／ATS-ERS-JRS-ALAT 指引補充)",
+            "pages": "p.3–7、13–15",
+            "kind": "guideline",
+            "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "rad-abd-liver-gu-rads",
+      "title": "肝膽胰急腹症、LI-RADS v2018 與 Bosniak v2019",
+      "priority": 3,
+      "summary": "精準區隔 LI-RADS 高風險適用對象與閾值生長定義、Bosniak v2019 腎囊腫毫米級標準、PI-RADS 分區與絞窄腸阻塞。",
+      "chapterIds": [
+        "rad-04",
+        "rad-05",
+        "rad-06"
+      ],
+      "points": [
+        {
+          "question": "ACR LI-RADS v2018 適用族群限制、LR-5 非侵入確診組合與閾值生長（Threshold Growth）定義為何？",
+          "answer": "LI-RADS 僅適用於「肝硬化、慢性 B 型肝炎或曾罹患肝細胞癌（HCC）」之 ≥18 歲成人高風險群（不適用於無風險健康肝、兒童、先天性肝纖維化或 Budd-Chiari 等血管性肝病變）。LR-5（100% 特異度免切片確診 HCC）必須先具備「非環狀動脈期高強化（Non-rim APHE）」，三大主要特徵為：非周邊洗脫（Non-peripheral washout）、強化包膜（Enhancing capsule）與閾值生長（≤6 個月內病灶最大徑增加 ≥50%）。病灶 ≥20 mm 具 non-rim APHE 加 ≥1 項主要特徵，或 10–19 mm 具 non-rim APHE 加非周邊洗脫（或閾值生長）即歸為 LR-5。",
+          "trap": "若呈「周邊環狀動脈期高強化（Rim APHE）」伴靶狀洗脫，高度指向肝內膽管癌或混合型肝癌，應歸為 LR-M（可能惡性但非典型 HCC，須切片確認）而非 LR-5。",
+          "source": {
+            "chapter": "Ch.05 (區段 · 影像診斷學09_電子版.pdf 暨 ACR LI-RADS v2018 指引補充)",
+            "pages": "p.5–24",
+            "kind": "guideline",
+            "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+          },
+          "links": [
+            {
+              "label": "ACR：標準化報告系統（RADS）總覽",
+              "url": "https://www.acr.org/clinical-resources/clinical-tools-and-reference/reporting-and-data-systems"
+            }
+          ]
+        },
+        {
+          "question": "Bosniak v2019 腎囊腫分級廢除了哪項舊門檻？Class I、II、IIF、III、IV 的毫米級厚度與強化標準為何？",
+          "answer": "Bosniak v2019 同步廢除舊版 CT 與 MRI 之 3 公分大小上限：平滑邊界且均質高密度（NCCT ≥70 HU）無強化囊腫，或平滑、MRI 抑脂 T1 均質顯著高訊號（≥2.5× 腎皮質）無強化囊腫，「不論大小」皆歸為良性 Class II（免追蹤）。毫米級分界：Class I 為 ≤2 mm 髮絲平滑薄壁、水密度（-9 至 20 HU）、無中隔鈣化與強化；Class II 含 1–3 條 ≤2 mm 薄中隔，或平滑薄壁／中隔具良性鈣化且無強化軟組織（免追蹤）；Class IIF 為 ≥4 條 ≤2 mm 薄強化中隔、3 mm 平滑輕度增厚強化壁／隔，或「MRI 抑脂 T1 加權（fat-suppressed T1WI）呈不均質（heterogeneously）高訊號之無強化囊腫（不論大小）」（建議第 6、12 個月再每年追蹤至滿 5 年；注意：若是在 CT／NCCT 見到異質性無強化腎臟腫塊，依 Bosniak v2019 不可直接歸為 Class IIF 追蹤，必須先安排腎臟 MRI 才能分級以排除潛藏微弱強化之實質腫瘤）；Class III 為 ≥4 mm 平滑增厚強化壁／隔或 ≤3 mm 鈍角不規則強化突起（約 50% 惡性）；Class IV 為具明確強化軟組織結節（≥4 mm 鈍角或任意大小銳角突起，約 90% 惡性）。",
+          "trap": "腎臟實質病灶在單次門脈期 CT 測得 20–70 HU 絕不可逕判良性囊腫，可能隱藏乏血管乳突狀腎細胞癌（Papillary RCC），必須加做含無顯影與腎實質相之多相 CT 或減影 MRI（CT 真實強化定義為增加 ≥20 HU）。",
+          "source": {
+            "chapter": "Ch.06 (陽明醫四 · 影像診斷學05.pdf p.10–44 暨 區段 · 影像診斷學02.pdf p.3–16、Bosniak v2019 指引補充)",
+            "pages": "p.10–44",
+            "kind": "guideline",
+            "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+          }
+        },
+        {
+          "question": "攝護腺多參數 MRI（PI-RADS v2.1）周邊區 vs 移行區主導序列為何？腎上腺偶發瘤如何定量排除惡性？",
+          "answer": "攝護腺癌約 70%–75% 位於周邊區（Peripheral zone, PZ），以「DWI／ADC」為主導評分序列（動態顯影 DCE 僅作 PI-RADS 3 升 4 之輔助）；移行區（Transition zone, TZ）富含良性增生結節，則以「T2WI 形態邊界」為主導序列（完全包膜為 BPH，抹炭樣無包膜透鏡狀低訊號疑癌）。腎上腺偶發瘤若無顯影 CT ≤10 HU 或化學位移 MRI 反相位（Out-of-phase）訊號顯著壓暗，即確診富脂性良性腺瘤；若 NCCT >10 HU，15 分鐘延遲相絕對洗脫率 ≥60% 或相對洗脫率 ≥40% 亦支持乏脂性腺瘤。",
+          "trap": "嗜鉻細胞瘤與腎細胞癌轉移偶爾也可呈現快速顯影與高洗脫率，若臨床合併陣發性高血壓心悸或已知惡性腫瘤史，務必結合生化兒茶酚胺代謝物與 FDG／MIBG 判讀。",
+          "source": {
+            "chapter": "Ch.06 (陽明醫四 · 影像診斷學05.pdf 暨 ACR PI-RADS v2.1 指引補充)",
+            "pages": "p.10–44",
+            "kind": "guideline",
+            "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+          }
+        },
+        {
+          "question": "小腸閉鎖環阻塞（Closed-loop SBO）絞窄缺血徵象、結腸扭轉雙雄與疑似穿孔造影禁忌為何？",
+          "answer": "小腸管徑 >3 cm（3-6-9 法則：小腸 3、大腸 6、盲腸 9 cm）伴兩處相鄰塌陷轉換點呈 C／U 字形與放射狀腸繫膜血管漩渦徵（Whirl sign）為閉鎖環阻塞；若出現「腸壁顯影強化減弱或消失」、腸繫膜水腫積液、腸壁氣腫或門脈氣體則代表急性絞窄壞死，須緊急手術。乙狀結腸扭轉自左下腹伸向右上腹呈無結腸袋咖啡豆徵（鳥嘴指向乙狀結腸）；盲腸扭轉則自右下腹翻向左中上腹伴小腸擴張。疑似消化道穿孔絕對禁用硫酸鋇（防嚴重鋇劑性腹膜炎），必須改用水溶性含碘造影劑。",
+          "trap": "若是評估「高吸入嗆咳風險或氣管食道瘻管」而非腹膜穿孔，反而不可用高滲透壓離子型水溶性造影劑（Gastrografin 吸入肺泡會引發致命性急性肺水腫），應改用低滲透壓非離子型水溶性造影劑。",
+          "source": {
+            "chapter": "Ch.04 (區段 · 影像診斷學08.pdf)",
+            "pages": "p.6–18",
+            "kind": "verified-handout",
+            "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "rad-neuro-cpa-spine",
+      "title": "神經中風頸動脈、橋腦小腦角腫瘤與脊椎感染",
+      "priority": 4,
+      "summary": "對比 CPA 前庭神經鞘瘤 vs 腦膜瘤 vs 表皮樣囊腫、NASCET vs ECST 狹窄公式、EDH／SDH 顱縫界線與脊椎炎鑑別。",
+      "chapterIds": [
+        "rad-07",
+        "rad-08"
+      ],
+      "points": [
+        {
+          "question": "橋腦小腦角區（CPA）三大病灶——前庭神經鞘瘤、腦膜瘤與表皮樣囊腫在 MRI／CT 如何鑑別？",
+          "answer": "CPA 第一常見腫瘤為前庭神經鞘瘤（約占 80%），源於第八對腦神經前庭枝，典型鑽入並撐大內聽道呈「甜筒冰淇淋徵（Ice-cream cone sign）」，與岩骨硬膜常呈銳角且較大時易伴囊變與微出血，雙側前庭神經鞘瘤則為第二型神經纖維瘤病（NF2）診斷標誌。第二常見為腦膜瘤（約占 10%），呈寬基底「鈍角」貼附岩骨背面，具均勻強烈強化、硬腦膜尾徵（Dural tail）與鄰近骨質增生硬化（Hyperostosis）且極少擴大內聽道。不顯影腦脊髓液樣病灶中，表皮樣囊腫於 FLAIR 不完全壓水且於「DWI 呈極亮擴散受限」，蛛網膜囊腫則在所有序列完全等同 CSF（DWI 全暗）。",
+          "trap": "切勿看到 CPA 不顯影低密度囊性病灶就直接報蛛網膜囊腫——漏看 DWI 高訊號會遺漏包繞腦神經血管之表皮樣囊腫。",
+          "source": {
+            "chapter": "Ch.08 (區段 · 影像診斷學13.pdf)",
+            "pages": "p.16–25",
+            "kind": "verified-handout",
+            "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+          }
+        },
+        {
+          "question": "超急性中風影像、頸動脈狹窄 NASCET vs ECST 公式差異，以及 EDH vs SDH 跨越邊界法則為何？",
+          "answer": "超急性腦梗塞數分鐘內於 MRI 呈「DWI 高訊號且 ADC 圖真實低值」，NCCT 排除出血並找高密度 MCA 徵與島帶徵。顱外內頸動脈狹窄率依 NASCET 以「遠端正常內頸動脈管徑」作分母計算 [1 - 最窄內徑 ÷ 遠端正常內徑]；ECST 因改採較寬大之「頸動脈球部估計外徑」作分母，分母變大反而會「高估」狹窄率（70% NASCET 約對應 85% ECST）。創傷性 EDH（中腦膜動脈撕裂）呈雙凸透鏡狀，「不跨越顱縫」但可跨硬腦膜中線；SDH（橋靜脈撕裂）呈新月形，「可跨越顱縫」但受大腦鐮與小腦天幕阻擋。",
+          "trap": "亞急性硬腦膜下血腫（發病約 1–3 週）在 NCCT 會降至與腦皮質等密度（Isodense SDH），須靠腦溝消失與白質內壓偏移識破；切勿拿 ECST 高估數值誤套用 NASCET 手術／支架門檻。",
+          "source": {
+            "chapter": "Ch.07 (區段 · 影像診斷學11.pdf 暨 AHA／ASA 與 BTF 指引補充)",
+            "pages": "p.4–20、25–37",
+            "kind": "guideline",
+            "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+          }
+        },
+        {
+          "question": "環狀顯影腦膿瘍 vs 壞死性膠質母細胞瘤／轉移瘤，以及化膿性脊椎炎 vs 結核性脊椎炎 vs 轉移骨折如何區分？",
+          "answer": "化膿性腦膿瘍具平滑薄壁（T2WI 呈自由基低訊號暗環，朝腦室深部白質血供較差側壁更薄易破入腦室），中央稠膿在「DWI 呈顯著高訊號／ADC 極低」；壞死性腦瘤壁厚不規則、實質壁灌流 rCBV 顯著升高且中央壞死液多無擴散受限。脊椎病變中，化膿性脊椎炎優先侵蝕「椎間盤（T2 高訊號）與上下相鄰終板」；結核性脊椎炎（Pott disease）好犯胸腰交界前柱、韌帶下跳躍蔓延伴大型鈣化冷膿瘍且早期相對保留椎間盤；惡性脊椎轉移則「保留椎間盤」、好侵犯椎弓根（Pedicle 眨眼徵）並使椎體後壁向椎管凸出。",
+          "trap": "急性發燒意識混亂伴雙側不對稱內側顳葉、島葉與扣帶迴水腫出血，但「基底核豆狀核完全保留（Lentiform nucleus sparing）」，須立即診斷單純皰疹病毒腦炎（HSV encephalitis）並給 Acyclovir，切勿誤認為大腦中動脈梗塞。",
+          "source": {
+            "chapter": "Ch.08 (區段 · 影像診斷學13.pdf 暨 區段 · 影像診斷學12.pdf)",
+            "pages": "p.18–27",
+            "kind": "verified-handout",
+            "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "rad-msk-breast-superficial",
+      "title": "乳房 BI-RADS、甲狀腺 TI-RADS 與骨骼關節影像",
+      "priority": 5,
+      "summary": "鎖定 BI-RADS 0–6 處置與微鈣化分流、TI-RADS 五大高危特徵、DXA T／Z-score 與運動傷害／關節炎矩陣。",
+      "chapterIds": [
+        "rad-09",
+        "rad-10"
+      ],
+      "points": [
+        {
+          "question": "乳房 ACR BI-RADS 第 0–6 級標準處置配對，以及乳房攝影微細鈣化良惡性形態如何排序？",
+          "answer": "BI-RADS 0 為評估未完成（需補局部壓迫放大攝影或超音波，絕非定期追蹤）；1 為陰性；2 為確定良性（爆米花鈣化纖維腺瘤、單純囊腫、脂肪壞死油囊）；3 為可能良性（惡性率 ≤2%，安排 6 個月短期追蹤）；4 為可疑惡性（4A 低度 >2%–10%、4B 中度 >10%–50%、4C 高度 >50%–<95%，一律建議組織穿刺切片）；5 為高度提示惡性（≥95%，毛刺狀腫塊伴細線分支鈣化，切片）；6 為已切片證實惡性。微鈣化惡性風險由低至高：皮膚／血管／爆米花／粗棒狀（良性 2）→ 圓點狀簇集（3）→ 不定形／粗糙異質（4B）→ 細小多形性／細線分支鑄型並呈節段性沿導管分布（4C／5，典型高惡性度 DCIS）。",
+          "trap": "BI-RADS 5 病灶若粗針穿刺病理回報良性，屬於「放射病理不一致（Discordant）」，代表取樣誤差風險極高，必須重新切片或外科切除，絕不可直接結案改列半年追蹤。",
+          "source": {
+            "chapter": "Ch.10 (區段 · 影像診斷學03.pdf 暨 ACR BI-RADS 指引補充)",
+            "pages": "p.36–63",
+            "kind": "guideline",
+            "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+          }
+        },
+        {
+          "question": "甲狀腺結節 ACR TI-RADS 高危超音波特徵與頸部轉移性淋巴結指標為何？",
+          "answer": "ACR TI-RADS 依五大面向累加計分（TR1–TR5）：實質成分、極低回音（低於頸前帶狀肌）、縱橫比 >1（Taller-than-wide，前後徑大於左右徑，突破正常組織平面張力）、不規則／小葉狀邊緣或甲狀腺外侵犯、以及點狀強回音微鈣化（砂粒小體 Psammoma bodies）為惡性高分指標；海綿狀（Spongiform）結節與囊內彗星尾假影（膠質結晶）則屬良性特徵。頸部惡性轉移淋巴結表現為圓形化（長短軸比 <2）、高回音淋巴門消失、周邊皮質異常血流、點狀微鈣化或囊性液化壞死。",
+          "trap": "高頻線性探頭（7.5–15 MHz）軸向解析度極佳但穿透深度淺，僅適合甲狀腺、乳房與肌腱等表淺構造；深部肝腎與肥胖腹腔則須改用低頻弧形探頭（2–5 MHz）。",
+          "source": {
+            "chapter": "Ch.10 (區段 · 影像診斷學03.pdf 暨 ACR TI-RADS 指引補充)",
+            "pages": "p.3–38",
+            "kind": "guideline",
+            "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+          }
+        },
+        {
+          "question": "DXA 骨質密度（T-score vs Z-score）、膝肩運動傷害 MRI 與五大關節炎平片鑑別核心為何？",
+          "answer": "停經後婦女與 ≥50 歲男性以年輕成人峰值比較之 T-score 判讀（≤-2.5 為骨質疏鬆，-1.0 至 -2.5 為骨質缺乏）；停經前女性、<50 歲男性與兒童則必須採用同齡比較之 Z-score（≤-2.0 為低於同齡預期值）。前十字韌帶（ACL）斷裂典型伴股骨外髁溝與脛骨平台後外側「接吻骨挫傷（Pivot-shift bone bruise）」，桶柄狀半月板撕裂移位至髁間窩形成「雙後十字韌帶徵（Double PCL sign）」。平片鑑別：退化性關節炎（OA）呈非對稱負重軟骨狹窄、軟骨下硬化與骨贅；類風濕性關節炎（RA）呈雙手近端對稱邊緣侵蝕、關節旁骨質疏鬆且無骨增生；乾癬／僵直性脊椎炎伴邊緣骨增生與竹節椎；痛風呈偏心穿鑿狀侵蝕伴「懸垂邊緣（Overhanging edge）」且早期關節腔保留；CPPD 則見三角纖維軟骨與半月板軟骨鈣化。",
+          "trap": "超音波掃描肌腱若探頭未與膠原纖維保持嚴格垂直（偏角僅數度），反射回音偏離探頭會出現假性低回音暗區（順向異性假影 Anisotropy），加壓搖擺探頭即可恢復亮訊號，切勿誤判為肌腱撕裂。",
+          "source": {
+            "chapter": "Ch.09 (陽明醫四 · 影像診斷學02.pdf 暨 區段 · 影像診斷學06.pdf、陽明醫四 · 01、04.pdf)",
+            "pages": "p.4–7、15–69",
+            "kind": "verified-handout",
+            "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "rad-ir-peds-emergency",
+      "title": "介入性放射線學微創止血消融與兒科影像急症",
+      "priority": 6,
+      "summary": "熟記消化道出血三大工具速率門檻、Seldinger 安全穿刺點、肝癌 TACE／RFA 邊界與兒科消化道／後腹腔腫瘤急症。",
+      "chapterIds": [
+        "rad-11",
+        "rad-12",
+        "rad-04"
+      ],
+      "points": [
+        {
+          "question": "急性消化道出血三大影像偵測速率門檻排序，以及 Seldinger 總股動脈安全穿刺解剖定位為何？",
+          "answer": "最低可偵測出血速率由靈敏至較不靈敏依序為：99mTc-RBC 核醫紅血球掃描（約 0.05–0.1 mL/min，適合間歇慢速出血篩檢）→ 多相腹部 CTA（約 0.3–0.5 mL/min，急診第一線快速解剖定位：無顯影排除高密度偽影、動脈期抓滲漏、門脈期看擴大）→ 數位減影血管攝影 DSA（約 0.5–1.0 mL/min，可直接銜接微導管栓塞止血）。Seldinger 技術穿刺總股動脈（CFA）安全落點位於「腹股溝韌帶下方、股骨頭內下象限前壁」，以確保術後能以股骨頭作為骨性支撐有效壓迫止血。",
+          "trap": "穿刺點若高於腹股溝韌帶進入外髂動脈，拔鞘後無法壓迫會導致致命性後腹腔隱匿大出血；穿刺點過低誤入淺股或深股動脈則大幅增加假性動脈瘤（彩色都卜勒呈陰陽徵 Yin-yang sign 與來回雙向血流）與動靜脈瘻管風險。",
+          "source": {
+            "chapter": "Ch.11 (區段 · 影像診斷學08.pdf 暨 區段 · 影像診斷學07.pdf)",
+            "pages": "p.12–36",
+            "kind": "verified-handout",
+            "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+          }
+        },
+        {
+          "question": "肝細胞癌經動脈化學栓塞（TACE）禁忌症、射頻燒灼（RFA）熱沉效應與膽道／泌尿引流安全路徑為何？",
+          "answer": "肝腫瘤主要由肝動脈供血、正常肝實質 75% 靠門靜脈供血：若病患「主門靜脈完全阻塞且缺乏側支循環」或失代償性肝衰竭（Child-Pugh C／難治性腹水／總膽紅素顯著升高），阻斷肝動脈行傳統 TACE 將引發急性缺血性肝壞死，屬重要禁忌。小型 HCC 行射頻燒灼（RFA）若緊鄰 >3 mm 大型門脈或肝靜脈，流動血液會持續帶走熱能產生「熱沉效應（Heat-sink effect）」致殘留復發，改用微波消融（MWA）受血流散熱影響較小。經皮腎造廔（PCN）須走腎臟後外側無血管區（Brodel line）入腎盞以避開腎門大血管。",
+          "trap": "大量腹水或未矯正嚴重凝血異常患者行經皮穿肝膽道引流（PTCD）或肝切片極易發生腹腔內失血不止，術前應先控制凝血異常與引流腹水（左肝外節超音波導引入路較右肋間更能避開肋膜腔）。",
+          "source": {
+            "chapter": "Ch.11 (區段 · 影像診斷學08.pdf)",
+            "pages": "p.25–40",
+            "kind": "verified-handout",
+            "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+          }
+        },
+        {
+          "question": "兒科消化道三大急症（中腸扭轉、肥厚性幽門狹窄、腸套疊）與兒童後腹腔腫瘤（Wilms vs 神經母細胞瘤）如何鑑別？",
+          "answer": "新生兒膽汁性嘔吐必須立即排除「腸旋轉不良併中腸扭轉」：上消化道攝影見十二指腸空腸交界未跨中線上升且呈螺旋開瓶器徵（Corkscrew sign），都卜勒見腸繫膜上靜脈纏繞動脈之漩渦徵。肥厚性幽門狹窄呈單側肌層厚 ≥3 mm、幽門管長 ≥15 mm。小兒迴結腸腸套疊呈同心圓標靶徵，一旦合併「腹膜炎、休克或氣腹穿孔」絕對禁止灌腸復位。兒童腹部腫塊中，腎母細胞瘤（Wilms tumor）源自腎實質呈腎爪徵（Claw sign）、推移血管且少鈣化；腎上腺神經母細胞瘤（Neuroblastoma）則常跨中線包埋主動脈／下腔靜脈並具粗糙斑點鈣化。",
+          "trap": "兒童腸套疊約九成為特發性淋巴增生，而「成人腸套疊」多數具明確病理導引點（Lead point，如大腸癌、淋巴瘤或脂肪瘤），常需外科手術切除。",
+          "source": {
+            "chapter": "Ch.12 (區段 · 影像診斷學07.pdf p.34、36、48 暨 08.pdf p.7、18、陽明醫四 · 影像診斷學05.pdf p.20–21、39–40 暨 ACR Appropriateness Criteria 兒科影像指引補充)",
+            "pages": "p.34、36、48",
+            "kind": "guideline",
+            "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+          },
+          "links": [
+            {
+              "label": "RadiologyInfo：兒童與急症影像安全衛教",
+              "url": "https://www.radiologyinfo.org/"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "chapters": [
+    {
+      "id": "rad-01",
+      "number": 1,
+      "title": "放射物理基礎、成像原理、對比劑安全與輻射防護",
+      "focus": [
+        "CT HU 與窗寬窗位",
+        "碘顯影劑 eGFR <30 篩檢",
+        "第 II 類含釓與 NSF",
+        "全孕期 ≤3T 無顯影 MRI"
+      ],
+      "pdfName": "區段 · 影像診斷學01.pdf（併 陽明醫四 · 影像診斷學06.pdf、區段 · 影像診斷學03、04.pdf）",
+      "sourceNotice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+    },
+    {
+      "id": "rad-02",
+      "number": 2,
+      "title": "胸腔與呼吸系統影像診斷",
+      "focus": [
+        "輪廓徵與側面脊椎徵",
+        "HRCT UIP vs NSIP",
+        "LDCT 與亞實質肺結節",
+        "張力性氣胸與縱膈分區"
+      ],
+      "pdfName": "陽明醫四 · 影像診斷學06.pdf（併 區段 · 影像診斷學04.pdf 暨 Fleischner／ATS-ERS 指引補充）",
+      "sourceNotice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+    },
+    {
+      "id": "rad-03",
+      "number": 3,
+      "title": "心血管與大血管影像診斷",
+      "focus": [
+        "主動脈剝離 Stanford A/B",
+        "IMH 與 PAU 高危尺寸",
+        "AAA 瀕臨破裂徵象",
+        "CTPA 右心室負荷"
+      ],
+      "pdfName": "區段 · 影像診斷學04.pdf（併 區段 · 影像診斷學02.pdf）",
+      "sourceNotice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+    },
+    {
+      "id": "rad-04",
+      "number": 4,
+      "title": "急腹症與胃腸道影像診斷",
+      "focus": [
+        "穿孔氣腹與水溶性造影",
+        "閉鎖環腸阻塞絞窄徵象",
+        "乙狀結腸 vs 盲腸扭轉",
+        "Crohn 氏病 vs UC"
+      ],
+      "pdfName": "區段 · 影像診斷學08.pdf（併 區段 · 影像診斷學07.pdf、02.pdf）",
+      "sourceNotice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+    },
+    {
+      "id": "rad-05",
+      "number": 5,
+      "title": "肝膽胰脾影像診斷",
+      "focus": [
+        "ACR LI-RADS v2018 準則",
+        "閾值生長 ≥50%／≤6月",
+        "肝局灶病灶動態顯影",
+        "修訂版 Atlanta 胰臟炎"
+      ],
+      "pdfName": "區段 · 影像診斷學09_電子版.pdf（併 區段 · 影像診斷學02.pdf、08.pdf）",
+      "sourceNotice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+    },
+    {
+      "id": "rad-06",
+      "number": 6,
+      "title": "泌尿生殖與後腹腔影像診斷",
+      "focus": [
+        "Bosniak v2019 腎囊腫分級",
+        "無顯影 CT 尿路結石",
+        "腎上腺腺瘤洗脫率",
+        "攝護腺 PI-RADS v2.1"
+      ],
+      "pdfName": "陽明醫四 · 影像診斷學05.pdf（併 區段 · 影像診斷學02.pdf、03.pdf）",
+      "sourceNotice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+    },
+    {
+      "id": "rad-07",
+      "number": 7,
+      "title": "神經放射學（一）：急性腦中風、顱內出血與頭部外傷",
+      "focus": [
+        "超急性缺血 NCCT／DWI",
+        "NASCET vs ECST 狹窄率",
+        "EDH vs SDH vs SAH",
+        "五期血紅素 MRI 訊號"
+      ],
+      "pdfName": "區段 · 影像診斷學11.pdf（併 區段 · 影像診斷學10.pdf、01.pdf）",
+      "sourceNotice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+    },
+    {
+      "id": "rad-08",
+      "number": 8,
+      "title": "神經放射學（二）：腦部腫瘤、中樞感染與脊椎脊髓影像",
+      "focus": [
+        "CPA 前庭神經鞘瘤 vs 腦膜瘤",
+        "腦膿瘍 vs 壞死腫瘤 DWI",
+        "皰疹性腦炎邊緣系統",
+        "脊椎炎 vs 轉移骨折"
+      ],
+      "pdfName": "區段 · 影像診斷學13.pdf（併 區段 · 影像診斷學12.pdf）",
+      "sourceNotice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+    },
+    {
+      "id": "rad-09",
+      "number": 9,
+      "title": "骨骼肌肉與風濕關節影像診斷",
+      "focus": [
+        "DXA T-score vs Z-score",
+        "旋轉肌袖、ACL 與半月板",
+        "Lodwick 骨腫瘤邊緣",
+        "五大關節炎鑑別矩陣"
+      ],
+      "pdfName": "陽明醫四 · 影像診斷學02.pdf（併 陽明醫四 · 影像診斷學01、3、04.pdf、區段 · 影像診斷學06.pdf）",
+      "sourceNotice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+    },
+    {
+      "id": "rad-10",
+      "number": 10,
+      "title": "淺表軟組織超音波、乳房影像與腫瘤分期",
+      "focus": [
+        "甲狀腺 ACR TI-RADS",
+        "乳房 BI-RADS 0–6 處置",
+        "微鈣化形態風險分流",
+        "RECIST 1.1 療效評估"
+      ],
+      "pdfName": "區段 · 影像診斷學03.pdf（併 陽明醫四 · 影像診斷學01.pdf、區段 · 影像診斷學07.pdf）",
+      "sourceNotice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+    },
+    {
+      "id": "rad-11",
+      "number": 11,
+      "title": "介入性放射線學與影像導引微創處置",
+      "focus": [
+        "Seldinger 安全股動脈入路",
+        "消化道出血三大偵測門檻",
+        "肝癌 TACE 與 RFA 熱沉",
+        "PTCD／PCN 與神經取栓"
+      ],
+      "pdfName": "區段 · 影像診斷學08.pdf（併 區段 · 影像診斷學07.pdf、11.pdf）",
+      "sourceNotice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+    },
+    {
+      "id": "rad-12",
+      "number": 12,
+      "title": "放射診斷專科醫師訓練基準、閱片配題與判讀品質安全",
+      "focus": [
+        "危急值雙向覆誦閉環通報",
+        "兒科腸旋轉不良與腸套疊",
+        "重度對比劑休克急救",
+        "MRI／CT 假影與臨床 AI"
+      ],
+      "pdfName": "區段 · 影像診斷學01.pdf（併 區段 · 影像診斷學07、08、12.pdf、陽明醫四 · 影像診斷學05.pdf）",
+      "sourceNotice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+    }
+  ],
+  "cards": [
+    {
+      "id": "rad-cram-01",
+      "groupId": "rad-physics-contrast-safety",
+      "chapterId": "rad-01",
+      "question": "靜脈注射含碘顯影劑與含釓顯影劑（GBCA）的腎功能高風險 eGFR 門檻是多少？第 II 類巨環含釓製劑為何受推崇？",
+      "answer": "兩者關鍵高風險門檻皆為 eGFR <30 mL/min/1.73m² 或合併急性腎損傷（AKI）：IV 碘顯影劑於高危者給予等張生理食鹽水擴容（Metformin 僅於 eGFR <30、AKI 或腎動脈導管顯影時暫停 48 小時）；ACR 第 II 類巨環類含釓製劑（如 Gadobutrol、Gadoterate、Gadoteridol）螯合極穩固，NSF 風險極低，必要時可用最低診斷劑量且無須預防性洗腎。",
+      "trap": "危及生命的急診 CTA（如懷疑主動脈剝離、急性大血管中風或創傷活動性出血）絕不可因等待血清肌酸酐報告而延誤掃描。",
+      "source": {
+        "chapter": "Ch.01 (區段 · 影像診斷學01.pdf 暨 ACR Contrast Manual 指引補充)",
+        "pages": "p.18–20",
+        "kind": "guideline",
+        "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+      }
+    },
+    {
+      "id": "rad-cram-02",
+      "groupId": "rad-physics-contrast-safety",
+      "chapterId": "rad-01",
+      "question": "懷孕第 10 週婦女右下腹痛，超音波因腸氣無法看清闌尾，可否安排無顯影 1.5T／3T MRI？可否常規打含釓顯影劑？",
+      "answer": "可以安排無顯影 ≤3 T MRI！依 ACR 指引，臨床有適應症之無顯影 ≤3 T MRI 於「任一孕期（含第一孕期）」皆可安全執行；但含釓顯影劑（GBCA）會穿過胎盤滯留於羊水與胎兒組織，全孕期原則避免常規施打。",
+      "trap": "切勿因第一孕期禁忌迷思而放任闌尾穿孔腹膜炎，亦不可為避開無顯影 MRI 反去安排高胎兒劑量的多相腹部骨盆 CT。",
+      "source": {
+        "chapter": "Ch.01 (區段 · 影像診斷學01.pdf p.18–20 暨 陽明醫四 · 影像診斷學06.pdf p.8–11、ACR Contrast Manual 指引補充)",
+        "pages": "p.18–20",
+        "kind": "guideline",
+        "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+      }
+    },
+    {
+      "id": "rad-cram-03",
+      "groupId": "rad-physics-contrast-safety",
+      "chapterId": "rad-12",
+      "question": "CT 室病患注射對比劑後突發喘鳴、喉頭水腫與低血壓休克（75/40 mmHg），首選急救藥物、濃度與給藥途徑為何？",
+      "answer": "首選腎上腺素（Epinephrine）：立即於大腿前外側「肌肉注射（IM）1:1000（1 mg/mL）成人 0.3–0.5 mg」，同步高流量給氧、抬高下肢與快速輸注生理食鹽水；若改由靜脈給藥，必須使用稀釋之 1:10,000（0.1 mg/mL）緩慢靜脈推注。",
+      "trap": "單打抗組織胺（Diphenhydramine）或類固醇完全無法逆轉急性喉頭水腫與過敏性休克；若發生迷走神經反射（低血壓伴心跳變慢 <60 bpm）則給輸液抬腳與 Atropine，而非腎上腺素。",
+      "source": {
+        "chapter": "Ch.12 (區段 · 影像診斷學01.pdf 暨 ACR 對比劑急救指引補充)",
+        "pages": "p.18–20、28–31",
+        "kind": "guideline",
+        "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+      }
+    },
+    {
+      "id": "rad-cram-04",
+      "groupId": "rad-physics-contrast-safety",
+      "chapterId": "rad-12",
+      "question": "MRI 週期性血管搏動或呼吸鬼影（Ghosting artifact）永遠沿哪一個編碼軸排列？捲摺假影（Aliasing）如何消除？",
+      "answer": "不論生理運動方向為何，MRI 週期性運動鬼影永遠沿「相位編碼方向（Phase-encoding direction）」重複投影（可交換相位與頻率軸把假影移開病灶）；捲摺假影則因照野（FOV）小於解剖部位所致，可透過擴大 FOV 或相位過取樣（Phase oversampling）消除。",
+      "trap": "升主動脈根部在非門控胸腔 CTA 常因心搏產生雙邊緣假影酷似 Stanford A 剝離，臨床穩定但影像存疑時應改排心電圖同步門控（ECG-gated CTA）確認。",
+      "source": {
+        "chapter": "Ch.12 (區段 · 影像診斷學01.pdf)",
+        "pages": "p.21–32",
+        "kind": "verified-handout",
+        "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+      }
+    },
+    {
+      "id": "rad-cram-05",
+      "groupId": "rad-chest-cardio-aorta",
+      "chapterId": "rad-02",
+      "question": "正面 CXR 心緣輪廓消失、側面 CXR「脊椎徵陽性（Spine sign）」與右上葉塌陷「反 S 徵」各代表什麼病變？",
+      "answer": "正面右心緣消失定位右中葉、左心緣消失定位左上葉舌區（橫膈消失定位下葉）；側面 CXR 正常胸椎因下方軟組織減少應「向下漸黑」，若「正常向下漸黑消失、下胸椎反而變白」即為脊椎徵陽性，定位下肺葉後基底段實變或積液；右上葉塌陷合併中央型肺門腫塊則形成「反 S 徵（Golden S sign）」。",
+      "trap": "透過清晰可見的肺門血管影若仍能看清後方腫塊邊緣（肺門重疊徵 Hilum overlay sign），代表該腫塊不在中縱膈肺門血管平面，而多位於前或後縱膈。",
+      "source": {
+        "chapter": "Ch.02 (陽明醫四 · 影像診斷學06.pdf 暨 Fleischner／ATS-ERS-JRS-ALAT 指引補充)",
+        "pages": "p.3–7、13–15",
+        "kind": "guideline",
+        "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+      }
+    },
+    {
+      "id": "rad-cram-06",
+      "groupId": "rad-chest-cardio-aorta",
+      "chapterId": "rad-02",
+      "question": "高解析胸腔 CT（HRCT）如何區分尋常性間質性肺炎（UIP／特發性肺纖維化）與非特異性間質性肺炎（NSIP）？",
+      "answer": "典型 UIP 呈現雙側下肺基底與胸膜下優勢之不均質空間分布、網狀纖維化、牽引性支氣管擴張與關鍵「蜂窩肺（Honeycombing）」且乏毛玻璃影；NSIP 則呈雙側對稱均質毛玻璃影與細網狀影、極少蜂窩肺，常見特徵性「胸膜下保留（Subpleural sparing）」並高度關聯結締組織疾病。",
+      "trap": "符合典型 UIP HRCT 圖譜且排除結締組織病、藥物與過敏性肺炎暴露者，經多專科討論即可確診特發性肺纖維化（IPF），無須再冒急性惡化風險做外科肺切片。",
+      "source": {
+        "chapter": "Ch.02 (陽明醫四 · 影像診斷學06.pdf 暨 Fleischner／ATS-ERS-JRS-ALAT 指引補充)",
+        "pages": "p.3–7",
+        "kind": "guideline",
+        "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+      }
+    },
+    {
+      "id": "rad-cram-07",
+      "groupId": "rad-chest-cardio-aorta",
+      "chapterId": "rad-03",
+      "question": "主動脈剝離 Stanford Type A 與 B 的唯一解剖分界是什麼？CTA 橫斷面如何區分真腔（True lumen）與假腔（False lumen）？",
+      "answer": "唯一判準為「是否波及升主動脈」：凡侵犯升主動脈者（即使初級裂口在降主動脈但逆行剝回升主動脈）一律為 Stanford Type A 急診開心手術適應症；僅限左鎖骨下動脈以遠之降主動脈為 Type B（無併發症先積極降壓控心率，合併破裂或臟器灌流不良行 TEVAR）。真腔常較小、受鈣化內膜包圍且連通腹腔幹／腸繫膜上動脈與右腎動脈；假腔常較大、強化較慢，可見鳥嘴徵（Beak sign）與蜘蛛網徵（Cobweb sign）。",
+      "trap": "不可把「初級內膜裂口位置」當作 Stanford 分類依據——降主動脈裂口若逆行侵犯升主動脈仍屬致命性 Type A！",
+      "source": {
+        "chapter": "Ch.03 (區段 · 影像診斷學04.pdf)",
+        "pages": "p.23–28",
+        "kind": "verified-handout",
+        "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+      }
+    },
+    {
+      "id": "rad-cram-08",
+      "groupId": "rad-chest-cardio-aorta",
+      "chapterId": "rad-03",
+      "question": "高齡高血壓患者突發撕裂背痛，CTA 見降胸主動脈局部火山口狀外凸穿破鈣化內膜，為何診斷？哪些 CT 尺寸預警高破裂風險？",
+      "answer": "診斷為穿透性動脈硬化潰瘍（Penetrating atherosclerotic ulcer, PAU），常伴隨局部主動脈壁內血腫（IMH）。依 SVS／STS 指引，當 CT 量測潰瘍最大直徑（寬度）≥13–20 mm 及潰瘍深度 ≥10 mm，或合併持續難治疼痛、肋膜積血及外膜囊狀假性動脈瘤快速擴大時，進展為全層破裂風險極高，應優先評估胸主動脈覆膜支架（TEVAR）。",
+      "trap": "若顯影劑僅停留在鈣化內膜「內側」的粥狀硬化斑塊凹陷而未向外穿破內膜輪廓，屬於單純潰瘍性硬化斑塊而非 PAU，切勿過度診斷。",
+      "source": {
+        "chapter": "Ch.03 (區段 · 影像診斷學04.pdf 暨 SVS／STS 主動脈指引補充)",
+        "pages": "p.36–38",
+        "kind": "guideline",
+        "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+      }
+    },
+    {
+      "id": "rad-cram-09",
+      "groupId": "rad-abd-liver-gu-rads",
+      "chapterId": "rad-04",
+      "question": "如何從腹部平片與 CT 區分 Crohn 氏病（克隆氏症）與潰瘍性結腸炎（UC）？何種巨結腸併發症嚴禁做大腸鏡或鋇劑灌腸？",
+      "answer": "Crohn 氏病好犯末端迴腸與全消化道，呈「跳躍性病灶（Skip lesions）」、全層透壁發炎（木梳徵 Comb sign、脂肪爬行徵 Creeping fat）、鵝卵石黏膜及腸瘻管／膿瘍；UC 則自直腸向上「連續性黏膜及黏膜下發炎」、鉛管狀結腸（結腸袋消失）且易併發原發性硬化性膽管炎。當橫結腸擴張 >6 cm 伴全身敗血毒血症之「毒性巨結腸症（Toxic megacolon）」時，腸壁極脆，嚴禁灌腸造影或大腸鏡以防穿孔。",
+      "trap": "仰臥位腹部平片沒有站立橫膈下新月氣體不等於無穿孔——仰臥位要找腸管內外雙壁同時清晰之「Rigler 雙壁徵」與肝前鐮狀韌帶顯影徵。",
+      "source": {
+        "chapter": "Ch.04 (區段 · 影像診斷學08.pdf 暨 區段 · 影像診斷學07.pdf)",
+        "pages": "p.7–19",
+        "kind": "verified-handout",
+        "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+      }
+    },
+    {
+      "id": "rad-cram-10",
+      "groupId": "rad-abd-liver-gu-rads",
+      "chapterId": "rad-05",
+      "question": "慢性 B 肝肝硬化成人發現一顆 2.2 cm 肝結節，如何套用 ACR LI-RADS v2018 判定 LR-5？閾值生長的精確數字為何？",
+      "answer": "在高風險成人（肝硬化、慢性 B 肝或既往 HCC）中，≥20 mm 肝結節具備「非環狀動脈期高強化（Non-rim APHE）」，且至少合併 1 項主要特徵——非周邊洗脫（Non-peripheral washout）、強化包膜（Enhancing capsule）或「閾值生長（≤6 個月內最大徑增加 ≥50%）」——即可判定 LR-5 非侵入確診 HCC。",
+      "trap": "在無肝硬化、無慢性 B 肝的健康年輕女性發現快進快出或持續強化之肝腫塊，絕不可套用 LI-RADS LR-5（實務須鑑別局灶性結節增生 FNH、肝細胞腺瘤或富血管轉移）。",
+      "source": {
+        "chapter": "Ch.05 (區段 · 影像診斷學09_電子版.pdf 暨 ACR LI-RADS v2018 指引補充)",
+        "pages": "p.5–24",
+        "kind": "guideline",
+        "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+      }
+    },
+    {
+      "id": "rad-cram-11",
+      "groupId": "rad-abd-liver-gu-rads",
+      "chapterId": "rad-05",
+      "question": "肝臟海綿狀血管瘤（Hemangioma）與局灶性結節增生（FNH）在多相動態 CT／肝膽特異性 MRI（Gd-EOB-DTPA）如何區分？",
+      "answer": "海綿狀血管瘤於動脈期呈「周邊結節狀不連續強化（與主動脈等密度）」，門脈與延遲期向中心漸進性填充；FNH 動脈期呈強烈均勻強化（中央星狀疤痕延遲強化），且因富含功能性肝細胞與異常膽小管，在 Gd-EOB-DTPA 20 分鐘肝膽期呈「等或高訊號滯留」（肝細胞腺瘤與多數 HCC 在肝膽期則呈低訊號缺損）。",
+      "trap": "海綿狀血管瘤在使用 Gd-EOB-DTPA 時，因血液池藥劑被正常肝實質快速攝取，延遲肝膽期反而會呈現相對低訊號（Pseudo-washout 假性洗脫），切勿誤判為惡性腫瘤洗脫！",
+      "source": {
+        "chapter": "Ch.05 (區段 · 影像診斷學09_電子版.pdf)",
+        "pages": "p.6–26",
+        "kind": "verified-handout",
+        "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+      }
+    },
+    {
+      "id": "rad-cram-12",
+      "groupId": "rad-abd-liver-gu-rads",
+      "chapterId": "rad-06",
+      "question": "無顯影 CT 偶然發現一顆 4.2 cm、邊界平滑均質 78 HU 且顯影後無強化的腎臟囊腫，依 Bosniak v2019 屬第幾級？如何處置？",
+      "answer": "屬 Bosniak Class II（良性高蛋白／出血性腎囊腫），惡性率趨近 0%，免追蹤！Bosniak v2019 已同步廢除舊版 CT 與 MRI 之 3 公分大小分界，凡平滑、NCCT 均質 ≥70 HU 無強化囊腫，或平滑、MRI 抑脂 T1 均質顯著高訊號（≥2.5× 腎皮質）無強化囊腫，不論大小一律歸入 Class II（免追蹤）。",
+      "trap": "若 CT／NCCT 見「異質性」無強化腎臟腫塊，依 Bosniak v2019 不可直接歸為 Class IIF 追蹤，必須先安排腎臟 MRI 排除潛藏微弱強化之實質成分後再行分級；「異質性無強化歸入 Bosniak IIF（不論大小，建議第 6、12 個月再每年追蹤至滿 5 年）」之標準僅適用於 MRI 抑脂 T1 加權影像（fat-suppressed T1WI），一旦出現強化軟組織結節則直上 Class IV 手術。",
+      "source": {
+        "chapter": "Ch.06 (陽明醫四 · 影像診斷學05.pdf p.10–44 暨 區段 · 影像診斷學02.pdf p.3–16、Bosniak v2019 指引補充)",
+        "pages": "p.10–44",
+        "kind": "guideline",
+        "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+      }
+    },
+    {
+      "id": "rad-cram-13",
+      "groupId": "rad-abd-liver-gu-rads",
+      "chapterId": "rad-06",
+      "question": "急性單側腎絞痛首選何種影像？哪一種藥物相關結石是無顯影 CT 唯一可能漏看的「真透光結石」？",
+      "answer": "急性尿路結石診斷首選為「低劑量無顯影螺旋電腦斷層（Low-dose NCCT）」，敏感度與特異度皆 >95%，連傳統 KUB 素片看不見的尿酸結石與黃嘌呤結石在 NCCT 皆呈明確高密度（約 200–400 HU）；唯一在 NCCT 可能呈等軟組織密度而漏診者為蛋白酶抑制劑（如 Indinavir）結晶結石。",
+      "trap": "孕婦與兒童疑似尿路結石第一線應先做「腎臟與膀胱超音波」以遵循 ALARA 輻射防護原則，而非直接排腹部 CT。",
+      "source": {
+        "chapter": "Ch.06 (陽明醫四 · 影像診斷學05.pdf p.4–6 暨 區段 · 影像診斷學02.pdf p.3–16)",
+        "pages": "p.4–6",
+        "kind": "verified-handout",
+        "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+      }
+    },
+    {
+      "id": "rad-cram-14",
+      "groupId": "rad-neuro-cpa-spine",
+      "chapterId": "rad-07",
+      "question": "醒後缺血性中風如何用 MRI 篩選血栓溶解對象？顱外內頸動脈狹窄 NASCET 與 ECST 測量結果有何偏差？",
+      "answer": "醒後中風若病灶在 DWI 已呈擴散受限高訊號（ADC 低值）但 FLAIR 尚未變亮（DWI-FLAIR mismatch），代表發病多在 <4.5 小時黃金窗內；大血管阻塞則結合 CTA／CTP 評估至 24 小時內機械取栓。內頸動脈狹窄率依 NASCET 以「遠端正常內頸動脈管徑」作分母；ECST 改以膨大之「頸動脈球部估計外徑」作分母，分母較大故會「高估」狹窄百分比（70% NASCET 約對應 85% ECST）。",
+      "trap": "亞急性後期腦梗塞（約第 7–10 天）ADC 假性正常化而 T2 透過來使 DWI 持續發亮（T2 shine-through），判讀 DWI 必對照 ADC 圖；切勿將 ECST 高估數值直接套入 NASCET 血運重建門檻。",
+      "source": {
+        "chapter": "Ch.07 (區段 · 影像診斷學11.pdf 暨 區段 · 影像診斷學10.pdf、AHA／ASA 指引補充)",
+        "pages": "p.25–37",
+        "kind": "guideline",
+        "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+      }
+    },
+    {
+      "id": "rad-cram-15",
+      "groupId": "rad-neuro-cpa-spine",
+      "chapterId": "rad-07",
+      "question": "自發性腦實質出血依解剖位置如何推論病因？蛛網膜下腔出血（SAH）發病 6 小時內與數天後各選什麼序列最敏感？",
+      "answer": "基底核（殼核）、視丘、橋腦與小腦深部出血最常見於慢性高血壓微小動脈瘤破裂；高齡大腦皮質／皮質下腦葉出血且 SWI 見多發皮質微出血則指向腦類澱粉血管病變（CAA）；年輕人腦葉出血須排查動靜脈畸形（AVM）或靜脈竇栓塞。急性 SAH 首選薄切無顯影 CT（基底腦池星狀高密度）；亞急性期血液稀釋後 CT 易偽陰性，MRI 以「FLAIR 與 SWI」最敏感，並排 CTA 找囊狀動脈瘤。",
+      "trap": "高速車禍後深度昏迷但初次頭部 NCCT 看似幾乎正常（臨床影像嚴重不成比例），應安排腦部 MRI SWI／DWI 尋找灰白質交界、胼胝體壓部與背外側腦幹之瀰漫性軸突損傷（DAI）。",
+      "source": {
+        "chapter": "Ch.07 (區段 · 影像診斷學11.pdf)",
+        "pages": "p.3–24",
+        "kind": "verified-handout",
+        "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+      }
+    },
+    {
+      "id": "rad-cram-16",
+      "groupId": "rad-neuro-cpa-spine",
+      "chapterId": "rad-08",
+      "question": "單側感音神經性聽損發現橋腦小腦角區（CPA）強化腫塊，如何區分第一常見的「前庭神經鞘瘤」與第二常見的「腦膜瘤」？",
+      "answer": "前庭神經鞘瘤（約占 CPA 腫瘤 80%，排名第一）以內聽道為中心生長、漏斗狀撐大骨性內聽道形成「甜筒冰淇淋徵（Ice-cream cone sign）」，與岩骨背面呈銳角且易囊變出血；腦膜瘤（約占 10%，排名第二）則偏離內聽道中心、以寬基底鈍角貼附岩骨硬膜，具明顯硬腦膜尾徵（Dural tail）、鈣化與鄰近骨增生硬化（Hyperostosis）。",
+      "trap": "若年輕病患出現「雙側」前庭神經鞘瘤，即使無皮膚咖啡牛奶斑，亦應診斷第二型神經纖維瘤病（NF2，常合併多發腦膜瘤與室管膜瘤 MISME）。",
+      "source": {
+        "chapter": "Ch.08 (區段 · 影像診斷學13.pdf)",
+        "pages": "p.16–25",
+        "kind": "verified-handout",
+        "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+      }
+    },
+    {
+      "id": "rad-cram-17",
+      "groupId": "rad-neuro-cpa-spine",
+      "chapterId": "rad-08",
+      "question": "兒童後顱窩三大腫瘤——髓母細胞瘤、毛細胞型星狀細胞瘤與室管膜瘤在起源位置、CT 密度與 DWI 有何關鍵差異？",
+      "answer": "髓母細胞瘤（Medulloblastoma）長自小腦蚓部頂部壓迫第四腦室，因細胞極密集（高核質比）於 NCCT 呈高密度、DWI 顯著擴散受限且易沿 CSF 播散（全腦脊髓 MRI 必掃）；毛細胞型星狀細胞瘤（Pilocytic astrocytoma，WHO 1 級）好發小腦半球，典型呈「大囊腫伴強化壁結節」且無擴散受限；室管膜瘤（Ependymoma）源於第四腦室底，呈牙膏狀可塑性經 Luschka／Magendie 孔擠出腦池並常見鈣化。",
+      "trap": "成人後顱窩最常見的實質內惡性腫瘤不是上述三者，而是「腦轉移瘤」；小腦實質內最常見原發血管性帶壁結節大囊腫於成人則須優先想到血管母細胞瘤（Hemangioblastoma，關聯 VHL 症候群）。",
+      "source": {
+        "chapter": "Ch.08 (區段 · 影像診斷學13.pdf)",
+        "pages": "p.10–23",
+        "kind": "verified-handout",
+        "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+      }
+    },
+    {
+      "id": "rad-cram-18",
+      "groupId": "rad-msk-breast-superficial",
+      "chapterId": "rad-09",
+      "question": "青少年長骨幹骺端骨病灶，如何用 Lodwick 邊緣與骨膜反應區分良惡性骨腫瘤？Codman 三角與洋蔥皮骨膜反應代表什麼？",
+      "answer": "Lodwick 1A 型（地圖狀硬化窄移行帶）代表生長緩慢之良性病灶（如非骨化性纖維瘤）；寬移行帶之蟲蝕狀（Moth-eaten）或滲透狀（Permeative）破壞則代表高侵襲性惡性骨腫瘤或急性骨髓炎。腫瘤快速突破皮質掀起骨膜來不及完整骨化，形成中斷性骨膜反應——日光放射狀（Sunburst，典型骨肉瘤）、洋蔥皮多層狀（Onion-skin，典型 Ewing 肉瘤）與邊緣掀起之 Codman 三角。",
+      "trap": "急性化膿性骨髓炎與嗜酸性肉芽腫（Langerhans 細胞組織球增生症）在青少年平片上可完全模仿 Ewing 肉瘤的滲透性骨破壞與層狀骨膜反應，必須結合臨床發炎指標與切片鑑別。",
+      "source": {
+        "chapter": "Ch.09 (陽明醫四 · 影像診斷學02.pdf 暨 陽明醫四 · 影像診斷學3.pdf)",
+        "pages": "p.10–33",
+        "kind": "verified-handout",
+        "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+      }
+    },
+    {
+      "id": "rad-cram-19",
+      "groupId": "rad-msk-breast-superficial",
+      "chapterId": "rad-09",
+      "question": "年輕人創傷性肩關節前下脫位後反覆脫臼，MRI 上對應的「盂唇軟骨撕裂」與「肱骨頭撞擊凹陷骨折」專有名稱與位置各為何？",
+      "answer": "肱骨頭向前下方脫出時撞擊肩胛盂前下緣，造成前下關節盂唇撕裂稱為 Bankart 病灶（若連帶撕脫骨片稱 Bony Bankart）；同時肱骨頭「後外側上方」撞擊前下盂緣產生壓迫性凹陷骨折與骨髓水腫，稱為 Hill-Sachs 缺損。",
+      "trap": "評估關節盂唇細微撕裂（如上盂唇前後撕裂 SLAP 或 Bankart）以磁振關節攝影（MR arthrography）敏感度最高；切勿把正常解剖變異（如 Buford 複合體前上盂唇缺如伴粗厚中盂肱韌帶）誤縫合致術後肩僵硬。",
+      "source": {
+        "chapter": "Ch.09 (陽明醫四 · 影像診斷學02.pdf)",
+        "pages": "p.8–68",
+        "kind": "verified-handout",
+        "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+      }
+    },
+    {
+      "id": "rad-cram-20",
+      "groupId": "rad-msk-breast-superficial",
+      "chapterId": "rad-10",
+      "question": "篩檢性乳房 X 光攝影發現單側局部不對稱，尚未加做局部壓迫放大與超音波，應給 BI-RADS 第幾級？何種微鈣化最指向高惡性度原位癌？",
+      "answer": "應給 BI-RADS 0（評估尚未完成，需召回補做診斷性局部壓迫放大攝影與目標超音波），待完成完整影像評估後再改判最終 BI-RADS 1–5 級；微鈣化中以「細小多形性（Fine pleomorphic）」與「細線狀或細線分支狀（Fine linear／branching 鑄型）」呈節段性或線性沿乳管分布最高度指向導管原位癌（DCIS，BI-RADS 4C／5）。",
+      "trap": "切勿把尚未完成評估的篩檢異常打成 BI-RADS 3 叫病人等 6 個月後再回來追蹤——BI-RADS 3 只能在完成完整診斷性攝影與超音波確認良性特徵（惡性率 ≤2%）後才能使用！",
+      "source": {
+        "chapter": "Ch.10 (區段 · 影像診斷學03.pdf 暨 ACR BI-RADS 指引補充)",
+        "pages": "p.36–63",
+        "kind": "guideline",
+        "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+      }
+    },
+    {
+      "id": "rad-cram-21",
+      "groupId": "rad-msk-breast-superficial",
+      "chapterId": "rad-10",
+      "question": "腫瘤臨床試驗與化療追蹤之 RECIST 1.1 標準中，目標病灶上限幾顆？一般實體腫瘤與病理淋巴結分別測量長徑或短徑？",
+      "answer": "RECIST 1.1 全身最多選取 5 顆可測量目標病灶（單一器官最多 2 顆）：一般非淋巴結實體腫瘤測量「最長徑（基期須 ≥10 mm）」，而病理性腫大淋巴結必須測量「短軸徑（Short axis，基期短徑 ≥15 mm 可列為目標病灶，治療後短徑縮至 <10 mm 視為正常完全反應）」。目標病灶總和縮小 ≥30% 為部分反應（PR），較最低點增加 ≥20%（且絕對值增加 ≥5 mm）或出現新病灶為疾病惡化（PD）。",
+      "trap": "單純成骨性骨轉移、惡性肋膜積液、腹水與腦膜癌病變在 RECIST 1.1 屬於「不可測量病灶（Non-measurable）」，不可選作目標病灶量公分數。",
+      "source": {
+        "chapter": "Ch.10 (區段 · 影像診斷學03.pdf 暨 RECIST 1.1 指引補充)",
+        "pages": "p.56–62",
+        "kind": "guideline",
+        "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+      }
+    },
+    {
+      "id": "rad-cram-22",
+      "groupId": "rad-ir-peds-emergency",
+      "chapterId": "rad-11",
+      "question": "急診解大量暗紅血便伴血壓不穩，CTA 見升結腸憩室動脈期顯影劑外滲，後續經導管動脈栓塞（TAE）在上下消化道策略有何不同？",
+      "answer": "上消化道（如胃十二指腸動脈 GDA 出血）因擁有豐富雙向側支吻合弓，必須對出血點前後端執行「三明治雙端栓塞（Front-and-back-door embolization）」以防側支逆流再出血，且胃十二指腸缺血風險低；下消化道結腸直血管（Vasa recta）缺乏末端側支循環，必須以微導管深入出血直血管行「超選擇性栓塞」，以免大範圍阻斷邊緣動脈導致全層結腸缺血壞死穿孔。",
+      "trap": "在安排急診腹部出血 CTA 前，絕對不可先餵食高密度口服陽性顯影劑或鋇劑，否則腸腔滿布高密度造影劑將完全掩蓋活動性血管外滲亮點！",
+      "source": {
+        "chapter": "Ch.11 (區段 · 影像診斷學08.pdf 暨 區段 · 影像診斷學07.pdf)",
+        "pages": "p.24–36",
+        "kind": "verified-handout",
+        "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+      }
+    },
+    {
+      "id": "rad-cram-23",
+      "groupId": "rad-ir-peds-emergency",
+      "chapterId": "rad-11",
+      "question": "外傷後出現搏動性突眼、球結膜充血水腫與顱內雜音，血管攝影確診直接型頸動脈海綿竇瘻管（Barrow Type A CCF），成因與首選治療為何？",
+      "answer": "直接型（Barrow Type A）CCF 為高流量動靜脈瘻管，多因顱底骨折外傷或海綿竇段內頸動脈瘤破裂，使高壓動脈血直接灌入海綿竇並逆流撐大上眼靜脈（CT／MRI 見同側海綿竇與上眼靜脈顯著擴張伴眼外肌腫大）；首選血管內介入治療（經動脈或經靜脈途徑置放線圈／覆膜支架封閉瘻口並保留內頸動脈通暢）。",
+      "trap": "間接型硬腦膜動靜脈瘻管（Barrow Type B–D）多見於中老年女性自發性低流量分流，臨床症狀較緩和，與外傷急性高流量 Type A 病程及緊急失明風險不同。",
+      "source": {
+        "chapter": "Ch.11 (區段 · 影像診斷學11.pdf 暨 區段 · 影像診斷學08.pdf)",
+        "pages": "p.12–36",
+        "kind": "verified-handout",
+        "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+      }
+    },
+    {
+      "id": "rad-cram-24",
+      "groupId": "rad-ir-peds-emergency",
+      "chapterId": "rad-12",
+      "question": "新生兒膽汁性嘔吐 vs 嬰兒非膽汁噴射性嘔吐，以及學齡前兒童腎母細胞瘤（Wilms）vs 神經母細胞瘤影像如何鑑別？",
+      "answer": "新生兒膽汁性嘔吐必排除「腸旋轉不良併中腸扭轉」（上消化道開瓶器徵 Corkscrew sign、超音波腸繫膜血管漩渦徵）；4 週嬰兒非膽汁噴射性嘔吐為肥厚性幽門狹窄（肌層厚 ≥3 mm、管長 ≥15 mm）。兒童後腹腔腫塊中，Wilms 腫瘤源自腎內（腎爪徵 Claw sign、推移大血管、少鈣化，好發 3–4 歲）；腎上腺神經母細胞瘤則常跨中線包埋腹主動脈／下腔靜脈、具斑點狀鈣化且發病年齡更小（<2 歲）。",
+      "trap": "另須牢記非意外性兒童虐待創傷（NAT）特徵：長骨幹骺端角落／提籃柄撕脫骨折（Classic metaphyseal lesion）、不同癒合期多發後肋骨骨折，以及不同期別雙側硬腦膜下血腫伴視網膜出血，發現時負有法定通報責任。",
+      "source": {
+        "chapter": "Ch.12 (陽明醫四 · 影像診斷學05.pdf p.20–21、39–40 暨 區段 · 影像診斷學07.pdf p.34、36、48、08.pdf p.7、18 暨 ACR Appropriateness Criteria 兒科影像指引補充)",
+        "pages": "p.34、36、48",
+        "kind": "guideline",
+        "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+      }
+    }
+  ],
+  "corrections": [
+    {
+      "id": "rad-corr-01",
+      "title": "Bosniak v2019 腎臟囊腫分級更新：廢除舊版 CT／MRI 3 公分門檻，強化與毫米厚度定量化",
+      "sourceWording": "舊版分類講義將無顯影高密度腎囊腫以 3 公分作為良性 II 級與需追蹤 IIF 級之分水嶺，且壁／中隔增厚未給予定量毫米界線。",
+      "correction": "依 Bosniak Classification v2019，平滑且均質高密度（NCCT ≥70 HU）無強化腎囊腫，以及平滑、MRI 抑脂 T1 均質顯著高訊號（≥2.5× 腎皮質）無強化腎囊腫，「不論大小（同步廢除 CT 與 MRI 3 cm 限制）」一律歸為良性 Class II 免追蹤（平滑薄壁 ≤2 mm 或薄中隔鈣化無強化軟組織亦留存 Class II）；Class IIF 明確定義為 ≥4 條 ≤2 mm 薄強化中隔、3 mm 平滑輕度增厚強化壁／隔，或「MRI 抑脂 T1 加權（fat-suppressed T1WI）呈不均質（heterogeneously）高訊號之無強化囊腫」（不論大小，建議第 6、12 個月再每年追蹤至滿 5 年；惟若於 CT／NCCT 見異質性無強化腎臟腫塊，依 Bosniak v2019 不得逕歸入 Class IIF，須先接受腎臟 MRI 排除潛藏強化實質成分後始能分級）；Class III 為 ≥4 mm 平滑增厚強化壁／隔或 ≤3 mm 鈍角不規則強化突起；Class IV 為具明確強化軟組織結節（≥4 mm 鈍角或任意大小銳角突起）。",
+      "source": {
+        "chapter": "Ch.06 (陽明醫四 · 影像診斷學05.pdf p.10–44 暨 區段 · 影像診斷學02.pdf p.3–16、Bosniak v2019 指引補充)",
+        "pages": "p.10–44",
+        "kind": "guideline",
+        "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+      },
+      "links": [
+        {
+          "label": "ACR：標準化報告系統（RADS）總覽",
+          "url": "https://www.acr.org/clinical-resources/clinical-tools-and-reference/reporting-and-data-systems"
+        },
+        {
+          "label": "RadiologyInfo：腎臟囊腫與腫塊影像評估",
+          "url": "https://www.radiologyinfo.org/"
+        }
+      ]
+    },
+    {
+      "id": "rad-corr-02",
+      "title": "妊娠期 MRI 與顯影劑安全：全孕期（含第一孕期）可執行 ≤3T 無顯影 MRI，常規避免含釓顯影劑",
+      "sourceWording": "早期筆記常記載懷孕前 12 週（第一孕期）禁止接受任何磁振造影檢查，或要求哺乳婦女施打顯影劑後暫停哺乳 24 小時。",
+      "correction": "依現行 ACR Manual on Contrast Media 與磁振安全指引，臨床有明確適應症之無顯影劑 ≤3 T MRI（一般操作模式）於妊娠任一孕期（包含第一孕期）皆可安全執行，尚無胎兒致畸胎或聽力損傷實證；相反地，含釓顯影劑（GBCA）可通過胎盤長期滯留羊水並提高死產或風濕皮膚病變風險，全孕期應避免常規施打。哺乳婦女接受水溶性含碘或巨環類含釓顯影劑後無須中斷哺乳。",
+      "source": {
+        "chapter": "Ch.01 (區段 · 影像診斷學01.pdf p.18–20 暨 陽明醫四 · 影像診斷學06.pdf p.8–11、ACR Contrast Manual 指引補充)",
+        "pages": "p.18–20",
+        "kind": "guideline",
+        "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+      },
+      "links": [
+        {
+          "label": "ACR：對比劑與妊娠哺乳安全手冊",
+          "url": "https://www.acr.org/clinical-resources/clinical-tools-and-reference/contrast-manual"
+        },
+        {
+          "label": "RadiologyInfo：妊娠期 MRI 安全指引",
+          "url": "https://www.radiologyinfo.org/"
+        }
+      ]
+    },
+    {
+      "id": "rad-corr-03",
+      "title": "靜脈含碘與含釓顯影劑腎安全更新：聚焦 eGFR <30／AKI，第 II 類巨環含釓極低 NSF 風險",
+      "sourceWording": "舊教材常以血清肌酸酐 >1.5 mg/dL 或 eGFR <60 一律停用靜脈含碘顯影劑及強制停用 Metformin 48 小時，並將所有含釓顯影劑視為慢性腎病絕對禁忌。",
+      "correction": "依 ACR／NKF 共識聲明與 ACR Contrast Manual，靜脈含碘顯影劑之真實腎損傷高危門檻下修聚焦於 eGFR <30 mL/min/1.73m² 或急性腎損傷（AKI），Metformin 亦僅於 eGFR <30、AKI 或動脈導管顯影時才需暫停；含釓顯影劑方面，第 II 類高穩定巨環類製劑（如 Gadobutrol、Gadoterate、Gadoteridol）於重度腎病患者之 NSF 風險極低，臨床確有必要時可使用最低診斷劑量，無須因此犧牲關鍵診斷或強行安排血液透析。",
+      "source": {
+        "chapter": "Ch.01 (區段 · 影像診斷學01.pdf 暨 ACR Contrast Manual 指引補充)",
+        "pages": "p.18–20",
+        "kind": "guideline",
+        "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+      },
+      "links": [
+        {
+          "label": "ACR：對比劑安全手冊（Contrast Manual）",
+          "url": "https://www.acr.org/clinical-resources/clinical-tools-and-reference/contrast-manual"
+        }
+      ]
+    },
+    {
+      "id": "rad-corr-04",
+      "title": "ACR LI-RADS v2018 適用邊界與閾值生長：非高風險健康肝不可套用 LR-5 免切片確診",
+      "sourceWording": "部分整理稿將任何成人肝臟發現「動脈期變亮、門脈期變暗」之結節直接等同肝細胞癌確診，或沿用舊版不同倍增時間之生長定義。",
+      "correction": "依 ACR LI-RADS v2018，LR-5 免切片確診僅限於「肝硬化、慢性 B 型肝炎或既往 HCC」之成人高風險群（不適用於健康肝、兒童或血管性肝病如 Budd-Chiari）；閾值生長（Threshold growth）已簡化統一為「≤6 個月內病灶最大徑增加 ≥50%」，且動脈期高強化必須為「非環狀（Non-rim APHE）」——若為環狀高強化（Rim APHE）須歸入 LR-M 並切片排除膽管癌或轉移瘤。",
+      "source": {
+        "chapter": "Ch.05 (區段 · 影像診斷學09_電子版.pdf 暨 ACR LI-RADS v2018 指引補充)",
+        "pages": "p.5–24",
+        "kind": "guideline",
+        "notice": "出處依據已逐頁核對之影像診斷學課程講義（陽明醫四共筆 · 影像診斷學01、02、3、04、05、06.pdf 與 區段共筆 · 影像診斷學01–04、06–08、09_電子版、10–13.pdf 實際頁序），並參照國際權威指引（ACR Appropriateness Criteria、ACR Contrast Manual、Fleischner、ATS/ERS/JRS/ALAT、LI-RADS v2018、Bosniak v2019、BI-RADS、TI-RADS、PI-RADS v2.1）完成臨床校正與專科延伸補充；不含個人姓名或逐字原文。"
+      },
+      "links": [
+        {
+          "label": "ACR：LI-RADS 標準化報告系統",
+          "url": "https://www.acr.org/clinical-resources/clinical-tools-and-reference/reporting-and-data-systems"
+        },
+        {
+          "label": "ACR：臨床適應症準則（Appropriateness Criteria）",
+          "url": "https://www.acr.org/clinical-resources/clinical-tools-and-reference/appropriateness-criteria"
+        }
+      ]
+    }
+  ]
+}

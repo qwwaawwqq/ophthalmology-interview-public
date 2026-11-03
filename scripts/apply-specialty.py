@@ -55,6 +55,7 @@ FILE_ALIASES = {
     'pbl': ('pbl.json', 'pbl-cases.json'),
     'enrichment': ('enrichment.json', 'study-enrichment.json'),
     'coverage': ('source-coverage.json', 'coverage.json'),
+    'cram': ('cram-review.json',),
 }
 KNOWN_JSON_FILES = {name for names in FILE_ALIASES.values() for name in names}
 RESOURCE_KINDS = {'圖譜', '影片', '期刊', '指南'}
@@ -1154,6 +1155,140 @@ def validate_pbl(raw_pbl, sid, topic_ids, workflow_ids, resource_ids):
     return {'version': 1, 'reviewedDate': reviewed, 'intro': intro, 'method': method, 'disclaimer': disclaimer, 'cases': cases}
 
 
+def _validate_cram_links(links, label, required=False):
+    if links is None:
+        if required:
+            raise ValueError(f'{label}: non-empty links list required')
+        return
+    if not isinstance(links, list) or (required and not links):
+        raise ValueError(f'{label}: expected {"non-empty " if required else ""}list of links')
+    for i, link in enumerate(links):
+        if not isinstance(link, dict):
+            raise ValueError(f'{label}[{i}]: object required')
+        require_text(link.get('label'), f'{label}[{i}].label')
+        url = require_text(link.get('url'), f'{label}[{i}].url')
+        if not re.match(r'^https://\S+$', url):
+            raise ValueError(f'{label}[{i}].url: must start with https://')
+
+
+def _validate_cram_source_obj(src, label):
+    if not isinstance(src, dict):
+        raise ValueError(f'{label}: source object required')
+    require_text(src.get('chapter'), f'{label}.chapter')
+    require_text(src.get('pages'), f'{label}.pages')
+
+
+def validate_cram_review(cram, sid, topic_ids):
+    label = f'{sid} cram-review.json'
+    if not isinstance(cram, dict):
+        raise ValueError(f'{label}: object required')
+    if cram.get('version') != 1 or isinstance(cram.get('version'), bool):
+        raise ValueError(f'{label}.version: expected 1')
+    updated = require_text(cram.get('updated'), f'{label}.updated')
+    if not re.match(r'^\d{4}-\d{2}-\d{2}$', updated):
+        raise ValueError(f'{label}.updated: expected YYYY-MM-DD')
+    for field in ('title', 'disclaimer', 'sourceNotice'):
+        require_text(cram.get(field), f'{label}.{field}')
+
+    chapters_in = cram.get('chapters')
+    if not isinstance(chapters_in, list) or not chapters_in:
+        raise ValueError(f'{label}.chapters: non-empty list required')
+    chapter_ids = set()
+    for i, ch in enumerate(chapters_in):
+        clabel = f'{label}.chapters[{i}]'
+        if not isinstance(ch, dict):
+            raise ValueError(f'{clabel}: object required')
+        cid = require_text(ch.get('id'), f'{clabel}.id')
+        if not cid.startswith(f'{sid}-'):
+            raise ValueError(f'{clabel}.id: must match {sid}-*')
+        if cid in chapter_ids:
+            raise ValueError(f'{clabel}.id: duplicate {cid}')
+        chapter_ids.add(cid)
+        num = ch.get('number')
+        if isinstance(num, bool) or not isinstance(num, int) or num < 1:
+            raise ValueError(f'{clabel}.number: positive int required')
+        require_text(ch.get('title'), f'{clabel}.title')
+        require_str_list(ch.get('focus'), f'{clabel}.focus', low=1)
+    if topic_ids and chapter_ids != topic_ids:
+        raise ValueError(f'{label}.chapters: IDs must match topics.json (diff: {sorted(chapter_ids ^ topic_ids)})')
+
+    groups_in = cram.get('groups')
+    if not isinstance(groups_in, list) or not groups_in:
+        raise ValueError(f'{label}.groups: non-empty list required')
+    group_ids = set()
+    for i, grp in enumerate(groups_in):
+        glabel = f'{label}.groups[{i}]'
+        if not isinstance(grp, dict):
+            raise ValueError(f'{glabel}: object required')
+        gid = require_text(grp.get('id'), f'{glabel}.id')
+        if not gid.startswith(f'{sid}-'):
+            raise ValueError(f'{glabel}.id: must match {sid}-*')
+        if gid in group_ids:
+            raise ValueError(f'{glabel}.id: duplicate {gid}')
+        group_ids.add(gid)
+        require_text(grp.get('title'), f'{glabel}.title')
+        require_text(grp.get('summary'), f'{glabel}.summary')
+        cids = require_str_list(grp.get('chapterIds'), f'{glabel}.chapterIds', low=1)
+        if not set(cids) <= chapter_ids:
+            raise ValueError(f'{glabel}.chapterIds: unknown chapter IDs {sorted(set(cids) - chapter_ids)}')
+        pts = grp.get('points')
+        if not isinstance(pts, list) or not pts:
+            raise ValueError(f'{glabel}.points: non-empty list required')
+        for j, pt in enumerate(pts):
+            plabel = f'{glabel}.points[{j}]'
+            if not isinstance(pt, dict):
+                raise ValueError(f'{plabel}: object required')
+            for f in ('question', 'answer', 'trap'):
+                require_text(pt.get(f), f'{plabel}.{f}')
+            _validate_cram_source_obj(pt.get('source'), f'{plabel}.source')
+            _validate_cram_links(pt.get('links'), f'{plabel}.links', required=False)
+
+    cards_in = cram.get('cards')
+    if not isinstance(cards_in, list) or not cards_in:
+        raise ValueError(f'{label}.cards: non-empty list required')
+    card_ids = set()
+    for i, card in enumerate(cards_in):
+        clabel = f'{label}.cards[{i}]'
+        if not isinstance(card, dict):
+            raise ValueError(f'{clabel}: object required')
+        cid = require_text(card.get('id'), f'{clabel}.id')
+        if not cid.startswith(f'{sid}-cram-'):
+            raise ValueError(f'{clabel}.id: must match {sid}-cram-*')
+        if cid in card_ids:
+            raise ValueError(f'{clabel}.id: duplicate {cid}')
+        card_ids.add(cid)
+        gid = require_text(card.get('groupId'), f'{clabel}.groupId')
+        if gid not in group_ids:
+            raise ValueError(f'{clabel}.groupId: unknown groupId {gid}')
+        if 'chapterId' in card:
+            chid = require_text(card.get('chapterId'), f'{clabel}.chapterId')
+            if chid not in chapter_ids:
+                raise ValueError(f'{clabel}.chapterId: unknown chapterId {chid}')
+        for f in ('question', 'answer', 'trap'):
+            require_text(card.get(f), f'{clabel}.{f}')
+        _validate_cram_source_obj(card.get('source'), f'{clabel}.source')
+        _validate_cram_links(card.get('links'), f'{clabel}.links', required=False)
+
+    corrs_in = cram.get('corrections')
+    if not isinstance(corrs_in, list) or not corrs_in:
+        raise ValueError(f'{label}.corrections: non-empty list required')
+    corr_ids = set()
+    for i, corr in enumerate(corrs_in):
+        clabel = f'{label}.corrections[{i}]'
+        if not isinstance(corr, dict):
+            raise ValueError(f'{clabel}: object required')
+        cid = require_text(corr.get('id'), f'{clabel}.id')
+        if not cid.startswith(f'{sid}-'):
+            raise ValueError(f'{clabel}.id: must match {sid}-*')
+        if cid in corr_ids:
+            raise ValueError(f'{clabel}.id: duplicate {cid}')
+        corr_ids.add(cid)
+        for f in ('title', 'sourceWording', 'correction'):
+            require_text(corr.get(f), f'{clabel}.{f}')
+        _validate_cram_source_obj(corr.get('source'), f'{clabel}.source')
+        _validate_cram_links(corr.get('links'), f'{clabel}.links', required=True)
+
+
 def build_specialty_payload(sid, content_root=DEFAULT_CONTENT_ROOT):
     if sid not in SPECIALTIES:
         raise ValueError(f'Unsupported specialty {sid!r}; expected one of {SPECIALTY_ORDER}')
@@ -1220,6 +1355,9 @@ def build_specialty_payload(sid, content_root=DEFAULT_CONTENT_ROOT):
 
     if 'pbl' in files:
         shell['pbl'] = validate_pbl(files['pbl'], sid, topic_ids, workflow_ids, resource_ids)
+
+    if 'cram' in files:
+        validate_cram_review(files['cram'], sid, topic_ids)
 
     return shell
 

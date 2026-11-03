@@ -537,7 +537,7 @@ footer span:first-child{max-width:70ch}
 </style>
 <link rel="stylesheet" href="scripts/layout.css?v=20261102">
 <link rel="stylesheet" href="scripts/cram-review.css?v=20261016">
-<script defer src="scripts/cram-review.js?v=20261016"></script>
+<script defer src="scripts/cram-review.js?v=20261103"></script>
 <link rel="stylesheet" href="scripts/textbook-depth.css?v=volume-atlas-20261028">
 <link rel="stylesheet" href="scripts/textbook-atlas.css?v=volume-atlas-20261028">
 <script src="scripts/textbook-atlas.js?v=volume-atlas-20261028" defer></script>
@@ -577,7 +577,7 @@ const day=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Taipei',year:'numeric'
 const shortTitle=id=>D.topics.find(t=>t.id===id)?.title.split('：')[0]||id;
 const navs=[['study','↻','今日複習'],['textbook','▥','原文書進階'],['cram','✦','共筆考前衝刺'],['today','◎','今日'],['notebook','▧','章節教材'],['quiz','▦','筆試練習'],['learn','▤','主動複習'],['interview','◷','面試演練'],['pbl','◈','PBL 情境'],['workflow','▥','臨床流程'],['advanced','◆','Hard｜臨床推理'],['workshop','◇','故事與證據'],['plan','▣','每日計畫'],['progress','◴','學習進度'],['links','☆','我的連結'],['schedule','▣','考試時程'],['sync','⇅','保存與同步'],['project','◉','甄試訓練日誌']];
 const SPECIALTY_LIST=[['oph','眼科','./'],['ent','耳鼻喉科','./?s=ent'],['rad','放射診斷科','./?s=rad'],['nm','核子醫學科','./?s=nm'],['neuro','神經內科','./?s=neuro']];
-const OPH_ONLY_TABS=new Set(['textbook','cram','advanced','schedule','project']);
+const OPH_ONLY_TABS=new Set(['textbook','advanced','schedule','project']);
 const tabAllowed=id=>SPEC.id==='oph'||!OPH_ONLY_TABS.has(id);
 function applySpecialtyBranding(){document.title=SPEC.appTitle+' · 公開練習版';const brand=$('.brand strong');if(brand)brand.textContent=SPEC.appTitle;const foot=$('footer span');if(foot)foot.textContent=SPEC.id==='oph'?'眼科甄選練習室 · 公開練習版：個人經歷與研究結果請自行填寫；本版不包含原始共筆全文或私人附件。':SPEC.appTitle+' · 公開練習版：個人經歷與研究結果請自行填寫；本版僅收錄經核對之公開教材與考點，不包含未授權全文或私人附件。';if(SPEC.id!=='oph'){$('meta[name="description"]')?.setAttribute('content',SPEC.label+'筆試、主動回想與面試演練。');const mark=$('.brand-mark');if(mark)mark.innerHTML='<rect x="6" y="6" width="36" height="36" rx="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M24 14v20M14 24h20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>';}}
 /* layout-shell:start */

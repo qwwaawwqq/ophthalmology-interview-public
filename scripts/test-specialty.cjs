@@ -50,7 +50,7 @@ const EXPORT_NAMES = {
 const FULL_TAB_SPECIALTIES = ['ent', 'rad', 'nm', 'neuro'];
 // Specialties without a 甄選面試 that were removed from the registry/picker on 2026-11-02 (old ?s= links fall back to oph).
 const REMOVED_SPECIALTIES = ['radonc', 'gs', 'prs', 'ortho', 'uro', 'ns', 'gm', 'cv', 'pulm', 'gi', 'nephro', 'endo', 'hemeonc', 'id', 'rheu', 'ped', 'obgyn', 'derm', 'psych', 'pmr', 'anes', 'fm'];
-const OPH_ONLY_TABS = ['textbook', 'cram', 'advanced', 'schedule', 'project'];
+const OPH_ONLY_TABS = ['textbook', 'advanced', 'schedule', 'project'];
 const OPH_LEAK_TERMS = ['BCSC', 'RAPD', '白瞳', '眼科學No.', '急性視力喪失', '糖尿病黃斑水腫', '#pbl-dr', '#wf-chemical', '#notes-02'];
 
 function wellFormed(markup) {
@@ -452,7 +452,7 @@ async function practise(app) {
         assert(!app.nav().includes(`data-value="${ophTab}"`), `${id} nav leaked ${ophTab}`);
       }
       const visibleTabs = plain(app.qa.navs.filter(n => app.qa.tabAllowed(n[0])).map(n => n[0]));
-      assert.deepEqual(visibleTabs, ['study', 'today', 'notebook', 'quiz', 'learn', 'interview', 'pbl', 'workflow', 'workshop', 'plan', 'progress', 'links', 'sync']);
+      assert.deepEqual(visibleTabs, ['study', 'cram', 'today', 'notebook', 'quiz', 'learn', 'interview', 'pbl', 'workflow', 'workshop', 'plan', 'progress', 'links', 'sync']);
 
       for (const tab of visibleTabs) {
         app.action('tab', tab);
@@ -465,6 +465,8 @@ async function practise(app) {
         }
         if (['notebook', 'study', 'learn', 'quiz', 'interview', 'pbl', 'workflow', 'progress'].includes(tab) && !app.qa.D.questions.length && !app.qa.D.topics.length) {
           assert(markup.includes('內容待補') && markup.includes('specialty-pending'), `${id} ${tab} should show 內容待補 card`);
+        } else if (app.qa.D.questions.length && app.qa.D.topics.length) {
+          assert(!markup.includes('內容待補') && !markup.includes('specialty-pending'), `${id} ${tab} must not show 內容待補`);
         }
       }
 
@@ -499,7 +501,7 @@ async function practise(app) {
       assert.equal(app.location.search, '?s=' + sid);
       assert.equal(app.location.hash, '#tab-quiz');
 
-      for (const [hash, expectedTab] of [['#tab-learn', 'learn'], ['#pbl', 'pbl'], ['#workflow', 'workflow'], ['#links', 'links'], ['#tab-interview', 'interview']]) {
+      for (const [hash, expectedTab] of [['#tab-cram', 'cram'], ['#tab-learn', 'learn'], ['#pbl', 'pbl'], ['#workflow', 'workflow'], ['#links', 'links'], ['#tab-interview', 'interview']]) {
         assert.equal(app.qa.openRoute(hash), true, `${sid} ${hash}`);
         assert.equal(app.qa.S.tab, expectedTab);
         assert.equal(app.location.search, '?s=' + sid, `${hash} must keep ?s=${sid}`);
@@ -510,7 +512,7 @@ async function practise(app) {
       assert.equal(app.location.search, '?s=' + sid, `returning to home keeps ?s=${sid}`);
       assert.equal(app.location.hash, '');
 
-      for (const blocked of ['#textbook', '#textbook-bcsc-s01', '#textbook-atlas', '#tab-cram', '#tab-advanced', '#tab-schedule', '#tab-project']) {
+      for (const blocked of ['#textbook', '#textbook-bcsc-s01', '#textbook-atlas', '#tab-advanced', '#tab-schedule', '#tab-project']) {
         assert.equal(app.qa.parseRoute(blocked), null, `${blocked} must be rejected in ${sid}`);
         assert.equal(app.qa.openRoute(blocked), false);
       }
@@ -1183,6 +1185,26 @@ async function practise(app) {
       ['unknown json filename typo', {
         'question.json': [validQuestion],
       }, /unknown JSON file question\.json/],
+      ['cram-review chapter mismatch against topics.json', {
+        'topics.json': baseTopic,
+        'cram-review.json': {
+          version: 1, updated: '2026-11-03', title: '衝刺', disclaimer: '聲明', sourceNotice: '來源',
+          chapters: [{id: 'nm-other', number: 1, title: '章一', focus: ['重點']}],
+          groups: [{id: 'nm-g1', title: '組一', summary: '摘要', chapterIds: ['nm-other'], points: [{question: '問', answer: '答', trap: '陷', source: {chapter: '1', pages: 'p.1'}}]}],
+          cards: [{id: 'nm-cram-01', groupId: 'nm-g1', chapterId: 'nm-other', question: '問', answer: '答', trap: '陷', source: {chapter: '1', pages: 'p.1'}}],
+          corrections: [{id: 'nm-corr-01', title: '勘', sourceWording: '舊', correction: '新', source: {chapter: '1', pages: 'p.1'}, links: [{label: 'SNMMI', url: 'https://www.snmmi.org/'}]}],
+        },
+      }, /chapters: IDs must match topics\.json/],
+      ['cram-review non-https link url', {
+        'topics.json': baseTopic,
+        'cram-review.json': {
+          version: 1, updated: '2026-11-03', title: '衝刺', disclaimer: '聲明', sourceNotice: '來源',
+          chapters: [{id: 'nm-t1', number: 1, title: '章一', focus: ['重點']}],
+          groups: [{id: 'nm-g1', title: '組一', summary: '摘要', chapterIds: ['nm-t1'], points: [{question: '問', answer: '答', trap: '陷', source: {chapter: '1', pages: 'p.1'}}]}],
+          cards: [{id: 'nm-cram-01', groupId: 'nm-g1', chapterId: 'nm-t1', question: '問', answer: '答', trap: '陷', source: {chapter: '1', pages: 'p.1'}}],
+          corrections: [{id: 'nm-corr-01', title: '勘', sourceWording: '舊', correction: '新', source: {chapter: '1', pages: 'p.1'}, links: [{label: 'Insecure', url: 'http://example.com/'}]}],
+        },
+      }, /must start with https:\/\//],
     ];
 
     const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'oph-spec-neg-'));
@@ -1255,6 +1277,179 @@ async function practise(app) {
     for (const name of depthBanks) {
       const questions = JSON.parse(fs.readFileSync(path.join(depthDir, name), 'utf8')).questions;
       checkOptionLengths(name, questions);
+    }
+  });
+
+  await test('content/<sid>/cram-review.json schema, topic alignment, and hygiene across ent, rad, nm, and neuro', async () => {
+    const ophCramRaw = fs.readFileSync(path.join(ROOT, 'content/cram-review.json'));
+    const ophCramSha = crypto.createHash('sha256').update(ophCramRaw).digest('hex');
+    assert.equal(ophCramSha, '1877f5dc210c0bfd80f6f635612ca1f99a6277a784dda52986bce0b13fabcfca', 'ophthalmology content/cram-review.json must stay byte-identical');
+
+    const simpRe = /[这为发对说会着过还进们个时来国学体点线显剂脑肾脏肿肠胆髋颈颌龈龋脓瘘痫瘫痉挛颤晕呕泻痒癣瘢瘾疗药针输检诊证验标导级类组块结节纤综适并鉴扫摄计]|瞻妄|線粒體|综合症|综合征/;
+    const rawLatexRe = /\\[a-zA-Z]{2,}|\$[^$\n]+\$/;
+    const ctrlRe = /[\u0000-\u0009\u000b-\u001f\u007f]/;
+
+    for (const sid of FULL_TAB_SPECIALTIES) {
+      const cramFile = path.join(ROOT, 'content', sid, 'cram-review.json');
+      assert(fs.existsSync(cramFile), `missing ${cramFile}`);
+      const raw = fs.readFileSync(cramFile, 'utf8');
+      const cram = JSON.parse(raw);
+      const topics = JSON.parse(fs.readFileSync(path.join(ROOT, 'content', sid, 'topics.json'), 'utf8'));
+      const topicIds = new Set(topics.map(t => t.id));
+
+      assert.equal(cram.version, 1, `${sid} cram version`);
+      assert.equal(cram.groups.length, 6, `${sid} cram groups count`);
+      assert.equal(cram.chapters.length, topics.length, `${sid} cram chapters count must match topics.json`);
+      assert.equal(cram.cards.length, 24, `${sid} cram cards count`);
+      assert.equal(cram.corrections.length, 4, `${sid} cram corrections count`);
+
+      const chapterIds = new Set(cram.chapters.map(c => c.id));
+      assert.deepEqual([...chapterIds].sort(), [...topicIds].sort(), `${sid} cram chapters must match topics.json IDs`);
+
+      const groupIds = new Set();
+      for (const g of cram.groups) {
+        assert(g.id.startsWith(sid + '-'), `${sid} group id prefix: ${g.id}`);
+        assert(!groupIds.has(g.id), `${sid} duplicate group id: ${g.id}`);
+        groupIds.add(g.id);
+        assert(Array.isArray(g.points) && g.points.length >= 2, `${sid} group ${g.id} points`);
+        for (const cid of g.chapterIds) assert(topicIds.has(cid), `${sid} group ${g.id} unknown chapterId ${cid}`);
+        for (const pt of g.points) {
+          for (const l of pt.links || []) assert.match(l.url, /^https:\/\/\S+$/, `${sid} point link url`);
+        }
+      }
+
+      const cardIds = new Set();
+      for (const card of cram.cards) {
+        assert.match(card.id, new RegExp(`^${sid}-cram-\\d{2}$`), `${sid} card id format: ${card.id}`);
+        assert(!cardIds.has(card.id), `${sid} duplicate card id: ${card.id}`);
+        cardIds.add(card.id);
+        assert(groupIds.has(card.groupId), `${sid} card ${card.id} unknown groupId ${card.groupId}`);
+        assert(topicIds.has(card.chapterId), `${sid} card ${card.id} unknown chapterId ${card.chapterId}`);
+        for (const l of card.links || []) assert.match(l.url, /^https:\/\/\S+$/, `${sid} card link url`);
+      }
+
+      for (const corr of cram.corrections) {
+        assert(corr.id.startsWith(sid + '-'), `${sid} correction id prefix: ${corr.id}`);
+        assert(Array.isArray(corr.links) && corr.links.length > 0, `${sid} correction ${corr.id} links`);
+        for (const l of corr.links) assert.match(l.url, /^https:\/\/\S+$/, `${sid} correction link url`);
+      }
+
+      const walkStrings = (val, where) => {
+        if (typeof val === 'string') {
+          assert(!ctrlRe.test(val), `${sid} ${where}: control character`);
+          assert(!simpRe.test(val), `${sid} ${where}: simplified or banned term (${val.match(simpRe)?.[0]})`);
+          assert(!rawLatexRe.test(val), `${sid} ${where}: raw LaTeX (${val.match(rawLatexRe)?.[0]})`);
+          for (const leak of OPH_LEAK_TERMS) assert(!val.includes(leak), `${sid} ${where}: leaked ophthalmology term ${leak}`);
+        } else if (val && typeof val === 'object') {
+          for (const [k, v] of Object.entries(val)) walkStrings(v, `${where}.${k}`);
+        }
+      };
+      walkStrings(cram, 'cram');
+    }
+  });
+
+  await test('cram-review.js mounts per-specialty packs, renders chapter counts and #topic-<sid>-* links, and isolates localStorage without oph-prep: leakage', async () => {
+    const cramScriptSource = fs.readFileSync(path.join(ROOT, 'scripts/cram-review.js'), 'utf8');
+    const mountCramFor = async search => {
+      const regWin = runRegistry(search);
+      const local = new MemoryStorage();
+      const fetchedUrls = [];
+      const bridgeCalls = [];
+      const rootHandlers = new Map();
+      const root = {
+        isConnected: true,
+        dataset: {},
+        innerHTML: '',
+        querySelector() { return {focus() {}, scrollIntoView() {}}; },
+        addEventListener(name, fn) { rootHandlers.set(name, fn); },
+      };
+      const fakeBridge = {
+        read() { bridgeCalls.push('read'); return null; },
+        save(k, v) { bridgeCalls.push(['save', k, v]); },
+        remove(k) { bridgeCalls.push(['remove', k]); },
+      };
+      let clock = Date.parse('2026-11-03T12:00:00.000Z');
+      const win = {
+        OphSpecialty: regWin.OphSpecialty,
+        OphSpecialties: regWin.OphSpecialties,
+        OphStudyBridge: fakeBridge,
+        OphStudy: {now: () => clock},
+        localStorage: local,
+      };
+      const ctx = vm.createContext({
+        window: win,
+        document: {
+          currentScript: {src: 'https://qwwaawwqq.github.io/ophthalmology-interview-public/scripts/cram-review.js'},
+          getElementById: () => null,
+        },
+        fetch: async url => {
+          const u = String(url);
+          fetchedUrls.push(u);
+          const rel = u.replace('https://qwwaawwqq.github.io/ophthalmology-interview-public/', '');
+          const payload = JSON.parse(fs.readFileSync(path.join(ROOT, rel), 'utf8'));
+          return {ok: true, status: 200, json: async () => payload};
+        },
+        URL, Intl, Date, Set, Map, Object, Array, String, Number, Boolean, JSON, Math, Error, Promise, encodeURIComponent,
+      });
+      vm.runInContext(cramScriptSource, ctx);
+      await win.OphCram.mount(root);
+      return {win, local, fetchedUrls, bridgeCalls, root, rootHandlers, advance(ms) { clock += ms; }};
+    };
+
+    const ophRun = await mountCramFor('');
+    assert.deepEqual(ophRun.fetchedUrls, ['https://qwwaawwqq.github.io/ophthalmology-interview-public/content/cram-review.json']);
+    wellFormed(ophRun.root.innerHTML);
+    assert(ophRun.root.innerHTML.includes('先讀這六組對照'));
+    assert(ophRun.root.innerHTML.includes('十四章共筆全覽'));
+    ophRun.rootHandlers.get('click')({
+      target: {closest: sel => sel === '[data-cram-srs]' ? {dataset: {id: 'cram-01', cramSrs: 'good'}, closest: () => ({nextElementSibling: null})} : null},
+    });
+    assert.deepEqual(keysOf(ophRun.local), ['oph-prep:cram-review-v1']);
+    assert(ophRun.bridgeCalls.some(c => Array.isArray(c) && c[0] === 'save' && c[1] === 'study:srs:cram:cram-01'), 'oph cram still syncs to OphStudyBridge');
+
+    for (const sid of FULL_TAB_SPECIALTIES) {
+      const cramData = JSON.parse(fs.readFileSync(path.join(ROOT, 'content', sid, 'cram-review.json'), 'utf8'));
+      const run = await mountCramFor('?s=' + sid);
+      assert.deepEqual(run.fetchedUrls, [`https://qwwaawwqq.github.io/ophthalmology-interview-public/content/${sid}/cram-review.json`]);
+      wellFormed(run.root.innerHTML);
+      assert(!run.root.innerHTML.includes('內容待補') && !run.root.innerHTML.includes('暫時無法載入教材'), `${sid} cram must render real content`);
+      assert(run.root.innerHTML.includes(cramData.title), `${sid} cram title rendered`);
+      assert(run.root.innerHTML.includes('先讀這六組對照'), `${sid} cram group heading`);
+      assert(run.root.innerHTML.includes(`${cramData.chapters.length}章共筆全覽`), `${sid} cram dynamic chapter heading`);
+      assert(run.root.innerHTML.includes('自評只保存在此瀏覽器'), `${sid} cram local-only status banner`);
+      for (const leak of OPH_LEAK_TERMS) assert(!run.root.innerHTML.includes(leak), `${sid} cram DOM leaked ${leak}`);
+
+      const firstChapterId = cramData.chapters[0].id;
+      assert(run.root.innerHTML.includes(`href="#topic-${firstChapterId}"`), `${sid} cram renders #topic-${firstChapterId} link`);
+      const app = boot({search: '?s=' + sid});
+      assert.equal(app.qa.openRoute(`#topic-${firstChapterId}`), true, `${sid} #topic-${firstChapterId} opens in main app`);
+      assert.equal(app.qa.S.tab, 'learn');
+      assert.equal(app.qa.S.learn, firstChapterId);
+      assert.equal(app.location.search, '?s=' + sid);
+
+      const card0 = cramData.cards[0].id;
+      const card1 = cramData.cards[1].id;
+      run.rootHandlers.get('click')({
+        target: {closest: sel => sel === '[data-cram-srs]' ? {dataset: {id: card0, cramSrs: 'again'}, closest: () => ({nextElementSibling: null})} : null},
+      });
+      run.rootHandlers.get('click')({
+        target: {closest: sel => sel === '[data-cram-mark]' ? {dataset: {id: card1, cramMark: 'known'}, closest: () => ({nextElementSibling: null})} : null},
+      });
+      assert.deepEqual(keysOf(run.local), [`${sid}-prep:cram-review-v1`], `${sid} cram writes only ${sid}-prep:cram-review-v1`);
+      assert.equal(run.local.getItem('oph-prep:cram-review-v1'), null, `${sid} cram never touches oph-prep:cram-review-v1`);
+      assert.deepEqual(run.bridgeCalls, [], `${sid} cram never touches OphStudyBridge`);
+      const saved = JSON.parse(run.local.getItem(`${sid}-prep:cram-review-v1`));
+      assert.equal(saved[card0].status, 'review');
+      assert.equal(saved[card0].plan.rating, 'again');
+      assert.equal(saved[card1].status, 'known');
+
+      run.rootHandlers.get('change')({target: {matches: s => s === '[data-cram-filter]', value: 'due'}});
+      wellFormed(run.root.innerHTML);
+      assert(!run.root.innerHTML.includes(`data-card-id="${card0}"`), `${sid} again-rated card is due in 10 min, not immediately`);
+      run.advance(600000);
+      run.rootHandlers.get('change')({target: {matches: s => s === '[data-cram-filter]', value: 'due'}});
+      wellFormed(run.root.innerHTML);
+      assert(run.root.innerHTML.includes(`data-card-id="${card0}"`), `${sid} again-rated card becomes due after 10 min`);
     }
   });
 
