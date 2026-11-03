@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-labelledby="rad08-title rad08-desc" font-family="system-ui, -apple-system, 'Noto Sans TC', sans-serif">
+  <title id="rad08-title">顱內軸外對軸內腫瘤定位徵象與環狀顯影病灶 DWI／MRS 鑑別圖</title>
+  <desc id="rad08-desc">三欄對照顱內軸外與軸內腫瘤六大解剖定位徵象、環狀顯影病灶（化膿性腦膿瘍、膠質母細胞瘤、腫瘤樣脫髓鞘）之 DWI／ADC／灌流／頻譜鑑別，以及脊椎感染對骨轉移與腰椎間盤神經根壓迫規律。</desc>
+
+  <rect x="20" y="20" width="920" height="520" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="20" y="20" width="920" height="50" rx="14" fill="#0f172a"/>
+  <rect x="20" y="54" width="920" height="16" fill="#0f172a"/>
+  <text x="40" y="51" fill="#ffffff" font-size="17.5" font-weight="700">顱內軸外對軸內腫瘤定位徵象 · 環狀顯影 DWI／MRS 與脊椎病變鑑別</text>
+  <text x="920" y="50" fill="#94a3b8" font-size="12" text-anchor="end">Rad-08 · 腦瘤感染與脊椎影像</text>
+
+  <!-- Column 1: Extra-axial vs Intra-axial -->
+  <rect x="34" y="82" width="292" height="444" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+  <rect x="34" y="82" width="292" height="32" rx="10" fill="#eff6ff"/>
+  <rect x="34" y="102" width="292" height="12" fill="#eff6ff"/>
+  <text x="48" y="103" fill="#1d4ed8" font-size="13" font-weight="700">1. 軸外（Extra-axial）對軸內定位徵象</text>
+
+  <!-- Extra-axial schematic -->
+  <rect x="46" y="122" width="268" height="190" rx="8" fill="#f8fafc" stroke="#bfdbfe"/>
+  <text x="58" y="142" fill="#1d4ed8" font-size="12.5" font-weight="700">軸外腫瘤（代表：腦膜瘤 · 神經鞘瘤）</text>
+  <!-- Calvarium + Dura + CSF cleft + buckled cortex -->
+  <path d="M62,162 Q180,144 298,162" fill="none" stroke="#334155" stroke-width="4.5"/>
+  <!-- Hyperostosis bump -->
+  <path d="M136,154 Q180,148 224,154" fill="none" stroke="#0f172a" stroke-width="7"/>
+  <!-- Meningioma broad-based mass + dural tails -->
+  <path d="M98,159 Q138,156 142,160 C145,204 215,204 218,160 Q222,156 262,159" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
+  <!-- CSF cleft dashed arc -->
+  <path d="M134,168 C142,214 218,214 226,168" fill="none" stroke="#0f766e" stroke-width="2.2" stroke-dasharray="4,3"/>
+  <!-- Buckled gray cortex -->
+  <path d="M76,178 C116,178 134,222 180,222 C226,222 244,178 284,178" fill="none" stroke="#64748b" stroke-width="5"/>
+  <text x="180" y="184" fill="#1e3a8a" font-size="11" font-weight="700" text-anchor="middle">寬基底腫塊</text>
+  <text x="90" y="173" fill="#be123c" font-size="10" font-weight="700">硬膜尾徵</text>
+  <text x="246" y="206" fill="#0f766e" font-size="10" font-weight="700">CSF 裂隙</text>
+  <text x="58" y="250" fill="#334155" font-size="10.8">· 寬基底貼附硬腦膜（夾角呈鈍角）</text>
+  <text x="58" y="267" fill="#334155" font-size="10.8">· 灰白質皮質受壓向內屈曲（Buckling）</text>
+  <text x="58" y="284" fill="#334155" font-size="10.8">· 腦脊髓液與軟腦膜血管夾層 + 顱骨增生</text>
+  <text x="58" y="301" fill="#1d4ed8" font-size="10.8" font-weight="600">· MRS 見 Alanine 雙峰（1.48 ppm）</text>
+
+  <!-- Intra-axial schematic -->
+  <rect x="46" y="322" width="268" height="192" rx="8" fill="#fff1f2" stroke="#fecdd3"/>
+  <text x="58" y="342" fill="#be123c" font-size="12.5" font-weight="700">軸內腫瘤（代表：膠質瘤 · 腦轉移瘤）</text>
+  <path d="M64,364 Q180,348 296,364" fill="none" stroke="#334155" stroke-width="4"/>
+  <!-- Expanded flattened gyrus -->
+  <path d="M76,386 Q180,358 284,386" fill="#ffe4e6" stroke="#be123c" stroke-width="2"/>
+  <ellipse cx="180" cy="396" rx="46" ry="22" fill="#fda4af" stroke="#9f1239" stroke-width="1.8"/>
+  <text x="180" y="400" fill="#881337" font-size="10.5" font-weight="700" text-anchor="middle">腦實質中心膨脹</text>
+  <text x="58" y="440" fill="#334155" font-size="10.8">· 腦迴向外膨大變平、腦溝與腦池變窄</text>
+  <text x="58" y="457" fill="#334155" font-size="10.8">· 白質指狀血管源性水腫（T2／FLAIR 亮）</text>
+  <text x="58" y="474" fill="#334155" font-size="10.8">· 跨越胼胝體蝴蝶徵：GBM · 原發淋巴瘤</text>
+  <text x="58" y="491" fill="#be123c" font-size="10.8" font-weight="600">· 灰白質交界多發環狀灶：優先查腦轉移</text>
+
+  <!-- Column 2: Ring-Enhancing Lesions DWI/Perfusion/MRS -->
+  <rect x="338" y="82" width="292" height="444" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+  <rect x="338" y="82" width="292" height="32" rx="10" fill="#f0fdfa"/>
+  <rect x="338" y="102" width="292" height="12" fill="#f0fdfa"/>
+  <text x="352" y="103" fill="#0f766e" font-size="13" font-weight="700">2. 環狀顯影病灶（MAGICAL DR）鑑別</text>
+
+  <!-- Card A: Pyogenic Abscess -->
+  <rect x="350" y="122" width="268" height="128" rx="8" fill="#f0fdfa" stroke="#99f6e4"/>
+  <circle cx="390" cy="184" r="26" fill="#fef08a" stroke="#0f766e" stroke-width="3.5"/>
+  <text x="390" y="182" fill="#854d0e" font-size="9.5" font-weight="700" text-anchor="middle">DWI 極亮</text>
+  <text x="390" y="195" fill="#854d0e" font-size="9" font-weight="700" text-anchor="middle">ADC 極暗</text>
+  <text x="428" y="143" fill="#0f766e" font-size="12" font-weight="700">化膿性腦膿瘍（Abscess）</text>
+  <text x="428" y="162" fill="#334155" font-size="10.6">· 平滑薄環（朝向腦室側壁較薄）</text>
+  <text x="428" y="179" fill="#0f766e" font-size="10.6" font-weight="700">· 中央稠膿擴散受限（DWI 亮）</text>
+  <text x="428" y="196" fill="#334155" font-size="10.6">· 囊壁灌流 rCBV 正常或偏低</text>
+  <text x="428" y="213" fill="#334155" font-size="10.6">· T2 暗環 · MRS 胺基酸／琥珀酸峰</text>
+  <text x="428" y="230" fill="#64748b" font-size="10">破入腦室引發急性室管膜炎危急值</text>
+
+  <!-- Card B: Necrotic GBM / Metastasis -->
+  <rect x="350" y="260" width="268" height="130" rx="8" fill="#fff1f2" stroke="#fecdd3"/>
+  <circle cx="390" cy="324" r="27" fill="#1e293b" stroke="#be123c" stroke-width="6.5" stroke-dasharray="18,3,24,2"/>
+  <text x="390" y="322" fill="#ffffff" font-size="9.5" font-weight="700" text-anchor="middle">DWI 暗</text>
+  <text x="390" y="335" fill="#cbd5e1" font-size="9" text-anchor="middle">ADC 高</text>
+  <text x="428" y="281" fill="#be123c" font-size="12" font-weight="700">壞死性 GBM／腦轉移瘤</text>
+  <text x="428" y="300" fill="#334155" font-size="10.6">· 厚薄不均結節狀絨毛厚環壁</text>
+  <text x="428" y="317" fill="#be123c" font-size="10.6" font-weight="700">· 中央液化壞死無擴散受限</text>
+  <text x="428" y="334" fill="#334155" font-size="10.6">· 實質壁新生血管 rCBV 顯著升高</text>
+  <text x="428" y="351" fill="#334155" font-size="10.6">· MRS：Cho↑ · NAA↓ · Lipid/Lac↑</text>
+  <text x="428" y="368" fill="#64748b" font-size="10">GBM 瘤周水腫含浸潤癌細胞</text>
+
+  <!-- Card C: Tumefactive Demyelination -->
+  <rect x="350" y="400" width="268" height="114" rx="8" fill="#fffbeb" stroke="#fde68a"/>
+  <path d="M408,438 A24,24 0 1,1 372,438" fill="none" stroke="#b45309" stroke-width="4.5" stroke-linecap="round"/>
+  <text x="390" y="432" fill="#b45309" font-size="9.5" font-weight="700" text-anchor="middle">皮質側開口</text>
+  <text x="428" y="421" fill="#b45309" font-size="12" font-weight="700">腫瘤樣脫髓鞘（Demyelination）</text>
+  <text x="428" y="440" fill="#334155" font-size="10.6">· 典型開環顯影（Open-ring sign）</text>
+  <text x="428" y="457" fill="#334155" font-size="10.6">· 缺口朝向大腦皮質或基底核灰質</text>
+  <text x="428" y="474" fill="#334155" font-size="10.6">· 腫塊效應相對病灶體積輕微</text>
+  <text x="428" y="492" fill="#b45309" font-size="10.4" font-weight="700">· 切勿誤當高級別膠質瘤大範圍切除</text>
+
+  <!-- Column 3: Spine Infection vs Metastasis & Disc Herniation -->
+  <rect x="642" y="82" width="284" height="444" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+  <rect x="642" y="82" width="284" height="32" rx="10" fill="#fef3c7"/>
+  <rect x="642" y="102" width="284" height="12" fill="#fef3c7"/>
+  <text x="656" y="103" fill="#b45309" font-size="13" font-weight="700">3. 脊椎感染對轉移與神經根壓迫</text>
+
+  <!-- Spondylodiscitis vs Metastasis mini-cards -->
+  <rect x="654" y="122" width="260" height="86" rx="7" fill="#fff1f2" stroke="#fecdd3"/>
+  <text x="664" y="141" fill="#be123c" font-size="12" font-weight="700">化膿性脊椎椎間盤炎（Pyogenic）</text>
+  <text x="664" y="159" fill="#334155" font-size="10.6">· 最早侵犯椎間盤（T2 高訊號、高度變窄）</text>
+  <text x="664" y="176" fill="#334155" font-size="10.6">· 上下相鄰雙側終板骨髓水腫侵蝕破壞</text>
+  <text x="664" y="193" fill="#64748b" font-size="10.2">結核 Pott 氏病：韌帶下跨多節、相對保留椎間盤</text>
+
+  <rect x="654" y="216" width="260" height="86" rx="7" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text x="664" y="235" fill="#1d4ed8" font-size="12" font-weight="700">脊椎骨轉移瘤（Spinal Metastasis）</text>
+  <text x="664" y="253" fill="#1d4ed8" font-size="10.6" font-weight="700">· 椎間盤訊號與高度完整保留（無血管）</text>
+  <text x="664" y="270" fill="#334155" font-size="10.6">· 好發椎體後部並早期蝕毀椎弓根（單眼貓頭鷹）</text>
+  <text x="664" y="287" fill="#64748b" font-size="10.2">椎體後壁向椎管凸出 · 警覺惡性脊髓壓迫急症</text>
+
+  <!-- Lumbar Disc Herniation Root Rule -->
+  <rect x="654" y="310" width="260" height="204" rx="7" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="664" y="330" fill="#0f172a" font-size="12" font-weight="700">腰椎 L4–L5 椎間盤突出壓迫規律</text>
+
+  <!-- Schematic of L4-L5 disc + exiting L4 + traversing L5 -->
+  <ellipse cx="732" cy="396" rx="44" ry="26" fill="#e2e8f0" stroke="#475569" stroke-width="1.8"/>
+  <text x="726" y="400" fill="#334155" font-size="10" font-weight="700" text-anchor="middle">L4–L5 盤</text>
+  <!-- Thecal sac -->
+  <circle cx="732" cy="442" r="18" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+  <!-- Traversing L5 root -->
+  <circle cx="748" cy="432" r="5" fill="#be123c"/>
+  <!-- Paracentral herniation -->
+  <path d="M744,418 Q752,428 746,432" fill="#fda4af" stroke="#be123c" stroke-width="3"/>
+  <!-- Exiting L4 root far-lateral -->
+  <path d="M774,392 L796,378" stroke="#0f766e" stroke-width="3.2" stroke-linecap="round"/>
+  <circle cx="776" cy="392" r="5.5" fill="#99f6e4" stroke="#0f766e" stroke-width="1.5"/>
+
+  <text x="804" y="380" fill="#0f766e" font-size="10.5" font-weight="700">極外側／椎間孔型</text>
+  <text x="804" y="395" fill="#334155" font-size="10.2">壓同節穿出 L4 根</text>
+  <text x="804" y="426" fill="#be123c" font-size="10.5" font-weight="700">旁中央型（最常見）</text>
+  <text x="804" y="441" fill="#334155" font-size="10.2">壓下行通過 L5 根</text>
+
+  <line x1="664" y1="468" x2="904" y2="468" stroke="#e2e8f0"/>
+  <text x="664" y="486" fill="#334155" font-size="10.5">· 腰椎斜位片蘇格蘭小狗項圈斷裂 = 椎弓解離</text>
+  <text x="664" y="503" fill="#334155" font-size="10.5">· Denis 中柱受損（椎體後壁突入椎管）= 不穩定</text>
+</svg>

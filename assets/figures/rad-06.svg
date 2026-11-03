@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-labelledby="rad06-title rad06-desc">
+  <title id="rad06-title">Bosniak v2019 腎臟囊腫性病灶 I–IV 分級囊壁／中隔強化準則與腎上腺及攝護腺定量判讀圖</title>
+  <desc id="rad06-desc">五格 Bosniak v2019 腎囊腫分級橫斷面示意圖（I、II、IIF、III、IV 型囊壁與實質結節變化）及下方腎上腺洗脫率與攝護腺周邊帶／移行帶 MRI 主導序列摘要。</desc>
+
+  <g font-family="system-ui, -apple-system, 'Noto Sans TC', sans-serif">
+    <rect x="20" y="20" width="920" height="520" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+
+    <!-- Header -->
+    <text x="36" y="48" font-size="18" font-weight="700" fill="#0f172a">Bosniak v2019 腎囊腫分級準則 · 腎上腺洗脫率 · 攝護腺 PI-RADS v2.1 判讀</text>
+    <text x="36" y="68" font-size="12" fill="#475569">囊壁與中隔厚度／強化閾值（CT ≥20 HU · MRI ≥15%）決定追蹤或手術 · 泌尿生殖定量影像核心準則</text>
+
+    <!-- Upper Main Panel: Bosniak v2019 5 Classes -->
+    <rect x="30" y="80" width="900" height="278" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+    <rect x="30" y="80" width="900" height="28" rx="10" fill="#e2e8f0"/>
+    <text x="480" y="99" font-size="13" font-weight="700" fill="#0f172a" text-anchor="middle">Bosniak v2019 腎臟囊腫性病灶分級（必備「無顯影平掃＋腎實質期顯影」雙期對照）</text>
+
+    <!-- Class I -->
+    <rect x="42" y="118" width="166" height="228" rx="8" fill="#f0fdfa" stroke="#0f766e" stroke-width="1.3"/>
+    <text x="125" y="138" font-size="12.5" font-weight="700" fill="#0f766e" text-anchor="middle">Bosniak I</text>
+    <circle cx="125" cy="186" r="34" fill="#e0f2fe" stroke="#0f766e" stroke-width="1.4"/>
+    <text x="125" y="190" font-size="10" fill="#0369a1" text-anchor="middle">0–20 HU</text>
+    <text x="52" y="240" font-size="10" font-weight="700" fill="#0f766e">· ≤2 mm 髮絲平滑薄壁</text>
+    <text x="52" y="256" font-size="10" fill="#334155">· 無中隔 · 無鈣化</text>
+    <text x="52" y="272" font-size="10" fill="#334155">· 無軟組織結節無強化</text>
+    <rect x="52" y="286" width="146" height="48" rx="5" fill="#ccfbf1"/>
+    <text x="125" y="305" font-size="10.5" font-weight="700" fill="#115e59" text-anchor="middle">惡性率 ~0%</text>
+    <text x="125" y="323" font-size="10" fill="#134e4a" text-anchor="middle">良性單純囊腫 · 免追蹤</text>
+
+    <!-- Class II -->
+    <rect x="218" y="118" width="166" height="228" rx="8" fill="#f0fdfa" stroke="#0f766e" stroke-width="1.3"/>
+    <text x="301" y="138" font-size="12.5" font-weight="700" fill="#0f766e" text-anchor="middle">Bosniak II</text>
+    <circle cx="301" cy="186" r="34" fill="#dbeafe" stroke="#0284c7" stroke-width="1.6"/>
+    <line x1="274" y1="166" x2="328" y2="204" stroke="#0284c7" stroke-width="1.2"/>
+    <line x1="276" y1="204" x2="324" y2="168" stroke="#0284c7" stroke-width="1.2"/>
+    <text x="228" y="240" font-size="10" font-weight="700" fill="#0369a1">· 1–3 條 ≤2 mm 纖細中隔</text>
+    <text x="228" y="256" font-size="10" fill="#334155">· 或 &lt;3 cm 均質高密度</text>
+    <text x="234" y="272" font-size="9.5" fill="#475569">(≥20 HU 出血囊腫·無強化)</text>
+    <rect x="228" y="286" width="146" height="48" rx="5" fill="#ccfbf1"/>
+    <text x="301" y="305" font-size="10.5" font-weight="700" fill="#115e59" text-anchor="middle">惡性率 ~0%</text>
+    <text x="301" y="323" font-size="10" fill="#134e4a" text-anchor="middle">確定良性 · 免常規追蹤</text>
+
+    <!-- Class IIF -->
+    <rect x="394" y="118" width="172" height="228" rx="8" fill="#fffbeb" stroke="#b45309" stroke-width="1.5"/>
+    <text x="480" y="138" font-size="12.5" font-weight="700" fill="#b45309" text-anchor="middle">Bosniak IIF (Follow-up)</text>
+    <circle cx="480" cy="186" r="34" fill="#fef3c7" stroke="#d97706" stroke-width="3"/>
+    <line x1="452" y1="170" x2="508" y2="170" stroke="#d97706" stroke-width="1.4"/>
+    <line x1="448" y1="186" x2="512" y2="186" stroke="#d97706" stroke-width="1.4"/>
+    <line x1="452" y1="202" x2="508" y2="202" stroke="#d97706" stroke-width="1.4"/>
+    <line x1="480" y1="152" x2="480" y2="220" stroke="#d97706" stroke-width="1.4"/>
+    <text x="404" y="240" font-size="10" font-weight="700" fill="#b45309">· ≥4 條 ≤2 mm 細強化隔</text>
+    <text x="404" y="256" font-size="10" fill="#334155">· 或 3 mm 平滑微厚強化壁</text>
+    <text x="404" y="272" font-size="10" fill="#334155">· 或 ≥3 cm 高密度無強化</text>
+    <rect x="404" y="286" width="152" height="48" rx="5" fill="#fde68a"/>
+    <text x="480" y="305" font-size="10.5" font-weight="700" fill="#92400e" text-anchor="middle">惡性率 ~5–10%</text>
+    <text x="480" y="323" font-size="10" fill="#78350f" text-anchor="middle">6·12 個月起追蹤 5 年</text>
+
+    <!-- Class III -->
+    <rect x="576" y="118" width="166" height="228" rx="8" fill="#fff1f2" stroke="#e11d48" stroke-width="1.5"/>
+    <text x="659" y="138" font-size="12.5" font-weight="700" fill="#be123c" text-anchor="middle">Bosniak III</text>
+    <circle cx="659" cy="186" r="34" fill="#ffe4e6" stroke="#be123c" stroke-width="5.5"/>
+    <path d="M 632 168 Q 659 194, 686 168" fill="none" stroke="#be123c" stroke-width="4.5"/>
+    <path d="M 630 198 Q 662 180, 688 202" fill="none" stroke="#be123c" stroke-width="4"/>
+    <text x="586" y="240" font-size="10" font-weight="700" fill="#be123c">· ≥4 mm 不規則厚強化壁</text>
+    <text x="586" y="256" font-size="10" fill="#334155">· 或不規則增厚強化中隔</text>
+    <text x="586" y="272" font-size="10" fill="#334155">· 尚無獨立凸出軟組織結節</text>
+    <rect x="586" y="286" width="146" height="48" rx="5" fill="#fecdd3"/>
+    <text x="659" y="305" font-size="10.5" font-weight="700" fill="#9f1239" text-anchor="middle">惡性率 ~50%</text>
+    <text x="659" y="323" font-size="10" fill="#881337" text-anchor="middle">部分腎切除／嚴密監測</text>
+
+    <!-- Class IV -->
+    <rect x="752" y="118" width="166" height="228" rx="8" fill="#fff1f2" stroke="#9f1239" stroke-width="1.8"/>
+    <text x="835" y="138" font-size="12.5" font-weight="700" fill="#881337" text-anchor="middle">Bosniak IV</text>
+    <circle cx="835" cy="186" r="34" fill="#ffe4e6" stroke="#9f1239" stroke-width="5"/>
+    <!-- Enhancing Mural Soft-tissue Nodule -->
+    <circle cx="852" cy="196" r="13" fill="#be123c" stroke="#881337" stroke-width="1.5"/>
+    <text x="852" y="200" font-size="8.5" font-weight="700" fill="#ffffff" text-anchor="middle">結節</text>
+    <text x="762" y="240" font-size="10" font-weight="700" fill="#881337">· 具獨立強化軟組織結節</text>
+    <text x="762" y="256" font-size="10" fill="#334155">· 結節凸起 ≥4 mm 或銳角</text>
+    <text x="762" y="272" font-size="10" fill="#334155">· 高度確立囊狀腎細胞癌</text>
+    <rect x="762" y="286" width="146" height="48" rx="5" fill="#fda4af"/>
+    <text x="835" y="305" font-size="10.5" font-weight="700" fill="#881337" text-anchor="middle">惡性率 ~90%</text>
+    <text x="835" y="323" font-size="10" font-weight="700" fill="#881337" text-anchor="middle">外科手術切除（保留腎元）</text>
+
+    <!-- Lower Left Card: Adrenal Washout & Renal AML -->
+    <rect x="30" y="370" width="442" height="156" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+    <rect x="30" y="370" width="442" height="28" rx="10" fill="#dbeafe"/>
+    <text x="251" y="389" font-size="12.5" font-weight="700" fill="#1e3a8a" text-anchor="middle">腎上腺偶發瘤洗脫率 ＆ 腎血管平滑肌脂肪瘤 (AML) 定量閾值</text>
+
+    <text x="44" y="416" font-size="10.5" font-weight="700" fill="#0f766e">1. 富含脂質腎上腺腺瘤（約佔 70%）：</text>
+    <text x="54" y="433" font-size="10.5" fill="#334155">無顯影 CT ≤ 10 HU（或化學位移 MRI 反相位訊號下降）→ 直接確診良性！</text>
+
+    <text x="44" y="454" font-size="10.5" font-weight="700" fill="#1d4ed8">2. 乏脂型腺瘤（無顯影 &gt; 10 HU）→ 15 分鐘延遲腎上腺動態 CT：</text>
+    <text x="54" y="471" font-size="10.5" font-weight="700" fill="#1e40af">絕對洗脫率 APW ≥ 60% 或 相對洗脫率 RPW ≥ 40% → 支持良性腺瘤</text>
+    <text x="54" y="488" font-size="10" fill="#be123c">警訊：嗜鉻細胞瘤（T2 燈泡亮·嚴禁未備藥生檢）與 RCC／HCC 轉移可假陽性洗脫！</text>
+
+    <text x="44" y="510" font-size="10.5" font-weight="700" fill="#b45309">3. 典型腎 AML：無顯影薄切含巨觀脂肪（≤ -10 至 -20 HU）且無鈣化（&gt;4cm 防自發出血）</text>
+
+    <!-- Lower Right Card: Prostate PI-RADS v2.1 & Scrotal Emergency -->
+    <rect x="488" y="370" width="442" height="156" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+    <rect x="488" y="370" width="442" height="28" rx="10" fill="#ccfbf1"/>
+    <text x="709" y="389" font-size="12.5" font-weight="700" fill="#115e59" text-anchor="middle">攝護腺 mpMRI（PI-RADS v2.1 分區主導序列）＆ 急性陰囊急症</text>
+
+    <text x="502" y="416" font-size="10.5" font-weight="700" fill="#0f766e">1. 周邊帶 Peripheral Zone（佔 70–75% 攝護腺癌）：</text>
+    <text x="512" y="433" font-size="10.5" fill="#334155">第一主導序列 = DWI／ADC（局部顯著擴散受限；DCE 陽性僅將 3 分升為 4 分）</text>
+
+    <text x="502" y="454" font-size="10.5" font-weight="700" fill="#1d4ed8">2. 移行帶 Transition Zone（良性攝護腺肥大 BPH 好發區）：</text>
+    <text x="512" y="471" font-size="10.5" fill="#334155">第一主導序列 = T2W 形態（無包膜均質低訊號塗抹徵；DWI ≥1.5cm 助 3 升 4）</text>
+
+    <text x="502" y="493" font-size="10.5" font-weight="700" fill="#be123c">3. 急性陰囊痛黃金 6 小時（高頻彩色都卜勒雙側同畫面對照）：</text>
+    <text x="512" y="510" font-size="10.5" fill="#334155">睪丸扭轉 = 內部血流消失＋精索漩渦徵 ｜ 急性副睪睪丸炎 = 充血血流顯著激增</text>
+  </g>
+</svg>

@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-labelledby="rad04-title rad04-desc">
+  <title id="rad04-title">急腹症四大關鍵平片與斷層徵象：游離氣體雙壁徵、咖啡豆結腸扭轉、腸繫膜漩渦徵與腸壁／門脈積氣</title>
+  <desc id="rad04-desc">四格急腹症影像徵象示意圖：分別展示氣腹膈下氣體與雙壁徵、乙狀結腸扭轉咖啡豆徵、腸繫膜扭轉漩渦徵，以及跨壁腸壞死之腸壁積氣與周邊門脈積氣。</desc>
+  <defs>
+    <marker id="arrAmber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#b45309"/>
+    </marker>
+    <marker id="arrBlue4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#1d4ed8"/>
+    </marker>
+  </defs>
+
+  <g font-family="system-ui, -apple-system, 'Noto Sans TC', sans-serif">
+    <rect x="20" y="20" width="920" height="520" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+
+    <!-- Header -->
+    <text x="36" y="48" font-size="18" font-weight="700" fill="#0f172a">急腹症四大外科高危影像徵象：氣腹 · 結腸扭轉 · 腸繫膜漩渦 · 腸壁與門脈積氣</text>
+    <text x="36" y="68" font-size="12" fill="#475569">空腔穿孔禁用硫酸鋇 · 腸管徑 3-6-9 法則 · 閉鎖環絞窄與跨壁腸缺血壞死之立即手術判讀指標</text>
+
+    <!-- Quadrant A: Pneumoperitoneum -->
+    <rect x="30" y="82" width="442" height="214" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+    <rect x="30" y="82" width="442" height="28" rx="10" fill="#e2e8f0"/>
+    <text x="44" y="101" font-size="13" font-weight="700" fill="#0f172a">(A) 氣腹：站立膈下新月游離氣體 ＆ 仰臥雙壁徵 (Rigler Sign)</text>
+
+    <!-- Left sub-diagram: Upright Subdiaphragmatic Free Air -->
+    <rect x="44" y="120" width="176" height="126" rx="6" fill="#1e293b"/>
+    <path d="M 54 166 Q 96 138, 134 166" fill="none" stroke="#cbd5e1" stroke-width="3"/>
+    <!-- Black crescent of free air under right hemidiaphragm -->
+    <path d="M 60 166 Q 96 142, 130 166 Q 96 156, 60 166 Z" fill="#020617" stroke="#38bdf8" stroke-width="1.5"/>
+    <path d="M 60 168 Q 96 158, 130 168 L 130 232 L 60 232 Z" fill="#475569"/>
+    <text x="96" y="204" font-size="10" fill="#e2e8f0" text-anchor="middle">肝臟實質</text>
+    <text x="132" y="140" font-size="10" font-weight="700" fill="#38bdf8">新月游離氣體 (1–2mL)</text>
+
+    <!-- Right sub-diagram: Supine Rigler Double-Wall Sign -->
+    <rect x="230" y="120" width="228" height="126" rx="6" fill="#0f172a"/>
+    <ellipse cx="304" cy="182" rx="46" ry="34" fill="#020617" stroke="#f8fafc" stroke-width="5"/>
+    <text x="304" y="185" font-size="9.5" fill="#94a3b8" text-anchor="middle">腸腔內氣體</text>
+    <text x="360" y="152" font-size="10" font-weight="700" fill="#fbbf24">雙壁徵 Rigler sign</text>
+    <text x="360" y="168" font-size="9.5" fill="#e2e8f0">內外皆有氣體襯托</text>
+    <text x="360" y="184" font-size="9.5" fill="#e2e8f0">白色腸壁雙側銳利</text>
+    <text x="360" y="206" font-size="9.5" fill="#7dd3fc">+ 鐮狀韌帶徵／足球徵</text>
+    <text x="360" y="222" font-size="9.5" fill="#7dd3fc">+ 重症改照左側臥水平</text>
+
+    <rect x="44" y="254" width="414" height="32" rx="5" fill="#fff1f2" stroke="#be123c"/>
+    <text x="54" y="274" font-size="10.5" font-weight="700" fill="#be123c">造影安全鐵律：疑消化道穿孔／腹膜炎「嚴禁硫酸鋇」（防化學性腹膜炎），改低滲水溶性碘劑！</text>
+
+    <!-- Quadrant B: Sigmoid vs Cecal Volvulus -->
+    <rect x="488" y="82" width="442" height="214" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+    <rect x="488" y="82" width="442" height="28" rx="10" fill="#e2e8f0"/>
+    <text x="502" y="101" font-size="13" font-weight="700" fill="#0f172a">(B) 結腸扭轉：乙狀結腸咖啡豆徵 vs 盲腸扭轉指向對照</text>
+
+    <!-- Abdomen Box -->
+    <rect x="502" y="120" width="196" height="164" rx="8" fill="#1e293b"/>
+    <text x="520" y="138" font-size="10" font-weight="700" fill="#94a3b8">RUQ (右上腹)</text>
+    <text x="616" y="138" font-size="10" font-weight="700" fill="#94a3b8">LUQ (左上腹)</text>
+    <text x="616" y="274" font-size="10" font-weight="700" fill="#94a3b8">LLQ (骨盆)</text>
+
+    <!-- Coffee Bean arising from LLQ pointing to RUQ -->
+    <path d="M 638 264 C 660 220, 622 146, 554 148 C 516 150, 524 218, 598 258 Z" fill="#0f172a" stroke="#fbbf24" stroke-width="3"/>
+    <!-- Central double wall crease of coffee bean -->
+    <path d="M 618 260 C 606 218, 582 180, 552 150" fill="none" stroke="#fbbf24" stroke-width="3.2"/>
+    <!-- Direction arrow to RUQ -->
+    <line x1="628" y1="246" x2="544" y2="156" stroke="#fbbf24" stroke-width="1.8" stroke-dasharray="4,2" marker-end="url(#arrAmber)"/>
+
+    <!-- Cecal Volvulus dashed vector RLQ -> LUQ -->
+    <line x1="538" y1="256" x2="652" y2="154" stroke="#60a5fa" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#arrBlue4)"/>
+
+    <!-- Explanation right of Abdomen Box -->
+    <text x="710" y="138" font-size="11" font-weight="700" fill="#b45309">乙狀結腸扭轉（高齡臥床）：</text>
+    <text x="710" y="155" font-size="10" fill="#334155">· 無結腸袋巨大雙腔「咖啡豆徵」</text>
+    <text x="710" y="171" font-size="10" font-weight="700" fill="#b45309">· 自左下骨盆發源指向「右上腹 RUQ」</text>
+    <text x="710" y="187" font-size="10" fill="#334155">· 灌腸／CT 移行處呈「鳥嘴徵」</text>
+    <text x="710" y="203" font-size="10" fill="#0f766e">· 無壞死穿孔可先內視鏡肛管減壓</text>
+
+    <text x="710" y="228" font-size="11" font-weight="700" fill="#1d4ed8">盲腸扭轉（較年輕族群）：</text>
+    <text x="710" y="245" font-size="10" fill="#334155">· 保留結腸袋腎形氣腔，右下腹空虛</text>
+    <text x="710" y="261" font-size="10" font-weight="700" fill="#1d4ed8">· 自右下腹翻轉指向「左上腹 LUQ」</text>
+    <text x="710" y="277" font-size="10" fill="#be123c">· 內視鏡復位率低，多需手術固定切除</text>
+
+    <!-- Quadrant C: Closed-Loop SBO & Whirlpool Sign -->
+    <rect x="30" y="310" width="442" height="216" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+    <rect x="30" y="310" width="442" height="28" rx="10" fill="#e2e8f0"/>
+    <text x="44" y="329" font-size="13" font-weight="700" fill="#0f172a">(C) 閉鎖環小腸阻塞與腸繫膜血管扭轉「漩渦徵 Whirlpool Sign」</text>
+
+    <!-- C-loop & Swirl schematic -->
+    <rect x="44" y="348" width="188" height="164" rx="8" fill="#0f172a"/>
+    <!-- C-shaped dilated fluid-filled bowel loop -->
+    <path d="M 154 398 C 94 360, 62 396, 68 436 C 74 476, 112 496, 156 458" fill="none" stroke="#94a3b8" stroke-width="24" stroke-linecap="round"/>
+    <path d="M 154 398 C 94 360, 62 396, 68 436 C 74 476, 112 496, 156 458" fill="none" stroke="#334155" stroke-width="18" stroke-linecap="round"/>
+    <!-- Whirlpool spiral at pedicle -->
+    <path d="M 176 428 m 0 0 a 6 6 0 1 0 12 0 a 12 12 0 1 0 -24 0 a 18 18 0 1 0 36 0 a 24 24 0 1 0 -48 0" fill="none" stroke="#fb7185" stroke-width="2.6"/>
+    <circle cx="182" cy="428" r="4" fill="#38bdf8"/>
+    <text x="138" y="502" font-size="10" font-weight="700" fill="#fda4af" text-anchor="middle">雙鳥嘴收束點＋血管漩渦徵</text>
+
+    <text x="244" y="366" font-size="11" font-weight="700" fill="#0f766e">腸管擴張 3-6-9 上限法則：</text>
+    <text x="244" y="383" font-size="10.5" fill="#334155">小腸 &lt; 3 cm · 大腸 &lt; 6 cm · 盲腸 &lt; 9 cm</text>
+    <text x="244" y="406" font-size="11" font-weight="700" fill="#be123c">閉鎖環絞窄性阻塞高危 CT 徵象：</text>
+    <text x="244" y="423" font-size="10" fill="#334155">· 兩鄰近點同時受壓呈 U／C 型放射狀腸環</text>
+    <text x="244" y="440" font-size="10" font-weight="700" fill="#be123c">· 腸繫膜動靜脈纏繞「漩渦徵 Whirlpool」</text>
+    <text x="244" y="457" font-size="10" fill="#334155">· 腸繫膜混濁積液 · 平掃腸壁高密度出血</text>
+    <text x="244" y="474" font-size="10" font-weight="700" fill="#be123c">· 靜脈期腸壁強化減弱／消失 → 緊急開刀！</text>
+    <text x="244" y="496" font-size="9.5" fill="#475569">註：評估腸阻塞打 IV 顯影劑，免喝高密度口服造影劑</text>
+
+    <!-- Quadrant D: Pneumatosis Intestinalis & Portal Venous Gas -->
+    <rect x="488" y="310" width="442" height="216" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+    <rect x="488" y="310" width="442" height="28" rx="10" fill="#e2e8f0"/>
+    <text x="502" y="329" font-size="13" font-weight="700" fill="#0f172a">(D) 急性腸繫膜缺血壞死：腸壁積氣 ＆ 周邊門靜脈積氣</text>
+
+    <!-- Liver + Bowel Cross-section Box -->
+    <rect x="502" y="348" width="196" height="164" rx="8" fill="#0f172a"/>
+    <!-- Liver contour top -->
+    <path d="M 514 416 C 512 362, 594 354, 636 376 C 622 404, 566 420, 514 416 Z" fill="#334155" stroke="#64748b" stroke-width="1.5"/>
+    <!-- Branching Portal Venous Gas reaching periphery (<2cm of capsule) -->
+    <path d="M 584 402 L 552 384 L 526 374 M 552 384 L 534 396 M 584 402 L 568 372 L 558 362" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
+    <text x="576" y="432" font-size="9.5" font-weight="700" fill="#38bdf8" text-anchor="middle">門脈積氣達包膜下 &lt;2cm</text>
+
+    <!-- Necrotic Bowel Ring with intramural gas bubbles -->
+    <circle cx="642" cy="462" r="32" fill="#1e293b" stroke="#fb7185" stroke-width="6"/>
+    <!-- Intramural black gas bubbles inside bowel wall -->
+    <circle cx="642" cy="430" r="3" fill="#020617" stroke="#fde047" stroke-width="1"/>
+    <circle cx="664" cy="439" r="3" fill="#020617" stroke="#fde047" stroke-width="1"/>
+    <circle cx="674" cy="462" r="3" fill="#020617" stroke="#fde047" stroke-width="1"/>
+    <circle cx="663" cy="485" r="3" fill="#020617" stroke="#fde047" stroke-width="1"/>
+    <circle cx="620" cy="485" r="3" fill="#020617" stroke="#fde047" stroke-width="1"/>
+    <circle cx="610" cy="462" r="3" fill="#020617" stroke="#fde047" stroke-width="1"/>
+    <text x="562" y="486" font-size="9.5" font-weight="700" fill="#fde047" text-anchor="middle">腸壁積氣</text>
+    <text x="562" y="500" font-size="9" fill="#cbd5e1" text-anchor="middle">(Pneumatosis)</text>
+
+    <text x="710" y="366" font-size="11" font-weight="700" fill="#be123c">急性腸繫膜缺血（SMA 栓塞最急）：</text>
+    <text x="710" y="383" font-size="10" fill="#334155">· 首選「平掃＋動脈期＋門脈期」多相 CTA</text>
+    <text x="710" y="400" font-size="10" fill="#334155">· 早期：SMA 充盈缺損·腸壁紙樣變薄不強化</text>
+    <text x="710" y="417" font-size="10" font-weight="700" fill="#be123c">· 晚期跨壁壞死：腸壁積氣＋門靜脈積氣</text>
+
+    <rect x="708" y="432" width="210" height="80" rx="6" fill="#eff6ff" stroke="#1d4ed8"/>
+    <text x="716" y="450" font-size="10.5" font-weight="700" fill="#1d4ed8">肝內樹枝狀氣體秒判口訣：</text>
+    <text x="716" y="468" font-size="10" font-weight="700" fill="#be123c">· 門脈積氣：離心血流推至「包膜下 2cm」</text>
+    <text x="716" y="486" font-size="10" fill="#0f766e">· 膽道積氣 (Pneumobilia)：向心膽汁匯流，</text>
+    <text x="724" y="502" font-size="10" fill="#334155">集中於「肝門中央區」（括約肌切開／膽腸瘻管）</text>
+  </g>
+</svg>

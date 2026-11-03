@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-labelledby="rad10-title rad10-desc" font-family="system-ui, -apple-system, 'Noto Sans TC', sans-serif">
+  <title id="rad10-title">乳房 BI-RADS 形態分級處置與甲狀腺 ACR TI-RADS 積分穿刺門檻決策圖</title>
+  <desc id="rad10-desc">左側完整呈現乳房影像 BI-RADS 第 0 至 6 級惡性風險、高危語彙、標準處置與放射病理一致性核對；右上彙整甲狀腺 ACR TI-RADS 五項積分與 TR3 至 TR5 細針穿刺大小門檻；右下對照頸部淋巴結良惡性超音波與 RECIST 1.1 腫瘤量測準則。</desc>
+
+  <rect x="20" y="20" width="920" height="520" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="20" y="20" width="920" height="50" rx="14" fill="#0f172a"/>
+  <rect x="20" y="54" width="920" height="16" fill="#0f172a"/>
+  <text x="40" y="51" fill="#ffffff" font-size="17.5" font-weight="700">乳房 BI-RADS 分級處置 · 甲狀腺 TI-RADS 穿刺門檻與 RECIST 1.1 分期</text>
+  <text x="920" y="50" fill="#94a3b8" font-size="12" text-anchor="end">Rad-10 · 淺表音波乳房與腫瘤分期</text>
+
+  <!-- Left Panel: ACR BI-RADS 0-6 Ladder -->
+  <rect x="34" y="82" width="434" height="444" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+  <rect x="34" y="82" width="434" height="32" rx="10" fill="#fdf2f8"/>
+  <rect x="34" y="102" width="434" height="12" fill="#fdf2f8"/>
+  <text x="48" y="103" fill="#be123c" font-size="13.5" font-weight="700">1. ACR BI-RADS（第 0–6 級）惡性機率與強制處置</text>
+
+  <!-- BI-RADS Rows -->
+  <rect x="46" y="122" width="410" height="40" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <rect x="54" y="130" width="66" height="24" rx="12" fill="#475569"/>
+  <text x="87" y="146" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle">第 0 級</text>
+  <text x="130" y="139" fill="#0f172a" font-size="11.2" font-weight="700">評估未完成（Incomplete）</text>
+  <text x="130" y="155" fill="#475569" font-size="10.4">召回加照局部壓迫放大片、目標超音波或調閱舊片比對</text>
+
+  <rect x="46" y="168" width="410" height="40" rx="6" fill="#f0fdfa" stroke="#99f6e4"/>
+  <rect x="54" y="176" width="66" height="24" rx="12" fill="#0f766e"/>
+  <text x="87" y="192" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle">第 1–2 級</text>
+  <text x="130" y="185" fill="#0f766e" font-size="11.2" font-weight="700">陰性（1）與確定良性（2） · 惡性率 0%</text>
+  <text x="130" y="201" fill="#334155" font-size="10.4">單純囊腫、爆米花鈣化纖維腺瘤、乳房內淋巴結 → 常規篩檢</text>
+
+  <rect x="46" y="214" width="410" height="42" rx="6" fill="#eff6ff" stroke="#bfdbfe"/>
+  <rect x="54" y="223" width="66" height="24" rx="12" fill="#1d4ed8"/>
+  <text x="87" y="239" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle">第 3 級</text>
+  <text x="130" y="231" fill="#1d4ed8" font-size="11.2" font-weight="700">可能良性（Probably Benign） · 惡性率 ≤ 2%</text>
+  <text x="130" y="248" fill="#334155" font-size="10.4">橢圓平行皮膚平滑低回音結節 → 6 個月短期追蹤（滿 2 年穩定降級）</text>
+
+  <rect x="46" y="262" width="410" height="52" rx="6" fill="#fffbeb" stroke="#fde68a"/>
+  <rect x="54" y="276" width="66" height="24" rx="12" fill="#b45309"/>
+  <text x="87" y="292" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle">第 4 級</text>
+  <text x="130" y="279" fill="#b45309" font-size="11.2" font-weight="700">可疑惡性（4A &gt;2–10% · 4B &gt;10–50% · 4C &gt;50–&lt;95%）</text>
+  <text x="130" y="296" fill="#334155" font-size="10.4">不定形或細微多形性成簇微鈣化、邊緣模糊或成角腫塊</text>
+  <text x="130" y="310" fill="#b45309" font-size="10.4" font-weight="700">標準處置：影像導引粗針組織切片（CNB／立體定位 VABB）</text>
+
+  <rect x="46" y="320" width="410" height="48" rx="6" fill="#fff1f2" stroke="#fecdd3"/>
+  <rect x="54" y="332" width="66" height="24" rx="12" fill="#be123c"/>
+  <text x="87" y="348" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle">第 5 級</text>
+  <text x="130" y="337" fill="#be123c" font-size="11.2" font-weight="700">高度懷疑惡性 · 惡性率 ≥ 95%</text>
+  <text x="130" y="354" fill="#334155" font-size="10.4">針刺狀高密度腫塊、垂直皮膚生長、節段細線分支狀鑄型微鈣化 → 切片</text>
+
+  <rect x="46" y="374" width="410" height="36" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <rect x="54" y="380" width="66" height="24" rx="12" fill="#0f172a"/>
+  <text x="87" y="396" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle">第 6 級</text>
+  <text x="130" y="396" fill="#0f172a" font-size="10.8" font-weight="600">已切片證實惡性（術前分期 · 新輔助化療反應評估）</text>
+
+  <!-- Concordance Safety Gate -->
+  <rect x="46" y="418" width="410" height="96" rx="7" fill="#fff1f2" stroke="#fda4af"/>
+  <text x="58" y="438" fill="#be123c" font-size="12" font-weight="700">放射病理一致性把關（Radiologic-Pathologic Concordance）</text>
+  <text x="58" y="457" fill="#334155" font-size="10.5">· 若 BI-RADS 4C／5 高度可疑病灶切片回報良性，屬「不一致（Discordant）」</text>
+  <text x="58" y="474" fill="#be123c" font-size="10.5" font-weight="700">· 嚴禁改列良性結案！必須立即執行重複真空輔助切片或外科定位切除</text>
+  <text x="58" y="492" fill="#0f766e" font-size="10.4" font-weight="600">· 亞洲緻密乳房（C／D 類）觸及硬塊若 X 光陰性，務必加做目標乳房超音波</text>
+  <text x="58" y="507" fill="#64748b" font-size="10">· &lt; 30 歲、孕婦與哺乳期婦女可觸及乳房腫塊第一線首選高頻超音波</text>
+
+  <!-- Top-Right Panel: ACR TI-RADS Scoring & FNA Thresholds -->
+  <rect x="482" y="82" width="444" height="252" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+  <rect x="482" y="82" width="444" height="32" rx="10" fill="#eff6ff"/>
+  <rect x="482" y="102" width="444" height="12" fill="#eff6ff"/>
+  <text x="496" y="103" fill="#1d4ed8" font-size="13.5" font-weight="700">2. 甲狀腺結節 ACR TI-RADS 五維積分與 FNA 門檻</text>
+
+  <text x="496" y="132" fill="#334155" font-size="10.8" font-weight="600">五維度累加：組成 + 回音度 + 形狀（縱橫比&gt;1 得 3 分）+ 邊緣 + 強回音灶</text>
+
+  <!-- 4 Threshold Cards -->
+  <rect x="496" y="144" width="204" height="62" rx="7" fill="#f0fdfa" stroke="#99f6e4"/>
+  <text x="506" y="163" fill="#0f766e" font-size="11.5" font-weight="700">TR1（0分）· TR2（2分）</text>
+  <text x="506" y="180" fill="#334155" font-size="10.5">單純囊腫、海綿狀結節（0分）</text>
+  <text x="506" y="196" fill="#0f766e" font-size="10.8" font-weight="700">處置：良性表現 · 不建議 FNA</text>
+
+  <rect x="710" y="144" width="204" height="62" rx="7" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text x="720" y="163" fill="#1d4ed8" font-size="11.5" font-weight="700">TR3 輕度可疑（3 分）</text>
+  <text x="720" y="180" fill="#1d4ed8" font-size="11" font-weight="700">FNA 穿刺門檻：≥ 2.5 cm</text>
+  <text x="720" y="196" fill="#475569" font-size="10.4">超音波追蹤門檻：≥ 1.5 cm</text>
+
+  <rect x="496" y="214" width="204" height="64" rx="7" fill="#fffbeb" stroke="#fde68a"/>
+  <text x="506" y="233" fill="#b45309" font-size="11.5" font-weight="700">TR4 中度可疑（4–6 分）</text>
+  <text x="506" y="250" fill="#b45309" font-size="11" font-weight="700">FNA 穿刺門檻：≥ 1.5 cm</text>
+  <text x="506" y="266" fill="#475569" font-size="10.4">超音波追蹤門檻：≥ 1.0 cm</text>
+
+  <rect x="710" y="214" width="204" height="64" rx="7" fill="#fff1f2" stroke="#fecdd3"/>
+  <text x="720" y="233" fill="#be123c" font-size="11.5" font-weight="700">TR5 高度可疑（≥ 7 分）</text>
+  <text x="720" y="250" fill="#be123c" font-size="11" font-weight="700">FNA 穿刺門檻：≥ 1.0 cm</text>
+  <text x="720" y="266" fill="#475569" font-size="10.4">超音波追蹤門檻：≥ 0.5 cm</text>
+
+  <rect x="496" y="286" width="418" height="38" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="506" y="303" fill="#be123c" font-size="10.6" font-weight="700">關鍵假影鑑別：點狀強回音砂粒體微鈣化（+3 分，乳突癌特徵）</text>
+  <text x="506" y="318" fill="#0f766e" font-size="10.5" font-weight="600">對比：伴後方 V 字明亮彗星尾混響假影（Comet-tail，0 分）為良性濃縮膠質結晶</text>
+
+  <!-- Bottom-Right Panel: Cervical Lymph Node & RECIST 1.1 -->
+  <rect x="482" y="344" width="444" height="182" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+  <rect x="482" y="344" width="444" height="32" rx="10" fill="#f0fdfa"/>
+  <rect x="482" y="364" width="444" height="12" fill="#f0fdfa"/>
+  <text x="496" y="365" fill="#0f766e" font-size="13.5" font-weight="700">3. 頸部淋巴結超音波鑑別與 RECIST 1.1 療效準則</text>
+
+  <!-- Left box: Lymph node US -->
+  <rect x="494" y="384" width="206" height="130" rx="7" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="504" y="402" fill="#0f766e" font-size="11.2" font-weight="700">頸部淋巴結良惡性音波指標</text>
+  <text x="504" y="420" fill="#334155" font-size="10.3">· 良性反應性：扁橢圓（S/L &lt; 0.5）</text>
+  <text x="504" y="435" fill="#334155" font-size="10.3">  保留明亮高回音門 · 門部放射血流</text>
+  <text x="504" y="454" fill="#be123c" font-size="10.3" font-weight="700">· 惡性轉移性：圓形（S/L ≥ 0.5）</text>
+  <text x="504" y="469" fill="#334155" font-size="10.3">  淋巴門消失 · 周邊混亂皮質血流</text>
+  <text x="504" y="485" fill="#334155" font-size="10.3">  乳突癌見微鈣化囊變；SCC 見壞死</text>
+  <text x="504" y="502" fill="#64748b" font-size="9.8">腮腺尾葉雙側囊實腫塊（吸菸男）→ Warthin</text>
+
+  <!-- Right box: RECIST 1.1 -->
+  <rect x="708" y="384" width="206" height="130" rx="7" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text x="718" y="402" fill="#1d4ed8" font-size="11.2" font-weight="700">RECIST 1.1 標的病灶準則</text>
+  <text x="718" y="420" fill="#334155" font-size="10.3">· 數量上限：全身 ≤ 5 灶（單器官 ≤ 2）</text>
+  <text x="718" y="437" fill="#1d4ed8" font-size="10.3" font-weight="700">· 實質病灶：量「最長徑 ≥ 10 mm」</text>
+  <text x="718" y="454" fill="#be123c" font-size="10.3" font-weight="700">· 病理淋巴結：量「短軸 ≥ 15 mm」</text>
+  <text x="718" y="471" fill="#334155" font-size="10.3">· PR 部分緩解：較基線縮小 ≥ 30%</text>
+  <text x="718" y="488" fill="#334155" font-size="10.3">· PD 惡化：較最低點增 ≥ 20% 且 ≥5mm</text>
+  <text x="718" y="504" fill="#0f766e" font-size="9.8" font-weight="600">CR：所有標的淋巴結短軸須縮回 &lt; 10 mm</text>
+</svg>
