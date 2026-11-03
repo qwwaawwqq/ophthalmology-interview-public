@@ -1,0 +1,930 @@
+{
+  "version": 1,
+  "title": "神經內科共筆考點衝刺",
+  "updated": "2026-11-03",
+  "disclaimer": "本衝刺頁為神經內科跨章節定位、急重症處置與電生理主動回想教材，所有內文均為繁體中文原創重述，不含任何共筆或教科書逐字原文；臨床劑量與時效請隨時對照最新國際指引及各院規範。",
+  "sourceNotice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。",
+  "groups": [
+    {
+      "id": "neuro-group-stroke-vascular",
+      "title": "超急性腦中風再灌流、動脈瘤性 SAH 與腦血管急症",
+      "priority": 1,
+      "summary": "鎖定靜脈溶栓血壓紅線、機械取栓擴大時間窗、動脈瘤性 SAH 正常血容原則與住院惡化處置。",
+      "chapterIds": [
+        "neuro-02",
+        "neuro-03",
+        "neuro-12"
+      ],
+      "points": [
+        {
+          "question": "急性缺血性腦中風靜脈血栓溶解（IV rt-PA）與動脈機械取栓（EVT）的時間窗及血壓門檻為何？",
+          "answer": "靜脈 Alteplase 適用於「最後確認正常時間（Last Known Well）≤4.5 小時」內無禁忌症患者，給藥前血壓須穩定控制在 <185/110 mmHg，給藥後 24 小時內維持 <180/105 mmHg 且 24 小時內禁加抗血小板或抗凝血藥。前循環近端大血管阻塞（ICA／MCA M1）於 ≤6 小時為標準 EVT 時間窗；發病 6–24 小時（含醒後中風）若灌流影像與臨床符合缺血核心小且可搶救半影區顯著不匹配（DAWN／DEFUSE-3 準則），仍應執行 EVT；EVT 成功再通（mTICI 2b–3）後血壓維持 ≤180/105 mmHg（收縮壓宜維持 140–180 mmHg），依 ENCHANTED2/MT 與 OPTIMAL-BP 實證避免常規強化降壓至 <140 mmHg。",
+          "trap": "符合靜脈溶栓資格的大血管阻塞患者應先給 IV rt-PA 並立即轉送導管室，切勿停下等待觀察溶栓藥效而延誤股動脈穿刺。",
+          "source": {
+            "chapter": "神經學02.pdf（併核 20.神經內科.pdf）",
+            "pages": "p.13–16",
+            "kind": "verified-handout",
+            "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+          },
+          "links": [
+            {
+              "label": "台灣腦中風學會：臨床治療指引",
+              "url": "https://www.stroke.org.tw/"
+            }
+          ]
+        },
+        {
+          "question": "動脈瘤性蜘蛛膜下腔出血（aSAH）防範再出血與延遲性腦缺血（DCI）的三大現代標準原則為何？",
+          "answer": "（1）及早閉塞破裂動脈瘤：首 24 小時再出血致死率最高，應盡早於 <24 小時內（最遲 <72 小時內）完成血管內線圈栓塞（Coiling）或顯微開顱夾除（Clipping），閉塞前收縮壓控制在 <160 mmHg；（2）口服 Nimodipine 60 mg 每 4 小時一次持續 21 天（唯一具第一級實證可改善神經功能預後的鈣離子阻斷劑）；（3）維持「正常血容（Euvolemia）」，若已發生症狀性血管痙攣且動脈瘤已閉塞，採誘導性升壓而非預防性高血容灌水。",
+          "trap": "傳統預防性 Triple-H（高血容、血液稀釋、高血壓）因顯著增加肺水腫與心肌缺血且不改善預後已被現行指引摒棄；另 SAH 合併腦耗鹽症候群（CSW）低血鈉切忌誤當 SIADH 限水，否則低血容將直接誘發腦梗塞。",
+          "source": {
+            "chapter": "神經學02.pdf",
+            "pages": "p.24–28、31",
+            "kind": "verified-handout",
+            "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+          }
+        },
+        {
+          "question": "腦靜脈竇栓塞（CVST）合併靜脈出血性梗塞是否可用抗凝血藥？頸動脈內膜切除（CEA）與支架（CAS）圍術期抗血小板策略有何不同？",
+          "answer": "CVST（如上矢狀竇血栓見 Empty delta sign）即使合併次發於靜脈鬱血之腦內出血，第一線標準治療仍是「立即給予治療劑量肝素（LMWH 或 UFH）抗凝血」以打通靜脈回流降壓！次級預防血管介入方面：頸動脈內膜切除術（CEA）圍術期維持單一抗血小板藥（Aspirin）即可，不常規強制雙抗；頸動脈支架置放術（CAS）則須給予雙重抗血小板藥（Aspirin + Clopidogrel）至少 4–6 週後再轉單一抗血小板維持。急性中風病房常規輸液採等張 0.9% 生理食鹽水，嚴禁常規輸注低張含糖液（D5W）。",
+          "trap": "把動脈性腦梗塞出血轉化停抗凝血的直覺誤套在 CVST，不給抗凝血反而會讓靜脈栓塞擴大導致致命腦疝。",
+          "source": {
+            "chapter": "神經學02.pdf（+ AHA/ASA CVST 與腦中風次級預防指引補充）",
+            "pages": "p.15–16、29–30",
+            "kind": "guideline",
+            "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+          }
+        },
+        {
+          "question": "住院腦中風病患夜間突發 NIHSS 增加 ≥4 分或急性譫妄躁動時，值班醫師的標準處置順序為何？",
+          "answer": "到床邊 3 分鐘內完成生命徵象、血氧、指尖血糖、瞳孔光反射與 GCS／局部神經學定位；中風患者 NIHSS 惡化 ≥4 分須即刻急排無顯影頭部 CT（排除出血性轉化或惡性腦水腫，若疑新發大血管阻塞同步排 CTA／CTP）。高齡或巴金森／路易氏體失智住院患者夜間發生急性譫妄時，優先排查低血氧、感染、尿滯留、電解質與藥物誘因，切忌反射性注射 Haloperidol。",
+          "trap": "對巴金森氏病或路易氏體失智症之譫妄患者施打傳統多巴胺受體阻斷劑 Haloperidol，會誘發嚴重錐體外徑僵硬惡化甚至抗精神病藥物惡性症候群。",
+          "source": {
+            "chapter": "神經學01.pdf p.6、21 與 神經學02.pdf p.19–20（併核臨床指引）",
+            "pages": "p.6、19–21",
+            "kind": "guideline"
+          }
+        }
+      ]
+    },
+    {
+      "id": "neuro-group-coma-seizure",
+      "title": "意識障礙定位、癲癇重積階梯搶救與低血糖補糖鐵律",
+      "priority": 2,
+      "summary": "貫通腦幹昏迷定位與腦死判定、癲癇重積 0–5–20–40 分鐘時間軸及急性低血糖立即 D50W 鐵律。",
+      "chapterIds": [
+        "neuro-01",
+        "neuro-04",
+        "neuro-12"
+      ],
+      "points": [
+        {
+          "question": "閉鎖症候群（Locked-in syndrome）、無反應覺醒症候群（植物狀態）與法定腦死如何從解剖與床邊檢查鑑別？",
+          "answer": "閉鎖症候群病灶在「橋腦腹側基底（雙側皮質脊髓與皮質延髓束中斷）」，但橋腦背蓋 ARAS 與中腦動眼神經核完好，患者「意識完全清醒」，能以垂直眼球運動與眨眼溝通；植物狀態大腦皮質廣泛受損而腦幹完好，具睡眠清醒週期與腦幹反射但無覺知；法定腦死須先排除低體溫、休克、鎮靜肌肉鬆弛劑與嚴重代謝內分泌障礙，確認深度昏迷、雙側腦幹反射（瞳孔、角膜、頭眼、前庭眼、咽喉咳嗽）全數消失並通過無自行呼吸測試（Apnea test）。",
+          "trap": "未排除巴比妥類／鎮靜劑殘留、嚴重低體溫或高頸髓損傷／嚴重格林-巴利症候群（類腦死外觀）前，絕對不可啟動腦死判定。",
+          "source": {
+            "chapter": "神經學01.pdf",
+            "pages": "p.13–20",
+            "kind": "verified-handout",
+            "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+          }
+        },
+        {
+          "question": "痙攣性癲癇重積狀態（Convulsive Status Epilepticus）自 0 至 >40 分鐘的四階段急救藥物與監測為何？",
+          "answer": "連續抽搐 ≥5 分鐘（T1）或兩次發作間意識未恢復即須啟動搶救：（1）0–5 分鐘：穩定氣道給氧、監視生命徵象、立即測指尖血糖並抽血；（2）5–20 分鐘第一線：足量苯二氮平類——有靜脈管路首選 IV Lorazepam，無靜脈管路立即給 IM Midazolam；（3）20–40 分鐘第二線：靜脈給予 Levetiracetam、Valproate 或 Fosphenytoin／Phenytoin（三者實證效力相當）；（4）>40 分鐘難治型：氣管插管下持續輸注 Midazolam、Propofol 或 Pentobarbital 麻醉，並必須接續連續腦波（cEEG）監測排除非痙攣性癲癇重積狀態（NCSE）。",
+          "trap": "苯二氮平類劑量不足，或抽搐表面停止後病人持續昏迷卻未接腦波排查 NCSE，是重積狀態搶救失敗最常見的兩大失誤；且 Phenytoin 嚴禁以含糖輸液（D5W）稀釋以免結晶析出。",
+          "source": {
+            "chapter": "神經學06.pdf",
+            "pages": "p.21–25",
+            "kind": "verified-handout",
+            "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+          },
+          "links": [
+            {
+              "label": "ILAE：Status Epilepticus Classification & Guidelines",
+              "url": "https://www.ilae.org/"
+            }
+          ]
+        },
+        {
+          "question": "急性低血糖引發抽搐或昏迷時，靜脈高濃度葡萄糖（IV D50W）與維生素 B1（Thiamine）的給藥先後原則為何？",
+          "answer": "面對「急性低血糖抽搐或昏迷」急症，大腦缺乏葡萄糖數分鐘即發生不可逆神經元壞死，必須「立即靜脈推注 IV D50W，絕對不可為了等待或尋找 Thiamine 而延誤補糖」，並在給糖同時或緊接立即補注 IV Thiamine 100–500 mg！相對地，在慢性酒癮、嚴重營養不良或妊娠劇吐但「血糖正常／非急性低血糖危象」患者準備常規輸注含糖點滴前，則應先給予或同步給予 Thiamine 以預防誘發 Wernicke 腦病變。",
+          "trap": "死背「一定要先打完 B1 才能推葡萄糖」而讓急性嚴重低血糖抽搐昏迷病患多等十幾分鐘配藥，會直接造成嚴重低血糖腦損傷。",
+          "source": {
+            "chapter": "神經學06.pdf",
+            "pages": "p.11–12、21–25",
+            "kind": "verified-handout",
+            "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+          }
+        },
+        {
+          "question": "兒童失神癲癇與青少年肌陣攣癲癇（JME）腦波特徵為何？臺灣漢人開立抗癲癇藥有哪些絕對禁忌與基因篩檢？",
+          "answer": "兒童失神癲癇過度換氣易誘發雙側同步對稱 3 Hz 棘慢波，首選 Ethosuximide（若合併全面強直陣攣選 Valproate 或 Lamotrigine）；JME 好發青春期清晨睡醒雙上肢肌陣攣，腦波呈 4–6 Hz 多棘慢波，首選 Valproate 或 Levetiracetam（育齡女性避用高致畸胎率之 Valproate）。臺灣漢人開立 Carbamazepine 前強制檢驗 HLA-B*15:02 等位基因，陽性者禁用以防致命性史蒂芬強森症候群／毒性表皮壞死溶解症（SJS／TEN）。",
+          "trap": "失神癲癇與 JME 若誤開窄效鈉離子通道阻斷劑（Carbamazepine、Oxcarbazepine、Phenytoin），反而會反常惡化失神與肌陣攣發作！",
+          "source": {
+            "chapter": "神經學06.pdf",
+            "pages": "p.8–10、13–16、20",
+            "kind": "verified-handout",
+            "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "neuro-group-cognition-movement",
+      "title": "失智症光譜、庫賈氏病（sCJD）與巴金森動作障礙",
+      "priority": 3,
+      "summary": "掌握快速進展型失智 sCJD 真性擴散受限與 RT-QuIC、DLB／iNPH 鑑別及非典型巴金森腦幹影像。",
+      "chapterIds": [
+        "neuro-05",
+        "neuro-06"
+      ],
+      "points": [
+        {
+          "question": "快速進展型失智（RPD）如何確診散發型庫賈氏病（sCJD），並與可逆性自體免疫腦炎鑑別？",
+          "answer": "sCJD 表現數週至數月迅速惡化失智、驚嚇肌陣攣（Startle myoclonus）與小腦／視覺／錐體外徑異常；三大關鍵診斷指標為：（1）腦部 MRI 見大腦皮質緞帶徵（Cortical ribboning）及尾狀核／殼核「DWI 高訊號伴對應 ADC 低訊號（真性擴散受限）」；（2）腦波見約 1–2 Hz 週期性尖慢複合波（PSWC）；（3）腦脊髓液 RT-QuIC 陽性（特異度高達 98–100%，優於非特異性的 14-3-3 蛋白）。但下診斷前必先排除抗 LGI1／NMDAR 自體免疫腦炎、神經梅毒、Wernicke 腦病變與非痙攣性重積狀態等可逆病因。",
+          "trap": "若腦部 MRI 僅見 T2／FLAIR 亮而無對應 ADC 低訊號（T2 shine-through），或 CSF 出現明顯白血球增多，應高度懷疑發炎／自體免疫腦炎或癲癇發作後改變而非 sCJD。",
+          "source": {
+            "chapter": "神經學04.pdf",
+            "pages": "p.23–24",
+            "kind": "verified-handout",
+            "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+          },
+          "links": [
+            {
+              "label": "AAN：Cognitive Disorders & Prion Diagnostic Practice",
+              "url": "https://www.aan.com/"
+            }
+          ]
+        },
+        {
+          "question": "阿茲海默症、路易氏體失智症（DLB）與常壓性水腦症（iNPH）的核心臨床鑑別點為何？",
+          "answer": "阿茲海默症以早期海馬迴情景記憶編碼受損起病（ATN 標記：Aβ42 下降／PET 類澱粉陽性、p-tau 上升、內側顳葉萎縮）；DLB 以「失智早於或與巴金森症狀同時在 1 年內出現（一年法則）」區別於巴金森失智（PDD），具波動性認知、栩栩如生視幻覺、快速動眼期睡眠行為障礙（RBD）及對傳統抗精神病藥極度敏感之核心特徵；iNPH 具「磁性寬基步態失調（最早出現且對大容積腰穿抽水 30–50 mL 反應最佳）、頻尿失禁、額葉皮質下認知減退」三聯徵與 MRI 腦室擴大伴頂部腦溝緊縮（DESH 徵象）。",
+          "trap": "iNPH 若遲至重度失智臥床才引流效果極差，且須憑腦溝未成比例萎縮（DESH）與抽水步態改善來區分阿茲海默症代償性腦室擴大（Hydrocephalus ex vacuo）。",
+          "source": {
+            "chapter": "神經學04.pdf",
+            "pages": "p.6–22",
+            "kind": "verified-handout",
+            "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+          }
+        },
+        {
+          "question": "原發性巴金森氏病（PD）與三大非典型巴金森症候群（MSA、PSP、CBD）在臨床紅旗與腦幹 MRI 徵象上如何對照？",
+          "answer": "原發性 PD 常呈單側不對稱起病、靜止性搓丸樣顫抖且對左旋多巴（Levodopa）反應顯著持久（後期運動波動與異動症可評估丘腦下核 STN 或蒼白球內側部 GPi 深腦刺激術 DBS）。早期左旋多巴反應不佳伴以下紅旗指向非典型巴金森：（1）多發性系統退化症（MSA）：早期嚴重姿勢性低血壓、尿失禁與小腦失調，橋腦 MRI 見十字形「熱十字麵包徵（Hot cross bun sign）」；（2）進行性核上眼神經麻痺症（PSP）：發病首年反覆向後跌倒與垂直（尤向下）凝視麻痺，中腦萎縮矢狀 MRI 見「蜂鳥徵（Hummingbird sign）」；（3）皮質基底核退化症（CBD）：極度不對稱肢體失用、肌陣攣與異己手現象（Alien limb）。",
+          "trap": "年輕（<40 歲）出現動作障礙、構音吞嚥困難、精神症狀與肝功能異常，務必檢驗血清銅藍蛋白（Ceruloplasmin 下降）、24 小時尿銅與裂隙燈角膜 Kayser-Fleischer 環排除可治療的威爾森氏症！",
+          "source": {
+            "chapter": "神經學04.pdf",
+            "pages": "p.30–34、39–61",
+            "kind": "verified-handout",
+            "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+          },
+          "links": [
+            {
+              "label": "MDS：International Parkinson and Movement Disorder Society",
+              "url": "https://www.movementdisorders.org/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "neuro-group-neuroimmunology-cnsinf",
+      "title": "中樞去髓鞘、自體免疫腦炎與腦膜腦炎顱內高壓",
+      "priority": 4,
+      "summary": "區分 MS 與 AQP4-NMOSD 治療分流、表面對細胞內腦炎抗體、腰穿前 CT 紅旗及四大感染 CSF 圖譜。",
+      "chapterIds": [
+        "neuro-07",
+        "neuro-08"
+      ],
+      "points": [
+        {
+          "question": "多發性硬化症（MS）與水通道蛋白 4 抗體視神經脊髓炎譜系疾病（AQP4-NMOSD）在影像與維持治療禁忌上有何關鍵差異？",
+          "answer": "MS 依 2017 McDonald 準則靠四大解剖區（腦室旁、皮質／近皮質、幕下、脊髓短節段偏背外側病灶）達成空間散播（DIS），並可以顯影／非顯影病灶並存或「CSF 特異性寡株帶（OCB）陽性」達成時間散播（DIT）。AQP4-NMOSD（星狀細胞破壞）典型表現為雙側或後段累及視交叉之嚴重視神經炎、連續 ≥3 個椎體節段之長節段橫斷性脊髓炎（LETM，中央灰質為主）及延髓極後區症候群（頑固性打嗝嘔吐）；維持預防採抗 B 細胞（Rituximab、Inebilizumab）、抗補體 C5（Eculizumab／Ravulizumab）或抗 IL-6R（Satralizumab）。",
+          "trap": "切勿將 MS 部分疾病修飾藥物（如 Interferon-beta、Fingolimod、Natalizumab）誤用於 AQP4-NMOSD，否則會誘發災難性復發惡化！",
+          "source": {
+            "chapter": "神經學10.pdf",
+            "pages": "p.6–15",
+            "kind": "verified-handout",
+            "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+          }
+        },
+        {
+          "question": "神經細胞表面抗體腦炎（抗 NMDAR、抗 LGI1）與細胞內腫瘤伴生抗體（anti-Hu、anti-Yo）在機轉與預後上有何不同？",
+          "answer": "表面抗體直接可逆性阻斷或內吞突觸受體，對一線（高劑量類固醇、IVIG、血漿置換）與二線（Rituximab、Cyclophosphamide）免疫治療反應良好：抗 NMDAR 腦炎好發年輕女性（須篩查卵巢畸胎瘤並切除），由精神行為異常演進至口臉手足異動症、癲癇與中樞低通氣；抗 LGI1 邊緣性腦炎好發中老年，具路徑特異性「面臂肌張力不全發作（FBDS）」與低血鈉（SIADH）。反之，細胞內抗體（如小細胞肺癌伴 anti-Hu、婦癌乳癌伴 anti-Yo 小腦退化）由細胞毒性 CD8+ T 細胞造成不可逆神經元凋亡，免疫治療反應較差，核心在於及早控制潛藏惡性腫瘤。",
+          "trap": "抗 NMDAR 腦炎約半數以上初期腦部常規 MRI 完全正常，切勿因 MRI 無異常就把年輕女性突發精神錯亂伴抽搐運動障礙直接轉入精神科封閉病房延誤免疫搶救。",
+          "source": {
+            "chapter": "神經學10.pdf",
+            "pages": "p.16–28",
+            "kind": "verified-handout",
+            "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+          }
+        },
+        {
+          "question": "疑似中樞神經感染執行腰椎穿刺前，哪些紅旗必須先排頭部 CT？細菌、病毒、結核與隱球菌腦膜炎的 CSF 圖譜如何區分？",
+          "answer": "具免疫不全、中樞神經病史、新發癲癇、視乳頭水腫、意識改變或局部神經缺損任一紅旗者，必須先抽血液培養並「立即給予經驗性抗生素（± Dexamethasone／Acyclovir）」，做完頭部 CT 排除佔位腦疝後再行腰穿。CSF 判讀：細菌性為嗜中性球為主、糖極低（CSF／血糖比 <0.4）、蛋白高；病毒性為淋巴球為主、糖正常（HSV 腦炎顳葉島葉出血壞死，立即給 IV Acyclovir）；結核性為淋巴球為主、蛋白極高伴糖偏低；隱球菌腦膜炎（HIV／免疫抑制）淋巴球與糖低蛋白高，但開口壓常極度飆升（>250–300 mmH2O），須靠隱球菌抗原（CrAg）確診並反覆治療性腰穿引流降壓及給予 Amphotericin B 加 Flucytosine。",
+          "trap": "腦部環狀顯影強化病灶若為細菌性「腦膿瘍」，其中心膿腔在 MRI 呈現顯著「DWI 高訊號伴 ADC 低訊號（黏稠膿液擴散受限）」，藉此與中心液化壞死通常擴散不受限之膠質母細胞瘤區分；且腦膿瘍禁用類固醇除非發生危及生命之腦疝水腫。",
+          "source": {
+            "chapter": "Ch.07 (20.神經內科.pdf + IDSA/AAN 指引補充)",
+            "pages": "p.4–5",
+            "kind": "guideline",
+            "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "neuro-group-cord-neuromuscular",
+      "title": "脊髓定位、GBS／MG 呼吸危象（20/30/40 法則）與神經肌肉病變",
+      "priority": 5,
+      "summary": "整合脊髓橫切與馬尾急症、GBS／MG 20/30/40 插管門檻、GBS 禁用單獨類固醇及電生理突觸前後定位。",
+      "chapterIds": [
+        "neuro-09",
+        "neuro-10",
+        "neuro-12"
+      ],
+      "points": [
+        {
+          "question": "Brown-Séquard 脊髓半切症候群的三條徑路側別，與脊髓圓錐（Conus medullaris）對馬尾症候群（Cauda equina）如何區分？",
+          "answer": "脊髓半切症候群表現為：病灶平面以下「同側」上運動神經元癱瘓（皮質脊髓側束已於延髓交叉）與「同側」震動本體覺喪失（薄束楔束至延髓才交叉），以及病灶低 1–2 節以下「對側」痛溫覺喪失（脊髓視丘束於入髓後 1–2 節即越過白質前連合交叉）。脊髓圓錐症候群（L1–L2）常雙側對稱、早期即出現嚴重大小便失禁與鞍部麻木、混和上下運動神經元徵象；馬尾症候群（L2 以下腰薦神經根）多呈不對稱劇烈坐骨神經根痛、下肢遲緩性無力反射消失（純下運動神經元）與尿滯留，兩者皆屬須緊急 MRI 與減壓手術之急症。",
+          "trap": "外傷性高位脊髓損傷合併低血壓伴「心搏過緩、四肢溫暖乾燥」為交感神經中斷之神經性休克（Neurogenic shock），勿與失血致心跳加快冰冷之低血容休克或脊髓反射暫時消失之脊髓休克（Spinal shock）混淆。",
+          "source": {
+            "chapter": "神經學08.pdf",
+            "pages": "p.3–9、18–27",
+            "kind": "verified-handout",
+            "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+          }
+        },
+        {
+          "question": "格林-巴利症候群（GBS）與重症肌無力（MG）危象的「20/30/40 呼吸衰竭插管門檻」、插管用藥禁忌與 GBS 免疫治療鐵律為何？",
+          "answer": "GBS 與 MG 呼吸肌無力患者切忌等到動脈血氧下降或二氧化碳滯留才插管，應密集監測床邊肺活量遵循「20/30/40 法則」：肺活量（VC）<20 mL/kg、最大吸氣壓（MIP／NIF）弱於 -30 cmH2O（絕對值 <30）、最大吐氣壓（MEP）<40 cmH2O，或出現吞嚥困難嗆咳、抬頭無力即應及早保護性插管！插管誘導在 GBS 去神經狀態絕對禁用去極化肌鬆劑 Succinylcholine（因肌膜乙醯膽鹼受體廣泛上調將引發致命性高血鉀心跳停止；MG 亦因受體異常對肌鬆劑反應極不穩定應避用）。GBS 急性期首選 IVIG 或血漿置換（PLEX），「單用皮質類固醇完全無效」（反之病程 >8 週之 CIDP 對類固醇、IVIG、PLEX 三者皆有效）。",
+          "trap": "發病第 1 週內 GBS 患者 CSF 尚未出現蛋白細胞分離（蛋白仍正常）或常規神經傳導僅見 F 波延遲消失屬常見現象，絕不可據此排除 GBS 而延誤呼吸監測與 IVIG／PLEX！",
+          "source": {
+            "chapter": "神經學11.pdf",
+            "pages": "p.6–9、23、26–27（併 MG p.10–14）",
+            "kind": "verified-handout",
+            "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+          },
+          "links": [
+            {
+              "label": "EAN：Guillain-Barré Syndrome Clinical Guideline",
+              "url": "https://www.ean.org/"
+            }
+          ]
+        },
+        {
+          "question": "重症肌無力（MG）、Lambert-Eaton 肌無力症候群（LEMS）與肌萎縮性脊髓側索硬化症（ALS）在臨床與神經電生理上如何鑑別？",
+          "answer": "突觸後 MG（AChR 或 MuSK 抗體）表現眼瞼下垂複視晨輕暮重、自主神經正常，低頻（2–3 Hz）重複神經電刺激（RNS）複合肌肉動作電位遞減 >10%，單纖維肌電圖 Jitter 增加最敏感（須排胸部 CT 查胸腺瘤，禁給胺基糖苷類、Fluoroquinolones、靜脈鎂劑與 β 阻斷劑）。突觸前 LEMS（抗 P/Q 型鈣通道抗體，逾半數伴小細胞肺癌）表現近端下肢無力、口乾等自主神經障礙與肌腱反射減弱，短暫用力收縮後肌力與反射短暫增強，基礎 CMAP 極低但高頻（20–50 Hz）RNS 或 10 秒最大收縮後 CMAP 巨幅遞增 >60–100%。ALS 則為多區域「上下運動神經元退化徵象並存（肌萎縮肌束顫動伴高張力腱反射亢進 Babinski 陽性）」，感覺、眼外肌與括約肌相對保留。",
+          "trap": "MuSK 抗體陽性 MG 常以顯著口咽延髓與呼吸肌無力表現、無胸腺瘤（不建議胸腺切除），且對膽鹼酯酶抑制劑反應差甚至易過量誘發肌束顫動。",
+          "source": {
+            "chapter": "神經學11.pdf、神經學07.pdf",
+            "pages": "11.pdf p.10–17；07.pdf p.3–9",
+            "kind": "verified-handout",
+            "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "neuro-group-headache-vertigo",
+      "title": "次發性頭痛紅旗、原發性頭痛精準治療與急性眩暈 HINTS",
+      "priority": 6,
+      "summary": "熟練雷擊與姿勢性頭痛雙急症、偏頭痛 CGRP／MOH 與叢發性頭痛純氧治療及持續眩暈 HINTS 判讀。",
+      "chapterIds": [
+        "neuro-11",
+        "neuro-12"
+      ],
+      "points": [
+        {
+          "question": "1 分鐘內達劇痛高峰的「雷擊性頭痛」排除 SAH 後，如何診斷與治療可逆性腦血管收縮症候群（RCVS）？與自發性低腦壓頭痛（SIH）如何區分？",
+          "answer": "凡雷擊性頭痛必先以無顯影頭部 CT（及 CT 陰性時腰穿驗黃變）排除破裂動脈瘤 SAH。若 1–3 週內於洗澡、用力解便、咳嗽、運動或情緒激動反覆誘發短暫雷擊頭痛，MRA 見多發節段性串珠樣腦血管收縮（於 12 週內可逆恢復），即為 RCVS，治療首選 Nimodipine 並移除血管收縮藥物誘因。自發性低腦壓頭痛（SIH，脊髓硬腦膜裂孔滲漏）則表現典型「坐立幾分鐘內劇痛、平躺迅速緩解」之姿勢性頭痛，顯影腦部 MRI 見瀰漫性硬腦膜均勻增厚強化（Pachymeningeal enhancement）、靜脈竇腫脹與腦下垂，保守補水咖啡因無效時行硬腦膜外血液貼片（Epidural blood patch）。",
+          "trap": "RCVS 絕對禁用 Triptans 與麥角鹼止痛，且切勿誤當原發性中樞神經血管炎投予高劑量皮質類固醇——類固醇已被證實會顯著惡化 RCVS 神經預後！",
+          "source": {
+            "chapter": "神經學07.pdf",
+            "pages": "p.29–35、44–45",
+            "kind": "verified-handout",
+            "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+          },
+          "links": [
+            {
+              "label": "ICHD-3：International Classification of Headache Disorders",
+              "url": "https://ichd-3.org/"
+            }
+          ]
+        },
+        {
+          "question": "叢發性頭痛（Cluster headache）與偏頭痛（Migraine）在發作行為、自主神經表徵與第一線急性治療上有何鮮明對比？",
+          "answer": "偏頭痛持續 4–72 小時，單側搏動中重度痛伴噁心畏光怕吵，患者喜「安靜躺暗室不動（日常活動會惡化頭痛）」，急性期用 NSAIDs、Triptans、Gepants 或 Ditans，頻繁發作預防可用 β 阻斷劑、Topiramate、Valproate、Flunarizine 或 CGRP 單株抗體（惟須嚴防每月用 Triptan／複方止痛藥 ≥10 天或單純止痛藥 ≥15 天超過 3 個月造成藥物過度使用頭痛 MOH）。叢發性頭痛持續 15–180 分鐘，嚴格單側眼眶極重度鑽痛伴同側結膜充血、流淚、鼻塞流涕或部分 Horner 徵象，患者常「痛極焦躁來回踱步」，急性期首選「非再吸入面罩 100% 純氧（12–15 L/min）」與皮下／鼻噴速效 Triptan，預防首選 Verapamil。",
+          "trap": "有腦幹／偏癱預兆偏頭痛、缺血性中風或冠心病未控制高血壓患者，禁用具血管收縮作用的 Triptans 與 Ergotamines（可改選無血管收縮副作用之 Gepants）。",
+          "source": {
+            "chapter": "神經學07.pdf",
+            "pages": "p.33–43",
+            "kind": "verified-handout",
+            "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+          }
+        },
+        {
+          "question": "神經內科急診面對急性前庭症候群（AVS）如何正確運用 HINTS Plus？衛福部神經科專科訓練基準的核心實務要求為何？",
+          "answer": "HINTS Plus 僅適用於「急性持續性眩暈合併當下自發性眼振（AVS）」患者：若出現「頭衝測試正常（無矯正跳視）」、「雙向凝視眼振方向改變」、「交替遮蓋見垂直斜視」或「合併新發單側聽損（AICA 梗塞）」任一項，診斷急性後循環中風之敏感度高於發病首 48 小時腦部 MRI DWI。專科訓練方面，衛福部神經科專科訓練認定基準規範 3.5–4 年完整臨床神經學、腦中風急重症（含高級神經救命術 ANLS 認證）、神經電生理（EEG／NCS／EMG／誘發電位）與跨團隊病房安全照護。",
+          "trap": "若患者平時靜止完全無眩暈無眼振、僅轉頭躺下誘發數十秒旋轉感，屬於陣發性位置性症候群，應執行 Dix-Hallpike／Supine roll 檢查而非套用 HINTS。",
+          "source": {
+            "chapter": "神經學03.pdf、神經學11.pdf",
+            "pages": "03.pdf p.3–20；11.pdf p.40–47",
+            "kind": "verified-handout",
+            "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+          },
+          "links": [
+            {
+              "label": "台灣神經學學會：專科醫師訓練與教育規範",
+              "url": "https://www.neuro.org.tw/"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "chapters": [
+    {
+      "id": "neuro-01",
+      "number": 1,
+      "title": "神經學解剖定位、意識障礙鑑別與腦死判定",
+      "focus": [
+        "ARAS 與腦疝定位",
+        "視交叉與 Meyer 環",
+        "植物狀態與閉鎖症候群",
+        "法定腦死判定準則"
+      ],
+      "pdfName": "神經學01.pdf",
+      "sourceNotice": "主教材：神經學01.pdf（併核 20.神經內科.pdf、神經學03.pdf）；頁碼依原 PDF 頁序標示。"
+    },
+    {
+      "id": "neuro-02",
+      "number": 2,
+      "title": "超急性缺血性腦中風：TOAST 分類、再灌流治療與急性病房惡化處置",
+      "focus": [
+        "腦血管流域與 TOAST",
+        "IV rt-PA 時間與控壓",
+        "EVT 6–24h 擴大窗",
+        "急性中風等張輸液"
+      ],
+      "pdfName": "神經學02.pdf",
+      "sourceNotice": "主教材：神經學02.pdf（併核 20.神經內科.pdf）；頁碼依原 PDF 頁序標示。"
+    },
+    {
+      "id": "neuro-03",
+      "number": 3,
+      "title": "出血性腦中風、腦動脈瘤、腦靜脈竇栓塞與腦中風次級預防",
+      "focus": [
+        "自發性 ICH 定位控壓",
+        "aSAH 早期栓塞與夾除",
+        "Nimodipine 與正常血容",
+        "CVST 抗凝血與次級預防"
+      ],
+      "pdfName": "神經學02.pdf",
+      "sourceNotice": "主教材：神經學02.pdf（併核 神經學05.pdf、神經學03.pdf）；頁碼依原 PDF 頁序標示。"
+    },
+    {
+      "id": "neuro-04",
+      "number": 4,
+      "title": "癲癇發作分類、腦波判讀、抗癲癇藥物基因安全與癲癇重積狀態",
+      "focus": [
+        "ILAE 分類與腦波症候群",
+        "HLA-B*15:02 藥物基因",
+        "癲癇重積階梯急救",
+        "急性低血糖立即 D50W"
+      ],
+      "pdfName": "神經學06.pdf",
+      "sourceNotice": "主教材：神經學06.pdf（併核 20.神經內科.pdf、神經學03.pdf）；頁碼依原 PDF 頁序標示。"
+    },
+    {
+      "id": "neuro-05",
+      "number": 5,
+      "title": "失智症、快速進展型失智（CJD）與常壓性水腦症",
+      "focus": [
+        "阿茲海默 ATN 架構",
+        "路易氏體失智一年法則",
+        "常壓性水腦症 DESH",
+        "sCJD DWI／ADC 與 RT-QuIC"
+      ],
+      "pdfName": "神經學04.pdf",
+      "sourceNotice": "主教材：神經學04.pdf（併核 神經學01.pdf）；頁碼依原 PDF 頁序標示。"
+    },
+    {
+      "id": "neuro-06",
+      "number": 6,
+      "title": "巴金森氏病、非典型巴金森症候群、深腦刺激術與動作障礙",
+      "focus": [
+        "巴金森運動波動調藥",
+        "MSA／PSP／CBD 紅旗",
+        "DBS 雙標靶 STN／GPi",
+        "顫抖與威爾森氏症"
+      ],
+      "pdfName": "神經學04.pdf",
+      "sourceNotice": "主教材：神經學04.pdf（併核 神經學09.pdf）；頁碼依原 PDF 頁序標示。"
+    },
+    {
+      "id": "neuro-07",
+      "number": 7,
+      "title": "中樞神經去髓鞘疾病與自體免疫腦炎",
+      "focus": [
+        "MS 2017 McDonald",
+        "AQP4-NMOSD 長脊髓炎",
+        "MOGAD 與 ADEM",
+        "抗 NMDAR／LGI1 腦炎"
+      ],
+      "pdfName": "神經學10.pdf",
+      "sourceNotice": "主教材：神經學10.pdf（併核 神經學11.pdf）；頁碼依原 PDF 頁序標示。"
+    },
+    {
+      "id": "neuro-08",
+      "number": 8,
+      "title": "中樞神經感染症、原發與轉移性腦腫瘤及顱內高壓處置",
+      "focus": [
+        "腰穿前頭部 CT 紅旗",
+        "四大腦膜炎 CSF 判讀",
+        "腦膿瘍 DWI 擴散受限",
+        "WHO CNS5 與顱內高壓"
+      ],
+      "pdfName": "神經學09.pdf、20.神經內科.pdf",
+      "sourceNotice": "主教材：神經學09.pdf（p.17–34 成人腦腫瘤）、20.神經內科.pdf（p.4–5 腦膜炎腦脊髓液判讀），併核 神經學12.pdf 及 WHO CNS5／IDSA 指引補充。"
+    },
+    {
+      "id": "neuro-09",
+      "number": 9,
+      "title": "脊髓病變定位、脊椎退化與外傷、格林-巴利症候群及周邊神經病變",
+      "focus": [
+        "三大脊髓徑路與半切",
+        "圓錐對馬尾症候群",
+        "GBS 20/30/40 與禁類固醇",
+        "CIDP 與多發神經病變"
+      ],
+      "pdfName": "神經學08.pdf、神經學11.pdf",
+      "sourceNotice": "主教材：神經學08.pdf（脊髓病變）、神經學11.pdf（p.6–9、23、26–27 GBS），併核 神經學10.pdf（p.29–58 周邊神經病變）與 20.神經內科.pdf。"
+    },
+    {
+      "id": "neuro-10",
+      "number": 10,
+      "title": "神經肌肉接合處疾病、運動神經元疾病與發炎及遺傳肌病變",
+      "focus": [
+        "MG 危象與禁忌藥物",
+        "LEMS 高頻遞增",
+        "ALS 上下運動神經元",
+        "DMD 讀框假說與肌炎"
+      ],
+      "pdfName": "神經學07.pdf、神經學11.pdf",
+      "sourceNotice": "主教材：神經學11.pdf（p.10–14 MG 與神經肌肉接合處）、神經學07.pdf（p.3–28 運動神經元與肌病變），併核 20.神經內科.pdf。"
+    },
+    {
+      "id": "neuro-11",
+      "number": 11,
+      "title": "原發性與次發性頭痛、三叉神經痛與急性前庭症候群眩暈鑑別",
+      "focus": [
+        "SNOOP10 與 RCVS／SIH",
+        "偏頭痛 CGRP 與 MOH",
+        "叢發性頭痛純氧治療",
+        "三叉神經痛與 HINTS"
+      ],
+      "pdfName": "神經學07.pdf、神經學03.pdf",
+      "sourceNotice": "主教材：神經學07.pdf（p.29–57 頭痛與顏面痛）、神經學03.pdf（p.3–20 中樞與周邊眩暈鑑別），併核 20.神經內科.pdf。"
+    },
+    {
+      "id": "neuro-12",
+      "number": 12,
+      "title": "臨床神經電生理、神經可塑性、專科訓練基準與 PGY／R1 病房照護實務",
+      "focus": [
+        "NCS／EMG 與誘發電位",
+        "神經再生與可塑性",
+        "專科訓練與 ANLS",
+        "夜間譫妄與 NIHSS 惡化"
+      ],
+      "pdfName": "神經學11.pdf、神經學03.pdf",
+      "sourceNotice": "主教材：神經學11.pdf、神經學03.pdf（併核 20.神經內科.pdf、神經學10.pdf 及衛生福利部專科訓練認定基準）；頁碼依原 PDF 頁序標示。"
+    }
+  ],
+  "cards": [
+    {
+      "id": "neuro-cram-01",
+      "groupId": "neuro-group-coma-seizure",
+      "chapterId": "neuro-01",
+      "question": "顳葉鉤回腦疝（Uncal herniation）壓迫第 III 對腦神經時為何總是瞳孔先放大、眼外肌後麻痺？去皮質與去大腦姿勢病灶分界在哪裡？",
+      "answer": "動眼神經支配瞳孔括約肌的副交感纖維行走於神經幹最表淺背內側，故鉤回下疝外壓時最先出現同側瞳孔散大無光反射（反之糖尿病微血管缺血侵犯神經中心，多呈保留瞳孔之眼外肌麻痺）。去皮質屈曲姿勢代表紅核以上大腦半球／內囊受損；去大腦伸展姿勢代表病灶已下移至中腦紅核與橋腦水平，預後更凶險。",
+      "trap": "後交通動脈（PComA）動脈瘤外壓第 III 對腦神經同樣會造成「疼痛性動眼神經麻痺伴瞳孔放大」，絕不可誤當良性糖尿病神經病變放行！",
+      "source": {
+        "chapter": "神經學01.pdf",
+        "pages": "p.6–12、19",
+        "kind": "verified-handout",
+        "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+      }
+    },
+    {
+      "id": "neuro-cram-02",
+      "groupId": "neuro-group-coma-seizure",
+      "chapterId": "neuro-01",
+      "question": "視覺路徑中，顳葉 Meyer 氏環（Meyer's loop）與頂葉視放射病灶分別造成哪一種視野缺損？",
+      "answer": "視交叉正中受腦下垂體腫瘤下往上壓迫致雙顳側偏盲；視交叉以後病灶皆致「對側同名性」視野缺損：顳葉繞行側腦室下角之 Meyer 氏環承載下視網膜（上方視野）纖維，受損產生「對側同名性上象限盲（Pie in the sky）」；頂葉深部視放射受損則產生「對側同名性下象限盲（Pie on the floor）」。",
+      "trap": "勿將視網膜上下位置與外在視野上下位置記反——下視網膜看上方視野，走顳葉 Meyer 氏環。",
+      "source": {
+        "chapter": "神經學01.pdf",
+        "pages": "p.29–30、46",
+        "kind": "verified-handout",
+        "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+      }
+    },
+    {
+      "id": "neuro-cram-03",
+      "groupId": "neuro-group-stroke-vascular",
+      "chapterId": "neuro-02",
+      "question": "急性缺血性中風施打靜脈 Alteplase 前後的血壓控制紅線為何？若未施打溶栓或取栓，何時才積極降壓？",
+      "answer": "擬施打 IV rt-PA 者，給藥前血壓必須降並維持在 <185/110 mmHg，給藥後 24 小時內嚴格維持 <180/105 mmHg；若「未接受再灌流治療」且無主動脈剝離、急性心衰或高血壓腦病變等急症，允許性高血壓（Permissive hypertension）以維持缺血半影區灌流，僅在血壓 ≥220/120 mmHg 時才於首 24 小時溫和調降約 15%。",
+      "trap": "對未打溶栓的急性缺血性中風過度降壓，或在 EVT 成功再通（mTICI 2b–3）後常規強化降壓至收縮壓 <140 mmHg（ENCHANTED2/MT、OPTIMAL-BP 證實有害），皆會惡化腦灌流與神經功能預後！",
+      "source": {
+        "chapter": "神經學02.pdf",
+        "pages": "p.8–9、13",
+        "kind": "verified-handout",
+        "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+      }
+    },
+    {
+      "id": "neuro-cram-04",
+      "groupId": "neuro-group-stroke-vascular",
+      "chapterId": "neuro-02",
+      "question": "臺灣年輕型缺血性腦中風遇到「反覆皮質下小梗塞、偏頭痛預兆、早發失智與家族顯性遺傳史」應優先檢測哪一基因與特徵性 MRI 部位？",
+      "answer": "高度懷疑體染色體顯性腦動脈血管病變合併皮質下腦梗塞及白質腦病變（CADASIL），由第 19 號染色體 NOTCH3 基因突變引起；腦部 MRI T2／FLAIR 除腦室周圍白質病變外，最具特異性的早期侵犯部位為「雙側前顳葉極（Anterior temporal poles）與外囊（External capsule）」。",
+      "trap": "年輕突發頸痛或頭痛後出現延髓外側 Wallenberg 症候群加同側 Horner 症候群，則應優先以 CTA／MRA（脂肪抑制 T1 見新月形壁內血腫）排查椎動脈或內頸動脈剝離。",
+      "source": {
+        "chapter": "神經學02.pdf",
+        "pages": "p.10–12、18",
+        "kind": "verified-handout",
+        "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+      }
+    },
+    {
+      "id": "neuro-cram-05",
+      "groupId": "neuro-group-stroke-vascular",
+      "chapterId": "neuro-03",
+      "question": "高血壓性自發性腦內出血（ICH）四大經典好發部位為何？高齡患者反覆「腦葉（Lobar）出血」伴皮質微出血最常見病因是什麼？",
+      "answer": "高血壓透明變性穿通小動脈破裂四大好發部位依序為：（1）殼核／基底核（對側偏癱，雙眼偏向病灶側）、（2）視丘（對側全感覺喪失，雙眼內下視或偏離）、（3）橋腦（針尖瞳孔、四肢癱瘓高燒昏迷）、（4）小腦（眩暈嘔吐無法站立，腫塊>3 cm 或壓迫腦幹水腦須緊急開顱減壓）。高齡非高血壓性反覆「腦葉出血」伴梯度回音／SWI 皮質表淺微出血，最常見病因為腦類澱粉血管病變（CAA）。",
+      "trap": "小腦出血千萬不可執行腰椎穿刺，否則後顱窩高壓將瞬間誘發小腦扁桃體下疝壓迫延髓呼吸中樞猝死！",
+      "source": {
+        "chapter": "神經學02.pdf",
+        "pages": "p.21–23",
+        "kind": "verified-handout",
+        "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+      }
+    },
+    {
+      "id": "neuro-cram-06",
+      "groupId": "neuro-group-stroke-vascular",
+      "chapterId": "neuro-03",
+      "question": "動脈瘤性蜘蛛膜下腔出血（aSAH）與腦靜脈竇栓塞（CVST）合併腦出血時，在閉塞時限、血容管理與抗凝血決策上有何關鍵差異？",
+      "answer": "aSAH 應盡早於 <24 小時（最遲 <72 小時）完成動脈瘤栓塞（Coiling）或夾除（Clipping），常規給予口服 Nimodipine 60 mg q4h × 21 天，並以等張液維持「正常血容（Euvolemia，摒棄預防性 Triple-H）」，動脈瘤未閉塞前絕對禁用抗血栓藥；反之，CVST 即使影像已見靜脈鬱血性腦內出血，第一線仍須立即給予治療劑量抗凝血劑（LMWH 或 UFH）防止靜脈血栓擴大。",
+      "trap": "發病超過 6–12 小時之雷擊性頭痛若無顯影頭部 CT 正常，仍不能排除 SAH，必須執行腰椎穿刺檢查腦脊髓液黃變（Xanthochromia）。",
+      "source": {
+        "chapter": "神經學02.pdf（+ AHA/ASA CVST 指引補充）",
+        "pages": "p.24–31",
+        "kind": "guideline",
+        "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+      }
+    },
+    {
+      "id": "neuro-cram-07",
+      "groupId": "neuro-group-coma-seizure",
+      "chapterId": "neuro-04",
+      "question": "急診送入持續全身強直陣攣抽搐患者，指尖血糖測得 28 mg/dL，且病史有長期酗酒營養不良，第一時間如何給藥？",
+      "answer": "立即靜脈推注 50% 葡萄糖（IV D50W），「絕對不可因尋找或等待配製 Thiamine 而延誤救命補糖」，並在推注 D50W 的同時或緊接立即靜脈給予 Thiamine 100–500 mg！唯有在非急性低血糖危象之常規輸注葡萄糖水情境，才強調於給糖前或同步給 Thiamine 預防 Wernicke 腦病變。",
+      "trap": "急性低血糖昏迷抽搐每延誤一分鐘補糖都在造成大腦皮質與海馬迴永久壞死，切勿教條式扣住 D50W 不給。",
+      "source": {
+        "chapter": "神經學06.pdf",
+        "pages": "p.11–12、21–25",
+        "kind": "verified-handout",
+        "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+      }
+    },
+    {
+      "id": "neuro-cram-08",
+      "groupId": "neuro-group-coma-seizure",
+      "chapterId": "neuro-04",
+      "question": "何謂「藥物難治型癲癇（Drug-resistant epilepsy）」之 ILAE 定義？顳葉內側海馬迴硬化難治癲癇最具實證的根治手段為何？",
+      "answer": "ILAE 定義：經「兩種以上」依發作型態正確選擇、患者可耐受且足量之抗癲癇藥物治療（單用或併用），仍無法達成持續無發作（約占全體癲癇 30%）。若經影像與腦波定位確診為單側「內側顳葉海馬迴硬化（Mesial temporal sclerosis）」，前顳葉切除或選擇性海馬杏仁核切除手術達成長期無發作率遠高於繼續換第三種藥物。",
+      "trap": "若病患是因選錯藥（如對 JME 誤用 Carbamazepine）或服藥順從性不佳而持續發作，屬於「假性難治」，不符真性藥物難治型定義。",
+      "source": {
+        "chapter": "神經學06.pdf",
+        "pages": "p.13–14、21–25",
+        "kind": "verified-handout",
+        "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+      }
+    },
+    {
+      "id": "neuro-cram-09",
+      "groupId": "neuro-group-cognition-movement",
+      "chapterId": "neuro-05",
+      "question": "散發型庫賈氏病（sCJD）在腦部 MRI 擴散影像與腦脊髓液最具診斷特異度的檢查組合為何？",
+      "answer": "腦部 MRI 見大腦皮質緞帶徵（Cortical ribboning）或紋狀體（尾狀核／殼核）呈現「DWI 高訊號伴對應 ADC 低訊號（真性擴散受限）」，搭配腦脊髓液「即時震盪誘導轉化檢測（RT-QuIC）」陽性（特異度近 99–100%）及腦波約 1 Hz 週期性尖慢複合波（PSWC）。",
+      "trap": "單純 14-3-3 蛋白是神經元急性破壞標記，在急性腦梗塞、單純皰疹腦炎或癲癇重積狀態亦常偽陽性，不能單憑 14-3-3 陽性驟下 sCJD 診斷。",
+      "source": {
+        "chapter": "神經學04.pdf",
+        "pages": "p.23–24",
+        "kind": "verified-handout",
+        "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+      }
+    },
+    {
+      "id": "neuro-cram-10",
+      "groupId": "neuro-group-cognition-movement",
+      "chapterId": "neuro-05",
+      "question": "額顳葉失智症行為變異型（bvFTD）與阿茲海默症早期臨床表徵有何不同？與哪一種運動神經元疾病共享病理蛋白？",
+      "answer": "阿茲海默症早期以近期情景記憶喪失與空間定向感下降為主，社交禮儀尚能維持；bvFTD 好發較年輕（45–65 歲），早期記憶相對保留，卻突出表現「人格脫抑制、冷漠缺乏同理心、強迫刻板行為與嗜吃甜食口慾改變」。約半數 FTD 具 TDP-43 蛋白堆積（及 C9orf72 重複擴增），可與肌萎縮性脊髓側索硬化症（FTD-ALS）共病。",
+      "trap": "bvFTD 早期常被誤診為晚發性憂鬱症、躁鬱症或中年危機，務必檢視額葉前顳葉萎縮與執行功能改變。",
+      "source": {
+        "chapter": "神經學04.pdf",
+        "pages": "p.16–19",
+        "kind": "verified-handout",
+        "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+      }
+    },
+    {
+      "id": "neuro-cram-11",
+      "groupId": "neuro-group-cognition-movement",
+      "chapterId": "neuro-06",
+      "question": "原發性顫抖症（Essential tremor）與巴金森氏病顫抖在發作姿態、頻率、酒精反應與首選藥物上如何區分？",
+      "answer": "原發性顫抖症多呈「雙側對稱姿勢性與動作性顫抖（端湯杯、寫字明顯）」、常累及頭部搖晃與聲音顫抖、少許酒精可短暫減輕、逾半數具顯性家族史，一線藥物為 Propranolol（氣喘心搏過緩者避用）或 Primidone；巴金森氏病則為「單側起病之靜止性搓丸樣顫抖（4–6 Hz）」、伸手拿物初期短暫減輕、走路時手臂擺動減少且合併核心「動作遲緩（Bradykinesia）」，對左旋多巴反應顯著。",
+      "trap": "診斷巴金森症候群的必備前提是「動作遲緩（速度變慢且重複動作幅度遞減）」，單有姿勢性手抖而無動作遲緩不可診斷巴金森氏病。",
+      "source": {
+        "chapter": "神經學04.pdf",
+        "pages": "p.25–38",
+        "kind": "verified-handout",
+        "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+      }
+    },
+    {
+      "id": "neuro-cram-12",
+      "groupId": "neuro-group-cognition-movement",
+      "chapterId": "neuro-06",
+      "question": "巴金森氏病長期使用左旋多巴出現「劑末效應（Wearing-off）」與「峰值異動症（Peak-dose dyskinesia）」時各應如何調藥？何種情況不適合做深腦刺激術（DBS）？",
+      "answer": "劑末效應（藥效縮短在下一次服藥前僵硬無力）可「縮短給藥間隔少量多次」或加用 COMT 抑制劑（Entacapone／Opicapone）、MAO-B 抑制劑（Rasagiline／Safinamide）或長效多巴胺促效劑；峰值異動症（血中濃度最高時不自主扭動）應「調降單次左旋多巴劑量」並可加用 Amantadine 抑制異動症。若患者「對左旋多巴原本即無反應（除外抗藥性嚴重顫抖）」或已合併「中重度失智症、嚴重未控制精神病」，則為 DBS 禁忌。",
+      "trap": "高齡巴金森患者使用多巴胺促效劑（如 Pramipexole、Ropinirole）須主動詢問衝動控制障礙（病態賭博、強迫購物）、嗜睡突發入睡與視幻覺副作用。",
+      "source": {
+        "chapter": "神經學04.pdf",
+        "pages": "p.49–61",
+        "kind": "verified-handout",
+        "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+      }
+    },
+    {
+      "id": "neuro-cram-13",
+      "groupId": "neuro-group-neuroimmunology-cnsinf",
+      "chapterId": "neuro-07",
+      "question": "MOG 抗體相關疾病（MOGAD）與 AQP4 陽性 NMOSD 在好發年齡、視神經盤水腫、脊髓圓錐侵犯與預後上有何差異？",
+      "answer": "MOGAD 在兒童常表現為急性散播性腦脊髓炎（ADEM），成人常表現雙側前段視神經炎伴顯著「視神經盤水腫與眼眶周圍鞘膜強化」，脊髓炎好發下段胸腰髓與「脊髓圓錐（Conus medullaris）」致明顯排尿勃起障礙，急性期對類固醇反應極快但驟停易復發，整體殘障預後優於 AQP4-NMOSD；AQP4-NMOSD 則偏向視交叉後段與頸胸段中央灰質長節段壞死，單次發作致盲致癱風險極高。",
+      "trap": "血清學檢驗 AQP4-IgG 與 MOG-IgG 均應採用高特異度之活細胞基礎檢測法（Cell-based assay, CBA）以避免 ELISA 偽陽性。",
+      "source": {
+        "chapter": "神經學10.pdf",
+        "pages": "p.4–5、10–15",
+        "kind": "verified-handout",
+        "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+      }
+    },
+    {
+      "id": "neuro-cram-14",
+      "groupId": "neuro-group-neuroimmunology-cnsinf",
+      "chapterId": "neuro-07",
+      "question": "中老年患者每天數十次出現歷時僅 1–2 秒之單側臉部扭曲合併同側手臂屈曲抽動，伴隨近期記憶減退與血清鈉 122 mEq/L，最可能診斷與治療為何？",
+      "answer": "此為高度特徵性的「面臂肌張力不全發作（Faciobrachial dystonic seizures, FBDS）」合併抗利尿激素分泌不當（SIADH）低血鈉與邊緣葉認知障礙，指向「抗 LGI1 抗體自體免疫腦炎」。傳統抗癲癇藥物對 FBDS 效果甚差，但及早給予高劑量皮質類固醇或 IVIG／血漿置換可迅速壓制發作並預防進展成不可逆海馬迴萎縮失智。",
+      "trap": "抗 LGI1 腦炎與惡性腫瘤關聯度低（<10%），切勿因全身腫瘤篩查陰性而排除自體免疫腦炎。",
+      "source": {
+        "chapter": "神經學10.pdf",
+        "pages": "p.16–20",
+        "kind": "verified-handout",
+        "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+      }
+    },
+    {
+      "id": "neuro-cram-15",
+      "groupId": "neuro-group-neuroimmunology-cnsinf",
+      "chapterId": "neuro-08",
+      "question": "成人細菌、病毒、結核與隱球菌腦膜炎的 CSF 判讀要點為何？腦腫瘤血管源性水腫與急性腦梗塞細胞毒性水腫對類固醇反應有何不同？",
+      "answer": "成人腦膜炎 CSF 橫向判讀：細菌性為嗜中性球飆升、糖極低（CSF／血糖比 <0.4）、蛋白高（給抗生素前或同步給 Dexamethasone）；病毒性為淋巴球為主、糖正常；結核性為淋巴球為主、蛋白極高、糖低；隱球菌腦膜炎開口壓常極高且 CrAg 陽性，須反覆腰穿引流降壓。腦水腫方面：腦腫瘤破壞血腦障壁致「血管源性水腫」，給予 Dexamethasone 迅速消腫；急性腦梗塞屬鈉鉀幫浦衰竭之「細胞毒性水腫」，類固醇無效且有害，應採高滲透壓療法或減壓開顱。",
+      "trap": "若腦部腫塊臨床影像高度懷疑「原發性中樞神經系統淋巴瘤（PCNSL）」且無立即腦疝生命危險，立體定位切片前應避免先給類固醇，否則淋巴瘤細胞迅速凋亡縮小將導致病理切片偽陰性（Vanishing tumor）！",
+      "source": {
+        "chapter": "Ch.07 (20.神經內科.pdf + 神經學09.pdf p.17–34 + IDSA/AAN 指引補充)",
+        "pages": "p.4–5",
+        "kind": "guideline",
+        "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+      }
+    },
+    {
+      "id": "neuro-cram-16",
+      "groupId": "neuro-group-neuroimmunology-cnsinf",
+      "chapterId": "neuro-08",
+      "question": "成人原發性瀰漫性膠質瘤在 WHO CNS5 分類中，哪兩項分子標記決定星狀細胞瘤與寡突膠質細胞瘤分型及預後？",
+      "answer": "（1）IDH1／IDH2 突變狀態：IDH 野生型（IDH-wildtype）成人瀰漫膠質瘤即使組織學未見壞死，只要具 TERT 啟動子突變、EGFR 擴增或 +7/-10 染色體變化即直接歸類為最惡性的第 4 級膠質母細胞瘤（Glioblastoma, CNS WHO grade 4）；（2）IDH 突變型若同時具備「染色體 1p/19q 共同缺失（1p/19q codeletion）」則定義為寡突膠質細胞瘤（Oligodendroglioma，常見鈣化與煎蛋樣細胞，對放化療最敏感、預後最佳）；IDH 突變但無 1p/19q 缺失（常伴 ATRX 與 TP53 突變）則為 IDH 突變型星狀細胞瘤。",
+      "trap": "膠質母細胞瘤在手術與同步 Temozolomide（TMZ）放化療時，MGMT 啟動子甲基化陽性者對烷化劑 TMZ 療效與存活率顯著較佳。",
+      "source": {
+        "chapter": "神經學09.pdf（+ WHO CNS5 分子分類指引補充）",
+        "pages": "p.17–34",
+        "kind": "guideline",
+        "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+      }
+    },
+    {
+      "id": "neuro-cram-17",
+      "groupId": "neuro-group-cord-neuromuscular",
+      "chapterId": "neuro-09",
+      "question": "高齡頸椎退化狹窄患者跌倒頸部過度伸展後，出現「雙上肢遠重於雙下肢的無力」與手部麻痛，屬於哪一種脊髓症候群？解剖機轉為何？",
+      "answer": "屬於「中央脊髓症候群（Central cord syndrome，最常見的不完全脊髓損傷）」。因皮質脊髓側束與脊髓中央灰質的體位排列由內而外依序為「頸（上肢在內側）→ 胸 → 腰 → 薦（下肢在外側）」，頸椎過伸夾擠中央髓質時首當其衝損傷內側支配上肢與手部精細動作之神經纖維，並常伴病灶節段披肩狀痛溫覺減退。",
+      "trap": "慢性進行性披肩狀懸空型痛溫覺喪失（保留觸覺震動覺）伴雙手內在肌萎縮，則須排頸胸髓 MRI 檢查「脊髓空洞症（Syringomyelia）」與 Chiari 第一型畸形或髓內腫瘤。",
+      "source": {
+        "chapter": "神經學08.pdf",
+        "pages": "p.7–9",
+        "kind": "verified-handout",
+        "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+      }
+    },
+    {
+      "id": "neuro-cram-18",
+      "groupId": "neuro-group-cord-neuromuscular",
+      "chapterId": "neuro-09",
+      "question": "格林-巴利症候群（GBS）患者在急診出現講話變小聲、每口氣數不到 15、肺活量 16 mL/kg 與最大吸氣壓 -24 cmH2O，應立即採取哪些處置？",
+      "answer": "患者已跨過「20/30/40 法則」（VC <20 mL/kg、MIP 弱於 -30 cmH2O、MEP <40 cmH2O）呼吸衰竭門檻，應立即安排「保護性氣管內插管機械通氣」（誘導嚴禁使用 Succinylcholine，改用 Rocuronium 等非去極化肌鬆劑），同時收治加護病房監測自主神經風暴（劇烈血壓波動與心律不整），並啟動一線免疫治療 IVIG（0.4 g/kg/day × 5 天）或血漿置換（PLEX，5 次）。",
+      "trap": "絕對不可單給口服或靜脈皮質類固醇治療 GBS（實證無效），亦不可把 IVIG 與 PLEX 先做完馬上接著洗血漿（PLEX 會把剛打進去的 IVIG 直接洗掉）！",
+      "source": {
+        "chapter": "神經學11.pdf",
+        "pages": "p.6–9、23、26–27",
+        "kind": "verified-handout",
+        "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+      }
+    },
+    {
+      "id": "neuro-cram-19",
+      "groupId": "neuro-group-cord-neuromuscular",
+      "chapterId": "neuro-10",
+      "question": "重症肌無力（MG）患者因肺炎住院，哪些常見抗生素與急診藥物可能瞬間誘發肌無力危象呼吸衰竭？",
+      "answer": "MG 高危禁忌／慎用藥物包括：（1）抗生素：胺基糖苷類（Gentamicin、Amikacin）、Fluoroquinolones（Ciprofloxacin、Levofloxacin，美國 FDA 黑框警語）、巨環類（Azithromycin、Telithromycin）；（2）心血管與電解質藥物：靜脈硫酸鎂（抑制突觸前鈣內流與乙醯膽鹼釋放）、β 阻斷劑、鈣離子阻斷劑、Procainamide；（3）腫瘤免疫檢查點抑制劑（PD-1／CTLA-4 抑制劑，可誘發猛爆型 MG 合併心肌炎與肌炎三聯症）。",
+      "trap": "一旦進入需插管的肌無力危象，插管後應先「暫停口服 Pyridostigmine」，以免大量氣管分泌物阻塞呼吸道並干擾後續脫離呼吸器評估。",
+      "source": {
+        "chapter": "神經學11.pdf",
+        "pages": "p.10–14、23",
+        "kind": "verified-handout",
+        "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+      }
+    },
+    {
+      "id": "neuro-cram-20",
+      "groupId": "neuro-group-cord-neuromuscular",
+      "chapterId": "neuro-10",
+      "question": "裘馨氏（DMD）與貝克氏（BMD）肌肉失養症同為 X 染色體隱性 Dystrophin 基因突變，為何臨床嚴重度天差地別（讀框假說）？與包涵體肌炎（sIBM）如何區分高齡肌病變？",
+      "answer": "依讀框假說（Reading-frame rule）：DMD 多為「移碼突變（Out-of-frame）」產生早發終止密碼子，肌漿膜 Dystrophin 蛋白幾乎完全缺失，幼兒期即出現近端無力 Gowers 徵象與腓腸肌假性肥大；BMD 則為「整碼突變（In-frame）」，仍能合成截短但具部分功能之蛋白，病程溫和。至於 >50 歲男性緩慢進展、對類固醇免疫抑制抗拒之「股四頭肌（易跪倒）與前臂深指屈肌（握拳無力）」選擇性萎縮、切片見鑲邊空泡（Rimmed vacuoles），則為偶發性包涵體肌炎（sIBM）。",
+      "trap": "sIBM 最常被誤診為難治型多發性肌炎而長期追加高劑量類固醇，反而疊加嚴重類固醇肌病變加重跌倒骨折！",
+      "source": {
+        "chapter": "神經學07.pdf",
+        "pages": "p.13、15–19、22–28",
+        "kind": "verified-handout",
+        "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+      }
+    },
+    {
+      "id": "neuro-cram-21",
+      "groupId": "neuro-group-headache-vertigo",
+      "chapterId": "neuro-11",
+      "question": "三叉神經痛（Trigeminal neuralgia）首選藥物為何？何種臨床警訊代表並非單純微血管壓迫而須細查次發性病灶？",
+      "answer": "典型三叉神經痛多源於上小腦動脈壓迫三叉神經根進入區，呈 V2／V3 支數秒電擊樣劇痛（刷牙洗臉冷風觸發），第一線藥物首選阻斷鈉離子通道之 Carbamazepine（臺灣漢人用藥前必檢 HLA-B*15:02 陰性）或 Oxcarbazepine（須追蹤低血鈉），藥物難治可做微血管減壓術。若出現「發病年齡 <40 歲、雙側受累、第 1 支（V1 眼支）孤立受累、角膜反射消失或發作間期持續顏面麻木／聽損」，必須排高解析腦幹後顱窩 MRI 排除多發性硬化症斑塊或小腦橋腦角腫瘤！",
+      "trap": "帶狀皰疹後神經痛多侵犯 V1 眼支且為持續灼痛伴皮疹疤痕與感覺異常，首選 Gabapentin／Pregabalin 或三環抗憂鬱劑而非微血管減壓。",
+      "source": {
+        "chapter": "神經學07.pdf",
+        "pages": "p.46–47",
+        "kind": "verified-handout",
+        "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+      }
+    },
+    {
+      "id": "neuro-cram-22",
+      "groupId": "neuro-group-headache-vertigo",
+      "chapterId": "neuro-11",
+      "question": "急診持續數小時眩暈伴自發眼振與步態不穩（AVS），床邊 HINTS Plus 哪四項表徵任一成立即須按後循環中風處置？與 BPPV 如何區分？",
+      "answer": "AVS 床邊 HINTS Plus 中樞紅旗為：（1）頭衝測試（Head Impulse）正常、無矯正跳視；（2）雙向凝視誘發眼振方向改變或純垂直／扭轉眼振；（3）交替遮蓋見垂直斜視（Skew deviation）；（4）Plus：合併新發單側感音聽損（典型為前下小腦動脈 AICA 梗塞累及內耳迷路動脈）。反之，平時靜止無自發眼振、僅轉頭躺下誘發 <1 分鐘旋轉性眩暈者屬陣發性位置性眩暈（BPPV），應行 Dix-Hallpike 或仰臥轉頭測試並做耳石復位。",
+      "trap": "急性後顱窩小梗塞在發病首 48 小時腦部 MRI DWI 有高達 12–20% 偽陰性，切勿憑早期 MRI 正常就放行中樞型 HINTS Plus 病患；亦切勿對無持續自發眼振之 BPPV 誤套用 HINTS。",
+      "source": {
+        "chapter": "神經學03.pdf",
+        "pages": "p.3–20",
+        "kind": "verified-handout",
+        "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+      }
+    },
+    {
+      "id": "neuro-cram-23",
+      "groupId": "neuro-group-cord-neuromuscular",
+      "chapterId": "neuro-12",
+      "question": "神經傳導檢查（NCS）與針極肌電圖（EMG）如何區分「脫髓鞘型」與「軸索退化型」周邊神經病變？急性神經截斷後何時 EMG 才會出現纖顫電位？",
+      "answer": "脫髓鞘型（如 AIDP、CIDP、CMT1A）表現為「傳導速度顯著變慢、遠端潛時明顯延長、F 波延遲或消失及傳導阻滯（Conduction block）」；軸索退化型（如糖尿病多發神經病變、化療神經毒性、CMT2）則表現「複合肌肉／感覺神經動作電位振幅（CMAP／SNAP amplitude）顯著下降，而殘存纖維傳導速度接近正常」。急性運動軸索截斷後須經歷華勒氏變性，針極 EMG 自發性正銳波與纖顫電位（Fibrillations）約需「2–3 週」才完全顯現。",
+      "trap": "背根神經節「節前（如神經根撕裂或椎管內壓迫）」病變因感覺神經元本體與周邊軸索仍相連，即使肢體完全麻木，周邊感覺神經動作電位（SNAP）仍維持正常（預後較節後差）！",
+      "source": {
+        "chapter": "神經學11.pdf（併核 神經學08.pdf p.35–38）",
+        "pages": "p.15–17",
+        "kind": "verified-handout",
+        "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+      }
+    },
+    {
+      "id": "neuro-cram-24",
+      "groupId": "neuro-group-stroke-vascular",
+      "chapterId": "neuro-12",
+      "question": "病房執行腰椎穿刺測量真實腦脊髓液開口壓的正確體位細節為何？術後若出現典型直立惡化、平躺緩解之低腦壓頭痛如何階梯處置？",
+      "answer": "入針時採側臥屈膝抱胸撐開棘突間隙（L3–L4 或 L4–L5，雙側腸骨稜連線 Tuffier line 對應 L4），待見到腦脊髓液順暢流出接上測壓管後，必須請病患「放鬆頸部並將雙腿緩慢微伸直」，再讀取穩定後之真實開口壓（正常側臥 70–180 mmH2O；坐姿測壓不準確）。腰穿後硬腦膜穿刺頭痛（PDPH）首選平躺休息、充分水分補充與口服／靜脈咖啡因及止痛藥；若持續 >48–72 小時嚴重失能無改善，標準根治處置為自體「硬腦膜外血液貼片（Epidural blood patch）」。",
+      "trap": "選用無創筆尖型細針能大幅降低腰穿後頭痛，且切勿讓病患維持緊抱腹部姿勢讀壓以免假性飆高；另若屬顱底外傷性 CSF 鼻耳漏（神經學03.pdf p.21–37），單純無併發症者先保守照護 3–7 天，逾 7 天未癒或併發腦膜炎再手術修補，穿刺傷、大範圍顱底缺損或張力性氣腦則須於 <24 小時早期手術修補。",
+      "source": {
+        "chapter": "神經學07.pdf（併核 20.神經內科.pdf p.4、8 與臨床指引）",
+        "pages": "p.45、51",
+        "kind": "guideline"
+      }
+    }
+  ],
+  "corrections": [
+    {
+      "id": "neuro-correction-hypoglycemia-thiamine",
+      "title": "急性低血糖抽搐或昏迷：立即推注 IV D50W，絕不因等待 Thiamine 而延誤補糖",
+      "sourceWording": "傳統簡化口訣常一概寫作「給葡萄糖前一定要先打完維生素 B1，否則會立刻引發 Wernicke 腦病變」，未區分危及生命之急性低血糖昏迷與常規點滴輸注。",
+      "correction": "當病患處於「急性低血糖抽搐或昏迷」時，每延誤數分鐘即造成不可逆大腦皮質與海馬迴壞死，急救鐵律為「立即靜脈推注 IV D50W 搶救腦部，絕不可為等待配製 Thiamine 而延誤補糖」，並於推糖同時或緊接立即補注 IV Thiamine 100–500 mg；至於酒癮、嚴重營養不良患者接受非緊急常規含糖輸液時，則應於給糖前或同步給予 Thiamine 預防 Wernicke 腦病變。",
+      "source": {
+        "chapter": "神經學06.pdf",
+        "pages": "p.11–12、21–25",
+        "kind": "verified-handout",
+        "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+      },
+      "links": [
+        {
+          "label": "ILAE / AES：Status Epilepticus & Acute Seizure Management",
+          "url": "https://www.ilae.org/"
+        },
+        {
+          "label": "AAN：Emergency Neurology Practice Guidelines",
+          "url": "https://www.aan.com/"
+        }
+      ]
+    },
+    {
+      "id": "neuro-correction-sah-euvolemia",
+      "title": "動脈瘤性蜘蛛膜下腔出血（aSAH）：維持正常血容與口服 Nimodipine，摒棄預防性 Triple-H",
+      "sourceWording": "早期舊稿常將預防性 Triple-H（高血容、血液稀釋、高血壓）列為蜘蛛膜下腔出血預防腦血管痙攣的標準常規處置。",
+      "correction": "現行 AHA/ASA 指引明確建議：破裂動脈瘤應盡早於 <24 小時（最遲 <72 小時）閉塞，並常規給予口服 Nimodipine 60 mg q4h × 21 天及維持「正常血容（Euvolemia）」；預防性高血容與血液稀釋（Triple-H）不減少延遲性腦缺血反而顯著增加心肺水腫併發症，已不再建議使用（僅於動脈瘤閉塞後發生症狀性血管痙攣時考慮誘導性升壓）。",
+      "source": {
+        "chapter": "神經學02.pdf",
+        "pages": "p.24–28、31",
+        "kind": "verified-handout",
+        "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+      },
+      "links": [
+        {
+          "label": "AHA/ASA：Aneurysmal Subarachnoid Hemorrhage Guideline",
+          "url": "https://www.stroke.org/"
+        },
+        {
+          "label": "台灣腦中風學會：出血性中風與動脈瘤臨床治療指引",
+          "url": "https://www.stroke.org.tw/"
+        }
+      ]
+    },
+    {
+      "id": "neuro-correction-scjd-dwi-adc",
+      "title": "散發型庫賈氏病（sCJD）：MRI 須見 DWI 高訊號伴對應 ADC 低訊號，並結合 CSF RT-QuIC",
+      "sourceWording": "簡略筆記僅記「MRI 皮質或基底核發亮加上腦脊髓液 14-3-3 蛋白陽性即可確診 CJD」，忽略擴散受限真偽判讀與高特異度普利昂檢測。",
+      "correction": "sCJD 腦部 MRI 特徵為皮質緞帶徵（Cortical ribboning）或尾狀核／殼核呈現「DWI 高訊號且伴隨對應 ADC 低訊號（真性擴散受限，排除單純 T2 shine-through）」；腦脊髓液檢測以直接偵測錯誤摺疊普利昂蛋白聚集活性之「RT-QuIC」具極高特異度（98–100%），遠優於易在急性中風、腦炎或重積癲癇出現偽陽性之 14-3-3 蛋白，且臨床必先排除可逆性自體免疫腦炎。",
+      "source": {
+        "chapter": "神經學04.pdf",
+        "pages": "p.23–24",
+        "kind": "verified-handout",
+        "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+      },
+      "links": [
+        {
+          "label": "AAN：Rapidly Progressive Dementia & Prion Disease Resources",
+          "url": "https://www.aan.com/"
+        },
+        {
+          "label": "EAN：Neurology Guidelines & Diagnostic Standards",
+          "url": "https://www.ean.org/"
+        }
+      ]
+    },
+    {
+      "id": "neuro-correction-gbs-steroid-airway",
+      "title": "格林-巴利症候群（GBS）：單用皮質類固醇無效，並依 20/30/40 法則及早插管且禁 Succinylcholine",
+      "sourceWording": "初學者常因 GBS 為急性自體免疫脫髓鞘神經炎而誤選高劑量脈衝式類固醇，或等到血氧飽和度下降才插管並常規使用去極化肌鬆劑。",
+      "correction": "依神經學11.pdf（p.6–9、23、26–27）與 EAN／AAN 隨機對照試驗指引證實：口服或靜脈皮質類固醇對 GBS「完全無效」（甚至口服類固醇可能延緩恢復），急性期一線免疫治療僅限 IVIG 或血漿置換（PLEX）；呼吸監測須嚴守 20/30/40 法則（VC <20 mL/kg、MIP 弱於 -30 cmH2O、MEP <40 cmH2O）及早保護性插管，且插管誘導禁止使用 Succinylcholine 以免去神經肌膜受體上調引發致命高血鉀心律不整。",
+      "source": {
+        "chapter": "神經學11.pdf",
+        "pages": "p.6–9、23、26–27",
+        "kind": "verified-handout",
+        "notice": "依據已逐頁核對之醫學系神經學教材（區段共筆 · 神經學01.pdf–神經學13.pdf 與 國考重點共筆 · 20.神經內科.pdf）原創重述，並對照 AHA/ASA、ILAE、EAN、AAN、MDS 及 ICHD-3 現行國際指引更新。"
+      },
+      "links": [
+        {
+          "label": "EAN / PNS：Guideline on Diagnosis and Treatment of Guillain-Barré Syndrome",
+          "url": "https://www.ean.org/"
+        },
+        {
+          "label": "AAN：Neuromuscular & Immunotherapy Guidelines",
+          "url": "https://www.aan.com/"
+        }
+      ]
+    }
+  ]
+}
