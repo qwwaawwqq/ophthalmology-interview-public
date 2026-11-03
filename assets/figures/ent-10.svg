@@ -58,7 +58,7 @@
     <!-- Pediatric Trapdoor & Nasal Septal Hematoma Red Flags -->
     <rect x="52" y="366" width="418" height="140" rx="8" fill="#eff6ff" stroke="#1d4ed8"/>
     <text x="60" y="386" font-size="12.5" font-weight="700" fill="#1d4ed8">眼眶底、顴弓與鼻外傷三大急診陷阱</text>
-    <text x="60" y="406" font-size="9.8" fill="#0f172a">· 成人眼眶底爆裂（淚滴徵）：無眼球破裂先觀察 2 週（嚴禁擤鼻防眼眶氣腫！）</text>
+    <text x="60" y="406" font-size="9.6" fill="#0f172a">· 成人眼眶底爆裂：無眼球破裂／嚴重眼肌嵌頓／OCR 者觀察 2 週（嚴禁擤鼻！）</text>
     <text x="60" y="426" font-size="9.6" fill="#be123c" font-weight="700">· 白眼 Trapdoor（眼心反射）：兒童嵌頓骨折 24–48h 急手術鬆解（一般 3–5d）</text>
     <text x="60" y="446" font-size="9.8" fill="#0f172a">· 單純顴弓凹陷骨折：直接卡壓「下顎冠狀突與顳肌」→ 張口受限（Trismus）</text>
     <text x="60" y="466" font-size="9.8" fill="#be123c" font-weight="700">· 鼻中膈血腫：雙側紫紅柔軟膨出須「當場切開引流」（防軟骨壞死馬鞍鼻）</text>

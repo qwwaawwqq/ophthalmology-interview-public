@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-labelledby="neuro04-title neuro04-desc" font-family="system-ui, -apple-system, 'Noto Sans TC', sans-serif">
+  <title id="neuro04-title">癲癇發作網路分類、經典腦波棘慢波圖譜與癲癇重積狀態階梯搶救時間軸</title>
+  <desc id="neuro04-desc">左上呈現 ILAE 焦點起始與全般起始發作網路分類及臺灣 HLA-B*15:02 藥物基因安全警示；右上繪製兒童失神 3 Hz 棘慢波、Lennox-Gastaut 慢棘慢波與嬰兒點頭痙攣高度節律不整三種腦波；下方呈現痙攣型癲癇重積狀態 0 至 5、5 至 20、20 至 40 及大於 40 分鐘之階梯治療時間軸。</desc>
+  <rect x="20" y="20" width="920" height="520" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="20" y="20" width="920" height="50" rx="14" fill="#0f172a"/>
+  <rect x="20" y="54" width="920" height="16" fill="#0f172a"/>
+  <text x="42" y="51" fill="#ffffff" font-size="18" font-weight="700">ILAE 癲癇發作網路分類、經典腦波圖譜與癲癇重積狀態（SE）搶救時間軸</text>
+  <text x="918" y="50" fill="#94a3b8" font-size="12" text-anchor="end">Neuro-04 · 腦波症候群與急症搶救</text>
+
+  <!-- Top-Left: Focal vs Generalized Network + HLA-B*15:02 -->
+  <rect x="34" y="80" width="424" height="238" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+  <text x="48" y="102" fill="#0f172a" font-size="13.8" font-weight="700">A. ILAE 發作起始網路與臺灣藥物基因紅線</text>
+
+  <!-- Focal hemisphere schematic -->
+  <rect x="46" y="112" width="194" height="104" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.2"/>
+  <ellipse cx="92" cy="154" rx="32" ry="24" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.5"/>
+  <line x1="92" y1="130" x2="92" y2="178" stroke="#64748b" stroke-width="1.2"/>
+  <circle cx="77" cy="150" r="8" fill="#be123c"/>
+  <path d="M85,150 L104,150" stroke="#be123c" stroke-width="1.8" stroke-dasharray="2,2"/>
+  <text x="134" y="136" fill="#1d4ed8" font-size="11" font-weight="700">Focal Onset</text>
+  <text x="134" y="152" fill="#334155" font-size="9.8">單側半球局部起始</text>
+  <text x="134" y="167" fill="#334155" font-size="9.8">• 意識保留／受損</text>
+  <text x="54" y="196" fill="#334155" font-size="9.8">• 可續發雙側強直陣攣（F2BTC）</text>
+  <text x="54" y="211" fill="#475569" font-size="9.6">首選：LEV / LTG / OXC / LCM</text>
+
+  <!-- Generalized hemisphere schematic -->
+  <rect x="248" y="112" width="198" height="104" rx="8" fill="#f0fdfa" stroke="#5eead4" stroke-width="1.2"/>
+  <ellipse cx="285" cy="154" rx="30" ry="24" fill="#ccfbf1" stroke="#0f766e" stroke-width="1.5"/>
+  <line x1="285" y1="130" x2="285" y2="178" stroke="#64748b" stroke-width="1.2"/>
+  <circle cx="271" cy="147" r="6" fill="#b45309"/>
+  <circle cx="299" cy="147" r="6" fill="#b45309"/>
+  <circle cx="273" cy="162" r="5" fill="#b45309"/>
+  <circle cx="297" cy="162" r="5" fill="#b45309"/>
+  <text x="324" y="136" fill="#0f766e" font-size="11" font-weight="700">Generalized</text>
+  <text x="324" y="152" fill="#334155" font-size="9.8">雙側網路同步放電</text>
+  <text x="324" y="167" fill="#334155" font-size="9.6">• GTCS／失神／肌陣攣</text>
+  <text x="256" y="196" fill="#334155" font-size="9.8">• 未目擊起始歸 Unknown onset</text>
+  <text x="256" y="211" fill="#475569" font-size="9.6">廣效：VPA/LEV/LTG；失神：ESM</text>
+
+  <!-- HLA-B*15:02 Warning Box -->
+  <rect x="46" y="222" width="400" height="88" rx="8" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.4"/>
+  <text x="54" y="239" fill="#be123c" font-size="10.8" font-weight="700">★ 臺灣健保用藥安全鐵律：HLA-B*15:02 篩檢與致畸胎防範</text>
+  <text x="54" y="254" fill="#334155" font-size="9.6">• 處方 CBZ（及 OXC、PHT、LTG）前必驗 HLA-B*15:02，陽性禁防 SJS</text>
+  <text x="54" y="269" fill="#334155" font-size="9.6">• 育齡女首避 Valproate（致畸與認知下降最高）；鈉阻斷劑惡化失神／JME</text>
+  <text x="54" y="284" fill="#475569" font-size="9.6">• 癲癇定義：≥2 次非誘發發作隔 &gt;24h，或單次伴病灶 10 年復發 &gt;60%，</text>
+  <text x="62" y="299" fill="#475569" font-size="9.6">或符合特定癲癇症候群診斷</text>
+
+  <!-- Top-Right: Three Classic EEG Waveforms -->
+  <rect x="470" y="80" width="456" height="238" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+  <text x="486" y="102" fill="#0f172a" font-size="13.8" font-weight="700">B. 三大必考癲癇症候群腦波（EEG）波形對照</text>
+
+  <!-- EEG 1: 3 Hz Spike-and-Wave -->
+  <rect x="486" y="114" width="424" height="58" rx="7" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="496" y="132" fill="#1d4ed8" font-size="11" font-weight="700">1. 兒童失神癲癇（CAE）：規則 3 Hz 棘慢波</text>
+  <text x="496" y="148" fill="#475569" font-size="9.6">過度換氣誘發，凝視 &lt;20s；首選 ESM／VPA</text>
+  <path d="M748,148 L754,148 L758,120 L762,156 Q772,126 782,148 L788,148 L792,120 L796,156 Q806,126 816,148 L822,148 L826,120 L830,156 Q840,126 850,148 L856,148 L860,120 L864,156 Q874,126 884,148 L896,148" fill="none" stroke="#1d4ed8" stroke-width="2"/>
+
+  <!-- EEG 2: LGS Slow Spike-and-Wave -->
+  <rect x="486" y="180" width="424" height="58" rx="7" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="496" y="198" fill="#b45309" font-size="11" font-weight="700">2. Lennox-Gastaut：慢速 &lt;2.5 Hz 棘慢波</text>
+  <text x="496" y="214" fill="#475569" font-size="9.6">強直／失張力跌倒＋智能障礙，多屬難治型</text>
+  <path d="M748,214 L756,214 L762,188 L768,224 Q788,190 808,214 L818,214 L824,188 L830,224 Q850,190 870,214 L896,214" fill="none" stroke="#b45309" stroke-width="2"/>
+
+  <!-- EEG 3: Hypsarrhythmia -->
+  <rect x="486" y="246" width="424" height="58" rx="7" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="496" y="264" fill="#be123c" font-size="11" font-weight="700">3. 嬰兒點頭痙攣（West）：高度節律不整</text>
+  <text x="496" y="280" fill="#475569" font-size="9.6">高幅混亂慢波夾多焦棘波；首選 ACTH／VGB</text>
+  <path d="M748,282 Q756,250 764,292 L770,254 Q780,296 790,262 L796,294 L804,252 Q816,295 826,266 L834,292 L842,254 Q854,296 866,260 L874,290 Q886,256 896,280" fill="none" stroke="#be123c" stroke-width="2"/>
+
+  <!-- Bottom Panel: Status Epilepticus 0-60 min Escalation Timeline -->
+  <rect x="34" y="326" width="892" height="204" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+  <text x="48" y="349" fill="#0f172a" font-size="14" font-weight="700">C. 痙攣型癲癇重積狀態（Convulsive Status Epilepticus · 連續抽搐 ≥5 分鐘）階梯搶救時間軸</text>
+
+  <!-- Timeline horizontal bar -->
+  <line x1="60" y1="371" x2="900" y2="371" stroke="#334155" stroke-width="3"/>
+  <circle cx="80" cy="371" r="6.5" fill="#0f766e"/>
+  <circle cx="290" cy="371" r="6.5" fill="#1d4ed8"/>
+  <circle cx="515" cy="371" r="6.5" fill="#b45309"/>
+  <circle cx="740" cy="371" r="6.5" fill="#be123c"/>
+
+  <!-- Stage 1: 0-5 min -->
+  <rect x="46" y="384" width="212" height="136" rx="8" fill="#f0fdfa" stroke="#5eead4" stroke-width="1.3"/>
+  <text x="54" y="401" fill="#0f766e" font-size="11.2" font-weight="700">0–5 min · 生命徵象穩定</text>
+  <text x="54" y="417" fill="#334155" font-size="9.6">• 護氣道、給氧、側臥防嗆咳</text>
+  <text x="54" y="432" fill="#be123c" font-size="9.6" font-weight="700">• 測指尖血糖：低血糖發作立即</text>
+  <text x="62" y="447" fill="#be123c" font-size="9.6" font-weight="700">給予 IV D50W（切勿因準備</text>
+  <text x="62" y="462" fill="#be123c" font-size="9.6" font-weight="700">Thiamine 延誤救命補糖！）</text>
+  <text x="54" y="477" fill="#0f766e" font-size="9.6" font-weight="700">• 並同步或緊接補注 IV</text>
+  <text x="62" y="492" fill="#0f766e" font-size="9.6" font-weight="700">Thiamine 100–500 mg</text>
+  <text x="54" y="508" fill="#475569" font-size="9.5">• 建雙管路，抽電解質／ASM 濃度</text>
+
+  <!-- Stage 2: 5-20 min -->
+  <rect x="266" y="384" width="208" height="136" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.3"/>
+  <text x="274" y="401" fill="#1d4ed8" font-size="11.2" font-weight="700">5–20 min · 第一線 BZD 止痙</text>
+  <text x="274" y="421" fill="#334155" font-size="10">• 有 IV 管路首選：</text>
+  <text x="280" y="437" fill="#1e3a8a" font-size="9.8" font-weight="700">IV Lorazepam 0.1 mg/kg(≤4mg)</text>
+  <text x="274" y="457" fill="#334155" font-size="10">• 院前或無 IV 管路首選：</text>
+  <text x="280" y="473" fill="#1e3a8a" font-size="9.8" font-weight="700">IM Midazolam 10 mg（&gt;40 kg）</text>
+  <text x="274" y="497" fill="#be123c" font-size="9.8" font-weight="600">★ 最常失敗：BZD 劑量給不足！</text>
+
+  <!-- Stage 3: 20-40 min -->
+  <rect x="482" y="384" width="214" height="136" rx="8" fill="#fffbeb" stroke="#fcd34d" stroke-width="1.3"/>
+  <text x="490" y="401" fill="#b45309" font-size="11.2" font-weight="700">20–40 min · 第二線靜脈 ASM</text>
+  <text x="490" y="420" fill="#334155" font-size="9.8">ESETT 三藥療效相當（~50%）：</text>
+  <text x="490" y="438" fill="#334155" font-size="9.6">1. Levetiracetam 60mg/kg(≤4.5g)</text>
+  <text x="490" y="456" fill="#334155" font-size="9.6">2. Valproate 40 mg/kg（≤3 g）</text>
+  <text x="490" y="474" fill="#334155" font-size="9.8">3. Fosphenytoin 20 mg PE/kg</text>
+  <text x="490" y="496" fill="#475569" font-size="9.6">（PHT 須監測低血壓與心律不整）</text>
+
+  <!-- Stage 4: >40 min -->
+  <rect x="704" y="384" width="210" height="136" rx="8" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.3"/>
+  <text x="712" y="401" fill="#be123c" font-size="11.2" font-weight="700">&gt;40 min · 難治型 RSE 麻醉</text>
+  <text x="712" y="420" fill="#334155" font-size="9.8">• 插管保護呼吸道與升壓支持</text>
+  <text x="712" y="437" fill="#334155" font-size="9.8">• 持續靜脈麻醉輸注：</text>
+  <text x="718" y="453" fill="#334155" font-size="9.6">Midazolam / Propofol /</text>
+  <text x="718" y="468" fill="#334155" font-size="9.6">Pentobarbital（或 Ketamine）</text>
+  <text x="712" y="486" fill="#be123c" font-size="9.8" font-weight="700">• 必接持續腦波（cEEG）監測！</text>
+  <text x="712" y="504" fill="#475569" font-size="9.6">抽搐停後未醒須即刻排除 NCSE</text>
+</svg>

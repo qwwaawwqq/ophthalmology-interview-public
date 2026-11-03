@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-labelledby="neuro-12-title neuro-12-desc" font-family="system-ui, -apple-system, 'Noto Sans TC', sans-serif">
+  <title id="neuro-12-title">臨床神經電生理定位矩陣、成人神經可塑性與 PGY／R1 病房安全網整合圖</title>
+  <desc id="neuro-12-desc">三欄式臨床示意圖：左欄圖解背根神經節前後 SNAP 定位、軸索退化與脫髓鞘波形、針極肌電圖及誘發電位；中欄整理中樞再生阻礙 Nogo-A 與 CSPG、人類碳十四成人神經新生實證及中風跨半球抑制調控；右欄歸納病房中風血壓輸液、腰椎穿刺四管檢核與夜間值班急症處置。</desc>
+
+  <rect x="20" y="20" width="920" height="520" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+
+  <rect x="28" y="28" width="904" height="46" rx="10" fill="#0f172a"/>
+  <text x="44" y="49" font-size="16" font-weight="700" fill="#ffffff">臨床神經電生理定位 · 成人神經新生與中風可塑性 · PGY／R1 病房值班安全網</text>
+  <text x="44" y="66" font-size="11" fill="#99f6e4">NCS / EMG / 誘發電位 · SVZ/SGZ 碳十四實證與跨胼胝體抑制調控 · 中風控壓 · 腰椎穿刺 · 夜間 NIHSS 惡化處置</text>
+
+  <!-- ==================== PANEL A: ELECTROPHYSIOLOGY ==================== -->
+  <rect x="30" y="82" width="292" height="448" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+  <rect x="30" y="82" width="292" height="28" rx="10" fill="#e0f2fe"/>
+  <text x="42" y="101" font-size="13" font-weight="700" fill="#0f172a">A. 神經傳導（NCS）與肌電圖定位邏輯</text>
+
+  <!-- Step 1: DRG Watershed -->
+  <rect x="38" y="116" width="276" height="96" rx="8" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="46" y="133" font-size="10.2" font-weight="700" fill="#1e3a8a">第一步：以感覺電位（SNAP）切分背根神經節前後</text>
+  <rect x="46" y="142" width="126" height="60" rx="5" fill="#ffffff" stroke="#bfdbfe"/>
+  <text x="52" y="158" font-size="9.5" font-weight="700" fill="#0f766e">節前（神經根／前角）</text>
+  <text x="52" y="174" font-size="9.5" fill="#1e293b">遠端感覺軸索完好</text>
+  <text x="52" y="190" font-size="9.5" font-weight="700" fill="#0f766e">→ SNAP 完全正常</text>
+
+  <rect x="180" y="142" width="126" height="60" rx="5" fill="#ffffff" stroke="#fecdd3"/>
+  <text x="186" y="158" font-size="9.5" font-weight="700" fill="#be123c">節後（神經叢／周邊）</text>
+  <text x="186" y="174" font-size="9.5" fill="#1e293b">感覺纖維瓦勒退化</text>
+  <text x="186" y="190" font-size="9.5" font-weight="700" fill="#be123c">→ SNAP 下降消失</text>
+
+  <!-- Step 2: Axonal vs Demyelinating NCS Waveforms -->
+  <rect x="38" y="220" width="276" height="156" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="46" y="237" font-size="10.2" font-weight="700" fill="#0f172a">第二步：CMAP 波形鑑別軸索退化 vs 脫髓鞘</text>
+
+  <text x="46" y="262" font-size="9.5" font-weight="700" fill="#475569">正常對照</text>
+  <path d="M100,260 L122,260 Q132,236 142,260 Q150,274 158,260 L298,260" fill="none" stroke="#0f766e" stroke-width="2"/>
+  <text x="166" y="256" font-size="9.5" fill="#0f766e">潛伏期短 · 波幅高</text>
+
+  <text x="46" y="302" font-size="9.5" font-weight="700" fill="#1d4ed8">軸索退化</text>
+  <path d="M100,300 L124,300 Q134,290 144,300 Q152,306 160,300 L298,300" fill="none" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="166" y="294" font-size="9.5" font-weight="600" fill="#1d4ed8">振幅↓↓ · 速度保留</text>
+  <text x="166" y="310" font-size="9.5" fill="#475569">EMG 纖顫波＋巨波</text>
+
+  <text x="46" y="346" font-size="9.5" font-weight="700" fill="#be123c">脫髓鞘型</text>
+  <path d="M100,344 L156,344 Q172,324 190,344 Q204,356 218,344 L298,344" fill="none" stroke="#be123c" stroke-width="2"/>
+  <text x="46" y="366" font-size="9.5" font-weight="600" fill="#be123c">潛伏期與 F 波延長 · 速度↓↓ · 見傳導阻滯</text>
+
+  <!-- Step 3: Needle EMG & Evoked Potentials -->
+  <rect x="38" y="384" width="276" height="138" rx="8" fill="#f0fdfa" stroke="#5eead4"/>
+  <text x="46" y="401" font-size="10.2" font-weight="700" fill="#0f766e">第三步：針極 EMG 徵召與誘發電位（EP）</text>
+  <text x="46" y="417" font-size="9.5" fill="#1e293b">· 肌源性：低幅短時多相波＋早期過度徵召</text>
+  <text x="46" y="432" font-size="9.5" fill="#1e293b">· 神經源性：高幅長時巨大 MUAP＋徵召減少</text>
+  <text x="46" y="447" font-size="9.5" fill="#1e293b">· 晚期波：F 波（GBS 早期異常）· H 反射（S1）</text>
+  <line x1="46" y1="457" x2="306" y2="457" stroke="#99f6e4"/>
+  <text x="46" y="473" font-size="9.5" font-weight="700" fill="#0f766e">中樞誘發電位三劍客（確認肢溫防假性減慢）：</text>
+  <text x="46" y="489" font-size="9.5" fill="#1e293b">· VEP（P100 視神經炎）· BAEP（橋腦小腦角）</text>
+  <text x="46" y="505" font-size="9.5" fill="#1e293b">· SSEP（後索本體覺與缺氧性腦病變預後）</text>
+
+  <!-- ==================== PANEL B: NEUROGENESIS & PLASTICITY ==================== -->
+  <rect x="334" y="82" width="292" height="448" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+  <rect x="334" y="82" width="292" height="28" rx="10" fill="#fef3c7"/>
+  <text x="346" y="101" font-size="13" font-weight="700" fill="#0f172a">B. 成人神經新生實證與中風跨半球可塑性</text>
+
+  <!-- PNS vs CNS Regeneration Barriers -->
+  <rect x="342" y="116" width="276" height="110" rx="8" fill="#fffbeb" stroke="#fcd34d"/>
+  <text x="350" y="133" font-size="10.2" font-weight="700" fill="#92400e">周邊修復優勢 vs 中樞雙重再生分子屏障</text>
+  <text x="350" y="149" font-size="9.5" fill="#0f766e" font-weight="600">· PNS 許旺細胞：清髓鞘碎片＋滋養引導再生</text>
+  <text x="350" y="165" font-size="9.5" fill="#be123c" font-weight="600">· CNS 寡突膠細胞：Nogo-A/MAG 塌陷生長錐</text>
+  <text x="350" y="181" font-size="9.5" fill="#be123c" font-weight="600">· CNS 反應星狀細胞：分泌 CSPG 膠質瘢痕</text>
+  <text x="350" y="197" font-size="9.5" fill="#475569">結論：中樞難長距離再生，恢復賴突觸可塑性</text>
+  <text x="350" y="213" font-size="9.5" fill="#475569">（軸索側枝發芽 Sprouting ＋ Hebbian LTP）</text>
+
+  <!-- Adult Human Neurogenesis Niches (C14 Birth-Dating) -->
+  <rect x="342" y="232" width="276" height="130" rx="8" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="350" y="249" font-size="10.2" font-weight="700" fill="#1e3a8a">成人哺乳類幹細胞雙利基與人類 C¹⁴ 差異</text>
+  <rect x="350" y="256" width="128" height="40" rx="5" fill="#1d4ed8"/>
+  <text x="414" y="272" text-anchor="middle" font-size="9.5" font-weight="700" fill="#ffffff">側腦室下區（SVZ）</text>
+  <text x="414" y="288" text-anchor="middle" font-size="9.5" fill="#dbeafe">人移至紋狀體中介元</text>
+
+  <rect x="484" y="256" width="128" height="40" rx="5" fill="#0f766e"/>
+  <text x="548" y="272" text-anchor="middle" font-size="9.5" font-weight="700" fill="#ffffff">海馬齒狀迴（SGZ）</text>
+  <text x="548" y="288" text-anchor="middle" font-size="9.5" fill="#ccfbf1">年更 ~1.75% · 運動促</text>
+
+  <text x="350" y="314" font-size="9.5" font-weight="700" fill="#be123c">物種差異：成年人類「嗅球／皮質」無神經新生！</text>
+  <text x="350" y="330" font-size="9.5" fill="#1e293b">· 促進：有氧運動、豐富學習；抑制：慢性壓力</text>
+  <text x="350" y="346" font-size="9.5" fill="#475569">· 外源幹細胞：旁分泌免疫調節，防致瘤風險</text>
+
+  <!-- Stroke Interhemispheric Inhibition Diagram -->
+  <rect x="342" y="368" width="276" height="154" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="350" y="385" font-size="10.2" font-weight="700" fill="#0f172a">腦中風跨胼胝體半球間抑制失衡與 rTMS 復健</text>
+
+  <ellipse cx="406" cy="438" rx="54" ry="36" fill="#fee2e2" stroke="#be123c" stroke-width="1.8"/>
+  <circle cx="372" cy="424" r="8" fill="#991b1b"/>
+  <text x="412" y="425" text-anchor="middle" font-size="9.5" font-weight="700" fill="#991b1b">病灶側皮質</text>
+  <text x="406" y="441" text-anchor="middle" font-size="9.5" fill="#be123c">興奮性下降 ↓</text>
+  <text x="406" y="457" text-anchor="middle" font-size="9.5" font-weight="700" fill="#0f766e">高頻 rTMS 興奮</text>
+
+  <ellipse cx="554" cy="438" rx="54" ry="36" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.8"/>
+  <text x="554" y="425" text-anchor="middle" font-size="9.5" font-weight="700" fill="#1e3a8a">健側運動皮質</text>
+  <text x="554" y="441" text-anchor="middle" font-size="9.5" fill="#1d4ed8">代償活性過高 ↑</text>
+  <text x="554" y="457" text-anchor="middle" font-size="9.5" font-weight="700" fill="#b45309">低頻 rTMS 抑制</text>
+
+  <path d="M496,432 L464,432" stroke="#be123c" stroke-width="2.5"/>
+  <polygon points="464,432 471,427 471,437" fill="#be123c"/>
+  <text x="480" y="405" text-anchor="middle" font-size="9.5" font-weight="700" fill="#be123c">過度跨半球抑制</text>
+
+  <text x="350" y="490" font-size="9.5" fill="#1e293b">· 主動任務重複復健＋限制健肢驅動皮質重組</text>
+  <text x="350" y="506" font-size="9.5" fill="#0f766e" font-weight="600">· 專科基準：核心輪訓＋電生理判讀＋ANLS</text>
+
+  <!-- ==================== PANEL C: PGY/R1 WARD SAFETY NET ==================== -->
+  <rect x="638" y="82" width="292" height="448" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+  <rect x="638" y="82" width="292" height="28" rx="10" fill="#ccfbf1"/>
+  <text x="650" y="101" font-size="13" font-weight="700" fill="#0f172a">C. PGY／R1 神經科病房值班三大安全網</text>
+
+  <!-- Ward Card 1: Stroke Admission & BP/Fluids -->
+  <rect x="646" y="116" width="276" height="126" rx="8" fill="#f0fdfa" stroke="#5eead4"/>
+  <text x="654" y="133" font-size="10.2" font-weight="700" fill="#0f766e">1. 急性中風入院評估、吞嚥與血壓輸液</text>
+  <text x="654" y="149" font-size="9.5" fill="#1e293b">· 吞嚥飲水篩檢前：嚴禁由口喝水與口服藥！</text>
+  <text x="654" y="165" font-size="9.5" fill="#1e293b">· 輸液選等張 0.9% 鹽水（禁含糖低張防腦水腫）</text>
+  <text x="654" y="181" font-size="9.5" font-weight="700" fill="#0f766e">· 未溶栓：＜220/120 mmHg 容許高血壓保灌流</text>
+  <text x="654" y="197" font-size="9.5" font-weight="700" fill="#be123c">· 溶栓：前 ＜185/110 · 後 24h ＜180/105</text>
+  <text x="654" y="213" font-size="9.5" fill="#475569">· 心電圖查陣發 Af、血糖控於 140–180 mg/dL</text>
+  <text x="654" y="229" font-size="9.5" fill="#475569">· 癲癇住院：床欄軟墊、備靜脈管路與抽吸給氧</text>
+
+  <!-- Ward Card 2: Lumbar Puncture Checklist -->
+  <rect x="646" y="248" width="276" height="138" rx="8" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="654" y="265" font-size="10.2" font-weight="700" fill="#1e3a8a">2. 腰椎穿刺（LP）檢核與腦脊髓液四管</text>
+  <text x="654" y="281" font-size="9.5" font-weight="700" fill="#be123c">· 視乳頭腫／局部缺損／意識變／免疫差→先 CT</text>
+  <text x="654" y="297" font-size="9.5" fill="#1e293b">· 確認血小板 ＞50k、INR 與抗凝劑停藥時窗</text>
+  <text x="654" y="313" font-size="9.5" fill="#1e293b">· L3–5 入針後「雙腿微伸放鬆」測壓（70–180）</text>
+  <text x="654" y="329" font-size="9.5" fill="#1d4ed8">· 四管：1 生化糖蛋白（配血糖）· 2 微生物培養</text>
+  <text x="654" y="345" font-size="9.5" fill="#1d4ed8">  3 細胞數（RBC 遞減＝創傷；黃變＝SAH）· 4 病理</text>
+  <text x="654" y="361" font-size="9.5" fill="#0f766e">· 細徑無創筆尖針防 PDPH；發生予水化或血貼片</text>
+  <text x="654" y="377" font-size="9.5" fill="#475569">· 細菌腦膜炎：PMN↑↑ · 蛋白↑↑ · 糖比 ＜0.4</text>
+
+  <!-- Ward Card 3: Night On-Call Emergencies -->
+  <rect x="646" y="392" width="276" height="130" rx="8" fill="#fff1f2" stroke="#fda4af"/>
+  <text x="654" y="409" font-size="10" font-weight="700" fill="#9f1239">3. 夜間值班急症：意識變 · NIHSS 惡化 · 撞頭</text>
+  <text x="654" y="425" font-size="9.5" font-weight="700" fill="#0f172a">· 床邊 3 分鐘：生命徵象＋血氧＋血糖＋瞳孔 GCS</text>
+  <text x="654" y="441" font-size="9.5" font-weight="700" fill="#be123c">· NIHSS 惡化 ≥4 分：急排 NCCT 排除出血／水腫</text>
+  <text x="654" y="457" font-size="9.5" fill="#1e293b">· 疑院內大血管阻塞：啟動中風碼 NCCT＋CTA</text>
+  <text x="654" y="473" font-size="9.5" fill="#1e293b">· 跌倒撞頭：查抗凝劑、低門檻 CT 防遲發 SDH</text>
+  <text x="654" y="489" font-size="9.5" fill="#1e293b">· 高齡夜間譫妄：查感染缺氧尿滯留，非藥物優先</text>
+  <text x="654" y="505" font-size="9.5" font-weight="700" fill="#991b1b">· 禁忌：巴金森譫妄禁 Haloperidol；老人忌給 BZD</text>
+</svg>

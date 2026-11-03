@@ -57,8 +57,8 @@
   <rect x="334" y="84" width="292" height="32" rx="10" fill="#fee2e2"/>
   <text x="480" y="105" text-anchor="middle" fill="#0f172a" font-size="13.5" font-weight="700">② AJCC 第 8 版口腔癌 DOI 與 ENE</text>
 
-  <!-- DOI Measurement Diagram: x=348..612, y=124..310 -->
-  <rect x="348" y="124" width="264" height="186" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <!-- DOI Measurement Diagram: x=348..612, y=124..312 -->
+  <rect x="348" y="124" width="264" height="188" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
   <text x="480" y="142" text-anchor="middle" fill="#0f172a" font-size="10.5" font-weight="700">侵襲深度（DOI）≠ 腫瘤總厚度（Thickness）</text>
 
   <!-- Normal Basement Membrane Horizon Line -->
@@ -67,24 +67,25 @@
 
   <!-- Left Tumor: Exophytic (tall above, shallow DOI <= 5mm) -->
   <path d="M 366 188 L 382 188 C 382 152, 434 152, 434 188 L 444 188" fill="#fde68a" stroke="#b45309" stroke-width="1.8"/>
-  <path d="M 386 188 Q 408 216 430 188" fill="#fca5a5" stroke="#be123c" stroke-width="1.8"/>
+  <path d="M 386 188 Q 408 214 430 188" fill="#fca5a5" stroke="#be123c" stroke-width="1.8"/>
   <!-- Plumb line shallow DOI -->
-  <line x1="408" y1="188" x2="408" y2="203" stroke="#be123c" stroke-width="2.2"/>
-  <text x="408" y="218" text-anchor="middle" fill="#0f766e" font-size="9.5" font-weight="700">外生型：DOI ≤5 mm</text>
-  <text x="408" y="233" text-anchor="middle" fill="#475569" font-size="9.5">雖厚但浸潤淺（T1）</text>
+  <line x1="408" y1="188" x2="408" y2="202" stroke="#be123c" stroke-width="2.2"/>
+  <text x="418" y="217" text-anchor="middle" fill="#0f766e" font-size="9.5" font-weight="700">外生型：DOI ≤5 mm</text>
+  <text x="418" y="232" text-anchor="middle" fill="#475569" font-size="9.5">雖厚浸潤淺（≤2cm 屬T1）</text>
 
   <!-- Right Tumor: Ulcerative endophytic (crater below, deep DOI > 10mm) -->
   <path d="M 486 188 L 502 188 Q 536 208 570 188 L 592 188" fill="none" stroke="#334155" stroke-width="1.8"/>
-  <path d="M 502 188 C 504 260, 568 260, 570 188 Z" fill="#fecdd3" stroke="#be123c" stroke-width="2.2"/>
+  <path d="M 502 188 C 504 256, 568 256, 570 188 Z" fill="#fecdd3" stroke="#be123c" stroke-width="2.2"/>
   <!-- Plumb line deep DOI -->
-  <line x1="536" y1="188" x2="536" y2="244" stroke="#be123c" stroke-width="2.5"/>
-  <polygon points="536,246 532,238 540,238" fill="#be123c"/>
-  <text x="536" y="261" text-anchor="middle" fill="#be123c" font-size="9.6" font-weight="700">潰瘍內生型：DOI &gt;10 mm</text>
-  <text x="536" y="276" text-anchor="middle" fill="#881337" font-size="9.5">鉛垂深浸潤（直接升 T3！）</text>
+  <line x1="536" y1="188" x2="536" y2="239" stroke="#be123c" stroke-width="2.5"/>
+  <polygon points="536,241 532,233 540,233" fill="#be123c"/>
+  <text x="536" y="255" text-anchor="middle" fill="#be123c" font-size="9.6" font-weight="700">潰瘍內生型：DOI &gt;10 mm</text>
+  <text x="536" y="269" text-anchor="middle" fill="#881337" font-size="9.5">鉛垂深浸潤（直接升 T3！）</text>
 
-  <!-- DOI Threshold strip -->
-  <rect x="352" y="284" width="256" height="20" rx="4" fill="#eff6ff"/>
-  <text x="480" y="298" text-anchor="middle" fill="#1e3a8a" font-size="9.5" font-weight="700">T1 ≤5mm｜T2 &gt;5–10mm｜T3 DOI &gt;10mm</text>
+  <!-- DOI + Diameter AJCC 8th Staging Strip -->
+  <rect x="351" y="276" width="258" height="32" rx="4" fill="#eff6ff"/>
+  <text x="478" y="289" text-anchor="middle" fill="#1e3a8a" font-size="9.5" font-weight="700">T1: 徑≤2cm且DOI≤5mm｜T3: 徑&gt;4cm或DOI&gt;10mm</text>
+  <text x="478" y="303" text-anchor="middle" fill="#1e40af" font-size="9.5" font-weight="700">T2: 徑≤2cm且DOI&gt;5-10mm 或 &gt;2-4cm且DOI≤10mm</text>
 
   <!-- ENE Diagram & Adjuvant CCRT Box: y=318..518 -->
   <rect x="348" y="318" width="264" height="200" rx="8" fill="#fff1f2" stroke="#be123c" stroke-width="1.3"/>
