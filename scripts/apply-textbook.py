@@ -58,6 +58,10 @@ def study_hooks(result):
     result=once(result,"putMeta('q:'+q.id,{confidence:S.confidence});render();break;}","putMeta('q:'+q.id,{confidence:S.confidence});window.OphStudy?.commit('shared',q.id,value.correct);render();break;}")
     result=once(result,":feedback(q,response)}",":feedback(q,response)+(window.OphStudy?.ratingHtml('shared',q.id)||'')}")
     result=once(result,"function startQuiz(topic='all',mode='all',first=null){","function startQuiz(topic='all',mode='all',first=null){window.OphStudy?.leave();")
+    result=once(result,"(mode==='uncertain'&&entries['q:'+q.id]&&meta['q:'+q.id]?.confidence===1)","(mode==='due'&&srsDueNow(entries['study:srs:shared:'+q.id]))||(mode==='srs-weak'&&srsWeakEntry(entries['study:srs:shared:'+q.id]))||(mode==='uncertain'&&entries['q:'+q.id]&&meta['q:'+q.id]?.confidence===1)")
+    result=once(result,"S.mode==='wrong'?'錯題再練':S.mode==='uncertain'?'不確定題再練':'筆試練習'","S.mode==='wrong'?'錯題再練':S.mode==='uncertain'?'不確定題再練':S.mode==='due'?'到期複習':S.mode==='srs-weak'?'SRS 弱項再練':'筆試練習'")
+    result=once(result,"<option value=\"uncertain\" ${S.mode==='uncertain'?'selected':''}>不確定的題目</option></select>","<option value=\"uncertain\" ${S.mode==='uncertain'?'selected':''}>不確定的題目</option><option value=\"due\" ${S.mode==='due'?'selected':''}>到期複習（SRS）</option><option value=\"srs-weak\" ${S.mode==='srs-weak'?'selected':''}>SRS 弱項</option></select>")
+    result=once(result,"S.mode==='wrong'?'先完成一輪練習，錯題會出現在這裡。':S.mode==='uncertain'?'選擇「還不確定」後提交答案，就能在這裡再練一次。':'這個主題可先從主動複習開始。'","S.mode==='wrong'?'先完成一輪練習，錯題會出現在這裡。':S.mode==='uncertain'?'選擇「還不確定」後提交答案，就能在這裡再練一次。':S.mode==='due'?'目前沒有到期的複習題目；作答並評分熟悉度後，到期題會出現在這裡。':S.mode==='srs-weak'?'目前沒有 SRS 弱項（答錯、重來或微卡題目會出現在這裡）。':'這個主題可先從主動複習開始。'")
     result=once(result,'function moveQuestion(n){','function moveQuestion(n){window.OphStudy?.leave();')
     result=once(result,"case'retry':delete S.round[question().id];","case'retry':window.OphStudy?.leave();delete S.round[question().id];")
     # Import/cloud merges invalidate an in-flight familiarity action.

@@ -66,5 +66,35 @@ async function test(name,fn){try{await fn();results.push({name,pass:true});}catc
   const a=await fresh(new MemoryStorage(),read('content/textbook-depth/advanced-practice.json')),entries={};for(let i=0;i<26;i++){const day='2026-09-'+String(i+1).padStart(2,'0');entries['project:challenge:'+day+':advanced']=C.create(a.pack.questions,{},day,day+'T07:55:00.000Z');}
   a.qa.mergeProgress({format:'ophthalmology-prep-progress-v3',entries,meta:{}});a.action('export');const text=await a.blobs.at(-1).text();assert(Buffer.byteLength(text)>2000000);const b=await fresh();await b.handlers.get('#import-file:change')({target:{files:[{size:Buffer.byteLength(text),text:async()=>text}],value:'backup.json'}});assert.equal(Object.keys(b.qa.entries).filter(k=>k.startsWith('project:challenge:')).length,26);assert.deepEqual(plain(b.qa.progressPayload().entries),plain(a.qa.progressPayload().entries));assert(!fs.readFileSync(path.join(here,'../index.html'),'utf8').includes('if(file.size>2000000)'));
  });
+ await test('finished Hard 12Q/18m supports inline per-question SRS rating chips and idempotent 1-click Good batch scheduling',async()=>{
+  const a=await fresh();
+  a.action('advanced-start');await a.settle();
+  const k='project:challenge:2026-10-22:advanced',v=a.qa.entries[k],[q0,q1,q2]=v.items;
+  a.change('advanced-answer',{name:'advanced-answer',value:String(q0.correctIndex),dataset:{advancedAnswer:q0.id}});
+  a.change('advanced-answer',{name:'advanced-answer',value:String(q1.correctIndex),dataset:{advancedAnswer:q1.id}});
+  a.change('advanced-answer',{name:'advanced-answer',value:String((q2.correctIndex+1)%4),dataset:{advancedAnswer:q2.id}});
+  a.action('advanced-submit');await a.settle();
+  assert(a.root.innerHTML.includes('答對題一鍵排入 Good 複習（2 題）'));
+  assert(a.root.innerHTML.includes('data-action="advanced-srs-rate"'));
+  assert.equal(a.qa.entries['study:srs:extra:'+q0.id].plan,null);
+  assert.equal(a.qa.entries['study:srs:extra:'+q2.id].plan.rating,'again');
+  const wrongDue=a.qa.entries['study:srs:extra:'+q2.id].plan.dueAt;
+
+  a.action('advanced-srs-rate',q0.id+'|hard');await a.settle();
+  assert.equal(a.qa.entries['study:srs:extra:'+q0.id].plan.rating,'hard');
+  assert.equal(a.qa.entries['study:srs:extra:'+q0.id].plan.step,0);
+  assert(a.root.innerHTML.includes('答對題一鍵排入 Good 複習（1 題）'));
+
+  a.action('advanced-srs-batch');await a.settle();
+  assert.equal(a.qa.entries['study:srs:extra:'+q1.id].plan.rating,'good');
+  assert.equal(a.qa.entries['study:srs:extra:'+q1.id].plan.step,0);
+  assert.equal(a.qa.entries['study:srs:extra:'+q0.id].plan.rating,'hard');
+  assert.equal(a.qa.entries['study:srs:extra:'+q2.id].plan.rating,'again');
+  assert.equal(a.qa.entries['study:srs:extra:'+q2.id].plan.dueAt,wrongDue);
+  assert(a.root.innerHTML.includes('✓ 答對題已排入 SRS 複習'));
+
+  a.action('advanced-srs-batch');await a.settle();
+  assert.equal(a.qa.entries['study:srs:extra:'+q1.id].plan.reviewCount,1);
+ });
  console.log(JSON.stringify({passed:results.filter(x=>x.pass).length,failed:results.filter(x=>!x.pass).length,results},null,2));if(results.some(x=>!x.pass))process.exitCode=1;
 })();

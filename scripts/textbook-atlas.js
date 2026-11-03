@@ -4,12 +4,82 @@
   const base = new URL('../', document.currentScript.src);
   const version = 'volume-atlas-20261028';
   const palette = {ink:'#20324a',muted:'#60758a',teal:'#187b78',blue:'#366cb1',red:'#bf4f5b',amber:'#9d6c15','pale-teal':'#dcefed','pale-blue':'#e2ecf8','pale-red':'#f6e2e5','pale-amber':'#f6edce',white:'#ffffff',none:'none'};
-  let pack, pending;
+  let pack, pending, activeRoot = null, focusedItemId = null;
+  const openSrsItems = new Set();
   const contexts = new WeakMap();
   const esc = value => String(value ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const finite = n => typeof n === 'number' && Number.isFinite(n);
   const color = (value, fallback) => palette[value] || palette[fallback];
   const button = (label, action, value='', extra='') => '<button type="button" data-atlas-action="'+action+'" data-value="'+esc(value)+'" '+extra+'>'+esc(label)+'</button>';
+  const hasBridge = () => Boolean(window.OphStudyBridge && (!window.OphSpecialty || window.OphSpecialty.id === 'oph'));
+  const nowMs = () => (typeof window.OphStudy?.now === 'function' ? window.OphStudy.now() : Date.now());
+  const fmtDue = t => new Intl.DateTimeFormat('zh-TW', {timeZone:'Asia/Taipei', month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit', hourCycle:'h23'}).format(new Date(t));
+  const DAYS = [1, 3, 7, 14, 30];
+  function atlasItems(unit) {
+    const list = Array.isArray(unit?.retrieval) ? unit.retrieval : [];
+    const counts = Object.create(null);
+    return list.map(r => {
+      const kind = r?.type === 'case' ? 'case' : r?.type === 'recall' ? 'recall' : 'item';
+      counts[kind] = (counts[kind] || 0) + 1;
+      const totalOfKind = list.filter(x => (x?.type === 'case' ? 'case' : x?.type === 'recall' ? 'recall' : 'item') === kind).length;
+      return {itemId: unit.id + '-' + kind + (totalOfKind > 1 ? '-' + counts[kind] : ''), kind, item: r};
+    });
+  }
+  function scheduleAtlas(prev, rating, now) {
+    if (window.OphStudyScheduler?.schedule) {
+      const validPrev = window.OphStudyScheduler.planValid(prev) ? prev : null;
+      return window.OphStudyScheduler.schedule(validPrev, rating !== 'again', rating, now);
+    }
+    let step = -1, delay = 600000;
+    if (rating === 'hard') { step = 0; delay = 86400000; }
+    if (rating === 'good') { step = Math.min(4, Math.max(0, (prev?.step ?? -1) + 1)); delay = DAYS[step] * 86400000; }
+    if (rating === 'easy') { step = Math.min(4, Math.max(1, (prev?.step ?? -1) + 2)); delay = DAYS[step] * 86400000; }
+    return {step, dueAt: new Date(now + delay).toISOString(), rating, reviewCount: (prev?.reviewCount || 0) + 1, lapses: (prev?.lapses || 0) + (rating === 'again' ? 1 : 0)};
+  }
+  function srsBarHtml(itemId) {
+    if (!hasBridge()) return '';
+    const rec = window.OphStudyBridge.read('study:srs:atlas:' + itemId);
+    const now = nowMs();
+    const due = Boolean(rec?.plan && Number.isFinite(Date.parse(rec.plan.dueAt)) && Date.parse(rec.plan.dueAt) <= now);
+    const statusText = rec?.plan ? '下次複習：' + fmtDue(rec.plan.dueAt) + (due ? '（現在到期）' : '（已排程）') : '尚未排程';
+    return '<div class="atlas-srs-bar" data-atlas-srs-bar="' + esc(itemId) + '">' +
+      '<span class="atlas-srs-status">' + esc(statusText) + '</span>' +
+      '<div class="atlas-srs-actions">' +
+        '<button type="button" data-atlas-srs-rate="again" data-item-id="' + esc(itemId) + '">不熟 10分</button>' +
+        '<button type="button" data-atlas-srs-rate="hard" data-item-id="' + esc(itemId) + '">微卡 1天</button>' +
+        '<button type="button" data-atlas-srs-rate="good" data-item-id="' + esc(itemId) + '">記得</button>' +
+        '<button type="button" data-atlas-srs-rate="easy" data-item-id="' + esc(itemId) + '">很熟</button>' +
+      '</div>' +
+    '</div>';
+  }
+  function rateAtlasItem(itemId, rating) {
+    if (!hasBridge() || !/^atlas-s(?:0[1-9]|1[0-3])-(?:0[1-9]|[1-9]\d)-(?:case|recall|item)(?:-\d+)?$/.test(String(itemId || '')) || !['again','hard','good','easy'].includes(rating)) return false;
+    const key = 'study:srs:atlas:' + itemId;
+    const old = window.OphStudyBridge.read(key);
+    const now = nowMs(), at = new Date(now).toISOString();
+    const plan = scheduleAtlas(old?.plan || null, rating, now);
+    const count = Math.max((old?.answerCount || 0) + 1, plan.reviewCount);
+    window.OphStudyBridge.save(key, {version: 1, at, answerCount: count, attempt: {id: 'atlas-' + at + '-' + count, at, correct: rating !== 'again', rated: true}, plan});
+    openSrsItems.add(itemId);
+    const ctx = activeRoot && contexts.get(activeRoot);
+    if (activeRoot?.isConnected && ctx?.isCurrent?.()) render(activeRoot, {...ctx, focus: false});
+    else window.OphTextbook?.refresh?.();
+    return true;
+  }
+  function handleSrsClick(event) {
+    if (!event || event.__atlasSrsHandled) return false;
+    const btn = event.target?.closest?.('[data-atlas-srs-rate]');
+    if (!btn || btn.disabled) return false;
+    event.__atlasSrsHandled = true;
+    rateAtlasItem(btn.dataset.itemId, btn.dataset.atlasSrsRate);
+    return true;
+  }
+  function focusItem(itemId) {
+    const id = String(itemId || '');
+    if (!/^atlas-s(?:0[1-9]|1[0-3])-(?:0[1-9]|[1-9]\d)-(?:case|recall|item)(?:-\d+)?$/.test(id)) return;
+    focusedItemId = id;
+    openSrsItems.add(id);
+  }
   function formatInline(raw) {
     return esc(raw).split(/(`[^`\n]+`)/g).map(part=>part.startsWith('`')&&part.endsWith('`')&&part.length>2?'<code class="tb-formula-chip">'+part.slice(1,-1).replace(/\*/g,'&#42;')+'</code>':part).join('').replace(/\*\*([^*\n]+)\*\*/g,'<strong>$1</strong>').replace(/&#42;/g,'*');
   }
@@ -100,6 +170,7 @@
     const zoomed=Boolean(opts.zoomed);
     const readings=Array.isArray(u.figureReading)?u.figureReading:[];
     const steps=Array.isArray(u.decisionSteps)?u.decisionSteps:[];
+    const retrievalsHtml=hasBridge()&&Array.isArray(u.retrieval)&&u.retrieval.length?'<div class="tb-inline-atlas-retrievals">'+atlasItems(u).map(it=>'<details class="tb-inline-atlas-retrieval" data-atlas-srs-item="'+esc(it.itemId)+'"'+((focusedItemId===it.itemId||openSrsItems.has(it.itemId))?' open':'')+'><summary>'+(it.kind==='case'?'病例推演':'主動回想')+'：'+formatRich(it.item.question)+'</summary><div class="tb-inline-atlas-retrieval-body">'+paragraph(it.item.answer)+srsBarHtml(it.itemId)+'</div></details>').join('')+'</div>':'';
     return '<figure class="tb-inline-atlas-card'+(opts.extraClass||'')+'" data-inline-atlas="'+esc(u.id)+'" data-expanded="'+zoomed+'">' +
       '<div class="tb-inline-atlas-head"><span class="tb-inline-atlas-badge">'+opts.badge+'</span><h3>'+esc(u.title)+'</h3><p class="tb-small">'+formatRich(u.clinicalQuestion)+'</p></div>' +
       '<div class="atlas-svg-scroll'+(zoomed?' is-zoomed':'')+'" tabindex="0" aria-label="'+esc(u.diagram.title)+'，可橫向捲動檢視圖解">'+svg(u,opts.suffix)+'</div>' +
@@ -114,6 +185,7 @@
           '<div><h4>'+opts.stepsHeading+'</h4><ol class="tb-inline-atlas-steps">'+steps.map(s=>'<li><strong>'+esc(s.condition)+'</strong><span> → '+formatRich(s.action)+'</span></li>').join('')+'</ol></div>' +
         '</div>' +
       '</details>' +
+      retrievalsHtml +
     '</figure>';
   }
   function renderInlineChapterCards(bookId, chapterId, chapterUnitIds, zoomedSet) {
@@ -168,16 +240,23 @@
     const volume=pack.volumes.find(v=>v.bookId===context.bookId), book=context.manifest.books.find(b=>b.bookId===context.bookId);
     const unit=volume.units.find(u=>u.id===context.unitId)||volume.units[0];
     const chapters=context.book?.chapters||[];
-    return '<div class="atlas-back">'+button('全部圖解卷別','overview')+button('返回本卷章節','chapter',context.bookId)+'</div><header class="atlas-heading" tabindex="-1"><p>第 '+book.section+' 卷 · '+esc(book.title)+'</p><h1>'+esc(unit.title)+'</h1></header>'+selector(context,volume.bookId)+'<nav class="atlas-unit-nav" aria-label="本卷圖解單元">'+volume.units.map(u=>button(u.title,'unit',volume.bookId+'|'+u.id,'aria-pressed="'+(u.id===unit.id)+'"')).join('')+'</nav><article class="atlas-lesson"><section class="atlas-goals"><h2>讀完要能解釋</h2>'+list(unit.learningGoals)+'<p class="atlas-clinical-question">'+formatRich(unit.clinicalQuestion)+'</p></section><figure class="atlas-figure" data-atlas-figure="'+unit.id+'"><div class="atlas-figure-toolbar"><h2>'+esc(unit.diagram.title)+'</h2>'+button('放大圖解','zoom',unit.id,'aria-expanded="false"')+'</div><div class="atlas-svg-scroll" tabindex="0" aria-label="'+esc(unit.diagram.title)+'，可橫向捲動放大圖解">'+svg(unit)+'</div><figcaption>原創醫學示意，非患者影像、非按比例。'+esc(unit.diagram.alt)+'</figcaption></figure><section class="atlas-reading"><h2>讀圖與判斷</h2><dl>'+unit.figureReading.map(r=>'<div><dt>'+esc(r.label)+'</dt><dd>'+formatRich(r.meaning)+'</dd></div>').join('')+'</dl></section><section><h2>機轉：為什麼會這樣</h2>'+unit.mechanism.map(paragraph).join('')+'</section><section><h2>把相似情況分開</h2><div class="atlas-table-scroll" tabindex="0" aria-label="'+esc(unit.title)+'的鑑別比較"><table><thead><tr>'+unit.comparison.columns.map(c=>'<th scope="col">'+esc(c)+'</th>').join('')+'</tr></thead><tbody>'+unit.comparison.rows.map(row=>'<tr>'+row.map((cell,i)=>i?'<td>'+formatRich(cell)+'</td>':'<th scope="row">'+formatRich(cell)+'</th>').join('')+'</tr>').join('')+'</tbody></table></div></section><section><h2>決策順序與理由</h2><ol class="atlas-decisions">'+unit.decisionSteps.map(step=>'<li><h3>'+esc(step.condition)+'</h3>'+paragraph(step.action)+'<p class="atlas-why">'+formatRich(step.why)+'</p></li>').join('')+'</ol></section><section><h2>容易誤判的地方</h2>'+list(unit.pitfalls)+'</section><section><h2>改一個條件，決策如何改變</h2><dl class="atlas-counterfactuals">'+unit.counterfactuals.map(c=>'<div><dt>'+formatRich(c.change)+'</dt><dd>'+formatRich(c.consequence)+'</dd></div>').join('')+'</dl></section><section><h2>病例推演與主動回想</h2>'+unit.retrieval.map((r,i)=>'<div class="atlas-retrieval"><h3>'+(r.type==='case'?'病例推演':'主動回想')+'</h3>'+paragraph(r.question)+'<details><summary>展開推理與答案</summary>'+paragraph(r.answer)+(r.reasoning?'<ol>'+r.reasoning.map(x=>'<li>'+formatBullet(x)+'</li>').join('')+'</ol>':'')+'</details></div>').join('')+'</section><section class="atlas-links"><h2>回到原章節</h2><p>原有章節、概念題及本機 PDF 圖頁仍可搭配閱讀。</p>'+unit.chapterIds.map(id=>button(chapters.find(c=>c.id===id)?.title||id,'chapter',id)).join('')+'</section><section><h2>證據與適用範圍</h2>'+references(unit.references)+'</section></article>';
+    return '<div class="atlas-back">'+button('全部圖解卷別','overview')+button('返回本卷章節','chapter',context.bookId)+'</div><header class="atlas-heading" tabindex="-1"><p>第 '+book.section+' 卷 · '+esc(book.title)+'</p><h1>'+esc(unit.title)+'</h1></header>'+selector(context,volume.bookId)+'<nav class="atlas-unit-nav" aria-label="本卷圖解單元">'+volume.units.map(u=>button(u.title,'unit',volume.bookId+'|'+u.id,'aria-pressed="'+(u.id===unit.id)+'"')).join('')+'</nav><article class="atlas-lesson"><section class="atlas-goals"><h2>讀完要能解釋</h2>'+list(unit.learningGoals)+'<p class="atlas-clinical-question">'+formatRich(unit.clinicalQuestion)+'</p></section><figure class="atlas-figure" data-atlas-figure="'+unit.id+'"><div class="atlas-figure-toolbar"><h2>'+esc(unit.diagram.title)+'</h2>'+button('放大圖解','zoom',unit.id,'aria-expanded="false"')+'</div><div class="atlas-svg-scroll" tabindex="0" aria-label="'+esc(unit.diagram.title)+'，可橫向捲動放大圖解">'+svg(unit)+'</div><figcaption>原創醫學示意，非患者影像、非按比例。'+esc(unit.diagram.alt)+'</figcaption></figure><section class="atlas-reading"><h2>讀圖與判斷</h2><dl>'+unit.figureReading.map(r=>'<div><dt>'+esc(r.label)+'</dt><dd>'+formatRich(r.meaning)+'</dd></div>').join('')+'</dl></section><section><h2>機轉：為什麼會這樣</h2>'+unit.mechanism.map(paragraph).join('')+'</section><section><h2>把相似情況分開</h2><div class="atlas-table-scroll" tabindex="0" aria-label="'+esc(unit.title)+'的鑑別比較"><table><thead><tr>'+unit.comparison.columns.map(c=>'<th scope="col">'+esc(c)+'</th>').join('')+'</tr></thead><tbody>'+unit.comparison.rows.map(row=>'<tr>'+row.map((cell,i)=>i?'<td>'+formatRich(cell)+'</td>':'<th scope="row">'+formatRich(cell)+'</th>').join('')+'</tr>').join('')+'</tbody></table></div></section><section><h2>決策順序與理由</h2><ol class="atlas-decisions">'+unit.decisionSteps.map(step=>'<li><h3>'+esc(step.condition)+'</h3>'+paragraph(step.action)+'<p class="atlas-why">'+formatRich(step.why)+'</p></li>').join('')+'</ol></section><section><h2>容易誤判的地方</h2>'+list(unit.pitfalls)+'</section><section><h2>改一個條件，決策如何改變</h2><dl class="atlas-counterfactuals">'+unit.counterfactuals.map(c=>'<div><dt>'+formatRich(c.change)+'</dt><dd>'+formatRich(c.consequence)+'</dd></div>').join('')+'</dl></section><section><h2>病例推演與主動回想</h2>'+atlasItems(unit).map(it=>'<div class="atlas-retrieval"><h3>'+(it.item.type==='case'?'病例推演':'主動回想')+'</h3>'+paragraph(it.item.question)+'<details data-atlas-srs-item="'+esc(it.itemId)+'"'+((focusedItemId===it.itemId||openSrsItems.has(it.itemId))?' open':'')+'><summary>展開推理與答案</summary>'+paragraph(it.item.answer)+(it.item.reasoning?'<ol>'+it.item.reasoning.map(x=>'<li>'+formatBullet(x)+'</li>').join('')+'</ol>':'')+srsBarHtml(it.itemId)+'</details></div>').join('')+'</section><section class="atlas-links"><h2>回到原章節</h2><p>原有章節、概念題及本機 PDF 圖頁仍可搭配閱讀。</p>'+unit.chapterIds.map(id=>button(chapters.find(c=>c.id===id)?.title||id,'chapter',id)).join('')+'</section><section><h2>證據與適用範圍</h2>'+references(unit.references)+'</section></article>';
   }
   function render(root,context) {
+    activeRoot=root;
     root.innerHTML='<div class="atlas-root">'+(context.bookId?detail(context):overview(context))+'</div>';
+    if(context.bookId&&focusedItemId){
+      const target=root.querySelector?.('[data-atlas-srs-item="'+focusedItemId+'"]');
+      if(target){focusedItemId=null;target.scrollIntoView?.({block:'center',behavior:'auto'});target.querySelector?.('summary')?.focus?.({preventScroll:true});return;}
+      if(root.innerHTML.includes('data-atlas-srs-item="'+focusedItemId+'"'))focusedItemId=null;
+    }
     if(context.focus){const heading=root.querySelector('.atlas-heading');heading?.focus({preventScroll:true});heading?.scrollIntoView({block:'start',behavior:'auto'});}
   }
   function bind(root) {
     if(root.dataset.atlasBound) return;
     root.dataset.atlasBound='true';
     root.addEventListener('click',event=>{
+      if(handleSrsClick(event))return;
       const target=event.target.closest('[data-atlas-action]'),context=contexts.get(root);
       if(!target||!context||target.disabled)return;
       const {atlasAction:action,value}=target.dataset;
@@ -201,12 +280,13 @@
       control?.setAttribute('aria-expanded','false');if(control)control.textContent='放大圖解';control?.focus();event.preventDefault();
     });
   }
+  document.addEventListener?.('click',handleSrsClick);
   async function mount(root,context) {
     contexts.set(root,context);bind(root);
     try{await load();if(contexts.get(root)!==context||!root.isConnected||!context.isCurrent())return;render(root,context);}
     catch(error){if(contexts.get(root)!==context||!root.isConnected||!context.isCurrent())return;root.innerHTML='<div class="atlas-root atlas-error"><h1>圖解教材暫時無法載入</h1><p>請重新載入，或先回原有卷別閱讀。</p>'+button('重試圖解','retry')+button('返回全部卷別','back')+'</div>';}
   }
   window.OphTextbookAtlas={mount,load,unitsForChapter,inlineChapterHtml};
-  Object.assign(window.OphTextbookAtlas,{unitsForUnit,inlineUnitHtml:renderInlineUnitCards,renderInlineChapterCards,renderInlineUnitCards});
+  Object.assign(window.OphTextbookAtlas,{unitsForUnit,inlineUnitHtml:renderInlineUnitCards,renderInlineChapterCards,renderInlineUnitCards,focusItem});
   window.TextbookAtlas=window.OphTextbookAtlas;
 })();

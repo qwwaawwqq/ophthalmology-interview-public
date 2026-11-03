@@ -187,7 +187,7 @@ function sharePanel(cfg){
 
 /* Where you left off on this device: current screen, quiz round and position, open PBL stages.
    Kept beside the progress (not exported or synced), so reopening the app looks exactly as you left it. */
-const WORKSPACE_KEY=SPEC.storePrefix+'workspace-v1',CRAM_KEY=SPEC.storePrefix+'cram-review-v1',QUIZ_MODES=['all','new','safety','reserve','kaogu','wrong','uncertain'];
+const WORKSPACE_KEY=SPEC.storePrefix+'workspace-v1',CRAM_KEY=SPEC.storePrefix+'cram-review-v1',QUIZ_MODES=['all','new','safety','reserve','kaogu','wrong','uncertain','due','srs-weak'];
 let workspaceTimer=null;
 function workspaceSnapshot(){return {v:1,at:now(),hash:currentLocationHash(),quiz:{topic:S.topic,mode:S.mode,ids:S.ids,qi:S.qi,round:S.round},learn:S.learn,interview:S.interview,pbl:S.pbl,pblStage:S.pblStage,workflow:S.workflow,wfMode:S.wfMode,recall:S.recall,workshop:S.workshop,story:S.story,evidence:S.evidence};}
 function saveWorkspace(){clearTimeout(workspaceTimer);workspaceTimer=null;const s=storage();if(s&&deviceSettings().autosave)writeJSON(s,WORKSPACE_KEY,workspaceSnapshot());}

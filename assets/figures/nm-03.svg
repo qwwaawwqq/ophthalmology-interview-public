@@ -91,7 +91,7 @@
     <!-- Left half of Panel C -->
     <text x="52" y="408" font-size="12" font-weight="700" fill="#0f766e">· 分化良好 DTC（預後佳，I-131 有效）：</text>
     <text x="62" y="427" font-size="11" fill="#334155">NIS 高表現、GLUT1 低 → I-131 陽性 (＋) ／ FDG 陰性 (－)</text>
-    <text x="52" y="452" font-size="12" font-weight="700" fill="#be123c">· 去分化 RAIR-DTC（Tg 升但碘陰性，預後差）：</text>
+    <text x="52" y="452" font-size="11.5" font-weight="700" fill="#be123c">· 去分化蹺蹺板（治療後掃描亦陰性確立 RAIR）：</text>
     <text x="62" y="471" font-size="11" fill="#334155">NIS 喪失、GLUT1 暴增 → I-131 陰性 (－) ／ FDG 陽性 (＋)</text>
     <text x="52" y="498" font-size="10.5" font-weight="600" fill="#92400e">I-131 準備：停 LT4 或打 rhTSH 使 TSH &gt; 30 mIU/L ＋ 低碘飲食 &lt;50 μg/日</text>
 
@@ -101,7 +101,7 @@
     <text x="502" y="406" font-size="11.5" font-weight="700" fill="#0f172a">· 腎上腺皮髓質與神經內分泌腫瘤（NET）配對：</text>
     <text x="508" y="424" font-size="10.5" fill="#334155">皮質（庫欣/醛固酮）→ NP-59 · 髓質（嗜鉻瘤）→ I-123 MIBG</text>
     <text x="508" y="442" font-size="10.5" fill="#1d4ed8">NET G1/G2 (Ki-67≤20%) → Ga-68 DOTATATE</text>
-    <text x="508" y="458" font-size="10.5" fill="#1d4ed8">NET G3 (&gt;20%) → F-18 FDG（去分化；禁選傳統 Ga-67）</text>
+    <text x="508" y="458" font-size="10.5" fill="#1d4ed8">G3 NET 搭雙示蹤劑；NEC → FDG（禁選 Ga-67）</text>
     <text x="502" y="480" font-size="11.5" font-weight="700" fill="#0f766e">· 體外 I-125 免疫檢驗（井型計數器，病人零輻射）：</text>
     <text x="508" y="498" font-size="10.5" fill="#334155">競爭型 RIA（與 B 成反比）vs 三明治 IRMA（成正比、更靈敏）</text>
   </g>

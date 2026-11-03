@@ -72,8 +72,11 @@ function tabbarMarkup(){
   return TABBAR.filter(([id])=>tabAllowed(id)).map(([id,label])=>`<button type="button" class="tabbar-item" data-action="tab" data-value="${id}"${cur&&cur[0]===id?' aria-current="page"':''}>${TABBAR_ICON[id]}<span>${label}</span></button>`).join('')+`<button type="button" class="tabbar-item tabbar-more" data-action="more-toggle" aria-controls="nav" aria-expanded="${open}"${cur?'':' aria-current="page"'}>${TABBAR_ICON.more}<span>更多</span></button>`;
 }
 function setTopMenu(open){const top=$('.topbar');if(!top)return;top.classList.toggle('menu-open',open);$('.top-menu-toggle')?.setAttribute('aria-expanded',String(open));}
+let prevLayoutTab=null;
 function layoutChrome(){
   ensureQuizAdvStudyHook();
+  if(prevLayoutTab==='quiz'&&S.tab!=='quiz')window.OphStudy?.leave?.();
+  prevLayoutTab=S.tab;
   $('.shell')?.setAttribute('data-tab',S.tab);
   const bar=document.getElementById('tabbar');if(bar)bar.innerHTML=tabbarMarkup();
   setTopMenu(false);
@@ -87,15 +90,15 @@ function layoutAction(a,v,b){
   if(a==='spec-toggle'){specState.open=!specState.open;specState.tab=S.tab;$('#nav').innerHTML=navMarkup();if(specState.open)document.getElementById('spec-filter')?.focus?.();return true;}
   if(a==='top-menu'){setTopMenu(!$('.topbar')?.classList.contains('menu-open'));return true;}
   if(a==='more-toggle'){const rail=$('.rail'),open=!rail.classList.contains('nav-open');rail.classList.toggle('nav-open',open);$('#nav-toggle').setAttribute('aria-expanded',String(open));b?.setAttribute?.('aria-expanded',String(open));return true;}
-  if(a==='today-new'){quizBankMode='core';quizAdvFeedbackId=null;startQuiz('all','new');return true;}
-  if(a==='today-core-quiz'){quizBankMode='core';quizAdvFeedbackId=null;switchTab('quiz');return true;}
+  if(a==='today-new'){quizBankMode='core';quizAdvFeedbackIds.clear();startQuiz('all','new');return true;}
+  if(a==='today-core-quiz'){quizBankMode='core';quizAdvFeedbackIds.clear();switchTab('quiz');return true;}
   if(a==='quiz-bank'||a==='quiz-bank-open'){return setQuizBankMode(v);}
   if(a==='quiz-adv-answer'){return handleQuizAdvAnswer(v);}
-  if(a==='quiz-adv-reveal'){window.OphStudy?.leave?.();quizAdvFeedbackId=v;quizAdvRevealed.add(v);render();return true;}
-  if(a==='quiz-adv-retry'){window.OphStudy?.leave?.();quizAdvFeedbackId=v;const q=quizAdvFindQuestion(v);if(q){delete entries[quizAdvKey(q)];changed();}quizAdvRevealed.delete(v);render();return true;}
-  if(a==='quiz-adv-retry-load'){if(quizAdvCache.bcscState==='error')quizAdvCache.bcscState='idle';if(quizAdvCache.hardState==='error')quizAdvCache.hardState='idle';if(quizAdvCache.extraState==='error')quizAdvCache.extraState='idle';ensureQuizAdvLoaded(quizBankMode);render();return true;}
-  if(a==='quiz-adv-shuffle'){window.OphStudy?.leave?.();quizAdvFeedbackId=null;quizAdvSeed=(quizAdvSeed+1)||1;render();return true;}
-  if(a==='quiz-adv-reset-shown'){const shown=quizAdvShownQuestions();window.OphStudy?.leave?.();quizAdvFeedbackId=null;for(const q of shown){delete entries[quizAdvKey(q)];quizAdvRevealed.delete(q.id);}changed();render();return true;}
+  if(a==='quiz-adv-reveal'){const q=quizAdvFindQuestion(v);if(q)window.OphStudy?.clearCard?.(q.bankKind==='bcsc'||/^bcsc-s/.test(q.id)?'book':'extra',q.id);quizAdvFeedbackIds.add(v);quizAdvRevealed.add(v);render();return true;}
+  if(a==='quiz-adv-retry'){const q=quizAdvFindQuestion(v);if(q){window.OphStudy?.clearCard?.(q.bankKind==='bcsc'||/^bcsc-s/.test(q.id)?'book':'extra',q.id);delete entries[quizAdvKey(q)];changed();}quizAdvFeedbackIds.add(v);quizAdvRevealed.delete(v);render();return true;}
+  if(a==='quiz-adv-retry-load'){if(quizAdvCache.bcscState==='error')quizAdvCache.bcscState='idle';for(const k of Object.keys(quizAdvCache.bcscVolState))if(quizAdvCache.bcscVolState[k]==='error')quizAdvCache.bcscVolState[k]='idle';if(quizAdvCache.hardState==='error')quizAdvCache.hardState='idle';if(quizAdvCache.extraState==='error')quizAdvCache.extraState='idle';ensureQuizAdvLoaded(quizBankMode);render();return true;}
+  if(a==='quiz-adv-shuffle'){window.OphStudy?.leave?.();quizAdvFeedbackIds.clear();quizAdvSeed=(quizAdvSeed+1)||1;render();return true;}
+  if(a==='quiz-adv-reset-shown'){const shown=quizAdvShownQuestions();window.OphStudy?.leave?.();quizAdvFeedbackIds.clear();for(const q of shown){delete entries[quizAdvKey(q)];quizAdvRevealed.delete(q.id);}changed();render();return true;}
   if(a==='quiz-adv-more'){quizAdvLimit+=25;render();return true;}
   if(a==='quiz-hard-timed'){switchTab('advanced');window.OphAdvanced?.action?.('advanced-start');return true;}
   if(a==='quiz-hard-deepdives'){switchTab('advanced');window.OphAdvanced?.action?.('advanced-home');return true;}
@@ -104,9 +107,9 @@ function layoutAction(a,v,b){
 }
 function layoutChange(el){
   if(!el)return false;
-  if(el.id==='quiz-adv-volume'){window.OphStudy?.leave?.();quizAdvFeedbackId=null;quizAdvVolume=el.value||'all';quizAdvLimit=25;render();return true;}
-  if(el.id==='quiz-adv-domain'){window.OphStudy?.leave?.();quizAdvFeedbackId=null;quizAdvDomain=el.value||'all';quizAdvLimit=25;render();return true;}
-  if(el.id==='quiz-adv-status'){window.OphStudy?.leave?.();quizAdvFeedbackId=null;quizAdvStatus=el.value||'all';quizAdvLimit=25;render();return true;}
+  if(el.id==='quiz-adv-volume'){window.OphStudy?.leave?.();quizAdvFeedbackIds.clear();quizAdvVolume=el.value||'all';quizAdvLimit=25;render();return true;}
+  if(el.id==='quiz-adv-domain'){window.OphStudy?.leave?.();quizAdvFeedbackIds.clear();quizAdvDomain=el.value||'all';quizAdvLimit=25;render();return true;}
+  if(el.id==='quiz-adv-status'){window.OphStudy?.leave?.();quizAdvFeedbackIds.clear();quizAdvStatus=el.value||'all';quizAdvLimit=25;render();return true;}
   return false;
 }
 let quizAdvComposing=false;
@@ -119,7 +122,7 @@ document.addEventListener('compositionend',e=>{
 function layoutInput(el,e){
   if(!el)return false;
   if(el.id==='quiz-adv-search'){
-    quizAdvSearch=String(el.value||'');quizAdvLimit=25;quizAdvFeedbackId=null;
+    quizAdvSearch=String(el.value||'');quizAdvLimit=25;quizAdvFeedbackIds.clear();
     if(e?.isComposing||quizAdvComposing)return true;
     const start=typeof el.selectionStart==='number'?el.selectionStart:quizAdvSearch.length;
     const end=typeof el.selectionEnd==='number'?el.selectionEnd:start;
@@ -147,7 +150,7 @@ document.addEventListener('submit',e=>{
   input?.blur?.();switchTab('notebook');
 });
 
-/* Advanced Question Banks in #quiz (Issue #148): BCSC S01-S13 (540), Hard Clinical Reasoning (36+), Extra Cases (120) */
+/* Advanced Question Banks in #quiz (Issue #148 / #180): BCSC S01-S13 (540), Hard Clinical Reasoning (144), Extra Cases (120) */
 const QUIZ_BANK_MODES=['core','bcsc','hard','extra','all-advanced'];
 const BCSC_VOLUMES=[
   ['bcsc-s01','S01','Update on General Medicine'],
@@ -174,9 +177,20 @@ const HARD_DOMAINS=[
   ['orbit-trauma','眼眶與外傷'],
   ['diagnostics-systemic','診斷與全身病']
 ];
-let quizBankMode='core',quizAdvVolume='all',quizAdvDomain='all',quizAdvStatus='all',quizAdvSearch='',quizAdvLimit=25,quizAdvSeed=0,quizAdvFeedbackId=null,quizAdvStudyHooked=false;
-const quizAdvRevealed=new Set();
-const quizAdvCache={bcsc:null,bcscState:'idle',hard:null,hardState:'idle',extra:null,extraState:'idle'};
+let quizBankMode='core',quizAdvVolume='all',quizAdvDomain='all',quizAdvStatus='all',quizAdvSearch='',quizAdvLimit=25,quizAdvSeed=0,quizAdvStudyHooked=false;
+const quizAdvFeedbackIds=new Set(),quizAdvRevealed=new Set();
+const quizAdvCache={bcscManifest:null,bcscState:'idle',bcscByVol:Object.create(null),bcscVolState:Object.create(null),hard:null,hardState:'idle',extra:null,extraState:'idle'};
+
+function quizAdvClockNow(){return typeof window.OphStudy?.now==='function'?window.OphStudy.now():Date.now();}
+function quizAdvSrsRec(q){const pool=q.bankKind==='bcsc'||/^bcsc-s/.test(q.id)?'book':'extra';return studyEntry('study:srs:'+pool+':'+q.id,entries['study:srs:'+pool+':'+q.id])||null;}
+function quizAdvIsDueNow(rec,nowMs){return !!(rec&&studyPlanValid(rec.plan)&&Date.parse(rec.plan.dueAt)<=nowMs);}
+function quizAdvIsToday(rec,nowMs){
+  if(!rec||!studyPlanValid(rec.plan))return false;
+  if(window.OphStudyScheduler?.isToday)return window.OphStudyScheduler.isToday(rec.plan,nowMs);
+  const at=Date.parse(rec.plan.dueAt);
+  return Number.isFinite(at)&&(at<=nowMs||taipeiDate(at)===taipeiDate(nowMs));
+}
+function quizAdvIsSrsWeak(rec){return !!(rec&&(rec.attempt?.correct===false||['again','hard'].includes(rec.plan?.rating)));}
 
 function ensureQuizAdvStudyHook(){
   if(quizAdvStudyHooked||!window.OphStudy)return;
@@ -184,11 +198,6 @@ function ensureQuizAdvStudyHook(){
   if(typeof origContext==='function'){
     window.OphStudy.context=function(pool,id){
       if(SPEC.id==='oph'&&S.tab==='quiz'&&quizBankMode!=='core'&&(pool==='shared'||pool===null)){
-        const fq=quizAdvFeedbackId?quizAdvFindQuestion(quizAdvFeedbackId):null;
-        if(fq&&quizAdvRecord(fq)){
-          const fPool=fq.bankKind==='bcsc'||/^bcsc-s/.test(fq.id)?'book':'extra';
-          return origContext(fPool,fq.id);
-        }
         return origContext(null,null);
       }
       return origContext(pool,id);
@@ -207,19 +216,69 @@ function ensureQuizAdvStudyHook(){
 function quizAdvKey(q){return (q.bankKind==='bcsc'||/^bcsc-s/.test(q.id)?'textbook:question:':'textbook:extra-question:')+q.id;}
 function quizAdvRecord(q){const r=entries[quizAdvKey(q)];return r&&Number.isInteger(r.choice)&&r.choice>=0&&r.choice<=3?r:null;}
 function quizAdvIsRevealed(q){const r=entries[quizAdvKey(q)];return !!(r&&(r.revealed===true||(Number.isInteger(r.choice)&&r.choice>=0&&r.choice<=3)))||quizAdvRevealed.has(q.id);}
+function hydrateBcscBook(b,data,fallbackEdition){
+  const chMap=new Map((data?.chapters||b.chapters||[]).map(c=>[c.id,c.title]));
+  const sec=String(b.section||b.bookId.slice(6)).padStart(2,'0');
+  const shortT=BCSC_VOLUMES.find(x=>x[0]===b.bookId)?.[2]||b.title||data?.source?.title||b.bookId;
+  const bookUpdates=Array.isArray(data?.clinicalUpdates)?data.clinicalUpdates:[];
+  return (data?.questions||[]).map(q=>({...q,bankKind:'bcsc',bookId:b.bookId,bookSection:'S'+sec,bookTitle:shortT,edition:data?.source?.edition||fallbackEdition||'2024–2025',chapterTitle:(q.chapterIds||[]).map(cid=>chMap.get(cid)).filter(Boolean)[0]||'',scopedClinicalUpdates:bookUpdates.filter(u=>Array.isArray(u.questionIds)&&u.questionIds.includes(q.id))}));
+}
+function loadQuizAdvBcscVolume(bookId){
+  const m=quizAdvCache.bcscManifest;
+  if(!m||typeof fetch!=='function')return;
+  const st=quizAdvCache.bcscVolState[bookId];
+  if(st==='loading'||st==='ready'||st==='error')return;
+  const b=m.books.find(x=>x.bookId===bookId);
+  if(!b)return;
+  quizAdvCache.bcscVolState[bookId]='loading';
+  fetch(b.file||`content/textbook-depth/${b.bookId}.json`,{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error(b.bookId);return r.json();}).then(data=>{
+    quizAdvCache.bcscByVol[bookId]=hydrateBcscBook(b,data,m.edition);
+    quizAdvCache.bcscVolState[bookId]='ready';
+  }).catch(()=>{
+    quizAdvCache.bcscVolState[bookId]='error';
+  }).then(()=>{if(S.tab==='quiz')render();});
+}
+function quizAdvBcscCandidates(){
+  const m=quizAdvCache.bcscManifest;
+  if(!m)return [];
+  return m.books.flatMap(b=>{
+    if(Array.isArray(quizAdvCache.bcscByVol[b.bookId]))return quizAdvCache.bcscByVol[b.bookId];
+    const sec=String(b.section||b.bookId.slice(6)).padStart(2,'0');
+    const shortT=BCSC_VOLUMES.find(x=>x[0]===b.bookId)?.[2]||b.title||b.bookId;
+    const ed=b.source?.edition||m.edition||'2024–2025';
+    return (b.sourceQuestions||[]).map(sq=>({id:sq.sourceQuestionKey,bankKind:'bcsc',bookId:b.bookId,bookSection:'S'+sec,bookTitle:shortT,edition:ed,sourceNumber:sq.sourceNumber,questionScope:sq.questionScope,_stub:true}));
+  });
+}
+function ensureQuizAdvBcscVolumes(){
+  if(SPEC.id!=='oph'||(quizBankMode!=='bcsc'&&quizBankMode!=='all-advanced')||!quizAdvCache.bcscManifest)return;
+  const books=quizAdvCache.bcscManifest.books;
+  const inVol=b=>quizAdvVolume==='all'||b.bookId===quizAdvVolume;
+  if(quizAdvSearch.trim()){
+    for(const b of books)if(inVol(b))loadQuizAdvBcscVolume(b.bookId);
+    return;
+  }
+  if(quizAdvStatus==='wrong'||quizAdvStatus==='correct'){
+    for(const b of books){
+      if(!inVol(b))continue;
+      const hasAns=(b.sourceQuestions||[]).some(sq=>{const r=entries['textbook:question:'+sq.sourceQuestionKey];return r&&Number.isInteger(r.choice)&&r.choice>=0&&r.choice<=3;});
+      if(hasAns)loadQuizAdvBcscVolume(b.bookId);
+    }
+    return;
+  }
+  const shown=quizAdvFilteredQuestions().slice(0,quizAdvLimit);
+  for(const q of shown)if(q.bankKind==='bcsc'&&q._stub)loadQuizAdvBcscVolume(q.bookId);
+}
 function loadQuizAdvBcsc(){
-  if(quizAdvCache.bcscState!=='idle'||typeof fetch!=='function')return;
+  if(typeof fetch!=='function')return;
+  if(quizAdvCache.bcscState==='ready'){ensureQuizAdvBcscVolumes();return;}
+  if(quizAdvCache.bcscState!=='idle')return;
   quizAdvCache.bcscState='loading';
   fetch('content/textbook-manifest.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('manifest');return r.json();}).then(m=>{
-    const books=Array.isArray(m?.books)&&m.books.length?m.books:BCSC_VOLUMES.map(([bookId,,title],i)=>({bookId,section:i+1,title,file:`content/textbook-depth/${bookId}.json`}));
-    return Promise.all(books.map(b=>fetch(b.file||`content/textbook-depth/${b.bookId}.json`,{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error(b.bookId);return r.json();}).then(data=>{
-      const chMap=new Map((data.chapters||b.chapters||[]).map(c=>[c.id,c.title]));
-      const sec=String(b.section||b.bookId.slice(6)).padStart(2,'0');
-      const shortT=BCSC_VOLUMES.find(x=>x[0]===b.bookId)?.[2]||b.title||data.source?.title||b.bookId;
-      const bookUpdates=Array.isArray(data.clinicalUpdates)?data.clinicalUpdates:[];
-      return (data.questions||[]).map(q=>({...q,bankKind:'bcsc',bookId:b.bookId,bookSection:'S'+sec,bookTitle:shortT,edition:data.source?.edition||m.edition||'2024–2025',chapterTitle:(q.chapterIds||[]).map(cid=>chMap.get(cid)).filter(Boolean)[0]||'',scopedClinicalUpdates:bookUpdates.filter(u=>Array.isArray(u.questionIds)&&u.questionIds.includes(q.id))}));
-    })));
-  }).then(lists=>{quizAdvCache.bcsc=lists.flat();quizAdvCache.bcscState='ready';}).catch(()=>{quizAdvCache.bcscState='error';}).then(()=>{if(S.tab==='quiz')render();});
+    const books=Array.isArray(m?.books)&&m.books.length?m.books:BCSC_VOLUMES.map(([bookId,,title],i)=>({bookId,section:i+1,title,file:`content/textbook-depth/${bookId}.json`,sourceQuestions:BCSC_VOLUMES[i]?[{sourceQuestionKey:`${bookId}-rq001`,sourceNumber:1,questionScope:'end-of-volume'}]:[]}));
+    quizAdvCache.bcscManifest={edition:m?.edition||'2024–2025',books};
+    quizAdvCache.bcscState='ready';
+    ensureQuizAdvBcscVolumes();
+  }).catch(()=>{quizAdvCache.bcscState='error';}).then(()=>{if(S.tab==='quiz')render();});
 }
 function loadQuizAdvHard(){
   if(quizAdvCache.hardState!=='idle'||typeof fetch!=='function')return;
@@ -249,7 +308,7 @@ function ensureQuizAdvLoaded(mode){
 function setQuizBankMode(mode){
   if(SPEC.id!=='oph'||!QUIZ_BANK_MODES.includes(mode))return false;
   window.OphStudy?.leave?.();
-  quizBankMode=mode;quizAdvLimit=25;quizAdvFeedbackId=null;
+  quizBankMode=mode;quizAdvLimit=25;quizAdvFeedbackIds.clear();
   if(mode!=='core')ensureQuizAdvLoaded(mode);
   if(S.tab!=='quiz')switchTab('quiz');else render();
   return true;
@@ -257,14 +316,15 @@ function setQuizBankMode(mode){
 window.OphQuizBank={getMode(){return quizBankMode;},setMode(mode){return setQuizBankMode(mode);}};
 
 function quizAdvPool(mode=quizBankMode){
-  if(mode==='bcsc')return quizAdvCache.bcsc||[];
+  if(mode==='bcsc')return quizAdvBcscCandidates();
   if(mode==='hard')return quizAdvCache.hard||[];
   if(mode==='extra')return quizAdvCache.extra||[];
-  if(mode==='all-advanced')return [...(quizAdvCache.bcsc||[]),...(quizAdvCache.hard||[]),...(quizAdvCache.extra||[])];
+  if(mode==='all-advanced')return [...quizAdvBcscCandidates(),...(quizAdvCache.hard||[]),...(quizAdvCache.extra||[])];
   return [];
 }
 function quizAdvFindQuestion(id){
-  return quizAdvPool('all-advanced').find(q=>q.id===id)||null;
+  const q=quizAdvPool('all-advanced').find(x=>x.id===id&&!x._stub);
+  return q||null;
 }
 function handleQuizAdvAnswer(val){
   const [id,rawIdx]=String(val||'').split('|'),choice=Number(rawIdx);
@@ -273,9 +333,8 @@ function handleQuizAdvAnswer(val){
   const kind=q.bankKind==='bcsc'||/^bcsc-s/.test(q.id)?'question':'extra-question';
   const studyPool=kind==='question'?'book':'extra';
   const edition=q.edition||'2025-2026';
-  quizAdvFeedbackId=q.id;
+  quizAdvFeedbackIds.add(q.id);
   ensureQuizAdvStudyHook();
-  window.OphStudy?.context?.(studyPool,q.id);
   try{
     if(window.OphTextbookBridge?.write)window.OphTextbookBridge.write(kind,q.id,{choice,revealed:true,edition});
     else put('textbook:'+kind+':'+q.id,{version:1,choice,revealed:true,confidence:0,edition});
@@ -283,16 +342,27 @@ function handleQuizAdvAnswer(val){
     put('textbook:'+kind+':'+q.id,{version:1,choice,revealed:true,confidence:0,edition});
   }
   const isCorrect=choice===q.correctIndex;
-  window.OphStudy?.commit?.(studyPool,q.id,isCorrect);
+  if(window.OphStudy?.commitCard)window.OphStudy.commitCard(studyPool,q.id,isCorrect);
+  else{window.OphStudy?.context?.(studyPool,q.id);window.OphStudy?.commit?.(studyPool,q.id,isCorrect);}
   quizAdvRevealed.add(q.id);
   render();
   return true;
 }
 function quizAdvStatsFor(mode){
+  if(mode==='all-advanced'){
+    const b=quizAdvStatsFor('bcsc'),h=quizAdvStatsFor('hard'),e=quizAdvStatsFor('extra');
+    return {answered:b.answered+h.answered+e.answered,correct:b.correct+h.correct+e.correct,wrong:b.wrong+h.wrong+e.wrong,total:b.total+h.total+e.total};
+  }
   const list=quizAdvPool(mode);
   if(list.length){
     let answered=0,correct=0,wrong=0;
-    for(const q of list){const r=quizAdvRecord(q);if(r){answered++;if(r.choice===q.correctIndex)correct++;else wrong++;}}
+    for(const q of list){
+      const r=quizAdvRecord(q);
+      if(!r)continue;
+      answered++;
+      if(!q._stub){if(r.choice===q.correctIndex)correct++;else wrong++;}
+      else{const srs=quizAdvSrsRec(q);if(srs?.attempt){if(srs.attempt.correct)correct++;else wrong++;}}
+    }
     return {answered,correct,wrong,total:list.length};
   }
   const keys=Object.keys(entries);
@@ -300,21 +370,26 @@ function quizAdvStatsFor(mode){
   const hardCnt=keys.filter(k=>/^textbook:extra-question:extra-20261022-/.test(k)&&entries[k]&&Number.isInteger(entries[k].choice)).length;
   const extraCnt=keys.filter(k=>/^textbook:extra-question:extra-20261020-/.test(k)&&entries[k]&&Number.isInteger(entries[k].choice)).length;
   if(mode==='bcsc')return {answered:bcscCnt,correct:0,wrong:0,total:540};
-  if(mode==='hard')return {answered:hardCnt,correct:0,wrong:0,total:36};
+  if(mode==='hard')return {answered:hardCnt,correct:0,wrong:0,total:144};
   if(mode==='extra')return {answered:extraCnt,correct:0,wrong:0,total:120};
-  return {answered:bcscCnt+hardCnt+extraCnt,correct:0,wrong:0,total:696};
+  return {answered:bcscCnt+hardCnt+extraCnt,correct:0,wrong:0,total:804};
 }
 function quizAdvFilteredQuestions(){
   let list=quizAdvPool(quizBankMode);
   if(quizAdvVolume!=='all')list=list.filter(q=>q.bookId===quizAdvVolume);
   if((quizBankMode==='hard'||quizBankMode==='all-advanced')&&quizAdvDomain!=='all')list=list.filter(q=>q.domain===quizAdvDomain);
   if(quizAdvStatus!=='all'){
+    const nowMs=quizAdvClockNow();
     list=list.filter(q=>{
-      if(q.id===quizAdvFeedbackId)return true;
+      if(quizAdvFeedbackIds.has(q.id))return true;
       const r=quizAdvRecord(q);
       if(quizAdvStatus==='unanswered')return !r;
-      if(quizAdvStatus==='wrong')return !!r&&r.choice!==q.correctIndex;
-      if(quizAdvStatus==='correct')return !!r&&r.choice===q.correctIndex;
+      if(quizAdvStatus==='wrong')return !!r&&(q._stub?true:r.choice!==q.correctIndex);
+      if(quizAdvStatus==='correct')return !!r&&(q._stub?true:r.choice===q.correctIndex);
+      const srs=quizAdvSrsRec(q);
+      if(quizAdvStatus==='due')return quizAdvIsDueNow(srs,nowMs);
+      if(quizAdvStatus==='today')return quizAdvIsToday(srs,nowMs);
+      if(quizAdvStatus==='srs-weak')return quizAdvIsSrsWeak(srs);
       return true;
     });
   }
@@ -322,6 +397,7 @@ function quizAdvFilteredQuestions(){
   if(qStr){
     const tokens=qStr.split(/\s+/).filter(Boolean);
     list=list.filter(q=>{
+      if(q._stub)return false;
       const hay=[q.id,q.stem,q.explanation,q.testConcept,q.chapterTitle,q.bookSection,q.bookTitle,q.domainLabel,q.decisiveDiscriminator,q.counterfactual,...(q.options||[]).map(o=>typeof o==='string'?o:(o.text+' '+(o.rationale||'')+' '+(o.whenTrue||'')))].filter(Boolean).join(' ').toLocaleLowerCase();
       return tokens.every(t=>hay.includes(t));
     });
@@ -342,9 +418,9 @@ function quizBankSwitcherMarkup(){
   const items=[
     ['core',`共筆與歷屆（${D.questions.length} 題）`,'基礎必考與歷屆回憶題'],
     ['bcsc','BCSC 第 1–13 卷（540 題）','AAO BCSC 二至三階臨床推理 · 四選項條件反轉'],
-    ['hard','Hard｜多步臨床推理與限時模考','衝突線索、檢查限制與治療先後（36+ 題）'],
+    ['hard','Hard｜多步臨床推理與限時模考','衝突線索、檢查限制與治療先後（144 題）'],
     ['extra','自編陌生病例（120 題）','跨卷臨床情境題'],
-    ['all-advanced','進階題庫全混合（696+ 題）','BCSC 540 題 + Hard 多步推理 + 自編陌生病例一次刷']
+    ['all-advanced','進階題庫全混合（804 題）','BCSC 540 題 + Hard 144 題 + 自編陌生病例 120 題一次刷']
   ];
   return `<nav class="quiz-bank-switcher" data-quiz-bank-switcher aria-label="筆試題庫切換">${items.map(([id,title,sub])=>{const on=quizBankMode===id;return `<button type="button" class="quiz-bank-btn${on?' is-active':''}" data-action="quiz-bank" data-value="${id}" data-quiz-bank="${id}" aria-pressed="${on}"><strong>${esc(title)}</strong><span>${esc(sub)}</span></button>`;}).join('')}</nav>`;
 }
@@ -352,7 +428,7 @@ function quizCoreAdvBannerMarkup(){
   if(SPEC.id!=='oph')return '';
   const st=stats(),bSt=quizAdvStatsFor('bcsc'),hSt=quizAdvStatsFor('hard'),eSt=quizAdvStatsFor('extra');
   const doneCore=st.answered>=500;
-  return `<section class="card quiz-adv-banner${doneCore?' is-complete':''}" data-quiz-adv-banner aria-label="進階題庫直通車"><div class="quiz-adv-banner-body"><div><p class="eyebrow">${doneCore?`基礎題庫已完成 ${st.answered} / ${D.questions.length} 題 · 進階挑戰`:'進階題庫直通車 · 免離開筆試練習'}</p><h2>${doneCore?'恭喜刷完基礎題庫！立即進入 BCSC 540 題與 Hard 多步臨床推理':'隨時切換 BCSC 第 1–13 卷、Hard 多步推理與自編陌生病例'}</h2><p class="small">BCSC 1–13 卷已練 ${bSt.answered} / ${bSt.total} 題 · Hard 多步推理已練 ${hSt.answered} / ${hSt.total} 題 · 自編陌生病例已練 ${eSt.answered} / ${eSt.total} 題</p></div><div class="quiz-adv-banner-actions">${btn('練 BCSC 540 題','quiz-bank','bcsc','primary small')}${btn('練 Hard 多步推理','quiz-bank','hard','small')}${btn('練自編陌生病例 120 題','quiz-bank','extra','small')}${btn('進階 696 題全混合','quiz-bank','all-advanced','small subtle')}</div></div></section>`;
+  return `<section class="card quiz-adv-banner${doneCore?' is-complete':''}" data-quiz-adv-banner aria-label="進階題庫直通車"><div class="quiz-adv-banner-body"><div><p class="eyebrow">${doneCore?`基礎題庫已完成 ${st.answered} / ${D.questions.length} 題 · 進階挑戰`:'進階題庫直通車 · 免離開筆試練習'}</p><h2>${doneCore?'恭喜刷完基礎題庫！立即進入 BCSC 540 題與 Hard 多步臨床推理':'隨時切換 BCSC 第 1–13 卷、Hard 多步推理與自編陌生病例'}</h2><p class="small">BCSC 1–13 卷已練 ${bSt.answered} / ${bSt.total} 題 · Hard 多步推理已練 ${hSt.answered} / ${hSt.total} 題 · 自編陌生病例已練 ${eSt.answered} / ${eSt.total} 題</p></div><div class="quiz-adv-banner-actions">${btn('練 BCSC 540 題','quiz-bank','bcsc','primary small')}${btn('練 Hard 多步推理','quiz-bank','hard','small')}${btn('練自編陌生病例 120 題','quiz-bank','extra','small')}${btn('進階 804 題全混合','quiz-bank','all-advanced','small subtle')}</div></div></section>`;
 }
 function quizAdvPdfBadge(q){
   const refs=q.sourceRefs||[];
@@ -400,27 +476,30 @@ function quizAdvCardMarkup(q,idx,total){
 function quizAdvPageMarkup(){
   ensureQuizAdvLoaded(quizBankMode);
   const st=quizAdvStatsFor(quizBankMode);
-  const titles={bcsc:['BCSC 01–13 / 540 QUESTIONS','BCSC 第 1–13 卷進階題庫','AAO BCSC 二至三階臨床推理題，逐選項附為什麼不選與條件反轉（whenTrue）解析。'],hard:['HARD / MULTISTEP CLINICAL REASONING','Hard｜多步臨床推理與限時模考','專練衝突線索、檢查限制與治療先後順序；可單題深練或啟動 12 題／18 分鐘限時盲測。'],extra:['EXTRA / 120 UNFAMILIAR CASES','自編陌生病例題庫（120 題）','把已讀過的 BCSC 概念換成全新臨床病史線索，檢驗跨章節鑑別能力。'],'all-advanced':['ALL ADVANCED / 696+ QUESTIONS','進階題庫全混合（BCSC + Hard + 自編病例）','整合 BCSC 1–13 卷 540 題、Hard 多步推理與自編陌生病例 120 題一次刷齊。']};
+  const titles={bcsc:['BCSC 01–13 / 540 QUESTIONS','BCSC 第 1–13 卷進階題庫','AAO BCSC 二至三階臨床推理題，逐選項附為什麼不選與條件反轉（whenTrue）解析。'],hard:['HARD / MULTISTEP CLINICAL REASONING','Hard｜多步臨床推理與限時模考','專練衝突線索、檢查限制與治療先後順序；可單題深練或啟動 12 題／18 分鐘限時盲測。'],extra:['EXTRA / 120 UNFAMILIAR CASES','自編陌生病例題庫（120 題）','把已讀過的 BCSC 概念換成全新臨床病史線索，檢驗跨章節鑑別能力。'],'all-advanced':['ALL ADVANCED / 804 QUESTIONS','進階題庫全混合（BCSC + Hard + 自編病例）','整合 BCSC 1–13 卷 540 題、Hard 多步推理 144 題與自編陌生病例 120 題一次刷齊。']};
   const [kicker,title,sub]=titles[quizBankMode]||titles.bcsc;
   const head=heading(kicker,title,sub,`<div class="heading-stat"><strong>${st.answered}<i> / ${st.total}</i></strong><span>題已練習<br>${st.wrong} 題待補強</span></div>`);
   const hardHero=quizBankMode==='hard'||quizBankMode==='all-advanced'?`<section class="card quiz-hard-hero" data-quiz-hard-actions aria-label="Hard 限時模考與深度單元"><div class="quiz-hard-hero-body"><div><p class="eyebrow">HARD CLINICAL REASONING · 限時模考與決策單元</p><h2>挑戰 12 題／18 分鐘限時盲測，或先讀 8 大深度鑑別決策單元</h2><p class="small">限時盲測交卷前不揭露正誤；深度鑑別單元整理相似表現、檢查限制與治療分歧。</p></div><div class="quiz-hard-hero-actions">${btn('啟動 12 題／18 分鐘限時盲測','quiz-hard-timed','','primary')}${btn('開啟 8 大深度鑑別單元與原書對照','quiz-hard-deepdives','')}</div></div></section>`:'';
   const volOptions=BCSC_VOLUMES.map(([id,code,name])=>`<option value="${id}" ${quizAdvVolume===id?'selected':''}>${code} · ${esc(name)}</option>`).join('');
   const domSelect=quizBankMode==='hard'||quizBankMode==='all-advanced'?`<label class="small" for="quiz-adv-domain">領域</label><select class="select" id="quiz-adv-domain" data-quiz-adv-filter="domain" aria-label="臨床領域"><option value="all">全部領域</option>${HARD_DOMAINS.map(([id,name])=>`<option value="${id}" ${quizAdvDomain===id?'selected':''}>${esc(name)}</option>`).join('')}</select>`:'';
-  const toolbar=`<div class="toolbar quiz-toolbar quiz-adv-toolbar" data-quiz-adv-toolbar><label class="small" for="quiz-adv-volume">卷別</label><select class="select" id="quiz-adv-volume" data-quiz-adv-filter="volume" aria-label="BCSC 卷別"><option value="all">全部卷別 S01–S13</option>${volOptions}</select>${domSelect}<label class="small" for="quiz-adv-status">狀態</label><select class="select" id="quiz-adv-status" data-quiz-adv-filter="status" aria-label="作答狀態"><option value="all" ${quizAdvStatus==='all'?'selected':''}>全部狀態</option><option value="unanswered" ${quizAdvStatus==='unanswered'?'selected':''}>尚未作答</option><option value="wrong" ${quizAdvStatus==='wrong'?'selected':''}>待補強（答錯）</option><option value="correct" ${quizAdvStatus==='correct'?'selected':''}>已答對</option></select><input class="input quiz-adv-search" id="quiz-adv-search" type="search" value="${esc(quizAdvSearch)}" placeholder="搜尋題幹、考點、解析或頁碼…" aria-label="搜尋進階題庫"><button type="button" class="btn subtle small" id="qShuffle" data-action="quiz-adv-shuffle">隨機重排</button><button type="button" class="btn subtle small" id="qResetShown" data-action="quiz-adv-reset-shown">重設本頁作答</button></div>`;
-  const isLoading=(quizBankMode==='bcsc'&&quizAdvCache.bcscState==='loading')||(quizBankMode==='hard'&&quizAdvCache.hardState==='loading')||(quizBankMode==='extra'&&quizAdvCache.extraState==='loading')||(quizBankMode==='all-advanced'&&!quizAdvPool('all-advanced').length&&(quizAdvCache.bcscState==='loading'||quizAdvCache.hardState==='loading'||quizAdvCache.extraState==='loading'));
-  const isError=(quizBankMode==='bcsc'&&quizAdvCache.bcscState==='error')||(quizBankMode==='hard'&&quizAdvCache.hardState==='error')||(quizBankMode==='extra'&&quizAdvCache.extraState==='error')||(quizBankMode==='all-advanced'&&!quizAdvPool('all-advanced').length&&(quizAdvCache.bcscState==='error'||quizAdvCache.hardState==='error'||quizAdvCache.extraState==='error'));
-  const hasPartialError=quizBankMode==='all-advanced'&&quizAdvPool('all-advanced').length>0&&(quizAdvCache.bcscState==='error'||quizAdvCache.hardState==='error'||quizAdvCache.extraState==='error');
+  const toolbar=`<div class="toolbar quiz-toolbar quiz-adv-toolbar" data-quiz-adv-toolbar><label class="small" for="quiz-adv-volume">卷別</label><select class="select" id="quiz-adv-volume" data-quiz-adv-filter="volume" aria-label="BCSC 卷別"><option value="all">全部卷別 S01–S13</option>${volOptions}</select>${domSelect}<label class="small" for="quiz-adv-status">狀態</label><select class="select" id="quiz-adv-status" data-quiz-adv-filter="status" aria-label="作答狀態"><option value="all" ${quizAdvStatus==='all'?'selected':''}>全部狀態</option><option value="unanswered" ${quizAdvStatus==='unanswered'?'selected':''}>尚未作答</option><option value="wrong" ${quizAdvStatus==='wrong'?'selected':''}>待補強（答錯）</option><option value="correct" ${quizAdvStatus==='correct'?'selected':''}>已答對</option><option value="due" ${quizAdvStatus==='due'?'selected':''}>到期複習（現在到期）</option><option value="today" ${quizAdvStatus==='today'?'selected':''}>今日待複習</option><option value="srs-weak" ${quizAdvStatus==='srs-weak'?'selected':''}>SRS 弱項</option></select><input class="input quiz-adv-search" id="quiz-adv-search" type="search" value="${esc(quizAdvSearch)}" placeholder="搜尋題幹、考點、解析或頁碼…" aria-label="搜尋進階題庫"><button type="button" class="btn subtle small" id="qShuffle" data-action="quiz-adv-shuffle">隨機重排</button><button type="button" class="btn subtle small" id="qResetShown" data-action="quiz-adv-reset-shown">重設本頁作答</button></div>`;
+  const filtered=quizAdvFilteredQuestions(),shown=filtered.slice(0,quizAdvLimit),hydrated=shown.filter(q=>!q._stub);
+  const volStates=Object.values(quizAdvCache.bcscVolState);
+  const bcscLoading=quizAdvCache.bcscState==='loading'||shown.some(q=>q._stub&&quizAdvCache.bcscVolState[q.bookId]==='loading')||((!!quizAdvSearch.trim()||quizAdvStatus==='wrong'||quizAdvStatus==='correct')&&volStates.includes('loading'));
+  const bcscError=quizAdvCache.bcscState==='error'||shown.some(q=>q._stub&&quizAdvCache.bcscVolState[q.bookId]==='error')||volStates.includes('error');
+  const isLoading=(quizBankMode==='bcsc'&&bcscLoading)||(quizBankMode==='hard'&&quizAdvCache.hardState==='loading')||(quizBankMode==='extra'&&quizAdvCache.extraState==='loading')||(quizBankMode==='all-advanced'&&!hydrated.length&&(bcscLoading||quizAdvCache.hardState==='loading'||quizAdvCache.extraState==='loading'));
+  const isError=(quizBankMode==='bcsc'&&bcscError)||(quizBankMode==='hard'&&quizAdvCache.hardState==='error')||(quizBankMode==='extra'&&quizAdvCache.extraState==='error')||(quizBankMode==='all-advanced'&&!quizAdvPool('all-advanced').some(q=>!q._stub)&&(bcscError||quizAdvCache.hardState==='error'||quizAdvCache.extraState==='error'));
+  const hasPartialError=(quizBankMode==='all-advanced'&&quizAdvPool('all-advanced').some(q=>!q._stub)&&(bcscError||quizAdvCache.hardState==='error'||quizAdvCache.extraState==='error'))||(quizBankMode==='bcsc'&&hydrated.length>0&&bcscError);
   const errBanner=hasPartialError?`<div class="card quiz-adv-partial-error" data-quiz-adv-error><p>部分進階題庫載入失敗 · <button type="button" class="btn small" data-action="quiz-adv-retry-load" data-quiz-adv-retry>重試載入題庫</button></p></div>`:'';
-  const filtered=quizAdvFilteredQuestions(),shown=filtered.slice(0,quizAdvLimit);
   let listHtml='';
-  if(isLoading&&!filtered.length){
+  if(isLoading&&!hydrated.length){
     listHtml='<div class="card empty"><p role="status">正在載入進階題庫…</p></div>';
-  }else if(isError&&!filtered.length){
+  }else if(isError&&!hydrated.length){
     listHtml=`<div class="card empty" data-quiz-adv-error><h2>進階題庫暫時無法載入</h2><p>請檢查網路連線後重試載入。</p><p><button type="button" class="btn primary" data-action="quiz-adv-retry-load" data-quiz-adv-retry>重試載入題庫</button></p></div>`;
-  }else if(!filtered.length){
+  }else if(!hydrated.length){
     listHtml=errBanner+`<div class="card empty"><h2>目前篩選條件下沒有符合的題目</h2><p>請切換卷別、狀態或清除搜尋關鍵字。</p></div>`;
   }else{
-    listHtml=errBanner+shown.map((q,i)=>quizAdvCardMarkup(q,i,filtered.length)).join('')+(filtered.length>shown.length?`<div class="quiz-adv-more"><button type="button" class="btn primary" data-action="quiz-adv-more">載入更多題目（已顯示 ${shown.length} / ${filtered.length} 題，顯示下 25 題）</button></div>`:'');
+    listHtml=errBanner+hydrated.map((q,i)=>quizAdvCardMarkup(q,i,filtered.length)).join('')+(bcscLoading&&shown.length>hydrated.length?'<div class="card"><p role="status">正在載入此卷題目…</p></div>':'')+(filtered.length>shown.length?`<div class="quiz-adv-more"><button type="button" class="btn primary" data-action="quiz-adv-more">載入更多題目（已顯示 ${shown.length} / ${filtered.length} 題，顯示下 25 題）</button></div>`:'');
   }
   return head+quizBankSwitcherMarkup()+hardHero+toolbar+`<div id="quizList" class="quiz-adv-list" data-quiz-adv-list>${listHtml}</div>`;
 }
@@ -484,15 +563,28 @@ function todayPlanLine(){
 }
 function todayReview(){
   if(!tabAllowed('study')||(SPEC.id!=='oph'&&!D.questions.length))return '';
-  const now=Date.now(),today=taipeiDate(now),st=stats(),bank=new Set(D.questions.map(q=>q.id));let due=0,later=0,weak=0;
+  const now=quizAdvClockNow(),today=taipeiDate(now),st=stats(),bank=new Set(D.questions.map(q=>q.id)),kaogu=new Set(D.questions.filter(q=>q.pastExam).map(q=>q.id));
+  let due=0,later=0,weak=0,totalSrs=0;
+  const dueBy={notes:0,kaogu:0,book:0,hard:0,extra:0,cram:0,atlas:0};
   for(const [k,v] of Object.entries(entries)){
     if(!k.startsWith('study:srs:')||!v||typeof v!=='object')continue;
+    if(SPEC.id!=='oph'&&!k.startsWith('study:srs:shared:'))continue;
     if(k.startsWith('study:srs:shared:')&&!bank.has(k.slice(17)))continue;// saved review for a question no longer in the bank
-    const at=Date.parse(v.plan?.dueAt);
-    if(Number.isFinite(at)){if(at<=now)due++;else if(taipeiDate(at)===today)later++;}
+    totalSrs++;
+    const at=Date.parse(v.plan?.dueAt),isDue=Number.isFinite(at)&&at<=now;
+    if(Number.isFinite(at)){if(isDue)due++;else if(taipeiDate(at)===today)later++;}
     if(v.attempt?.correct===false||['again','hard'].includes(v.plan?.rating))weak++;
+    if(isDue&&SPEC.id==='oph'){
+      if(k.startsWith('study:srs:shared:'))dueBy[kaogu.has(k.slice(17))?'kaogu':'notes']++;
+      else if(k.startsWith('study:srs:book:'))dueBy.book++;
+      else if(k.startsWith('study:srs:extra:'))dueBy[/^extra-20261022-/.test(k.slice(16))?'hard':'extra']++;
+      else if(k.startsWith('study:srs:cram:'))dueBy.cram++;
+      else if(k.startsWith('study:srs:atlas:'))dueBy.atlas++;
+    }
   }
-  return `<section class="card today-review" aria-labelledby="today-review-title"><div class="today-card-head"><h2 id="today-review-title">今日複習</h2><span class="small">台北時間</span></div><div class="today-counts"><div><span>現在到期</span><strong>${due}</strong></div><div><span>今日稍後</span><strong>${later}</strong></div><div><span>弱項</span><strong>${weak}</strong></div></div><p class="today-note">${due?`有 ${due} 題到期：先清掉，再練新題。`:'目前沒有到期題目，可以先練新題或錯題。'}</p><div class="today-actions">${btn(due?'開始今日複習':'打開複習清單','tab','study','primary')}${st.wrong?btn('錯題再練 '+st.wrong,'wrong'):btn('從新題開始','today-new')}</div>${todayPlanLine()}</section>`;
+  const bankParts=[['共筆自編',dueBy.notes],['考古考點',dueBy.kaogu],['BCSC 原書',dueBy.book],['Hard 推理',dueBy.hard],['陌生病例',dueBy.extra],['衝刺卡',dueBy.cram],['視覺圖譜',dueBy.atlas]].filter(([,n])=>n>0).map(([lbl,n])=>`${lbl} ${n}`);
+  const bankLine=SPEC.id==='oph'&&totalSrs>0?`<p class="small today-srs-banks" data-today-srs-banks>${bankParts.length?'到期分佈：'+bankParts.join(' · '):`已建立 ${totalSrs} 筆跨題庫間隔複習排程`}</p>`:'';
+  return `<section class="card today-review" aria-labelledby="today-review-title"><div class="today-card-head"><h2 id="today-review-title">今日複習</h2><span class="small">台北時間</span></div><div class="today-counts"><div><span>現在到期</span><strong>${due}</strong></div><div><span>今日稍後</span><strong>${later}</strong></div><div><span>弱項</span><strong>${weak}</strong></div></div>${bankLine}<p class="today-note">${due?`有 ${due} 題到期：先清掉，再練新題。`:'目前沒有到期題目，可以先練新題或錯題。'}</p><div class="today-actions">${btn(due?'開始今日複習':'打開複習清單','tab','study','primary')}${st.wrong?btn('錯題再練 '+st.wrong,'wrong'):btn('從新題開始','today-new')}</div>${todayPlanLine()}</section>`;
 }
 function todayReading(){
   const t=D.topics.find(x=>x.id===S.learn&&x.chapter)||D.topics.find(x=>x.chapter)||D.topics[0];
