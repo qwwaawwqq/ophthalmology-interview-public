@@ -35,7 +35,7 @@
     <text x="66" y="436" font-size="10.5" fill="#0f766e">（改採俯臥位 Prone 或門控增厚校正）</text>
     <text x="58" y="456" font-size="11" fill="#be123c">· LBBB 運動負荷 → 中隔假陽性缺損</text>
     <text x="58" y="476" font-size="11" fill="#1d4ed8">· 三支均衡狹窄 → 半定量易偽陰性</text>
-    <text x="66" y="494" font-size="10.5" fill="#1d4ed8">（靠 TID&gt;1.2 或 PET/CZT 測絕對 CFR）</text>
+    <text x="62" y="494" font-size="10.5" fill="#1d4ed8">（靠 TID&gt;1.2 或 PET/CZT 測 CFR）</text>
 
     <!-- Panel B: Stress / Rest / FDG Matrix -->
     <rect x="326" y="88" width="320" height="434" rx="10" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.8"/>
@@ -53,7 +53,7 @@
     <circle cx="466" cy="190" r="26" fill="none" stroke="#f59e0b" stroke-width="10"/>
     <rect x="522" y="172" width="70" height="36" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
     <text x="557" y="194" font-size="11" font-weight="700" fill="#92400e" text-anchor="middle">免做即可定</text>
-    <text x="348" y="242" font-size="11.5" font-weight="700" fill="#b45309">1. 可逆性缺血（Reversible）：缺血 &gt;=10% 血管重建</text>
+    <text x="348" y="242" font-size="11" font-weight="700" fill="#b45309">1. 可逆性缺血（Reversible）：≥10% 血管重建</text>
 
     <!-- Row 2: Hibernating Viable (Mismatch) -->
     <rect x="338" y="268" width="296" height="114" rx="8" fill="#f0fdfa" stroke="#5eead4"/>
@@ -63,7 +63,7 @@
     <path d="M448 290 A26 26 0 0 1 484 290" fill="none" stroke="#94a3b8" stroke-width="11"/>
     <circle cx="556" cy="310" r="26" fill="none" stroke="#0f766e" stroke-width="10"/>
     <path d="M538 290 A26 26 0 0 1 574 290" fill="none" stroke="#be123c" stroke-width="12"/>
-    <text x="348" y="360" font-size="11.5" font-weight="700" fill="#0f766e">2. 冬眠存活心肌（低血流＋高 FDG Mismatch）</text>
+    <text x="348" y="360" font-size="11" font-weight="700" fill="#0f766e">2. 冬眠存活心肌（低血流＋高 FDG Mismatch）</text>
     <text x="348" y="376" font-size="10.5" fill="#334155">無氧糖解求生 → CABG／PCI 重建後收縮力顯著恢復</text>
 
     <!-- Row 3: Transmural Scar (Match) -->
@@ -74,7 +74,7 @@
     <path d="M448 416 A26 26 0 0 1 484 416" fill="none" stroke="#94a3b8" stroke-width="11"/>
     <circle cx="556" cy="436" r="26" fill="none" stroke="#0f766e" stroke-width="10"/>
     <path d="M538 416 A26 26 0 0 1 574 416" fill="none" stroke="#94a3b8" stroke-width="11"/>
-    <text x="348" y="486" font-size="11.5" font-weight="700" fill="#be123c">3. 穿壁心肌疤痕（血流與 FDG 同步缺失 Match）</text>
+    <text x="348" y="486" font-size="11" font-weight="700" fill="#be123c">3. 穿壁心肌疤痕（血流與 FDG 皆缺 Match）</text>
     <text x="348" y="502" font-size="10.5" fill="#334155">壞死逾壁厚 50% → 血管重建無益，採心衰竭藥物治療</text>
 
     <!-- Panel C: Cascade + Stress Drugs + Tracers -->
@@ -82,28 +82,28 @@
     <rect x="660" y="88" width="264" height="32" rx="10" fill="#fef3c7"/>
     <text x="674" y="109" font-size="14" font-weight="700" fill="#92400e">C. 缺血瀑布與負荷／心功能考點</text>
 
-    <text x="674" y="138" font-size="12" font-weight="700" fill="#0f172a">1. 缺血瀑布（由早到晚必考）：</text>
-    <rect x="674" y="146" width="236" height="86" rx="6" fill="#fffbeb" stroke="#fde68a"/>
-    <text x="684" y="164" font-size="11" font-weight="600" fill="#92400e">① 冠脈血流灌注不均 (MPI 最早抓到)</text>
-    <text x="684" y="181" font-size="11" font-weight="600" fill="#be123c">② 舒張功能下降 (PFR↓，早於收縮！)</text>
-    <text x="684" y="198" font-size="11" fill="#334155">③ 收縮壁運動與 EF↓ → ④ ECG ST 變化</text>
-    <text x="684" y="215" font-size="11" fill="#475569">⑤ 臨床心絞痛胸痛（最晚出現）</text>
+    <text x="670" y="138" font-size="12" font-weight="700" fill="#0f172a">1. 缺血瀑布（由早到晚必考）：</text>
+    <rect x="670" y="146" width="244" height="86" rx="6" fill="#fffbeb" stroke="#fde68a"/>
+    <text x="678" y="164" font-size="10.5" font-weight="600" fill="#92400e">① 冠脈血流灌注不均 (MPI 最早抓到)</text>
+    <text x="678" y="181" font-size="10.5" font-weight="600" fill="#be123c">② 舒張功能下降 (PFR↓，早於收縮！)</text>
+    <text x="678" y="198" font-size="10" fill="#334155">③ 收縮壁運動與 EF↓ → ④ ECG ST 變化</text>
+    <text x="678" y="215" font-size="10.5" fill="#475569">⑤ 臨床心絞痛胸痛（最晚出現）</text>
 
-    <text x="674" y="254" font-size="12" font-weight="700" fill="#0f172a">2. 藥物壓力負荷與解毒劑：</text>
-    <rect x="674" y="262" width="236" height="104" rx="6" fill="#eff6ff" stroke="#bfdbfe"/>
-    <text x="684" y="280" font-size="11" font-weight="700" fill="#1d4ed8">· 血管擴張劑 (Adenosine/Dipyridamole)</text>
-    <text x="684" y="297" font-size="10.5" fill="#334155">A2A 擴張冠脈；禁於氣喘、高度 AV block</text>
-    <text x="684" y="313" font-size="10.5" font-weight="600" fill="#be123c">停咖啡因 12–24h · 解毒：Aminophylline</text>
-    <text x="684" y="333" font-size="11" font-weight="700" fill="#0f766e">· Dobutamine (β1 強心耗氧負荷)</text>
-    <text x="684" y="350" font-size="10.5" fill="#334155">氣喘替代首選 · 避開 LBBB · 解毒：Esmolol</text>
+    <text x="670" y="254" font-size="12" font-weight="700" fill="#0f172a">2. 藥物壓力負荷與解毒劑：</text>
+    <rect x="670" y="262" width="244" height="104" rx="6" fill="#eff6ff" stroke="#bfdbfe"/>
+    <text x="678" y="280" font-size="10" font-weight="700" fill="#1d4ed8">· 擴張劑 (Adenosine / Dipyridamole)</text>
+    <text x="678" y="297" font-size="10" fill="#334155">A2A 擴張冠脈；禁於氣喘、高度 AV block</text>
+    <text x="678" y="313" font-size="10" font-weight="600" fill="#be123c">停咖啡因 12–24h · 解毒 Aminophylline</text>
+    <text x="678" y="333" font-size="10.5" font-weight="700" fill="#0f766e">· Dobutamine (β1 強心耗氧負荷)</text>
+    <text x="678" y="350" font-size="10" fill="#334155">氣喘替代首選 · 避 LBBB · 解毒 Esmolol</text>
 
-    <text x="674" y="388" font-size="12" font-weight="700" fill="#0f172a">3. 示蹤劑與特殊心肌病變珍珠：</text>
-    <rect x="674" y="396" width="236" height="112" rx="6" fill="#f0fdfa" stroke="#99f6e4"/>
-    <text x="684" y="414" font-size="10.5" fill="#334155">· Tl-201：心肌佔 3–4%，單針看再分布存活</text>
-    <text x="684" y="432" font-size="10.5" fill="#334155">· Rb-82 PET：T1/2 75s，檢查最短 (~40m)</text>
-    <text x="684" y="450" font-size="10.5" fill="#334155">· MUGA (LAO 45°)：標記紅血球精算 EF/PFR</text>
-    <text x="684" y="468" font-size="10.5" fill="#0f766e">· 類肉瘤 FDG：高脂低碳水＋禁食 12–18h</text>
-    <text x="684" y="486" font-size="10.5" fill="#1d4ed8">· Tc-99m PYP：排除輕鏈後確診 ATTR-CM</text>
-    <text x="684" y="502" font-size="10.5" fill="#be123c">· I-123 MIBG：心衰竭/PD 延遲 H/M 比值↓</text>
+    <text x="670" y="386" font-size="12" font-weight="700" fill="#0f172a">3. 示蹤劑與特殊心肌病變珍珠：</text>
+    <rect x="670" y="394" width="244" height="116" rx="6" fill="#f0fdfa" stroke="#99f6e4"/>
+    <text x="678" y="412" font-size="10" fill="#334155">· Tl-201：心肌佔 3–4%，單針看再分布</text>
+    <text x="678" y="429" font-size="10" fill="#334155">· Rb-82 PET：T1/2 75s，檢查約 40m</text>
+    <text x="678" y="446" font-size="10" fill="#334155">· MUGA (LAO 45°)：RBC 精算 EF/PFR</text>
+    <text x="678" y="463" font-size="10" fill="#0f766e">· 類肉瘤 FDG：高脂低碳水＋禁食 12–18h</text>
+    <text x="678" y="480" font-size="10" fill="#1d4ed8">· Tc-99m PYP：排除 AL 後確診 ATTR-CM</text>
+    <text x="678" y="497" font-size="10" fill="#be123c">· I-123 MIBG：心衰/PD 延遲 H/M 比值↓</text>
   </g>
 </svg>

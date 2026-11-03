@@ -20,11 +20,11 @@
     <!-- Left Card: SPECT -->
     <rect x="38" y="90" width="432" height="300" rx="10" fill="#ffffff" stroke="#0f766e" stroke-width="1.8"/>
     <rect x="38" y="90" width="432" height="34" rx="10" fill="#ccfbf1"/>
-    <text x="54" y="112" font-size="14.5" font-weight="700" fill="#0f766e">A. 閃爍攝影機／SPECT（物理鉛隔準直 · 140 keV 單光子）</text>
+    <text x="50" y="112" font-size="13" font-weight="700" fill="#0f766e">A. 閃爍攝影機／SPECT（物理鉛隔準直 · 140 keV 單光子）</text>
 
     <!-- PMT + Crystal + Collimator Stack -->
     <rect x="92" y="138" width="230" height="24" rx="4" fill="#e2e8f0" stroke="#64748b"/>
-    <text x="207" y="154" font-size="11.5" font-weight="600" text-anchor="middle">光電倍增管陣列（PMT）＋ PHA ±10% 能窗</text>
+    <text x="207" y="154" font-size="10.5" font-weight="600" text-anchor="middle">光電倍增管（PMT）＋ PHA ±10% 能窗</text>
     <rect x="92" y="166" width="230" height="22" rx="3" fill="#bae6fd" stroke="#0284c7" stroke-width="1.5"/>
     <text x="207" y="181" font-size="11.5" font-weight="700" fill="#0369a1" text-anchor="middle">NaI(Tl) 閃爍晶體（γ 轉可見光）</text>
 
@@ -42,69 +42,71 @@
     <text x="334" y="212" font-size="11" font-weight="600" fill="#334155">鉛隔吸收斜向光子</text>
 
     <!-- Patient Organ & Rays -->
-    <ellipse cx="207" cy="286" rx="86" ry="30" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
-    <circle cx="172" cy="284" r="11" fill="#f59e0b"/>
-    <text x="228" y="290" font-size="12" font-weight="700" fill="#92400e">Tc-99m 病灶 (140 keV)</text>
+    <ellipse cx="207" cy="284" rx="86" ry="28" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+    <circle cx="172" cy="282" r="11" fill="#f59e0b"/>
+    <text x="228" y="288" font-size="12" font-weight="700" fill="#92400e">Tc-99m 病灶 (140 keV)</text>
     <!-- Vertical accepted rays -->
-    <line x1="172" y1="272" x2="172" y2="190" stroke="#0f766e" stroke-width="2" marker-end="url(#arrTeal)"/>
-    <line x1="149" y1="274" x2="149" y2="190" stroke="#0f766e" stroke-width="2" marker-end="url(#arrTeal)"/>
+    <line x1="172" y1="270" x2="172" y2="190" stroke="#0f766e" stroke-width="2" marker-end="url(#arrTeal)"/>
+    <line x1="149" y1="272" x2="149" y2="190" stroke="#0f766e" stroke-width="2" marker-end="url(#arrTeal)"/>
     <!-- Oblique blocked ray -->
-    <line x1="172" y1="272" x2="230" y2="212" stroke="#be123c" stroke-width="1.8" stroke-dasharray="4,3" marker-end="url(#arrRed)"/>
+    <line x1="172" y1="270" x2="230" y2="212" stroke="#be123c" stroke-width="1.8" stroke-dasharray="4,3" marker-end="url(#arrRed)"/>
     <text x="242" y="246" font-size="10.5" fill="#be123c">斜射被鉛阻擋 (&gt;99.9% 濾除)</text>
 
     <!-- Collimator mini-note -->
-    <rect x="54" y="328" width="400" height="50" rx="6" fill="#f0fdfa" stroke="#99f6e4"/>
-    <text x="64" y="346" font-size="11.5" font-weight="600" fill="#0f766e">· 平行孔 LEHR（高解析）vs HEGP（I-131 364 keV 防鉛隔穿透星狀假影）</text>
-    <text x="64" y="366" font-size="11.5" fill="#334155">· 針孔（Pinhole）：貼近甲狀腺具放大效應 · SPECT 靈敏度 ~0.01%、解析度 7–12 mm</text>
+    <rect x="50" y="322" width="406" height="58" rx="6" fill="#f0fdfa" stroke="#99f6e4"/>
+    <text x="60" y="338" font-size="10.5" font-weight="600" fill="#0f766e">· 平行孔 LEHR（高解析）vs HEGP（I-131 364 keV 防星狀假影）</text>
+    <text x="60" y="354" font-size="10.5" fill="#334155">· 針孔（Pinhole）：貼近甲狀腺具放大效應</text>
+    <text x="60" y="370" font-size="10.5" fill="#334155">· 傳統 SPECT 靈敏度 ~0.01%、空間解析度 7–12 mm</text>
 
     <!-- Right Card: PET -->
     <rect x="490" y="90" width="432" height="300" rx="10" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.8"/>
     <rect x="490" y="90" width="432" height="34" rx="10" fill="#dbeafe"/>
-    <text x="506" y="112" font-size="14.5" font-weight="700" fill="#1d4ed8">B. 正子斷層 PET/CT（電子符合偵測 · 511 keV 互毀雙光子）</text>
+    <text x="502" y="112" font-size="13" font-weight="700" fill="#1d4ed8">B. 正子斷層 PET/CT（電子符合偵測 · 511 keV 互毀雙光子）</text>
 
     <!-- PET Detector Ring -->
-    <circle cx="655" cy="226" r="82" fill="none" stroke="#1e40af" stroke-width="12" stroke-dasharray="18,4"/>
-    <circle cx="655" cy="226" r="50" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.2"/>
+    <circle cx="612" cy="224" r="80" fill="none" stroke="#1e40af" stroke-width="12" stroke-dasharray="18,4"/>
+    <circle cx="612" cy="224" r="48" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.2"/>
     <!-- Positron & Annihilation -->
-    <circle cx="642" cy="232" r="6" fill="#be123c"/>
-    <text x="612" y="250" font-size="10.5" font-weight="700" fill="#be123c">β+ 核種</text>
-    <path d="M648 230 Q654 220 660 222" fill="none" stroke="#be123c" stroke-width="2"/>
-    <circle cx="662" cy="221" r="5" fill="#f59e0b" stroke="#b45309"/>
+    <circle cx="599" cy="230" r="6" fill="#be123c"/>
+    <text x="572" y="248" font-size="10" font-weight="700" fill="#be123c">β+ 核種</text>
+    <path d="M605 228 Q611 218 617 220" fill="none" stroke="#be123c" stroke-width="2"/>
+    <circle cx="619" cy="219" r="5" fill="#f59e0b" stroke="#b45309"/>
     <!-- 180 deg 511 keV photons -->
-    <line x1="662" y1="221" x2="582" y2="195" stroke="#1d4ed8" stroke-width="2.4" marker-end="url(#arrBlue)"/>
-    <line x1="662" y1="221" x2="736" y2="246" stroke="#1d4ed8" stroke-width="2.4" marker-end="url(#arrBlue)"/>
-    <text x="615" y="185" font-size="10.5" font-weight="700" fill="#1d4ed8">511 keV</text>
-    <text x="678" y="262" font-size="10.5" font-weight="700" fill="#1d4ed8">511 keV (180°±0.25°)</text>
+    <line x1="619" y1="219" x2="541" y2="194" stroke="#1d4ed8" stroke-width="2.4" marker-end="url(#arrBlue)"/>
+    <line x1="619" y1="219" x2="691" y2="243" stroke="#1d4ed8" stroke-width="2.4" marker-end="url(#arrBlue)"/>
+    <text x="572" y="185" font-size="10" font-weight="700" fill="#1d4ed8">511 keV</text>
+    <text x="620" y="260" font-size="10" font-weight="700" fill="#1d4ed8">511 keV (180°)</text>
 
     <!-- Right side annotations inside Card B -->
-    <rect x="752" y="138" width="156" height="172" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
-    <text x="762" y="158" font-size="12" font-weight="700" fill="#1e3a8a">電子準直與物理極限</text>
-    <text x="762" y="178" font-size="11" fill="#334155">1. 免鉛隔！靈敏度高 &gt;100 倍</text>
-    <text x="762" y="197" font-size="11" fill="#334155">2. LSO/LYSO 晶體＋TOF 定位</text>
-    <text x="762" y="216" font-size="11" fill="#334155">3. 解析度 4–5 mm 受限於：</text>
-    <text x="770" y="234" font-size="10.5" fill="#be123c">· 正子射程 (Rb-82/Ga-68 &gt; F-18)</text>
-    <text x="770" y="251" font-size="10.5" fill="#be123c">· 雙光子非共線性 (±0.25°)</text>
-    <text x="762" y="272" font-size="11" font-weight="600" fill="#0f766e">4. 放療生物靶體積 (BTV)：</text>
-    <text x="770" y="290" font-size="10.5" fill="#334155">FDG 糖解·FLT 增殖·FMISO 缺氧</text>
+    <rect x="716" y="136" width="194" height="176" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="726" y="155" font-size="11.5" font-weight="700" fill="#1e3a8a">電子準直與物理極限</text>
+    <text x="726" y="173" font-size="10" fill="#334155">1. 免鉛隔！靈敏度高 &gt;100 倍</text>
+    <text x="726" y="190" font-size="10" fill="#334155">2. LSO/LYSO 晶體＋TOF 定位</text>
+    <text x="726" y="207" font-size="10" fill="#334155">3. 解析度 4–5 mm 受限於：</text>
+    <text x="728" y="223" font-size="10" fill="#be123c">· 正子射程 (Rb-82/Ga-68&gt;F-18)</text>
+    <text x="728" y="239" font-size="10" fill="#be123c">· 雙光子非共線性 (±0.25°)</text>
+    <text x="726" y="258" font-size="10" font-weight="600" fill="#0f766e">4. 放療生物靶體積 (BTV)：</text>
+    <text x="728" y="274" font-size="10" fill="#334155">· FDG 糖解 · FLT 增殖</text>
+    <text x="728" y="290" font-size="10" fill="#334155">· FMISO 缺氧定位</text>
 
-    <rect x="506" y="328" width="400" height="50" rx="6" fill="#eff6ff" stroke="#bfdbfe"/>
-    <text x="516" y="346" font-size="11.5" font-weight="600" fill="#1d4ed8">· FDG 代謝滯留：GLUT1 入胞 → 己糖激酶磷酸化為 FDG-6-P 卡在胞內</text>
-    <text x="516" y="366" font-size="11.5" fill="#334155">· 高血糖競爭致腫瘤 SUV 偽低；&lt;8–10 mm 小結節具部分體積效應低估</text>
+    <rect x="502" y="322" width="408" height="58" rx="6" fill="#eff6ff" stroke="#bfdbfe"/>
+    <text x="512" y="342" font-size="10.5" font-weight="600" fill="#1d4ed8">· FDG 代謝滯留：GLUT1 入胞 → 己糖激酶磷酸化 FDG-6-P 卡胞內</text>
+    <text x="512" y="364" font-size="10.5" fill="#334155">· 高血糖競爭致腫瘤 SUV 偽低；&lt;8–10 mm 結節具部分體積低估</text>
 
     <!-- Bottom Strip: Generator QC & Half-Life Selection -->
     <rect x="38" y="404" width="884" height="120" rx="10" fill="#ffffff" stroke="#b45309" stroke-width="1.6"/>
     <rect x="38" y="404" width="884" height="30" rx="10" fill="#fef3c7"/>
     <text x="54" y="424" font-size="13.5" font-weight="700" fill="#92400e">C. 孳生器平衡、放射化學品管假影與體內／體外核種半衰期鐵律</text>
 
-    <text x="54" y="454" font-size="12" font-weight="700" fill="#0f172a">1. 母子核種平衡與突破上限：</text>
-    <text x="54" y="474" font-size="11.5" fill="#334155">· 暫態平衡：Mo-99/Tc-99m (66h : 6h) · 永恆平衡：Ge-68/Ga-68、Sr-82/Rb-82</text>
-    <text x="54" y="494" font-size="11.5" fill="#be123c">· 品管紅線：Mo-99 &lt; 0.15 μCi/mCi Tc-99m；氧化鋁 Al3+ &lt; 10 μg/mL（防肝肺凝集）</text>
-    <text x="54" y="514" font-size="11.5" fill="#334155">· 薄層層析：游離 TcO4-（丙酮跑頂端 → 胃/甲狀腺/唾液腺亮）vs 膠體 TcO2（食鹽水留原點 → 肝脾亮）</text>
+    <text x="50" y="452" font-size="11.5" font-weight="700" fill="#0f172a">1. 母子核種平衡與突破上限：</text>
+    <text x="50" y="470" font-size="10.5" fill="#334155">· 暫態平衡：Mo-99/Tc-99m (66h:6h) · 永恆：Ge-68/Ga-68、Sr-82/Rb-82</text>
+    <text x="50" y="488" font-size="10.5" fill="#be123c">· 品管紅線：Mo-99 &lt; 0.15 μCi/mCi；氧化鋁 Al3+ &lt; 10 μg/mL（防肝肺凝集）</text>
+    <text x="50" y="506" font-size="10.5" fill="#334155">· ITLC：游離 TcO4-（丙酮頂端→胃甲唾亮）vs 膠體 TcO2（食鹽水原點→肝脾亮）</text>
 
-    <line x1="560" y1="440" x2="560" y2="516" stroke="#cbd5e1" stroke-width="1.5"/>
-    <text x="578" y="454" font-size="12" font-weight="700" fill="#0f766e">2. 歷屆必考核種半衰期與儀器配對：</text>
-    <text x="578" y="475" font-size="11.5" fill="#334155">· 體內 SPECT 造影：選「適中半衰期＋無粒子」(Tc-99m 6h)</text>
-    <text x="578" y="495" font-size="11.5" fill="#334155">· 體外 RIA 免疫檢驗：選「長半衰期」(I-125 60d)＋Gamma counter</text>
-    <text x="578" y="514" font-size="11.5" fill="#1d4ed8">· 骨掃描僅 5% 骨礦質變化即顯影（傳統 X 光需 30–50% 脫鈣）</text>
+    <line x1="554" y1="440" x2="554" y2="516" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="568" y="452" font-size="11.5" font-weight="700" fill="#0f766e">2. 歷屆必考核種半衰期與儀器配對：</text>
+    <text x="568" y="470" font-size="10.5" fill="#334155">· 體內 SPECT：選適中半衰期＋純 γ（Tc-99m 6h）</text>
+    <text x="568" y="488" font-size="10.5" fill="#334155">· 體外 RIA 檢驗：選長半衰期 I-125 (60d)＋井型計數器</text>
+    <text x="568" y="506" font-size="10.5" fill="#1d4ed8">· 骨掃描僅 5% 骨礦變化即亮（X 光需 30–50% 脫鈣）</text>
   </g>
 </svg>

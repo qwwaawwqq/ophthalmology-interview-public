@@ -3,8 +3,7 @@
   <desc id="desc-nm-09">上排比較伽瑪攝影機正常均勻度平板、單顆光電倍增管故障圓形冷區、晶體受潮龜裂線影與 SPECT 旋轉中心偏移甜甜圈假影；下排整合我國三大族群法定劑量限值、放射性潑灑 SWIMS 流程與體外 RIA/IRMA 鉤狀效應。</desc>
 
   <rect x="20" y="20" width="920" height="520" rx="16" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
-  <rect x="20" y="20" width="920" height="54" rx="16" fill="#1d4ed8"/>
-  <rect x="20" y="54" width="920" height="20" fill="#1d4ed8"/>
+  <path d="M 36 20 H 924 A 16 16 0 0 1 940 36 V 74 H 20 V 36 A 16 16 0 0 1 36 20 Z" fill="#1d4ed8"/>
   <text x="46" y="54" font-size="20" font-weight="700" fill="#ffffff">核醫儀器品保（QC）假影圖譜 · 法定輻防限值 · 潑灑應變與免疫定量</text>
 
   <!-- Top Panel: 4 Gamma Camera / SPECT QC Flood Artifacts -->
@@ -40,33 +39,34 @@
 
   <!-- Bottom Left: Statutory Dose Limits & ALARA -->
   <rect x="38" y="304" width="442" height="220" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
-  <text x="56" y="330" font-size="15" font-weight="700" fill="#0f172a">B · 我國《游離輻射防護安全標準》必背劑量限值</text>
+  <text x="54" y="328" font-size="15" font-weight="700" fill="#0f172a">B · 我國《游離輻射防護安全標準》必背劑量限值</text>
 
-  <rect x="54" y="342" width="410" height="46" rx="8" fill="#eff6ff" stroke="#93c5fd"/>
-  <text x="66" y="361" font-size="12" font-weight="700" fill="#1d4ed8">輻射工作人員：連續 5 年 ≤ 100 mSv（均 20）且單年 ≤ 50 mSv</text>
-  <text x="66" y="379" font-size="11" fill="#334155">眼球水晶體 150 mSv/年（ICRP 新建議 20）· 皮膚與四肢 500 mSv/年</text>
+  <rect x="50" y="340" width="418" height="46" rx="8" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="60" y="359" font-size="11.5" font-weight="700" fill="#1d4ed8">輻射工作人員：連續 5 年 ≤ 100 mSv（均 20）且單年 ≤ 50 mSv</text>
+  <text x="60" y="377" font-size="10.5" fill="#334155">眼球水晶體 150 mSv/年（ICRP 建議 20）· 皮膚與四肢 500 mSv/年</text>
 
-  <rect x="54" y="396" width="410" height="46" rx="8" fill="#fff1f2" stroke="#fda4af"/>
-  <text x="66" y="415" font-size="12" font-weight="700" fill="#be123c">告知懷孕女性同仁（申報至分娩）：腹部表面等價劑量 ≤ 2 mSv</text>
-  <text x="66" y="433" font-size="11" fill="#334155">體內攝入約定有效劑量 ≤ 1 mSv · 免除高活度揮發性 I-131 分裝照護</text>
+  <rect x="50" y="394" width="418" height="46" rx="8" fill="#fff1f2" stroke="#fda4af"/>
+  <text x="60" y="413" font-size="11.5" font-weight="700" fill="#be123c">告知懷孕女性同仁（申報至分娩）：腹部表面等價劑量 ≤ 2 mSv</text>
+  <text x="60" y="431" font-size="10.5" fill="#334155">體內攝入約定有效劑量 ≤ 1 mSv · 免除高活度揮發性 I-131 分裝照護</text>
 
-  <rect x="54" y="450" width="410" height="60" rx="8" fill="#f0fdfa" stroke="#99f6e4"/>
-  <text x="66" y="469" font-size="12" font-weight="700" fill="#0f766e">一般民眾：有效劑量 ≤ 1 mSv/年（水晶體 15 · 皮膚 50 mSv/年）</text>
-  <text x="66" y="487" font-size="11" fill="#0f172a">· 距離平方反比（距離變 4 倍 → 劑量率降為 1/16）· 多喝水排尿降生物半衰期</text>
-  <text x="66" y="503" font-size="11" fill="#0f172a">· 純高能 β（Y-90/P-32）內層必用壓克力（塑膠）吸收電子，防鉛激發韌致輻射</text>
+  <rect x="50" y="448" width="418" height="64" rx="8" fill="#f0fdfa" stroke="#99f6e4"/>
+  <text x="60" y="466" font-size="11.5" font-weight="700" fill="#0f766e">一般民眾：有效劑量 ≤ 1 mSv/年（水晶體 15 · 皮膚 50 mSv/年）</text>
+  <text x="60" y="484" font-size="10" fill="#0f172a">· 距離平方反比（4 倍距離 → 1/16 劑量率）· 多喝水排尿降生物半衰期</text>
+  <text x="60" y="501" font-size="10" fill="#0f172a">· 純高能 β（Y-90/P-32）內層必用壓克力吸電子，防鉛激發韌致輻射</text>
 
   <!-- Bottom Right: Spill SWIMS & RIA/IRMA Hook Effect -->
   <rect x="496" y="304" width="426" height="220" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
-  <text x="514" y="330" font-size="15" font-weight="700" fill="#be123c">C · 藥液潑灑 SWIMS 指揮與體外 RIA / IRMA 定量</text>
+  <text x="510" y="328" font-size="14" font-weight="700" fill="#be123c">C · 藥液潑灑 SWIMS 指揮與體外 RIA / IRMA 定量</text>
 
-  <rect x="512" y="342" width="394" height="94" rx="8" fill="#fff1f2" stroke="#fda4af"/>
-  <text x="524" y="362" font-size="12" font-weight="700" fill="#9f1239">15 mCi Tc-99m 潑灑黃金五步（零擴散 · 零破皮）：</text>
-  <text x="524" y="380" font-size="11.5" fill="#0f172a">1. 原地停步測鞋底（防踩遍走廊）＋ 疏散無關民眾並封鎖標示</text>
-  <text x="524" y="398" font-size="11.5" fill="#0f172a">2. 先處理人員傷口與皮膚：溫水＋中性肥皂輕洗（嚴禁硬刷破皮！）</text>
-  <text x="524" y="416" font-size="11.5" fill="#0f172a">3. 雙層防護拿吸水紙「由外圈往中心」吸除 → 擦拭偵檢 → 蓋鉛墊衰變報 RSO</text>
+  <rect x="508" y="338" width="402" height="92" rx="8" fill="#fff1f2" stroke="#fda4af"/>
+  <text x="518" y="357" font-size="11.5" font-weight="700" fill="#9f1239">15 mCi Tc-99m 潑灑黃金五步（零擴散 · 零破皮）：</text>
+  <text x="518" y="375" font-size="10.5" fill="#0f172a">1. 原地停步測鞋底（防踩遍走廊）＋ 疏散無關民眾並封鎖標示</text>
+  <text x="518" y="393" font-size="10.5" fill="#0f172a">2. 先處理傷口與皮膚：溫水＋中性肥皂輕洗（嚴禁硬刷破皮！）</text>
+  <text x="518" y="411" font-size="10.5" fill="#0f172a">3. 雙層防護由外往內吸除 → 擦拭偵檢 → 蓋鉛墊衰變通報 RSO</text>
 
-  <rect x="512" y="444" width="394" height="66" rx="8" fill="#fffbeb" stroke="#fcd34d"/>
-  <text x="524" y="463" font-size="12" font-weight="700" fill="#b45309">體外免疫分析（I-125 長半衰期 ~60 天）與劑量校正器：</text>
-  <text x="524" y="481" font-size="11.5" fill="#0f172a">· 競爭性 RIA（計數與濃度成反比） vs 三明治 IRMA（成正比，超高濃度當心</text>
-  <text x="524" y="498" font-size="11.5" font-weight="700" fill="#0f172a">  Hook effect 假性低值 → 1:10/1:100 稀釋破解）· 校正器：日穩／季線／年精</text>
+  <rect x="508" y="438" width="402" height="76" rx="8" fill="#fffbeb" stroke="#fcd34d"/>
+  <text x="518" y="456" font-size="11.5" font-weight="700" fill="#b45309">體外免疫分析（I-125 長半衰期 ~60 天）與劑量校正器：</text>
+  <text x="518" y="474" font-size="10.5" fill="#0f172a">· 競爭性 RIA（計數與濃度反比）vs 三明治 IRMA（正比，超高濃度防</text>
+  <text x="518" y="490" font-size="10.5" font-weight="700" fill="#0f172a">  Hook effect 假性低值 → 1:10/1:100 稀釋破解）</text>
+  <text x="518" y="506" font-size="10.5" font-weight="700" fill="#0f766e">· 劑量校正器：日恆定／季線性／年準確（安裝測幾何效應）</text>
 </svg>
