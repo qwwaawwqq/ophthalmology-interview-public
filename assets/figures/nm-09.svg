@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-labelledby="title-nm-09 desc-nm-09" font-family="system-ui, -apple-system, 'Noto Sans TC', sans-serif">
+  <title id="title-nm-09">伽瑪攝影機／SPECT 儀器品保（QC）經典假影辨識與 ALARA 輻射防護應變總覽</title>
+  <desc id="desc-nm-09">上排比較伽瑪攝影機正常均勻度平板、單顆光電倍增管故障圓形冷區、晶體受潮龜裂線影與 SPECT 旋轉中心偏移甜甜圈假影；下排整合我國三大族群法定劑量限值、放射性潑灑 SWIMS 流程與體外 RIA/IRMA 鉤狀效應。</desc>
+
+  <rect x="20" y="20" width="920" height="520" rx="16" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+  <path d="M 36 20 H 924 A 16 16 0 0 1 940 36 V 74 H 20 V 36 A 16 16 0 0 1 36 20 Z" fill="#1d4ed8"/>
+  <text x="46" y="54" font-size="20" font-weight="700" fill="#ffffff">核醫儀器品保（QC）假影圖譜 · 法定輻防限值 · 潑灑應變與免疫定量</text>
+
+  <!-- Top Panel: 4 Gamma Camera / SPECT QC Flood Artifacts -->
+  <rect x="38" y="86" width="884" height="204" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="56" y="112" font-size="15.5" font-weight="700" fill="#0f172a">A · 伽瑪攝影機每日均勻度（Flood）與 SPECT 斷層品保四大典型表現（未過關嚴禁收治病人）</text>
+
+  <!-- Flood 1: Normal -->
+  <rect x="56" y="124" width="198" height="152" rx="10" fill="#f0fdfa" stroke="#99f6e4"/>
+  <circle cx="155" cy="184" r="44" fill="#0f766e" opacity="0.85"/>
+  <text x="155" y="248" font-size="12.5" font-weight="700" fill="#0f766e" text-anchor="middle">1 · 正常均勻平板</text>
+  <text x="155" y="266" font-size="11" fill="#334155" text-anchor="middle">積分均勻度誤差 &lt; 3%–5%</text>
+
+  <!-- Flood 2: PMT Failure -->
+  <rect x="272" y="124" width="198" height="152" rx="10" fill="#fff1f2" stroke="#fecdd3"/>
+  <circle cx="371" cy="184" r="44" fill="#0f766e" opacity="0.85"/>
+  <circle cx="386" cy="172" r="14" fill="#ffffff"/>
+  <text x="371" y="248" font-size="12.5" font-weight="700" fill="#be123c" text-anchor="middle">2 · 單顆 PMT 故障</text>
+  <text x="371" y="266" font-size="11" fill="#334155" text-anchor="middle">內／外在均呈圓形冷區</text>
+
+  <!-- Flood 3: Cracked Crystal -->
+  <rect x="488" y="124" width="198" height="152" rx="10" fill="#fffbeb" stroke="#fde68a"/>
+  <circle cx="587" cy="184" r="44" fill="#0f766e" opacity="0.85"/>
+  <path d="M 552 156 L 580 178 L 604 170" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+  <text x="587" y="248" font-size="12.5" font-weight="700" fill="#b45309" text-anchor="middle">3 · NaI(Tl) 晶體龜裂受潮</text>
+  <text x="587" y="266" font-size="11" fill="#334155" text-anchor="middle">邊緣銳利線狀冷影伴亮邊</text>
+
+  <!-- Flood 4: COR Ring Artifact -->
+  <rect x="704" y="124" width="200" height="152" rx="10" fill="#eff6ff" stroke="#bfdbfe"/>
+  <circle cx="804" cy="184" r="44" fill="#1e293b"/>
+  <circle cx="804" cy="184" r="22" fill="none" stroke="#38bdf8" stroke-width="9"/>
+  <text x="804" y="248" font-size="12.5" font-weight="700" fill="#1d4ed8" text-anchor="middle">4 · 旋轉中心（COR）偏移</text>
+  <text x="804" y="266" font-size="11" fill="#334155" text-anchor="middle">點源斷層重建變甜甜圈環影</text>
+
+  <!-- Bottom Left: Statutory Dose Limits & ALARA -->
+  <rect x="38" y="304" width="442" height="220" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="54" y="328" font-size="15" font-weight="700" fill="#0f172a">B · 我國《游離輻射防護安全標準》必背劑量限值</text>
+
+  <rect x="50" y="340" width="418" height="46" rx="8" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="60" y="359" font-size="11.5" font-weight="700" fill="#1d4ed8">輻射工作人員：連續 5 年 ≤ 100 mSv（均 20）且單年 ≤ 50 mSv</text>
+  <text x="60" y="377" font-size="10.5" fill="#334155">眼球水晶體 150 mSv/年（ICRP 建議 20）· 皮膚與四肢 500 mSv/年</text>
+
+  <rect x="50" y="394" width="418" height="46" rx="8" fill="#fff1f2" stroke="#fda4af"/>
+  <text x="60" y="413" font-size="11.5" font-weight="700" fill="#be123c">告知懷孕女性同仁（申報至分娩）：腹部表面等價劑量 ≤ 2 mSv</text>
+  <text x="60" y="431" font-size="10.5" fill="#334155">體內攝入約定有效劑量 ≤ 1 mSv · 免除高活度揮發性 I-131 分裝照護</text>
+
+  <rect x="50" y="448" width="418" height="64" rx="8" fill="#f0fdfa" stroke="#99f6e4"/>
+  <text x="60" y="466" font-size="11.5" font-weight="700" fill="#0f766e">一般民眾：有效劑量 ≤ 1 mSv/年（水晶體 15 · 皮膚 50 mSv/年）</text>
+  <text x="60" y="484" font-size="10" fill="#0f172a">· 距離平方反比（4 倍距離 → 1/16 劑量率）· 多喝水排尿降生物半衰期</text>
+  <text x="60" y="501" font-size="10" fill="#0f172a">· 純高能 β（Y-90/P-32）內層必用壓克力吸電子，防鉛激發韌致輻射</text>
+
+  <!-- Bottom Right: Spill SWIMS & RIA/IRMA Hook Effect -->
+  <rect x="496" y="304" width="426" height="220" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="510" y="328" font-size="14" font-weight="700" fill="#be123c">C · 藥液潑灑 SWIMS 指揮與體外 RIA / IRMA 定量</text>
+
+  <rect x="508" y="338" width="402" height="92" rx="8" fill="#fff1f2" stroke="#fda4af"/>
+  <text x="518" y="357" font-size="11.5" font-weight="700" fill="#9f1239">15 mCi Tc-99m 潑灑黃金五步（零擴散 · 零破皮）：</text>
+  <text x="518" y="375" font-size="10.5" fill="#0f172a">1. 原地停步測鞋底（防踩遍走廊）＋ 疏散無關民眾並封鎖標示</text>
+  <text x="518" y="393" font-size="10.5" fill="#0f172a">2. 先處理傷口與皮膚：溫水＋中性肥皂輕洗（嚴禁硬刷破皮！）</text>
+  <text x="518" y="411" font-size="9.8" fill="#0f172a">3. 由外往內吸除 → 蓋鉛墊衰變（48h 剩 1/256）→ GM 複測合格解封</text>
+
+  <rect x="508" y="438" width="402" height="76" rx="8" fill="#fffbeb" stroke="#fcd34d"/>
+  <text x="518" y="456" font-size="11.5" font-weight="700" fill="#b45309">體外免疫分析（I-125 長半衰期 ~60 天）與劑量校正器：</text>
+  <text x="518" y="474" font-size="10.5" fill="#0f172a">· 競爭性 RIA（計數與濃度反比）vs 三明治 IRMA（正比，超高濃度防</text>
+  <text x="518" y="490" font-size="10.5" font-weight="700" fill="#0f172a">  Hook effect 假性低值 → 1:10/1:100 稀釋破解）</text>
+  <text x="518" y="506" font-size="10.5" font-weight="700" fill="#0f766e">· 劑量校正器：日恆定／季線性／年準確（安裝測幾何效應）</text>
+</svg>

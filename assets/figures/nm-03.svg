@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-labelledby="title desc">
+  <title id="title">甲狀腺核醫掃描四大型態鑑別、DTC 蹺蹺板現象與副甲狀腺雙相 MIBI 定位圖譜</title>
+  <desc id="desc">對照甲狀腺毒症與結節四大掃描型態、副甲狀腺雙相 Tc-99m MIBI 延遲滯留機制，以及分化型甲狀腺癌去分化蹺蹺板現象與內分泌探針配對。</desc>
+  <rect x="20" y="20" width="920" height="520" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <g font-family="system-ui, -apple-system, 'Noto Sans TC', sans-serif" fill="#0f172a">
+    <text x="40" y="52" font-size="20" font-weight="700">內分泌核子醫學圖譜：甲狀腺四大型態、副甲狀腺雙相 MIBI 與蹺蹺板現象</text>
+    <text x="40" y="73" font-size="12.5" fill="#475569">Tc-99mO4- 僅經 NIS 捕獲不有機化 · I-123 捕獲＋有機化診斷首選 · I-131 (8d) 治療 · I-125 (60d) 專供體外 RIA</text>
+
+    <!-- Panel A: 4 Thyroid Scan Patterns -->
+    <rect x="36" y="88" width="530" height="256" rx="10" fill="#ffffff" stroke="#0f766e" stroke-width="1.8"/>
+    <rect x="36" y="88" width="530" height="32" rx="10" fill="#ccfbf1"/>
+    <text x="52" y="109" font-size="11.5" font-weight="700" fill="#0f766e">A. 甲狀腺掃描四大鑑別（懷孕禁做；哺乳禁 I-131，首選 Tc-99m 停餵 12–24h）</text>
+
+    <!-- Subcard 1: Graves -->
+    <rect x="48" y="130" width="120" height="202" rx="8" fill="#f0fdfa" stroke="#5eead4"/>
+    <ellipse cx="90" cy="186" rx="18" ry="30" fill="#0f766e"/>
+    <ellipse cx="126" cy="186" rx="18" ry="30" fill="#0f766e"/>
+    <rect x="102" y="182" width="12" height="12" fill="#0f766e"/>
+    <line x1="108" y1="182" x2="108" y2="152" stroke="#0f766e" stroke-width="5" stroke-linecap="round"/>
+    <text x="108" y="236" font-size="12" font-weight="700" fill="#0f766e" text-anchor="middle">Graves 病</text>
+    <text x="108" y="254" font-size="10.5" fill="#334155" text-anchor="middle">雙葉瀰漫均勻腫大</text>
+    <text x="108" y="270" font-size="10.5" fill="#334155" text-anchor="middle">伴錐狀葉顯影</text>
+    <text x="108" y="290" font-size="10" font-weight="700" fill="#be123c" text-anchor="middle">RAIU 顯著↑ (&gt;35%)</text>
+    <text x="108" y="308" font-size="10" fill="#475569" text-anchor="middle">可選藥物或 I-131</text>
+
+    <!-- Subcard 2: TMNG -->
+    <rect x="176" y="130" width="120" height="202" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+    <ellipse cx="218" cy="186" rx="16" ry="28" fill="#99f6e4" stroke="#0f766e"/>
+    <ellipse cx="254" cy="186" rx="16" ry="28" fill="#99f6e4" stroke="#0f766e"/>
+    <circle cx="215" cy="174" r="7" fill="#0f766e"/>
+    <circle cx="256" cy="194" r="8" fill="#0f766e"/>
+    <circle cx="220" cy="198" r="6" fill="#ffffff" stroke="#64748b"/>
+    <text x="236" y="236" font-size="12" font-weight="700" fill="#0f172a" text-anchor="middle">毒性多結節腫</text>
+    <text x="236" y="254" font-size="10.5" fill="#334155" text-anchor="middle">冷熱交錯斑駁分布</text>
+    <text x="236" y="270" font-size="10.5" fill="#334155" text-anchor="middle">(Plummer 病)</text>
+    <text x="236" y="290" font-size="11" font-weight="700" fill="#1d4ed8" text-anchor="middle">RAIU 正常高或↑</text>
+    <text x="236" y="308" font-size="10" fill="#475569" text-anchor="middle">冷結節防 15% 惡性</text>
+
+    <!-- Subcard 3: Toxic Adenoma -->
+    <rect x="304" y="130" width="120" height="202" rx="8" fill="#fffbeb" stroke="#fcd34d"/>
+    <ellipse cx="346" cy="186" rx="15" ry="27" fill="none" stroke="#94a3b8" stroke-dasharray="3,3"/>
+    <ellipse cx="382" cy="186" rx="15" ry="27" fill="none" stroke="#94a3b8" stroke-dasharray="3,3"/>
+    <circle cx="346" cy="186" r="14" fill="#d97706"/>
+    <text x="364" y="236" font-size="12" font-weight="700" fill="#b45309" text-anchor="middle">自主毒性熱結節</text>
+    <text x="364" y="254" font-size="10.5" fill="#334155" text-anchor="middle">單一熱結節濃聚</text>
+    <text x="364" y="270" font-size="10.5" fill="#334155" text-anchor="middle">周圍正常葉受抑</text>
+    <text x="364" y="290" font-size="10.5" font-weight="700" fill="#0f766e" text-anchor="middle">極低惡性 (&lt;2%)</text>
+    <text x="364" y="308" font-size="10" fill="#475569" text-anchor="middle">FNA 未定可免開刀</text>
+
+    <!-- Subcard 4: Subacute Thyroiditis -->
+    <rect x="432" y="130" width="122" height="202" rx="8" fill="#fef2f2" stroke="#fecdd3"/>
+    <ellipse cx="475" cy="186" rx="15" ry="27" fill="#f1f5f9" stroke="#cbd5e1" stroke-dasharray="3,3"/>
+    <ellipse cx="511" cy="186" rx="15" ry="27" fill="#f1f5f9" stroke="#cbd5e1" stroke-dasharray="3,3"/>
+    <text x="493" y="236" font-size="12" font-weight="700" fill="#be123c" text-anchor="middle">亞急性甲狀腺炎</text>
+    <text x="493" y="254" font-size="10.5" fill="#334155" text-anchor="middle">濾泡破壞傾倒荷爾蒙</text>
+    <text x="493" y="270" font-size="10" fill="#334155" text-anchor="middle">雙葉不顯影／碘干擾</text>
+    <text x="493" y="290" font-size="10.5" font-weight="700" fill="#be123c" text-anchor="middle">RAIU 極低 (&lt;5%)</text>
+    <text x="493" y="308" font-size="10" font-weight="600" fill="#be123c" text-anchor="middle">禁抗甲亢藥／I-131</text>
+
+    <!-- Panel B: Parathyroid Dual-Phase Tc-99m MIBI -->
+    <rect x="580" y="88" width="344" height="256" rx="10" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.8"/>
+    <rect x="580" y="88" width="344" height="32" rx="10" fill="#dbeafe"/>
+    <text x="596" y="109" font-size="14" font-weight="700" fill="#1d4ed8">B. 副甲狀腺雙相 Tc-99m MIBI 造影</text>
+
+    <!-- Early Phase -->
+    <rect x="596" y="132" width="146" height="148" rx="8" fill="#eff6ff" stroke="#93c5fd"/>
+    <text x="669" y="152" font-size="11.5" font-weight="700" fill="#1e3a8a" text-anchor="middle">早期相 (10–15m)</text>
+    <ellipse cx="649" cy="198" rx="16" ry="28" fill="#60a5fa"/>
+    <ellipse cx="689" cy="198" rx="16" ry="28" fill="#60a5fa"/>
+    <circle cx="692" cy="218" r="9" fill="#1d4ed8"/>
+    <text x="669" y="252" font-size="10.5" fill="#334155" text-anchor="middle">甲狀腺與副甲狀腺</text>
+    <text x="669" y="268" font-size="10.5" fill="#334155" text-anchor="middle">同時攝取顯影</text>
+
+    <!-- Delayed Phase -->
+    <rect x="762" y="132" width="146" height="148" rx="8" fill="#eff6ff" stroke="#93c5fd"/>
+    <text x="835" y="152" font-size="11" font-weight="700" fill="#1e3a8a" text-anchor="middle">延遲相 (&gt;90–120m)</text>
+    <ellipse cx="815" cy="198" rx="16" ry="28" fill="#e2e8f0" stroke="#94a3b8" stroke-dasharray="3,2"/>
+    <ellipse cx="855" cy="198" rx="16" ry="28" fill="#e2e8f0" stroke="#94a3b8" stroke-dasharray="3,2"/>
+    <circle cx="858" cy="218" r="10" fill="#be123c"/>
+    <text x="835" y="252" font-size="10.5" font-weight="700" fill="#be123c" text-anchor="middle">左下腺瘤持續滯留！</text>
+    <text x="835" y="268" font-size="10.5" fill="#334155" text-anchor="middle">（嗜酸細胞富粒線體）</text>
+
+    <text x="596" y="302" font-size="11" fill="#334155">· 頸胸 SPECT/CT：抓前縱膈胸腺／食道後異位腺瘤</text>
+    <text x="596" y="322" font-size="11" fill="#1d4ed8">· 多腺體增生或結節干擾：加 I-123/TcO4- 相減法</text>
+
+    <!-- Panel C: DTC Flip-Flop & Adrenal/NET/RIA -->
+    <rect x="36" y="358" width="888" height="164" rx="10" fill="#ffffff" stroke="#b45309" stroke-width="1.6"/>
+    <rect x="36" y="358" width="888" height="30" rx="10" fill="#fef3c7"/>
+    <text x="52" y="378" font-size="13.5" font-weight="700" fill="#92400e">C. 分化型甲狀腺癌（DTC）蹺蹺板現象（Flip-flop）暨腎上腺／NET／體外 RIA 考點</text>
+
+    <!-- Left half of Panel C -->
+    <text x="52" y="408" font-size="12" font-weight="700" fill="#0f766e">· 分化良好 DTC（預後佳，I-131 有效）：</text>
+    <text x="62" y="427" font-size="11" fill="#334155">NIS 高表現、GLUT1 低 → I-131 陽性 (＋) ／ FDG 陰性 (－)</text>
+    <text x="52" y="452" font-size="11.5" font-weight="700" fill="#be123c">· 去分化蹺蹺板（治療後掃描亦陰性確立 RAIR）：</text>
+    <text x="62" y="471" font-size="11" fill="#334155">NIS 喪失、GLUT1 暴增 → I-131 陰性 (－) ／ FDG 陽性 (＋)</text>
+    <text x="52" y="498" font-size="10.5" font-weight="600" fill="#92400e">I-131 準備：停 LT4 或打 rhTSH 使 TSH &gt; 30 mIU/L ＋ 低碘飲食 &lt;50 μg/日</text>
+
+    <line x1="488" y1="396" x2="488" y2="512" stroke="#cbd5e1" stroke-width="1.5"/>
+
+    <!-- Right half of Panel C -->
+    <text x="502" y="406" font-size="11.5" font-weight="700" fill="#0f172a">· 腎上腺皮髓質與神經內分泌腫瘤（NET）配對：</text>
+    <text x="508" y="424" font-size="10.5" fill="#334155">皮質（庫欣/醛固酮）→ NP-59 · 髓質（嗜鉻瘤）→ I-123 MIBG</text>
+    <text x="508" y="442" font-size="10.5" fill="#1d4ed8">NET G1/G2 (Ki-67≤20%) → Ga-68 DOTATATE</text>
+    <text x="508" y="458" font-size="10.5" fill="#1d4ed8">G3 NET 搭雙示蹤劑；NEC → FDG（禁選 Ga-67）</text>
+    <text x="502" y="480" font-size="11.5" font-weight="700" fill="#0f766e">· 體外 I-125 免疫檢驗（井型計數器，病人零輻射）：</text>
+    <text x="508" y="498" font-size="10.5" fill="#334155">競爭型 RIA（與 B 成反比）vs 三明治 IRMA（成正比、更靈敏）</text>
+  </g>
+</svg>

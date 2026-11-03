@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-labelledby="title-nm-06 desc-nm-06" font-family="system-ui, -apple-system, 'Noto Sans TC', sans-serif">
+  <title id="title-nm-06">利尿劑腎圖 O'Reilly 四型曲線與 Captopril 腎血管性高血壓機轉對照</title>
+  <desc id="desc-nm-06">左側呈現 Furosemide 利尿劑動態腎圖四種時間活性曲線（Type I 正常、Type II 機械阻塞、Type IIIa 鬆弛無阻塞、Type IIIb 不確定）及假性阻塞四大陷阱；右側呈現腎動脈狹窄服用 Captopril 擴張出球小動脈後，DTPA 攝取低平與 MAG3 皮質滯留差異。</desc>
+
+  <rect x="20" y="20" width="920" height="520" rx="16" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+  <path d="M 36 20 H 924 A 16 16 0 0 1 940 36 V 74 H 20 V 36 A 16 16 0 0 1 36 20 Z" fill="#0f766e"/>
+  <text x="46" y="54" font-size="20" font-weight="700" fill="#ffffff">泌尿腎臟核醫核心判讀：Furosemide 利尿腎圖 O'Reilly 曲線 · Captopril 負荷試驗</text>
+
+  <!-- Left Panel: Diuretic Renogram -->
+  <rect x="38" y="90" width="440" height="432" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="54" y="118" font-size="15" font-weight="700" fill="#0f172a">A · 水腎利尿劑腎圖（首選高萃取率 Tc-99m MAG3）</text>
+  <text x="54" y="138" font-size="11" fill="#475569">背側後位收像（左即左腎）· 1–2.5m 算分側功能 · Furosemide 沖刷</text>
+
+  <!-- Axes -->
+  <line x1="82" y1="340" x2="448" y2="340" stroke="#334155" stroke-width="2"/>
+  <line x1="82" y1="340" x2="82" y2="158" stroke="#334155" stroke-width="2"/>
+  <text x="44" y="252" font-size="12" font-weight="600" fill="#334155" transform="rotate(-90 54 252)">腎臟活性（Counts）</text>
+  <text x="235" y="362" font-size="12" font-weight="600" fill="#334155">時間（0 → 30 分鐘）</text>
+
+  <!-- Furosemide vertical dashed line -->
+  <line x1="250" y1="162" x2="250" y2="340" stroke="#1d4ed8" stroke-width="1.8" stroke-dasharray="5,4"/>
+  <rect x="190" y="150" width="128" height="22" rx="6" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1"/>
+  <text x="254" y="165" font-size="10.5" font-weight="700" fill="#1d4ed8" text-anchor="middle">IV Furosemide 注射</text>
+
+  <!-- Curve Type I: Normal -->
+  <path d="M 82 336 Q 112 205 142 200 Q 190 250 250 296 Q 330 325 436 333" fill="none" stroke="#0f766e" stroke-width="3"/>
+  <text x="145" y="193" font-size="10.5" font-weight="700" fill="#0f766e">Type I 正常（Tmax 3–5m）</text>
+
+  <!-- Curve Type II: Obstruction -->
+  <path d="M 82 336 Q 125 220 250 184 Q 345 174 436 172" fill="none" stroke="#be123c" stroke-width="3.2"/>
+  <text x="324" y="167" font-size="10.5" font-weight="700" fill="#be123c">Type II 阻塞 (T1/2&gt;20m)</text>
+
+  <!-- Curve Type IIIb: Equivocal -->
+  <path d="M 82 336 Q 125 225 250 196 Q 338 228 436 250" fill="none" stroke="#b45309" stroke-width="2.6" stroke-dasharray="7,4"/>
+  <text x="312" y="232" font-size="10.5" font-weight="700" fill="#b45309">Type IIIb 未定 (10–20m)</text>
+
+  <!-- Curve Type IIIa: Non-obstructive dilation -->
+  <path d="M 82 336 Q 125 225 250 196 Q 282 292 355 325 L 436 332" fill="none" stroke="#1d4ed8" stroke-width="3.2"/>
+  <text x="284" y="308" font-size="10.5" font-weight="700" fill="#1d4ed8">Type IIIa 鬆弛擴張 (&lt;10m)</text>
+
+  <!-- False Positive Warning Box -->
+  <rect x="52" y="376" width="412" height="132" rx="10" fill="#fff1f2" stroke="#fda4af" stroke-width="1.5"/>
+  <text x="64" y="397" font-size="12.5" font-weight="700" fill="#9f1239">必考防呆：診斷阻塞前先排除「四大假性阻塞（偽陽性）」</text>
+  <text x="64" y="418" font-size="11" fill="#0f172a">1. 脫水低尿量 → 受檢前充分口服／靜脈水化（5–10 mL/kg）</text>
+  <text x="64" y="438" font-size="10.4" fill="#0f172a">2. 腎功能受損 → 選 MAG3、調升 Lasix 並測尿量（尿少仍屬未定）</text>
+  <text x="64" y="458" font-size="11" fill="#0f172a">3. 巨大腎盂水庫稀釋效應（Reservoir）→ 大水池置換緩慢</text>
+  <text x="64" y="478" font-size="11" fill="#0f172a">4. 脹滿膀胱背壓 → 下床解尿（或導尿）加拍直立延遲像！</text>
+
+  <!-- Right Panel: Captopril Renography & DMSA -->
+  <rect x="496" y="90" width="426" height="432" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="512" y="118" font-size="15" font-weight="700" fill="#0f172a">B · Captopril 腎血管性高血壓機轉與雙藥物差異</text>
+  <text x="512" y="138" font-size="11" fill="#475569">停 ACEi 3–7 天 · 口服 Captopril 25–50 mg · 每 15m 監測血壓</text>
+
+  <!-- Glomerulus / Efferent Arteriole Schematic -->
+  <rect x="510" y="152" width="398" height="86" rx="10" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+  <text x="522" y="173" font-size="12.5" font-weight="700" fill="#0f766e">腎動脈狹窄（RAS）病生理鏈：</text>
+  <text x="522" y="195" font-size="11" fill="#0f172a">基線代償：入球壓↓ → Ang II↑ → 收縮「出球小動脈」撐住 GFR</text>
+  <text x="522" y="217" font-size="11" font-weight="700" fill="#be123c">Captopril 後：阻斷 Ang II → 出球小動脈擴張 → 患側 GFR 驟降</text>
+
+  <!-- Mini Graph 1: DTPA -->
+  <rect x="510" y="250" width="192" height="156" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
+  <text x="522" y="272" font-size="12.5" font-weight="700" fill="#1d4ed8">Tc-99m DTPA（過濾型）</text>
+  <line x1="534" y1="382" x2="686" y2="382" stroke="#475569" stroke-width="1.6"/>
+  <line x1="534" y1="382" x2="534" y2="286" stroke="#475569" stroke-width="1.6"/>
+  <path d="M 534 378 Q 556 296 576 294 Q 620 342 682 374" fill="none" stroke="#64748b" stroke-width="2" stroke-dasharray="4,3"/>
+  <path d="M 534 378 Q 570 356 610 355 Q 650 360 682 366" fill="none" stroke="#be123c" stroke-width="3"/>
+  <text x="582" y="302" font-size="10.5" fill="#475569">基線</text>
+  <text x="544" y="346" font-size="10.5" font-weight="700" fill="#be123c">Captopril 後：攝取低平↓</text>
+  <text x="522" y="400" font-size="10" fill="#334155">GFR 驟降 → 藥物難進鮑氏囊</text>
+
+  <!-- Mini Graph 2: MAG3 -->
+  <rect x="714" y="250" width="194" height="156" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
+  <text x="726" y="272" font-size="12.5" font-weight="700" fill="#0f766e">Tc-99m MAG3（分泌型）</text>
+  <line x1="736" y1="382" x2="888" y2="382" stroke="#475569" stroke-width="1.6"/>
+  <line x1="736" y1="382" x2="736" y2="286" stroke="#475569" stroke-width="1.6"/>
+  <path d="M 736 378 Q 758 296 778 294 Q 822 342 884 374" fill="none" stroke="#64748b" stroke-width="2" stroke-dasharray="4,3"/>
+  <path d="M 736 378 Q 765 305 832 292 Q 862 290 886 294" fill="none" stroke="#be123c" stroke-width="3"/>
+  <text x="784" y="328" font-size="10.5" fill="#475569">基線</text>
+  <text x="746" y="287" font-size="10.5" font-weight="700" fill="#be123c">皮質滯留 · Tmax 延後</text>
+  <text x="726" y="400" font-size="10" fill="#334155">小管照常分泌，缺原尿沖出</text>
+
+  <!-- Pediatric DMSA & Transplant Pearl Box -->
+  <rect x="510" y="416" width="398" height="92" rx="10" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="522" y="436" font-size="12.5" font-weight="700" fill="#1d4ed8">兒童腎皮質與移植腎速記口訣</text>
+  <text x="522" y="456" font-size="10.5" fill="#0f172a">· 急性腎盂腎炎首選 DMSA（楔形冷區）；永久結痂隔 ≥6m 追蹤</text>
+  <text x="522" y="475" font-size="10.5" fill="#0f172a">· 移植腎 ATN：血流保留＋皮質滯留（急性排斥則血流同步下降）</text>
+  <text x="522" y="494" font-size="10.5" fill="#0f172a">· 術後液體積聚：尿滲漏＝腎外熱區 vs 淋巴囊腫＝冷區</text>
+</svg>
