@@ -4,7 +4,7 @@
   <rect x="20" y="20" width="920" height="520" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
   <g font-family="system-ui, -apple-system, 'Noto Sans TC', sans-serif" fill="#0f172a">
     <text x="40" y="52" font-size="20" font-weight="700">核子心臟學整合圖譜：17 節段牛眼圖、冬眠存活心肌配對與壓力負荷決策</text>
-    <text x="40" y="73" font-size="12.5" fill="#475569">SPECT RAO 45°–LPO 45° (180°) 取像 · 缺血心肌 &gt;= 10% 建議血管重建 · TID &gt; 1.2 / LHR &gt; 0.5 高危警訊</text>
+    <text x="40" y="73" font-size="12" fill="#475569">SPECT RAO 45°–LPO 45° (180°) 取像 · 缺血 ≥10% 屬中重度風險指標（穩定 CAD 先行 GDMT）· TID &gt;1.2 高危警訊</text>
 
     <!-- Panel A: Bull's-Eye -->
     <rect x="36" y="88" width="276" height="434" rx="10" fill="#ffffff" stroke="#0f766e" stroke-width="1.8"/>
@@ -53,7 +53,7 @@
     <circle cx="466" cy="190" r="26" fill="none" stroke="#f59e0b" stroke-width="10"/>
     <rect x="522" y="172" width="70" height="36" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
     <text x="557" y="194" font-size="11" font-weight="700" fill="#92400e" text-anchor="middle">免做即可定</text>
-    <text x="348" y="242" font-size="11" font-weight="700" fill="#b45309">1. 可逆性缺血（Reversible）：≥10% 血管重建</text>
+    <text x="346" y="242" font-size="9.6" font-weight="700" fill="#b45309">1. 可逆缺血 ≥10%：中重度風險（先 GDMT）</text>
 
     <!-- Row 2: Hibernating Viable (Mismatch) -->
     <rect x="338" y="268" width="296" height="114" rx="8" fill="#f0fdfa" stroke="#5eead4"/>

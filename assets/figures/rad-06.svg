@@ -33,8 +33,8 @@
     <line x1="274" y1="166" x2="328" y2="204" stroke="#0284c7" stroke-width="1.2"/>
     <line x1="276" y1="204" x2="324" y2="168" stroke="#0284c7" stroke-width="1.2"/>
     <text x="224" y="238" font-size="9.5" font-weight="700" fill="#0369a1">· 1–3條≤2mm薄隔／平滑鈣化</text>
-    <text x="224" y="254" font-size="9.5" fill="#334155">· CT 均質 ≥70HU 無強化</text>
-    <text x="226" y="270" font-size="9.5" fill="#475569">(v2019廢CT 3cm上限)</text>
+    <text x="224" y="254" font-size="9.5" fill="#334155">· CT≥70HU／MRI均質T1極亮</text>
+    <text x="224" y="270" font-size="9.5" fill="#475569">(無強化·廢CT/MRI 3cm上限)</text>
     <rect x="228" y="286" width="146" height="48" rx="5" fill="#ccfbf1"/>
     <text x="301" y="305" font-size="10.5" font-weight="700" fill="#115e59" text-anchor="middle">惡性率 ~0%</text>
     <text x="301" y="323" font-size="10" fill="#134e4a" text-anchor="middle">確定良性 · 免常規追蹤</text>
@@ -49,7 +49,7 @@
     <line x1="480" y1="152" x2="480" y2="220" stroke="#d97706" stroke-width="1.4"/>
     <text x="402" y="238" font-size="9.6" font-weight="700" fill="#b45309">· ≥4 條 ≤2 mm 細強化隔</text>
     <text x="402" y="254" font-size="9.6" fill="#334155">· 或 3 mm 平滑微厚強化壁</text>
-    <text x="402" y="270" font-size="9.5" fill="#334155">· CT異質高密／MRI&gt;3cm T1亮</text>
+    <text x="402" y="270" font-size="9.5" fill="#334155">· CT異質高密／MRI異質T1亮</text>
     <rect x="404" y="286" width="152" height="48" rx="5" fill="#fde68a"/>
     <text x="480" y="305" font-size="10.5" font-weight="700" fill="#92400e" text-anchor="middle">惡性率 ~5–10%</text>
     <text x="480" y="323" font-size="10" fill="#78350f" text-anchor="middle">6·12 個月起追蹤 5 年</text>
