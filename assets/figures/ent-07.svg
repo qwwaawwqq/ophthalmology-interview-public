@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-labelledby="t-ent07 d-ent07">
+  <title id="t-ent07">喉部三區淋巴引流差異與喉神經受損聲帶位置比較圖</title>
+  <desc id="d-ent07">左欄呈現喉部冠狀切面之聲門上、聲門、聲門下三區淋巴引流及聲帶五層結構；右欄對照正常、上喉神經外支麻痺、單側喉返神經麻痺與雙側喉返神經麻痺之聲門鏡檢與處置。</desc>
+  <defs>
+    <marker id="arr-teal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M1 1 L9 5 L1 9 Z" fill="#0f766e"/>
+    </marker>
+    <marker id="arr-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M1 1 L9 5 L1 9 Z" fill="#be123c"/>
+    </marker>
+  </defs>
+  <g font-family="system-ui, -apple-system, 'Noto Sans TC', sans-serif">
+    <rect x="20" y="20" width="920" height="520" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="42" y="54" font-size="21" font-weight="700" fill="#0f172a">喉部三區生物學轉移差異 · Hirano 五層結構 · 聲帶麻痺定位</text>
+    <text x="42" y="76" font-size="13" fill="#475569">整合黏膜下淋巴網密度、發聲微觀滑動層與喉上／喉返神經受損之聲門位置及氣道優先決策</text>
+
+    <!-- Left Panel: Coronal Larynx & Hirano 5 layers -->
+    <rect x="36" y="92" width="442" height="428" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="54" y="118" font-size="16" font-weight="700" fill="#0f766e">A. 喉冠狀切面三區淋巴引流與喉癌特徵</text>
+
+    <!-- Coronal Larynx Schematic -->
+    <!-- Supraglottis zone -->
+    <rect x="54" y="132" width="236" height="78" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-dasharray="4 3"/>
+    <path d="M64 144 Q84 134 104 144 L98 198 L70 198 Z" fill="#fde68a" stroke="#b45309" stroke-width="1.8"/>
+    <text x="112" y="151" font-size="10.5" font-weight="700" fill="#b45309">聲門上區 Supraglottis</text>
+    <text x="112" y="168" font-size="9.6" fill="#78350f">會厭·假聲帶·杓會厭皺襞</text>
+    <text x="112" y="185" font-size="9.5" fill="#be123c" font-weight="600">雙側淋巴豐富（轉移40–55%）</text>
+    <text x="112" y="201" font-size="9.5" fill="#475569">→ 雙側 II–IV · 滷蛋音／耳痛</text>
+
+    <!-- Glottis zone -->
+    <rect x="54" y="216" width="236" height="74" rx="8" fill="#ecfdf5" stroke="#0f766e"/>
+    <path d="M68 238 L81 250 L68 262 Z" fill="#99f6e4" stroke="#0f766e" stroke-width="1.8"/>
+    <path d="M100 238 L87 250 L100 262 Z" fill="#99f6e4" stroke="#0f766e" stroke-width="1.8"/>
+    <text x="112" y="236" font-size="10.5" font-weight="700" fill="#0f766e">聲門區 Glottis（真聲帶）</text>
+    <text x="112" y="254" font-size="9.6" fill="#065f46" font-weight="600">幾無淋巴網（T1 轉移 &lt;5%）</text>
+    <text x="112" y="272" font-size="9.5" fill="#475569">極早期沙啞 · 雷射／放療 ~90%</text>
+
+    <!-- Subglottis zone -->
+    <rect x="54" y="296" width="236" height="74" rx="8" fill="#fff1f2" stroke="#be123c" stroke-dasharray="4 3"/>
+    <rect x="70" y="306" width="28" height="54" rx="4" fill="#ffe4e6" stroke="#be123c" stroke-width="1.8"/>
+    <text x="112" y="316" font-size="10.5" font-weight="700" fill="#be123c">聲門下區 Subglottis</text>
+    <text x="112" y="334" font-size="9.6" fill="#881337">環狀軟骨圓環內（占 &lt;5%）</text>
+    <text x="112" y="352" font-size="9.5" fill="#be123c" font-weight="600">→ Level VI（氣管旁）喘鳴</text>
+
+    <!-- Lymph Node Callouts on right of Subpanel A -->
+    <rect x="302" y="138" width="162" height="64" rx="8" fill="#eff6ff" stroke="#1d4ed8"/>
+    <text x="310" y="158" font-size="11" font-weight="700" fill="#1d4ed8">雙側 Level II–IV</text>
+    <text x="310" y="175" font-size="9.8" fill="#1e3a8a">聲門上癌與下咽梨狀窩癌</text>
+    <text x="310" y="192" font-size="9.5" fill="#be123c">梨狀窩 70% 晚期伴食道癌</text>
+    <line x1="290" y1="170" x2="300" y2="170" stroke="#be123c" stroke-width="2" marker-end="url(#arr-red)"/>
+
+    <rect x="302" y="220" width="162" height="64" rx="8" fill="#f0fdf4" stroke="#0f766e"/>
+    <text x="310" y="240" font-size="11" font-weight="700" fill="#0f766e">前連合無軟骨膜屏障</text>
+    <text x="310" y="257" font-size="9.8" fill="#065f46">T3 聲帶固定：CCRT 保喉</text>
+    <text x="310" y="273" font-size="9.5" fill="#be123c">T4a 穿破甲狀軟骨：全喉切</text>
+
+    <rect x="302" y="302" width="162" height="64" rx="8" fill="#fff1f2" stroke="#be123c"/>
+    <text x="310" y="322" font-size="11" font-weight="700" fill="#be123c">Level VI 中央氣管旁</text>
+    <text x="310" y="339" font-size="9.8" fill="#881337">經環甲膜引流至 Delphian</text>
+    <text x="310" y="355" font-size="9.8" fill="#475569">常侵犯環狀軟骨與甲狀腺</text>
+    <line x1="290" y1="333" x2="300" y2="333" stroke="#be123c" stroke-width="2" marker-end="url(#arr-red)"/>
+
+    <!-- Hirano 5-Layer Microstructure Strip -->
+    <rect x="54" y="382" width="410" height="124" rx="8" fill="#f8fafc" stroke="#94a3b8"/>
+    <text x="64" y="402" font-size="12" font-weight="700" fill="#0f172a">Hirano 聲帶顯微五層（被覆體理論）與頻閃喉鏡黏膜波</text>
+    <rect x="66" y="412" width="124" height="58" rx="6" fill="#ccfbf1" stroke="#0f766e"/>
+    <text x="72" y="430" font-size="11" font-weight="700" fill="#0f766e">被覆層 Cover</text>
+    <text x="72" y="446" font-size="9.8" fill="#0f172a">1. 鱗狀上皮</text>
+    <text x="72" y="462" font-size="9.5" fill="#0f172a">2. 淺層 Reinke 層</text>
+
+    <rect x="198" y="412" width="132" height="58" rx="6" fill="#dbeafe" stroke="#1d4ed8"/>
+    <text x="206" y="430" font-size="11" font-weight="700" fill="#1d4ed8">移行層（聲韌帶）</text>
+    <text x="206" y="446" font-size="9.8" fill="#0f172a">3. 中層（彈力纖維）</text>
+    <text x="206" y="462" font-size="9.8" fill="#0f172a">4. 深層（膠原纖維）</text>
+
+    <rect x="338" y="412" width="114" height="58" rx="6" fill="#fee2e2" stroke="#be123c"/>
+    <text x="346" y="430" font-size="11" font-weight="700" fill="#be123c">主體層 Body</text>
+    <text x="346" y="446" font-size="9.8" fill="#0f172a">5. 甲杓肌（TA）</text>
+    <text x="346" y="462" font-size="9.6" fill="#881337">痙攣失聲打肉毒處</text>
+
+    <text x="64" y="492" font-size="9.8" fill="#334155">良性結節／息肉／Reinke 水腫在淺層；侵犯聲韌帶 → 黏膜波消失</text>
+
+    <!-- Right Panel: Vocal Fold Paralysis Glottic Views -->
+    <rect x="494" y="92" width="430" height="428" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="512" y="118" font-size="16" font-weight="700" fill="#1d4ed8">B. 喉神經支配與聲帶麻痺喉鏡位置比較</text>
+
+    <!-- Card 1: Normal -->
+    <rect x="512" y="132" width="192" height="148" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="524" y="152" font-size="12.5" font-weight="700" fill="#0f766e">1. 正常聲門啟閉</text>
+    <circle cx="608" cy="196" r="32" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+    <path d="M608 168 L590 218 M608 168 L626 218" stroke="#0f766e" stroke-width="4" stroke-linecap="round"/>
+    <text x="524" y="246" font-size="10.2" fill="#334155">唯一外展肌：後環杓肌 PCA</text>
+    <text x="524" y="264" font-size="10.2" fill="#0f766e" font-weight="600">男 F0 ~110Hz · 女 ~210Hz</text>
+
+    <!-- Card 2: SLN External Branch -->
+    <rect x="716" y="132" width="192" height="148" rx="8" fill="#fffbeb" stroke="#f59e0b"/>
+    <text x="728" y="152" font-size="12.5" font-weight="700" fill="#b45309">2. 上喉神經外支麻痺</text>
+    <circle cx="812" cy="196" r="32" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+    <path d="M808 168 L800 218 M808 168 Q822 195 814 218" stroke="#b45309" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <text x="728" y="246" font-size="10.2" fill="#78350f">環甲肌（CT）失去張力拉伸</text>
+    <text x="728" y="264" font-size="10.2" fill="#b45309" font-weight="600">無法飆高音 · 發聲易疲勞</text>
+
+    <!-- Card 3: Unilateral RLN -->
+    <rect x="512" y="292" width="192" height="154" rx="8" fill="#eff6ff" stroke="#1d4ed8"/>
+    <text x="524" y="312" font-size="12.5" font-weight="700" fill="#1d4ed8">3. 單側喉返神經麻痺</text>
+    <circle cx="608" cy="356" r="32" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.5"/>
+    <line x1="606" y1="328" x2="606" y2="380" stroke="#0f172a" stroke-width="4" stroke-linecap="round"/>
+    <line x1="612" y1="328" x2="622" y2="380" stroke="#be123c" stroke-width="4" stroke-linecap="round"/>
+    <text x="524" y="404" font-size="10.2" fill="#1e3a8a">患側停旁正中位 · 閉合裂隙</text>
+    <text x="524" y="420" font-size="10.2" fill="#be123c" font-weight="600">氣息沙啞 · MPT&lt;10s · 嗆咳</text>
+    <text x="524" y="436" font-size="10" fill="#334155">查顱底至縱膈 CT → 喉成形術</text>
+
+    <!-- Card 4: Bilateral RLN -->
+    <rect x="716" y="292" width="192" height="154" rx="8" fill="#fff1f2" stroke="#be123c"/>
+    <text x="728" y="312" font-size="12.5" font-weight="700" fill="#be123c">4. 雙側喉返神經麻痺</text>
+    <circle cx="812" cy="356" r="32" fill="#ffe4e6" stroke="#be123c" stroke-width="1.5"/>
+    <line x1="809" y1="328" x2="810" y2="380" stroke="#be123c" stroke-width="4" stroke-linecap="round"/>
+    <line x1="815" y1="328" x2="814" y2="380" stroke="#be123c" stroke-width="4" stroke-linecap="round"/>
+    <text x="728" y="404" font-size="10.2" fill="#881337">雙側 PCA 失能卡在近中線</text>
+    <text x="728" y="420" font-size="10.2" fill="#be123c" font-weight="700">聲音尚清楚但吸氣喘鳴窒息！</text>
+    <text x="728" y="436" font-size="10" fill="#881337">優先氣切或後聲帶雷射擴大</text>
+
+    <!-- Bottom Pearl Box in Right Panel -->
+    <rect x="512" y="456" width="396" height="50" rx="8" fill="#0f172a"/>
+    <text x="522" y="476" font-size="10" font-weight="700" fill="#f8fafc">臨床鐵律：上喉神經內支管聲門上感覺（受損致無聲嗆咳吸入肺炎）</text>
+    <text x="522" y="495" font-size="9.6" fill="#99f6e4">左 RLN 繞主動脈弓最易受縱膈肺癌壓迫；雙側 RLN 麻痺禁做聲帶內移！</text>
+  </g>
+</svg>

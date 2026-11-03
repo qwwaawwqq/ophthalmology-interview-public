@@ -1,0 +1,188 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-labelledby="neuro07-title neuro07-desc" font-family="system-ui, -apple-system, 'Noto Sans TC', sans-serif">
+  <title id="neuro07-title">中樞去髓鞘疾病（MS · AQP4-NMOSD · MOGAD）病灶分布與自體免疫腦炎雙軌機轉圖</title>
+  <desc id="neuro07-desc">左側三欄對照多發性硬化症（側腦室垂直 Dawson fingers、單側短節段視神經炎、脊髓短節段偏背側索病灶）、AQP4-NMOSD（第三四腦室與極後區病灶、雙側視交叉侵犯、跨三節以上中央灰質 LETM）與 MOGAD（視神經鞘強化、圓錐 H-sign）；右側對照細胞表面突觸抗體與細胞內腫瘤伴生抗體機轉及一二線免疫搶救流程。</desc>
+
+  <!-- Outer background and header -->
+  <rect x="20" y="20" width="920" height="520" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="20" y="20" width="920" height="50" rx="14" fill="#0f172a"/>
+  <rect x="20" y="54" width="920" height="16" fill="#0f172a"/>
+  <text x="40" y="51" fill="#ffffff" font-size="16" font-weight="700">中樞去髓鞘三大光譜（MS · AQP4-NMOSD · MOGAD）與自體免疫腦炎雙軌決策</text>
+  <text x="920" y="50" fill="#94a3b8" font-size="12" text-anchor="end">Neuro-07 · 中樞神經免疫學</text>
+
+  <!-- Left Main Panel: Demyelinating Triad -->
+  <rect x="30" y="82" width="522" height="446" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+  <text x="44" y="105" fill="#0f172a" font-size="13.5" font-weight="700">一、中樞神經去髓鞘三大疾病解剖病灶與治療禁忌對照</text>
+
+  <!-- Column 1: MS -->
+  <rect x="40" y="116" width="164" height="400" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.2"/>
+  <rect x="40" y="116" width="164" height="30" rx="8" fill="#1d4ed8"/>
+  <text x="122" y="136" fill="#ffffff" font-size="12.5" font-weight="700" text-anchor="middle">多發性硬化症（MS）</text>
+
+  <text x="48" y="163" fill="#1e3a8a" font-size="10.2" font-weight="700">腦室旁 · 視神經 · 脊髓</text>
+  <ellipse cx="88" cy="198" rx="30" ry="20" fill="#ffffff" stroke="#64748b" stroke-width="1.2"/>
+  <path d="M72,198 Q88,186 104,198 Q88,194 72,198 Z" fill="#cbd5e1"/>
+  <ellipse cx="78" cy="182" rx="3.5" ry="7" fill="#1d4ed8"/>
+  <ellipse cx="89" cy="180" rx="3.5" ry="8" fill="#1d4ed8"/>
+  <ellipse cx="100" cy="183" rx="3.5" ry="7" fill="#1d4ed8"/>
+  <text x="88" y="230" fill="#1e40af" font-size="9.5" text-anchor="middle">Dawson fingers</text>
+
+  <circle cx="150" cy="178" r="7" fill="#ffffff" stroke="#475569" stroke-width="1.2"/>
+  <circle cx="180" cy="178" r="7" fill="#ffffff" stroke="#475569" stroke-width="1.2"/>
+  <path d="M150,185 L165,208 L180,185" fill="none" stroke="#94a3b8" stroke-width="3"/>
+  <line x1="152" y1="188" x2="158" y2="197" stroke="#1d4ed8" stroke-width="5" stroke-linecap="round"/>
+  <text x="165" y="230" fill="#1e40af" font-size="9.5" text-anchor="middle">單側短節段</text>
+
+  <rect x="62" y="244" width="34" height="58" rx="4" fill="#ffffff" stroke="#64748b" stroke-width="1.2"/>
+  <line x1="62" y1="263" x2="96" y2="263" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="2,2"/>
+  <line x1="62" y1="283" x2="96" y2="283" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="2,2"/>
+  <rect x="83" y="266" width="10" height="14" rx="3" fill="#1d4ed8"/>
+  <ellipse cx="152" cy="273" rx="28" ry="20" fill="#ffffff" stroke="#64748b" stroke-width="1.2"/>
+  <path d="M142,267 L148,273 L142,279 M162,267 L156,273 L162,279 M148,273 L156,273" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
+  <path d="M152,253 A28,20 0 0,1 178,268 L162,273 Z" fill="#1d4ed8" opacity="0.85"/>
+  <text x="122" y="317" fill="#1e3a8a" font-size="9.6" font-weight="600" text-anchor="middle">&lt;2 椎體 · 偏背／側索灶</text>
+
+  <line x1="46" y1="326" x2="198" y2="326" stroke="#bfdbfe" stroke-width="1"/>
+  <text x="46" y="343" fill="#0f172a" font-size="9.6">· 標的：少突膠細胞與髓鞘</text>
+  <text x="46" y="360" fill="#0f172a" font-size="9.6">· 準則：DIS（≥2 區）＋DIT</text>
+  <text x="46" y="377" fill="#0f172a" font-size="9.6">· CSF：OCB (+) 替代 DIT</text>
+  <text x="46" y="394" fill="#0f172a" font-size="9.6">· 瞳孔：Marcus Gunn 瞳孔</text>
+  <text x="46" y="411" fill="#0f172a" font-size="9.6">· 假復發：發燒 Uhthoff 徵</text>
+  <rect x="44" y="426" width="156" height="82" rx="6" fill="#dbeafe"/>
+  <text x="50" y="444" fill="#1e3a8a" font-size="10" font-weight="700">維持治療（DMT）</text>
+  <text x="50" y="460" fill="#1e3a8a" font-size="9.5">Ocrelizumab / Natalizumab</text>
+  <text x="50" y="476" fill="#1e3a8a" font-size="9.5">S1P 調控劑 · 干擾素-β</text>
+  <text x="50" y="494" fill="#1d4ed8" font-size="9.5" font-weight="600">85% 初診屬復發緩解 RRMS</text>
+
+  <!-- Column 2: AQP4-NMOSD -->
+  <rect x="210" y="116" width="166" height="400" rx="8" fill="#fff1f2" stroke="#fda4af" stroke-width="1.2"/>
+  <rect x="210" y="116" width="166" height="30" rx="8" fill="#be123c"/>
+  <text x="293" y="136" fill="#ffffff" font-size="12.5" font-weight="700" text-anchor="middle">AQP4-NMOSD</text>
+
+  <text x="218" y="163" fill="#881337" font-size="10" font-weight="700">室管膜旁 · 視交叉 · LETM</text>
+  <ellipse cx="256" cy="198" rx="30" ry="20" fill="#ffffff" stroke="#64748b" stroke-width="1.2"/>
+  <rect x="251" y="186" width="10" height="22" rx="3" fill="#cbd5e1"/>
+  <circle cx="249" cy="194" r="4" fill="#be123c"/>
+  <circle cx="263" cy="194" r="4" fill="#be123c"/>
+  <circle cx="256" cy="210" r="5" fill="#be123c"/>
+  <text x="256" y="230" fill="#9f1239" font-size="9.5" text-anchor="middle">極後區／腦室旁</text>
+
+  <circle cx="319" cy="178" r="7" fill="#ffffff" stroke="#475569" stroke-width="1.2"/>
+  <circle cx="349" cy="178" r="7" fill="#ffffff" stroke="#475569" stroke-width="1.2"/>
+  <path d="M319,185 L334,208 L349,185 L342,217 M334,208 L326,217" fill="none" stroke="#94a3b8" stroke-width="3"/>
+  <path d="M324,193 L334,208 L344,193" fill="none" stroke="#be123c" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="334" cy="208" r="4.5" fill="#be123c"/>
+  <text x="334" y="230" fill="#9f1239" font-size="9.5" text-anchor="middle">雙側＋視交叉</text>
+
+  <rect x="230" y="244" width="34" height="58" rx="4" fill="#ffffff" stroke="#64748b" stroke-width="1.2"/>
+  <line x1="230" y1="263" x2="264" y2="263" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="2,2"/>
+  <line x1="230" y1="283" x2="264" y2="283" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="2,2"/>
+  <rect x="240" y="248" width="14" height="50" rx="5" fill="#be123c"/>
+  <ellipse cx="322" cy="273" rx="28" ry="20" fill="#ffffff" stroke="#64748b" stroke-width="1.2"/>
+  <ellipse cx="322" cy="273" rx="14" ry="10" fill="#be123c" opacity="0.88"/>
+  <text x="293" y="317" fill="#881337" font-size="9.6" font-weight="600" text-anchor="middle">≥3 椎體中央灰質 LETM</text>
+
+  <line x1="215" y1="326" x2="368" y2="326" stroke="#fecdd3" stroke-width="1"/>
+  <text x="215" y="343" fill="#0f172a" font-size="9.6">· 標的：星狀細胞 AQP4 通道</text>
+  <text x="215" y="360" fill="#0f172a" font-size="9.6">· 表型：視神經／LETM／極後區</text>
+  <text x="215" y="377" fill="#0f172a" font-size="9.6">  腦幹／間腦猝睡／胼胝體灶</text>
+  <text x="215" y="394" fill="#0f172a" font-size="9.6">· CSF：OCB 多陰性（&lt;20%）</text>
+  <text x="215" y="411" fill="#0f172a" font-size="9.6">· 急性：IVMP＋及早血漿置換</text>
+  <rect x="216" y="426" width="154" height="82" rx="6" fill="#ffe4e6"/>
+  <text x="222" y="444" fill="#9f1239" font-size="10" font-weight="700">生物製劑與絕對禁忌</text>
+  <text x="222" y="460" fill="#881337" font-size="9.5">Eculizumab / Inebilizumab</text>
+  <text x="222" y="476" fill="#881337" font-size="9.5">Satralizumab / Rituximab</text>
+  <text x="222" y="494" fill="#be123c" font-size="9.5" font-weight="700">禁 IFN-β · Fingolimod！</text>
+
+  <!-- Column 3: MOGAD & ADEM -->
+  <rect x="380" y="116" width="166" height="400" rx="8" fill="#f0fdfa" stroke="#5eead4" stroke-width="1.2"/>
+  <rect x="380" y="116" width="166" height="30" rx="8" fill="#0f766e"/>
+  <text x="463" y="136" fill="#ffffff" font-size="12.5" font-weight="700" text-anchor="middle">MOGAD · ADEM</text>
+
+  <text x="387" y="163" fill="#115e59" font-size="9.8" font-weight="700">絨毛白質 · 視神經鞘 · 圓錐</text>
+  <ellipse cx="426" cy="198" rx="28" ry="20" fill="#ffffff" stroke="#64748b" stroke-width="1.2"/>
+  <circle cx="416" cy="194" r="9" fill="#0f766e" opacity="0.45"/>
+  <circle cx="436" cy="201" r="8" fill="#0f766e" opacity="0.45"/>
+  <text x="426" y="230" fill="#115e59" font-size="9.5" text-anchor="middle">模糊白質／視丘</text>
+
+  <circle cx="488" cy="178" r="7" fill="#ffffff" stroke="#475569" stroke-width="1.2"/>
+  <circle cx="488" cy="184" r="3" fill="#0f766e"/>
+  <circle cx="516" cy="178" r="7" fill="#ffffff" stroke="#475569" stroke-width="1.2"/>
+  <circle cx="516" cy="184" r="3" fill="#0f766e"/>
+  <path d="M488,185 L502,208 L516,185" fill="none" stroke="#94a3b8" stroke-width="2.5"/>
+  <line x1="489" y1="186" x2="497" y2="199" stroke="#0f766e" stroke-width="6" opacity="0.55" stroke-linecap="round"/>
+  <line x1="515" y1="186" x2="507" y2="199" stroke="#0f766e" stroke-width="6" opacity="0.55" stroke-linecap="round"/>
+  <text x="502" y="230" fill="#115e59" font-size="9.5" text-anchor="middle">鞘強化＋乳頭腫</text>
+
+  <path d="M402,244 L434,244 L434,282 L418,304 L402,282 Z" fill="#ffffff" stroke="#64748b" stroke-width="1.2"/>
+  <path d="M408,272 L428,272 L418,300 Z" fill="#0f766e" opacity="0.85"/>
+  <ellipse cx="492" cy="273" rx="28" ry="20" fill="#ffffff" stroke="#64748b" stroke-width="1.2"/>
+  <path d="M481,263 L481,283 M503,263 L503,283 M481,273 L503,273" fill="none" stroke="#0f766e" stroke-width="4.5" stroke-linecap="round"/>
+  <text x="463" y="317" fill="#115e59" font-size="9.6" font-weight="600" text-anchor="middle">圓錐好發 · 軸切 H-sign</text>
+
+  <line x1="387" y1="326" x2="538" y2="326" stroke="#99f6e4" stroke-width="1"/>
+  <text x="387" y="343" fill="#0f172a" font-size="9.6">· 標的：外層髓鞘 MOG 蛋白</text>
+  <text x="387" y="360" fill="#0f172a" font-size="9.6">· 兒童多為 ADEM（伴腦病變）</text>
+  <text x="387" y="377" fill="#0f172a" font-size="9.6">· 成人多嚴重前段視神經炎</text>
+  <text x="387" y="394" fill="#0f172a" font-size="9.6">· CSF：OCB 極少見（&lt;15%）</text>
+  <text x="387" y="411" fill="#0f172a" font-size="9.6">· 預後：視力恢復優於 AQP4</text>
+  <rect x="386" y="426" width="154" height="82" rx="6" fill="#ccfbf1"/>
+  <text x="394" y="444" fill="#115e59" font-size="10" font-weight="700">類固醇敏感與防反彈</text>
+  <text x="394" y="460" fill="#115e59" font-size="9.5">IVMP 後口服類固醇遞減</text>
+  <text x="394" y="476" fill="#115e59" font-size="9.5">緩減 1–3 個月防早期復發</text>
+  <text x="394" y="494" fill="#0f766e" font-size="9.5" font-weight="600">復發選月輸 IVIG／RTX</text>
+
+  <!-- Right Top Panel: Autoimmune Encephalitis Dual-Track -->
+  <rect x="560" y="82" width="370" height="262" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+  <text x="572" y="105" fill="#0f172a" font-size="13.5" font-weight="700">二、自體免疫腦炎雙軌抗體病理與腫瘤配對</text>
+
+  <!-- Track A: Cell-surface -->
+  <rect x="568" y="116" width="174" height="218" rx="8" fill="#f0fdfa" stroke="#5eead4" stroke-width="1.2"/>
+  <rect x="568" y="116" width="174" height="26" rx="8" fill="#0f766e"/>
+  <text x="655" y="134" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle">細胞表面突觸抗體（可逆）</text>
+  <path d="M590,168 Q655,156 720,168" fill="none" stroke="#0f766e" stroke-width="2.5"/>
+  <rect x="618" y="156" width="10" height="14" rx="2" fill="#0d9488"/>
+  <rect x="678" y="156" width="10" height="14" rx="2" fill="#0d9488"/>
+  <circle cx="655" cy="181" r="8" fill="#ccfbf1" stroke="#0f766e" stroke-width="1.5" stroke-dasharray="2,2"/>
+  <text x="655" y="203" fill="#115e59" font-size="9.5" font-weight="600" text-anchor="middle">IgG 受體內吞 · 神經元存活</text>
+  <text x="574" y="220" fill="#0f172a" font-size="9.6" font-weight="700">· Anti-NMDAR（驗 CSF）</text>
+  <text x="578" y="235" fill="#334155" font-size="9.5">年輕女 · 畸胎瘤 · 口臉異動</text>
+  <text x="578" y="250" fill="#334155" font-size="9.5">精神症狀 · extreme delta</text>
+  <text x="574" y="267" fill="#0f172a" font-size="9.6" font-weight="700">· Anti-LGI1（血清＋CSF）</text>
+  <text x="578" y="282" fill="#334155" font-size="9.5">中老年男 · FBDS · 低血鈉</text>
+  <text x="574" y="299" fill="#0f172a" font-size="9.5" font-weight="700">· GABA-B(SCLC) / CASPR2</text>
+  <text x="578" y="315" fill="#0f766e" font-size="9.5" font-weight="700">免疫治療佳（75–80% 恢復）</text>
+
+  <!-- Track B: Intracellular Onconeuronal -->
+  <rect x="748" y="116" width="174" height="218" rx="8" fill="#fffbeb" stroke="#fcd34d" stroke-width="1.2"/>
+  <rect x="748" y="116" width="174" height="26" rx="8" fill="#b45309"/>
+  <text x="835" y="134" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle">細胞內腫瘤伴生抗體（毒殺）</text>
+  <circle cx="810" cy="170" r="13" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+  <circle cx="810" cy="170" r="5" fill="#b45309"/>
+  <circle cx="858" cy="170" r="14" fill="#be123c"/>
+  <text x="858" y="174" fill="#ffffff" font-size="9.5" font-weight="700" text-anchor="middle">CD8+</text>
+  <line x1="843" y1="170" x2="825" y2="170" stroke="#be123c" stroke-width="2"/>
+  <text x="835" y="203" fill="#92400e" font-size="9.5" font-weight="600" text-anchor="middle">MHC-I 呈獻 · 神經元凋亡</text>
+  <text x="754" y="220" fill="#0f172a" font-size="9.6" font-weight="700">· Anti-Hu（ANNA-1）</text>
+  <text x="758" y="235" fill="#334155" font-size="9.5">&gt;80% SCLC · 感覺神經元病</text>
+  <text x="754" y="252" fill="#0f172a" font-size="9.6" font-weight="700">· Anti-Yo（PCA-1）</text>
+  <text x="758" y="267" fill="#334155" font-size="9.5">卵巢／乳癌 · 小腦退化</text>
+  <text x="754" y="284" fill="#0f172a" font-size="9.6" font-weight="700">· Anti-Ma2（睪丸腫瘤）</text>
+  <text x="758" y="299" fill="#334155" font-size="9.5">年輕男 · 間腦猝睡上視麻痺</text>
+  <text x="758" y="316" fill="#be123c" font-size="9.5" font-weight="700">急尋隱匿癌（PET／超音波）</text>
+
+  <!-- Right Bottom Panel: Acute Rescue & Escalation Flow -->
+  <rect x="560" y="352" width="370" height="176" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+  <text x="572" y="374" fill="#0f172a" font-size="13.5" font-weight="700">三、急性免疫搶救與 10–14 天二線升級流程</text>
+
+  <rect x="568" y="384" width="354" height="60" rx="7" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.2"/>
+  <text x="576" y="401" fill="#1e3a8a" font-size="10.2" font-weight="700">Step 1 一線搶救（排除 HSV-1 PCR 後即刻啟動，不等抗體）</text>
+  <text x="576" y="417" fill="#0f172a" font-size="9.6">· IVMP 1 g/d×3–5d ＋ IVIG（2 g/kg）或隔日 PLEX 5–7 次</text>
+  <text x="576" y="433" fill="#be123c" font-size="9.6" font-weight="600">· 鐵律：先做 PLEX 再輸 IVIG（防洗除）＋ 儘早切畸胎瘤</text>
+
+  <path d="M745,445 L745,456 M740,452 L745,457 L750,452" fill="none" stroke="#475569" stroke-width="1.8"/>
+
+  <rect x="568" y="458" width="354" height="60" rx="7" fill="#f0fdf4" stroke="#86efac" stroke-width="1.2"/>
+  <text x="576" y="475" fill="#14532d" font-size="10.2" font-weight="700">Step 2 二線升級（10–14 天仍昏迷／重積癲癇／中樞低通氣）</text>
+  <text x="576" y="491" fill="#0f172a" font-size="9.6">· 表面抗體選 Rituximab（抗 CD20）；T 細胞選 Cyclophosphamide</text>
+  <text x="576" y="507" fill="#166534" font-size="9.6" font-weight="600">· 給藥前必檢 HBsAg、anti-HBc（防猛爆 B 肝）與結核 IGRA</text>
+</svg>

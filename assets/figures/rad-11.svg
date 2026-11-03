@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-labelledby="rad11-title rad11-desc" font-family="system-ui, -apple-system, 'Noto Sans TC', sans-serif">
+  <title id="rad11-title">Seldinger 血管入路解剖安全 · 肝癌 TACE 對出血 TAE 與術前凝血分級決策圖</title>
+  <desc id="rad11-desc">三欄展示經股總動脈安全穿刺骨性標記與高低位併發症、消化道出血速率門檻與上下消化道栓塞及肝癌 TACE 策略，以及介入放射 SIR 術前凝血門檻、經皮穿刺無血管安全路徑與神經介入重點。</desc>
+
+  <rect x="20" y="20" width="920" height="520" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="20" y="20" width="920" height="50" rx="14" fill="#0f172a"/>
+  <rect x="20" y="54" width="920" height="16" fill="#0f172a"/>
+  <text x="40" y="51" fill="#ffffff" font-size="17.5" font-weight="700">Seldinger 血管入路解剖安全 · 肝癌 TACE 對出血 TAE 與術前凝血分級決策</text>
+  <text x="920" y="50" fill="#94a3b8" font-size="12" text-anchor="end">Rad-11 · 介入性放射線學</text>
+
+  <!-- Column 1: Femoral Artery Access Anatomy -->
+  <rect x="34" y="82" width="288" height="444" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+  <rect x="34" y="82" width="288" height="32" rx="10" fill="#eff6ff"/>
+  <rect x="34" y="102" width="288" height="12" fill="#eff6ff"/>
+  <text x="48" y="103" fill="#1d4ed8" font-size="13" font-weight="700">1. 股動脈 Seldinger 安全穿刺解剖區</text>
+
+  <!-- Femoral Head + Inguinal Ligament + EIA/CFA/SFA/PFA Schematic -->
+  <rect x="46" y="122" width="264" height="214" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+  <!-- Femoral head circle -->
+  <circle cx="146" cy="232" r="46" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+  <text x="114" y="236" fill="#475569" font-size="10" font-weight="700">股骨頭</text>
+  <!-- Inguinal ligament dashed line -->
+  <line x1="62" y1="154" x2="232" y2="196" stroke="#475569" stroke-width="2.5" stroke-dasharray="6,4"/>
+  <text x="64" y="146" fill="#334155" font-size="10" font-weight="700">腹股溝韌帶</text>
+  <!-- Artery trunk: EIA -> CFA -> SFA & PFA -->
+  <path d="M160,132 L156,262" stroke="#be123c" stroke-width="8" stroke-linecap="round"/>
+  <path d="M156,262 L140,322" stroke="#be123c" stroke-width="6" stroke-linecap="round"/>
+  <path d="M156,262 L180,318" stroke="#be123c" stroke-width="5.5" stroke-linecap="round"/>
+  <!-- Inferior epigastric loop -->
+  <path d="M158,176 C176,184 182,164 174,142" fill="none" stroke="#be123c" stroke-width="2.2"/>
+  <!-- Safe target circle on CFA over medial-inferior femoral head -->
+  <circle cx="157" cy="236" r="11" fill="#10b981" fill-opacity="0.35" stroke="#0f766e" stroke-width="2.5"/>
+  <line x1="196" y1="236" x2="168" y2="236" stroke="#0f766e" stroke-width="2"/>
+
+  <!-- Zone callouts inside schematic -->
+  <text x="192" y="156" fill="#be123c" font-size="10" font-weight="700">過高（外腸骨動脈）</text>
+  <text x="192" y="170" fill="#be123c" font-size="9.8">→ 後腹腔大血腫！</text>
+  <text x="200" y="233" fill="#0f766e" font-size="10.5" font-weight="700">安全靶區（CFA）</text>
+  <text x="200" y="247" fill="#334155" font-size="9.8">股骨頭內下象限表面</text>
+  <text x="192" y="294" fill="#b45309" font-size="10" font-weight="700">過低（SFA／PFA）</text>
+  <text x="192" y="308" fill="#b45309" font-size="9.8">→ 假性動脈瘤 · AVF</text>
+
+  <!-- Summary bullets under schematic -->
+  <rect x="46" y="344" width="264" height="170" rx="7" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text x="56" y="364" fill="#1d4ed8" font-size="11.5" font-weight="700">Seldinger 穿刺與 DSA 減影要點</text>
+  <text x="56" y="383" fill="#334155" font-size="10.4">· 股骨頭提供堅硬後方支撐，確保拔鞘後</text>
+  <text x="56" y="398" fill="#334155" font-size="10.4">  徒手壓迫或止血器有效封閉動脈穿刺孔</text>
+  <text x="54" y="417" fill="#be123c" font-size="10" font-weight="700">· 假性動脈瘤音波：陰陽漩渦徵 (Yin-Yang)</text>
+  <text x="54" y="432" fill="#be123c" font-size="10.2">  伴瘤頸往復雙向血流（To-and-fro sign）</text>
+  <text x="54" y="451" fill="#334155" font-size="10.2">· 肥胖者皮膚皺摺下垂，嚴禁單憑皺摺盲刺</text>
+  <text x="54" y="469" fill="#0f766e" font-size="10.2" font-weight="600">· DSA 減去骨骼蒙片（Mask）保留純血管腔；</text>
+  <text x="54" y="484" fill="#0f766e" font-size="10.2" font-weight="600">  呼吸移動重影可重新取蒙片或像素位移校正</text>
+  <text x="54" y="502" fill="#64748b" font-size="10">· 導線交換全程須固定尾端防導線滑入血管內</text>
+
+  <!-- Column 2: GI Bleeding TAE vs HCC TACE -->
+  <rect x="336" y="82" width="292" height="444" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+  <rect x="336" y="82" width="292" height="32" rx="10" fill="#fff1f2"/>
+  <rect x="336" y="102" width="292" height="12" fill="#fff1f2"/>
+  <text x="350" y="103" fill="#be123c" font-size="13" font-weight="700">2. 出血栓塞（TAE）對肝癌栓塞（TACE）</text>
+
+  <!-- Card 2A: GI Bleed Rate Thresholds -->
+  <rect x="348" y="122" width="268" height="114" rx="7" fill="#fffbeb" stroke="#fde68a"/>
+  <text x="356" y="141" fill="#b45309" font-size="11.6" font-weight="700">急性消化道出血最低偵測速率門檻</text>
+  <text x="356" y="160" fill="#0f766e" font-size="10" font-weight="700">1. Tc-99m 紅血球掃描：≥0.1 mL/min (最敏感)</text>
+  <text x="356" y="178" fill="#1d4ed8" font-size="10" font-weight="700">2. 三期動態 CTA：≥0.3–0.5 mL/min (定位快)</text>
+  <text x="356" y="196" fill="#be123c" font-size="9.8" font-weight="700">3. 傳統導管 DSA：≥0.5–1.0 mL/min (即刻栓塞)</text>
+  <text x="356" y="214" fill="#475569" font-size="9.8">CTA 必拍無顯影期排除止血夾或高密度糞石偽陽性</text>
+  <text x="356" y="228" fill="#475569" font-size="9.8">動脈期外滲並於門脈期擴大變形 = 主動出血鐵證</text>
+
+  <!-- Card 2B: Upper vs Lower GI Embolization -->
+  <rect x="348" y="244" width="268" height="128" rx="7" fill="#fff1f2" stroke="#fecdd3"/>
+  <text x="356" y="263" fill="#be123c" font-size="11.6" font-weight="700">上消化道對下消化道動脈栓塞策略</text>
+  <text x="356" y="282" fill="#334155" font-size="10.2" font-weight="600">· 上消化道（如胃十二指腸動脈 GDA）：</text>
+  <text x="356" y="298" fill="#334155" font-size="10">  具腹腔幹與上腸繫膜動脈雙向側支吻合，須採</text>
+  <text x="356" y="313" fill="#be123c" font-size="10" font-weight="700">  「遠近端三明治封堵法 (Sandwich)」防逆流</text>
+  <text x="356" y="332" fill="#334155" font-size="10.2" font-weight="600">· 下消化道（空迴腸／結腸出血）：</text>
+  <text x="356" y="348" fill="#1d4ed8" font-size="10" font-weight="700">  缺側支！微導管超選擇性至直血管 (Vasa recta)</text>
+  <text x="356" y="363" fill="#475569" font-size="9.8">  精準微線圈止血，嚴禁近端廣泛栓塞致腸壞死</text>
+
+  <!-- Card 2C: HCC TACE & Ablation -->
+  <rect x="348" y="380" width="268" height="134" rx="7" fill="#f0fdfa" stroke="#99f6e4"/>
+  <text x="356" y="399" fill="#0f766e" font-size="11.6" font-weight="700">肝細胞癌 TACE 生理基礎與局部消融</text>
+  <text x="356" y="418" fill="#334155" font-size="10">· 雙重供血：肝75%門脈 vs HCC&gt;90%肝動脈</text>
+  <text x="356" y="435" fill="#be123c" font-size="9.8" font-weight="700">· TACE 禁忌：主門脈完全癌栓無側支 · Child C</text>
+  <text x="356" y="452" fill="#334155" font-size="10.2">· 早期小型 HCC（≤ 3 cm）消融：大血管旁選</text>
+  <text x="356" y="468" fill="#0f766e" font-size="10.2" font-weight="700">  微波燒灼（MWA）克服血流帶熱之熱沉效應</text>
+  <text x="356" y="485" fill="#334155" font-size="9.8">· Y-90 放射栓塞前必做 Tc-99m MAA 測肺分流</text>
+  <text x="356" y="502" fill="#64748b" font-size="9.8">· 頑固靜脈曲張／腹水行 TIPS 須監測肝性腦病變</text>
+
+  <!-- Column 3: SIR Coagulation, Non-vascular Safe Route & Neuro-IR -->
+  <rect x="642" y="82" width="284" height="444" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+  <rect x="642" y="82" width="284" height="32" rx="10" fill="#f0fdfa"/>
+  <rect x="642" y="102" width="284" height="12" fill="#f0fdfa"/>
+  <text x="656" y="103" fill="#0f766e" font-size="13" font-weight="700">3. SIR 術前凝血 · 穿刺路徑與神經介入</text>
+
+  <!-- Card 3A: SIR Coagulation -->
+  <rect x="654" y="122" width="260" height="126" rx="7" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="664" y="141" fill="#0f172a" font-size="11.5" font-weight="700">SIR 術前出血風險分級與凝血門檻</text>
+  <rect x="662" y="150" width="244" height="40" rx="5" fill="#f0fdfa" stroke="#99f6e4"/>
+  <text x="668" y="166" fill="#0f766e" font-size="10.2" font-weight="700">低出血風險（表淺 FNA · 胸腹水抽吸）</text>
+  <text x="668" y="182" fill="#334155" font-size="10">INR ≤ 2.0–3.0 · 血小板 ≥ 20,000/μL</text>
+
+  <rect x="662" y="196" width="244" height="44" rx="5" fill="#fff1f2" stroke="#fecdd3"/>
+  <text x="668" y="212" fill="#be123c" font-size="10.2" font-weight="700">高出血風險（肝腎肺切片 · PTCD · PCN）</text>
+  <text x="668" y="229" fill="#334155" font-size="9.6">INR≤1.5–1.8·Plt≥50k·Clopidogrel停5天</text>
+
+  <!-- Card 3B: Safe Non-vascular Routes -->
+  <rect x="654" y="256" width="260" height="120" rx="7" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text x="662" y="275" fill="#1d4ed8" font-size="11.5" font-weight="700">非血管經皮穿刺兩大解剖鐵律</text>
+  <text x="662" y="294" fill="#1d4ed8" font-size="10.2" font-weight="700">· 經胸肺結節切片與引流：沿「肋骨上緣」進針</text>
+  <text x="662" y="310" fill="#334155" font-size="10">  避開肋骨下緣肋間動脈，並避開葉間裂與肺大泡</text>
+  <text x="662" y="329" fill="#0f766e" font-size="10.2" font-weight="700">· 經皮腎造瘻（PCN）：背外側刺「後組腎盞」</text>
+  <text x="662" y="345" fill="#334155" font-size="10">  走 Brodel 相對無血管帶；嚴禁直刺腎盂傷大血管</text>
+  <text x="662" y="363" fill="#64748b" font-size="9.8">右側 PTCD 經肋間亦須貼近下位肋骨上緣入針</text>
+
+  <!-- Card 3C: Interventional Neuroradiology -->
+  <rect x="654" y="384" width="260" height="130" rx="7" fill="#fffbeb" stroke="#fde68a"/>
+  <text x="662" y="403" fill="#b45309" font-size="11.5" font-weight="700">介入性神經放射學關鍵指標</text>
+  <text x="662" y="421" fill="#334155" font-size="9.8">· 前循環 LVO 機械取栓：目標 mTICI ≥2b／3</text>
+  <text x="662" y="437" fill="#334155" font-size="9.8">  (符合 IV tPA 者先給藥橋接，不因等藥效延誤)</text>
+  <text x="662" y="454" fill="#be123c" font-size="9.8" font-weight="700">· AVM 液態栓塞：先封病巢，禁提早塞引流靜脈</text>
+  <text x="662" y="471" fill="#334155" font-size="9.8">· 頸動脈海綿竇瘻管(CCF)：Type A 外傷 vs</text>
+  <text x="662" y="487" fill="#334155" font-size="9.8">  B–D 硬腦膜分支；均見同側上眼靜脈擴張逆流</text>
+  <text x="662" y="504" fill="#64748b" font-size="9.6">· 頸動脈支架(CAS)撐開球部備 Atropine 防心搏緩</text>
+</svg>

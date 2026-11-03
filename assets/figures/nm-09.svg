@@ -62,7 +62,7 @@
   <text x="518" y="357" font-size="11.5" font-weight="700" fill="#9f1239">15 mCi Tc-99m 潑灑黃金五步（零擴散 · 零破皮）：</text>
   <text x="518" y="375" font-size="10.5" fill="#0f172a">1. 原地停步測鞋底（防踩遍走廊）＋ 疏散無關民眾並封鎖標示</text>
   <text x="518" y="393" font-size="10.5" fill="#0f172a">2. 先處理傷口與皮膚：溫水＋中性肥皂輕洗（嚴禁硬刷破皮！）</text>
-  <text x="518" y="411" font-size="10.5" fill="#0f172a">3. 雙層防護由外往內吸除 → 擦拭偵檢 → 蓋鉛墊衰變通報 RSO</text>
+  <text x="518" y="411" font-size="9.8" fill="#0f172a">3. 由外往內吸除 → 蓋鉛墊衰變（48h 剩 1/256）→ GM 複測合格解封</text>
 
   <rect x="508" y="438" width="402" height="76" rx="8" fill="#fffbeb" stroke="#fcd34d"/>
   <text x="518" y="456" font-size="11.5" font-weight="700" fill="#b45309">體外免疫分析（I-125 長半衰期 ~60 天）與劑量校正器：</text>

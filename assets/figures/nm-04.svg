@@ -101,7 +101,7 @@
     <text x="540" y="436" font-size="10" fill="#334155">· 正常 24h 抵顱頂大腦凸面吸收；NPH 側腦室逆流 &gt;24–48h</text>
     <text x="540" y="453" font-size="10" font-weight="600" fill="#92400e">· 分流引流至腹膜腔(首選)/右心房/肋膜腔；禁引流至膀胱！</text>
     <text x="534" y="476" font-size="11" font-weight="700" fill="#1d4ed8">3. 輔助腦死灌注（ECD/HMPAO 空顱徵）：</text>
-    <text x="540" y="494" font-size="10" font-weight="700" fill="#be123c">· 必先回溫 ≥36°C＋排除鎮靜肌鬆藥！（禁繞過可逆干擾）</text>
+    <text x="540" y="494" font-size="9.8" font-weight="700" fill="#be123c">· 必先回溫 ≥36°C、成人 SBP≥100 且 MAP≥75＋排鎮靜肌鬆藥！</text>
     <text x="540" y="510" font-size="10" fill="#334155">· 僅限無法安全完成呼吸暫停或腦幹反射檢查時執行（驗純度）</text>
   </g>
 </svg>

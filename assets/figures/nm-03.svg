@@ -9,7 +9,7 @@
     <!-- Panel A: 4 Thyroid Scan Patterns -->
     <rect x="36" y="88" width="530" height="256" rx="10" fill="#ffffff" stroke="#0f766e" stroke-width="1.8"/>
     <rect x="36" y="88" width="530" height="32" rx="10" fill="#ccfbf1"/>
-    <text x="52" y="109" font-size="14" font-weight="700" fill="#0f766e">A. 甲狀腺掃描與攝取率（RAIU）四大鑑別型態（懷孕哺乳絕對禁 I-131）</text>
+    <text x="52" y="109" font-size="11.5" font-weight="700" fill="#0f766e">A. 甲狀腺掃描四大鑑別（懷孕禁做；哺乳禁 I-131，首選 Tc-99m 停餵 12–24h）</text>
 
     <!-- Subcard 1: Graves -->
     <rect x="48" y="130" width="120" height="202" rx="8" fill="#f0fdfa" stroke="#5eead4"/>
