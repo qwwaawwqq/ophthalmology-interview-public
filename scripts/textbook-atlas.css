@@ -87,3 +87,12 @@
 #textbook-root .atlas-root .tb-lead-term{color:#153e4d;font-weight:700}
 #textbook-root .atlas-root .tb-substeps{display:grid;gap:7px;margin-top:8px}
 #textbook-root .atlas-root .tb-substep{display:block;padding:7px 11px;background:#f8fbfc;border:1px solid #dce9eb;border-left:3px solid #4c8c8a;border-radius:6px;line-height:1.75}
+#textbook-root .atlas-srs-bar{display:flex;align-items:center;justify-content:space-between;gap:10px 14px;flex-wrap:wrap;margin-top:14px;padding-top:10px;border-top:1px dashed #c8dce0}
+#textbook-root .atlas-srs-status{font-size:12.5px;font-weight:600;color:#225b68}
+#textbook-root .atlas-srs-actions{display:flex;gap:8px;flex-wrap:wrap}
+#textbook-root .atlas-srs-actions button{font-size:12.5px;padding:6px 11px;border-radius:999px;background:#fff;border:1px solid #bcd4d8;color:#1d4252;line-height:1.4}
+#textbook-root .atlas-srs-actions button:hover{background:#eaf5f4;border-color:#187b78}
+#textbook-root .tb-inline-atlas-retrievals{display:grid;gap:8px;margin-top:10px;padding-top:8px;border-top:1px solid #e2ecef}
+#textbook-root .tb-inline-atlas-retrieval summary{font-size:13px;font-weight:650;color:#225b68;cursor:pointer;line-height:1.6}
+#textbook-root .tb-inline-atlas-retrieval-body{margin-top:8px;padding:10px 12px;background:#f7fbfb;border-radius:6px;border:1px solid #dcebef;font-size:13px}
+#textbook-root .tb-inline-atlas-retrieval-body p{margin:0;line-height:1.75}

@@ -116,5 +116,176 @@ async function test(name,fn){try{await fn();results.push({name,pass:true});}catc
   handlers.get('change')({target:{matches:s=>s==='[data-cram-filter]',value:'due'}});
   assert(root.innerHTML.includes(`data-card-id="${cardId}"`),'card appears in due filter once dueAt arrives');
  });
+ await test('granular sub-bank taxonomy indexes all 1,667 oph items, scopes due/weak queues by pool+volume, and routes cram/atlas/shared deep links',async()=>{
+  const a=fresh(),cramData=read('content/cram-review.json'),atlasData=read('content/textbook-depth/visual-atlas.json'),hardData=read('content/textbook-depth/advanced-practice.json');
+  a.document.currentScript={src:'https://example.test/scripts/advanced-practice.js'};
+  vm.runInContext(fs.readFileSync(path.join(here,'advanced-practice.js'),'utf8'),a.context);
+  const cramHandlers=new Map(),cramRoot={isConnected:true,dataset:{},innerHTML:'',querySelector(){return {focus(){},scrollIntoView(){}};},addEventListener(n,fn){cramHandlers.set(n,fn);}};
+  a.document.currentScript={src:'https://example.test/scripts/cram-review.js'};
+  const oldGet=a.document.getElementById;a.document.getElementById=()=>null;
+  vm.runInContext(fs.readFileSync(path.join(here,'cram-review.js'),'utf8'),a.context);
+  a.document.currentScript={src:'https://example.test/scripts/textbook-atlas.js'};
+  vm.runInContext(fs.readFileSync(path.join(here,'textbook-atlas.js'),'utf8'),a.context);
+  a.document.getElementById=oldGet;
+  a.context.fetch=async url=>{
+   const u=String(url);
+   const payload=u.includes('textbook-manifest.json')?manifest:u.includes('advanced-practice.json')?hardData:u.includes('additional-practice.json')?extra:u.includes('cram-review.json')?cramData:u.includes('visual-atlas.json')?atlasData:volumes[u.match(/bcsc-s\d{2}/)?.[0]];
+   return {ok:!!payload,json:async()=>structuredClone(payload)};
+  };
+  await a.context.window.OphCram.mount(cramRoot);
+  const studyHandlers=new Map(),studyRoot={isConnected:true,dataset:{},innerHTML:'',addEventListener(n,fn){studyHandlers.set(n,fn);}};
+  await a.study.mount(studyRoot);
+  assert(studyRoot.innerHTML.includes('共筆 535 題'));
+  assert(studyRoot.innerHTML.includes('原書概念 540 題'));
+  assert(studyRoot.innerHTML.includes('自編陌生題 264 題（Hard 144 ＋ 陌生病例 120）'));
+  assert(studyRoot.innerHTML.includes('衝刺卡 18 張'));
+  assert(studyRoot.innerHTML.includes('圖解回想 310 題'));
+  studyHandlers.get('click')({target:{closest:()=>({dataset:{studyFilter:'all'},disabled:false})}});
+  assert(studyRoot.innerHTML.includes('1667 題；顯示 1–30'),'all 1,667 items indexed across all oph pools');
+  const expectedCounts=[['shared',535],['shared-notes',292],['shared-kaogu',243],['book',540],['extra',264],['hard',144],['extra-legacy',120],['cram',18],['atlas',310]];
+  for(const [poolVal,cnt] of expectedCounts){
+   studyHandlers.get('change')({target:{matches:s=>s==='[data-study-pool]',value:poolVal}});
+   assert(studyRoot.innerHTML.includes(cnt+' 題；顯示'),poolVal+' count should be '+cnt);
+  }
+  // Check chapter-inline normalization on book pool
+  studyHandlers.get('change')({target:{matches:s=>s==='[data-study-pool]',value:'book'}});
+  assert(studyRoot.innerHTML.includes('data-study-volume'),'book pool renders secondary volume selector');
+  studyHandlers.get('change')({target:{matches:s=>s==='[data-study-volume]',value:'bcsc-s01'}});
+  const s01BookCount=manifest.books.find(b=>b.bookId==='bcsc-s01').sourceQuestions.length;
+  assert(studyRoot.innerHTML.includes(s01BookCount+' 題；顯示'));
+  assert(!studyRoot.innerHTML.includes('chapter-inline'));
+
+  // Seed due & weak records across multiple pools and verify strict scope isolation
+  const dueAt='2026-10-20T13:50:00.000Z',mkDue=(id,lapses=1)=>({version:1,at:dueAt,answerCount:lapses,attempt:{id:'tok-'+id,at:dueAt,correct:false,rated:true},plan:{step:-1,dueAt,rating:'again',reviewCount:lapses,lapses}});
+  const notesQ=a.qa.D.questions.find(q=>!q.pastExam),kaoguQ=a.qa.D.questions.find(q=>q.pastExam);
+  const bookS01=manifest.books.find(b=>b.bookId==='bcsc-s01').sourceQuestions[0].sourceQuestionKey;
+  const bookS07=manifest.books.find(b=>b.bookId==='bcsc-s07').sourceQuestions[0].sourceQuestionKey;
+  const hardQ=hardData.questions[0].id,legacyExtraQ=extra.questions[0].id,cramQ=cramData.cards[2].id,atlasS09='atlas-s09-01-case';
+  a.bridge.save(key('shared',notesQ.id),mkDue(notesQ.id,3));
+  a.bridge.save(key('shared',kaoguQ.id),mkDue(kaoguQ.id,1));
+  a.bridge.save(key('book',bookS01),mkDue(bookS01,4));
+  a.bridge.save(key('book',bookS07),mkDue(bookS07,1));
+  a.bridge.save(key('extra',hardQ),mkDue(hardQ,1));
+  a.bridge.save(key('extra',legacyExtraQ),mkDue(legacyExtraQ,2));
+  a.bridge.save(key('cram',cramQ),mkDue(cramQ,1));
+  a.bridge.save(key('atlas',atlasS09),mkDue(atlasS09,1));
+
+  a.study.setScope('shared-kaogu');
+  assert.deepEqual(Array.from(a.study.nextCandidates('due'),x=>x.id),[kaoguQ.id]);
+  const pickedKaogu=await a.study.nextReview('due');
+  assert.equal(pickedKaogu.id,kaoguQ.id);
+  assert.equal(a.qa.S.tab,'quiz');
+  assert.equal(a.qa.S.mode,'due','opening due shared item from SRS enters #quiz due mode');
+  assert.deepEqual(Array.from(a.qa.S.ids).sort(),[notesQ.id,kaoguQ.id].sort(),'#quiz due mode holds only due shared items');
+
+  a.study.setScope('shared-notes');
+  const pickedWeakNotes=await a.study.nextReview('weak');
+  assert.equal(pickedWeakNotes.id,notesQ.id);
+  assert.equal(a.qa.S.mode,'srs-weak','opening weak shared item from SRS enters #quiz srs-weak mode');
+
+  a.study.setScope('book','bcsc-s07');
+  assert.deepEqual(Array.from(a.study.nextCandidates('due'),x=>x.id),[bookS07]);
+  const pickedBook=await a.study.nextReview('due');
+  assert.equal(pickedBook.id,bookS07);
+  assert.equal(a.context.window.location.hash,'#textbook-'+bookS07);
+
+  a.study.setScope('hard');
+  assert.deepEqual(Array.from(a.study.nextCandidates('due'),x=>x.id),[hardQ]);
+
+  a.study.setScope('cram');
+  const pickedCram=await a.study.nextReview('due');
+  assert.equal(pickedCram.id,cramQ);
+  assert.equal(a.qa.S.tab,'cram');
+  assert(cramRoot.innerHTML.includes(`data-card-id="${cramQ}"`)&&cramRoot.innerHTML.includes('<details class="cram-answer" open>'),'cram deep-link opens target flashcard details');
+
+  a.study.setScope('atlas','bcsc-s09');
+  assert.deepEqual(Array.from(a.study.nextCandidates('due'),x=>x.id),[atlasS09]);
+  const pickedAtlas=await a.study.nextReview('due');
+  assert.equal(pickedAtlas.id,atlasS09);
+  assert.equal(a.context.window.location.hash,'#textbook-atlas-bcsc-s09-atlas-s09-01');
+ });
+ await test('cram 1-way migration syncs existing cram-review-v1 schedules to OphStudyBridge and v1-v3 roundtrip preserves cram + atlas SRS entries',async()=>{
+  const local=new MemoryStorage(),cramData=read('content/cram-review.json');
+  const c0=cramData.cards[0].id,c1=cramData.cards[1].id;
+  local.setItem('oph-prep:cram-review-v1',JSON.stringify({
+   [c0]:{status:'review',at:'2026-10-19T10:00:00.000Z',plan:{step:0,dueAt:'2026-10-20T10:00:00.000Z',rating:'hard',reviewCount:2,lapses:1}}
+  }));
+  const a=fresh(local),handlers=new Map(),root={isConnected:true,dataset:{},innerHTML:'',querySelector(){return {focus(){},scrollIntoView(){}};},addEventListener(n,fn){handlers.set(n,fn);}};
+  a.context.fetch=async()=>({ok:true,json:async()=>structuredClone(cramData)});
+  a.document.currentScript={src:'https://example.test/scripts/cram-review.js'};
+  const oldGet=a.document.getElementById;a.document.getElementById=()=>null;
+  vm.runInContext(fs.readFileSync(path.join(here,'cram-review.js'),'utf8'),a.context);
+  a.document.getElementById=oldGet;
+  await a.context.window.OphCram.mount(root);
+  for(const label of ['重來 · 10 分鐘','微卡 · 1 天','記得 · 1–30 天','很熟 · 跳階'])assert(root.innerHTML.includes(label),'missing updated cram label '+label);
+  const mig=record(a,'cram',c0);
+  assert(mig&&mig.version===1&&mig.plan.rating==='hard'&&mig.plan.dueAt==='2026-10-20T10:00:00.000Z','1-way migration populates study:srs:cram:<id>');
+  handlers.get('click')({target:{closest:s=>s==='[data-cram-srs]'?{dataset:{id:c1,cramSrs:'easy'},closest:()=>({nextElementSibling:null})}:null}});
+  const rated=record(a,'cram',c1);
+  assert.equal(rated.plan.rating,'easy');assert.equal(rated.plan.step,1);assert.equal(rated.plan.dueAt,'2026-10-23T14:00:00.000Z');
+  const mirrored=JSON.parse(a.local.getItem('oph-prep:cram-review-v1'))[c1];
+  assert.equal(mirrored.plan.dueAt,'2026-10-23T14:00:00.000Z');
+  a.bridge.save('study:srs:atlas:atlas-s01-01-case',{version:1,at:'2026-10-20T14:00:00.000Z',answerCount:1,attempt:{id:'atlas-t1',at:'2026-10-20T14:00:00.000Z',correct:true,rated:true},plan:{step:0,dueAt:'2026-10-21T14:00:00.000Z',rating:'good',reviewCount:1,lapses:0}});
+  const exported=a.qa.progressPayload();
+  for(const ver of [1,2,3]){
+   const b=fresh();
+   b.qa.mergeProgress({format:'ophthalmology-prep-progress-v'+ver,entries:structuredClone(exported.entries),meta:{}});
+   assert.equal(record(b,'cram',c1).plan.dueAt,'2026-10-23T14:00:00.000Z','v'+ver+' preserves cram SRS');
+   assert.equal(record(b,'atlas','atlas-s01-01-case').plan.dueAt,'2026-10-21T14:00:00.000Z','v'+ver+' preserves atlas SRS');
+  }
+ });
+ await test('cram manual self-rating preserves SRS plan across refresh/remount, card reset removes study:srs:cram:<id>, and array plan is ignored safely',async()=>{
+  const local=new MemoryStorage(),cramData=read('content/cram-review.json');
+  const cGood=cramData.cards[0].id,cArr=cramData.cards[1].id;
+  local.setItem('oph-prep:cram-review-v1',JSON.stringify({
+   [cArr]:{status:'review',at:'2026-10-19T10:00:00.000Z',plan:[]}
+  }));
+  const a=fresh(local),handlers=new Map(),root={isConnected:true,dataset:{},innerHTML:'',querySelector(){return {focus(){},scrollIntoView(){}};},addEventListener(n,fn){handlers.set(n,fn);}};
+  let clockMs=Date.parse('2026-10-20T14:00:00.000Z');
+  a.study.setClock(()=>clockMs);
+  a.context.fetch=async()=>({ok:true,json:async()=>structuredClone(cramData)});
+  a.document.currentScript={src:'https://example.test/scripts/cram-review.js'};
+  const oldGet=a.document.getElementById;a.document.getElementById=()=>null;
+  vm.runInContext(fs.readFileSync(path.join(here,'cram-review.js'),'utf8'),a.context);
+  a.document.getElementById=oldGet;
+  await a.context.window.OphCram.mount(root);
+  const cardSnippet=id=>root.innerHTML.match(new RegExp(`<article class="cram-card" data-card-id="${id}">[\\s\\S]*?<\\/article>`))?.[0]||'';
+
+  // (c) Malformed array plan: [] must NOT synthesize a migrated SRS entry or render undefined dueAt
+  assert.equal(record(a,'cram',cArr),null,'plan: [] in cram-review-v1 must not migrate to OphStudyBridge');
+  assert(cardSnippet(cArr).includes('cram-badge review')&&!cardSnippet(cArr).includes('下次'),'plan: [] keeps manual review status without bogus schedule');
+
+  // (a) Schedule card via [data-cram-srs="good"], then mark [data-cram-mark="review"] (even at same frozen ms first, then advanced ms), refresh & remount
+  handlers.get('click')({target:{closest:s=>s==='[data-cram-srs]'?{dataset:{id:cGood,cramSrs:'good'},closest:()=>({nextElementSibling:null})}:null}});
+  assert(cardSnippet(cGood).includes('cram-badge known')&&cardSnippet(cGood).includes('下次'));
+  assert.equal(record(a,'cram',cGood).plan.dueAt,'2026-10-21T14:00:00.000Z');
+
+  handlers.get('click')({target:{closest:s=>s==='[data-cram-mark]'?{dataset:{id:cGood,cramMark:'review'},closest:()=>({nextElementSibling:null})}:null}});
+  a.context.window.OphCram.refresh();
+  assert(cardSnippet(cGood).includes('cram-badge review')&&cardSnippet(cGood).includes('下次'),'same-ms manual 待複習 survives OphCram.refresh() and keeps SRS due date');
+
+  clockMs+=5000;
+  handlers.get('click')({target:{closest:s=>s==='[data-cram-mark]'?{dataset:{id:cGood,cramMark:'review'},closest:()=>({nextElementSibling:null})}:null}});
+  a.context.window.OphCram.refresh();
+  await a.context.window.OphCram.mount(root);
+  assert(cardSnippet(cGood).includes('cram-badge review')&&cardSnippet(cGood).includes('下次'),'remount preserves manual 待複習 status AND SRS plan');
+  assert.equal(record(a,'cram',cGood).plan.dueAt,'2026-10-21T14:00:00.000Z','SRS entry in OphStudyBridge remains intact');
+
+  // Newer cloud-synced SRS record (bAt > locAt) still wins cleanly on refresh
+  const syncAt='2026-10-20T15:00:00.000Z';
+  a.bridge.save(key('cram',cGood),{version:1,at:syncAt,answerCount:2,attempt:{id:'sync-1',at:syncAt,correct:true,rated:true},plan:{step:2,dueAt:'2026-10-27T15:00:00.000Z',rating:'easy',reviewCount:2,lapses:0}});
+  a.context.window.OphCram.refresh();
+  assert(cardSnippet(cGood).includes('cram-badge known'),'strictly newer cloud-synced SRS record updates status');
+
+  // (b) Reset card via [data-cram-mark="new"] (重設此卡): clears badge to 尚未自評, removes OphStudyBridge entry, and persists across refresh/remount
+  clockMs=Date.parse('2026-10-20T16:00:00.000Z');
+  handlers.get('click')({target:{closest:s=>s==='[data-cram-mark]'?{dataset:{id:cGood,cramMark:'new'},closest:()=>({nextElementSibling:null})}:null}});
+  assert.equal(record(a,'cram',cGood),null,'重設此卡 removes study:srs:cram:<id> from OphStudyBridge');
+  assert(cardSnippet(cGood).includes('cram-badge new')&&cardSnippet(cGood).includes('尚未自評')&&!cardSnippet(cGood).includes('下次'),'重設此卡 clears badge and due date');
+  a.context.window.OphCram.refresh();
+  await a.context.window.OphCram.mount(root);
+  assert.equal(record(a,'cram',cGood),null,'study:srs:cram:<id> stays removed after refresh & remount');
+  assert(cardSnippet(cGood).includes('cram-badge new')&&!cardSnippet(cGood).includes('下次'),'card stays new across refresh & remount');
+ });
  console.log(JSON.stringify({pass:results.filter(r=>r.pass).length,total:results.length,results},null,2));if(results.some(r=>!r.pass))process.exitCode=1;
 })();

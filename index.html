@@ -654,8 +654,11 @@ function tabbarMarkup(){
   return TABBAR.filter(([id])=>tabAllowed(id)).map(([id,label])=>`<button type="button" class="tabbar-item" data-action="tab" data-value="${id}"${cur&&cur[0]===id?' aria-current="page"':''}>${TABBAR_ICON[id]}<span>${label}</span></button>`).join('')+`<button type="button" class="tabbar-item tabbar-more" data-action="more-toggle" aria-controls="nav" aria-expanded="${open}"${cur?'':' aria-current="page"'}>${TABBAR_ICON.more}<span>更多</span></button>`;
 }
 function setTopMenu(open){const top=$('.topbar');if(!top)return;top.classList.toggle('menu-open',open);$('.top-menu-toggle')?.setAttribute('aria-expanded',String(open));}
+let prevLayoutTab=null;
 function layoutChrome(){
   ensureQuizAdvStudyHook();
+  if(prevLayoutTab==='quiz'&&S.tab!=='quiz')window.OphStudy?.leave?.();
+  prevLayoutTab=S.tab;
   $('.shell')?.setAttribute('data-tab',S.tab);
   const bar=document.getElementById('tabbar');if(bar)bar.innerHTML=tabbarMarkup();
   setTopMenu(false);
@@ -669,15 +672,15 @@ function layoutAction(a,v,b){
   if(a==='spec-toggle'){specState.open=!specState.open;specState.tab=S.tab;$('#nav').innerHTML=navMarkup();if(specState.open)document.getElementById('spec-filter')?.focus?.();return true;}
   if(a==='top-menu'){setTopMenu(!$('.topbar')?.classList.contains('menu-open'));return true;}
   if(a==='more-toggle'){const rail=$('.rail'),open=!rail.classList.contains('nav-open');rail.classList.toggle('nav-open',open);$('#nav-toggle').setAttribute('aria-expanded',String(open));b?.setAttribute?.('aria-expanded',String(open));return true;}
-  if(a==='today-new'){quizBankMode='core';quizAdvFeedbackId=null;startQuiz('all','new');return true;}
-  if(a==='today-core-quiz'){quizBankMode='core';quizAdvFeedbackId=null;switchTab('quiz');return true;}
+  if(a==='today-new'){quizBankMode='core';quizAdvFeedbackIds.clear();startQuiz('all','new');return true;}
+  if(a==='today-core-quiz'){quizBankMode='core';quizAdvFeedbackIds.clear();switchTab('quiz');return true;}
   if(a==='quiz-bank'||a==='quiz-bank-open'){return setQuizBankMode(v);}
   if(a==='quiz-adv-answer'){return handleQuizAdvAnswer(v);}
-  if(a==='quiz-adv-reveal'){window.OphStudy?.leave?.();quizAdvFeedbackId=v;quizAdvRevealed.add(v);render();return true;}
-  if(a==='quiz-adv-retry'){window.OphStudy?.leave?.();quizAdvFeedbackId=v;const q=quizAdvFindQuestion(v);if(q){delete entries[quizAdvKey(q)];changed();}quizAdvRevealed.delete(v);render();return true;}
-  if(a==='quiz-adv-retry-load'){if(quizAdvCache.bcscState==='error')quizAdvCache.bcscState='idle';if(quizAdvCache.hardState==='error')quizAdvCache.hardState='idle';if(quizAdvCache.extraState==='error')quizAdvCache.extraState='idle';ensureQuizAdvLoaded(quizBankMode);render();return true;}
-  if(a==='quiz-adv-shuffle'){window.OphStudy?.leave?.();quizAdvFeedbackId=null;quizAdvSeed=(quizAdvSeed+1)||1;render();return true;}
-  if(a==='quiz-adv-reset-shown'){const shown=quizAdvShownQuestions();window.OphStudy?.leave?.();quizAdvFeedbackId=null;for(const q of shown){delete entries[quizAdvKey(q)];quizAdvRevealed.delete(q.id);}changed();render();return true;}
+  if(a==='quiz-adv-reveal'){const q=quizAdvFindQuestion(v);if(q)window.OphStudy?.clearCard?.(q.bankKind==='bcsc'||/^bcsc-s/.test(q.id)?'book':'extra',q.id);quizAdvFeedbackIds.add(v);quizAdvRevealed.add(v);render();return true;}
+  if(a==='quiz-adv-retry'){const q=quizAdvFindQuestion(v);if(q){window.OphStudy?.clearCard?.(q.bankKind==='bcsc'||/^bcsc-s/.test(q.id)?'book':'extra',q.id);delete entries[quizAdvKey(q)];changed();}quizAdvFeedbackIds.add(v);quizAdvRevealed.delete(v);render();return true;}
+  if(a==='quiz-adv-retry-load'){if(quizAdvCache.bcscState==='error')quizAdvCache.bcscState='idle';for(const k of Object.keys(quizAdvCache.bcscVolState))if(quizAdvCache.bcscVolState[k]==='error')quizAdvCache.bcscVolState[k]='idle';if(quizAdvCache.hardState==='error')quizAdvCache.hardState='idle';if(quizAdvCache.extraState==='error')quizAdvCache.extraState='idle';ensureQuizAdvLoaded(quizBankMode);render();return true;}
+  if(a==='quiz-adv-shuffle'){window.OphStudy?.leave?.();quizAdvFeedbackIds.clear();quizAdvSeed=(quizAdvSeed+1)||1;render();return true;}
+  if(a==='quiz-adv-reset-shown'){const shown=quizAdvShownQuestions();window.OphStudy?.leave?.();quizAdvFeedbackIds.clear();for(const q of shown){delete entries[quizAdvKey(q)];quizAdvRevealed.delete(q.id);}changed();render();return true;}
   if(a==='quiz-adv-more'){quizAdvLimit+=25;render();return true;}
   if(a==='quiz-hard-timed'){switchTab('advanced');window.OphAdvanced?.action?.('advanced-start');return true;}
   if(a==='quiz-hard-deepdives'){switchTab('advanced');window.OphAdvanced?.action?.('advanced-home');return true;}
@@ -686,9 +689,9 @@ function layoutAction(a,v,b){
 }
 function layoutChange(el){
   if(!el)return false;
-  if(el.id==='quiz-adv-volume'){window.OphStudy?.leave?.();quizAdvFeedbackId=null;quizAdvVolume=el.value||'all';quizAdvLimit=25;render();return true;}
-  if(el.id==='quiz-adv-domain'){window.OphStudy?.leave?.();quizAdvFeedbackId=null;quizAdvDomain=el.value||'all';quizAdvLimit=25;render();return true;}
-  if(el.id==='quiz-adv-status'){window.OphStudy?.leave?.();quizAdvFeedbackId=null;quizAdvStatus=el.value||'all';quizAdvLimit=25;render();return true;}
+  if(el.id==='quiz-adv-volume'){window.OphStudy?.leave?.();quizAdvFeedbackIds.clear();quizAdvVolume=el.value||'all';quizAdvLimit=25;render();return true;}
+  if(el.id==='quiz-adv-domain'){window.OphStudy?.leave?.();quizAdvFeedbackIds.clear();quizAdvDomain=el.value||'all';quizAdvLimit=25;render();return true;}
+  if(el.id==='quiz-adv-status'){window.OphStudy?.leave?.();quizAdvFeedbackIds.clear();quizAdvStatus=el.value||'all';quizAdvLimit=25;render();return true;}
   return false;
 }
 let quizAdvComposing=false;
@@ -701,7 +704,7 @@ document.addEventListener('compositionend',e=>{
 function layoutInput(el,e){
   if(!el)return false;
   if(el.id==='quiz-adv-search'){
-    quizAdvSearch=String(el.value||'');quizAdvLimit=25;quizAdvFeedbackId=null;
+    quizAdvSearch=String(el.value||'');quizAdvLimit=25;quizAdvFeedbackIds.clear();
     if(e?.isComposing||quizAdvComposing)return true;
     const start=typeof el.selectionStart==='number'?el.selectionStart:quizAdvSearch.length;
     const end=typeof el.selectionEnd==='number'?el.selectionEnd:start;
@@ -729,7 +732,7 @@ document.addEventListener('submit',e=>{
   input?.blur?.();switchTab('notebook');
 });
 
-/* Advanced Question Banks in #quiz (Issue #148): BCSC S01-S13 (540), Hard Clinical Reasoning (36+), Extra Cases (120) */
+/* Advanced Question Banks in #quiz (Issue #148 / #180): BCSC S01-S13 (540), Hard Clinical Reasoning (144), Extra Cases (120) */
 const QUIZ_BANK_MODES=['core','bcsc','hard','extra','all-advanced'];
 const BCSC_VOLUMES=[
   ['bcsc-s01','S01','Update on General Medicine'],
@@ -756,9 +759,20 @@ const HARD_DOMAINS=[
   ['orbit-trauma','眼眶與外傷'],
   ['diagnostics-systemic','診斷與全身病']
 ];
-let quizBankMode='core',quizAdvVolume='all',quizAdvDomain='all',quizAdvStatus='all',quizAdvSearch='',quizAdvLimit=25,quizAdvSeed=0,quizAdvFeedbackId=null,quizAdvStudyHooked=false;
-const quizAdvRevealed=new Set();
-const quizAdvCache={bcsc:null,bcscState:'idle',hard:null,hardState:'idle',extra:null,extraState:'idle'};
+let quizBankMode='core',quizAdvVolume='all',quizAdvDomain='all',quizAdvStatus='all',quizAdvSearch='',quizAdvLimit=25,quizAdvSeed=0,quizAdvStudyHooked=false;
+const quizAdvFeedbackIds=new Set(),quizAdvRevealed=new Set();
+const quizAdvCache={bcscManifest:null,bcscState:'idle',bcscByVol:Object.create(null),bcscVolState:Object.create(null),hard:null,hardState:'idle',extra:null,extraState:'idle'};
+
+function quizAdvClockNow(){return typeof window.OphStudy?.now==='function'?window.OphStudy.now():Date.now();}
+function quizAdvSrsRec(q){const pool=q.bankKind==='bcsc'||/^bcsc-s/.test(q.id)?'book':'extra';return studyEntry('study:srs:'+pool+':'+q.id,entries['study:srs:'+pool+':'+q.id])||null;}
+function quizAdvIsDueNow(rec,nowMs){return !!(rec&&studyPlanValid(rec.plan)&&Date.parse(rec.plan.dueAt)<=nowMs);}
+function quizAdvIsToday(rec,nowMs){
+  if(!rec||!studyPlanValid(rec.plan))return false;
+  if(window.OphStudyScheduler?.isToday)return window.OphStudyScheduler.isToday(rec.plan,nowMs);
+  const at=Date.parse(rec.plan.dueAt);
+  return Number.isFinite(at)&&(at<=nowMs||taipeiDate(at)===taipeiDate(nowMs));
+}
+function quizAdvIsSrsWeak(rec){return !!(rec&&(rec.attempt?.correct===false||['again','hard'].includes(rec.plan?.rating)));}
 
 function ensureQuizAdvStudyHook(){
   if(quizAdvStudyHooked||!window.OphStudy)return;
@@ -766,11 +780,6 @@ function ensureQuizAdvStudyHook(){
   if(typeof origContext==='function'){
     window.OphStudy.context=function(pool,id){
       if(SPEC.id==='oph'&&S.tab==='quiz'&&quizBankMode!=='core'&&(pool==='shared'||pool===null)){
-        const fq=quizAdvFeedbackId?quizAdvFindQuestion(quizAdvFeedbackId):null;
-        if(fq&&quizAdvRecord(fq)){
-          const fPool=fq.bankKind==='bcsc'||/^bcsc-s/.test(fq.id)?'book':'extra';
-          return origContext(fPool,fq.id);
-        }
         return origContext(null,null);
       }
       return origContext(pool,id);
@@ -789,19 +798,69 @@ function ensureQuizAdvStudyHook(){
 function quizAdvKey(q){return (q.bankKind==='bcsc'||/^bcsc-s/.test(q.id)?'textbook:question:':'textbook:extra-question:')+q.id;}
 function quizAdvRecord(q){const r=entries[quizAdvKey(q)];return r&&Number.isInteger(r.choice)&&r.choice>=0&&r.choice<=3?r:null;}
 function quizAdvIsRevealed(q){const r=entries[quizAdvKey(q)];return !!(r&&(r.revealed===true||(Number.isInteger(r.choice)&&r.choice>=0&&r.choice<=3)))||quizAdvRevealed.has(q.id);}
+function hydrateBcscBook(b,data,fallbackEdition){
+  const chMap=new Map((data?.chapters||b.chapters||[]).map(c=>[c.id,c.title]));
+  const sec=String(b.section||b.bookId.slice(6)).padStart(2,'0');
+  const shortT=BCSC_VOLUMES.find(x=>x[0]===b.bookId)?.[2]||b.title||data?.source?.title||b.bookId;
+  const bookUpdates=Array.isArray(data?.clinicalUpdates)?data.clinicalUpdates:[];
+  return (data?.questions||[]).map(q=>({...q,bankKind:'bcsc',bookId:b.bookId,bookSection:'S'+sec,bookTitle:shortT,edition:data?.source?.edition||fallbackEdition||'2024–2025',chapterTitle:(q.chapterIds||[]).map(cid=>chMap.get(cid)).filter(Boolean)[0]||'',scopedClinicalUpdates:bookUpdates.filter(u=>Array.isArray(u.questionIds)&&u.questionIds.includes(q.id))}));
+}
+function loadQuizAdvBcscVolume(bookId){
+  const m=quizAdvCache.bcscManifest;
+  if(!m||typeof fetch!=='function')return;
+  const st=quizAdvCache.bcscVolState[bookId];
+  if(st==='loading'||st==='ready'||st==='error')return;
+  const b=m.books.find(x=>x.bookId===bookId);
+  if(!b)return;
+  quizAdvCache.bcscVolState[bookId]='loading';
+  fetch(b.file||`content/textbook-depth/${b.bookId}.json`,{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error(b.bookId);return r.json();}).then(data=>{
+    quizAdvCache.bcscByVol[bookId]=hydrateBcscBook(b,data,m.edition);
+    quizAdvCache.bcscVolState[bookId]='ready';
+  }).catch(()=>{
+    quizAdvCache.bcscVolState[bookId]='error';
+  }).then(()=>{if(S.tab==='quiz')render();});
+}
+function quizAdvBcscCandidates(){
+  const m=quizAdvCache.bcscManifest;
+  if(!m)return [];
+  return m.books.flatMap(b=>{
+    if(Array.isArray(quizAdvCache.bcscByVol[b.bookId]))return quizAdvCache.bcscByVol[b.bookId];
+    const sec=String(b.section||b.bookId.slice(6)).padStart(2,'0');
+    const shortT=BCSC_VOLUMES.find(x=>x[0]===b.bookId)?.[2]||b.title||b.bookId;
+    const ed=b.source?.edition||m.edition||'2024–2025';
+    return (b.sourceQuestions||[]).map(sq=>({id:sq.sourceQuestionKey,bankKind:'bcsc',bookId:b.bookId,bookSection:'S'+sec,bookTitle:shortT,edition:ed,sourceNumber:sq.sourceNumber,questionScope:sq.questionScope,_stub:true}));
+  });
+}
+function ensureQuizAdvBcscVolumes(){
+  if(SPEC.id!=='oph'||(quizBankMode!=='bcsc'&&quizBankMode!=='all-advanced')||!quizAdvCache.bcscManifest)return;
+  const books=quizAdvCache.bcscManifest.books;
+  const inVol=b=>quizAdvVolume==='all'||b.bookId===quizAdvVolume;
+  if(quizAdvSearch.trim()){
+    for(const b of books)if(inVol(b))loadQuizAdvBcscVolume(b.bookId);
+    return;
+  }
+  if(quizAdvStatus==='wrong'||quizAdvStatus==='correct'){
+    for(const b of books){
+      if(!inVol(b))continue;
+      const hasAns=(b.sourceQuestions||[]).some(sq=>{const r=entries['textbook:question:'+sq.sourceQuestionKey];return r&&Number.isInteger(r.choice)&&r.choice>=0&&r.choice<=3;});
+      if(hasAns)loadQuizAdvBcscVolume(b.bookId);
+    }
+    return;
+  }
+  const shown=quizAdvFilteredQuestions().slice(0,quizAdvLimit);
+  for(const q of shown)if(q.bankKind==='bcsc'&&q._stub)loadQuizAdvBcscVolume(q.bookId);
+}
 function loadQuizAdvBcsc(){
-  if(quizAdvCache.bcscState!=='idle'||typeof fetch!=='function')return;
+  if(typeof fetch!=='function')return;
+  if(quizAdvCache.bcscState==='ready'){ensureQuizAdvBcscVolumes();return;}
+  if(quizAdvCache.bcscState!=='idle')return;
   quizAdvCache.bcscState='loading';
   fetch('content/textbook-manifest.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('manifest');return r.json();}).then(m=>{
-    const books=Array.isArray(m?.books)&&m.books.length?m.books:BCSC_VOLUMES.map(([bookId,,title],i)=>({bookId,section:i+1,title,file:`content/textbook-depth/${bookId}.json`}));
-    return Promise.all(books.map(b=>fetch(b.file||`content/textbook-depth/${b.bookId}.json`,{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error(b.bookId);return r.json();}).then(data=>{
-      const chMap=new Map((data.chapters||b.chapters||[]).map(c=>[c.id,c.title]));
-      const sec=String(b.section||b.bookId.slice(6)).padStart(2,'0');
-      const shortT=BCSC_VOLUMES.find(x=>x[0]===b.bookId)?.[2]||b.title||data.source?.title||b.bookId;
-      const bookUpdates=Array.isArray(data.clinicalUpdates)?data.clinicalUpdates:[];
-      return (data.questions||[]).map(q=>({...q,bankKind:'bcsc',bookId:b.bookId,bookSection:'S'+sec,bookTitle:shortT,edition:data.source?.edition||m.edition||'2024–2025',chapterTitle:(q.chapterIds||[]).map(cid=>chMap.get(cid)).filter(Boolean)[0]||'',scopedClinicalUpdates:bookUpdates.filter(u=>Array.isArray(u.questionIds)&&u.questionIds.includes(q.id))}));
-    })));
-  }).then(lists=>{quizAdvCache.bcsc=lists.flat();quizAdvCache.bcscState='ready';}).catch(()=>{quizAdvCache.bcscState='error';}).then(()=>{if(S.tab==='quiz')render();});
+    const books=Array.isArray(m?.books)&&m.books.length?m.books:BCSC_VOLUMES.map(([bookId,,title],i)=>({bookId,section:i+1,title,file:`content/textbook-depth/${bookId}.json`,sourceQuestions:BCSC_VOLUMES[i]?[{sourceQuestionKey:`${bookId}-rq001`,sourceNumber:1,questionScope:'end-of-volume'}]:[]}));
+    quizAdvCache.bcscManifest={edition:m?.edition||'2024–2025',books};
+    quizAdvCache.bcscState='ready';
+    ensureQuizAdvBcscVolumes();
+  }).catch(()=>{quizAdvCache.bcscState='error';}).then(()=>{if(S.tab==='quiz')render();});
 }
 function loadQuizAdvHard(){
   if(quizAdvCache.hardState!=='idle'||typeof fetch!=='function')return;
@@ -831,7 +890,7 @@ function ensureQuizAdvLoaded(mode){
 function setQuizBankMode(mode){
   if(SPEC.id!=='oph'||!QUIZ_BANK_MODES.includes(mode))return false;
   window.OphStudy?.leave?.();
-  quizBankMode=mode;quizAdvLimit=25;quizAdvFeedbackId=null;
+  quizBankMode=mode;quizAdvLimit=25;quizAdvFeedbackIds.clear();
   if(mode!=='core')ensureQuizAdvLoaded(mode);
   if(S.tab!=='quiz')switchTab('quiz');else render();
   return true;
@@ -839,14 +898,15 @@ function setQuizBankMode(mode){
 window.OphQuizBank={getMode(){return quizBankMode;},setMode(mode){return setQuizBankMode(mode);}};
 
 function quizAdvPool(mode=quizBankMode){
-  if(mode==='bcsc')return quizAdvCache.bcsc||[];
+  if(mode==='bcsc')return quizAdvBcscCandidates();
   if(mode==='hard')return quizAdvCache.hard||[];
   if(mode==='extra')return quizAdvCache.extra||[];
-  if(mode==='all-advanced')return [...(quizAdvCache.bcsc||[]),...(quizAdvCache.hard||[]),...(quizAdvCache.extra||[])];
+  if(mode==='all-advanced')return [...quizAdvBcscCandidates(),...(quizAdvCache.hard||[]),...(quizAdvCache.extra||[])];
   return [];
 }
 function quizAdvFindQuestion(id){
-  return quizAdvPool('all-advanced').find(q=>q.id===id)||null;
+  const q=quizAdvPool('all-advanced').find(x=>x.id===id&&!x._stub);
+  return q||null;
 }
 function handleQuizAdvAnswer(val){
   const [id,rawIdx]=String(val||'').split('|'),choice=Number(rawIdx);
@@ -855,9 +915,8 @@ function handleQuizAdvAnswer(val){
   const kind=q.bankKind==='bcsc'||/^bcsc-s/.test(q.id)?'question':'extra-question';
   const studyPool=kind==='question'?'book':'extra';
   const edition=q.edition||'2025-2026';
-  quizAdvFeedbackId=q.id;
+  quizAdvFeedbackIds.add(q.id);
   ensureQuizAdvStudyHook();
-  window.OphStudy?.context?.(studyPool,q.id);
   try{
     if(window.OphTextbookBridge?.write)window.OphTextbookBridge.write(kind,q.id,{choice,revealed:true,edition});
     else put('textbook:'+kind+':'+q.id,{version:1,choice,revealed:true,confidence:0,edition});
@@ -865,16 +924,27 @@ function handleQuizAdvAnswer(val){
     put('textbook:'+kind+':'+q.id,{version:1,choice,revealed:true,confidence:0,edition});
   }
   const isCorrect=choice===q.correctIndex;
-  window.OphStudy?.commit?.(studyPool,q.id,isCorrect);
+  if(window.OphStudy?.commitCard)window.OphStudy.commitCard(studyPool,q.id,isCorrect);
+  else{window.OphStudy?.context?.(studyPool,q.id);window.OphStudy?.commit?.(studyPool,q.id,isCorrect);}
   quizAdvRevealed.add(q.id);
   render();
   return true;
 }
 function quizAdvStatsFor(mode){
+  if(mode==='all-advanced'){
+    const b=quizAdvStatsFor('bcsc'),h=quizAdvStatsFor('hard'),e=quizAdvStatsFor('extra');
+    return {answered:b.answered+h.answered+e.answered,correct:b.correct+h.correct+e.correct,wrong:b.wrong+h.wrong+e.wrong,total:b.total+h.total+e.total};
+  }
   const list=quizAdvPool(mode);
   if(list.length){
     let answered=0,correct=0,wrong=0;
-    for(const q of list){const r=quizAdvRecord(q);if(r){answered++;if(r.choice===q.correctIndex)correct++;else wrong++;}}
+    for(const q of list){
+      const r=quizAdvRecord(q);
+      if(!r)continue;
+      answered++;
+      if(!q._stub){if(r.choice===q.correctIndex)correct++;else wrong++;}
+      else{const srs=quizAdvSrsRec(q);if(srs?.attempt){if(srs.attempt.correct)correct++;else wrong++;}}
+    }
     return {answered,correct,wrong,total:list.length};
   }
   const keys=Object.keys(entries);
@@ -882,21 +952,26 @@ function quizAdvStatsFor(mode){
   const hardCnt=keys.filter(k=>/^textbook:extra-question:extra-20261022-/.test(k)&&entries[k]&&Number.isInteger(entries[k].choice)).length;
   const extraCnt=keys.filter(k=>/^textbook:extra-question:extra-20261020-/.test(k)&&entries[k]&&Number.isInteger(entries[k].choice)).length;
   if(mode==='bcsc')return {answered:bcscCnt,correct:0,wrong:0,total:540};
-  if(mode==='hard')return {answered:hardCnt,correct:0,wrong:0,total:36};
+  if(mode==='hard')return {answered:hardCnt,correct:0,wrong:0,total:144};
   if(mode==='extra')return {answered:extraCnt,correct:0,wrong:0,total:120};
-  return {answered:bcscCnt+hardCnt+extraCnt,correct:0,wrong:0,total:696};
+  return {answered:bcscCnt+hardCnt+extraCnt,correct:0,wrong:0,total:804};
 }
 function quizAdvFilteredQuestions(){
   let list=quizAdvPool(quizBankMode);
   if(quizAdvVolume!=='all')list=list.filter(q=>q.bookId===quizAdvVolume);
   if((quizBankMode==='hard'||quizBankMode==='all-advanced')&&quizAdvDomain!=='all')list=list.filter(q=>q.domain===quizAdvDomain);
   if(quizAdvStatus!=='all'){
+    const nowMs=quizAdvClockNow();
     list=list.filter(q=>{
-      if(q.id===quizAdvFeedbackId)return true;
+      if(quizAdvFeedbackIds.has(q.id))return true;
       const r=quizAdvRecord(q);
       if(quizAdvStatus==='unanswered')return !r;
-      if(quizAdvStatus==='wrong')return !!r&&r.choice!==q.correctIndex;
-      if(quizAdvStatus==='correct')return !!r&&r.choice===q.correctIndex;
+      if(quizAdvStatus==='wrong')return !!r&&(q._stub?true:r.choice!==q.correctIndex);
+      if(quizAdvStatus==='correct')return !!r&&(q._stub?true:r.choice===q.correctIndex);
+      const srs=quizAdvSrsRec(q);
+      if(quizAdvStatus==='due')return quizAdvIsDueNow(srs,nowMs);
+      if(quizAdvStatus==='today')return quizAdvIsToday(srs,nowMs);
+      if(quizAdvStatus==='srs-weak')return quizAdvIsSrsWeak(srs);
       return true;
     });
   }
@@ -904,6 +979,7 @@ function quizAdvFilteredQuestions(){
   if(qStr){
     const tokens=qStr.split(/\s+/).filter(Boolean);
     list=list.filter(q=>{
+      if(q._stub)return false;
       const hay=[q.id,q.stem,q.explanation,q.testConcept,q.chapterTitle,q.bookSection,q.bookTitle,q.domainLabel,q.decisiveDiscriminator,q.counterfactual,...(q.options||[]).map(o=>typeof o==='string'?o:(o.text+' '+(o.rationale||'')+' '+(o.whenTrue||'')))].filter(Boolean).join(' ').toLocaleLowerCase();
       return tokens.every(t=>hay.includes(t));
     });
@@ -924,9 +1000,9 @@ function quizBankSwitcherMarkup(){
   const items=[
     ['core',`共筆與歷屆（${D.questions.length} 題）`,'基礎必考與歷屆回憶題'],
     ['bcsc','BCSC 第 1–13 卷（540 題）','AAO BCSC 二至三階臨床推理 · 四選項條件反轉'],
-    ['hard','Hard｜多步臨床推理與限時模考','衝突線索、檢查限制與治療先後（36+ 題）'],
+    ['hard','Hard｜多步臨床推理與限時模考','衝突線索、檢查限制與治療先後（144 題）'],
     ['extra','自編陌生病例（120 題）','跨卷臨床情境題'],
-    ['all-advanced','進階題庫全混合（696+ 題）','BCSC 540 題 + Hard 多步推理 + 自編陌生病例一次刷']
+    ['all-advanced','進階題庫全混合（804 題）','BCSC 540 題 + Hard 144 題 + 自編陌生病例 120 題一次刷']
   ];
   return `<nav class="quiz-bank-switcher" data-quiz-bank-switcher aria-label="筆試題庫切換">${items.map(([id,title,sub])=>{const on=quizBankMode===id;return `<button type="button" class="quiz-bank-btn${on?' is-active':''}" data-action="quiz-bank" data-value="${id}" data-quiz-bank="${id}" aria-pressed="${on}"><strong>${esc(title)}</strong><span>${esc(sub)}</span></button>`;}).join('')}</nav>`;
 }
@@ -934,7 +1010,7 @@ function quizCoreAdvBannerMarkup(){
   if(SPEC.id!=='oph')return '';
   const st=stats(),bSt=quizAdvStatsFor('bcsc'),hSt=quizAdvStatsFor('hard'),eSt=quizAdvStatsFor('extra');
   const doneCore=st.answered>=500;
-  return `<section class="card quiz-adv-banner${doneCore?' is-complete':''}" data-quiz-adv-banner aria-label="進階題庫直通車"><div class="quiz-adv-banner-body"><div><p class="eyebrow">${doneCore?`基礎題庫已完成 ${st.answered} / ${D.questions.length} 題 · 進階挑戰`:'進階題庫直通車 · 免離開筆試練習'}</p><h2>${doneCore?'恭喜刷完基礎題庫！立即進入 BCSC 540 題與 Hard 多步臨床推理':'隨時切換 BCSC 第 1–13 卷、Hard 多步推理與自編陌生病例'}</h2><p class="small">BCSC 1–13 卷已練 ${bSt.answered} / ${bSt.total} 題 · Hard 多步推理已練 ${hSt.answered} / ${hSt.total} 題 · 自編陌生病例已練 ${eSt.answered} / ${eSt.total} 題</p></div><div class="quiz-adv-banner-actions">${btn('練 BCSC 540 題','quiz-bank','bcsc','primary small')}${btn('練 Hard 多步推理','quiz-bank','hard','small')}${btn('練自編陌生病例 120 題','quiz-bank','extra','small')}${btn('進階 696 題全混合','quiz-bank','all-advanced','small subtle')}</div></div></section>`;
+  return `<section class="card quiz-adv-banner${doneCore?' is-complete':''}" data-quiz-adv-banner aria-label="進階題庫直通車"><div class="quiz-adv-banner-body"><div><p class="eyebrow">${doneCore?`基礎題庫已完成 ${st.answered} / ${D.questions.length} 題 · 進階挑戰`:'進階題庫直通車 · 免離開筆試練習'}</p><h2>${doneCore?'恭喜刷完基礎題庫！立即進入 BCSC 540 題與 Hard 多步臨床推理':'隨時切換 BCSC 第 1–13 卷、Hard 多步推理與自編陌生病例'}</h2><p class="small">BCSC 1–13 卷已練 ${bSt.answered} / ${bSt.total} 題 · Hard 多步推理已練 ${hSt.answered} / ${hSt.total} 題 · 自編陌生病例已練 ${eSt.answered} / ${eSt.total} 題</p></div><div class="quiz-adv-banner-actions">${btn('練 BCSC 540 題','quiz-bank','bcsc','primary small')}${btn('練 Hard 多步推理','quiz-bank','hard','small')}${btn('練自編陌生病例 120 題','quiz-bank','extra','small')}${btn('進階 804 題全混合','quiz-bank','all-advanced','small subtle')}</div></div></section>`;
 }
 function quizAdvPdfBadge(q){
   const refs=q.sourceRefs||[];
@@ -982,27 +1058,30 @@ function quizAdvCardMarkup(q,idx,total){
 function quizAdvPageMarkup(){
   ensureQuizAdvLoaded(quizBankMode);
   const st=quizAdvStatsFor(quizBankMode);
-  const titles={bcsc:['BCSC 01–13 / 540 QUESTIONS','BCSC 第 1–13 卷進階題庫','AAO BCSC 二至三階臨床推理題，逐選項附為什麼不選與條件反轉（whenTrue）解析。'],hard:['HARD / MULTISTEP CLINICAL REASONING','Hard｜多步臨床推理與限時模考','專練衝突線索、檢查限制與治療先後順序；可單題深練或啟動 12 題／18 分鐘限時盲測。'],extra:['EXTRA / 120 UNFAMILIAR CASES','自編陌生病例題庫（120 題）','把已讀過的 BCSC 概念換成全新臨床病史線索，檢驗跨章節鑑別能力。'],'all-advanced':['ALL ADVANCED / 696+ QUESTIONS','進階題庫全混合（BCSC + Hard + 自編病例）','整合 BCSC 1–13 卷 540 題、Hard 多步推理與自編陌生病例 120 題一次刷齊。']};
+  const titles={bcsc:['BCSC 01–13 / 540 QUESTIONS','BCSC 第 1–13 卷進階題庫','AAO BCSC 二至三階臨床推理題，逐選項附為什麼不選與條件反轉（whenTrue）解析。'],hard:['HARD / MULTISTEP CLINICAL REASONING','Hard｜多步臨床推理與限時模考','專練衝突線索、檢查限制與治療先後順序；可單題深練或啟動 12 題／18 分鐘限時盲測。'],extra:['EXTRA / 120 UNFAMILIAR CASES','自編陌生病例題庫（120 題）','把已讀過的 BCSC 概念換成全新臨床病史線索，檢驗跨章節鑑別能力。'],'all-advanced':['ALL ADVANCED / 804 QUESTIONS','進階題庫全混合（BCSC + Hard + 自編病例）','整合 BCSC 1–13 卷 540 題、Hard 多步推理 144 題與自編陌生病例 120 題一次刷齊。']};
   const [kicker,title,sub]=titles[quizBankMode]||titles.bcsc;
   const head=heading(kicker,title,sub,`<div class="heading-stat"><strong>${st.answered}<i> / ${st.total}</i></strong><span>題已練習<br>${st.wrong} 題待補強</span></div>`);
   const hardHero=quizBankMode==='hard'||quizBankMode==='all-advanced'?`<section class="card quiz-hard-hero" data-quiz-hard-actions aria-label="Hard 限時模考與深度單元"><div class="quiz-hard-hero-body"><div><p class="eyebrow">HARD CLINICAL REASONING · 限時模考與決策單元</p><h2>挑戰 12 題／18 分鐘限時盲測，或先讀 8 大深度鑑別決策單元</h2><p class="small">限時盲測交卷前不揭露正誤；深度鑑別單元整理相似表現、檢查限制與治療分歧。</p></div><div class="quiz-hard-hero-actions">${btn('啟動 12 題／18 分鐘限時盲測','quiz-hard-timed','','primary')}${btn('開啟 8 大深度鑑別單元與原書對照','quiz-hard-deepdives','')}</div></div></section>`:'';
   const volOptions=BCSC_VOLUMES.map(([id,code,name])=>`<option value="${id}" ${quizAdvVolume===id?'selected':''}>${code} · ${esc(name)}</option>`).join('');
   const domSelect=quizBankMode==='hard'||quizBankMode==='all-advanced'?`<label class="small" for="quiz-adv-domain">領域</label><select class="select" id="quiz-adv-domain" data-quiz-adv-filter="domain" aria-label="臨床領域"><option value="all">全部領域</option>${HARD_DOMAINS.map(([id,name])=>`<option value="${id}" ${quizAdvDomain===id?'selected':''}>${esc(name)}</option>`).join('')}</select>`:'';
-  const toolbar=`<div class="toolbar quiz-toolbar quiz-adv-toolbar" data-quiz-adv-toolbar><label class="small" for="quiz-adv-volume">卷別</label><select class="select" id="quiz-adv-volume" data-quiz-adv-filter="volume" aria-label="BCSC 卷別"><option value="all">全部卷別 S01–S13</option>${volOptions}</select>${domSelect}<label class="small" for="quiz-adv-status">狀態</label><select class="select" id="quiz-adv-status" data-quiz-adv-filter="status" aria-label="作答狀態"><option value="all" ${quizAdvStatus==='all'?'selected':''}>全部狀態</option><option value="unanswered" ${quizAdvStatus==='unanswered'?'selected':''}>尚未作答</option><option value="wrong" ${quizAdvStatus==='wrong'?'selected':''}>待補強（答錯）</option><option value="correct" ${quizAdvStatus==='correct'?'selected':''}>已答對</option></select><input class="input quiz-adv-search" id="quiz-adv-search" type="search" value="${esc(quizAdvSearch)}" placeholder="搜尋題幹、考點、解析或頁碼…" aria-label="搜尋進階題庫"><button type="button" class="btn subtle small" id="qShuffle" data-action="quiz-adv-shuffle">隨機重排</button><button type="button" class="btn subtle small" id="qResetShown" data-action="quiz-adv-reset-shown">重設本頁作答</button></div>`;
-  const isLoading=(quizBankMode==='bcsc'&&quizAdvCache.bcscState==='loading')||(quizBankMode==='hard'&&quizAdvCache.hardState==='loading')||(quizBankMode==='extra'&&quizAdvCache.extraState==='loading')||(quizBankMode==='all-advanced'&&!quizAdvPool('all-advanced').length&&(quizAdvCache.bcscState==='loading'||quizAdvCache.hardState==='loading'||quizAdvCache.extraState==='loading'));
-  const isError=(quizBankMode==='bcsc'&&quizAdvCache.bcscState==='error')||(quizBankMode==='hard'&&quizAdvCache.hardState==='error')||(quizBankMode==='extra'&&quizAdvCache.extraState==='error')||(quizBankMode==='all-advanced'&&!quizAdvPool('all-advanced').length&&(quizAdvCache.bcscState==='error'||quizAdvCache.hardState==='error'||quizAdvCache.extraState==='error'));
-  const hasPartialError=quizBankMode==='all-advanced'&&quizAdvPool('all-advanced').length>0&&(quizAdvCache.bcscState==='error'||quizAdvCache.hardState==='error'||quizAdvCache.extraState==='error');
+  const toolbar=`<div class="toolbar quiz-toolbar quiz-adv-toolbar" data-quiz-adv-toolbar><label class="small" for="quiz-adv-volume">卷別</label><select class="select" id="quiz-adv-volume" data-quiz-adv-filter="volume" aria-label="BCSC 卷別"><option value="all">全部卷別 S01–S13</option>${volOptions}</select>${domSelect}<label class="small" for="quiz-adv-status">狀態</label><select class="select" id="quiz-adv-status" data-quiz-adv-filter="status" aria-label="作答狀態"><option value="all" ${quizAdvStatus==='all'?'selected':''}>全部狀態</option><option value="unanswered" ${quizAdvStatus==='unanswered'?'selected':''}>尚未作答</option><option value="wrong" ${quizAdvStatus==='wrong'?'selected':''}>待補強（答錯）</option><option value="correct" ${quizAdvStatus==='correct'?'selected':''}>已答對</option><option value="due" ${quizAdvStatus==='due'?'selected':''}>到期複習（現在到期）</option><option value="today" ${quizAdvStatus==='today'?'selected':''}>今日待複習</option><option value="srs-weak" ${quizAdvStatus==='srs-weak'?'selected':''}>SRS 弱項</option></select><input class="input quiz-adv-search" id="quiz-adv-search" type="search" value="${esc(quizAdvSearch)}" placeholder="搜尋題幹、考點、解析或頁碼…" aria-label="搜尋進階題庫"><button type="button" class="btn subtle small" id="qShuffle" data-action="quiz-adv-shuffle">隨機重排</button><button type="button" class="btn subtle small" id="qResetShown" data-action="quiz-adv-reset-shown">重設本頁作答</button></div>`;
+  const filtered=quizAdvFilteredQuestions(),shown=filtered.slice(0,quizAdvLimit),hydrated=shown.filter(q=>!q._stub);
+  const volStates=Object.values(quizAdvCache.bcscVolState);
+  const bcscLoading=quizAdvCache.bcscState==='loading'||shown.some(q=>q._stub&&quizAdvCache.bcscVolState[q.bookId]==='loading')||((!!quizAdvSearch.trim()||quizAdvStatus==='wrong'||quizAdvStatus==='correct')&&volStates.includes('loading'));
+  const bcscError=quizAdvCache.bcscState==='error'||shown.some(q=>q._stub&&quizAdvCache.bcscVolState[q.bookId]==='error')||volStates.includes('error');
+  const isLoading=(quizBankMode==='bcsc'&&bcscLoading)||(quizBankMode==='hard'&&quizAdvCache.hardState==='loading')||(quizBankMode==='extra'&&quizAdvCache.extraState==='loading')||(quizBankMode==='all-advanced'&&!hydrated.length&&(bcscLoading||quizAdvCache.hardState==='loading'||quizAdvCache.extraState==='loading'));
+  const isError=(quizBankMode==='bcsc'&&bcscError)||(quizBankMode==='hard'&&quizAdvCache.hardState==='error')||(quizBankMode==='extra'&&quizAdvCache.extraState==='error')||(quizBankMode==='all-advanced'&&!quizAdvPool('all-advanced').some(q=>!q._stub)&&(bcscError||quizAdvCache.hardState==='error'||quizAdvCache.extraState==='error'));
+  const hasPartialError=(quizBankMode==='all-advanced'&&quizAdvPool('all-advanced').some(q=>!q._stub)&&(bcscError||quizAdvCache.hardState==='error'||quizAdvCache.extraState==='error'))||(quizBankMode==='bcsc'&&hydrated.length>0&&bcscError);
   const errBanner=hasPartialError?`<div class="card quiz-adv-partial-error" data-quiz-adv-error><p>部分進階題庫載入失敗 · <button type="button" class="btn small" data-action="quiz-adv-retry-load" data-quiz-adv-retry>重試載入題庫</button></p></div>`:'';
-  const filtered=quizAdvFilteredQuestions(),shown=filtered.slice(0,quizAdvLimit);
   let listHtml='';
-  if(isLoading&&!filtered.length){
+  if(isLoading&&!hydrated.length){
     listHtml='<div class="card empty"><p role="status">正在載入進階題庫…</p></div>';
-  }else if(isError&&!filtered.length){
+  }else if(isError&&!hydrated.length){
     listHtml=`<div class="card empty" data-quiz-adv-error><h2>進階題庫暫時無法載入</h2><p>請檢查網路連線後重試載入。</p><p><button type="button" class="btn primary" data-action="quiz-adv-retry-load" data-quiz-adv-retry>重試載入題庫</button></p></div>`;
-  }else if(!filtered.length){
+  }else if(!hydrated.length){
     listHtml=errBanner+`<div class="card empty"><h2>目前篩選條件下沒有符合的題目</h2><p>請切換卷別、狀態或清除搜尋關鍵字。</p></div>`;
   }else{
-    listHtml=errBanner+shown.map((q,i)=>quizAdvCardMarkup(q,i,filtered.length)).join('')+(filtered.length>shown.length?`<div class="quiz-adv-more"><button type="button" class="btn primary" data-action="quiz-adv-more">載入更多題目（已顯示 ${shown.length} / ${filtered.length} 題，顯示下 25 題）</button></div>`:'');
+    listHtml=errBanner+hydrated.map((q,i)=>quizAdvCardMarkup(q,i,filtered.length)).join('')+(bcscLoading&&shown.length>hydrated.length?'<div class="card"><p role="status">正在載入此卷題目…</p></div>':'')+(filtered.length>shown.length?`<div class="quiz-adv-more"><button type="button" class="btn primary" data-action="quiz-adv-more">載入更多題目（已顯示 ${shown.length} / ${filtered.length} 題，顯示下 25 題）</button></div>`:'');
   }
   return head+quizBankSwitcherMarkup()+hardHero+toolbar+`<div id="quizList" class="quiz-adv-list" data-quiz-adv-list>${listHtml}</div>`;
 }
@@ -1066,15 +1145,28 @@ function todayPlanLine(){
 }
 function todayReview(){
   if(!tabAllowed('study')||(SPEC.id!=='oph'&&!D.questions.length))return '';
-  const now=Date.now(),today=taipeiDate(now),st=stats(),bank=new Set(D.questions.map(q=>q.id));let due=0,later=0,weak=0;
+  const now=quizAdvClockNow(),today=taipeiDate(now),st=stats(),bank=new Set(D.questions.map(q=>q.id)),kaogu=new Set(D.questions.filter(q=>q.pastExam).map(q=>q.id));
+  let due=0,later=0,weak=0,totalSrs=0;
+  const dueBy={notes:0,kaogu:0,book:0,hard:0,extra:0,cram:0,atlas:0};
   for(const [k,v] of Object.entries(entries)){
     if(!k.startsWith('study:srs:')||!v||typeof v!=='object')continue;
+    if(SPEC.id!=='oph'&&!k.startsWith('study:srs:shared:'))continue;
     if(k.startsWith('study:srs:shared:')&&!bank.has(k.slice(17)))continue;// saved review for a question no longer in the bank
-    const at=Date.parse(v.plan?.dueAt);
-    if(Number.isFinite(at)){if(at<=now)due++;else if(taipeiDate(at)===today)later++;}
+    totalSrs++;
+    const at=Date.parse(v.plan?.dueAt),isDue=Number.isFinite(at)&&at<=now;
+    if(Number.isFinite(at)){if(isDue)due++;else if(taipeiDate(at)===today)later++;}
     if(v.attempt?.correct===false||['again','hard'].includes(v.plan?.rating))weak++;
+    if(isDue&&SPEC.id==='oph'){
+      if(k.startsWith('study:srs:shared:'))dueBy[kaogu.has(k.slice(17))?'kaogu':'notes']++;
+      else if(k.startsWith('study:srs:book:'))dueBy.book++;
+      else if(k.startsWith('study:srs:extra:'))dueBy[/^extra-20261022-/.test(k.slice(16))?'hard':'extra']++;
+      else if(k.startsWith('study:srs:cram:'))dueBy.cram++;
+      else if(k.startsWith('study:srs:atlas:'))dueBy.atlas++;
+    }
   }
-  return `<section class="card today-review" aria-labelledby="today-review-title"><div class="today-card-head"><h2 id="today-review-title">今日複習</h2><span class="small">台北時間</span></div><div class="today-counts"><div><span>現在到期</span><strong>${due}</strong></div><div><span>今日稍後</span><strong>${later}</strong></div><div><span>弱項</span><strong>${weak}</strong></div></div><p class="today-note">${due?`有 ${due} 題到期：先清掉，再練新題。`:'目前沒有到期題目，可以先練新題或錯題。'}</p><div class="today-actions">${btn(due?'開始今日複習':'打開複習清單','tab','study','primary')}${st.wrong?btn('錯題再練 '+st.wrong,'wrong'):btn('從新題開始','today-new')}</div>${todayPlanLine()}</section>`;
+  const bankParts=[['共筆自編',dueBy.notes],['考古考點',dueBy.kaogu],['BCSC 原書',dueBy.book],['Hard 推理',dueBy.hard],['陌生病例',dueBy.extra],['衝刺卡',dueBy.cram],['視覺圖譜',dueBy.atlas]].filter(([,n])=>n>0).map(([lbl,n])=>`${lbl} ${n}`);
+  const bankLine=SPEC.id==='oph'&&totalSrs>0?`<p class="small today-srs-banks" data-today-srs-banks>${bankParts.length?'到期分佈：'+bankParts.join(' · '):`已建立 ${totalSrs} 筆跨題庫間隔複習排程`}</p>`:'';
+  return `<section class="card today-review" aria-labelledby="today-review-title"><div class="today-card-head"><h2 id="today-review-title">今日複習</h2><span class="small">台北時間</span></div><div class="today-counts"><div><span>現在到期</span><strong>${due}</strong></div><div><span>今日稍後</span><strong>${later}</strong></div><div><span>弱項</span><strong>${weak}</strong></div></div>${bankLine}<p class="today-note">${due?`有 ${due} 題到期：先清掉，再練新題。`:'目前沒有到期題目，可以先練新題或錯題。'}</p><div class="today-actions">${btn(due?'開始今日複習':'打開複習清單','tab','study','primary')}${st.wrong?btn('錯題再練 '+st.wrong,'wrong'):btn('從新題開始','today-new')}</div>${todayPlanLine()}</section>`;
 }
 function todayReading(){
   const t=D.topics.find(x=>x.id===S.learn&&x.chapter)||D.topics.find(x=>x.chapter)||D.topics[0];
@@ -1122,10 +1214,10 @@ function stats(){const qs=D.questions.filter(q=>entries['q:'+q.id]);return {answ
 function heading(k,title,sub,right=''){return `<div class="heading"><div><h1>${title}</h1><p class="subtitle">${sub}</p></div>${right}</div>`;}
 function switchTab(tab){if(!navs.some(n=>n[0]===tab)||!tabAllowed(tab))return;$('.rail').classList.remove('nav-open');$('#nav-toggle').setAttribute('aria-expanded','false');if(tab!=='interview'&&S.deadline)pauseTimer();S.tab=tab;render();window.scrollTo({top:0,behavior:'instant'});$('#main').focus({preventScroll:true});}
 function question(){return D.questions.find(q=>q.id===S.ids[S.qi]);}
-function startQuiz(topic='all',mode='all',first=null){window.OphStudy?.leave();S.topic=topic;S.mode=mode;S.ids=D.questions.filter(q=>(topic==='all'||q.topicId===topic||mergedInto(q.topicId)===topic)&&(mode==='all'||(mode==='new'&&!entries['q:'+q.id])||(mode==='safety'&&q.safety)||(mode==='reserve'&&q.reserve)||(mode==='kaogu'&&q.pastExam)||(mode==='wrong'&&entries['q:'+q.id]&&!entries['q:'+q.id].correct)||(mode==='uncertain'&&entries['q:'+q.id]&&meta['q:'+q.id]?.confidence===1))).sort((a,b)=>(a.topicId!==topic)-(b.topicId!==topic)).map(q=>q.id);S.qi=Math.max(0,first?S.ids.indexOf(first):0);S.selected=null;S.confidence=0;S.round=Object.create(null);quizBankMode='core';switchTab('quiz');}
+function startQuiz(topic='all',mode='all',first=null){window.OphStudy?.leave();S.topic=topic;S.mode=mode;S.ids=D.questions.filter(q=>(topic==='all'||q.topicId===topic||mergedInto(q.topicId)===topic)&&(mode==='all'||(mode==='new'&&!entries['q:'+q.id])||(mode==='safety'&&q.safety)||(mode==='reserve'&&q.reserve)||(mode==='kaogu'&&q.pastExam)||(mode==='wrong'&&entries['q:'+q.id]&&!entries['q:'+q.id].correct)||(mode==='due'&&srsDueNow(entries['study:srs:shared:'+q.id]))||(mode==='srs-weak'&&srsWeakEntry(entries['study:srs:shared:'+q.id]))||(mode==='uncertain'&&entries['q:'+q.id]&&meta['q:'+q.id]?.confidence===1))).sort((a,b)=>(a.topicId!==topic)-(b.topicId!==topic)).map(q=>q.id);S.qi=Math.max(0,first?S.ids.indexOf(first):0);S.selected=null;S.confidence=0;S.round=Object.create(null);quizBankMode='core';switchTab('quiz');}
 function moveQuestion(n){window.OphStudy?.leave();S.qi=Math.max(0,Math.min(S.ids.length-1,n));S.selected=null;S.confidence=0;render();$('.question-stem')?.focus({preventScroll:true});}
 function quiz(){if(!D.questions.length)return heading('01 / WRITTEN PRACTICE','筆試練習','先說出你的判斷，再用解析找出下一個要補強的概念。')+pendingCard('筆試練習');const st=stats(),q=question(),response=q?S.round[q.id]:null;const answered=response!==undefined&&response!==null;const topicOptions=orderedTopics().map(t=>`<option value="${t.id}" ${S.topic===t.id?'selected':''}>${t.chapter?(SPEC.id==='oph'?'共筆 ':'第 ')+String(t.chapter).padStart(2,'0')+(SPEC.id==='oph'?' · ':' 章 · '):'重點 · '}${esc(shortTitle(t.id))}</option>`).join('');
-return heading('01 / WRITTEN PRACTICE',S.mode==='wrong'?'錯題再練':S.mode==='uncertain'?'不確定題再練':'筆試練習','先說出你的判斷，再用解析找出下一個要補強的概念。',`<div class="heading-stat"><strong>${st.answered}<i> / ${D.questions.length}</i></strong><span>題已練習<br>${st.wrong} 題待補強</span></div>`)+`<div class="grid"><section><div class="toolbar quiz-toolbar"><label class="small" for="topic-filter">主題</label><select class="select" id="topic-filter"><option value="all">全部主題</option>${topicOptions}</select><select class="select" id="mode-filter" aria-label="練習題目範圍"><option value="all" ${S.mode==='all'?'selected':''}>全部題目</option><option value="new" ${S.mode==='new'?'selected':''}>尚未作答</option><option value="safety" ${S.mode==='safety'?'selected':''}>急症與安全題</option><option value="reserve" ${S.mode==='reserve'?'selected':''}>進階保留題</option><option value="kaogu" ${S.mode==='kaogu'?'selected':''}>考古題考點</option><option value="wrong" ${S.mode==='wrong'?'selected':''}>只練錯題</option><option value="uncertain" ${S.mode==='uncertain'?'selected':''}>不確定的題目</option></select></div>${q?`<article class="card question-card"><div class="question-progress" aria-hidden="true"><span style="width:${S.ids.filter(id=>S.round[id]).length/S.ids.length*100}%"></span></div><div class="question-top"><span class="tag">${esc(shortTitle(q.topicId))}</span><span>${q.sourceId?esc(q.sourceId)+' · ':''}第 ${String(S.qi+1).padStart(2,'0')} 題 / ${String(S.ids.length).padStart(2,'0')}</span></div><div class="question-body"><h2 class="question-stem" tabindex="-1">${esc(q.stem)}</h2><fieldset class="options"><legend>請選擇一個答案</legend>${q.options.map((op,i)=>`<label class="option ${answered?(i===q.correctIndex?'correct':i===response.choice?'wrong':''):S.selected===i?'selected':''}"><input type="radio" name="answer" value="${i}" ${(answered?response.choice:S.selected)===i?'checked':''} ${answered?'disabled':''}><span class="letter">${'ABCD'[i]}</span><span class="option-text">${esc(op)}</span>${answered&&i===q.correctIndex?'<span class="option-status">✓ 正解</span>':answered&&i===response.choice?'<span class="option-status">你的答案</span>':''}</label>`).join('')}</fieldset>${!answered?`<fieldset class="confidence"><legend>這一題有多確定？</legend>${[[1,'還不確定'],[2,'有些把握'],[3,'很有把握']].map(([n,label])=>`<button class="chip" data-action="confidence" data-value="${n}" aria-pressed="${S.confidence===n}">${label}</button>`).join('')}</fieldset><div class="question-actions"><button class="btn primary" data-action="submit" ${S.selected===null?'disabled':''}>確認答案</button><span class="small">自編單選練習<br>非歷屆試題</span></div>`:feedback(q,response)+(window.OphStudy?.ratingHtml('shared',q.id)||'')}</div><div class="question-footer"><button class="btn subtle" data-action="prev" ${S.qi===0?'disabled':''}>上一題</button><span>${S.ids.filter(id=>S.round[id]).length} / ${S.ids.length} 本輪已答</span><button class="btn" data-action="${S.qi===S.ids.length-1?'finish':'next'}">${S.qi===S.ids.length-1?'本輪總結':'下一題'}</button></div></article>`:`<div class="card empty"><h2>目前沒有符合的題目</h2><p>${S.mode==='wrong'?'先完成一輪練習，錯題會出現在這裡。':S.mode==='uncertain'?'選擇「還不確定」後提交答案，就能在這裡再練一次。':'這個主題可先從主動複習開始。'}</p>${btn('練習全部題目','all','','primary')}</div>`}</section><aside class="quiz-side"><div class="card side-card"><h3>本輪題目</h3><div class="q-grid">${S.ids.map((id,i)=>{const r=S.round[id];return `<button class="q-num ${i===S.qi?'current ':''}${r?(r.correct?'good':'bad'):''} ${r?.confidence===1?'uncertain':''}" data-action="jump" data-value="${i}" aria-label="第 ${i+1} 題${r?(r.correct?'，答對':'，待補強'):''}" ${i===S.qi?'aria-current="step"':''}>${i+1}</button>`;}).join('')}</div><div class="legend"><span>答對</span><span>待補強</span></div><p class="small" style="margin-top:14px">外框為目前題目；下方小點表示作答時不確定。</p></div><div class="card side-card"><h3>把一題練完整</h3><ol class="method-list"><li><div><strong>找出關鍵線索</strong><span>題目在問診斷、定位，還是優先處置？</span></div></li><li><div><strong>解釋你的選擇</strong><span>先想理由，再查看答案。</span></div></li><li><div><strong>留下一句修正</strong><span>把易錯點變成下次會記得的提醒。</span></div></li></ol></div><div class="card side-card today-card"><p class="eyebrow">TODAY’S FOCUS</p><h3>今天，完成一小步</h3><p>${esc(D.plan.find(p=>p.date===day)?.goals[0]||'重練一個錯題主題，再完成一輪面試口述。')}</p>${btn('查看每日計畫','tab','plan')}</div></aside></div>`;
+return heading('01 / WRITTEN PRACTICE',S.mode==='wrong'?'錯題再練':S.mode==='uncertain'?'不確定題再練':S.mode==='due'?'到期複習':S.mode==='srs-weak'?'SRS 弱項再練':'筆試練習','先說出你的判斷，再用解析找出下一個要補強的概念。',`<div class="heading-stat"><strong>${st.answered}<i> / ${D.questions.length}</i></strong><span>題已練習<br>${st.wrong} 題待補強</span></div>`)+`<div class="grid"><section><div class="toolbar quiz-toolbar"><label class="small" for="topic-filter">主題</label><select class="select" id="topic-filter"><option value="all">全部主題</option>${topicOptions}</select><select class="select" id="mode-filter" aria-label="練習題目範圍"><option value="all" ${S.mode==='all'?'selected':''}>全部題目</option><option value="new" ${S.mode==='new'?'selected':''}>尚未作答</option><option value="safety" ${S.mode==='safety'?'selected':''}>急症與安全題</option><option value="reserve" ${S.mode==='reserve'?'selected':''}>進階保留題</option><option value="kaogu" ${S.mode==='kaogu'?'selected':''}>考古題考點</option><option value="wrong" ${S.mode==='wrong'?'selected':''}>只練錯題</option><option value="uncertain" ${S.mode==='uncertain'?'selected':''}>不確定的題目</option><option value="due" ${S.mode==='due'?'selected':''}>到期複習（SRS）</option><option value="srs-weak" ${S.mode==='srs-weak'?'selected':''}>SRS 弱項</option></select></div>${q?`<article class="card question-card"><div class="question-progress" aria-hidden="true"><span style="width:${S.ids.filter(id=>S.round[id]).length/S.ids.length*100}%"></span></div><div class="question-top"><span class="tag">${esc(shortTitle(q.topicId))}</span><span>${q.sourceId?esc(q.sourceId)+' · ':''}第 ${String(S.qi+1).padStart(2,'0')} 題 / ${String(S.ids.length).padStart(2,'0')}</span></div><div class="question-body"><h2 class="question-stem" tabindex="-1">${esc(q.stem)}</h2><fieldset class="options"><legend>請選擇一個答案</legend>${q.options.map((op,i)=>`<label class="option ${answered?(i===q.correctIndex?'correct':i===response.choice?'wrong':''):S.selected===i?'selected':''}"><input type="radio" name="answer" value="${i}" ${(answered?response.choice:S.selected)===i?'checked':''} ${answered?'disabled':''}><span class="letter">${'ABCD'[i]}</span><span class="option-text">${esc(op)}</span>${answered&&i===q.correctIndex?'<span class="option-status">✓ 正解</span>':answered&&i===response.choice?'<span class="option-status">你的答案</span>':''}</label>`).join('')}</fieldset>${!answered?`<fieldset class="confidence"><legend>這一題有多確定？</legend>${[[1,'還不確定'],[2,'有些把握'],[3,'很有把握']].map(([n,label])=>`<button class="chip" data-action="confidence" data-value="${n}" aria-pressed="${S.confidence===n}">${label}</button>`).join('')}</fieldset><div class="question-actions"><button class="btn primary" data-action="submit" ${S.selected===null?'disabled':''}>確認答案</button><span class="small">自編單選練習<br>非歷屆試題</span></div>`:feedback(q,response)+(window.OphStudy?.ratingHtml('shared',q.id)||'')}</div><div class="question-footer"><button class="btn subtle" data-action="prev" ${S.qi===0?'disabled':''}>上一題</button><span>${S.ids.filter(id=>S.round[id]).length} / ${S.ids.length} 本輪已答</span><button class="btn" data-action="${S.qi===S.ids.length-1?'finish':'next'}">${S.qi===S.ids.length-1?'本輪總結':'下一題'}</button></div></article>`:`<div class="card empty"><h2>目前沒有符合的題目</h2><p>${S.mode==='wrong'?'先完成一輪練習，錯題會出現在這裡。':S.mode==='uncertain'?'選擇「還不確定」後提交答案，就能在這裡再練一次。':S.mode==='due'?'目前沒有到期的複習題目；作答並評分熟悉度後，到期題會出現在這裡。':S.mode==='srs-weak'?'目前沒有 SRS 弱項（答錯、重來或微卡題目會出現在這裡）。':'這個主題可先從主動複習開始。'}</p>${btn('練習全部題目','all','','primary')}</div>`}</section><aside class="quiz-side"><div class="card side-card"><h3>本輪題目</h3><div class="q-grid">${S.ids.map((id,i)=>{const r=S.round[id];return `<button class="q-num ${i===S.qi?'current ':''}${r?(r.correct?'good':'bad'):''} ${r?.confidence===1?'uncertain':''}" data-action="jump" data-value="${i}" aria-label="第 ${i+1} 題${r?(r.correct?'，答對':'，待補強'):''}" ${i===S.qi?'aria-current="step"':''}>${i+1}</button>`;}).join('')}</div><div class="legend"><span>答對</span><span>待補強</span></div><p class="small" style="margin-top:14px">外框為目前題目；下方小點表示作答時不確定。</p></div><div class="card side-card"><h3>把一題練完整</h3><ol class="method-list"><li><div><strong>找出關鍵線索</strong><span>題目在問診斷、定位，還是優先處置？</span></div></li><li><div><strong>解釋你的選擇</strong><span>先想理由，再查看答案。</span></div></li><li><div><strong>留下一句修正</strong><span>把易錯點變成下次會記得的提醒。</span></div></li></ol></div><div class="card side-card today-card"><p class="eyebrow">TODAY’S FOCUS</p><h3>今天，完成一小步</h3><p>${esc(D.plan.find(p=>p.date===day)?.goals[0]||'重練一個錯題主題，再完成一輪面試口述。')}</p>${btn('查看每日計畫','tab','plan')}</div></aside></div>`;
 }
 function feedback(q,r){const m=meta['q:'+q.id]||{},pieces=q.explanation.split(/\n\n常見陷阱：/),highWrong=r.confidence===3&&!r.correct;return `<section class="feedback ${r.correct?'':'is-wrong'}" aria-label="作答解析"><div class="feedback-head" role="status">${r.correct?'✓ 答對了':'這一題值得再練一次'} · 正確答案 ${'ABCD'[q.correctIndex]}</div><div class="feedback-content">${highWrong?'<p class="confidence-note">你剛才很有把握。先找出原本判斷與解析的差異，再重練一次。</p>':r.confidence===1?'<p class="confidence-note">你標記為不確定；可以從「不確定的題目」再練習。</p>':''}<div class="reason-step"><span class="step-number">1</span><div><h3>為什麼是這個答案</h3><p>${esc(pieces[0])}</p></div></div>${pieces[1]?`<div class="trap"><strong>容易混淆的地方</strong><br>${esc(pieces.slice(1).join('\n'))}</div>`:''}<div class="reason-step"><span class="step-number">2</span><div><h3>換你說一次</h3><p>不用看選項，說出支持「${esc(q.options[q.correctIndex])}」的關鍵。再選一個干擾選項，解釋它為什麼不符合題幹。</p></div></div><label class="field-label" for="error-reason">我的判斷卡在哪裡？</label><select class="select" id="error-reason"><option value="">選擇一個原因（選填）</option>${['概念不熟','漏看關鍵線索','優先順序混淆','計算或單位錯誤','答對但不夠確定','已掌握，能解釋'].map(x=>`<option ${m.reason===x?'selected':''}>${x}</option>`).join('')}</select><label class="field-label" for="reflection">留給下次的一句提醒</label><textarea class="input" id="reflection" maxlength="2000" placeholder="例如：先確認題目問的是什麼；再寫下這題要記住的差別。">${esc(m.note||'')}</textarea><div class="actions" style="margin-top:15px">${btn('複習這個概念','learn-topic',q.topicId,'small')}${btn('重新作答','retry','','small subtle')}</div>${questionSource(q)}${medicalReviewNote(q.medicalReview)}${refs(q.refs)}</div></section>`;}
 function learn(){if(!D.topics.length)return heading('02 / ACTIVE RECALL','主動複習','讀過之後，遮住答案。能用自己的話說出來，才算完成一次回想。')+pendingCard('主動複習');const t=D.topics.find(x=>x.id===S.learn)||D.topics[0],st=stats();return heading('02 / ACTIVE RECALL','章節教材','閱讀重點，或遮住答案主動回想；能用自己的話說出來，才算記住。',`<div class="heading-stat"><strong>${orderedTopics().filter(x=>entries['topic:'+x.id]?.done).length}<i> / ${orderedTopics().length}</i></strong><span>已複習</span></div>`)+`<div class="two-col"><aside class="card topic-menu" aria-label="複習主題">${orderedTopics().map((x,i)=>`<button class="topic-button ${x.id===t.id?'active':''}" data-action="learn-topic" data-value="${x.id}" ${x.id===t.id?'aria-current="true"':''}><span class="index">${String(i+1).padStart(2,'0')}</span><span>${x.chapter?(SPEC.id==='oph'?'共筆 ':'第 ')+String(x.chapter).padStart(2,'0')+(SPEC.id==='oph'?' · ':' 章 · '):''}${esc(shortTitle(x.id))}</span>${entries['topic:'+x.id]?.done?'<span class="done">✓</span>':''}</button>`).join('')}</aside><article class="card reading-card"><p class="eyebrow">${topicEyebrow(t)}</p><h2>${esc(t.title)}</h2><p class="lead">${esc(t.summary)}</p>${mergedNotice(t)}${enrichmentNav(t)}<div class="study-switch" role="group" aria-label="複習方式"><button class="btn ${!S.recall?'active':''}" data-action="recall" data-value="off" aria-pressed="${!S.recall}">閱讀重點</button><button class="btn ${S.recall?'active':''}" data-action="recall" data-value="on" aria-pressed="${S.recall}">遮住答案，主動回想</button></div>${renderLessonContent(t)}${chapterExtras(t)}<p class="learning-note"><strong>${t.chapter?'勘誤與判讀提醒：':''}</strong>${esc(t.notes)}</p>${refs(t.refs)}<div class="reading-actions">${btn(entries['topic:'+t.id]?.done?'✓ 已複習（可取消）':'標記已複習','topic-done',t.id)}${btn('練習此主題','practice-topic',t.id,'primary')}</div></article></div>`;}
@@ -1971,7 +2063,7 @@ function sharePanel(cfg){
 
 /* Where you left off on this device: current screen, quiz round and position, open PBL stages.
    Kept beside the progress (not exported or synced), so reopening the app looks exactly as you left it. */
-const WORKSPACE_KEY=SPEC.storePrefix+'workspace-v1',CRAM_KEY=SPEC.storePrefix+'cram-review-v1',QUIZ_MODES=['all','new','safety','reserve','kaogu','wrong','uncertain'];
+const WORKSPACE_KEY=SPEC.storePrefix+'workspace-v1',CRAM_KEY=SPEC.storePrefix+'cram-review-v1',QUIZ_MODES=['all','new','safety','reserve','kaogu','wrong','uncertain','due','srs-weak'];
 let workspaceTimer=null;
 function workspaceSnapshot(){return {v:1,at:now(),hash:currentLocationHash(),quiz:{topic:S.topic,mode:S.mode,ids:S.ids,qi:S.qi,round:S.round},learn:S.learn,interview:S.interview,pbl:S.pbl,pblStage:S.pblStage,workflow:S.workflow,wfMode:S.wfMode,recall:S.recall,workshop:S.workshop,story:S.story,evidence:S.evidence};}
 function saveWorkspace(){clearTimeout(workspaceTimer);workspaceTimer=null;const s=storage();if(s&&deviceSettings().autosave)writeJSON(s,WORKSPACE_KEY,workspaceSnapshot());}
@@ -2146,13 +2238,17 @@ function studyEntry(key,v){
  if(!a||typeof a!=='object'||typeof a.id!=='string'||a.id.length>100||!a.id||!studyISO(a.at)||typeof a.correct!=='boolean'||typeof a.rated!=='boolean'||p!==null&&!studyPlanValid(p)||a.rated&&!p||!a.correct&&(!a.rated||p?.rating!=='again')||p&&p.reviewCount>v.answerCount)return null;
  return {version:1,at:v.at,answerCount:v.answerCount,attempt:{id:a.id,at:a.at,correct:a.correct,rated:a.rated},plan:p?{step:p.step,dueAt:p.dueAt,rating:p.rating,reviewCount:p.reviewCount,lapses:p.lapses}:null};
 }
+function studyClockNow(){return typeof window.OphStudy?.now==='function'?window.OphStudy.now():Date.now();}
+function srsDueNow(v,nowMs=studyClockNow()){return !!(v&&studyPlanValid(v.plan)&&Date.parse(v.plan.dueAt)<=nowMs);}
+function srsWeakEntry(v){return !!(v&&(v.attempt?.correct===false||['again','hard'].includes(v.plan?.rating)));}
 function studyPage(){if(SPEC.id!=='oph'&&!D.questions.length)return heading('SPACED REVIEW','今日複習','先有效作答，再評熟悉度。答錯提早重練，答對並熟悉才延長間隔；看過解析不等於已學會。')+pendingCard('今日複習');return heading('SPACED REVIEW','今日複習','先有效作答，再評熟悉度。答錯提早重練，答對並熟悉才延長間隔；看過解析不等於已學會。')+'<section id="study-root" aria-label="間隔複習與學習進度"><p role="status">正在讀取複習清單…</p></section>';}
 window.OphStudyBridge={
  read(key){return studyEntry(key,entries[key])||null;},
  save(key,value){const valid=studyEntry(key,value);if(!valid)throw Error('複習紀錄格式無效');entries[key]=valid;changed();},
- shared(){return D.questions.map(q=>({pool:'shared',id:q.id,title:q.stem}));},
- open(pool,id){window.OphStudy?.leave();if(pool==='shared'){if(D.questions.some(q=>q.id===id))startQuiz('all','all',id);}else if(pool==='book')openRoute('#textbook-'+id);else if(pool==='extra')openRoute('#textbook-extra-'+id);},
- refresh(pool){if(pool==='shared'&&S.tab==='quiz')render();}
+ remove(key){if(/^study:srs:[a-z][a-z0-9-]{0,31}:[A-Za-z0-9][A-Za-z0-9_-]{0,119}$/.test(key)&&Object.prototype.hasOwnProperty.call(entries,key)){delete entries[key];changed();}},
+ shared(){return D.questions.map(q=>({pool:'shared',id:q.id,title:q.stem,pastExam:!!q.pastExam}));},
+ open(pool,id,mode){window.OphStudy?.leave();if(pool==='shared'){if(D.questions.some(q=>q.id===id)){const rec=entries['study:srs:shared:'+id],qMode=mode==='due'&&srsDueNow(rec)?'due':(mode==='weak'||mode==='srs-weak')&&srsWeakEntry(rec)?'srs-weak':'all';startQuiz('all',qMode,id);}}else if(pool==='book')openRoute('#textbook-'+id);else if(pool==='extra')openRoute('#textbook-extra-'+id);else if(pool==='cram'){window.OphCram?.openCard?.(id);openRoute('#tab-cram');}else if(pool==='atlas'){const m=String(id||'').match(/^(atlas-s(0[1-9]|1[0-3])-(?:0[1-9]|[1-9]\d))-(?:case|recall|item)(?:-\d+)?$/);if(m){const h='#textbook-atlas-bcsc-s'+m[2]+'-'+m[1];window.OphTextbookAtlas?.focusItem?.(id);window.history?.replaceState?.(null,'',h);openRoute(h);}}},
+ refresh(pool){if(pool==='shared'&&S.tab==='quiz')render();else if(pool==='cram'&&S.tab==='cram')window.OphCram?.refresh?.();else if(pool==='atlas'&&S.tab==='textbook')window.OphTextbook?.refresh?.();}
 };
 /* study-bridge:end */
 function schedulePage(){setTimeout(()=>window.OphSchedule?.mount(document.getElementById('schedule-root')),0);return heading('','考試時程','報名截止、筆試與面試，按日期整理。')+'<section id="schedule-root" aria-label="考試時程"><p role="status">正在讀取時程…</p></section>';}
