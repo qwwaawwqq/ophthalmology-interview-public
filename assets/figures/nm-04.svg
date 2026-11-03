@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-labelledby="title desc">
+  <title id="title">失智症腦代謝與類澱粉 PET 圖譜、帕金森氏症 TRODAT-1 紋狀體變化與癲癇水腦症定位</title>
+  <desc id="desc">比較阿茲海默症、路易氏體失智症與額顳葉失智症之 FDG 與類澱粉正子圖譜，對照帕金森氏症 TRODAT-1 後殼核減弱，以及癲癇機能聯繫不能與常壓性水腦症腦池造影。</desc>
+  <rect x="20" y="20" width="920" height="520" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <g font-family="system-ui, -apple-system, 'Noto Sans TC', sans-serif" fill="#0f172a">
+    <text x="40" y="52" font-size="20" font-weight="700">神經核子醫學圖譜：失智症 FDG／類澱粉 PET、TRODAT-1 與癲癇／水腦症</text>
+    <text x="40" y="73" font-size="12.5" fill="#475569">可穿完整 BBB：ECD · HMPAO · FDG · TRODAT-1 · Amyloid 探針 ｜ 無法穿完整 BBB：Tc-99m / In-111 DTPA</text>
+
+    <!-- Panel A: Dementia FDG & Amyloid PET -->
+    <rect x="36" y="88" width="540" height="252" rx="10" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.8"/>
+    <rect x="36" y="88" width="540" height="32" rx="10" fill="#dbeafe"/>
+    <text x="52" y="109" font-size="14" font-weight="700" fill="#1d4ed8">A. 失智症 F-18 FDG 皮質低代謝分布與類澱粉（Amyloid）PET 判讀</text>
+
+    <!-- AD Brain -->
+    <rect x="48" y="130" width="122" height="196" rx="8" fill="#eff6ff" stroke="#93c5fd"/>
+    <ellipse cx="109" cy="184" rx="34" ry="42" fill="#fde68a" stroke="#475569" stroke-width="1.5"/>
+    <!-- Posterior temporoparietal blue hypometabolism -->
+    <path d="M77 196 Q82 214 98 220" fill="none" stroke="#1d4ed8" stroke-width="7" stroke-linecap="round"/>
+    <path d="M141 196 Q136 214 120 220" fill="none" stroke="#1d4ed8" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="109" cy="198" r="7" fill="#1d4ed8"/>
+    <text x="109" y="244" font-size="12" font-weight="700" fill="#1e3a8a" text-anchor="middle">阿茲海默症 (AD)</text>
+    <text x="109" y="262" font-size="10.5" fill="#334155" text-anchor="middle">後扣帶迴＋顳頂葉↓</text>
+    <text x="109" y="278" font-size="10.5" fill="#0f766e" text-anchor="middle">枕葉與運動皮質保留</text>
+    <text x="109" y="298" font-size="10.5" font-weight="700" fill="#be123c" text-anchor="middle">Amyloid(+)·DAT 正常</text>
+
+    <!-- DLB Brain -->
+    <rect x="178" y="130" width="122" height="196" rx="8" fill="#fef2f2" stroke="#fecdd3"/>
+    <ellipse cx="239" cy="184" rx="34" ry="42" fill="#fde68a" stroke="#475569" stroke-width="1.5"/>
+    <!-- Occipital pole hypometabolism + Cingulate Island -->
+    <path d="M214 218 Q239 232 264 218" fill="none" stroke="#be123c" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="239" cy="198" r="6" fill="#0f766e"/>
+    <text x="239" y="244" font-size="12" font-weight="700" fill="#be123c" text-anchor="middle">路易氏體失智 (DLB)</text>
+    <text x="239" y="262" font-size="10.5" fill="#334155" text-anchor="middle">枕葉視覺皮質↓</text>
+    <text x="239" y="278" font-size="10.5" fill="#0f766e" text-anchor="middle">後扣帶迴島徵保留</text>
+    <text x="239" y="298" font-size="10.5" font-weight="700" fill="#be123c" text-anchor="middle">TRODAT↓·MIBG↓</text>
+    <text x="239" y="314" font-size="10" fill="#991b1b" text-anchor="middle">嚴禁 D2 抗精神病藥</text>
+
+    <!-- FTD Brain -->
+    <rect x="308" y="130" width="122" height="196" rx="8" fill="#fffbeb" stroke="#fcd34d"/>
+    <ellipse cx="369" cy="184" rx="34" ry="42" fill="#fde68a" stroke="#475569" stroke-width="1.5"/>
+    <!-- Frontal hypometabolism -->
+    <path d="M343 164 Q369 136 395 164" fill="none" stroke="#b45309" stroke-width="8" stroke-linecap="round"/>
+    <text x="369" y="244" font-size="12" font-weight="700" fill="#b45309" text-anchor="middle">額顳葉失智 (FTD)</text>
+    <text x="369" y="262" font-size="10.5" fill="#334155" text-anchor="middle">額葉＋前顳葉顯著↓</text>
+    <text x="369" y="278" font-size="10.5" fill="#334155" text-anchor="middle">早期人格行為失語改變</text>
+    <text x="369" y="298" font-size="10.5" font-weight="700" fill="#0f766e" text-anchor="middle">Amyloid PET (－)</text>
+
+    <!-- Amyloid PET Box -->
+    <rect x="438" y="130" width="126" height="196" rx="8" fill="#f0fdfa" stroke="#5eead4"/>
+    <text x="501" y="150" font-size="11.5" font-weight="700" fill="#0f766e" text-anchor="middle">類澱粉 PET 原則</text>
+    <text x="446" y="172" font-size="10.5" fill="#334155">· 對照：小腦／橋腦</text>
+    <text x="446" y="192" font-size="10.5" font-weight="700" fill="#0f766e">· 陰性：僅白質樹枝影</text>
+    <text x="454" y="208" font-size="10" fill="#334155">（高度排除 AD！）</text>
+    <text x="446" y="230" font-size="10.5" font-weight="700" fill="#be123c">· 陽性：皮質灰質全亮</text>
+    <text x="454" y="246" font-size="10" fill="#334155">（灰白質界線消失）</text>
+    <text x="446" y="272" font-size="10" fill="#475569">註：正常高齡者亦可</text>
+    <text x="446" y="287" font-size="10" fill="#475569">陽性，須配臨床判讀</text>
+
+    <!-- Panel B: Tc-99m TRODAT-1 Striatal DAT -->
+    <rect x="590" y="88" width="334" height="252" rx="10" fill="#ffffff" stroke="#0f766e" stroke-width="1.8"/>
+    <rect x="590" y="88" width="334" height="32" rx="10" fill="#ccfbf1"/>
+    <text x="606" y="109" font-size="14" font-weight="700" fill="#0f766e">B. Tc-99m TRODAT-1 突觸前多巴胺轉運體</text>
+
+    <!-- Normal Striatum -->
+    <rect x="604" y="132" width="146" height="154" rx="8" fill="#f0fdfa" stroke="#99f6e4"/>
+    <text x="677" y="152" font-size="11.5" font-weight="700" fill="#0f766e" text-anchor="middle">正常逗號狀（對稱）</text>
+    <ellipse cx="677" cy="196" rx="46" ry="34" fill="#1e293b"/>
+    <path d="M663 178 Q652 196 658 214" fill="none" stroke="#fbbf24" stroke-width="9" stroke-linecap="round"/>
+    <path d="M691 178 Q702 196 696 214" fill="none" stroke="#fbbf24" stroke-width="9" stroke-linecap="round"/>
+    <text x="677" y="250" font-size="10.5" fill="#334155" text-anchor="middle">原發性顫抖症 (ET)</text>
+    <text x="677" y="266" font-size="10.5" fill="#334155" text-anchor="middle">藥物性帕金森·AD</text>
+
+    <!-- PD Striatum -->
+    <rect x="764" y="132" width="146" height="154" rx="8" fill="#fef2f2" stroke="#fecdd3"/>
+    <text x="837" y="152" font-size="11.5" font-weight="700" fill="#be123c" text-anchor="middle">退化句號狀（不對稱）</text>
+    <ellipse cx="837" cy="196" rx="46" ry="34" fill="#1e293b"/>
+    <!-- Right putamen severe loss (left side of axial image = patient Right) -->
+    <circle cx="823" cy="180" r="5" fill="#fbbf24"/>
+    <path d="M851 178 Q859 189 856 198" fill="none" stroke="#f59e0b" stroke-width="7" stroke-linecap="round"/>
+    <text x="837" y="250" font-size="10.5" font-weight="700" fill="#be123c" text-anchor="middle">對側「後殼核」最先減弱</text>
+    <text x="837" y="266" font-size="10.5" fill="#334155" text-anchor="middle">PD · DLB · MSA · PSP</text>
+
+    <text x="606" y="308" font-size="10.5" fill="#334155">· 影像左側＝病患右側：左手顫抖者以「右側殼核」最嚴重</text>
+    <text x="606" y="326" font-size="10.5" fill="#0f766e">· 單憑 TRODAT-1 無法直接切開典型 PD 與 MSA/PSP</text>
+
+    <!-- Panel C: Epilepsy & Cisternography NPH -->
+    <rect x="36" y="354" width="888" height="168" rx="10" fill="#ffffff" stroke="#b45309" stroke-width="1.6"/>
+    <rect x="36" y="354" width="888" height="30" rx="10" fill="#fef3c7"/>
+    <text x="52" y="374" font-size="13.5" font-weight="700" fill="#92400e">C. 藥物難治型局部癲癇「高高低低＋機能聯繫不能」與常壓性水腦症（NPH）腦池造影</text>
+
+    <text x="52" y="404" font-size="12" font-weight="700" fill="#1d4ed8">1. 局部癲癇術前定位（最常起源於內側顳葉）：</text>
+    <text x="60" y="424" font-size="11.5" fill="#334155">· 發作期 (Ictal) ECD/HMPAO SPECT → 致癲癇灶「高灌注熱區」（SISCOM 最準）</text>
+    <text x="60" y="444" font-size="11.5" fill="#334155">· 發作間期 (Interictal) FDG PET → 致癲癇灶「低代謝冷區」</text>
+    <text x="60" y="466" font-size="11.5" font-weight="700" fill="#be123c">· 交叉性小腦機能聯繫不能 (Diaschisis) 必考陷阱：</text>
+    <text x="68" y="486" font-size="11" fill="#334155">左顳葉放電灶 → 引起「左側同側視丘＋右側對側小腦」同步低代謝（原發灶在左顳葉！）</text>
+
+    <line x1="516" y1="392" x2="516" y2="510" stroke="#cbd5e1" stroke-width="1.5"/>
+
+    <text x="532" y="404" font-size="12" font-weight="700" fill="#0f766e">2. 常壓性水腦症（NPH：步態不穩、尿失禁、失智）：</text>
+    <text x="540" y="424" font-size="11" fill="#334155">· 腰椎鞘內打 Tc-99m DTPA（不穿 BBB，留在蜘蛛網膜下腔）</text>
+    <text x="540" y="444" font-size="11" fill="#334155">· 正常 24h：抵達顱頂大腦凸面吸收，側腦室完全不亮</text>
+    <text x="540" y="464" font-size="11" font-weight="700" fill="#be123c">· NPH 異常：側腦室持續逆流顯影 &gt;24–48h 且凸面無上升</text>
+    <text x="540" y="486" font-size="11" font-weight="600" fill="#92400e">· 分流引流至腹膜腔(首選)/右心房/肋膜腔；絕對禁引流至膀胱！</text>
+  </g>
+</svg>

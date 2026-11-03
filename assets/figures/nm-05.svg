@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-labelledby="title desc">
+  <title id="title">三相式骨掃描時相曲線鑑別、超級骨掃描對多發性骨髓瘤與 Ra-223 治療</title>
+  <desc id="desc">呈現局部三相式骨掃描鑑別急性骨髓炎與蜂窩性組織炎曲線、全身骨掃描 Superscan 與溶骨偽陰性，以及親骨性 Ra-223 α 粒子治療優勢。</desc>
+  <rect x="20" y="20" width="920" height="520" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <g font-family="system-ui, -apple-system, 'Noto Sans TC', sans-serif" fill="#0f172a">
+    <text x="40" y="52" font-size="20" font-weight="700">骨骼肌肉核子醫學：三相式骨掃描、Superscan／閃爍現象與 Ra-223 標靶治療</text>
+    <text x="40" y="73" font-size="12.5" fill="#475569">Tc-99m MDP 吸附新生骨礦化前緣（腎排泄、免顯影劑洗腎可做）· 雙探頭 Gamma camera 取像（非試管 Gamma counter）</text>
+
+    <!-- Panel A: Three-Phase Bone Scan Curves -->
+    <rect x="36" y="88" width="302" height="434" rx="10" fill="#ffffff" stroke="#0f766e" stroke-width="1.8"/>
+    <rect x="36" y="88" width="302" height="32" rx="10" fill="#ccfbf1"/>
+    <text x="50" y="109" font-size="14" font-weight="700" fill="#0f766e">A. 局部三相式骨掃描（TPBS）曲線</text>
+
+    <!-- Axes -->
+    <line x1="68" y1="286" x2="318" y2="286" stroke="#334155" stroke-width="1.6"/>
+    <line x1="68" y1="286" x2="68" y2="138" stroke="#334155" stroke-width="1.6"/>
+    <text x="54" y="148" font-size="10" fill="#475569" text-anchor="end">高</text>
+    <text x="54" y="284" font-size="10" fill="#475569" text-anchor="end">低</text>
+    <!-- Phase dividers -->
+    <line x1="142" y1="140" x2="142" y2="286" stroke="#cbd5e1" stroke-dasharray="4,3"/>
+    <line x1="224" y1="140" x2="224" y2="286" stroke="#cbd5e1" stroke-dasharray="4,3"/>
+    <text x="105" y="303" font-size="10.5" font-weight="600" text-anchor="middle">血流 Flow</text>
+    <text x="105" y="316" font-size="9.5" fill="#64748b" text-anchor="middle">(0–60s)</text>
+    <text x="183" y="303" font-size="10.5" font-weight="600" text-anchor="middle">血池 Pool</text>
+    <text x="183" y="316" font-size="9.5" fill="#64748b" text-anchor="middle">(3–10m)</text>
+    <text x="271" y="303" font-size="10.5" font-weight="600" text-anchor="middle">延遲 Delayed</text>
+    <text x="271" y="316" font-size="9.5" fill="#64748b" text-anchor="middle">(2–4h)</text>
+
+    <!-- Osteomyelitis Curve (Red: High -> High -> Very High) -->
+    <path d="M74 230 Q105 168 142 166 Q183 164 224 158 Q265 148 310 144" fill="none" stroke="#be123c" stroke-width="3"/>
+    <text x="242" y="140" font-size="10.5" font-weight="700" fill="#be123c">急性骨髓炎 (三相皆↑)</text>
+
+    <!-- Cellulitis Curve (Blue: High -> High -> Drops to Normal) -->
+    <path d="M74 236 Q105 180 142 178 Q183 182 224 228 Q265 262 310 264" fill="none" stroke="#1d4ed8" stroke-width="2.8" stroke-dasharray="6,3"/>
+    <text x="228" y="252" font-size="10.5" font-weight="700" fill="#1d4ed8">蜂窩性組織炎</text>
+
+    <!-- Aseptic Loosening Curve (Amber: Normal -> Normal -> Delayed Rise) -->
+    <path d="M74 268 L142 266 L224 260 Q265 205 310 194" fill="none" stroke="#b45309" stroke-width="2.5"/>
+    <text x="234" y="190" font-size="10.5" font-weight="700" fill="#b45309">無菌鬆脫 (僅延遲↑)</text>
+
+    <rect x="48" y="330" width="278" height="178" rx="7" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="58" y="350" font-size="11.5" font-weight="700" fill="#0f172a">良性與感染骨骼鑑別重點：</text>
+    <text x="58" y="370" font-size="10.5" fill="#be123c">· 急性骨髓炎：血流/血池/延遲三相全亮</text>
+    <text x="58" y="388" font-size="10.5" fill="#1d4ed8">· 蜂窩性組織炎：僅前兩相亮，延遲相正常</text>
+    <text x="58" y="406" font-size="10.5" fill="#0f766e">· 糖尿病夏科氏足/術後複雜感染黃金標準：</text>
+    <text x="66" y="423" font-size="10.5" font-weight="600" fill="#0f766e">標記白血球(亮)＋硫膠體骨髓(冷)空間不一致</text>
+    <text x="58" y="443" font-size="10.5" fill="#334155">· X 光陰性應力/隱匿骨折：傷後 24–72h 陽性</text>
+    <text x="58" y="461" font-size="10.5" fill="#334155">· 異位性骨化 (HO)：待活性穩定成熟再開刀</text>
+    <text x="58" y="481" font-size="10.5" font-weight="700" fill="#92400e">· 非適應症：單獨判定骨腫塊良惡、第 I 期乳癌</text>
+
+    <!-- Panel B: Superscan vs Multiple Myeloma & Flare -->
+    <rect x="352" y="88" width="308" height="434" rx="10" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.8"/>
+    <rect x="352" y="88" width="308" height="32" rx="10" fill="#dbeafe"/>
+    <text x="366" y="109" font-size="14" font-weight="700" fill="#1d4ed8">B. 全身骨轉移、Superscan 與偽陰性</text>
+
+    <!-- Mini Skeleton 1: Superscan -->
+    <rect x="364" y="130" width="136" height="176" rx="8" fill="#eff6ff" stroke="#93c5fd"/>
+    <text x="432" y="149" font-size="11.5" font-weight="700" fill="#1e3a8a" text-anchor="middle">Superscan 超級骨掃描</text>
+    <circle cx="432" cy="172" r="11" fill="#0f172a"/>
+    <rect x="427" y="184" width="10" height="52" rx="3" fill="#0f172a"/>
+    <line x1="412" y1="192" x2="452" y2="192" stroke="#0f172a" stroke-width="5"/>
+    <line x1="415" y1="204" x2="449" y2="204" stroke="#0f172a" stroke-width="4"/>
+    <line x1="417" y1="216" x2="447" y2="216" stroke="#0f172a" stroke-width="4"/>
+    <ellipse cx="432" cy="242" rx="18" ry="10" fill="#0f172a"/>
+    <!-- Absent kidneys dashed -->
+    <ellipse cx="414" cy="224" rx="5" ry="8" fill="none" stroke="#be123c" stroke-dasharray="2,2"/>
+    <ellipse cx="450" cy="224" rx="5" ry="8" fill="none" stroke="#be123c" stroke-dasharray="2,2"/>
+    <text x="432" y="272" font-size="10.5" font-weight="700" fill="#be123c" text-anchor="middle">雙腎與膀胱完全消失！</text>
+    <text x="432" y="290" font-size="10" fill="#334155" text-anchor="middle">攝護腺癌 vs 副甲亢/軟骨症</text>
+
+    <!-- Mini Skeleton 2: Multiple Myeloma False Negative -->
+    <rect x="510" y="130" width="138" height="176" rx="8" fill="#fef2f2" stroke="#fecdd3"/>
+    <text x="579" y="149" font-size="11.5" font-weight="700" fill="#be123c" text-anchor="middle">多發性骨髓瘤 (MM)</text>
+    <circle cx="579" cy="172" r="11" fill="#cbd5e1" stroke="#64748b"/>
+    <rect x="574" y="184" width="10" height="52" rx="3" fill="#cbd5e1"/>
+    <ellipse cx="561" cy="224" rx="5" ry="8" fill="#64748b"/>
+    <ellipse cx="597" cy="224" rx="5" ry="8" fill="#64748b"/>
+    <circle cx="579" cy="252" r="6" fill="#64748b"/>
+    <text x="579" y="272" font-size="10.5" font-weight="700" fill="#be123c" text-anchor="middle">純溶骨伴成骨受抑</text>
+    <text x="579" y="290" font-size="10" fill="#334155" text-anchor="middle">MDP 偽陰性 → 改 CT/FDG</text>
+
+    <rect x="364" y="318" width="284" height="190" rx="7" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="374" y="338" font-size="11.5" font-weight="700" fill="#0f172a">惡性轉移與副腫瘤必考特徵：</text>
+    <text x="374" y="358" font-size="10.5" fill="#334155">· 典型骨轉移：中軸骨多發、不對稱、不規則亮</text>
+    <text x="374" y="378" font-size="10.5" font-weight="700" fill="#be123c">· 閃爍現象 (Flare)：攝護腺/乳癌治療有效 2–3 月</text>
+    <text x="382" y="395" font-size="10" fill="#334155">成骨修復暫時變亮（PSA↓痛減，6 個月後回落；</text>
+    <text x="382" y="411" font-size="10" font-weight="600" fill="#1d4ed8">注意：副甲狀腺亢進 Superscan 絕無 Flare！）</text>
+    <text x="374" y="432" font-size="10.5" font-weight="700" fill="#0f766e">· HPOA 雙軌徵：四肢遠端對稱平行皮質亮 → 肺癌</text>
+    <text x="374" y="452" font-size="10.5" fill="#334155">· 轉移性鈣化（副甲亢/腎衰）：雙肺、胃壁、腎亮</text>
+    <text x="374" y="472" font-size="10.5" fill="#334155">· 軟骨症 (Osteomalacia)：肋骨對稱假性骨折熱點</text>
+    <text x="374" y="492" font-size="10.5" fill="#475569">· F-18 NaF PET：單次萃取近 100%，解析度更高</text>
+
+    <!-- Panel C: Ra-223 vs Beta Bone Therapy -->
+    <rect x="674" y="88" width="250" height="434" rx="10" fill="#ffffff" stroke="#b45309" stroke-width="1.8"/>
+    <rect x="674" y="88" width="250" height="32" rx="10" fill="#fef3c7"/>
+    <text x="688" y="109" font-size="14" font-weight="700" fill="#92400e">C. 親骨性標靶核種治療對照</text>
+
+    <!-- Ra-223 Box -->
+    <rect x="686" y="132" width="226" height="206" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="696" y="152" font-size="12.5" font-weight="700" fill="#b45309">Ra-223 二氯化鐳（α 粒子）</text>
+    <text x="696" y="172" font-size="10.5" fill="#334155">· 機轉：二價鈣離子模擬物 (Ca2+)</text>
+    <text x="696" y="191" font-size="10.5" font-weight="700" fill="#be123c">· 射程 &lt; 100 μm（2–10 細胞厚）</text>
+    <text x="704" y="207" font-size="10" fill="#334155">高 LET 雙股 DNA 斷裂，骨髓抑制輕</text>
+    <text x="696" y="227" font-size="10.5" font-weight="700" fill="#0f766e">· 排泄：腸道糞便排泄（腎不全免減量）</text>
+    <text x="696" y="247" font-size="10.5" font-weight="700" fill="#1d4ed8">· 實證：延長無內臟轉移之有症狀</text>
+    <text x="704" y="263" font-size="10.5" font-weight="700" fill="#1d4ed8">mCRPC 整體存活期 (ALSYMPCA)</text>
+    <text x="696" y="285" font-size="10" fill="#be123c">· 禁忌：有肝肺內臟轉移不用；嚴禁與</text>
+    <text x="704" y="301" font-size="10" fill="#be123c">Abiraterone + Prednisone 同步併用</text>
+    <text x="696" y="321" font-size="10" fill="#475569">· T1/2 = 11.4 天 · 搭配骨保護劑</text>
+
+    <!-- Sm-153 / Sr-89 Box -->
+    <rect x="686" y="350" width="226" height="158" rx="8" fill="#f8fafc" stroke="#94a3b8"/>
+    <text x="696" y="370" font-size="12" font-weight="700" fill="#334155">Sm-153 EDTMP / Sr-89（β-）</text>
+    <text x="696" y="390" font-size="10.5" fill="#334155">· Sm-153：膦酸鹽，β- ＋ 103 keV γ</text>
+    <text x="704" y="406" font-size="10" fill="#475569">(T1/2 1.9d，可同步掃描確認分布)</text>
+    <text x="696" y="426" font-size="10.5" fill="#334155">· Sr-89：鈣模擬物，純 β- (T1/2 50.5d)</text>
+    <text x="696" y="446" font-size="10.5" fill="#be123c">· 射程數 mm（骨髓抑制較明顯）</text>
+    <text x="696" y="466" font-size="10.5" fill="#1d4ed8">· 排泄：腎臟尿液（防尿液污染）</text>
+    <text x="696" y="486" font-size="10.5" font-weight="600" fill="#475569">· 定位：純緩解成骨轉移疼痛（不延壽）</text>
+  </g>
+</svg>
