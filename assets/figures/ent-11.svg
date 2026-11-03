@@ -52,7 +52,7 @@
     <line x1="170" y1="220" x2="212" y2="214" stroke="#be123c" stroke-width="2" marker-end="url(#arr-red11)"/>
     <text x="224" y="200" font-size="12" font-weight="700" fill="#be123c">1. 緊急環甲膜切開（CICO 首選）</text>
     <text x="224" y="217" font-size="10.5" fill="#0f172a">表淺無大血管，1–2 分鐘最快通氣</text>
-    <text x="224" y="233" font-size="10.5" fill="#881337">· 穩定後 24–48h 轉正式氣切防狹窄</text>
+    <text x="224" y="233" font-size="9.8" fill="#881337">· 需長期氣道者擇期評估轉氣切（免例行強制）</text>
     <text x="224" y="248" font-size="10.5" fill="#be123c" font-weight="600">· &lt;12 歲小兒環狀軟骨狹小禁切！</text>
 
     <rect x="214" y="260" width="256" height="36" rx="6" fill="#fef3c7" stroke="#b45309"/>
