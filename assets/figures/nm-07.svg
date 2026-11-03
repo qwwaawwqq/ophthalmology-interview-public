@@ -40,10 +40,10 @@
 
   <!-- Row 1: NET -->
   <rect x="52" y="250" width="520" height="48" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
-  <text x="64" y="270" font-size="12" font-weight="700" fill="#0f172a">G1/G2 神經內分泌瘤</text>
-  <text x="64" y="288" font-size="11" fill="#475569">標靶：SSTR2（G3 轉吃 FDG）</text>
+  <text x="60" y="270" font-size="11" font-weight="700" fill="#0f172a">分化良好 G1–G3 NET</text>
+  <text x="60" y="288" font-size="10" fill="#475569">SSTR2（NEC 轉吃 FDG）</text>
   <text x="198" y="272" font-size="12" font-weight="600" fill="#1d4ed8">Ga-68 → Lu-177</text>
-  <text x="198" y="288" font-size="11" fill="#334155">DOTATATE（β- + γ）</text>
+  <text x="198" y="288" font-size="10" fill="#334155">DOTATATE（G3 宜搭 FDG）</text>
   <text x="346" y="270" font-size="11" font-weight="700" fill="#be123c">護腎：先止吐＋L-Lys/L-Arg ≥ 4h</text>
   <text x="346" y="288" font-size="10.5" fill="#334155">長效體抑素須停滿 ≥ 4 週</text>
 

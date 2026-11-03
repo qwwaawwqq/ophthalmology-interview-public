@@ -204,35 +204,35 @@
       "resources": [
         {
           "id": "nm-res-01-iaea-physics",
-          "title": "IAEA Publication: Nuclear Medicine Physics — A Handbook for Teachers and Students",
-          "url": "https://www.iaea.org/publications/10368/nuclear-medicine-physics",
-          "kind": "指南",
-          "provider": "International Atomic Energy Agency (IAEA)",
-          "note": "涵蓋放射性衰變、母子核種暫態與永恆平衡、閃爍攝影機準直儀設計及 SPECT／PET 斷層重建物理"
+          "title": "StatPearls: Radiopharmaceuticals & Nuclear Medicine Decay Physics",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/32119327/",
+          "kind": "期刊",
+          "provider": "NCBI Bookshelf / StatPearls",
+          "note": "涵蓋放射性衰變模式、母子核種平衡、醫用放射性藥物物理特性與核醫造影基礎原理"
         },
         {
           "id": "nm-res-01-ncbi-tc99m",
-          "title": "NCBI Bookshelf (StatPearls): Technetium-99m Radiopharmaceuticals & Generator QC",
-          "url": "https://www.ncbi.nlm.nih.gov/books/NBK559013/",
+          "title": "StatPearls: Technetium-99m Radiopharmaceuticals & Generator QC",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/32644439/",
           "kind": "期刊",
-          "provider": "National Center for Biotechnology Information (NCBI)",
-          "note": "詳述 Mo-99/Tc-99m 孳生器淘洗動力學、Mo-99 放射核種突破、鋁離子化學突破與雙溶劑薄層層析品管"
+          "provider": "NCBI Bookshelf / StatPearls",
+          "note": "詳述 Mo-99/Tc-99m 孳生器淘洗動力學、Mo-99 放射核種突破、鋁離子化學突破與薄層層析品管"
         },
         {
           "id": "nm-res-01-ncbi-pet",
-          "title": "NCBI Bookshelf (StatPearls): Positron Emission Tomography (PET) Physics and Instrumentation",
-          "url": "https://www.ncbi.nlm.nih.gov/books/NBK537294/",
+          "title": "StatPearls: PET Scanning Physics & Coincidence Instrumentation",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/32644515/",
           "kind": "期刊",
-          "provider": "National Center for Biotechnology Information (NCBI)",
-          "note": "解析 511 keV 互毀符合偵測、飛行時間（TOF）、SUV 半定量影響因子與分子影像生物標記應用"
+          "provider": "NCBI Bookshelf / StatPearls",
+          "note": "解析 511 keV 互毀符合偵測、飛行時間（TOF）、SUV 半定量影響因子與正子斷層物理限制"
         },
         {
           "id": "nm-res-01-snmmi-qc",
-          "title": "SNMMI Procedure Standards & Radiopharmaceutical Quality Control Resources",
-          "url": "https://www.snmmi.org/ClinicalPractice/content.aspx?ItemNumber=6414",
+          "title": "EANM Guideline on Current Good Radiopharmacy Practice (cGRPP) for Small-Scale Preparation of Radiopharmaceuticals",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/33580358/",
           "kind": "指南",
-          "provider": "Society of Nuclear Medicine and Molecular Imaging (SNMMI)",
-          "note": "核醫放射製藥標記效率標準、游離過鎝酸根與水解還原膠體假影辨識及臨床儀器品保規範"
+          "provider": "EJNMMI Radiopharmacy and Chemistry (EANM)",
+          "note": "規範核醫放射製藥無菌配置、放射化學純度薄層層析標準、游離過鎝酸根與水解還原膠體品管"
         }
       ],
       "deepDive": [
@@ -591,34 +591,34 @@
         {
           "id": "nm-res-02-asnc-spect",
           "title": "ASNC Imaging Guidelines for SPECT Nuclear Cardiology Procedures: Stress, Protocols, and Tracers",
-          "url": "https://www.asnc.org/guidelines-and-standards/",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/26914678/",
           "kind": "指南",
-          "provider": "American Society of Nuclear Cardiology (ASNC)",
-          "note": "規範運動與藥物負荷試驗禁忌症、RAO45–LPO45 180 度取像、17 節段半定量評分與俯臥位衰減校正"
+          "provider": "Journal of Nuclear Cardiology (ASNC)",
+          "note": "規範運動與藥物負荷試驗禁忌症、RAO45–LPO45 180 度取像、17 節段半定量評分與衰減校正"
         },
         {
           "id": "nm-res-02-asnc-pet",
-          "title": "ASNC/SNMMI Position Statement on Clinical Quantification of Myocardial Blood Flow Using PET",
-          "url": "https://jnm.snmjournals.org/content/59/2/273",
+          "title": "Clinical Quantification of Myocardial Blood Flow Using PET: Joint Position Paper of the SNMMI Cardiovascular Council and the ASNC",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/29243073/",
           "kind": "指南",
-          "provider": "Journal of Nuclear Medicine (SNMMI / ASNC)",
-          "note": "詳解 Rb-82 與 N-13 Ammonia 絕對心肌血流量（MBF）、冠脈血流儲備（CFR）定量及三支血管病變判讀"
+          "provider": "Journal of Nuclear Cardiology (SNMMI / ASNC)",
+          "note": "詳解 Rb-82 與 N-13 Ammonia 絕對心肌血流量（MBF）、冠脈血流儲備（CFR）定量及三支血管均衡缺血判讀"
         },
         {
           "id": "nm-res-02-ncbi-mpi",
-          "title": "NCBI Bookshelf (StatPearls): Nuclear Medicine Myocardial Perfusion Imaging & Viability",
-          "url": "https://www.ncbi.nlm.nih.gov/books/NBK539859/",
+          "title": "StatPearls: Nuclear Medicine Stress Test & Myocardial Perfusion Imaging",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/32491614/",
           "kind": "期刊",
-          "provider": "National Center for Biotechnology Information (NCBI)",
-          "note": "涵蓋缺血瀑布時序、Tl-201 與 Tc-99m Sestamibi 藥理差異、TID／LHR 高危指標與 FDG 存活心肌評估"
+          "provider": "NCBI Bookshelf / StatPearls",
+          "note": "涵蓋缺血瀑布時序、Tl-201 與 Tc-99m Sestamibi／Tetrofosmin 藥理差異、TID 高危指標與存活心肌評估"
         },
         {
           "id": "nm-res-02-asnc-pyp",
-          "title": "ASNC/AHA/ASE/EANM Expert Consensus Recommendations for Multimodality Imaging in Cardiac Amyloidosis",
-          "url": "https://pubmed.ncbi.nlm.nih.gov/31473256/",
+          "title": "ASNC/AHA/ASE/EANM/HFSA/ISA/SCMR/SNMMI Expert Consensus Recommendations for Multimodality Imaging in Cardiac Amyloidosis",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/31468376/",
           "kind": "指南",
-          "provider": "ASNC / AHA / EANM",
-          "note": "建立 Tc-99m PYP／DPD 視覺 Perugini 分級、H/CL 比值合併血清尿液免疫固定電泳非侵入確診 ATTR 心肌病變流程"
+          "provider": "Journal of Nuclear Cardiology (ASNC / AHA / EANM / SNMMI)",
+          "note": "建立 Tc-99m PYP／DPD／HMDP 視覺 Perugini 分級、SPECT 確認心肌攝取合併排除單株免疫球蛋白非侵入確診 ATTR-CM 流程"
         }
       ],
       "deepDive": [
@@ -900,16 +900,18 @@
             ],
             [
               "神經內分泌腫瘤（NET）分級診療",
-              "Ga-68 DOTATATE vs F-18 FDG",
-              "G1/G2（Ki-67 <=20%）結合 SSTR2；G3（Ki-67 >20%）高糖解",
+              "Ga-68 DOTATATE ＋ F-18 FDG",
+              "分化良好 G1/G2 及部分 G3 NET 保留 SSTR2；分化不良 NEC 轉高糖解",
               "長效體抑素類似物治療者建議於下次注射前執行檢查",
-              "Ga-68 陽性可銜接 Lu-177 DOTATATE 治療；注意 Ga-67 絕不用於 NET 評估"
+              "分化良好 G3 NET（Ki-67 >20%）宜搭雙示蹤劑評估 Lu-177 PRRT 資格；Ga-67 絕不用於 NET"
             ]
           ],
           "sourceIds": [
             "nm-res-03-snmmi-thyroid",
             "nm-res-03-eanm-parathyroid",
-            "nm-res-03-ncbi-mibg"
+            "nm-res-03-ncbi-mibg",
+            "nm-res-03-adrenal-review",
+            "nm-res-03-snmmi-sstr"
           ]
         },
         {
@@ -976,35 +978,51 @@
       "resources": [
         {
           "id": "nm-res-03-snmmi-thyroid",
-          "title": "SNMMI Procedure Standard for Thyroid Scintigraphy (Version 4.0) & Thyroid Uptake",
-          "url": "https://www.snmmi.org/ClinicalPractice/content.aspx?ItemNumber=6414",
+          "title": "EANM Practice Guideline/SNMMI Procedure Standard for RAIU and Thyroid Scintigraphy",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/31392371/",
           "kind": "指南",
-          "provider": "Society of Nuclear Medicine and Molecular Imaging (SNMMI)",
+          "provider": "European Journal of Nuclear Medicine and Molecular Imaging (EANM / SNMMI)",
           "note": "規範 Tc-99m 過鎝酸鹽與 I-123 甲狀腺造影、RAIU 測量、含碘藥物停藥時程與結節功能判讀"
         },
         {
           "id": "nm-res-03-ata-dtc",
-          "title": "American Thyroid Association (ATA) Management Guidelines for Adult Patients with Thyroid Nodules and Differentiated Thyroid Cancer",
+          "title": "2015 American Thyroid Association (ATA) Management Guidelines for Adult Patients with Thyroid Nodules and Differentiated Thyroid Cancer",
           "url": "https://pubmed.ncbi.nlm.nih.gov/26462967/",
           "kind": "指南",
-          "provider": "American Thyroid Association (ATA)",
+          "provider": "Thyroid (American Thyroid Association)",
           "note": "確立甲狀腺結節功能分流、分化型甲狀腺癌初發與動態風險分層、I-131 治療劑量及 FDG PET 適應症"
         },
         {
           "id": "nm-res-03-eanm-parathyroid",
-          "title": "EANM Practice Guidelines for Parathyroid Imaging (Dual-Phase & Subtraction SPECT/CT)",
-          "url": "https://pubmed.ncbi.nlm.nih.gov/33851240/",
+          "title": "The EANM Practice Guidelines for Parathyroid Imaging",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/33839893/",
           "kind": "指南",
-          "provider": "European Association of Nuclear Medicine (EANM)",
+          "provider": "European Journal of Nuclear Medicine and Molecular Imaging (EANM)",
           "note": "詳述原發與次發性副甲狀腺亢進之 Tc-99m MIBI 雙相法、雙核種相減法與異位腺瘤 SPECT/CT 術前定位"
         },
         {
           "id": "nm-res-03-ncbi-mibg",
-          "title": "NCBI Bookshelf (StatPearls): Nuclear Medicine Adrenal & MIBG Scintigraphy",
-          "url": "https://www.ncbi.nlm.nih.gov/books/NBK538315/",
+          "title": "EANM Practice Guideline/SNMMI Procedure Standard 2019 for Radionuclide Imaging of Phaeochromocytoma and Paraganglioma",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/31254038/",
+          "kind": "指南",
+          "provider": "European Journal of Nuclear Medicine and Molecular Imaging (EANM / SNMMI)",
+          "note": "規範腎上腺髓質與副神經節瘤之 I-123 MIBG、Ga-68 DOTATATE、F-18 FDOPA 與 FDG 選擇、甲狀腺封閉及干擾藥停用"
+        },
+        {
+          "id": "nm-res-03-adrenal-review",
+          "title": "Advances in Multimodal Imaging for Adrenal Gland Disorders: Integrating CT, MRI, and Nuclear Medicine",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/39794659/",
           "kind": "期刊",
-          "provider": "National Center for Biotechnology Information (NCBI)",
-          "note": "比較腎上腺皮質 NP-59 與髓質 I-123 MIBG 藥理機轉、甲狀腺阻斷準備及神經內分泌腫瘤分子影像選擇"
+          "provider": "Japanese Journal of Radiology",
+          "note": "整合腎上腺皮質膽固醇類似物（I-131 NP-59）與髓質分子核醫影像在功能性腎上腺腫瘤之鑑別流程"
+        },
+        {
+          "id": "nm-res-03-snmmi-sstr",
+          "title": "SNMMI Updates to the Appropriate-Use Criteria for Somatostatin Receptor PET",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/33262268/",
+          "kind": "指南",
+          "provider": "Journal of Nuclear Medicine (SNMMI)",
+          "note": "明確區分神經內分泌腫瘤分化程度與 Ki-67 分級，肯定分化良好 G3 NET 執行 SSTR PET 評估 PRRT 治療資格之適應症"
         }
       ],
       "deepDive": [
@@ -1034,11 +1052,13 @@
           "heading": "副甲狀腺雙相／相減 SPECT/CT 定位、腎上腺皮髓質分工與神經內分泌腫瘤診療合一",
           "paragraphs": [
             "原發性副甲狀腺功能亢進（高血鈣、高 iPTH）微創手術仰賴精準術前定位。親脂性陽離子 Tc-99m MIBI 會同時進入甲狀腺與副甲狀腺，但功能亢進的副甲狀腺腺瘤富含嗜酸細胞（oxyphil cells）與密集高膜電位粒線體，且 P-醣蛋白外排較慢，故在「雙相法（10–15 分鐘早期相 vs >90–120 分鐘延遲相）」中，正常甲狀腺活性已洗出消退，副甲狀腺腺瘤卻持續明亮滯留；搭配頸部至前縱膈腔 SPECT/CT 更能抓出藏在胸腺、食道後或頸動脈鞘內的異位腺瘤。若病患為洗腎次發性四腺體增生或合併多發性甲狀腺結節（易延遲滯留假陽性），加做 I-123 或 Tc-99mO4-「雙核種相減法」可顯著提升敏感度。",
-            "腎上腺核醫嚴格區分皮質與髓質：皮質類固醇腫瘤（庫欣氏症、醛固酮瘤）使用膽固醇前驅物類似物 I-131 NP-59；髓質嗜鉻細胞瘤、副神經節瘤與兒童神經母細胞瘤則使用去甲腎上腺素類似物 I-123 MIBG。至於胃腸胰神經內分泌腫瘤（GEP-NET），影像選擇取決於 ENETS 組織分級與 Ki-67 增殖指數：高／中度分化 G1（Ki-67 <= 2%）與 G2（Ki-67 3–20%）富含體抑素受體 SSTR2，首選 Ga-68 DOTATATE PET/CT 並可直接配對 Lu-177 DOTATATE PRRT 標靶放射治療；高度惡性 G3（Ki-67 > 20%）喪失 SSTR2 而糖解旺盛，則須改採 F-18 FDG PET/CT。"
+            "腎上腺核醫嚴格區分皮質與髓質：皮質類固醇腫瘤（庫欣氏症、醛固酮瘤）使用膽固醇前驅物類似物 I-131 NP-59；髓質嗜鉻細胞瘤、副神經節瘤與兒童神經母細胞瘤則使用去甲腎上腺素類似物 I-123 MIBG。至於胃腸胰神經內分泌腫瘤（GEP-NET），影像選擇必須同時區分「組織分化程度（分化良好 NET vs 分化不良神經內分泌癌 NEC）」與「Ki-67 增殖分級」：分化良好 G1（Ki-67 <= 2%）與 G2（Ki-67 3–20%）NET 富含體抑素受體 SSTR2，首選 Ga-68 DOTATATE PET/CT 並可直接配對 Lu-177 DOTATATE PRRT；分化良好 G3 NET（Ki-67 > 20%）多數仍保留相當程度 SSTR2 表現，絕不可單憑 Ki-67 > 20% 跳過受體造影，而應併用 Ga-68 DOTATATE 與 F-18 FDG 雙示蹤劑 PET/CT 評估異質性並篩選仍可受惠於 PRRT 之 SSTR 陽性患者；反之，分化不良神經內分泌癌（NEC，小細胞或大細胞型）通常喪失 SSTR2 且糖解極度旺盛，影像以 F-18 FDG PET/CT 為主並採含鉑全身化學治療。"
           ],
           "sourceIds": [
             "nm-res-03-eanm-parathyroid",
-            "nm-res-03-ncbi-mibg"
+            "nm-res-03-ncbi-mibg",
+            "nm-res-03-adrenal-review",
+            "nm-res-03-snmmi-sstr"
           ]
         }
       ],
@@ -1142,7 +1162,7 @@
             "showFigure": false,
             "synthesis": [
               "雙相 Tc-99m MIBI 利用富含粒線體之副甲狀腺腺瘤延遲洗出（>90–120 分鐘持續顯影）配合頸胸 SPECT/CT 定位原發與縱膈異位病灶；多腺體增生或合併甲狀腺結節時搭配雙核種相減法更準確。",
-              "腎上腺皮質用膽固醇類似物 I-131 NP-59、髓質嗜鉻細胞瘤用 I-123 MIBG；高分化 G1/G2 NET 用 Ga-68 DOTATATE、低分化 G3 用 FDG PET；體外免疫檢驗以 Gamma counter 量測 I-125（RIA 成反比、IRMA 成正比）。"
+              "腎上腺皮質用膽固醇類似物 I-131 NP-59、髓質嗜鉻細胞瘤用 I-123 MIBG；分化良好 G1/G2 NET 首選 Ga-68 DOTATATE，分化良好 G3 NET 宜併用 DOTATATE＋FDG 評估 PRRT 資格，分化不良 NEC 則以 FDG PET 為主；體外免疫檢驗以 Gamma counter 量測 I-125（RIA 成反比、IRMA 成正比）。"
             ],
             "decisions": [
               {
@@ -1163,7 +1183,9 @@
             ],
             "sourceIds": [
               "nm-res-03-eanm-parathyroid",
-              "nm-res-03-ncbi-mibg"
+              "nm-res-03-ncbi-mibg",
+              "nm-res-03-adrenal-review",
+              "nm-res-03-snmmi-sstr"
             ]
           }
         ],
@@ -1224,7 +1246,9 @@
         "sourceIds": [
           "nm-res-04-eanm-fdg-brain",
           "nm-res-04-snmmi-amyloid",
-          "nm-res-04-eanm-dat"
+          "nm-res-04-eanm-dat",
+          "nm-res-04-aan-braindeath",
+          "nm-res-04-snmmi-braindeath"
         ]
       },
       "summaryTables": [
@@ -1245,7 +1269,7 @@
               "可穿越（親脂中性小分子）",
               "ECD 經胞內酯酶水解、HMPAO 經穀胱甘肽轉為親水性滯留，與局部腦血流量成正比",
               "靜脈注射；安靜微光閉眼或休息環境避免視覺皮質過度活化",
-              "難治型局部癲癇發作期高灌注定位、Acetazolamide 腦血管儲備評估、腦死判定（空顱徵）"
+              "難治型局部癲癇發作期高灌注定位、Acetazolamide 腦血管儲備評估、排除低體溫與鎮靜肌鬆藥後之輔助腦死判定（空顱徵）"
             ],
             [
               "F-18 FDG（腦代謝 PET）",
@@ -1286,7 +1310,9 @@
           "sourceIds": [
             "nm-res-04-eanm-fdg-brain",
             "nm-res-04-eanm-dat",
-            "nm-res-04-ncbi-cisterno"
+            "nm-res-04-ncbi-cisterno",
+            "nm-res-04-aan-braindeath",
+            "nm-res-04-snmmi-braindeath"
           ]
         },
         {
@@ -1354,47 +1380,65 @@
       "resources": [
         {
           "id": "nm-res-04-eanm-fdg-brain",
-          "title": "EANM Procedure Guidelines for Brain PET Imaging Using [18F]FDG (Version 3)",
-          "url": "https://pubmed.ncbi.nlm.nih.gov/34837101/",
+          "title": "EANM Procedure Guidelines for Brain PET Imaging Using [18F]FDG, Version 3",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/34882261/",
           "kind": "指南",
-          "provider": "European Association of Nuclear Medicine (EANM)",
+          "provider": "European Journal of Nuclear Medicine and Molecular Imaging (EANM)",
           "note": "詳訂腦部 FDG PET 環境與血糖準備、失智症各亞型低代謝圖譜、難治型癲癇定位與交叉性小腦機能聯繫不能"
         },
         {
           "id": "nm-res-04-snmmi-amyloid",
-          "title": "SNMMI/AA Appropriate Use Criteria & Procedure Standard for Amyloid PET Imaging of the Brain",
-          "url": "https://jnm.snmjournals.org/content/57/12/1998",
+          "title": "Update on Appropriate Use Criteria for Amyloid PET Imaging: Alzheimer's Association and SNMMI",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/23809369/",
           "kind": "指南",
-          "provider": "SNMMI / Alzheimer's Association",
+          "provider": "Alzheimer's & Dementia (AA / SNMMI)",
           "note": "說明類澱粉正子造影白質與灰質結合判讀標準、小腦內部對照、臨床適應症及無症狀陽性之判讀限制"
         },
         {
           "id": "nm-res-04-eanm-dat",
-          "title": "EANM/SNMMI Practice Guideline for Dopaminergic Imaging in Parkinsonian Syndromes",
-          "url": "https://pubmed.ncbi.nlm.nih.gov/32040667/",
+          "title": "EANM Practice Guideline/SNMMI Procedure Standard for Dopaminergic Imaging in Parkinsonian Syndromes 1.0",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/32388612/",
           "kind": "指南",
-          "provider": "EANM / SNMMI",
+          "provider": "European Journal of Nuclear Medicine and Molecular Imaging (EANM / SNMMI)",
           "note": "涵蓋突觸前 DAT 造影（FP-CIT／TRODAT-1）與 FDOPA 藥理、干擾藥物停藥規範及退化性與次發性帕金森鑑別"
         },
         {
           "id": "nm-res-04-ncbi-cisterno",
-          "title": "NCBI Bookshelf (StatPearls): Radionuclide Cisternography & Normal Pressure Hydrocephalus",
-          "url": "https://www.ncbi.nlm.nih.gov/books/NBK560856/",
+          "title": "Nuclear Cerebrospinal Fluid Imaging: Guide to Procedures and Interpretation",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/40014472/",
           "kind": "期刊",
-          "provider": "National Center for Biotechnology Information (NCBI)",
-          "note": "解析腦脊髓液循環動力學、常壓性水腦症側腦室持續逆流徵象、鼻漏棉條計數法與腦室腹膜分流手術原則"
+          "provider": "RadioGraphics",
+          "note": "解析鞘內 DTPA 腦脊髓液腦池造影動力學、常壓性水腦症側腦室持續逆流徵象、顱底鼻漏棉條計數法與分流管暢通評估"
+        },
+        {
+          "id": "nm-res-04-aan-braindeath",
+          "title": "2023 AAN/AAP/CNS/SCCM Pediatric and Adult Brain Death/Death by Neurologic Criteria Consensus Guideline",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/37821233/",
+          "kind": "指南",
+          "provider": "Neurology (AAN / AAP / CNS / SCCM)",
+          "note": "明訂腦死判定前必先完成核心回溫（≥36°C）、血壓復甦並排除鎮靜肌鬆藥干擾（建議 27c 嚴禁以輔助檢查繞過低體溫或高濃度鎮靜藥）"
+        },
+        {
+          "id": "nm-res-04-snmmi-braindeath",
+          "title": "SNMMI Procedure Standard/EANM Practice Guideline for Radionuclide Brain Perfusion Scintigraphy in Suspected Death by Neurologic Criteria (Brain Death) 3.0",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/40664485/",
+          "kind": "指南",
+          "provider": "Journal of Nuclear Medicine Technology (SNMMI / EANM)",
+          "note": "規範親腦灌注劑 Tc-99m ECD／HMPAO 放射化學純度品管、平面與 SPECT 取像及大小腦無灌注空顱徵判讀準則"
         }
       ],
       "deepDive": [
         {
           "heading": "血腦障壁（BBB）通過性法則、常壓性水腦症（NPH）腦池動力學與分流手術安全禁區",
           "paragraphs": [
-            "神經核醫首要觀念在於分辨藥物能否穿越完整的血腦障壁（BBB）：腦灌注藥物（Tc-99m ECD、Tc-99m HMPAO）、葡萄糖類似物（F-18 FDG）、多巴胺轉運體配體（Tc-99m TRODAT-1）與類澱粉探針皆設計為親脂性中性小分子或具專屬載體，能順利進入腦實質；相反地，水溶性帶電螯合物「Tc-99m DTPA（與 In-111 DTPA）完全無法穿透正常 BBB」。臨床巧妙利用此「不穿 BBB」特性：靜脈注射可用於觀察腦死顱內無血流之空顱徵（hollow skull sign）與外頸動脈代償之熱鼻徵（hot nose sign），而經腰椎穿刺注入蛛網膜下腔時，同位素便被限制在腦脊髓液腔室內，忠實描繪 CSF 上升與吸收軌跡。",
+            "神經核醫首要觀念在於分辨藥物能否穿越完整的血腦障壁（BBB）：腦灌注藥物（Tc-99m ECD、Tc-99m HMPAO）、葡萄糖類似物（F-18 FDG）、多巴胺轉運體配體（Tc-99m TRODAT-1）與類澱粉探針皆設計為親脂性中性小分子或具專屬載體，能順利進入腦實質；相反地，水溶性帶電螯合物「Tc-99m DTPA（與 In-111 DTPA）完全無法穿透正常 BBB」。臨床巧妙利用此特性：經腰椎穿刺注入蛛網膜下腔時，DTPA 被限制在腦脊髓液腔室內，忠實描繪 CSF 上升與吸收軌跡；至於輔助腦死判定（優先選用驗明放射化學純度之親脂性 Tc-99m ECD／HMPAO 平面加 SPECT，或以 Tc-99m DTPA 動態血管相評估），依 2023 AAN/AAP/CNS/SCCM 共識指引（建議 27c），嚴禁在低體溫或鎮靜／肌鬆藥物殘留時以輔助檢查繞過可逆干擾，必須先完成核心回溫（體溫 ≥36°C）、血壓復甦（成人 SBP ≥100 或 MAP ≥60 mmHg）並停藥觀察代謝排除中樞抑制藥物作用後，僅在無法安全完成呼吸暫停試驗或顏面重創無法完整檢查腦幹反射時，用於觀察大腦與小腦完全無灌注之空顱徵（hollow skull sign）與外頸動脈代償之熱鼻徵（hot nose sign）。",
             "水腦症分為導水管等結構阻塞之非交通型（CT／MRI 即可診斷）與蜘蛛網膜顆粒回收受阻之交通型。典型常壓性水腦症（NPH）表現「步態不穩、尿失禁、認知退化」三合徵；在核醫腦池造影中，正常人 24 小時活性已流抵大腦頂部凸面（convexity）吸收且側腦室從不顯影，而 NPH 患者則出現「側腦室持續逆流濃聚滯留逾 24–48 小時且大腦凸面遲遲無活性上升」。確診後進行腦脊髓液分流手術時，臨床最常引流至可視為無菌且吸收面積廣大的「腹膜腔（VP shunt）」，次選右心房（VA）或肋膜腔（須留意胸水併發症），但絕對禁止引流至非無菌之「膀胱」，以免引發致命逆行性中樞神經感染。"
           ],
           "sourceIds": [
             "nm-res-04-ncbi-cisterno",
-            "nm-res-04-eanm-fdg-brain"
+            "nm-res-04-eanm-fdg-brain",
+            "nm-res-04-aan-braindeath",
+            "nm-res-04-snmmi-braindeath"
           ]
         },
         {
@@ -1446,7 +1490,7 @@
             ],
             "showFigure": true,
             "synthesis": [
-              "親脂性 Tc-99m ECD／HMPAO 穿越完整 BBB 反映局部腦血流，搭配 Acetazolamide 血管擴張負荷可揪出慢性內頸動脈狹窄之腦血管儲備耗竭區；腦死檢查則見顱內完全無灌注之空顱徵與鼻部高活性熱鼻徵。",
+              "親脂性 Tc-99m ECD／HMPAO 穿越完整 BBB 反映局部腦血流，搭配 Acetazolamide 血管擴張負荷可揪出慢性內頸動脈狹窄之腦血管儲備耗竭區；輔助腦死灌注檢查必先完成回溫（≥36°C）、血壓穩定與排除鎮靜肌鬆藥殘留（禁繞過可逆干擾），於無法完成呼吸暫停或完整腦幹反射評估時見大小腦完全無灌注之空顱徵與鼻部熱鼻徵。",
               "水溶性 Tc-99m／In-111 DTPA 無法穿過完整 BBB，鞘內注射執行腦池造影時，常壓性水腦症（NPH）呈現側腦室持續逆流顯影逾 24–48 小時且大腦凸面清除延遲（分流手術嚴禁引流至膀胱）。"
             ],
             "decisions": [
@@ -1461,14 +1505,16 @@
                 "nextStep": "於雙側鼻腔預置編號棉條後執行核醫腦池造影與俯臥誘發姿勢取像，取出棉條以井型 Gamma counter 測定棉條／血漿活性比值精準定位漏口側別"
               },
               {
-                "finding": "加護病房重度昏迷無腦幹反射病患，因體溫與鎮靜藥物殘留擬以核醫輔助腦死判定，靜脈注射親腦灌注劑 Tc-99m HMPAO",
-                "interpretation": "親脂性 HMPAO 不依賴動脈相時機，只要腦組織仍有微弱有效灌注即會留滯腦實質，反之全腦循環停止則大小腦完全不顯影（空顱徵）",
-                "nextStep": "確認放射化學純度合格（避免游離 TcO4- 干擾）後完成前位與雙側位平面及 SPECT 造影，見大腦與小腦實質完全無攝取即可提供腦死客觀循環證據"
+                "finding": "加護病房重度昏迷無腦幹反射病患，核心體溫僅 34.2°C 且數小時前仍持續高劑量鎮靜與肌鬆藥物輸注，臨床團隊詢問可否直接注射親腦灌注劑 Tc-99m HMPAO 執行輔助腦死判定",
+                "interpretation": "依 2023 AAN/AAP/CNS/SCCM 腦死判定共識指引（建議 27c），嚴禁在低體溫或臨床顯著鎮靜／肌鬆藥物殘留期間以核醫輔助檢查繞過可逆性中樞抑制干擾因子",
+                "nextStep": "先拒絕立即執行腦死造影；待積極回溫使核心體溫達 ≥36°C、維持足夠血壓灌流並停藥觀察代謝排除鎮靜與肌鬆藥作用後，若仍因嚴重低血氧或顏面重創無法安全完成呼吸暫停試驗或完整腦幹反射檢查，再確認 Tc-99m HMPAO／ECD 放射化學純度合格並完成平面與 SPECT 造影（大小腦完全無攝取之空顱徵始具輔助效力）"
               }
             ],
             "sourceIds": [
               "nm-res-04-ncbi-cisterno",
-              "nm-res-04-eanm-fdg-brain"
+              "nm-res-04-eanm-fdg-brain",
+              "nm-res-04-aan-braindeath",
+              "nm-res-04-snmmi-braindeath"
             ]
           },
           {
@@ -1744,35 +1790,35 @@
       "resources": [
         {
           "id": "nm-res-05-snmmi-bone",
-          "title": "SNMMI Procedure Standard for Bone Scintigraphy (Version 4.0)",
-          "url": "https://www.snmmi.org/ClinicalPractice/content.aspx?ItemNumber=6414",
+          "title": "SNMMI Procedure Standard for Bone Scintigraphy 4.0",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/30518604/",
           "kind": "指南",
-          "provider": "Society of Nuclear Medicine and Molecular Imaging (SNMMI)",
+          "provider": "Journal of Nuclear Medicine Technology (SNMMI)",
           "note": "規範全身與三相式 Tc-99m MDP／HDP 骨骼掃描流程、水分補充、SPECT/CT 融合適應症與假影判讀"
         },
         {
           "id": "nm-res-05-ncbi-tpbs",
-          "title": "NCBI Bookshelf (StatPearls): Three-Phase Bone Scan & Musculoskeletal Nuclear Imaging",
-          "url": "https://www.ncbi.nlm.nih.gov/books/NBK537025/",
+          "title": "StatPearls: Triple Phase Bone Scan",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/30571011/",
           "kind": "期刊",
-          "provider": "National Center for Biotechnology Information (NCBI)",
+          "provider": "NCBI Bookshelf / StatPearls",
           "note": "詳解急性骨髓炎對蜂窩性組織炎、人工關節鬆脫對感染、隱匿性骨折、異位骨化與複雜局部疼痛症候群判讀"
         },
         {
           "id": "nm-res-05-eanm-ra223",
-          "title": "EANM Procedure Guideline for Radium-223 Dichloride Therapy of Bone Metastases",
-          "url": "https://pubmed.ncbi.nlm.nih.gov/29766238/",
+          "title": "EANM Guideline for Radionuclide Therapy with Radium-223 of Metastatic Castration-Resistant Prostate Cancer",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/29234845/",
           "kind": "指南",
-          "provider": "European Association of Nuclear Medicine (EANM)",
+          "provider": "European Journal of Nuclear Medicine and Molecular Imaging (EANM)",
           "note": "確立去勢抗性攝護腺癌成骨轉移 Ra-223 α 粒子治療篩選條件（排除內臟轉移）、血液學門檻、腸道排泄防護與併用禁忌"
         },
         {
           "id": "nm-res-05-radiopaedia-superscan",
-          "title": "Radiopaedia Reference Article: Superscan on Bone Scintigraphy (Metastatic vs Metabolic)",
-          "url": "https://radiopaedia.org/articles/superscan-bone-scan",
-          "kind": "圖譜",
-          "provider": "Radiopaedia",
-          "note": "圖解廣泛成骨轉移與副甲狀腺亢進／軟骨症所致超級骨掃描（雙腎消失）、閃爍現象與溶骨偽陰性鑑別"
+          "title": "Superscan Pattern on Bone Scintigraphy: A Comprehensive Review",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/39410633/",
+          "kind": "期刊",
+          "provider": "Diagnostics (Basel)",
+          "note": "解析廣泛成骨轉移與副甲狀腺亢進／軟骨症所致超級骨掃描（雙腎與軟組織背景消失）、閃爍現象與溶骨偽陰性鑑別"
         }
       ],
       "deepDive": [
@@ -1989,35 +2035,35 @@
       "resources": [
         {
           "id": "nm-res-06-snmmi-diuretic",
-          "title": "SNMMI/EANM Procedure Standard for Diuretic Renal Scintigraphy in Adults With Suspected Upper Urinary Tract Obstruction",
-          "url": "https://www.snmmi.org/ClinicalPractice/content.aspx?ItemNumber=6414",
+          "title": "SNMMI Procedure Standard/EANM Practice Guideline for Diuretic Renal Scintigraphy in Adults With Suspected Upper Urinary Tract Obstruction 1.0",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/29852947/",
           "kind": "指南",
-          "provider": "Society of Nuclear Medicine and Molecular Imaging (SNMMI)",
+          "provider": "Seminars in Nuclear Medicine (SNMMI / EANM)",
           "note": "水腎利尿劑腎圖標準水化準備、Furosemide 注射時機（F-15／F0／F+20）、T1/2 切點與假性阻塞排除準則"
         },
         {
           "id": "nm-res-06-eanm-dmsa",
-          "title": "SNMMI/EANM Practice Guideline for Renal Cortical Scintigraphy in Children (Tc-99m DMSA)",
-          "url": "https://www.eanm.org/publications/guidelines/paediatrics/",
+          "title": "EANM Guidelines for 99mTc-DMSA Scintigraphy in Children",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/11315615/",
           "kind": "指南",
-          "provider": "European Association of Nuclear Medicine (EANM)",
-          "note": "兒童急性腎盂腎炎楔形皮質缺損判讀與發病 6 個月後永久腎結痂追蹤規範"
+          "provider": "European Journal of Nuclear Medicine (EANM)",
+          "note": "兒童急性腎盂腎炎楔形皮質缺損判讀、分側腎功能定量與發病 6 個月後永久腎結痂追蹤規範"
         },
         {
           "id": "nm-res-06-snmmi-rvht",
-          "title": "SNMMI Procedure Guideline for Diagnosis of Renovascular Hypertension (Captopril Renography)",
-          "url": "https://www.snmmi.org/ClinicalPractice/content.aspx?ItemNumber=6414#Genitourinary",
+          "title": "SNM Procedure Guideline for Diagnosis of Renovascular Hypertension (Captopril Renography)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/9669414/",
           "kind": "指南",
-          "provider": "SNMMI Practice Guidelines",
+          "provider": "Journal of Nuclear Medicine (SNM)",
           "note": "ACEi/ARB 停藥時程、Captopril 負荷血壓監測及 DTPA 與 MAG3 不同陽性腎圖判讀標準"
         },
         {
           "id": "nm-res-06-statpearls-renal",
-          "title": "StatPearls: Renal Scintigraphy & Renal Transplant Complications Imaging",
-          "url": "https://www.ncbi.nlm.nih.gov/books/NBK537305/",
-          "kind": "圖譜",
+          "title": "StatPearls: Nuclear Renal Scan & Transplant Scintigraphy",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/32965907/",
+          "kind": "期刊",
           "provider": "NCBI Bookshelf / StatPearls",
-          "note": "動態腎圖三階段生理、移植腎 ATN／排斥／尿滲漏／淋巴囊腫與陰囊急症影像對照"
+          "note": "動態腎圖三階段生理、移植腎 ATN／排斥／尿滲漏／淋巴囊腫與腎血管灌注影像對照"
         }
       ],
       "figure": {
@@ -2356,35 +2402,43 @@
       "resources": [
         {
           "id": "nm-res-07-eanm-fdg",
-          "title": "EANM Procedure Guidelines for Tumour Imaging: FDG PET/CT Version 2.0",
-          "url": "https://www.eanm.org/publications/guidelines/oncology/",
+          "title": "FDG PET/CT: EANM Procedure Guidelines for Tumour Imaging, Version 2.0",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/25452219/",
           "kind": "指南",
-          "provider": "European Association of Nuclear Medicine (EANM)",
+          "provider": "European Journal of Nuclear Medicine and Molecular Imaging (EANM)",
           "note": "F-18 FDG 受檢前禁食與高血糖／胰島素間隔規範、SUV 標準化收像及偽陽性／偽陰性判讀準則"
         },
         {
           "id": "nm-res-07-snmmi-prrt",
-          "title": "Joint IAEA, EANM, and SNMMI Practical Guidance on Peptide Receptor Radionuclide Therapy (Lu-177 DOTATATE)",
-          "url": "https://www.snmmi.org/ClinicalPractice/content.aspx?ItemNumber=29880",
+          "title": "Joint IAEA, EANM, and SNMMI Practical Guidance on Peptide Receptor Radionuclide Therapy (PRRNT) in Neuroendocrine Tumours",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/23389427/",
           "kind": "指南",
-          "provider": "SNMMI / EANM / IAEA",
+          "provider": "European Journal of Nuclear Medicine and Molecular Imaging (IAEA / EANM / SNMMI)",
           "note": "神經內分泌瘤 SSTR 篩選、體抑素類似物停藥時程與 L-lysine／L-arginine 正電胺基酸護腎標準處方"
         },
         {
           "id": "nm-res-07-snmmi-psma",
-          "title": "EANM/SNMMI Guideline for Lu-177-Labeled PSMA-Targeted Radioligand Therapy (Lu-177 PSMA-617)",
-          "url": "https://www.snmmi.org/ClinicalPractice/content.aspx?ItemNumber=41597",
+          "title": "Joint EANM/SNMMI Procedure Guideline for 177Lu-Labeled PSMA-Targeted Radioligand Therapy (177Lu-PSMA-RLT)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/37246997/",
           "kind": "指南",
-          "provider": "EANM / SNMMI",
+          "provider": "European Journal of Nuclear Medicine and Molecular Imaging (EANM / SNMMI)",
           "note": "去勢抗性攝護腺癌 PSMA PET 伴隨式診斷門檻、給藥週期、唾液腺與骨髓毒性監測"
         },
         {
           "id": "nm-res-07-eanm-sirt",
-          "title": "EANM Standard Operational Procedures for Y-90 Microsphere Selective Internal Radiation Therapy (SIRT) & MIBG Theranostics",
-          "url": "https://www.eanm.org/publications/guidelines/therapy/",
+          "title": "EANM Procedure Guideline for the Treatment of Liver Cancer and Liver Metastases with Intra-Arterial Radioactive Compounds (SIRT)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/35146577/",
           "kind": "指南",
-          "provider": "EANM Therapy Committee",
-          "note": "肝動脈 Y-90 微球治療前 Tc-99m MAA 肺分流與異位胃腸血管評估，以及 I-123/I-131 MIBG 臨床規範"
+          "provider": "European Journal of Nuclear Medicine and Molecular Imaging (EANM)",
+          "note": "肝動脈 Y-90 微球治療前 Tc-99m MAA 肺分流與異位胃腸血管評估，以及分區劑量學安全規範"
+        },
+        {
+          "id": "nm-res-07-snmmi-sstr-auc",
+          "title": "Appropriate Use Criteria for Somatostatin Receptor PET Imaging in Neuroendocrine Tumors",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/29025982/",
+          "kind": "指南",
+          "provider": "Journal of Nuclear Medicine (SNMMI)",
+          "note": "規範 G1–G3 分化良好神經內分泌瘤與分化不良神經內分泌癌（NEC）在 SSTR PET 與 FDG PET 之互補選用與 PRRT 篩選"
         }
       ],
       "figure": {
@@ -2419,7 +2473,7 @@
               "妊娠哺乳絕對禁忌（停乳 ≥6–12 週）、TSH >30、低碘飲食、多喝水排尿護膀胱唾液腺"
             ],
             [
-              "分化良好 G1/G2 神經內分泌瘤（SSTR2）",
+              "分化良好 G1–G3 神經內分泌瘤（SSTR2 陽性）",
               "Ga-68 DOTATATE / DOTATOC PET/CT",
               "Lu-177 DOTATATE（T1/2 6.65 天）",
               "中低能 β-（最大 0.50 MeV，最大射程 ~2 mm）＋ 113/208 keV γ",
@@ -2457,7 +2511,8 @@
           "sourceIds": [
             "nm-res-07-snmmi-prrt",
             "nm-res-07-snmmi-psma",
-            "nm-res-07-eanm-sirt"
+            "nm-res-07-eanm-sirt",
+            "nm-res-07-snmmi-sstr-auc"
           ]
         },
         {
@@ -2489,8 +2544,8 @@
             [
               "Ga-68 DOTATATE",
               "高親和力結合第 2 型生長抑素受體（SSTR2）",
-              "G1/G2 胃腸胰神經內分泌瘤、副神經節瘤、腦膜瘤定位",
-              "去分化高惡性 G3 NEC 喪失 SSTR2 轉呈偽陰性（須搭 FDG）",
+              "分化良好 G1/G2/G3 胃腸胰神經內分泌瘤、副神經節瘤、腦膜瘤定位",
+              "分化不良 NEC（及少數去分化病灶）喪失 SSTR2 呈偽陰性；G3 NET 宜搭 FDG 雙示蹤劑",
               "脾臟、腎上腺、腦下垂體及胰頭鉤突（uncinate process）具顯著生理高攝取勿誤判腫瘤"
             ],
             [
@@ -2518,7 +2573,8 @@
           "sourceIds": [
             "nm-res-07-eanm-fdg",
             "nm-res-07-snmmi-prrt",
-            "nm-res-07-snmmi-psma"
+            "nm-res-07-snmmi-psma",
+            "nm-res-07-snmmi-sstr-auc"
           ]
         }
       ],
@@ -2536,11 +2592,12 @@
         {
           "heading": "神經內分泌瘤與甲狀腺癌的「分子蹺蹺板（Flip-Flop）」及 Lu-177 胺基酸護腎生理學",
           "paragraphs": [
-            "在內分泌與神經內分泌腫瘤演化過程中，「特異分化受體」與「糖解代謝活性」常呈互為消長的蹺蹺板現象（Flip-flop phenomenon）：分化良好 G1/G2 神經內分泌瘤表面密布 SSTR2，於 Ga-68 DOTATATE PET 極亮而 FDG 低；反之去分化演變為 G3 神經內分泌癌（或甲狀腺癌 TENIS）時，細胞喪失 SSTR2（或 NIS）、全力開啟瓦氏糖解，轉為 DOTATATE 陰性而 FDG 極度高攝取。併用雙示蹤劑 PET 能精準揪出 FDG+/SSTR- 的去分化病灶，避免盲目執行無效核種治療。",
+            "在內分泌與神經內分泌腫瘤演化過程中，「特異分化受體」與「糖解代謝活性」常呈互為消長的蹺蹺板現象（Flip-flop phenomenon），臨床更須嚴格區分「組織分化程度（NET vs NEC）」與「Ki-67 增殖分級」：分化良好 G1/G2 神經內分泌瘤表面密布 SSTR2，於 Ga-68 DOTATATE PET 極亮而 FDG 低；分化良好 G3 NET（Ki-67 >20%）亦常保留 SSTR2 表現而具 PRRT 治療機會，絕不可略過 Ga-68 DOTATATE，宜併用 Ga-68 DOTATATE 與 F-18 FDG 雙示蹤劑 PET 評估異質性；反之，分化不良神經內分泌癌（NEC）或甲狀腺癌 TENIS 去分化病灶喪失 SSTR2（或 NIS）、全力開啟瓦氏糖解，轉為 DOTATATE 陰性而 FDG 極度高攝取。雙示蹤劑對照能精準揪出 FDG+/SSTR- 的不一致去分化病灶，避免盲目單用無效核種治療。",
             "啟動 Lu-177 DOTATATE（7.4 GBq × 4 次，每 8 週一療程）時，小分子胜肽經腎絲球過濾後會被近曲小管刷狀緣帶負電的 megalin/cubilin 內吞重吸收造成放射性腎病變。標準護腎關鍵是在注射 Lu-177 前 30–60 分鐘先給予強效止吐藥，隨即靜脈輸注帶正電荷的「L-lysine 與 L-arginine 雙胺基酸溶液」持續至少 4 小時，藉正電荷競爭阻斷小管重吸收，可將腎臟吸收劑量大幅削減約 40%–50%。"
           ],
           "sourceIds": [
-            "nm-res-07-snmmi-prrt"
+            "nm-res-07-snmmi-prrt",
+            "nm-res-07-snmmi-sstr-auc"
           ]
         },
         {
@@ -2612,7 +2669,7 @@
             ],
             "showFigure": false,
             "synthesis": [
-              "分子標靶正子與單光子造影精準填補 FDG 盲區：Ga-68 DOTATATE 鎖定分化良好 G1/G2 NET 之 SSTR2（與 FDG 互補檢視 G3 去分化）；Ga-68／F-18 PSMA 偵測攝護腺癌極低 PSA 生化復發；I-123 MIBG 模擬正腎上腺素診斷嗜鉻細胞瘤與兒童神經母細胞瘤。",
+              "分子標靶正子與單光子造影精準填補 FDG 盲區：Ga-68 DOTATATE 鎖定分化良好 G1–G3 NET 之 SSTR2（高增殖 G3 NET 併用 FDG 雙示蹤劑篩選 PRRT 資格，分化不良 NEC 則轉以 FDG 為主）；Ga-68／F-18 PSMA 偵測攝護腺癌極低 PSA 生化復發；I-123 MIBG 模擬正腎上腺素診斷嗜鉻細胞瘤與兒童神經母細胞瘤。",
               "Tc-99m Sestamibi 因屬 P-glycoprotein（MDR1）直接受質可藉快速洗出預測化療多重抗藥性；Tc-99m 膠體前哨淋巴結閃爍攝影則為早期乳癌與黑色素瘤提供微創腋窩／鼠蹊分期並捕捉術後放化療異常引流改道。"
             ],
             "decisions": [
@@ -2630,7 +2687,8 @@
             "sourceIds": [
               "nm-res-07-snmmi-prrt",
               "nm-res-07-snmmi-psma",
-              "nm-res-07-eanm-sirt"
+              "nm-res-07-eanm-sirt",
+              "nm-res-07-snmmi-sstr-auc"
             ]
           },
           {
@@ -2718,35 +2776,43 @@
       "resources": [
         {
           "id": "nm-res-08-snmmi-vq",
-          "title": "SNMMI Procedure Standard for Lung Scintigraphy 4.0 (V/Q Planar & SPECT, PIOPED II)",
-          "url": "https://www.snmmi.org/ClinicalPractice/content.aspx?ItemNumber=6414#Pulmonary",
+          "title": "SNM Practice Guideline for Lung Scintigraphy 4.0",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/22282651/",
           "kind": "指南",
-          "provider": "Society of Nuclear Medicine and Molecular Imaging (SNMMI)",
+          "provider": "Journal of Nuclear Medicine Technology (SNMMI)",
           "note": "肺通氣／灌注掃描 PIOPED II 節段判讀、慢性血栓栓塞性肺高壓（CTEPH）篩檢與 Tc-99m MAA 右向左分流安全規範"
         },
         {
           "id": "nm-res-08-snmmi-hida",
-          "title": "SNMMI Practice Guideline for Hepatobiliary Scintigraphy 4.0 (Tc-99m HIDA, Morphine & Sincalide)",
-          "url": "https://www.snmmi.org/ClinicalPractice/content.aspx?ItemNumber=6414#Gastrointestinal",
+          "title": "SNM Practice Guideline for Hepatobiliary Scintigraphy 4.0",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/21078782/",
           "kind": "指南",
-          "provider": "SNMMI Practice Guidelines",
-          "note": "急性膽囊炎禁食 4–24 小時準備、Sincalide 慢滴排泥、Morphine 0.04 mg/kg 括約肌加壓與壞疽 Rim sign 判讀"
+          "provider": "Journal of Nuclear Medicine Technology (SNMMI)",
+          "note": "急性膽囊炎禁食 4–24 小時準備、Sincalide 慢滴排泥、Morphine 加壓前提、60 分鐘腸道未顯影延遲 2–4h 鑑別與壞疽 Rim sign 判讀"
         },
         {
           "id": "nm-res-08-snmmi-gibleed",
-          "title": "SNMMI Procedure Standard for Gastrointestinal Bleeding & Meckel Diverticulum Scintigraphy",
-          "url": "https://www.ncbi.nlm.nih.gov/books/NBK535425/",
-          "kind": "圖譜",
-          "provider": "SNMMI / NCBI StatPearls",
-          "note": "體外標幟 Tc-99m RBC 低速間歇腸出血動態定位三要件，以及 H2 阻斷劑增敏之梅克爾氏憩室異位胃黏膜掃描"
+          "title": "The SNMMI Procedure Standard/ACNM Practice Guideline for Gastrointestinal Bleeding Scintigraphy 3.0",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/39909579/",
+          "kind": "指南",
+          "provider": "Journal of Nuclear Medicine Technology (SNMMI / ACNM)",
+          "note": "規範體外法標幟 Tc-99m RBC 連續動態電影收像與急性／間歇消化道出血定位三要件判讀標準"
+        },
+        {
+          "id": "nm-res-08-statpearls-meckel",
+          "title": "StatPearls: Meckel Scan (Tc-99m Pertechnetate Ectopic Gastric Mucosa Scintigraphy)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/32809335/",
+          "kind": "期刊",
+          "provider": "NCBI Bookshelf / StatPearls",
+          "note": "詳解兒童梅克爾氏憩室異位胃黏膜黏液細胞攝取游離過鎝酸根機轉、H2 阻斷劑預處置增敏與偽陰／偽陽性防範"
         },
         {
           "id": "nm-res-08-eanm-infection",
-          "title": "EANM/SNMMI Guideline for FDG-PET/CT, Radiolabelled Leukocyte and Ga-67 Scintigraphy in Inflammation and Infection",
-          "url": "https://www.eanm.org/publications/guidelines/infection-inflammation/",
+          "title": "EANM/SNMMI Guideline/Procedure Standard for [18F]FDG Hybrid PET Use in Infection and Inflammation in Adults v2.0",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/39387894/",
           "kind": "指南",
-          "provider": "EANM / SNMMI",
-          "note": "人工關節感染白血球＋硫膠體骨髓雙同位素配對、中軸脊椎骨髓炎 FDG 首選與類肉瘤病 Ga-67 徵象"
+          "provider": "European Journal of Nuclear Medicine and Molecular Imaging (EANM / SNMMI)",
+          "note": "規範中軸脊椎骨髓炎、大血管炎、不明熱與類肉瘤病之 FDG PET 首選地位，並對照四肢人工關節感染白血球＋骨髓造影分流"
         }
       ],
       "figure": {
@@ -2777,7 +2843,7 @@
               "Tc-99m Mebrofenin（抗高膽紅素最佳）",
               "空腹 4–24h；>24h 或 TPN 先慢滴 Sincalide；60m 未亮且腸已通給 Morphine 0.04 mg/kg",
               "給嗎啡後 30m（或延遲 4h）膽囊仍完全不顯影；伴膽囊窩周圍 Rim sign 警覺壞疽穿孔",
-              "久餓 >24h 未排泥易偽陽性；若 60m 小腸完全沒亮屬總膽管阻塞，嚴禁施打嗎啡"
+              "久餓 >24h 未排泥易偽陽性；60m 小腸未亮不可單憑此斷定總膽管阻塞（正常變異／括約肌張力高或肝功能差皆可延遲），但禁打嗎啡，須看肝排泄並拍 2–4h 延遲像鑑別"
             ],
             [
               "慢性無結石膽囊炎／運動障礙",
@@ -2824,7 +2890,8 @@
           ],
           "sourceIds": [
             "nm-res-08-snmmi-hida",
-            "nm-res-08-snmmi-gibleed"
+            "nm-res-08-snmmi-gibleed",
+            "nm-res-08-statpearls-meckel"
           ]
         },
         {
@@ -2903,7 +2970,7 @@
           "heading": "HIDA 肝膽掃描實戰眉角：禁食 4–24 小時黃金窗、Morphine 括約肌加壓禁忌與壞疽 Rim Sign",
           "paragraphs": [
             "急性結石性膽囊炎的病理本質是「膽囊管（cystic duct）完全阻塞」，因此 HIDA 掃描的核心就是驗證肝細胞排出的放射性膽汁進不進得去膽囊。受檢前準備藏有雙向陷阱：若進食未滿 4 小時，內源性膽囊收縮素（CCK）仍在持續收縮膽囊排膽，外來放射性膽汁逆流不進去會造成偽陽性；反之若禁食超過 24 小時或長期使用全靜脈營養（TPN），膽囊從未收縮、內部塞滿高黏稠膽泥，新膽汁同樣擠不進去造成偽陽性——對久餓 >24 小時者必須在注射 HIDA 前先以 Sincalide（0.02 μg/kg 慢速靜脈滴注 30–60 分鐘）溫和排空膽囊。",
-            "當標準收像至 60 分鐘見到肝臟、總膽管與十二指腸小腸皆已順暢顯影，唯獨膽囊完全沒亮時，無須讓急診病人苦等 4 小時：確認「小腸已有放射性（排除總膽管完全阻塞）」後，即可靜脈注射低劑量 Morphine 0.04 mg/kg 促使 Oddi 括約肌暫時收縮升高總膽管內壓，把放射性膽汁往膽囊管推擠並續拍 30 分鐘——若膽囊管暢通（慢性膽囊炎）即會顯影，仍不顯影即確診急性膽囊炎！一旦同時見到膽囊窩鄰近肝實質出現彎月帶狀高活性滯留（Pericholecystic Rim Sign），代表猛烈透壁發炎已波及肝床，壞疽與穿孔率極高，必須立刻電話通報外科緊急手術。"
+            "當標準收像至 60 分鐘見到肝臟、總膽管與十二指腸小腸皆已順暢顯影，唯獨膽囊完全沒亮時，無須讓急診病人苦等 4 小時：確認「小腸已有放射性（證實總膽管排泄暢通）」後，即可靜脈注射低劑量 Morphine 0.04 mg/kg 促使 Oddi 括約肌暫時收縮升高總膽管內壓，把放射性膽汁往膽囊管推擠並續拍 30 分鐘——若膽囊管暢通（慢性膽囊炎）即會顯影，仍不顯影即確診急性膽囊炎！相反地，若 60 分鐘小腸尚未顯影，絕不可施打 Morphine，但亦不可單憑 60 分鐘無腸道活性直接斷言總膽管阻塞（正常生理變異、Oddi 括約肌張力偏高、膽囊優先充盈或肝細胞功能不良皆可造成膽汁排入腸道延遲），必須評估肝實質攝取與血池清除並加拍 2–4 小時延遲像鑑別。一旦同時見到膽囊窩鄰近肝實質出現彎月帶狀高活性滯留（Pericholecystic Rim Sign），代表猛烈透壁發炎已波及肝床，壞疽與穿孔率極高，必須立刻電話通報外科緊急手術。"
           ],
           "sourceIds": [
             "nm-res-08-snmmi-hida"
@@ -2982,9 +3049,9 @@
             ],
             "decisions": [
               {
-                "finding": "右上腹痛發燒患者禁食 8 小時後行 HIDA 掃描：60 分鐘時肝臟極亮，但膽囊、總膽管與十二指腸小腸全都完全沒有半點放射性，住院醫師詢問可否打 Morphine 催膽囊顯影",
-                "interpretation": "肝攝取正常但膽汁完全排不出膽管進入小腸（liver-like appearance），代表「急性高度總膽管完全阻塞（如總膽管結石嵌頓）」，此時打 Morphine 收縮 Oddi 括約肌只會加劇膽管高壓劇痛且毫無助益",
-                "nextStep": "嚴禁施打 Morphine！加拍延遲像確認無腸道排泄後，立即通報胃腸肝膽科評估緊急 ERCP 取石引流"
+                "finding": "右上腹痛發燒患者禁食 8 小時後行 HIDA 掃描：60 分鐘時肝臟攝取良好但膽囊、總膽管與十二指腸小腸均尚未見到放射性，住院醫師詢問可否直接打 Morphine 或直接發報告確診總膽管完全阻塞",
+                "interpretation": "小腸未顯影時嚴禁施打 Morphine（收縮 Oddi 括約肌將加劇膽管與胰管高壓）；惟依 SNMMI 肝膽造影指引，60 分鐘小腸未亮並非總膽管阻塞之獨立確診依據，正常變異（括約肌張力偏高）或肝細胞功能異常亦會延遲腸道排泄",
+                "nextStep": "嚴禁施打 Morphine！先評估肝實質攝取與心血池清除速率並加拍 2–4 小時延遲影像：若延遲像出現腸道排泄則屬延遲通過而非完全阻塞；若肝攝取迅速但延遲 2–4 小時仍呈持續肝影滯留（persistent hepatogram）且膽道與腸道完全無排泄，始高度支持急性高度總膽管阻塞，立即通報臨床安排 MRCP／ERCP 評估"
               },
               {
                 "finding": "4 歲男童反覆無痛性暗紅鮮血便，注射 cimetidine 預處置後行 Tc-99m 過鎝酸鹽腹部動態掃描，於第 12 分鐘在右下腹髂窩出現一顆圓形局灶熱點，且與左上腹正常胃黏膜同步愈來愈亮",
@@ -2994,7 +3061,8 @@
             ],
             "sourceIds": [
               "nm-res-08-snmmi-hida",
-              "nm-res-08-snmmi-gibleed"
+              "nm-res-08-snmmi-gibleed",
+              "nm-res-08-statpearls-meckel"
             ]
           },
           {
@@ -3078,35 +3146,35 @@
       "resources": [
         {
           "id": "nm-res-09-icrp-radsafe",
-          "title": "ICRP Publication 105: Radiological Protection in Medicine & Taiwan Ionizing Radiation Protection Standards",
-          "url": "https://www.icrp.org/publication.asp?id=ICRP%20Publication%20105",
+          "title": "ICRP Publication 105: Radiation Protection in Medicine",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/18762065/",
           "kind": "指南",
-          "provider": "International Commission on Radiological Protection (ICRP) / 核能安全委員會",
-          "note": "正當化與 ALARA 最佳化原則、職業／懷孕女性／一般民眾法定劑量限值與潑灑除污安全規範"
+          "provider": "Annals of the ICRP",
+          "note": "正當化與 ALARA 最佳化原則、醫療曝露與職業／妊娠輻射防護架構（並參照我國游離輻射防護安全標準限值）"
         },
         {
           "id": "nm-res-09-iaea-qc",
-          "title": "IAEA Human Health Series No. 6: Quality Assurance for SPECT Systems & Dose Calibrators",
-          "url": "https://www.iaea.org/publications/8120/quality-assurance-for-spect-systems",
-          "kind": "指南",
-          "provider": "International Atomic Energy Agency (IAEA)",
-          "note": "伽瑪攝影機每日均勻度（Intrinsic/Extrinsic Flood）、能峰視窗、每週線性度解析度、SPECT 旋轉中心（COR）與劑量校正器品保頻率"
+          "title": "Routine Quality Control of Clinical Nuclear Medicine Instrumentation: A Brief Review",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/18587088/",
+          "kind": "期刊",
+          "provider": "Journal of Nuclear Medicine (Zanzonico P)",
+          "note": "涵蓋伽瑪攝影機每日均勻度（Flood）、每週線性度解析度、SPECT 旋轉中心（COR）及劑量校正器恆定性／準確度／線性度／幾何品保"
         },
         {
           "id": "nm-res-09-statpearls-ria",
-          "title": "StatPearls: Radioimmunoassay (RIA) & Immunoradiometric Assay (IRMA) Laboratory Principles",
-          "url": "https://www.ncbi.nlm.nih.gov/books/NBK557743/",
+          "title": "Interferences in Immunoassay: Competitive vs Two-Site Immunometric Assays & High-Dose Hook Effect",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/18458713/",
           "kind": "期刊",
-          "provider": "NCBI Bookshelf / StatPearls",
-          "note": "競爭性 RIA 與非競爭性三明治 IRMA 計數曲線對照、I-125 長半衰期核種特性與高劑量鉤狀效應（Hook effect）稀釋對策"
+          "provider": "Clinical Biochemist Reviews (Tate & Ward)",
+          "note": "解析競爭型免疫分析（RIA 負斜率反比）與雙位點三明治免疫定量（IRMA 正斜率正比）原理、異嗜性抗體干擾與高劑量鉤狀效應稀釋對策"
         },
         {
           "id": "nm-res-09-mohw-training",
-          "title": "IAEA Training Curriculum for Nuclear Medicine Physicians & 衛福部核子醫學科專科醫師訓練計畫認定基準",
-          "url": "https://www.iaea.org/topics/education-and-training-in-nuclear-medicine",
-          "kind": "指南",
-          "provider": "衛生福利部 / 中華民國核醫學學會 / IAEA",
-          "note": "四年制（R1–R4）專科訓練核心里程碑：九大系統判讀、核種治療病房、輻防品保、體外分析與跨科腫瘤討論會"
+          "title": "Evaluation of the Objective Structured Clinical Examination in the Assessment of Nuclear Medicine Residency Training",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/42387155/",
+          "kind": "期刊",
+          "provider": "Insights into Imaging（並參照衛福部核子醫學科專科醫師訓練計畫認定基準）",
+          "note": "核子醫學科住院醫師臨床能力評估、標準化判讀、輻防品保溝通與多專科團隊訓練里程碑"
         }
       ],
       "figure": {

@@ -58,9 +58,9 @@
 
   <!-- Step 2 -->
   <rect x="500" y="224" width="408" height="64" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.5"/>
-  <text x="512" y="244" font-size="12" font-weight="700" fill="#1d4ed8">Step 2 · 60 分鐘膽囊未顯影 → 先看「小腸通不通」！</text>
-  <text x="512" y="263" font-size="10.5" fill="#0f172a">· 總膽管與小腸已亮 → IV Morphine 0.04 mg/kg 收縮括約肌拍 30m</text>
-  <text x="512" y="280" font-size="10.5" font-weight="700" fill="#be123c">· 若總膽管與小腸全黑 ＝ 急性總膽管完全阻塞（嚴禁施打嗎啡！）</text>
+  <text x="510" y="244" font-size="12" font-weight="700" fill="#1d4ed8">Step 2 · 60 分鐘膽囊未顯影 → 先看「小腸通不通」！</text>
+  <text x="510" y="262" font-size="10.5" fill="#0f172a">· 總膽管與小腸已亮 → IV Morphine 0.04 mg/kg 收縮括約肌拍 30m</text>
+  <text x="510" y="280" font-size="10" font-weight="700" fill="#be123c">· 60m 小腸未亮：禁打嗎啡！須看肝排泄＋延遲 2–4h 鑑別遲排或總膽管阻塞</text>
 
   <line x1="704" y1="288" x2="704" y2="302" stroke="#334155" stroke-width="2"/>
   <polygon points="698,300 704,308 710,300" fill="#334155"/>

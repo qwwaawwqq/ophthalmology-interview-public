@@ -773,7 +773,7 @@
             "競爭型 RIA vs 非競爭型 IRMA"
           ],
           "keyPoints": [
-            "神經內分泌腫瘤依 Ki-67 分為 G1（<=2%）、G2（3–20%）與低分化 G3（>20%）：高分化 G1/G2 表現體抑素受體，以 In-111 Octreotide、I-123 MIBG 或高解析 Ga-68 DOTATATE 診斷並可轉換治療核種（PRRT）；低分化 G3 則改用 FDG PET。",
+            "神經內分泌腫瘤須區分「組織分化度」與「Ki-67 增殖分級（G1 <=2%、G2 3–20%、G3 >20%）」：分化良好 G1/G2 NET 高表現體抑素受體 SSTR2，以 Ga-68 DOTATATE PET（或傳統 In-111 Octreotide、I-123 MIBG）診斷並配對 PRRT；分化良好 G3 NET（Ki-67 >20%）仍常保留 SSTR2，宜併用 Ga-68 DOTATATE 與 F-18 FDG 雙示蹤劑評估 PRRT 資格；分化不良神經內分泌癌（NEC）則多喪失 SSTR2 而改用 F-18 FDG PET。",
             "體外免疫分析採用能量低但半衰期長（60 天）之 I-125 並以井型 Gamma counter 定量（總活性 T = 游離 F + 結合 B）：競爭型 RIA 使用多株抗體、抗原越高結合區 B 越低；非競爭三明治型 IRMA 使用過量單株抗體、抗原越高 B 越高且更靈敏。"
           ],
           "clinicalLink": "體外 RIA／IRMA 僅需抽取病患少量靜脈血在實驗室反應，受檢者體內承受之輻射劑量為零，孕婦與嬰幼兒皆可安全檢驗。",
@@ -787,7 +787,9 @@
             "nm-09"
           ],
           "sourceIds": [
-            "nm-res-03-ncbi-mibg"
+            "nm-res-03-ncbi-mibg",
+            "nm-res-03-adrenal-review",
+            "nm-res-03-snmmi-sstr"
           ]
         },
         {
@@ -877,7 +879,7 @@
             "腦部主流結構影像為 MRI，而神經核醫聚焦四大功能領域：常壓性水腦症與分流管暢通、難治型癲癇定位、帕金森氏動作障礙與失智症；其中 F-18 FDG（看糖代謝）與親脂性 Tc-99m ECD（看局部腦血流量）皆能順利穿越完整血腦障壁。",
             "F-18 FDG 會進入各類神經元與神經膠細胞呈非選擇性全腦灰質顯影；Tc-99m ECD 腦內滯留濃度與局部腦血流成正比，雖能反映腦缺血，但臨床急性出血／缺血性中風因講求時效，第一線仍仰賴快速電腦斷層（CT）。"
           ],
-          "clinicalLink": "腦灌注 SPECT 注射時應讓病患處於安靜微光室休息，避免張眼注視或交談造成枕葉與顳葉生理性高灌注。",
+          "clinicalLink": "腦灌注 SPECT 注射時應讓病患處於安靜微光室休息避免枕顳葉生理高灌注；若用於輔助腦死判定（空顱徵），依 2023 AAN 指引必先回溫至 ≥36°C、穩定血壓並排除鎮靜與肌鬆藥物干擾（嚴禁用輔助造影繞過低體溫或藥物殘留）。",
           "pitfall": "在急診急性偏癱中風黃金時間誤開耗時之核醫腦灌注掃描而延誤無顯影 CT 與血栓溶解評估。",
           "recall": {
             "question": "F-18 FDG 與 Tc-99m ECD 在穿越完整血腦障壁（BBB）後，各自反映大腦哪一種生理功能？",
@@ -887,7 +889,9 @@
             "nm-01"
           ],
           "sourceIds": [
-            "nm-res-04-eanm-fdg-brain"
+            "nm-res-04-eanm-fdg-brain",
+            "nm-res-04-aan-braindeath",
+            "nm-res-04-snmmi-braindeath"
           ]
         },
         {
@@ -1868,10 +1872,10 @@
           ],
           "keyPoints": [
             "針對 FDG 弱勢癌種發展精準分子標靶：C-11 Acetate 參與細胞膜脂肪酸合成，能補足高分化 HCC 敏感度（與 FDG 雙示蹤劑互補評估分化預後）；F-18 FLT 經胸苷激酶 TK1 磷酸化反映 DNA 增殖（但正常骨髓與肝極亮）；C-11/F-18 Choline 與現今黃金標準 Ga-68 PSMA-11／F-18 DCFPyL／PSMA-1007 則專攻攝護腺癌初分期與極低 PSA 生化復發。",
-            "神經內分泌瘤（NET）雙示蹤劑蹺蹺板原則：分化良好 G1/G2 NET 高度表現第 2 型生長抑素受體（SSTR2），於 Ga-68 DOTATATE PET 呈極亮攝取而 FDG 低；去分化高惡性 G3 NEC 則喪失 SSTR、糖解暴增呈 FDG 強陽性而 DOTATATE 低，直接決定能否施行胜肽受體核種治療。"
+            "神經內分泌瘤（NET）雙示蹤劑原則：分化良好 G1/G2 NET 高表現第 2 型生長抑素受體（SSTR2），於 Ga-68 DOTATATE PET 呈極亮攝取而 FDG 低；分化良好 G3 NET（Ki-67 >20%）仍常保留 SSTR2，建議併用 Ga-68 DOTATATE 與 F-18 FDG 雙示蹤劑確認無 FDG+/SSTR- 不一致灶後評估 PRRT；分化不良神經內分泌癌（NEC）則多喪失 SSTR2、糖解暴增呈 FDG 強陽性而 DOTATATE 低。"
           ],
           "clinicalLink": "嗜鉻細胞瘤與副神經節瘤（尤其 SDHx 基因突變頭頸與轉移灶）除傳統 MIBG 外，Ga-68 DOTATATE 與 F-18 FDOPA 提供更高空間解析度。",
-          "pitfall": "對 Ki-67 高達 60% 之高惡性神經內分泌癌只排 SSTR 掃描，漏掉已喪失受體的高侵襲轉移病灶。",
+          "pitfall": "把分化良好 G3 NET 誤等同於分化不良 NEC 而跳過 Ga-68 DOTATATE 受體評估，或對分化不良 NEC 只排 SSTR 掃描而漏掉已喪失受體的高糖解轉移灶。",
           "recall": {
             "question": "一位轉移性神經內分泌瘤患者同時接受 Ga-68 DOTATATE 與 F-18 FDG PET，若發現部分肝轉移灶「FDG 極亮但 DOTATATE 完全不亮」，臨床意義為何？",
             "answer": "代表該病灶存在腫瘤內異質性去分化（高惡性度、缺乏 SSTR 標靶），單靠 Lu-177 DOTATATE 無法殺死該處病灶，預後較差且須整合全身化療或局部治療。"
@@ -1882,7 +1886,8 @@
           ],
           "sourceIds": [
             "nm-res-07-snmmi-prrt",
-            "nm-res-07-snmmi-psma"
+            "nm-res-07-snmmi-psma",
+            "nm-res-07-snmmi-sstr-auc"
           ]
         },
         {
@@ -2022,7 +2027,8 @@
           "sourceIds": [
             "nm-res-07-snmmi-prrt",
             "nm-res-07-snmmi-psma",
-            "nm-res-07-eanm-sirt"
+            "nm-res-07-eanm-sirt",
+            "nm-res-07-snmmi-sstr-auc"
           ]
         },
         {
@@ -2227,7 +2233,7 @@
             "Tc-99m 亞胺二乙酸衍生物（mebrofenin 抗高膽紅素能力最佳）經肝細胞攝取排入膽道：受檢前須空腹 4–24 小時（禁食 >24h 或全靜脈營養 TPN 者膽囊充滿濃稠膽泥易偽陽性，須先慢滴 sincalide 排空）；若 60 分鐘肝總膽管與小腸已顯影而膽囊未顯影，可靜脈注射 Morphine 0.04 mg/kg 收縮 Oddi 括約肌加壓續拍 30 分鐘（或延遲拍至 4 小時），仍不顯影即確診急性膽囊管阻塞，伴膽囊窩肝緣帶狀高活性（Rim sign）高度預警壞疽性膽囊炎。",
             "新生兒膽道閉鎖（預給 phenobarbital 5 mg/kg/day 5 天促排膽）表現為肝攝取良好但 24 小時腸道完全無活性（新生兒肝炎則肝攝取差但腸道有活性）；肝海綿狀血管瘤於 Tc-99m RBC 呈早期低灌流、1–2 小時延遲血池 SPECT 強盛填充；外傷或脾切除後懷疑副脾／脾植入症（splenosis）則首選加熱變性自體 Tc-99m 紅血球高專一性定位。"
           ],
-          "clinicalLink": "施打 Morphine 前必須先在 60 分鐘影像確認「放射性已排入十二指腸／小腸」，若連總膽管與小腸都完全沒顯影則為急性總膽管阻塞，嚴禁施打嗎啡！",
+          "clinicalLink": "施打 Morphine 前須先確認放射性已排入十二指腸／小腸；若 60 分鐘小腸未顯影不可單憑此時間點斷定總膽管阻塞（正常變異如膽囊優先充盈／Oddi 括約肌張力高或肝細胞功能不良亦可延遲排入腸道），但嚴禁施打嗎啡，須結合肝攝取排泄與 2–4 小時延遲像（持續肝影滯留無膽道腸道排泄始支持急性高度總膽管阻塞）及臨床／MRCP 判讀！",
           "pitfall": "在加護病房禁食五天打 TPN 的重症患者未先給予 sincalide 預處置即直接做 HIDA，將功能性膽汁鬱積誤診為急性無結石性膽囊炎。",
           "recall": {
             "question": "HIDA 肝膽掃描出現膽囊未顯影合併「膽囊窩周圍肝組織帶狀高活性（Pericholecystic Rim Sign）」代表什麼外科急症意義？",
@@ -2274,7 +2280,8 @@
             "nm-06"
           ],
           "sourceIds": [
-            "nm-res-08-snmmi-gibleed"
+            "nm-res-08-snmmi-gibleed",
+            "nm-res-08-statpearls-meckel"
           ]
         },
         {

@@ -96,10 +96,12 @@
 
     <line x1="522" y1="392" x2="522" y2="510" stroke="#cbd5e1" stroke-width="1.5"/>
 
-    <text x="534" y="404" font-size="11.5" font-weight="700" fill="#0f766e">2. 常壓性水腦症（NPH：步態不穩、尿失禁、失智）：</text>
-    <text x="540" y="424" font-size="10.5" fill="#334155">· 腰椎鞘內打 Tc-99m DTPA（不穿 BBB，留在蜘蛛網膜下腔）</text>
-    <text x="540" y="444" font-size="10.5" fill="#334155">· 正常 24h：抵達顱頂大腦凸面吸收，側腦室完全不亮</text>
-    <text x="540" y="464" font-size="10.5" font-weight="700" fill="#be123c">· NPH 異常：側腦室持續逆流顯影 &gt;24–48h 且凸面無上升</text>
-    <text x="540" y="486" font-size="10.5" font-weight="600" fill="#92400e">· 分流引流至腹膜腔(首選)/右心房/肋膜腔；禁引流至膀胱！</text>
+    <text x="534" y="401" font-size="11.5" font-weight="700" fill="#0f766e">2. 常壓性水腦症（NPH：步態不穩、尿失禁、失智）：</text>
+    <text x="540" y="419" font-size="10" fill="#334155">· 腰椎鞘內打 Tc-99m DTPA（不穿 BBB，留蜘蛛網膜下腔）</text>
+    <text x="540" y="436" font-size="10" fill="#334155">· 正常 24h 抵顱頂大腦凸面吸收；NPH 側腦室逆流 &gt;24–48h</text>
+    <text x="540" y="453" font-size="10" font-weight="600" fill="#92400e">· 分流引流至腹膜腔(首選)/右心房/肋膜腔；禁引流至膀胱！</text>
+    <text x="534" y="476" font-size="11" font-weight="700" fill="#1d4ed8">3. 輔助腦死灌注（ECD/HMPAO 空顱徵）：</text>
+    <text x="540" y="494" font-size="10" font-weight="700" fill="#be123c">· 必先回溫 ≥36°C＋排除鎮靜肌鬆藥！（禁繞過可逆干擾）</text>
+    <text x="540" y="510" font-size="10" fill="#334155">· 僅限無法安全完成呼吸暫停或腦幹反射檢查時執行（驗純度）</text>
   </g>
 </svg>
