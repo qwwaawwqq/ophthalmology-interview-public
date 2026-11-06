@@ -408,6 +408,16 @@ async function test(name, run) {
     searchEl.value = '';
     app.handlers.get('input')({target: searchEl});
 
+    // Issue #185: Revealed bcsc-s01-rq005 deduplicates scopedClinicalUpdates vs question clinicalUpdates (data-quiz-adv-updates count === 1)
+    const rq5 = bcsc01.questions.find(x => x.id === 'bcsc-s01-rq005');
+    assert(rq5, 'bcsc-s01-rq005 fixture exists');
+    app.action('quiz-adv-reveal', rq5.id);
+    main = app.main();
+    wellFormed(main);
+    const rq5Card = [...main.matchAll(/<article[^>]*data-question-id="([^"]+)"[\s\S]*?<\/article>/g)].find(m => m[1] === rq5.id)?.[0] || '';
+    assert(rq5Card, 'bcsc-s01-rq005 card rendered in BCSC quiz list');
+    assert.equal((rq5Card.match(/data-quiz-adv-updates/g) || []).length, 1, 'revealed bcsc-s01-rq005 must render data-quiz-adv-updates exactly once');
+
     // Switch to Hard mode & verify Study SRS extra pool commit
     app.action('quiz-bank', 'hard');
     await settle();
@@ -422,6 +432,18 @@ async function test(name, run) {
     assert.equal(app.qa.entries['textbook:extra-question:' + hq.id]?.choice, hq.correctIndex);
     assert.equal(app.qa.entries['study:srs:extra:' + hq.id]?.attempt?.correct, true, 'OphStudy commits Hard attempt to study:srs:extra:<id>');
     assert(main.includes('data-quiz-adv-reasoning') && main.includes('關鍵鑑別點'));
+
+    // Issue #185: Revealed extra-20261022-q013 (Type A) in #quiz Hard mode does not render a duplicate .reason-step repeating reasoningSteps
+    const hq13 = hardPack.questions.find(x => x.id === 'extra-20261022-q013');
+    assert(hq13, 'extra-20261022-q013 exists in hardPack');
+    app.action('quiz-adv-reveal', hq13.id);
+    main = app.main();
+    wellFormed(main);
+    const hq13Card = [...main.matchAll(/<article[^>]*data-question-id="([^"]+)"[\s\S]*?<\/article>/g)].find(m => m[1] === hq13.id)?.[0] || '';
+    assert(hq13Card, 'extra-20261022-q013 card rendered in Hard quiz list');
+    assert(!hq13Card.includes('class="reason-step"'), 'Type-A Hard question must omit duplicate .reason-step when explanation only repeats steps + discriminator');
+    assert.equal(hq13Card.split(hq13.reasoningSteps[0]).length - 1, 1, 'hq13 reasoningSteps[0] renders once in #quiz');
+    assert.equal(hq13Card.split(hq13.decisiveDiscriminator).length - 1, 1, 'hq13 decisiveDiscriminator renders once in #quiz');
 
     // Switch to Extra 120 mode
     app.action('quiz-bank', 'extra');
