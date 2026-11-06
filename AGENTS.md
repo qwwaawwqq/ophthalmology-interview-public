@@ -31,3 +31,6 @@
 - Flag: secrets in code, missing tests for changed behavior, breaking API changes,
   unhandled errors on user input, SQL/shell/command injection, changes outside the issue's scope.
 - Do not flag: formatting, naming style, comment wording.
+- If a test or check was deleted, skipped or loosened to make the change pass, that is P0.
+- Do not suggest possible refactors or extra features.
+- If the change is sound, say so in one line.
