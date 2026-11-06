@@ -71,6 +71,18 @@
     }
   }
 
+  function sanitizeStroke(s) {
+    if (!s || typeof s !== 'object' || !Array.isArray(s.pts) || s.pts.length < 2) return null;
+    const t = PEN_COLORS[s.t] ? s.t : 'navy';
+    const w = Number(s.w) || PEN_COLORS[t].width;
+    const pts = s.pts.slice(0, 4000).map(round1);
+    const cwNum = Number(s.cw);
+    if (Number.isFinite(cwNum) && cwNum > 0) {
+      return { t, w, cw: Math.round(cwNum), pts };
+    }
+    return { t, w, pts };
+  }
+
   function writeInkAll(itemsMap, sid) {
     const ls = localStore();
     if (!ls) return false;
@@ -78,7 +90,7 @@
       const clean = Object.create(null);
       for (const [k, v] of Object.entries(itemsMap || {})) {
         if (!v || typeof v !== 'object') continue;
-        const strokes = Array.isArray(v.strokes) ? v.strokes : [];
+        const strokes = Array.isArray(v.strokes) ? v.strokes.map(sanitizeStroke).filter(Boolean) : [];
         const h = Number.isFinite(v.h) && v.h >= DEFAULT_HEIGHT ? Math.min(MAX_HEIGHT, Math.round(v.h)) : DEFAULT_HEIGHT;
         if (strokes.length || h > DEFAULT_HEIGHT) clean[k] = { h, strokes };
       }
@@ -94,7 +106,7 @@
     const all = readInkAll(sid);
     const rec = all[id];
     const h = Number.isFinite(rec?.h) && rec.h >= DEFAULT_HEIGHT ? Math.min(MAX_HEIGHT, Math.round(rec.h)) : DEFAULT_HEIGHT;
-    const strokes = Array.isArray(rec?.strokes) ? rec.strokes : [];
+    const strokes = Array.isArray(rec?.strokes) ? rec.strokes.map(sanitizeStroke).filter(Boolean) : [];
     return { h, strokes };
   }
 
@@ -841,27 +853,46 @@
   }
 
   /* Canvas Drawing & Pointer Events */
-  function drawStrokeOnCtx(ctx, stroke) {
+  function canvasCssWidth(canvas) {
+    const rect = canvas?.getBoundingClientRect?.() || {};
+    if (Number.isFinite(rect.width) && rect.width > 0) {
+      const w = Math.max(120, Math.round(rect.width));
+      canvas.__lastCssW = w;
+      return w;
+    }
+    if (Number.isFinite(canvas?.__lastCssW) && canvas.__lastCssW > 0) return canvas.__lastCssW;
+    if (!canvas.__baseAttrW) {
+      canvas.__baseAttrW = Math.max(280, Math.round(Number(canvas?.getAttribute?.('width')) || canvas?.width || 680));
+    }
+    return canvas.__baseAttrW;
+  }
+
+  function drawStrokeOnCtx(ctx, stroke, cssW) {
     if (!ctx || !stroke || !Array.isArray(stroke.pts) || stroke.pts.length < 2) return;
     const isEraser = stroke.t === 'eraser';
     const pen = PEN_COLORS[stroke.t] || PEN_COLORS.navy;
+    const sx = (Number.isFinite(stroke.cw) && stroke.cw > 0 && Number.isFinite(cssW) && cssW > 0)
+      ? (cssW / stroke.cw)
+      : 1;
+    const baseW = Number(stroke.w) || pen.width;
+    const scaledW = sx !== 1 ? Math.max(1.2, round1(baseW * Math.sqrt(sx))) : baseW;
     ctx.save?.();
     ctx.globalCompositeOperation = isEraser ? 'destination-out' : 'source-over';
     ctx.strokeStyle = pen.hex;
     ctx.fillStyle = pen.hex;
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
-    ctx.lineWidth = Number(stroke.w) || pen.width;
+    ctx.lineWidth = scaledW;
     const pts = stroke.pts;
     if (pts.length === 2) {
       ctx.beginPath?.();
-      ctx.arc?.(pts[0], pts[1], (ctx.lineWidth || 2.4) / 2, 0, Math.PI * 2);
+      ctx.arc?.(round1(pts[0] * sx), pts[1], (ctx.lineWidth || 2.4) / 2, 0, Math.PI * 2);
       ctx.fill?.();
     } else {
       ctx.beginPath?.();
-      ctx.moveTo?.(pts[0], pts[1]);
+      ctx.moveTo?.(round1(pts[0] * sx), pts[1]);
       for (let i = 2; i < pts.length; i += 2) {
-        ctx.lineTo?.(pts[i], pts[i + 1]);
+        ctx.lineTo?.(round1(pts[i] * sx), pts[i + 1]);
       }
       ctx.stroke?.();
     }
@@ -874,8 +905,7 @@
     if (!id) return;
     const item = findItem(id);
     const ink = getInk(id, item?.specialty);
-    const rect = canvas.getBoundingClientRect?.() || {};
-    const cssW = Math.max(280, Math.round(rect.width || Number(canvas.getAttribute?.('width')) || canvas.width || 680));
+    const cssW = canvasCssWidth(canvas);
     const cssH = ink.h || DEFAULT_HEIGHT;
     const rawDpr = Math.min(Math.max(Number(g.devicePixelRatio) || 1, 1), 3);
     const maxScale = Math.min(4096 / cssW, 4096 / cssH, Math.sqrt(16000000 / (cssW * cssH)));
@@ -890,7 +920,7 @@
       if (!ctx) return;
       ctx.setTransform?.(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect?.(0, 0, cssW, cssH);
-      for (const stroke of ink.strokes) drawStrokeOnCtx(ctx, stroke);
+      for (const stroke of ink.strokes) drawStrokeOnCtx(ctx, stroke, cssW);
     } catch (_) {}
   }
 
@@ -900,10 +930,9 @@
     const targetSid = sid || item?.specialty || specId();
     const all = readInkAll(targetSid);
     const prev = getInk(id, targetSid);
-    const tool = PEN_COLORS[stroke.t] ? stroke.t : 'navy';
-    const w = Number(stroke.w) || PEN_COLORS[tool].width;
-    const pts = stroke.pts.slice(0, 4000).map(round1);
-    const nextStrokes = [...prev.strokes, { t: tool, w, pts }];
+    const cleanStroke = sanitizeStroke(stroke);
+    if (!cleanStroke) return false;
+    const nextStrokes = [...prev.strokes, cleanStroke];
     all[id] = { h: prev.h, strokes: nextStrokes };
     const saved = writeInkAll(all, targetSid);
     if (!saved) {
@@ -975,10 +1004,11 @@
       const tool = cardTools[itemId] || 'navy';
       const pen = PEN_COLORS[tool] || PEN_COLORS.navy;
       const pressure = isPen && typeof rawPressure === 'number' && rawPressure > 0 ? (0.7 + 0.6 * rawPressure) : 1;
+      const cssW = canvasCssWidth(canvas);
       const [x, y] = pointerCoords(canvas, src || {});
-      active = { pointerId: ptrId, t: tool, w: round1(pen.width * pressure), pts: [x, y] };
+      active = { pointerId: ptrId, t: tool, w: round1(pen.width * pressure), cw: cssW, pts: [x, y] };
       const ctx = canvas.getContext?.('2d');
-      if (ctx) drawStrokeOnCtx(ctx, active);
+      if (ctx) drawStrokeOnCtx(ctx, active, cssW);
     };
 
     const moveDraw = (e, src, ptrId) => {
@@ -991,7 +1021,7 @@
       active.pts.push(x, y);
       const ctx = canvas.getContext?.('2d');
       if (ctx) {
-        drawStrokeOnCtx(ctx, { t: active.t, w: active.w, pts: [lastX, lastY, x, y] });
+        drawStrokeOnCtx(ctx, { t: active.t, w: active.w, cw: active.cw, pts: [lastX, lastY, x, y] }, active.cw);
       }
     };
 
@@ -1070,21 +1100,40 @@
     if (!root.__writtenDelegated && typeof root.addEventListener === 'function') {
       root.__writtenDelegated = true;
       root.addEventListener('click', e => {
-        if (e.__writtenHandled) return;
+        if (e.__writtenHandled) {
+          e.stopPropagation?.();
+          return;
+        }
         const b = e.target?.closest?.('[data-action]');
         if (!b || b.disabled) return;
         const act = b.dataset?.action;
         if (act && act.startsWith('written-')) {
-          if (action(act, b.dataset.value || '', b)) e.__writtenHandled = true;
+          if (action(act, b.dataset.value || '', b, e)) {
+            if (b.tagName === 'A') e.preventDefault?.();
+            e.__writtenHandled = true;
+            e.stopPropagation?.();
+          }
         }
       });
       root.addEventListener('input', e => {
-        if (e.__writtenHandled) return;
-        if (input(e.target, e)) e.__writtenHandled = true;
+        if (e.__writtenHandled) {
+          e.stopPropagation?.();
+          return;
+        }
+        if (input(e.target, e)) {
+          e.__writtenHandled = true;
+          e.stopPropagation?.();
+        }
       });
       root.addEventListener('change', e => {
-        if (e.__writtenHandled) return;
-        if (change(e.target)) e.__writtenHandled = true;
+        if (e.__writtenHandled) {
+          e.stopPropagation?.();
+          return;
+        }
+        if (change(e.target, e)) {
+          e.__writtenHandled = true;
+          e.stopPropagation?.();
+        }
       });
     }
   }
@@ -1205,8 +1254,15 @@
     }
   }
 
-  function action(a, v) {
-    if (!a) return false;
+  function action(a, v, _b, ev) {
+    if (!a || !String(a).startsWith('written-')) return false;
+    const curEv = ev || (typeof g.event === 'object' ? g.event : null);
+    if (curEv?.__writtenHandled) return true;
+    if (a === 'written-bank-open') {
+      if (bridge()?.openRoute) bridge().openRoute('#written');
+      else openQuestion(null);
+      return true;
+    }
     if (a === 'written-open') {
       const targetHash = v ? '#written-' + v : '#written';
       if (bridge()?.openRoute) bridge().openRoute(targetHash);
@@ -1312,6 +1368,9 @@
       if (list.length) {
         quizFocusIdx = (quizFocusIdx + Number(v || 0) + list.length) % list.length;
         focusedId = list[quizFocusIdx]?.id || null;
+        if (g.history?.replaceState && String(g.location?.hash || '').startsWith('#written')) {
+          g.history.replaceState(null, '', currentHash());
+        }
         refreshActiveSurfaces();
       }
       return true;
@@ -1328,18 +1387,22 @@
 
   function input(el, e) {
     if (!el) return false;
+    const curEv = e || (typeof g.event === 'object' ? g.event : null);
     const textId = el.dataset?.writtenText || el.getAttribute?.('data-written-text');
     if (textId) {
+      if (curEv?.__writtenHandled) return true;
       saveMeta(textId, { text: String(el.value || '') });
       updateCardStatusDom(textId);
       return true;
     }
     const noteId = el.dataset?.writtenNote || el.getAttribute?.('data-written-note');
     if (noteId) {
+      if (curEv?.__writtenHandled) return true;
       saveMeta(noteId, { note: String(el.value || '') });
       return true;
     }
     if (el.matches?.('[data-written-search]') || el.dataset?.writtenSearch !== undefined || el.getAttribute?.('data-written-search') !== null) {
+      if (curEv?.__writtenHandled) return true;
       quizSearch = String(el.value || '');
       focusedId = null;
       pendingFocusScroll = false;
@@ -1360,10 +1423,12 @@
     return false;
   }
 
-  function change(el) {
+  function change(el, e) {
     if (!el) return false;
+    const curEv = e || (typeof g.event === 'object' ? g.event : null);
     const checkSpec = el.dataset?.writtenCheck || el.getAttribute?.('data-written-check');
     if (checkSpec) {
+      if (curEv?.__writtenHandled) return true;
       const [id, rawIdx] = String(checkSpec).split('|');
       const idx = Number(rawIdx);
       const item = findItem(id);
@@ -1381,6 +1446,7 @@
     }
     const filterKind = el.dataset?.writtenFilter || el.getAttribute?.('data-written-filter');
     if (filterKind === 'scope') {
+      if (curEv?.__writtenHandled) return true;
       quizScope = String(el.value || 'all');
       focusedId = null;
       pendingFocusScroll = false;
@@ -1389,6 +1455,7 @@
       return true;
     }
     if (filterKind === 'status') {
+      if (curEv?.__writtenHandled) return true;
       quizStatus = String(el.value || 'all');
       focusedId = null;
       pendingFocusScroll = false;
@@ -1397,6 +1464,7 @@
       return true;
     }
     if (el.dataset?.writtenBcscCh !== undefined || el.getAttribute?.('data-written-bcsc-ch') !== null) {
+      if (curEv?.__writtenHandled) return true;
       bcscScopeChapter = String(el.value || 'all');
       refreshActiveSurfaces();
       return true;
@@ -1410,12 +1478,37 @@
     return '手寫問答 · ' + (item ? item.title : id);
   }
 
-  function matchesRoute(route) {
-    if (!route || route.kind !== 'written') return false;
+  function isQuizWrittenActive() {
+    if (typeof g.OphQuizBank?.getMode === 'function') {
+      return g.OphQuizBank.getMode() === 'written';
+    }
+    if (typeof document !== 'undefined' && typeof document.querySelector === 'function') {
+      return Boolean(document.querySelector('[data-written-slot="quiz"]'));
+    }
+    return false;
+  }
+
+  function matchesRoute(routeOrId) {
+    if (routeOrId && typeof routeOrId === 'object') {
+      if (routeOrId.kind && routeOrId.kind !== 'written') return false;
+    } else if (routeOrId !== null && routeOrId !== undefined && typeof routeOrId !== 'string') {
+      return false;
+    }
     const b = bridge();
-    if (b?.S?.tab !== 'quiz') return false;
-    if (route.id && focusedId && focusedId !== route.id) return false;
-    return true;
+    if (b?.S?.tab !== 'quiz' || !isQuizWrittenActive()) return false;
+    const targetId = (routeOrId && typeof routeOrId === 'object') ? (routeOrId.id || null) : (routeOrId || null);
+    if (targetId) {
+      if (focusedId !== targetId) return false;
+      if (quizView === 'focus') {
+        const list = filterQuizItems(specId());
+        if (list.length) {
+          const shown = list[Math.min(Math.max(0, quizFocusIdx), list.length - 1)];
+          if (shown?.id !== targetId) return false;
+        }
+      }
+      return true;
+    }
+    return !focusedId;
   }
 
   function currentHash() {
@@ -1439,6 +1532,12 @@
       if (e?.target?.dataset?.writtenSearch === undefined) return;
       searchComposing = false;
       input(e.target, e);
+    });
+  }
+  if (typeof g.addEventListener === 'function') {
+    g.addEventListener('resize', () => {
+      if (typeof document === 'undefined' || typeof document.querySelectorAll !== 'function') return;
+      for (const c of document.querySelectorAll('canvas[data-written-canvas]') || []) redrawCanvas(c);
     });
   }
 

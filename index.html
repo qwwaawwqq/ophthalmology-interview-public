@@ -1538,7 +1538,7 @@ function routeLabel(route){
 }
 function routeMatchesView(route){
   if(!route)return false;
-  if(route.kind==='written')return window.OphWritten?.matchesRoute?.(route)||(S.tab==='quiz'&&window.OphQuizBank?.getMode?.()==='written');
+  if(route.kind==='written')return typeof window.OphWritten?.matchesRoute==='function'?window.OphWritten.matchesRoute(route):(S.tab==='quiz'&&window.OphQuizBank?.getMode?.()==='written'&&!route.id);
   if(route.kind==='anchor')return S.tab==='learn'&&S.learn===route.topicId;
   if(route.kind==='topic')return S.tab==='learn'&&S.learn===route.id;
   if(route.kind==='pbl')return S.tab==='pbl'&&(!route.id||route.id===S.pbl);

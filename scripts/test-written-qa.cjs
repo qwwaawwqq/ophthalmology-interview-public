@@ -487,7 +487,7 @@ function bootApp({
 
   const hookedApp = appScript.replace(
     endRe,
-    'globalThis.__qa={SPEC,D,S,get entries(){return entries;},get meta(){return meta;},put,putMeta,save:changed,pblCases,wfList,render,switchTab,openRoute,parseRoute,routeLabel,routeMatchesView,currentViewHash,notebookIndex,practiceIndex,practiceEntry,practiceMeta,coverageTarget,chapterCoverage,mergeProgress,progressPayload,clearDevice};render();})();'
+    'globalThis.__qa={SPEC,D,S,get entries(){return entries;},get meta(){return meta;},put,putMeta,save:changed,pblCases,wfList,render,switchTab,openRoute,appRestoreHash,parseRoute,routeLabel,routeMatchesView,currentViewHash,notebookIndex,practiceIndex,practiceEntry,practiceMeta,coverageTarget,chapterCoverage,mergeProgress,progressPayload,clearDevice};render();})();'
   );
   vm.runInContext(hookedApp, context, { timeout: 10000 });
   for (const fn of winHandlers.get('load') || []) fn();
@@ -521,6 +521,8 @@ function bootApp({
     study: context.window.OphStudy,
     studyBridge: context.window.OphStudyBridge,
     element,
+    docHandlers,
+    winHandlers,
     canvasCache,
     slotCache,
     statusPills,
@@ -1226,6 +1228,213 @@ async function test(name, fn) {
     assert.equal(app.qa.practiceEntry('written:' + id81, { completed: true, at: '2026-11-07T02:00:00.000Z' }), null, 'rejects 81-char written ID in practiceEntry');
     assert.equal(app.qa.practiceMeta('written:' + id81, { text: 'ok', at: '2026-11-07T02:00:00.000Z' }), null, 'rejects 81-char written ID in practiceMeta');
     assert.equal(app.qa.parseRoute('#written-' + id81), null, 'rejects 81-char written ID in parseRoute');
+  });
+
+  await test('Codex P1: bindContainer stops DOM bubbling to document so toggle-answer, undo, SRS rating, and inputs fire exactly once while non-written actions still bubble', () => {
+    const app = bootApp({ spec: 'oph' });
+    const item = PACKS.oph.items[0];
+    app.fireClick('quiz-bank', 'written');
+
+    // Simulate nested slot container inside #main -> document 3-stage DOM bubbling
+    const slotListeners = new Map();
+    const slotContainer = {
+      innerHTML: app.written.renderCard(item),
+      querySelectorAll: () => [],
+      addEventListener(type, fn) { slotListeners.set(type, fn); }
+    };
+    app.written.bindContainer(slotContainer);
+    const mainNode = app.element('#main');
+    assert(slotListeners.has('click') && mainNode._listeners.has('click'), 'both nested slot and #main bound');
+
+    const dispatchBubbling = (type, ev) => {
+      let propagationStopped = false;
+      ev.stopPropagation = () => { propagationStopped = true; };
+      ev.preventDefault = ev.preventDefault || (() => {});
+      const sFn = slotListeners.get(type);
+      if (sFn) sFn(ev);
+      if (!propagationStopped) {
+        const mFn = mainNode._listeners.get(type);
+        if (mFn) mFn(ev);
+      }
+      if (!propagationStopped) {
+        for (const dFn of app.docHandlers.get(type) || []) dFn(ev);
+      }
+      return propagationStopped;
+    };
+
+    const dispatchBubblingAction = (actionName, value, tagName = 'BUTTON') => {
+      const btn = { tagName, dataset: { action: actionName, value: String(value) }, disabled: false, setAttribute() {} };
+      return dispatchBubbling('click', {
+        target: { closest: sel => (sel === '[data-action]' ? btn : null) }
+      });
+    };
+
+    // 1. written-toggle-answer opens and STAYS open (toggled once, not open-then-closed)
+    assert(!app.written.renderCard(item).includes('標準參考答案'), 'answer starts collapsed');
+    const toggleStopped = dispatchBubblingAction('written-toggle-answer', item.id);
+    assert.equal(toggleStopped, true, 'written-toggle-answer stops propagation before document');
+    assert.equal(app.qa.entries['written:' + item.id]?.revealed, true, 'entry marked revealed');
+    assert(app.written.renderCard(item).includes('標準參考答案'), 'answer panel stays expanded after single click');
+
+    // 2. written-undo removes only 1 stroke (from 3 -> 2, not 3 -> 1)
+    app.written.addStroke(item.id, { t: 'navy', w: 2.4, cw: 680, pts: [10, 10, 40, 40] });
+    app.written.addStroke(item.id, { t: 'black', w: 2.4, cw: 680, pts: [50, 20, 80, 50] });
+    app.written.addStroke(item.id, { t: 'red', w: 2.6, cw: 680, pts: [90, 30, 120, 60] });
+    assert.equal(app.written.getInk(item.id).strokes.length, 3);
+    const undoStopped = dispatchBubblingAction('written-undo', item.id);
+    assert.equal(undoStopped, true, 'written-undo stops propagation before document');
+    assert.equal(app.written.getInk(item.id).strokes.length, 2, 'single click undoes exactly 1 stroke');
+
+    // 3. written-rate ('good') advances SRS exactly 1 step (reviewCount=1, step=0), not 2 steps
+    assert.equal(app.studyBridge.read('study:srs:written:' + item.id), null);
+    const rateStopped = dispatchBubblingAction('written-rate', `${item.id}|good`);
+    assert.equal(rateStopped, true, 'written-rate stops propagation before document');
+    const srsAfterOneClick = app.studyBridge.read('study:srs:written:' + item.id);
+    assert.equal(srsAfterOneClick.answerCount, 1, 'SRS answerCount incremented once');
+    assert.equal(srsAfterOneClick.plan.reviewCount, 1, 'SRS reviewCount incremented once');
+    assert.equal(srsAfterOneClick.plan.step, 0, 'SRS step advanced once to step 0 (not double-stepped to 1)');
+
+    // 4. Bubbling input & change events also stop propagation cleanly
+    const inputStopped = dispatchBubbling('input', {
+      target: { dataset: { writtenText: item.id }, value: '單次冒泡文字測試' }
+    });
+    assert.equal(inputStopped, true, 'written input stops propagation');
+    assert.equal(app.qa.meta['written:' + item.id].text, '單次冒泡文字測試');
+
+    const changeStopped = dispatchBubbling('change', {
+      target: { dataset: { writtenCheck: `${item.id}|1` }, checked: true }
+    });
+    assert.equal(changeStopped, true, 'written checkbox change stops propagation');
+    assert.equal(app.qa.entries['written:' + item.id].checks[1], true);
+
+    // 5. Non-written action inside a card (link-save) MUST continue bubbling to document
+    const linkSaveStopped = dispatchBubblingAction('link-save', '#written-' + item.id);
+    assert.equal(linkSaveStopped, false, 'non-written link-save is NOT stopped by bindContainer');
+    app.fireClick('tab', 'links');
+    assert(app.main().includes('#written-' + item.id), 'link-save bubbled to document and saved bookmark');
+  });
+
+  await test('Codex P2 #1: routeMatchesView and matchesRoute enforce written quiz sub-mode and exact question ID on same-page hash navigation', () => {
+    // (a) Ophthalmology (#tab-quiz MCQ -> #written & #written-<id>)
+    const app = bootApp({ spec: 'oph', hash: '#tab-quiz' });
+    const item1 = PACKS.oph.items[0];
+    const item2 = PACKS.oph.items[2];
+    assert.equal(app.qa.S.tab, 'quiz');
+    assert.equal(app.window.OphQuizBank.getMode(), 'core', 'starts on MCQ core mode');
+    assert.equal(app.qa.routeMatchesView(app.qa.parseRoute('#written')), false, 'MCQ mode must NOT match #written');
+    assert.equal(app.qa.routeMatchesView(app.qa.parseRoute('#written-' + item1.id)), false, 'MCQ mode must NOT match #written-<id>');
+
+    // Navigate via hashchange / appRestoreHash from MCQ -> #written
+    app.location.hash = '#written';
+    app.qa.appRestoreHash();
+    assert.equal(app.window.OphQuizBank.getMode(), 'written', 'appRestoreHash(#written) switches quiz into written mode');
+    assert(app.main().includes('written-bank-root'), 'renders written bank');
+    assert.equal(app.qa.routeMatchesView(app.qa.parseRoute('#written')), true);
+
+    // Switch back to MCQ, then navigate via hash directly to #written-<id1>
+    app.fireClick('quiz-bank', 'core');
+    assert.equal(app.window.OphQuizBank.getMode(), 'core');
+    assert.equal(app.qa.routeMatchesView(app.qa.parseRoute('#written-' + item1.id)), false);
+    app.location.hash = '#written-' + item1.id;
+    for (const fn of app.winHandlers.get('hashchange') || []) fn();
+    assert.equal(app.window.OphQuizBank.getMode(), 'written', 'hashchange to #written-<id1> switches from MCQ to written mode');
+    assert(app.main().includes(`id="written-${item1.id}"`), 'renders target question');
+    assert.equal(app.qa.routeMatchesView(app.qa.parseRoute('#written-' + item1.id)), true);
+
+    // (b) Same-page navigation in written single-question focus mode: #written-<id1> -> #written-<id2> -> #written
+    app.written.action('written-view', 'focus');
+    assert(app.main().includes(item1.title) && !app.main().includes(item2.title), 'focus mode shows item1 initially');
+    assert.equal(app.qa.routeMatchesView(app.qa.parseRoute('#written-' + item2.id)), false, 'must return false when focused on item1 and checking route for item2');
+    assert.equal(app.qa.routeMatchesView(app.qa.parseRoute('#written')), false, 'must return false for generic #written while locked on item1');
+
+    app.location.hash = '#written-' + item2.id;
+    for (const fn of app.winHandlers.get('hashchange') || []) fn();
+    assert.equal(app.qa.routeMatchesView(app.qa.parseRoute('#written-' + item2.id)), true, 'matches item2 after hashchange');
+    assert.equal(app.qa.routeMatchesView(app.qa.parseRoute('#written-' + item1.id)), false, 'no longer matches item1');
+    assert(app.main().includes(item2.title) && !app.main().includes(item1.title), 'focus view updates to item2');
+    assert(app.main().includes(`第 3 / ${PACKS.oph.items.length} 題`), 'focus counter aligns to item2');
+
+    app.location.hash = '#written';
+    for (const fn of app.winHandlers.get('hashchange') || []) fn();
+    assert.equal(app.qa.routeMatchesView(app.qa.parseRoute('#written')), true, '#written clears focusedId lock');
+    assert.equal(app.qa.currentViewHash(), '#written');
+
+    // (c) Non-oph specialty (ENT) #tab-quiz MCQ -> #written-<id>
+    const appEnt = bootApp({ spec: 'ent', hash: '#tab-quiz' });
+    const entItem1 = PACKS.ent.items[1];
+    assert.equal(appEnt.qa.S.tab, 'quiz');
+    assert.equal(appEnt.window.OphQuizBank.getMode(), 'mcq');
+    assert.equal(appEnt.qa.routeMatchesView(appEnt.qa.parseRoute('#written')), false);
+    assert.equal(appEnt.qa.routeMatchesView(appEnt.qa.parseRoute('#written-' + entItem1.id)), false);
+    appEnt.location.hash = '#written-' + entItem1.id;
+    for (const fn of appEnt.winHandlers.get('hashchange') || []) fn();
+    assert.equal(appEnt.window.OphQuizBank.getMode(), 'written', 'ENT switches specQuizMode from mcq to written');
+    assert(appEnt.main().includes(`id="written-${entItem1.id}"`));
+    assert.equal(appEnt.qa.routeMatchesView(appEnt.qa.parseRoute('#written-' + entItem1.id)), true);
+  });
+
+  await test('Codex P2 #2: canvas strokes record reference width cw and proportionally scale X coordinates across 900px full-width and 450px split-column modes', () => {
+    const app = bootApp({ spec: 'oph' });
+    const item = PACKS.oph.items[0];
+    let cssWidth = 900;
+    const dynCanvas = createMockCanvas(item.id);
+    dynCanvas.getBoundingClientRect = () => ({ left: 0, top: 0, width: cssWidth, height: 260 });
+
+    const mountAtCurrentWidth = () => {
+      dynCanvas.ops.length = 0;
+      app.written.bindContainer({
+        innerHTML: `data-written-canvas="${item.id}"`,
+        querySelectorAll: sel => (sel === 'canvas[data-written-canvas]' ? [dynCanvas] : []),
+        addEventListener() {}
+      });
+    };
+
+    // 1. Full-width ink mode (900px): write stroke near right margin x = 720..810
+    app.written.action('written-mode', `${item.id}|ink`);
+    mountAtCurrentWidth();
+    dynCanvas.dispatchPointer('pointerdown', { pointerId: 11, pointerType: 'pen', pressure: 0.5, clientX: 720, clientY: 80 });
+    dynCanvas.dispatchPointer('pointermove', { pointerId: 11, pointerType: 'pen', pressure: 0.5, clientX: 765, clientY: 110 });
+    dynCanvas.dispatchPointer('pointermove', { pointerId: 11, pointerType: 'pen', pressure: 0.5, clientX: 810, clientY: 140 });
+    dynCanvas.dispatchPointer('pointerup', { pointerId: 11, pointerType: 'pen', pressure: 0.5, clientX: 810, clientY: 140 });
+
+    const stored = app.written.getInk(item.id);
+    assert.equal(stored.strokes.length, 1);
+    assert.equal(stored.strokes[0].cw, 900, 'persists reference canvas CSS width cw=900');
+    assert.deepEqual(stored.strokes[0].pts, [720, 80, 765, 110, 810, 140]);
+
+    // 2. Switch to split-column mode (450px): X coordinates scale by 0.5 into 360..405 (<= 450), Y unchanged
+    cssWidth = 450;
+    app.written.action('written-mode', `${item.id}|both`);
+    mountAtCurrentWidth();
+    const splitCoords = dynCanvas.ops.filter(op => Array.isArray(op) && (op[0] === 'moveTo' || op[0] === 'lineTo'));
+    assert.deepEqual(splitCoords, [
+      ['moveTo', 360, 80],
+      ['lineTo', 382.5, 110],
+      ['lineTo', 405, 140]
+    ], '900px stroke scales proportionally into 360..405 on 450px split canvas without clipping');
+    assert(splitCoords.every(([, x]) => x >= 360 && x <= 450), 'all scaled X coordinates stay inside 450px canvas');
+
+    // 3. Switch back to full-width ink mode (900px): X coordinates restore cleanly to 720..810
+    cssWidth = 900;
+    app.written.action('written-mode', `${item.id}|ink`);
+    mountAtCurrentWidth();
+    const restoredCoords = dynCanvas.ops.filter(op => Array.isArray(op) && (op[0] === 'moveTo' || op[0] === 'lineTo'));
+    assert.deepEqual(restoredCoords, [
+      ['moveTo', 720, 80],
+      ['lineTo', 765, 110],
+      ['lineTo', 810, 140]
+    ], 'switching back to 900px restores exact 720..810 X coordinates');
+
+    // 4. Legacy strokes without cw remain backward-compatible (scaleX = 1)
+    app.written.clearInk(item.id);
+    app.written.addStroke(item.id, { t: 'black', w: 2.4, pts: [100, 50, 200, 90] });
+    cssWidth = 450;
+    mountAtCurrentWidth();
+    const legacyCoords = dynCanvas.ops.filter(op => Array.isArray(op) && (op[0] === 'moveTo' || op[0] === 'lineTo'));
+    assert.deepEqual(legacyCoords, [
+      ['moveTo', 100, 50],
+      ['lineTo', 200, 90]
+    ], 'legacy strokes without cw render at 1:1 without error');
   });
 
   const failed = results.filter(r => !r.pass);
