@@ -90,8 +90,9 @@ function layoutAction(a,v,b){
   if(a==='spec-toggle'){specState.open=!specState.open;specState.tab=S.tab;$('#nav').innerHTML=navMarkup();if(specState.open)document.getElementById('spec-filter')?.focus?.();return true;}
   if(a==='top-menu'){setTopMenu(!$('.topbar')?.classList.contains('menu-open'));return true;}
   if(a==='more-toggle'){const rail=$('.rail'),open=!rail.classList.contains('nav-open');rail.classList.toggle('nav-open',open);$('#nav-toggle').setAttribute('aria-expanded',String(open));b?.setAttribute?.('aria-expanded',String(open));return true;}
-  if(a==='today-new'){quizBankMode='core';quizAdvFeedbackIds.clear();startQuiz('all','new');return true;}
-  if(a==='today-core-quiz'){quizBankMode='core';quizAdvFeedbackIds.clear();switchTab('quiz');return true;}
+  if(a==='today-new'){quizBankMode='core';specQuizMode='mcq';quizAdvFeedbackIds.clear();startQuiz('all','new');return true;}
+  if(a==='today-core-quiz'){quizBankMode='core';specQuizMode='mcq';quizAdvFeedbackIds.clear();switchTab('quiz');return true;}
+  if(a==='spec-quiz-mode')return setSpecQuizMode(v);
   if(a==='quiz-bank'||a==='quiz-bank-open'){return setQuizBankMode(v);}
   if(a==='quiz-adv-answer'){return handleQuizAdvAnswer(v);}
   if(a==='quiz-adv-reveal'){const q=quizAdvFindQuestion(v);if(q)window.OphStudy?.clearCard?.(q.bankKind==='bcsc'||/^bcsc-s/.test(q.id)?'book':'extra',q.id);quizAdvFeedbackIds.add(v);quizAdvRevealed.add(v);render();return true;}
@@ -151,7 +152,7 @@ document.addEventListener('submit',e=>{
 });
 
 /* Advanced Question Banks in #quiz (Issue #148 / #180): BCSC S01-S13 (540), Hard Clinical Reasoning (144), Extra Cases (120) */
-const QUIZ_BANK_MODES=['core','bcsc','hard','extra','all-advanced'];
+const QUIZ_BANK_MODES=['core','bcsc','hard','extra','all-advanced','written'];
 const BCSC_VOLUMES=[
   ['bcsc-s01','S01','Update on General Medicine'],
   ['bcsc-s02','S02','Fundamentals & Principles'],
@@ -177,7 +178,7 @@ const HARD_DOMAINS=[
   ['orbit-trauma','眼眶與外傷'],
   ['diagnostics-systemic','診斷與全身病']
 ];
-let quizBankMode='core',quizAdvVolume='all',quizAdvDomain='all',quizAdvStatus='all',quizAdvSearch='',quizAdvLimit=25,quizAdvSeed=0,quizAdvStudyHooked=false;
+let quizBankMode='core',specQuizMode='mcq',quizAdvVolume='all',quizAdvDomain='all',quizAdvStatus='all',quizAdvSearch='',quizAdvLimit=25,quizAdvSeed=0,quizAdvStudyHooked=false;
 const quizAdvFeedbackIds=new Set(),quizAdvRevealed=new Set();
 const quizAdvCache={bcscManifest:null,bcscState:'idle',bcscByVol:Object.create(null),bcscVolState:Object.create(null),hard:null,hardState:'idle',extra:null,extraState:'idle'};
 
@@ -208,7 +209,7 @@ function ensureQuizAdvStudyHook(){
     const origRefresh=window.OphStudyBridge.refresh?.bind(window.OphStudyBridge);
     window.OphStudyBridge.refresh=function(pool){
       if(typeof origRefresh==='function')origRefresh(pool);
-      if(SPEC.id==='oph'&&S.tab==='quiz'&&quizBankMode!=='core'&&(pool==='book'||pool==='extra'))render();
+      if(S.tab==='quiz'&&((SPEC.id==='oph'&&quizBankMode!=='core'&&(pool==='book'||pool==='extra'||pool==='written'))||(SPEC.id!=='oph'&&specQuizMode==='written'&&pool==='written')))render();
     };
     window.OphStudyBridge.__quizAdvWrapped=true;
   }
@@ -309,11 +310,20 @@ function setQuizBankMode(mode){
   if(SPEC.id!=='oph'||!QUIZ_BANK_MODES.includes(mode))return false;
   window.OphStudy?.leave?.();
   quizBankMode=mode;quizAdvLimit=25;quizAdvFeedbackIds.clear();
-  if(mode!=='core')ensureQuizAdvLoaded(mode);
+  if(mode==='written')window.OphWritten?.ensureLoaded?.('oph');
+  else if(mode!=='core')ensureQuizAdvLoaded(mode);
   if(S.tab!=='quiz')switchTab('quiz');else render();
   return true;
 }
-window.OphQuizBank={getMode(){return quizBankMode;},setMode(mode){return setQuizBankMode(mode);}};
+function setSpecQuizMode(mode){
+  if(SPEC.id==='oph'||!['mcq','written'].includes(mode))return false;
+  window.OphStudy?.leave?.();
+  specQuizMode=mode;
+  if(mode==='written')window.OphWritten?.ensureLoaded?.(SPEC.id);
+  if(S.tab!=='quiz')switchTab('quiz');else render();
+  return true;
+}
+window.OphQuizBank={getMode(){return SPEC.id==='oph'?quizBankMode:specQuizMode;},setMode(mode){return SPEC.id==='oph'?setQuizBankMode(mode):setSpecQuizMode(mode);},setWritten(){return SPEC.id==='oph'?setQuizBankMode('written'):setSpecQuizMode('written');}};
 
 function quizAdvPool(mode=quizBankMode){
   if(mode==='bcsc')return quizAdvBcscCandidates();
@@ -420,7 +430,8 @@ function quizBankSwitcherMarkup(){
     ['bcsc','BCSC 第 1–13 卷（540 題）','AAO BCSC 二至三階臨床推理 · 四選項條件反轉'],
     ['hard','Hard｜多步臨床推理與限時模考','衝突線索、檢查限制與治療先後（144 題）'],
     ['extra','自編陌生病例（120 題）','跨卷臨床情境題'],
-    ['all-advanced','進階題庫全混合（804 題）','BCSC 540 題 + Hard 144 題 + 自編陌生病例 120 題一次刷']
+    ['all-advanced','進階題庫全混合（804 題）','BCSC 540 題 + Hard 144 題 + 自編陌生病例 120 題一次刷'],
+    ['written','手寫問答題（含手寫板＋答案）','全章節＋BCSC 1–13＋Hard 申論手寫與文字作答']
   ];
   return `<nav class="quiz-bank-switcher" data-quiz-bank-switcher aria-label="筆試題庫切換">${items.map(([id,title,sub])=>{const on=quizBankMode===id;return `<button type="button" class="quiz-bank-btn${on?' is-active':''}" data-action="quiz-bank" data-value="${id}" data-quiz-bank="${id}" aria-pressed="${on}"><strong>${esc(title)}</strong><span>${esc(sub)}</span></button>`;}).join('')}</nav>`;
 }
@@ -428,7 +439,7 @@ function quizCoreAdvBannerMarkup(){
   if(SPEC.id!=='oph')return '';
   const st=stats(),bSt=quizAdvStatsFor('bcsc'),hSt=quizAdvStatsFor('hard'),eSt=quizAdvStatsFor('extra');
   const doneCore=st.answered>=500;
-  return `<section class="card quiz-adv-banner${doneCore?' is-complete':''}" data-quiz-adv-banner aria-label="進階題庫直通車"><div class="quiz-adv-banner-body"><div><p class="eyebrow">${doneCore?`基礎題庫已完成 ${st.answered} / ${D.questions.length} 題 · 進階挑戰`:'進階題庫直通車 · 免離開筆試練習'}</p><h2>${doneCore?'恭喜刷完基礎題庫！立即進入 BCSC 540 題與 Hard 多步臨床推理':'隨時切換 BCSC 第 1–13 卷、Hard 多步推理與自編陌生病例'}</h2><p class="small">BCSC 1–13 卷已練 ${bSt.answered} / ${bSt.total} 題 · Hard 多步推理已練 ${hSt.answered} / ${hSt.total} 題 · 自編陌生病例已練 ${eSt.answered} / ${eSt.total} 題</p></div><div class="quiz-adv-banner-actions">${btn('練 BCSC 540 題','quiz-bank','bcsc','primary small')}${btn('練 Hard 多步推理','quiz-bank','hard','small')}${btn('練自編陌生病例 120 題','quiz-bank','extra','small')}${btn('進階 804 題全混合','quiz-bank','all-advanced','small subtle')}</div></div></section>`;
+  return `<section class="card quiz-adv-banner${doneCore?' is-complete':''}" data-quiz-adv-banner aria-label="進階題庫直通車"><div class="quiz-adv-banner-body"><div><p class="eyebrow">${doneCore?`基礎題庫已完成 ${st.answered} / ${D.questions.length} 題 · 進階挑戰`:'進階題庫直通車 · 免離開筆試練習'}</p><h2>${doneCore?'恭喜刷完基礎題庫！立即進入 BCSC 540 題與 Hard 多步臨床推理':'隨時切換 BCSC 第 1–13 卷、Hard 多步推理與自編陌生病例'}</h2><p class="small">BCSC 1–13 卷已練 ${bSt.answered} / ${bSt.total} 題 · Hard 多步推理已練 ${hSt.answered} / ${hSt.total} 題 · 自編陌生病例已練 ${eSt.answered} / ${eSt.total} 題</p></div><div class="quiz-adv-banner-actions">${btn('練 BCSC 540 題','quiz-bank','bcsc','primary small')}${btn('練 Hard 多步推理','quiz-bank','hard','small')}${btn('練自編陌生病例 120 題','quiz-bank','extra','small')}${btn('練手寫問答題','quiz-bank','written','small')}${btn('進階 804 題全混合','quiz-bank','all-advanced','small subtle')}</div></div></section>`;
 }
 function quizAdvPdfBadge(q){
   const refs=q.sourceRefs||[];
@@ -527,8 +538,25 @@ function quizAdvPageMarkup(){
   }
   return head+quizBankSwitcherMarkup()+hardHero+toolbar+`<div id="quizList" class="quiz-adv-list" data-quiz-adv-list>${listHtml}</div>`;
 }
+function specQuizModeBarMarkup(){
+  if(SPEC.id==='oph')return '';
+  const items=[['mcq',`單選題練習（${D.questions.length} 題）`],['written','手寫問答題（手寫板＋文字作答＋標準答案）']];
+  return `<div class="quiz-spec-modes" data-spec-quiz-mode role="group" aria-label="筆試題型切換">${items.map(([id,lbl])=>`<button type="button" class="btn small ${specQuizMode===id?'primary':'subtle'}" data-action="spec-quiz-mode" data-value="${id}" aria-pressed="${specQuizMode===id}">${esc(lbl)}</button>`).join('')}</div>`;
+}
 function quizPage(){
-  if(SPEC.id!=='oph')return quiz();
+  if(SPEC.id!=='oph'){
+    if(specQuizMode==='written'){
+      const head=heading('01 / WRITTEN Q&A','手寫問答題（手寫板＋文字作答＋標準答案）','支援 Apple Pencil／觸控手寫板與文字作答，逐題核對必寫得分要點並排入間隔複習。','');
+      return head+specQuizModeBarMarkup()+(window.OphWritten?.quizBankHtml?.(SPEC.id)||`<section class="card card-pad" data-written-slot="quiz" data-spec-id="${esc(SPEC.id)}"></section>`);
+    }
+    const base=quiz();
+    const idx=base.indexOf('<div class="grid">');
+    return idx<0?base+specQuizModeBarMarkup():base.slice(0,idx)+specQuizModeBarMarkup()+base.slice(idx);
+  }
+  if(quizBankMode==='written'){
+    const head=heading('WRITTEN Q&A / INK & TEXT','手寫問答題（手寫板＋文字作答＋標準答案）','全章節必考簡答、BCSC 1–13 卷推導與 Hard 臨床申論；支援 Apple Pencil／觸控手寫板與文字作答，附標準答案與得分點 Checklist。','');
+    return head+quizBankSwitcherMarkup()+(window.OphWritten?.quizBankHtml?.('oph')||'<section class="card card-pad" data-written-slot="quiz"></section>');
+  }
   if(quizBankMode!=='core')return quizAdvPageMarkup();
   const base=quiz();
   const splitIdx=base.indexOf('<div class="grid">');
@@ -588,11 +616,15 @@ function todayPlanLine(){
 function todayReview(){
   if(!tabAllowed('study')||(SPEC.id!=='oph'&&!D.questions.length))return '';
   const now=quizAdvClockNow(),today=taipeiDate(now),st=stats(),bank=new Set(D.questions.map(q=>q.id)),kaogu=new Set(D.questions.filter(q=>q.pastExam).map(q=>q.id));
+  const wItems=window.OphWritten?.getItems?.(SPEC.id)||[];
+  if(!wItems.length)window.OphWritten?.ensureLoaded?.(SPEC.id);
+  const wBank=new Set(wItems.map(x=>x.id));
   let due=0,later=0,weak=0,totalSrs=0;
-  const dueBy={notes:0,kaogu:0,book:0,hard:0,extra:0,cram:0,atlas:0};
+  const dueBy={notes:0,kaogu:0,book:0,hard:0,extra:0,cram:0,atlas:0,written:0};
   for(const [k,v] of Object.entries(entries)){
     if(!k.startsWith('study:srs:')||!v||typeof v!=='object')continue;
-    if(SPEC.id!=='oph'&&!k.startsWith('study:srs:shared:'))continue;
+    const wid=k.startsWith('study:srs:written:')?k.slice(18):'';
+    if(SPEC.id!=='oph'&&!k.startsWith('study:srs:shared:')&&!(wid&&(wBank.size?wBank.has(wid):wid.startsWith(SPEC.id+'-wq-'))))continue;
     if(k.startsWith('study:srs:shared:')&&!bank.has(k.slice(17)))continue;// saved review for a question no longer in the bank
     totalSrs++;
     const at=Date.parse(v.plan?.dueAt),isDue=Number.isFinite(at)&&at<=now;
@@ -604,9 +636,10 @@ function todayReview(){
       else if(k.startsWith('study:srs:extra:'))dueBy[/^extra-20261022-/.test(k.slice(16))?'hard':'extra']++;
       else if(k.startsWith('study:srs:cram:'))dueBy.cram++;
       else if(k.startsWith('study:srs:atlas:'))dueBy.atlas++;
+      else if(k.startsWith('study:srs:written:'))dueBy.written++;
     }
   }
-  const bankParts=[['共筆自編',dueBy.notes],['考古考點',dueBy.kaogu],['BCSC 原書',dueBy.book],['Hard 推理',dueBy.hard],['陌生病例',dueBy.extra],['衝刺卡',dueBy.cram],['視覺圖譜',dueBy.atlas]].filter(([,n])=>n>0).map(([lbl,n])=>`${lbl} ${n}`);
+  const bankParts=[['共筆自編',dueBy.notes],['考古考點',dueBy.kaogu],['BCSC 原書',dueBy.book],['Hard 推理',dueBy.hard],['陌生病例',dueBy.extra],['衝刺卡',dueBy.cram],['視覺圖譜',dueBy.atlas],['手寫問答',dueBy.written]].filter(([,n])=>n>0).map(([lbl,n])=>`${lbl} ${n}`);
   const bankLine=SPEC.id==='oph'&&totalSrs>0?`<p class="small today-srs-banks" data-today-srs-banks>${bankParts.length?'到期分佈：'+bankParts.join(' · '):`已建立 ${totalSrs} 筆跨題庫間隔複習排程`}</p>`:'';
   return `<section class="card today-review" aria-labelledby="today-review-title"><div class="today-card-head"><h2 id="today-review-title">今日複習</h2><span class="small">台北時間</span></div><div class="today-counts"><div><span>現在到期</span><strong>${due}</strong></div><div><span>今日稍後</span><strong>${later}</strong></div><div><span>弱項</span><strong>${weak}</strong></div></div>${bankLine}<p class="today-note">${due?`有 ${due} 題到期：先清掉，再練新題。`:'目前沒有到期題目，可以先練新題或錯題。'}</p><div class="today-actions">${btn(due?'開始今日複習':'打開複習清單','tab','study','primary')}${st.wrong?btn('錯題再練 '+st.wrong,'wrong'):btn('從新題開始','today-new')}</div>${todayPlanLine()}</section>`;
 }
@@ -619,7 +652,7 @@ function todayReading(){
 function todayQuiz(){
   if(!D.questions.length)return '';
   const cur=question(),q=cur||D.questions[0],st=stats();
-  const advLinks=SPEC.id==='oph'?`<div class="today-quiz-banks" data-today-quiz-banks aria-label="進階題庫快速啟動">${btn('BCSC 1–13 卷（540 題）','quiz-bank-open','bcsc','small subtle')}${btn('Hard 多步臨床推理','quiz-bank-open','hard','small subtle')}${btn('自編陌生病例（120 題）','quiz-bank-open','extra','small subtle')}</div>`:'';
+  const advLinks=SPEC.id==='oph'?`<div class="today-quiz-banks" data-today-quiz-banks aria-label="進階題庫快速啟動">${btn('BCSC 1–13 卷（540 題）','quiz-bank-open','bcsc','small subtle')}${btn('Hard 多步臨床推理','quiz-bank-open','hard','small subtle')}${btn('自編陌生病例（120 題）','quiz-bank-open','extra','small subtle')}${btn('手寫問答題','quiz-bank-open','written','small subtle')}</div>`:`<div class="today-quiz-banks" data-today-spec-written aria-label="手寫問答題快速啟動">${btn('手寫問答題','spec-quiz-mode','written','small subtle')}</div>`;
   return `<article class="card home-card"><p class="today-kicker">${cur?`繼續筆試 · 第 ${S.qi+1} / ${S.ids.length} 題`:'筆試練習'}</p><h3>${esc(shortTitle(q.topicId))}</h3><p class="today-summary clamp">${esc(q.stem)}</p><p class="small">已練習 ${st.answered} / ${D.questions.length} · 待補強 ${st.wrong}</p><div class="today-actions">${cur?btn('繼續作答','today-core-quiz','continue','primary'):btn('開始練習','all','','primary')}${btn('換主題','today-core-quiz','topic')}</div>${advLinks}</article>`;
 }
 function todayInterview(){

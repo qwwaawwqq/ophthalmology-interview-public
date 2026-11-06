@@ -538,6 +538,8 @@ footer span:first-child{max-width:70ch}
 <link rel="stylesheet" href="scripts/layout.css?v=20261102">
 <link rel="stylesheet" href="scripts/cram-review.css?v=20261016">
 <script defer src="scripts/cram-review.js?v=20261103"></script>
+<link rel="stylesheet" href="scripts/written-qa.css">
+<script src="scripts/written-qa.js" defer></script>
 <link rel="stylesheet" href="scripts/textbook-depth.css?v=volume-atlas-20261028">
 <link rel="stylesheet" href="scripts/textbook-atlas.css?v=volume-atlas-20261028">
 <script src="scripts/textbook-atlas.js?v=volume-atlas-20261028" defer></script>
@@ -672,8 +674,9 @@ function layoutAction(a,v,b){
   if(a==='spec-toggle'){specState.open=!specState.open;specState.tab=S.tab;$('#nav').innerHTML=navMarkup();if(specState.open)document.getElementById('spec-filter')?.focus?.();return true;}
   if(a==='top-menu'){setTopMenu(!$('.topbar')?.classList.contains('menu-open'));return true;}
   if(a==='more-toggle'){const rail=$('.rail'),open=!rail.classList.contains('nav-open');rail.classList.toggle('nav-open',open);$('#nav-toggle').setAttribute('aria-expanded',String(open));b?.setAttribute?.('aria-expanded',String(open));return true;}
-  if(a==='today-new'){quizBankMode='core';quizAdvFeedbackIds.clear();startQuiz('all','new');return true;}
-  if(a==='today-core-quiz'){quizBankMode='core';quizAdvFeedbackIds.clear();switchTab('quiz');return true;}
+  if(a==='today-new'){quizBankMode='core';specQuizMode='mcq';quizAdvFeedbackIds.clear();startQuiz('all','new');return true;}
+  if(a==='today-core-quiz'){quizBankMode='core';specQuizMode='mcq';quizAdvFeedbackIds.clear();switchTab('quiz');return true;}
+  if(a==='spec-quiz-mode')return setSpecQuizMode(v);
   if(a==='quiz-bank'||a==='quiz-bank-open'){return setQuizBankMode(v);}
   if(a==='quiz-adv-answer'){return handleQuizAdvAnswer(v);}
   if(a==='quiz-adv-reveal'){const q=quizAdvFindQuestion(v);if(q)window.OphStudy?.clearCard?.(q.bankKind==='bcsc'||/^bcsc-s/.test(q.id)?'book':'extra',q.id);quizAdvFeedbackIds.add(v);quizAdvRevealed.add(v);render();return true;}
@@ -733,7 +736,7 @@ document.addEventListener('submit',e=>{
 });
 
 /* Advanced Question Banks in #quiz (Issue #148 / #180): BCSC S01-S13 (540), Hard Clinical Reasoning (144), Extra Cases (120) */
-const QUIZ_BANK_MODES=['core','bcsc','hard','extra','all-advanced'];
+const QUIZ_BANK_MODES=['core','bcsc','hard','extra','all-advanced','written'];
 const BCSC_VOLUMES=[
   ['bcsc-s01','S01','Update on General Medicine'],
   ['bcsc-s02','S02','Fundamentals & Principles'],
@@ -759,7 +762,7 @@ const HARD_DOMAINS=[
   ['orbit-trauma','眼眶與外傷'],
   ['diagnostics-systemic','診斷與全身病']
 ];
-let quizBankMode='core',quizAdvVolume='all',quizAdvDomain='all',quizAdvStatus='all',quizAdvSearch='',quizAdvLimit=25,quizAdvSeed=0,quizAdvStudyHooked=false;
+let quizBankMode='core',specQuizMode='mcq',quizAdvVolume='all',quizAdvDomain='all',quizAdvStatus='all',quizAdvSearch='',quizAdvLimit=25,quizAdvSeed=0,quizAdvStudyHooked=false;
 const quizAdvFeedbackIds=new Set(),quizAdvRevealed=new Set();
 const quizAdvCache={bcscManifest:null,bcscState:'idle',bcscByVol:Object.create(null),bcscVolState:Object.create(null),hard:null,hardState:'idle',extra:null,extraState:'idle'};
 
@@ -790,7 +793,7 @@ function ensureQuizAdvStudyHook(){
     const origRefresh=window.OphStudyBridge.refresh?.bind(window.OphStudyBridge);
     window.OphStudyBridge.refresh=function(pool){
       if(typeof origRefresh==='function')origRefresh(pool);
-      if(SPEC.id==='oph'&&S.tab==='quiz'&&quizBankMode!=='core'&&(pool==='book'||pool==='extra'))render();
+      if(S.tab==='quiz'&&((SPEC.id==='oph'&&quizBankMode!=='core'&&(pool==='book'||pool==='extra'||pool==='written'))||(SPEC.id!=='oph'&&specQuizMode==='written'&&pool==='written')))render();
     };
     window.OphStudyBridge.__quizAdvWrapped=true;
   }
@@ -891,11 +894,20 @@ function setQuizBankMode(mode){
   if(SPEC.id!=='oph'||!QUIZ_BANK_MODES.includes(mode))return false;
   window.OphStudy?.leave?.();
   quizBankMode=mode;quizAdvLimit=25;quizAdvFeedbackIds.clear();
-  if(mode!=='core')ensureQuizAdvLoaded(mode);
+  if(mode==='written')window.OphWritten?.ensureLoaded?.('oph');
+  else if(mode!=='core')ensureQuizAdvLoaded(mode);
   if(S.tab!=='quiz')switchTab('quiz');else render();
   return true;
 }
-window.OphQuizBank={getMode(){return quizBankMode;},setMode(mode){return setQuizBankMode(mode);}};
+function setSpecQuizMode(mode){
+  if(SPEC.id==='oph'||!['mcq','written'].includes(mode))return false;
+  window.OphStudy?.leave?.();
+  specQuizMode=mode;
+  if(mode==='written')window.OphWritten?.ensureLoaded?.(SPEC.id);
+  if(S.tab!=='quiz')switchTab('quiz');else render();
+  return true;
+}
+window.OphQuizBank={getMode(){return SPEC.id==='oph'?quizBankMode:specQuizMode;},setMode(mode){return SPEC.id==='oph'?setQuizBankMode(mode):setSpecQuizMode(mode);},setWritten(){return SPEC.id==='oph'?setQuizBankMode('written'):setSpecQuizMode('written');}};
 
 function quizAdvPool(mode=quizBankMode){
   if(mode==='bcsc')return quizAdvBcscCandidates();
@@ -1002,7 +1014,8 @@ function quizBankSwitcherMarkup(){
     ['bcsc','BCSC 第 1–13 卷（540 題）','AAO BCSC 二至三階臨床推理 · 四選項條件反轉'],
     ['hard','Hard｜多步臨床推理與限時模考','衝突線索、檢查限制與治療先後（144 題）'],
     ['extra','自編陌生病例（120 題）','跨卷臨床情境題'],
-    ['all-advanced','進階題庫全混合（804 題）','BCSC 540 題 + Hard 144 題 + 自編陌生病例 120 題一次刷']
+    ['all-advanced','進階題庫全混合（804 題）','BCSC 540 題 + Hard 144 題 + 自編陌生病例 120 題一次刷'],
+    ['written','手寫問答題（含手寫板＋答案）','全章節＋BCSC 1–13＋Hard 申論手寫與文字作答']
   ];
   return `<nav class="quiz-bank-switcher" data-quiz-bank-switcher aria-label="筆試題庫切換">${items.map(([id,title,sub])=>{const on=quizBankMode===id;return `<button type="button" class="quiz-bank-btn${on?' is-active':''}" data-action="quiz-bank" data-value="${id}" data-quiz-bank="${id}" aria-pressed="${on}"><strong>${esc(title)}</strong><span>${esc(sub)}</span></button>`;}).join('')}</nav>`;
 }
@@ -1010,7 +1023,7 @@ function quizCoreAdvBannerMarkup(){
   if(SPEC.id!=='oph')return '';
   const st=stats(),bSt=quizAdvStatsFor('bcsc'),hSt=quizAdvStatsFor('hard'),eSt=quizAdvStatsFor('extra');
   const doneCore=st.answered>=500;
-  return `<section class="card quiz-adv-banner${doneCore?' is-complete':''}" data-quiz-adv-banner aria-label="進階題庫直通車"><div class="quiz-adv-banner-body"><div><p class="eyebrow">${doneCore?`基礎題庫已完成 ${st.answered} / ${D.questions.length} 題 · 進階挑戰`:'進階題庫直通車 · 免離開筆試練習'}</p><h2>${doneCore?'恭喜刷完基礎題庫！立即進入 BCSC 540 題與 Hard 多步臨床推理':'隨時切換 BCSC 第 1–13 卷、Hard 多步推理與自編陌生病例'}</h2><p class="small">BCSC 1–13 卷已練 ${bSt.answered} / ${bSt.total} 題 · Hard 多步推理已練 ${hSt.answered} / ${hSt.total} 題 · 自編陌生病例已練 ${eSt.answered} / ${eSt.total} 題</p></div><div class="quiz-adv-banner-actions">${btn('練 BCSC 540 題','quiz-bank','bcsc','primary small')}${btn('練 Hard 多步推理','quiz-bank','hard','small')}${btn('練自編陌生病例 120 題','quiz-bank','extra','small')}${btn('進階 804 題全混合','quiz-bank','all-advanced','small subtle')}</div></div></section>`;
+  return `<section class="card quiz-adv-banner${doneCore?' is-complete':''}" data-quiz-adv-banner aria-label="進階題庫直通車"><div class="quiz-adv-banner-body"><div><p class="eyebrow">${doneCore?`基礎題庫已完成 ${st.answered} / ${D.questions.length} 題 · 進階挑戰`:'進階題庫直通車 · 免離開筆試練習'}</p><h2>${doneCore?'恭喜刷完基礎題庫！立即進入 BCSC 540 題與 Hard 多步臨床推理':'隨時切換 BCSC 第 1–13 卷、Hard 多步推理與自編陌生病例'}</h2><p class="small">BCSC 1–13 卷已練 ${bSt.answered} / ${bSt.total} 題 · Hard 多步推理已練 ${hSt.answered} / ${hSt.total} 題 · 自編陌生病例已練 ${eSt.answered} / ${eSt.total} 題</p></div><div class="quiz-adv-banner-actions">${btn('練 BCSC 540 題','quiz-bank','bcsc','primary small')}${btn('練 Hard 多步推理','quiz-bank','hard','small')}${btn('練自編陌生病例 120 題','quiz-bank','extra','small')}${btn('練手寫問答題','quiz-bank','written','small')}${btn('進階 804 題全混合','quiz-bank','all-advanced','small subtle')}</div></div></section>`;
 }
 function quizAdvPdfBadge(q){
   const refs=q.sourceRefs||[];
@@ -1109,8 +1122,25 @@ function quizAdvPageMarkup(){
   }
   return head+quizBankSwitcherMarkup()+hardHero+toolbar+`<div id="quizList" class="quiz-adv-list" data-quiz-adv-list>${listHtml}</div>`;
 }
+function specQuizModeBarMarkup(){
+  if(SPEC.id==='oph')return '';
+  const items=[['mcq',`單選題練習（${D.questions.length} 題）`],['written','手寫問答題（手寫板＋文字作答＋標準答案）']];
+  return `<div class="quiz-spec-modes" data-spec-quiz-mode role="group" aria-label="筆試題型切換">${items.map(([id,lbl])=>`<button type="button" class="btn small ${specQuizMode===id?'primary':'subtle'}" data-action="spec-quiz-mode" data-value="${id}" aria-pressed="${specQuizMode===id}">${esc(lbl)}</button>`).join('')}</div>`;
+}
 function quizPage(){
-  if(SPEC.id!=='oph')return quiz();
+  if(SPEC.id!=='oph'){
+    if(specQuizMode==='written'){
+      const head=heading('01 / WRITTEN Q&A','手寫問答題（手寫板＋文字作答＋標準答案）','支援 Apple Pencil／觸控手寫板與文字作答，逐題核對必寫得分要點並排入間隔複習。','');
+      return head+specQuizModeBarMarkup()+(window.OphWritten?.quizBankHtml?.(SPEC.id)||`<section class="card card-pad" data-written-slot="quiz" data-spec-id="${esc(SPEC.id)}"></section>`);
+    }
+    const base=quiz();
+    const idx=base.indexOf('<div class="grid">');
+    return idx<0?base+specQuizModeBarMarkup():base.slice(0,idx)+specQuizModeBarMarkup()+base.slice(idx);
+  }
+  if(quizBankMode==='written'){
+    const head=heading('WRITTEN Q&A / INK & TEXT','手寫問答題（手寫板＋文字作答＋標準答案）','全章節必考簡答、BCSC 1–13 卷推導與 Hard 臨床申論；支援 Apple Pencil／觸控手寫板與文字作答，附標準答案與得分點 Checklist。','');
+    return head+quizBankSwitcherMarkup()+(window.OphWritten?.quizBankHtml?.('oph')||'<section class="card card-pad" data-written-slot="quiz"></section>');
+  }
   if(quizBankMode!=='core')return quizAdvPageMarkup();
   const base=quiz();
   const splitIdx=base.indexOf('<div class="grid">');
@@ -1170,11 +1200,15 @@ function todayPlanLine(){
 function todayReview(){
   if(!tabAllowed('study')||(SPEC.id!=='oph'&&!D.questions.length))return '';
   const now=quizAdvClockNow(),today=taipeiDate(now),st=stats(),bank=new Set(D.questions.map(q=>q.id)),kaogu=new Set(D.questions.filter(q=>q.pastExam).map(q=>q.id));
+  const wItems=window.OphWritten?.getItems?.(SPEC.id)||[];
+  if(!wItems.length)window.OphWritten?.ensureLoaded?.(SPEC.id);
+  const wBank=new Set(wItems.map(x=>x.id));
   let due=0,later=0,weak=0,totalSrs=0;
-  const dueBy={notes:0,kaogu:0,book:0,hard:0,extra:0,cram:0,atlas:0};
+  const dueBy={notes:0,kaogu:0,book:0,hard:0,extra:0,cram:0,atlas:0,written:0};
   for(const [k,v] of Object.entries(entries)){
     if(!k.startsWith('study:srs:')||!v||typeof v!=='object')continue;
-    if(SPEC.id!=='oph'&&!k.startsWith('study:srs:shared:'))continue;
+    const wid=k.startsWith('study:srs:written:')?k.slice(18):'';
+    if(SPEC.id!=='oph'&&!k.startsWith('study:srs:shared:')&&!(wid&&(wBank.size?wBank.has(wid):wid.startsWith(SPEC.id+'-wq-'))))continue;
     if(k.startsWith('study:srs:shared:')&&!bank.has(k.slice(17)))continue;// saved review for a question no longer in the bank
     totalSrs++;
     const at=Date.parse(v.plan?.dueAt),isDue=Number.isFinite(at)&&at<=now;
@@ -1186,9 +1220,10 @@ function todayReview(){
       else if(k.startsWith('study:srs:extra:'))dueBy[/^extra-20261022-/.test(k.slice(16))?'hard':'extra']++;
       else if(k.startsWith('study:srs:cram:'))dueBy.cram++;
       else if(k.startsWith('study:srs:atlas:'))dueBy.atlas++;
+      else if(k.startsWith('study:srs:written:'))dueBy.written++;
     }
   }
-  const bankParts=[['共筆自編',dueBy.notes],['考古考點',dueBy.kaogu],['BCSC 原書',dueBy.book],['Hard 推理',dueBy.hard],['陌生病例',dueBy.extra],['衝刺卡',dueBy.cram],['視覺圖譜',dueBy.atlas]].filter(([,n])=>n>0).map(([lbl,n])=>`${lbl} ${n}`);
+  const bankParts=[['共筆自編',dueBy.notes],['考古考點',dueBy.kaogu],['BCSC 原書',dueBy.book],['Hard 推理',dueBy.hard],['陌生病例',dueBy.extra],['衝刺卡',dueBy.cram],['視覺圖譜',dueBy.atlas],['手寫問答',dueBy.written]].filter(([,n])=>n>0).map(([lbl,n])=>`${lbl} ${n}`);
   const bankLine=SPEC.id==='oph'&&totalSrs>0?`<p class="small today-srs-banks" data-today-srs-banks>${bankParts.length?'到期分佈：'+bankParts.join(' · '):`已建立 ${totalSrs} 筆跨題庫間隔複習排程`}</p>`:'';
   return `<section class="card today-review" aria-labelledby="today-review-title"><div class="today-card-head"><h2 id="today-review-title">今日複習</h2><span class="small">台北時間</span></div><div class="today-counts"><div><span>現在到期</span><strong>${due}</strong></div><div><span>今日稍後</span><strong>${later}</strong></div><div><span>弱項</span><strong>${weak}</strong></div></div>${bankLine}<p class="today-note">${due?`有 ${due} 題到期：先清掉，再練新題。`:'目前沒有到期題目，可以先練新題或錯題。'}</p><div class="today-actions">${btn(due?'開始今日複習':'打開複習清單','tab','study','primary')}${st.wrong?btn('錯題再練 '+st.wrong,'wrong'):btn('從新題開始','today-new')}</div>${todayPlanLine()}</section>`;
 }
@@ -1201,7 +1236,7 @@ function todayReading(){
 function todayQuiz(){
   if(!D.questions.length)return '';
   const cur=question(),q=cur||D.questions[0],st=stats();
-  const advLinks=SPEC.id==='oph'?`<div class="today-quiz-banks" data-today-quiz-banks aria-label="進階題庫快速啟動">${btn('BCSC 1–13 卷（540 題）','quiz-bank-open','bcsc','small subtle')}${btn('Hard 多步臨床推理','quiz-bank-open','hard','small subtle')}${btn('自編陌生病例（120 題）','quiz-bank-open','extra','small subtle')}</div>`:'';
+  const advLinks=SPEC.id==='oph'?`<div class="today-quiz-banks" data-today-quiz-banks aria-label="進階題庫快速啟動">${btn('BCSC 1–13 卷（540 題）','quiz-bank-open','bcsc','small subtle')}${btn('Hard 多步臨床推理','quiz-bank-open','hard','small subtle')}${btn('自編陌生病例（120 題）','quiz-bank-open','extra','small subtle')}${btn('手寫問答題','quiz-bank-open','written','small subtle')}</div>`:`<div class="today-quiz-banks" data-today-spec-written aria-label="手寫問答題快速啟動">${btn('手寫問答題','spec-quiz-mode','written','small subtle')}</div>`;
   return `<article class="card home-card"><p class="today-kicker">${cur?`繼續筆試 · 第 ${S.qi+1} / ${S.ids.length} 題`:'筆試練習'}</p><h3>${esc(shortTitle(q.topicId))}</h3><p class="today-summary clamp">${esc(q.stem)}</p><p class="small">已練習 ${st.answered} / ${D.questions.length} · 待補強 ${st.wrong}</p><div class="today-actions">${cur?btn('繼續作答','today-core-quiz','continue','primary'):btn('開始練習','all','','primary')}${btn('換主題','today-core-quiz','topic')}</div>${advLinks}</article>`;
 }
 function todayInterview(){
@@ -1238,7 +1273,7 @@ function stats(){const qs=D.questions.filter(q=>entries['q:'+q.id]);return {answ
 function heading(k,title,sub,right=''){return `<div class="heading"><div><h1>${title}</h1><p class="subtitle">${sub}</p></div>${right}</div>`;}
 function switchTab(tab){if(!navs.some(n=>n[0]===tab)||!tabAllowed(tab))return;$('.rail').classList.remove('nav-open');$('#nav-toggle').setAttribute('aria-expanded','false');if(tab!=='interview'&&S.deadline)pauseTimer();S.tab=tab;render();window.scrollTo({top:0,behavior:'instant'});$('#main').focus({preventScroll:true});}
 function question(){return D.questions.find(q=>q.id===S.ids[S.qi]);}
-function startQuiz(topic='all',mode='all',first=null){window.OphStudy?.leave();S.topic=topic;S.mode=mode;S.ids=D.questions.filter(q=>(topic==='all'||q.topicId===topic||mergedInto(q.topicId)===topic)&&(mode==='all'||(mode==='new'&&!entries['q:'+q.id])||(mode==='safety'&&q.safety)||(mode==='reserve'&&q.reserve)||(mode==='kaogu'&&q.pastExam)||(mode==='wrong'&&entries['q:'+q.id]&&!entries['q:'+q.id].correct)||(mode==='due'&&srsDueNow(entries['study:srs:shared:'+q.id]))||(mode==='srs-weak'&&srsWeakEntry(entries['study:srs:shared:'+q.id]))||(mode==='uncertain'&&entries['q:'+q.id]&&meta['q:'+q.id]?.confidence===1))).sort((a,b)=>(a.topicId!==topic)-(b.topicId!==topic)).map(q=>q.id);S.qi=Math.max(0,first?S.ids.indexOf(first):0);S.selected=null;S.confidence=0;S.round=Object.create(null);quizBankMode='core';switchTab('quiz');}
+function startQuiz(topic='all',mode='all',first=null){window.OphStudy?.leave();S.topic=topic;S.mode=mode;S.ids=D.questions.filter(q=>(topic==='all'||q.topicId===topic||mergedInto(q.topicId)===topic)&&(mode==='all'||(mode==='new'&&!entries['q:'+q.id])||(mode==='safety'&&q.safety)||(mode==='reserve'&&q.reserve)||(mode==='kaogu'&&q.pastExam)||(mode==='wrong'&&entries['q:'+q.id]&&!entries['q:'+q.id].correct)||(mode==='due'&&srsDueNow(entries['study:srs:shared:'+q.id]))||(mode==='srs-weak'&&srsWeakEntry(entries['study:srs:shared:'+q.id]))||(mode==='uncertain'&&entries['q:'+q.id]&&meta['q:'+q.id]?.confidence===1))).sort((a,b)=>(a.topicId!==topic)-(b.topicId!==topic)).map(q=>q.id);S.qi=Math.max(0,first?S.ids.indexOf(first):0);S.selected=null;S.confidence=0;S.round=Object.create(null);quizBankMode='core';specQuizMode='mcq';switchTab('quiz');}
 function moveQuestion(n){window.OphStudy?.leave();S.qi=Math.max(0,Math.min(S.ids.length-1,n));S.selected=null;S.confidence=0;render();$('.question-stem')?.focus({preventScroll:true});}
 function quiz(){if(!D.questions.length)return heading('01 / WRITTEN PRACTICE','筆試練習','先說出你的判斷，再用解析找出下一個要補強的概念。')+pendingCard('筆試練習');const st=stats(),q=question(),response=q?S.round[q.id]:null;const answered=response!==undefined&&response!==null;const topicOptions=orderedTopics().map(t=>`<option value="${t.id}" ${S.topic===t.id?'selected':''}>${t.chapter?(SPEC.id==='oph'?'共筆 ':'第 ')+String(t.chapter).padStart(2,'0')+(SPEC.id==='oph'?' · ':' 章 · '):'重點 · '}${esc(shortTitle(t.id))}</option>`).join('');
 return heading('01 / WRITTEN PRACTICE',S.mode==='wrong'?'錯題再練':S.mode==='uncertain'?'不確定題再練':S.mode==='due'?'到期複習':S.mode==='srs-weak'?'SRS 弱項再練':'筆試練習','先說出你的判斷，再用解析找出下一個要補強的概念。',`<div class="heading-stat"><strong>${st.answered}<i> / ${D.questions.length}</i></strong><span>題已練習<br>${st.wrong} 題待補強</span></div>`)+`<div class="grid"><section><div class="toolbar quiz-toolbar"><label class="small" for="topic-filter">主題</label><select class="select" id="topic-filter"><option value="all">全部主題</option>${topicOptions}</select><select class="select" id="mode-filter" aria-label="練習題目範圍"><option value="all" ${S.mode==='all'?'selected':''}>全部題目</option><option value="new" ${S.mode==='new'?'selected':''}>尚未作答</option><option value="safety" ${S.mode==='safety'?'selected':''}>急症與安全題</option><option value="reserve" ${S.mode==='reserve'?'selected':''}>進階保留題</option><option value="kaogu" ${S.mode==='kaogu'?'selected':''}>考古題考點</option><option value="wrong" ${S.mode==='wrong'?'selected':''}>只練錯題</option><option value="uncertain" ${S.mode==='uncertain'?'selected':''}>不確定的題目</option><option value="due" ${S.mode==='due'?'selected':''}>到期複習（SRS）</option><option value="srs-weak" ${S.mode==='srs-weak'?'selected':''}>SRS 弱項</option></select></div>${q?`<article class="card question-card"><div class="question-progress" aria-hidden="true"><span style="width:${S.ids.filter(id=>S.round[id]).length/S.ids.length*100}%"></span></div><div class="question-top"><span class="tag">${esc(shortTitle(q.topicId))}</span><span>${q.sourceId?esc(q.sourceId)+' · ':''}第 ${String(S.qi+1).padStart(2,'0')} 題 / ${String(S.ids.length).padStart(2,'0')}</span></div><div class="question-body"><h2 class="question-stem" tabindex="-1">${esc(q.stem)}</h2><fieldset class="options"><legend>請選擇一個答案</legend>${q.options.map((op,i)=>`<label class="option ${answered?(i===q.correctIndex?'correct':i===response.choice?'wrong':''):S.selected===i?'selected':''}"><input type="radio" name="answer" value="${i}" ${(answered?response.choice:S.selected)===i?'checked':''} ${answered?'disabled':''}><span class="letter">${'ABCD'[i]}</span><span class="option-text">${esc(op)}</span>${answered&&i===q.correctIndex?'<span class="option-status">✓ 正解</span>':answered&&i===response.choice?'<span class="option-status">你的答案</span>':''}</label>`).join('')}</fieldset>${!answered?`<fieldset class="confidence"><legend>這一題有多確定？</legend>${[[1,'還不確定'],[2,'有些把握'],[3,'很有把握']].map(([n,label])=>`<button class="chip" data-action="confidence" data-value="${n}" aria-pressed="${S.confidence===n}">${label}</button>`).join('')}</fieldset><div class="question-actions"><button class="btn primary" data-action="submit" ${S.selected===null?'disabled':''}>確認答案</button><span class="small">自編單選練習<br>非歷屆試題</span></div>`:feedback(q,response)+(window.OphStudy?.ratingHtml('shared',q.id)||'')}</div><div class="question-footer"><button class="btn subtle" data-action="prev" ${S.qi===0?'disabled':''}>上一題</button><span>${S.ids.filter(id=>S.round[id]).length} / ${S.ids.length} 本輪已答</span><button class="btn" data-action="${S.qi===S.ids.length-1?'finish':'next'}">${S.qi===S.ids.length-1?'本輪總結':'下一題'}</button></div></article>`:`<div class="card empty"><h2>目前沒有符合的題目</h2><p>${S.mode==='wrong'?'先完成一輪練習，錯題會出現在這裡。':S.mode==='uncertain'?'選擇「還不確定」後提交答案，就能在這裡再練一次。':S.mode==='due'?'目前沒有到期的複習題目；作答並評分熟悉度後，到期題會出現在這裡。':S.mode==='srs-weak'?'目前沒有 SRS 弱項（答錯、重來或微卡題目會出現在這裡）。':'這個主題可先從主動複習開始。'}</p>${btn('練習全部題目','all','','primary')}</div>`}</section><aside class="quiz-side"><div class="card side-card"><h3>本輪題目</h3><div class="q-grid">${S.ids.map((id,i)=>{const r=S.round[id];return `<button class="q-num ${i===S.qi?'current ':''}${r?(r.correct?'good':'bad'):''} ${r?.confidence===1?'uncertain':''}" data-action="jump" data-value="${i}" aria-label="第 ${i+1} 題${r?(r.correct?'，答對':'，待補強'):''}" ${i===S.qi?'aria-current="step"':''}>${i+1}</button>`;}).join('')}</div><div class="legend"><span>答對</span><span>待補強</span></div><p class="small" style="margin-top:14px">外框為目前題目；下方小點表示作答時不確定。</p></div><div class="card side-card"><h3>把一題練完整</h3><ol class="method-list"><li><div><strong>找出關鍵線索</strong><span>題目在問診斷、定位，還是優先處置？</span></div></li><li><div><strong>解釋你的選擇</strong><span>先想理由，再查看答案。</span></div></li><li><div><strong>留下一句修正</strong><span>把易錯點變成下次會記得的提醒。</span></div></li></ol></div><div class="card side-card today-card"><p class="eyebrow">TODAY’S FOCUS</p><h3>今天，完成一小步</h3><p>${esc(D.plan.find(p=>p.date===day)?.goals[0]||'重練一個錯題主題，再完成一輪面試口述。')}</p>${btn('查看每日計畫','tab','plan')}</div></aside></div>`;
@@ -1287,7 +1322,7 @@ function chapterExtras(t){if(!t.chapter)return '';const cmp=t.compare||[],cs=t.c
 function notebookIndex(){const out=[];for(const t of D.topics){const common={topicId:t.id,chapter:t.chapter||0};out.push({...common,type:'章節',title:t.title,body:t.summary,action:'learn-topic',target:t.id});t.sections.forEach((s,n)=>out.push({...common,type:'知識重點',title:s.title,body:s.points.join(' ')+' '+(s.recall||''),ref:s.ref,action:'learn-topic',target:t.id}));(t.compare||[]).forEach(x=>out.push({...common,type:'鑑別比較',title:x[0],body:x.slice(1).join(' '),action:'learn-topic',target:t.id}));(t.cases||[]).forEach((x,n)=>out.push({...common,type:'臨床口試',title:x.prompt,body:x.answer,ref:x.ref,action:'interview',target:t.id+'-case-'+(n+1)}));(t.images||[]).forEach(x=>out.push({...common,type:'看圖提示',title:x.prompt,body:x.answer,ref:x.ref,action:'learn-topic',target:t.id}));if(t.correction)out.push({...common,type:'勘誤',title:t.title+' · 勘誤',body:t.correction,action:'learn-topic',target:t.id});}for(const q of D.questions)out.push({type:'選擇題',title:q.stem,body:[...q.options,q.explanation].join(' '),topicId:q.topicId,chapter:D.topics.find(t=>t.id===q.topicId)?.chapter||0,ref:q.sourceRef,action:'practice-one',target:q.id});return [...out,...enrichmentIndex(),...practiceIndex()];}
 
 function notebookHero(){const st=stats(),started=Object.keys(entries).length>0,t=D.topics.find(x=>x.id===S.learn&&x.chapter)||D.topics.find(x=>x.chapter)||D.topics[0];if(!t)return '';const qs=D.questions.filter(q=>q.topicId===t.id),done=qs.filter(q=>entries['q:'+q.id]).length;return `<h1 class="vh">章節教材</h1><section class="home-hero" aria-label="學習概況"><div class="hero-card"><p class="hero-kicker">${started?'繼續上次的位置':'從這裡開始'}</p><h2>${t.chapter?String(t.chapter).padStart(2,'0')+' ':''}${esc(t.title)}</h2><p class="hero-summary">${esc(t.summary)}</p><div class="hero-bar" role="img" aria-label="本章已答 ${done} / ${qs.length} 題"><span style="width:${qs.length?done/qs.length*100:0}%"></span></div><div class="hero-actions">${btn(started?'繼續閱讀':'開始閱讀','learn-topic',t.id,'hero-primary')}${qs.length?btn('做本章 '+qs.length+' 題','practice-topic',t.id,'hero-ghost'):''}</div></div><div class="hero-stats"><div class="stat-tile"><span>選擇題已練習</span><strong>${st.answered}<i> / ${D.questions.length}</i></strong></div><div class="stat-tile is-warn"><span>待補強</span><strong>${st.wrong}</strong></div><div class="stat-tile"><span>口試已演練</span><strong>${st.interviews}<i> / ${D.interview.length}</i></strong></div></div></section>`;}
-function notebook(){if(!D.topics.length)return heading('SPECIALTY PREP',SPEC.appTitle,'專科甄試筆試、主動回想與面試演練。')+pendingCard('章節教材');const chapters=D.topics.filter(t=>t.chapter).length?D.topics.filter(t=>t.chapter):D.topics,text=S.search.trim(),tokens=text.toLocaleLowerCase().split(/\s+/).filter(Boolean),searching=tokens.length||S.searchChapter!=='all';const hits=searching?notebookIndex().filter(x=>(S.searchChapter==='all'||x.topicId===S.searchChapter)&&tokens.every(k=>(x.title+' '+x.body+' '+shortTitle(x.topicId)).toLocaleLowerCase().includes(k))):[];const nSections=chapters.reduce((a,t)=>a+t.sections.length,0),nQuestions=SPEC.id==='oph'?D.questions.filter(q=>q.sourceId).length:D.questions.length,nCases=chapters.reduce((a,t)=>a+(t.cases||[]).length,0),answered=SPEC.id==='oph'?D.questions.filter(q=>q.sourceId&&entries['q:'+q.id]).length:D.questions.filter(q=>entries['q:'+q.id]).length;return notebookHeading()+`<section class="notebook-search" aria-label="搜尋教材"><label class="field-label" for="notebook-search">今天想找哪個概念？</label><div class="search-primary"><span class="search-symbol" aria-hidden="true">⌕</span><input class="select search-input" id="notebook-search" type="search" value="${esc(S.search)}" placeholder="${SPEC.id==='oph'?'搜尋知識、題目與解析，例如 RAPD 或白瞳':'搜尋知識、題目與解析'}" autocomplete="off">${btn('搜尋','notebook-search','','primary')}</div><div class="search-secondary"><label class="small" for="notebook-chapter">範圍</label><select class="select" id="notebook-chapter"><option value="all">全部章節與原有重點</option>${chapters.map((t,idx)=>`<option value="${t.id}" ${S.searchChapter===t.id?'selected':''}>${String(t.chapter||idx+1).padStart(2,'0')} · ${esc(t.title)}</option>`).join('')}</select>${searching?btn('清除搜尋','notebook-reset','','small subtle'):''}<span class="small search-hint">多個詞以空格分隔</span></div></section>${searching?'':advancedHomeLink()+practiceOverview()+enrichmentOverview()}${searching?`<section class="search-section"><div class="section-heading"><h2>搜尋結果</h2><span class="small">${hits.length} 筆符合</span></div><div class="search-results">${hits.length?hits.map(x=>`<article class="search-result"><div class="result-meta"><span class="tag">${esc(x.type)}</span><span class="small">${esc(shortTitle(x.topicId))}${x.ref?' · 原教材頁 '+esc(x.ref):''}</span></div><h3>${esc(x.title)}</h3><p>${esc(x.body.slice(0,190))}${x.body.length>190?'…':''}</p>${btn(x.type==='選擇題'?'開始這題':x.type==='臨床口試'?'進入口試':x.type==='面試詳解'?'進入演練':x.type==='PBL 情境'?'開啟情境':x.type==='臨床流程'?'開啟流程':x.type==='共筆主題詳解'?'閱讀這個主題':'閱讀本章',x.action,x.target,'small')}</article>`).join(''):'<div class="empty"><h3>沒有符合的內容</h3><p>試試疾病中文名、英文縮寫，或減少一個關鍵詞。</p></div>'}</div></section>`:`<section class="chapter-index" aria-label="${SPEC.id==='oph'?'共筆章節索引':'教材章節索引'}"><div class="section-heading"><h2>${chapters.length} 章教材</h2><span class="small">${nSections} 個基礎重點 · ${nQuestions} 題 · ${nCases} 個臨床口試 · 已練習 ${answered} / ${nQuestions} 題</span></div><div class="chapter-list">${chapters.map((t,idx)=>{const qs=D.questions.filter(q=>q.topicId===t.id),done=qs.filter(q=>entries['q:'+q.id]).length;return `<article class="chapter-row"><div class="chapter-number">${String(t.chapter||idx+1).padStart(2,'0')}</div><div class="chapter-copy"><h3><button class="chapter-title" data-action="learn-topic" data-value="${t.id}">${esc(t.title)}</button>${entries['topic:'+t.id]?.done?'<span class="chapter-done" aria-label="已複習">✓</span>':''}</h3><p>${esc(t.summary)}</p><div class="chapter-meta">${t.sections.length} 個基礎重點${chapterCoverage(t)?`<span>${chapterCoverage(t)?.entries.length} 個共筆詳解</span>`:''}<span>${qs.length} 題</span><span>${(t.cases||[]).length} 個口試</span></div></div><div class="chapter-progress"><span class="small">已答 ${done} / ${qs.length}</span><div class="bar"><span style="width:${qs.length?done/qs.length*100:0}%"></span></div></div><div class="chapter-actions">${qs.length?btn('練題','practice-topic',t.id,'small'):btn('閱讀','learn-topic',t.id,'small')}</div></article>`;}).join('')}</div></section>`}<section class="sources-card card notebook-sources"><details><summary>教材範圍、勘誤與來源</summary><div class="source-details"><p>${esc(D.notebook?.scope||'')}</p><p>${esc(D.notebook?.imageScope||'')}</p><p>${esc(D.notebook?.originalCoverage||'')}</p><div class="actions"><span class="small">${esc(D.notebook?.sourceTitle||'')}</span></div>${SPEC.id==='oph'?`<p>原有 ${D.topics.filter(t=>!t.chapter).length} 個快速重點已併入對應章節；${D.questions.filter(q=>!q.sourceId).length} 題與個人面試資料持續保留。題目皆為自編練習，非歷屆題。</p>`:'<p>題目與重點均附經核對之來源依據，皆為自編或考點改寫練習，非歷屆試題原文。</p>'}<details><summary>逐章內容與出處</summary><div class="table-scroll"><table class="progress-table"><thead><tr><th>${SPEC.id==='oph'?'章節／原共筆':'章節／來源'}</th><th>重點</th><th>比較</th><th>題目</th><th>口試／看圖</th></tr></thead><tbody>${chapters.map(t=>{const src=Array.isArray(t.source)?t.source.join('；'):(t.source||'');return `<tr><td>${esc(t.title)}<br><span class="small">${t.sourceUrl?`<a href="${esc(t.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(src)}</a>`:esc(src)}</span></td><td>${t.sections.length}</td><td>${(t.compare||[]).length}</td><td>${D.questions.filter(q=>q.topicId===t.id).length}</td><td>${(t.cases||[]).length} / ${(t.images||[]).length}</td></tr>`;}).join('')}</tbody></table></div></details>${D.notebook?.reviewNote?`<p class="small">${esc(D.notebook.reviewNote)}</p>`:''}</div></details></section>`;}
+function notebook(){if(!D.topics.length)return heading('SPECIALTY PREP',SPEC.appTitle,'專科甄試筆試、主動回想與面試演練。')+pendingCard('章節教材');const chapters=D.topics.filter(t=>t.chapter).length?D.topics.filter(t=>t.chapter):D.topics,text=S.search.trim(),tokens=text.toLocaleLowerCase().split(/\s+/).filter(Boolean),searching=tokens.length||S.searchChapter!=='all';const hits=searching?notebookIndex().filter(x=>(S.searchChapter==='all'||x.topicId===S.searchChapter)&&tokens.every(k=>(x.title+' '+x.body+' '+shortTitle(x.topicId)).toLocaleLowerCase().includes(k))):[];const nSections=chapters.reduce((a,t)=>a+t.sections.length,0),nQuestions=SPEC.id==='oph'?D.questions.filter(q=>q.sourceId).length:D.questions.length,nCases=chapters.reduce((a,t)=>a+(t.cases||[]).length,0),answered=SPEC.id==='oph'?D.questions.filter(q=>q.sourceId&&entries['q:'+q.id]).length:D.questions.filter(q=>entries['q:'+q.id]).length;return notebookHeading()+`<section class="notebook-search" aria-label="搜尋教材"><label class="field-label" for="notebook-search">今天想找哪個概念？</label><div class="search-primary"><span class="search-symbol" aria-hidden="true">⌕</span><input class="select search-input" id="notebook-search" type="search" value="${esc(S.search)}" placeholder="${SPEC.id==='oph'?'搜尋知識、題目與解析，例如 RAPD 或白瞳':'搜尋知識、題目與解析'}" autocomplete="off">${btn('搜尋','notebook-search','','primary')}</div><div class="search-secondary"><label class="small" for="notebook-chapter">範圍</label><select class="select" id="notebook-chapter"><option value="all">全部章節與原有重點</option>${chapters.map((t,idx)=>`<option value="${t.id}" ${S.searchChapter===t.id?'selected':''}>${String(t.chapter||idx+1).padStart(2,'0')} · ${esc(t.title)}</option>`).join('')}</select>${searching?btn('清除搜尋','notebook-reset','','small subtle'):''}<span class="small search-hint">多個詞以空格分隔</span></div></section>${searching?'':advancedHomeLink()+practiceOverview()+enrichmentOverview()}${searching?`<section class="search-section"><div class="section-heading"><h2>搜尋結果</h2><span class="small">${hits.length} 筆符合</span></div><div class="search-results">${hits.length?hits.map(x=>`<article class="search-result"><div class="result-meta"><span class="tag">${esc(x.type)}</span><span class="small">${esc(shortTitle(x.topicId))}${x.ref?' · 原教材頁 '+esc(x.ref):''}</span></div><h3>${esc(x.title)}</h3><p>${esc(x.body.slice(0,190))}${x.body.length>190?'…':''}</p>${btn(x.type==='選擇題'?'開始這題':x.type==='臨床口試'?'進入口試':x.type==='手寫問答'?'開啟手寫題':x.type==='面試詳解'?'進入演練':x.type==='PBL 情境'?'開啟情境':x.type==='臨床流程'?'開啟流程':x.type==='共筆主題詳解'?'閱讀這個主題':'閱讀本章',x.action,x.target,'small')}</article>`).join(''):'<div class="empty"><h3>沒有符合的內容</h3><p>試試疾病中文名、英文縮寫，或減少一個關鍵詞。</p></div>'}</div></section>`:`<section class="chapter-index" aria-label="${SPEC.id==='oph'?'共筆章節索引':'教材章節索引'}"><div class="section-heading"><h2>${chapters.length} 章教材</h2><span class="small">${nSections} 個基礎重點 · ${nQuestions} 題 · ${nCases} 個臨床口試 · 已練習 ${answered} / ${nQuestions} 題</span></div><div class="chapter-list">${chapters.map((t,idx)=>{const qs=D.questions.filter(q=>q.topicId===t.id),done=qs.filter(q=>entries['q:'+q.id]).length;return `<article class="chapter-row"><div class="chapter-number">${String(t.chapter||idx+1).padStart(2,'0')}</div><div class="chapter-copy"><h3><button class="chapter-title" data-action="learn-topic" data-value="${t.id}">${esc(t.title)}</button>${entries['topic:'+t.id]?.done?'<span class="chapter-done" aria-label="已複習">✓</span>':''}</h3><p>${esc(t.summary)}</p><div class="chapter-meta">${t.sections.length} 個基礎重點${chapterCoverage(t)?`<span>${chapterCoverage(t)?.entries.length} 個共筆詳解</span>`:''}<span>${qs.length} 題</span><span>${(t.cases||[]).length} 個口試</span></div></div><div class="chapter-progress"><span class="small">已答 ${done} / ${qs.length}</span><div class="bar"><span style="width:${qs.length?done/qs.length*100:0}%"></span></div></div><div class="chapter-actions">${qs.length?btn('練題','practice-topic',t.id,'small'):btn('閱讀','learn-topic',t.id,'small')}</div></article>`;}).join('')}</div></section>`}<section class="sources-card card notebook-sources"><details><summary>教材範圍、勘誤與來源</summary><div class="source-details"><p>${esc(D.notebook?.scope||'')}</p><p>${esc(D.notebook?.imageScope||'')}</p><p>${esc(D.notebook?.originalCoverage||'')}</p><div class="actions"><span class="small">${esc(D.notebook?.sourceTitle||'')}</span></div>${SPEC.id==='oph'?`<p>原有 ${D.topics.filter(t=>!t.chapter).length} 個快速重點已併入對應章節；${D.questions.filter(q=>!q.sourceId).length} 題與個人面試資料持續保留。題目皆為自編練習，非歷屆題。</p>`:'<p>題目與重點均附經核對之來源依據，皆為自編或考點改寫練習，非歷屆試題原文。</p>'}<details><summary>逐章內容與出處</summary><div class="table-scroll"><table class="progress-table"><thead><tr><th>${SPEC.id==='oph'?'章節／原共筆':'章節／來源'}</th><th>重點</th><th>比較</th><th>題目</th><th>口試／看圖</th></tr></thead><tbody>${chapters.map(t=>{const src=Array.isArray(t.source)?t.source.join('；'):(t.source||'');return `<tr><td>${esc(t.title)}<br><span class="small">${t.sourceUrl?`<a href="${esc(t.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(src)}</a>`:esc(src)}</span></td><td>${t.sections.length}</td><td>${(t.compare||[]).length}</td><td>${D.questions.filter(q=>q.topicId===t.id).length}</td><td>${(t.cases||[]).length} / ${(t.images||[]).length}</td></tr>`;}).join('')}</tbody></table></div></details>${D.notebook?.reviewNote?`<p class="small">${esc(D.notebook.reviewNote)}</p>`:''}</div></details></section>`;}
 document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.id==='notebook-search'){e.preventDefault();S.search=e.target.value;S.searchChapter=$('#notebook-chapter').value;render();}});
 
 
@@ -1306,7 +1341,7 @@ function chapterEnrichment(t){return D.enrichment?.chapters?.[t.id]||null;}
 function chapterCoverage(t){return D.coverage?.chapters?.[t.id]||null;}
 function coveragePageLabel(pages){const sorted=[...new Set(pages)].sort((a,b)=>a-b),ranges=[];for(let i=0;i<sorted.length;i++){const first=sorted[i];let last=first;while(sorted[i+1]===last+1)last=sorted[++i];ranges.push(first===last?String(first):first+'–'+last);}return ranges.join('、');}
 function coverageLink(t,label,target,css=''){return `<a class="${esc(css)}" href="#${t.id}-${esc(target)}" data-action="coverage-focus" data-value="${t.id}|${esc(target)}">${esc(label)}</a>`;}
-function coverageTarget(t,target){const c=chapterCoverage(t);if(!c)return false;if(target==='coverage')return true;if(target.startsWith('coverage-'))return c.entries.some(entry=>target==='coverage-'+entry.id);if(/^section-\d+$/.test(target))return Number(target.slice(8))<t.sections.length;return chapterEnrichment(t)?.integrated?.units.some(unit=>unit.id===target)||false;}
+function coverageTarget(t,target){if(target==='written')return Boolean(t?.chapter);const c=chapterCoverage(t);if(!c)return false;if(target==='coverage')return true;if(target.startsWith('coverage-'))return c.entries.some(entry=>target==='coverage-'+entry.id);if(/^section-\d+$/.test(target))return Number(target.slice(8))<t.sections.length;return chapterEnrichment(t)?.integrated?.units.some(unit=>unit.id===target)||false;}
 function coverageFocus(value,updateHash=true){
   const [tid,target]=value.split('|'),t=D.topics.find(topic=>topic.id===tid);
   if(!t||!coverageTarget(t,target))return false;
@@ -1339,7 +1374,7 @@ function coverageOverview(){
 function enrichmentSourceLinks(item,chapter){const ids=new Set(item.sourceIds||[]),sources=(chapter.resources||[]).filter(r=>ids.has(r.id));return sources.length?`<div class="enrichment-citations"><span>依據</span>${sources.map(r=>`<a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.title)}</a>`).join('')}</div>`:'';}
 function enrichmentResourceItems(resources){return `<ul>${resources.map(r=>`<li><a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.title)}</a><span class="enrichment-provider">${esc(r.kind)} · ${esc(r.provider)}</span><p>${esc(r.note)}</p></li>`).join('')}</ul>`;}
 function enrichmentContextSources(item,c){const ids=new Set(item.sourceIds||[]),resources=(c.resources||[]).filter(r=>ids.has(r.id));return resources.length?`<details class="enrichment-context-sources"><summary>搭配圖譜、影片與文獻理解本單元</summary><div class="enrichment-resource-group">${enrichmentResourceItems(resources)}</div></details>`:'';}
-function enrichmentNav(t){const c=chapterEnrichment(t);if(!c)return '';const tableLink=(c.summaryTables||[]).length?`<a href="#${t.id}-tables">重點表格</a>`:'';if(c.integrated)return `<nav class="enrichment-nav" aria-label="本章學習路徑"><span>本章路徑</span>${chapterCoverage(t)?coverageLink(t,'共筆對照（'+chapterCoverage(t).entries.length+' 主題）','coverage'):''}${tableLink}${c.integrated.units.map((u,n)=>`<a href="#${t.id}-${u.id}">${n+1}. ${esc(u.title)}</a>`).join('')}${c.integrated.case?`<a href="#${t.id}-case">整合病例</a>`:''}${c.integrated.connections?.length?`<a href="#${t.id}-connections">跨章串連</a>`:''}${(c.resources||[]).length?`<a href="#${t.id}-resources">延伸資源</a>`:''}</nav>`;return `<nav class="enrichment-nav" aria-label="本章延伸學習"><span>延伸學習</span>${c.figure?`<a href="#${t.id}-figure">圖解</a>`:''}${tableLink}${(c.deepDive||[]).length?`<a href="#${t.id}-deep">深入理解</a>`:''}${c.oralChallenge?`<a href="#${t.id}-challenge">口述挑戰</a>`:''}${(c.resources||[]).length?`<a href="#${t.id}-resources">延伸資源</a>`:''}</nav>`;}
+function enrichmentNav(t){const c=chapterEnrichment(t),wLink=t.chapter?`<a href="#${t.id}-written">手寫問答</a>`:'';if(!c)return wLink?`<nav class="enrichment-nav" aria-label="本章延伸學習"><span>延伸學習</span>${wLink}</nav>`:'';const tableLink=(c.summaryTables||[]).length?`<a href="#${t.id}-tables">重點表格</a>`:'';if(c.integrated)return `<nav class="enrichment-nav" aria-label="本章學習路徑"><span>本章路徑</span>${chapterCoverage(t)?coverageLink(t,'共筆對照（'+chapterCoverage(t).entries.length+' 主題）','coverage'):''}${tableLink}${c.integrated.units.map((u,n)=>`<a href="#${t.id}-${u.id}">${n+1}. ${esc(u.title)}</a>`).join('')}${c.integrated.case?`<a href="#${t.id}-case">整合病例</a>`:''}${c.integrated.connections?.length?`<a href="#${t.id}-connections">跨章串連</a>`:''}${wLink}${(c.resources||[]).length?`<a href="#${t.id}-resources">延伸資源</a>`:''}</nav>`;return `<nav class="enrichment-nav" aria-label="本章延伸學習"><span>延伸學習</span>${c.figure?`<a href="#${t.id}-figure">圖解</a>`:''}${tableLink}${(c.deepDive||[]).length?`<a href="#${t.id}-deep">深入理解</a>`:''}${c.oralChallenge?`<a href="#${t.id}-challenge">口述挑戰</a>`:''}${wLink}${(c.resources||[]).length?`<a href="#${t.id}-resources">延伸資源</a>`:''}</nav>`;}
 function enrichmentFigure(t,c){const f=c.figure;if(!f)return '';const src=f.src||('assets/figures/'+t.id+'.svg');return `<figure class="enrichment-figure" id="${t.id}-figure"><img class="enrichment-image" src="${esc(src)}" alt="${esc(f.alt)}" width="960" height="560" loading="lazy" decoding="async"><p class="enrichment-image-fallback" hidden>圖解暫時無法顯示，請先閱讀下方圖說與延伸資料。</p><figcaption><div class="enrichment-figure-heading"><strong>${esc(f.title)}</strong><a href="${esc(src)}" target="_blank" rel="noopener noreferrer">放大圖解</a></div><p>${esc(f.caption)}</p><p class="small">概念示意圖，非實際臨床影像。</p>${enrichmentSourceLinks(f,c)}</figcaption></figure>`;}
 function enrichmentSummaryTables(t,c){if(!(c.summaryTables||[]).length)return '';return `<section class="enrichment-tables" id="${t.id}-tables" aria-label="本章表格重點整理"><h3>表格重點整理</h3>${c.summaryTables.map(tb=>{const cap=tb.caption?`<p class="small">${esc(tb.caption)}</p>`:'',tbl=`<div class="table-wrap"><table class="progress-table enrichment-summary-table"><thead><tr>${tb.headers.map(h=>`<th scope="col">${esc(h)}</th>`).join('')}</tr></thead><tbody>${tb.rows.map(r=>`<tr>${r.map(cell=>`<td>${esc(cell)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>${enrichmentSourceLinks(tb,c)}`;return S.recall?`<details class="enrichment-detail"><summary>回想後，展開「${esc(tb.title)}」表格</summary><div>${cap}${tbl}</div></details>`:`<div class="enrichment-table-item"><h4>${esc(tb.title)}</h4>${cap}${tbl}</div>`;}).join('')}</section>`;}
 function enrichmentDeepDive(b,c){return `<details class="enrichment-detail"><summary>${esc(b.heading)}</summary><div>${b.paragraphs.map(p=>`<p>${esc(p)}</p>`).join('')}${enrichmentSourceLinks(b,c)}</div></details>`;}
@@ -1395,10 +1430,11 @@ function integratedUnit(t,c,unit,n){
 }
 function renderLessonContent(t){
   const c=chapterEnrichment(t);
-  if(!c?.integrated)return t.sections.map((b,i)=>renderLessonSection(t,b,i)).join('');
+  const wBlock=t.chapter?`<section class="written-chapter-wrap" id="${t.id}-written" data-written-slot="chapter" data-topic-id="${esc(t.id)}">${window.OphWritten?.chapterHtml?.(t)||''}</section>`:'';
+  if(!c?.integrated)return t.sections.map((b,i)=>renderLessonSection(t,b,i)).join('')+wBlock;
   const course=c.integrated;
   const intro=`<section class="integrated-intro" aria-label="本章學習目標"><p class="integrated-framing">${esc(course.framing)}</p><h3>讀完這章，要能回答</h3><ul>${course.objectives.map(objective=>`<li>${esc(objective)}</li>`).join('')}</ul></section>`;
-  return intro+coverageOutline(t)+enrichmentSummaryTables(t,c)+course.units.map((unit,n)=>integratedUnit(t,c,unit,n)).join('')+integratedCase(t,c)+integratedConnections(t,c);
+  return intro+coverageOutline(t)+enrichmentSummaryTables(t,c)+course.units.map((unit,n)=>integratedUnit(t,c,unit,n)).join('')+integratedCase(t,c)+integratedConnections(t,c)+wBlock;
 }
 function enrichmentIndex(){
   const out=[];
@@ -1459,13 +1495,17 @@ function practiceSources(ids,src){const items=(ids||[]).map(id=>allResources().g
 function practiceRelated(topicIds,extra=''){return `<div class="practice-related"><span class="small">相關內容</span>${(topicIds||[]).filter(id=>D.topics.some(t=>t.id===id)).map(id=>btn(esc(shortTitle(id)),'learn-topic',id,'small subtle')).join('')}${extra}</div>`;}
 
 /* Routes: every view and lesson anchor can be expressed as a hash so it can be saved and shared. */
-function anchorValid(t,target){if(typeof coverageTarget==='function'&&chapterCoverage(t))return coverageTarget(t,target);if(chapterEnrichment(t)?.integrated?.units.some(u=>u.id===target))return true;const m=target.match(/^section-(\d+)$/);return !!m&&Number(m[1])<t.sections.length;}
+function anchorValid(t,target){if(target==='written'&&t.chapter)return true;if(typeof coverageTarget==='function'&&chapterCoverage(t))return coverageTarget(t,target);if(chapterEnrichment(t)?.integrated?.units.some(u=>u.id===target))return true;const m=target.match(/^section-(\d+)$/);return !!m&&Number(m[1])<t.sections.length;}
 function parseRoute(hash){
   if(typeof hash!=='string')return null;
   const h=hash.trim();let m;
   if(SPEC.id!=='oph'&&h.startsWith('#textbook'))return null;
   if(/^#textbook-atlas(?:-bcsc-s(?:0[1-9]|1[0-3])(?:-atlas-s(?:0[1-9]|1[0-3])-(?:0[1-9]|[1-9]\d))?)?$/.test(h))return {kind:'tab',tab:'textbook',hash:h};
+  if(/^#textbook-written(?:-bcsc-s(?:0[1-9]|1[0-3]))?$/.test(h))return {kind:'tab',tab:'textbook',hash:h};
   if(/^#textbook(?:-extra(?:-extra-\d{8}-q\d{3})?|-bcsc-s(?:0[1-9]|1[0-3])(?:-(?:ch\d{3}(?:-iq\d{3}|-u\d{2})?|rq\d{3}))?)?$/.test(h))return {kind:'tab',tab:'textbook',hash:h};
+  if(h==='#written')return {kind:'written',id:null,hash:h};
+  if((m=h.match(/^#written-([a-z]+-wq-[a-z0-9-]+)$/))&&m[1].length<=80&&m[1].startsWith(SPEC.id+'-wq-'))return {kind:'written',id:m[1],hash:h};
+  if(h==='#cram-written'&&navs.some(n=>n[0]==='cram')&&tabAllowed('cram'))return {kind:'tab',tab:'cram',hash:h};
   if(/^#[a-z0-9-]+$/.test(h)){for(const t of D.topics){if(h.startsWith('#'+t.id+'-')){const target=h.slice(t.id.length+2);if(anchorValid(t,target))return {kind:'anchor',topicId:t.id,target,hash:h};}}}
   if((m=h.match(/^#topic-([a-z0-9-]+)$/))&&D.topics.some(t=>t.id===m[1]))return {kind:'topic',id:m[1],hash:h};
   if(h==='#pbl')return {kind:'pbl',id:null,hash:h};
@@ -1485,16 +1525,20 @@ function routeLabel(route){
     const target=route.target;
     if(target.startsWith('section-'))return name+' · '+t.sections[Number(target.slice(8))].title;
     if(target==='coverage')return name+' · 共筆對照';
+    if(target==='written')return name+' · 手寫問答';
     if(target.startsWith('coverage-'))return name+' · '+(chapterCoverage(t)?.entries.find(e=>'coverage-'+e.id===target)?.title||'共筆詳解');
     return name+' · '+(chapterEnrichment(t)?.integrated?.units.find(u=>u.id===target)?.title||'學習單元');
   }
+  if(route.kind==='written')return window.OphWritten?.routeLabel?.(route.id)||(route.id?'手寫問答 · '+route.id:'手寫問答題庫');
   if(route.kind==='pbl')return route.id?'PBL · '+pblCases().find(c=>c.id===route.id).title:'PBL 情境討論';
   if(route.kind==='workflow')return route.id?'臨床流程 · '+wfList().find(w=>w.id===route.id).title:'臨床流程';
   if(route.kind==='interview')return '面試演練 · '+D.interview.find(i=>i.id===route.id).title;
+  if(route.hash==='#cram-written')return '共筆考前衝刺 · 手寫問答';
   return navs.find(n=>n[0]===route.tab)?.[2]||'練習室';
 }
 function routeMatchesView(route){
   if(!route)return false;
+  if(route.kind==='written')return typeof window.OphWritten?.matchesRoute==='function'?window.OphWritten.matchesRoute(route):(S.tab==='quiz'&&window.OphQuizBank?.getMode?.()==='written'&&!route.id);
   if(route.kind==='anchor')return S.tab==='learn'&&S.learn===route.topicId;
   if(route.kind==='topic')return S.tab==='learn'&&S.learn===route.id;
   if(route.kind==='pbl')return S.tab==='pbl'&&(!route.id||route.id===S.pbl);
@@ -1502,7 +1546,7 @@ function routeMatchesView(route){
   if(route.kind==='interview')return S.tab==='interview'&&S.interview===route.id;
   return S.tab===route.tab;
 }
-function currentViewHash(){return S.tab==='learn'?(S.learn?'#topic-'+S.learn:'#tab-learn'):S.tab==='pbl'?(S.pbl?'#'+S.pbl:'#pbl'):S.tab==='workflow'?(S.workflow?'#'+S.workflow:'#workflow'):S.tab==='interview'?(S.interview?'#interview-'+S.interview:'#tab-interview'):S.tab==='links'?'#links':S.tab==='today'?'':'#tab-'+S.tab;}
+function currentViewHash(){if(S.tab==='quiz'&&window.OphQuizBank?.getMode?.()==='written')return window.OphWritten?.currentHash?.()||'#written';return S.tab==='learn'?(S.learn?'#topic-'+S.learn:'#tab-learn'):S.tab==='pbl'?(S.pbl?'#'+S.pbl:'#pbl'):S.tab==='workflow'?(S.workflow?'#'+S.workflow:'#workflow'):S.tab==='interview'?(S.interview?'#interview-'+S.interview:'#tab-interview'):S.tab==='links'?'#links':S.tab==='today'?'':'#tab-'+S.tab;}
 function currentLocationHash(){const route=parseRoute(window.location?.hash||'');return route&&routeMatchesView(route)?route.hash:(currentViewHash()||'#tab-today');}
 function syncPracticeHash(){
   rememberWorkspace();
@@ -1524,7 +1568,13 @@ function openRoute(hash,updateHash=true){
     const node=document.getElementById(t.id+'-'+route.target);if(node)node.scrollIntoView({block:'start'});
     return true;
   }
-  if(route.kind==='topic'){S.learn=route.id;switchTab('learn');}
+  if(route.kind==='written'){
+    window.OphWritten?.focusQuestion?.(route.id);
+    if(window.OphQuizBank?.setWritten)window.OphQuizBank.setWritten();
+    else switchTab('quiz');
+    if(route.id)document.getElementById?.('written-'+route.id)?.scrollIntoView?.({block:'start'});
+  }
+  else if(route.kind==='topic'){S.learn=route.id;switchTab('learn');}
   else if(route.kind==='pbl'){if(route.id)S.pbl=route.id;switchTab('pbl');}
   else if(route.kind==='workflow'){if(route.id)S.workflow=route.id;switchTab('workflow');}
   else if(route.kind==='interview')chooseInterview(route.id);
@@ -1579,10 +1629,18 @@ function practiceEntry(key,v){
   const at=validDate(v?.at);
   if(key.startsWith('pbl:')){if(!pblCases().some(c=>'pbl:'+c.id===key)||typeof v?.done!=='boolean')return null;return {done:v.done,at};}
   if(key.startsWith('workflow:')){const w=wfList().find(x=>'workflow:'+x.id===key);if(!w||!v||typeof v.practiced!=='boolean')return null;const total=w.steps.length,best=Number.isInteger(v.best)&&v.best>=0&&v.best<=total?v.best:0;return {practiced:v.practiced,best,total,at};}
+  if(key.startsWith('written:')){
+    const wid=key.slice(8);
+    if(wid.length>80||!/^[a-z]+-wq-[a-z0-9-]+$/.test(wid)||!wid.startsWith(SPEC.id+'-wq-')||!v||typeof v!=='object'||Array.isArray(v))return null;
+    const completed=Boolean(v.completed);
+    const selfScore=Number.isInteger(v.selfScore)&&v.selfScore>=0&&v.selfScore<=5?v.selfScore:(completed?2:0);
+    const checks=Array.isArray(v.checks)?v.checks.slice(0,20).map(Boolean):[];
+    return {completed,selfScore,checks,revealed:Boolean(v.revealed),at};
+  }
   return undefined;
 }
 function practiceMeta(key,v){
-  if(!v||typeof v!=='object'||Array.isArray(v))return key.startsWith('link:')||key.startsWith('pbl:')?null:undefined;
+  if(!v||typeof v!=='object'||Array.isArray(v))return key.startsWith('link:')||key.startsWith('pbl:')||key.startsWith('written:')?null:undefined;
   const at=validDate(v.at),text=(s,max)=>typeof s==='string'?s.slice(0,max):'';
   if(key.startsWith('link:')){
     if(!/^link:[a-z0-9]{6,32}$/.test(key))return null;
@@ -1596,6 +1654,11 @@ function practiceMeta(key,v){
     if(!c)return null;
     const notes=Array.isArray(v.notes)?c.stages.map((_,n)=>text(v.notes[n],4000)):c.stages.map(()=>'');
     return {notes,issues:text(v.issues,4000),at};
+  }
+  if(key.startsWith('written:')){
+    const wid=key.slice(8);
+    if(wid.length>80||!/^[a-z]+-wq-[a-z0-9-]+$/.test(wid)||!wid.startsWith(SPEC.id+'-wq-'))return null;
+    return {text:text(v.text,8000),note:text(v.note,2000),hasInk:Boolean(v.hasInk),at};
   }
   return undefined;
 }
@@ -1633,6 +1696,7 @@ function pblPage(){
     <h3>考官可能追問</h3>${c.examinerFollowups.map(f=>`<details class="model"><summary>${esc(f.q)}</summary><div><p>${esc(f.a)}</p></div></details>`).join('')}
     <p class="practice-takeaway"><strong>帶走一句</strong>${esc(c.takeaway)}</p></section>`
   :`<div class="pbl-advance">${btn('進入'+esc(c.stages[shown].title.split(' · ')[0]),'pbl-stage','','primary')}${btn('一次展開全部','pbl-all','','subtle')}</div><p class="small">先寫下這一幕的事實、假說與還需要的資訊，再進入下一幕。</p>`}
+  <div data-written-slot="pbl" data-context-id="${esc(c.id)}" data-topic-ids="${esc((c.topicIds||[]).join(','))}">${window.OphWritten?.contextHtml?.('pbl',c.id,c.topicIds)||''}</div>
   ${practiceSources(c.sourceIds,c.source)}
   <div class="reading-actions">${btn(entries['pbl:'+c.id]?.done?'✓ 已完成（可取消）':'標記完成','pbl-done')}${shown>1?btn('從第一幕重來','pbl-restart','','subtle'):''}${btn('下一個情境','pbl-next','','primary')}</div>
   <p class="small practice-disclaimer">${esc(D.pbl.disclaimer)}</p></article></div>`;
@@ -1680,6 +1744,7 @@ function workflowPage(){
   <section class="trap wf-pitfalls"><strong>常見錯誤與考官陷阱</strong>${list(w.pitfalls)}</section>
   <h3>考官可能問</h3>${w.examQuestions.map(q=>`<details class="model"><summary>${esc(q.q)}</summary><div><p>${esc(q.a)}</p></div></details>`).join('')}
   <details class="model wf-handoff"><summary>向主治醫師回報（SBAR 範例）</summary><div><p class="preline">${esc(handoff)}</p></div></details>
+  <div data-written-slot="workflow" data-context-id="${esc(w.id)}" data-topic-ids="${esc((w.topicIds||[]).join(','))}">${window.OphWritten?.contextHtml?.('workflow',w.id,w.topicIds)||''}</div>
   ${practiceSources(w.sourceIds,w.source)}
   <div class="reading-actions">${btn(e?.practiced?'✓ 已練習（可取消）':'標記已練習','wf-done')}${btn('下一個流程','wf-next','','primary')}</div>
   <p class="small practice-disclaimer">${esc(D.workflows.disclaimer)}</p></article></div>`;
@@ -1735,6 +1800,7 @@ function practiceOverview(){
   return `<section class="practice-overview" aria-labelledby="practice-title"><div class="section-heading"><h2 id="practice-title">情境與流程演練</h2><span class="small">口試常問：「接下來你會怎麼做？」</span></div><div class="practice-cards">
   <article class="practice-card"><span class="practice-count">${cases} 個三幕情境</span><h3>PBL 情境討論</h3><p>逐幕揭露病例：整理事實、提出假說、列出還需要的資訊，再延伸到溝通、倫理與制度。</p>${btn('開始討論','tab','pbl','small')}</article>
   <article class="practice-card"><span class="practice-count">${flows} 個流程</span><h3>臨床流程</h3><p>急症、當日轉介、操作安全與篩檢照會；可遮住細節，或把打亂的步驟排回正確順序。</p>${btn('開始練習','tab','workflow','small')}</article>
+  <article class="practice-card" data-written-slot="overview"><span class="practice-count">${esc(window.OphWritten?.countLabel?.()||'手寫板＋文字作答')}</span><h3>手寫問答題</h3><p>手寫板＋文字作答，每題附標準答案與得分要點；支援一鍵展開核對與間隔複習排程。</p>${btn('開始作答','written-bank-open','','small')}</article>
   <article class="practice-card"><span class="practice-count">${linkItems().length} 個收藏</span><h3>我的連結</h3><p>收藏章節段落、流程或外部網址並加註；與其他進度一起自動保存。</p>${btn('管理連結','tab','links','small')}</article></div></section>`;
 }
 function practiceIndex(){
@@ -1742,12 +1808,13 @@ function practiceIndex(){
   for(const c of pblCases()){const topic=D.topics.find(t=>t.id===c.topicIds[0]);out.push({topicId:c.topicIds[0],chapter:topic?.chapter||0,type:'PBL 情境',title:c.title,body:[c.theme,c.trigger,...c.stages.flatMap(s=>[s.title,s.info,...s.prompts,...s.facts,...s.hypotheses,...s.needToKnow,s.discussion]),...c.learningIssues.flatMap(x=>[x.issue,x.why]),...c.humanities.points,...c.examinerFollowups.flatMap(f=>[f.q,f.a]),c.takeaway].join(' '),action:'pbl-open',target:c.id});}
   for(const w of wfList()){const topic=D.topics.find(t=>t.id===w.topicIds[0]);out.push({topicId:w.topicIds[0],chapter:topic?.chapter||0,type:'臨床流程',title:w.title,body:[w.urgency,w.trigger,...w.steps.flatMap(s=>[s.title,s.detail,s.why]),...w.redFlags,...w.pitfalls,...w.examQuestions.flatMap(q=>[q.q,q.a]),w.handoff].join(' '),action:'workflow-open',target:w.id});}
   for(const i of D.interview){const d=detailedAnswer(i);if(!d)continue;const topic=D.topics.find(t=>t.id===i.topicId);out.push({topicId:i.topicId||'',chapter:topic?.chapter||0,type:'面試詳解',title:i.title+'：'+i.question,body:[d.summary,d.answer,...d.followupAnswers,...(d.moreFollowups||[]).flatMap(f=>[f.q,f.a]),...d.examinerFocus,...d.pitfalls].join(' '),action:'interview',target:i.id});}
-  return out;
+  return [...out,...(window.OphWritten?.searchIndex?.()||[])];
 }
 
 /* Events routed from the app's existing handlers. */
 function practiceInput(el){
   if(syncInput(el))return true;
+  if(window.OphWritten?.input?.(el))return true;
   const id=el?.id||'';
   if(id==='link-url'||id==='link-title'||id==='link-note'){S.linkDraft[id.slice(5)]=el.value;return true;}
   if(id==='link-filter'){S.linkFilter=el.value;const box=$('#link-list');if(box)box.innerHTML=linkListMarkup();return true;}
@@ -1755,8 +1822,10 @@ function practiceInput(el){
   if(id==='pbl-issues'){const c=pblCase(),v=pblNotes(c.id);putMeta('pbl:'+c.id,{notes:v.notes,issues:el.value});return true;}
   return false;
 }
-function practiceChange(el){if(window.OphAdvanced?.change(el))return true;if(syncChange(el))return true;if(el?.id==='link-topic'){S.linkDraft.topicId=el.value;return true;}return false;}
+function practiceChange(el){if(window.OphAdvanced?.change(el))return true;if(window.OphWritten?.change?.(el))return true;if(syncChange(el))return true;if(el?.id==='link-topic'){S.linkDraft.topicId=el.value;return true;}return false;}
 function practiceAction(a,v,b){if(window.OphAdvanced?.action(a,v,b))return true;
+  if(a==='written-bank-open'){openRoute('#written');return true;}
+  if(window.OphWritten?.action?.(a,v,b))return true;
   if(syncAction(a))return;
   switch(a){
   case'pbl-open':if(pblCases().some(c=>c.id===v)){S.pbl=v;switchTab('pbl');}break;
@@ -1783,6 +1852,7 @@ function practiceAction(a,v,b){if(window.OphAdvanced?.action(a,v,b))return true;
   case'link-open':{const item=linkItems().find(x=>x.id===v);if(item&&item.url.startsWith('#')&&!openRoute(item.url,true))toast('這個 App 內位置已不存在，請編輯或刪除。');break;}
   }
 }
+window.OphWrittenBridge={get S(){return S;},get D(){return D;},get entries(){return entries;},get meta(){return meta;},put,putMeta,save:changed,render,switchTab,openRoute,toast,setQuizWritten(){return window.OphQuizBank?.setWritten?.();}};
 // Replaces the coverage-only hash listeners; coverage anchors are still restored through coverageRestoreHash.
 window.addEventListener('hashchange',appRestoreHash);
 window.addEventListener('load',appRestoreHash);
@@ -1949,7 +2019,10 @@ function progressChanged(){
   syncStatus();
 }
 function clearDevice(){
-  removeKey(STORE.state);removeKey(STORE.token);removeKey(STORE.cloud);removeKey(WORKSPACE_KEY);removeKey(CRAM_KEY);
+  const inkKey=SPEC.storePrefix+'written-ink-v1';
+  removeKey(STORE.state);removeKey(STORE.token);removeKey(STORE.cloud);removeKey(WORKSPACE_KEY);removeKey(CRAM_KEY);removeKey(inkKey);
+  try{window.localStorage?.removeItem?.(inkKey);}catch{}
+  window.OphWritten?.clearLocalCache?.();
   clearTimeout(workspaceTimer);workspaceTimer=null;
   clearTimeout(localTimer);clearTimeout(cloudTimer);localTimer=cloudTimer=null;
   entries=Object.create(null);meta=Object.create(null);dirty=false;
@@ -2271,16 +2344,16 @@ window.OphStudyBridge={
  save(key,value){const valid=studyEntry(key,value);if(!valid)throw Error('複習紀錄格式無效');entries[key]=valid;changed();},
  remove(key){if(/^study:srs:[a-z][a-z0-9-]{0,31}:[A-Za-z0-9][A-Za-z0-9_-]{0,119}$/.test(key)&&Object.prototype.hasOwnProperty.call(entries,key)){delete entries[key];changed();}},
  shared(){return D.questions.map(q=>({pool:'shared',id:q.id,title:q.stem,pastExam:!!q.pastExam}));},
- open(pool,id,mode){window.OphStudy?.leave();if(pool==='shared'){if(D.questions.some(q=>q.id===id)){const rec=entries['study:srs:shared:'+id],qMode=mode==='due'&&srsDueNow(rec)?'due':(mode==='weak'||mode==='srs-weak')&&srsWeakEntry(rec)?'srs-weak':'all';startQuiz('all',qMode,id);}}else if(pool==='book')openRoute('#textbook-'+id);else if(pool==='extra')openRoute('#textbook-extra-'+id);else if(pool==='cram'){window.OphCram?.openCard?.(id);openRoute('#tab-cram');}else if(pool==='atlas'){const m=String(id||'').match(/^(atlas-s(0[1-9]|1[0-3])-(?:0[1-9]|[1-9]\d))-(?:case|recall|item)(?:-\d+)?$/);if(m){const h='#textbook-atlas-bcsc-s'+m[2]+'-'+m[1];window.OphTextbookAtlas?.focusItem?.(id);window.history?.replaceState?.(null,'',h);openRoute(h);}}},
- refresh(pool){if(pool==='shared'&&S.tab==='quiz')render();else if(pool==='cram'&&S.tab==='cram')window.OphCram?.refresh?.();else if(pool==='atlas'&&S.tab==='textbook')window.OphTextbook?.refresh?.();}
+ open(pool,id,mode){window.OphStudy?.leave();if(pool==='shared'){if(D.questions.some(q=>q.id===id)){const rec=entries['study:srs:shared:'+id],qMode=mode==='due'&&srsDueNow(rec)?'due':(mode==='weak'||mode==='srs-weak')&&srsWeakEntry(rec)?'srs-weak':'all';startQuiz('all',qMode,id);}}else if(pool==='book')openRoute('#textbook-'+id);else if(pool==='extra')openRoute('#textbook-extra-'+id);else if(pool==='cram'){window.OphCram?.openCard?.(id);openRoute('#tab-cram');}else if(pool==='atlas'){const m=String(id||'').match(/^(atlas-s(0[1-9]|1[0-3])-(?:0[1-9]|[1-9]\d))-(?:case|recall|item)(?:-\d+)?$/);if(m){const h='#textbook-atlas-bcsc-s'+m[2]+'-'+m[1];window.OphTextbookAtlas?.focusItem?.(id);window.history?.replaceState?.(null,'',h);openRoute(h);}}else if(pool==='written'){window.OphWritten?.openQuestion?.(id,mode);openRoute('#written-'+id);}},
+ refresh(pool){if(pool==='shared'&&S.tab==='quiz')render();else if(pool==='cram'&&S.tab==='cram')window.OphCram?.refresh?.();else if(pool==='atlas'&&S.tab==='textbook')window.OphTextbook?.refresh?.();else if(pool==='written'){window.OphWritten?.refresh?.();if(S.tab==='quiz')render();}}
 };
 /* study-bridge:end */
 function schedulePage(){setTimeout(()=>window.OphSchedule?.mount(document.getElementById('schedule-root')),0);return heading('','考試時程','報名截止、筆試與面試，按日期整理。')+'<section id="schedule-root" aria-label="考試時程"><p role="status">正在讀取時程…</p></section>';}
-function render(){window.OphStudy?.context(S.tab==='quiz'&&question()?'shared':null,S.tab==='quiz'&&question()?question().id:null);const active=navs.find(n=>n[0]===S.tab);$('#nav').innerHTML=navMarkup();$('#section-label').textContent=active[2];$('#main').setAttribute('data-view',S.tab);layoutChrome();$('#main').innerHTML=({schedule:schedulePage,notebook,today:todayPage,originals,quiz:quizPage,learn,interview,workshop,plan,progress,pbl:pblPage,workflow:workflowPage,links:linksPage,sync:syncPage,advanced:advancedPage,cram:cramPage,project:projectPage,textbook:textbookPage,study:studyPage})[S.tab]();if(S.tab==='advanced')window.OphAdvanced?.mount(document.getElementById('advanced-root'));if(S.tab==='interview')$('#main').innerHTML+=projectOralPanel();if(S.tab==='project')window.OphProject?.mount(document.getElementById('project-root'));syncPracticeHash();if(S.tab==='cram'&&window.OphCram)window.OphCram.mount(document.getElementById('cram-root'));if(S.tab==='textbook'&&window.OphTextbook)window.OphTextbook.mount(document.getElementById('textbook-root'));if(S.tab==='study'&&window.OphStudy)window.OphStudy.mount(document.getElementById('study-root'));}
+function render(){window.OphStudy?.context(S.tab==='quiz'&&question()?'shared':null,S.tab==='quiz'&&question()?question().id:null);const active=navs.find(n=>n[0]===S.tab);$('#nav').innerHTML=navMarkup();$('#section-label').textContent=active[2];$('#main').setAttribute('data-view',S.tab);layoutChrome();$('#main').innerHTML=({schedule:schedulePage,notebook,today:todayPage,originals,quiz:quizPage,learn,interview,workshop,plan,progress,pbl:pblPage,workflow:workflowPage,links:linksPage,sync:syncPage,advanced:advancedPage,cram:cramPage,project:projectPage,textbook:textbookPage,study:studyPage})[S.tab]();if(S.tab==='advanced')window.OphAdvanced?.mount(document.getElementById('advanced-root'));if(S.tab==='interview')$('#main').innerHTML+=projectOralPanel();if(S.tab==='project')window.OphProject?.mount(document.getElementById('project-root'));syncPracticeHash();if(S.tab==='cram'&&window.OphCram)window.OphCram.mount(document.getElementById('cram-root'));window.OphWritten?.bindContainer?.($('#main'));if(S.tab==='textbook'&&window.OphTextbook)window.OphTextbook.mount(document.getElementById('textbook-root'));if(S.tab==='study'&&window.OphStudy)window.OphStudy.mount(document.getElementById('study-root'));}
 function pauseTimer(){if(S.deadline)projectTimer('pause');if(S.deadline)S.seconds=Math.max(0,Math.ceil((S.deadline-Date.now())/1000));S.deadline=null;}
 function chooseInterview(id){if(!D.interview.some(i=>i.id===id))return;if(S.deadline)pauseTimer();S.deadline=null;S.interview=id;S.seconds=currentInterview().durationSeconds;S.followup=0;switchTab('interview');}
 document.addEventListener('click',e=>{layoutDismiss(e);const b=e.target.closest('[data-action]');if(!b||b.disabled)return;const a=b.dataset.action,v=b.dataset.value;if(window.OphProject?.action(a,v,b))return;switch(a){
-case'spec-toggle':case'top-menu':case'more-toggle':case'today-new':case'today-core-quiz':case'quiz-bank':case'quiz-bank-open':case'quiz-adv-answer':case'quiz-adv-reveal':case'quiz-adv-retry':case'quiz-adv-retry-load':case'quiz-adv-shuffle':case'quiz-adv-reset-shown':case'quiz-adv-more':case'quiz-hard-timed':case'quiz-hard-deepdives':case'quiz-adv-open-source':layoutAction(a,v,b);break;
+case'spec-toggle':case'top-menu':case'more-toggle':case'today-new':case'today-core-quiz':case'spec-quiz-mode':case'quiz-bank':case'quiz-bank-open':case'quiz-adv-answer':case'quiz-adv-reveal':case'quiz-adv-retry':case'quiz-adv-retry-load':case'quiz-adv-shuffle':case'quiz-adv-reset-shown':case'quiz-adv-more':case'quiz-hard-timed':case'quiz-hard-deepdives':case'quiz-adv-open-source':layoutAction(a,v,b);break;
 case'nav-toggle':{const rail=$('.rail'),open=!rail.classList.contains('nav-open');rail.classList.toggle('nav-open',open);$('#nav-toggle').setAttribute('aria-expanded',String(open));break;}
 case'tab':switchTab(v);break;
 case'original-search':S.originalQuery=$('#original-search').value;S.originalScope=$('#original-scope').value;S.originalResultPage=0;render();break;
