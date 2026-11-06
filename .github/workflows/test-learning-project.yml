@@ -27,6 +27,8 @@ jobs:
           python3 scripts/apply-exam-schedule.py --check
           python3 scripts/apply-app-install.py --check
           python3 scripts/apply-layout.py --check
+          python3 scripts/apply-written-qa.py --check
+          python3 scripts/validate-written-qa.py
           node scripts/test-app-install.cjs
           node scripts/test-exam-schedule.cjs
           node scripts/test-integrated-lessons.cjs
@@ -40,3 +42,4 @@ jobs:
           node scripts/test-study-srs.cjs
           node scripts/test-learning-project.cjs
           node scripts/test-layout.cjs
+          node scripts/test-written-qa.cjs

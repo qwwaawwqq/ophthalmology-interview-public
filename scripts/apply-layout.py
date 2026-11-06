@@ -108,8 +108,11 @@ def build(text):
                 "document.addEventListener('click',e=>{layoutDismiss(e);const b=e.target.closest('[data-action]');", 'click dismiss')
     old_cases = "case'spec-toggle':case'top-menu':case'more-toggle':case'today-new':layoutAction(a,v,b);break;"
     mid_cases = "case'spec-toggle':case'top-menu':case'more-toggle':case'today-new':case'quiz-bank':case'quiz-bank-open':case'quiz-adv-answer':case'quiz-adv-reveal':case'quiz-adv-retry':case'quiz-adv-shuffle':case'quiz-adv-reset-shown':case'quiz-adv-more':case'quiz-hard-timed':case'quiz-hard-deepdives':case'quiz-adv-open-source':layoutAction(a,v,b);break;"
-    new_cases = "case'spec-toggle':case'top-menu':case'more-toggle':case'today-new':case'today-core-quiz':case'quiz-bank':case'quiz-bank-open':case'quiz-adv-answer':case'quiz-adv-reveal':case'quiz-adv-retry':case'quiz-adv-retry-load':case'quiz-adv-shuffle':case'quiz-adv-reset-shown':case'quiz-adv-more':case'quiz-hard-timed':case'quiz-hard-deepdives':case'quiz-adv-open-source':layoutAction(a,v,b);break;"
-    if mid_cases in text and new_cases not in text:
+    prev_cases = "case'spec-toggle':case'top-menu':case'more-toggle':case'today-new':case'today-core-quiz':case'quiz-bank':case'quiz-bank-open':case'quiz-adv-answer':case'quiz-adv-reveal':case'quiz-adv-retry':case'quiz-adv-retry-load':case'quiz-adv-shuffle':case'quiz-adv-reset-shown':case'quiz-adv-more':case'quiz-hard-timed':case'quiz-hard-deepdives':case'quiz-adv-open-source':layoutAction(a,v,b);break;"
+    new_cases = "case'spec-toggle':case'top-menu':case'more-toggle':case'today-new':case'today-core-quiz':case'spec-quiz-mode':case'quiz-bank':case'quiz-bank-open':case'quiz-adv-answer':case'quiz-adv-reveal':case'quiz-adv-retry':case'quiz-adv-retry-load':case'quiz-adv-shuffle':case'quiz-adv-reset-shown':case'quiz-adv-more':case'quiz-hard-timed':case'quiz-hard-deepdives':case'quiz-adv-open-source':layoutAction(a,v,b);break;"
+    if prev_cases in text and new_cases not in text:
+        text = text.replace(prev_cases, new_cases, 1)
+    elif mid_cases in text and new_cases not in text:
         text = text.replace(mid_cases, new_cases, 1)
     elif old_cases in text and new_cases not in text:
         text = text.replace(old_cases, new_cases, 1)
@@ -123,8 +126,12 @@ def build(text):
     else:
         text = once(text, "document.addEventListener('input',e=>{const el=e.target;if(window.OphProject?.input(el))return;",
                     "document.addEventListener('input',e=>{const el=e.target;if(window.OphProject?.input(el))return;if(layoutInput(el,e))return;", 'layout input')
-    text = once(text, "S.round=Object.create(null);switchTab('quiz');}",
-                "S.round=Object.create(null);quizBankMode='core';switchTab('quiz');}", 'startQuiz core reset')
+    if "S.round=Object.create(null);quizBankMode='core';switchTab('quiz');}" in text:
+        text = text.replace("S.round=Object.create(null);quizBankMode='core';switchTab('quiz');}",
+                            "S.round=Object.create(null);quizBankMode='core';specQuizMode='mcq';switchTab('quiz');}", 1)
+    else:
+        text = once(text, "S.round=Object.create(null);switchTab('quiz');}",
+                    "S.round=Object.create(null);quizBankMode='core';specQuizMode='mcq';switchTab('quiz');}", 'startQuiz core reset')
     return merge_hooks(interview_hooks(text))
 
 

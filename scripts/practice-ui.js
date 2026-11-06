@@ -15,13 +15,17 @@ function practiceSources(ids,src){const items=(ids||[]).map(id=>allResources().g
 function practiceRelated(topicIds,extra=''){return `<div class="practice-related"><span class="small">相關內容</span>${(topicIds||[]).filter(id=>D.topics.some(t=>t.id===id)).map(id=>btn(esc(shortTitle(id)),'learn-topic',id,'small subtle')).join('')}${extra}</div>`;}
 
 /* Routes: every view and lesson anchor can be expressed as a hash so it can be saved and shared. */
-function anchorValid(t,target){if(typeof coverageTarget==='function'&&chapterCoverage(t))return coverageTarget(t,target);if(chapterEnrichment(t)?.integrated?.units.some(u=>u.id===target))return true;const m=target.match(/^section-(\d+)$/);return !!m&&Number(m[1])<t.sections.length;}
+function anchorValid(t,target){if(target==='written'&&t.chapter)return true;if(typeof coverageTarget==='function'&&chapterCoverage(t))return coverageTarget(t,target);if(chapterEnrichment(t)?.integrated?.units.some(u=>u.id===target))return true;const m=target.match(/^section-(\d+)$/);return !!m&&Number(m[1])<t.sections.length;}
 function parseRoute(hash){
   if(typeof hash!=='string')return null;
   const h=hash.trim();let m;
   if(SPEC.id!=='oph'&&h.startsWith('#textbook'))return null;
   if(/^#textbook-atlas(?:-bcsc-s(?:0[1-9]|1[0-3])(?:-atlas-s(?:0[1-9]|1[0-3])-(?:0[1-9]|[1-9]\d))?)?$/.test(h))return {kind:'tab',tab:'textbook',hash:h};
+  if(/^#textbook-written(?:-bcsc-s(?:0[1-9]|1[0-3]))?$/.test(h))return {kind:'tab',tab:'textbook',hash:h};
   if(/^#textbook(?:-extra(?:-extra-\d{8}-q\d{3})?|-bcsc-s(?:0[1-9]|1[0-3])(?:-(?:ch\d{3}(?:-iq\d{3}|-u\d{2})?|rq\d{3}))?)?$/.test(h))return {kind:'tab',tab:'textbook',hash:h};
+  if(h==='#written')return {kind:'written',id:null,hash:h};
+  if((m=h.match(/^#written-([a-z]+-wq-[a-z0-9-]+)$/))&&m[1].length<=80&&m[1].startsWith(SPEC.id+'-wq-'))return {kind:'written',id:m[1],hash:h};
+  if(h==='#cram-written'&&navs.some(n=>n[0]==='cram')&&tabAllowed('cram'))return {kind:'tab',tab:'cram',hash:h};
   if(/^#[a-z0-9-]+$/.test(h)){for(const t of D.topics){if(h.startsWith('#'+t.id+'-')){const target=h.slice(t.id.length+2);if(anchorValid(t,target))return {kind:'anchor',topicId:t.id,target,hash:h};}}}
   if((m=h.match(/^#topic-([a-z0-9-]+)$/))&&D.topics.some(t=>t.id===m[1]))return {kind:'topic',id:m[1],hash:h};
   if(h==='#pbl')return {kind:'pbl',id:null,hash:h};
@@ -41,16 +45,20 @@ function routeLabel(route){
     const target=route.target;
     if(target.startsWith('section-'))return name+' · '+t.sections[Number(target.slice(8))].title;
     if(target==='coverage')return name+' · 共筆對照';
+    if(target==='written')return name+' · 手寫問答';
     if(target.startsWith('coverage-'))return name+' · '+(chapterCoverage(t)?.entries.find(e=>'coverage-'+e.id===target)?.title||'共筆詳解');
     return name+' · '+(chapterEnrichment(t)?.integrated?.units.find(u=>u.id===target)?.title||'學習單元');
   }
+  if(route.kind==='written')return window.OphWritten?.routeLabel?.(route.id)||(route.id?'手寫問答 · '+route.id:'手寫問答題庫');
   if(route.kind==='pbl')return route.id?'PBL · '+pblCases().find(c=>c.id===route.id).title:'PBL 情境討論';
   if(route.kind==='workflow')return route.id?'臨床流程 · '+wfList().find(w=>w.id===route.id).title:'臨床流程';
   if(route.kind==='interview')return '面試演練 · '+D.interview.find(i=>i.id===route.id).title;
+  if(route.hash==='#cram-written')return '共筆考前衝刺 · 手寫問答';
   return navs.find(n=>n[0]===route.tab)?.[2]||'練習室';
 }
 function routeMatchesView(route){
   if(!route)return false;
+  if(route.kind==='written')return window.OphWritten?.matchesRoute?.(route)||(S.tab==='quiz'&&window.OphQuizBank?.getMode?.()==='written');
   if(route.kind==='anchor')return S.tab==='learn'&&S.learn===route.topicId;
   if(route.kind==='topic')return S.tab==='learn'&&S.learn===route.id;
   if(route.kind==='pbl')return S.tab==='pbl'&&(!route.id||route.id===S.pbl);
@@ -58,7 +66,7 @@ function routeMatchesView(route){
   if(route.kind==='interview')return S.tab==='interview'&&S.interview===route.id;
   return S.tab===route.tab;
 }
-function currentViewHash(){return S.tab==='learn'?(S.learn?'#topic-'+S.learn:'#tab-learn'):S.tab==='pbl'?(S.pbl?'#'+S.pbl:'#pbl'):S.tab==='workflow'?(S.workflow?'#'+S.workflow:'#workflow'):S.tab==='interview'?(S.interview?'#interview-'+S.interview:'#tab-interview'):S.tab==='links'?'#links':S.tab==='today'?'':'#tab-'+S.tab;}
+function currentViewHash(){if(S.tab==='quiz'&&window.OphQuizBank?.getMode?.()==='written')return window.OphWritten?.currentHash?.()||'#written';return S.tab==='learn'?(S.learn?'#topic-'+S.learn:'#tab-learn'):S.tab==='pbl'?(S.pbl?'#'+S.pbl:'#pbl'):S.tab==='workflow'?(S.workflow?'#'+S.workflow:'#workflow'):S.tab==='interview'?(S.interview?'#interview-'+S.interview:'#tab-interview'):S.tab==='links'?'#links':S.tab==='today'?'':'#tab-'+S.tab;}
 function currentLocationHash(){const route=parseRoute(window.location?.hash||'');return route&&routeMatchesView(route)?route.hash:(currentViewHash()||'#tab-today');}
 function syncPracticeHash(){
   rememberWorkspace();
@@ -80,7 +88,13 @@ function openRoute(hash,updateHash=true){
     const node=document.getElementById(t.id+'-'+route.target);if(node)node.scrollIntoView({block:'start'});
     return true;
   }
-  if(route.kind==='topic'){S.learn=route.id;switchTab('learn');}
+  if(route.kind==='written'){
+    window.OphWritten?.focusQuestion?.(route.id);
+    if(window.OphQuizBank?.setWritten)window.OphQuizBank.setWritten();
+    else switchTab('quiz');
+    if(route.id)document.getElementById?.('written-'+route.id)?.scrollIntoView?.({block:'start'});
+  }
+  else if(route.kind==='topic'){S.learn=route.id;switchTab('learn');}
   else if(route.kind==='pbl'){if(route.id)S.pbl=route.id;switchTab('pbl');}
   else if(route.kind==='workflow'){if(route.id)S.workflow=route.id;switchTab('workflow');}
   else if(route.kind==='interview')chooseInterview(route.id);
@@ -135,10 +149,18 @@ function practiceEntry(key,v){
   const at=validDate(v?.at);
   if(key.startsWith('pbl:')){if(!pblCases().some(c=>'pbl:'+c.id===key)||typeof v?.done!=='boolean')return null;return {done:v.done,at};}
   if(key.startsWith('workflow:')){const w=wfList().find(x=>'workflow:'+x.id===key);if(!w||!v||typeof v.practiced!=='boolean')return null;const total=w.steps.length,best=Number.isInteger(v.best)&&v.best>=0&&v.best<=total?v.best:0;return {practiced:v.practiced,best,total,at};}
+  if(key.startsWith('written:')){
+    const wid=key.slice(8);
+    if(wid.length>80||!/^[a-z]+-wq-[a-z0-9-]+$/.test(wid)||!wid.startsWith(SPEC.id+'-wq-')||!v||typeof v!=='object'||Array.isArray(v))return null;
+    const completed=Boolean(v.completed);
+    const selfScore=Number.isInteger(v.selfScore)&&v.selfScore>=0&&v.selfScore<=5?v.selfScore:(completed?2:0);
+    const checks=Array.isArray(v.checks)?v.checks.slice(0,20).map(Boolean):[];
+    return {completed,selfScore,checks,revealed:Boolean(v.revealed),at};
+  }
   return undefined;
 }
 function practiceMeta(key,v){
-  if(!v||typeof v!=='object'||Array.isArray(v))return key.startsWith('link:')||key.startsWith('pbl:')?null:undefined;
+  if(!v||typeof v!=='object'||Array.isArray(v))return key.startsWith('link:')||key.startsWith('pbl:')||key.startsWith('written:')?null:undefined;
   const at=validDate(v.at),text=(s,max)=>typeof s==='string'?s.slice(0,max):'';
   if(key.startsWith('link:')){
     if(!/^link:[a-z0-9]{6,32}$/.test(key))return null;
@@ -152,6 +174,11 @@ function practiceMeta(key,v){
     if(!c)return null;
     const notes=Array.isArray(v.notes)?c.stages.map((_,n)=>text(v.notes[n],4000)):c.stages.map(()=>'');
     return {notes,issues:text(v.issues,4000),at};
+  }
+  if(key.startsWith('written:')){
+    const wid=key.slice(8);
+    if(wid.length>80||!/^[a-z]+-wq-[a-z0-9-]+$/.test(wid)||!wid.startsWith(SPEC.id+'-wq-'))return null;
+    return {text:text(v.text,8000),note:text(v.note,2000),hasInk:Boolean(v.hasInk),at};
   }
   return undefined;
 }
@@ -189,6 +216,7 @@ function pblPage(){
     <h3>考官可能追問</h3>${c.examinerFollowups.map(f=>`<details class="model"><summary>${esc(f.q)}</summary><div><p>${esc(f.a)}</p></div></details>`).join('')}
     <p class="practice-takeaway"><strong>帶走一句</strong>${esc(c.takeaway)}</p></section>`
   :`<div class="pbl-advance">${btn('進入'+esc(c.stages[shown].title.split(' · ')[0]),'pbl-stage','','primary')}${btn('一次展開全部','pbl-all','','subtle')}</div><p class="small">先寫下這一幕的事實、假說與還需要的資訊，再進入下一幕。</p>`}
+  <div data-written-slot="pbl" data-context-id="${esc(c.id)}" data-topic-ids="${esc((c.topicIds||[]).join(','))}">${window.OphWritten?.contextHtml?.('pbl',c.id,c.topicIds)||''}</div>
   ${practiceSources(c.sourceIds,c.source)}
   <div class="reading-actions">${btn(entries['pbl:'+c.id]?.done?'✓ 已完成（可取消）':'標記完成','pbl-done')}${shown>1?btn('從第一幕重來','pbl-restart','','subtle'):''}${btn('下一個情境','pbl-next','','primary')}</div>
   <p class="small practice-disclaimer">${esc(D.pbl.disclaimer)}</p></article></div>`;
@@ -236,6 +264,7 @@ function workflowPage(){
   <section class="trap wf-pitfalls"><strong>常見錯誤與考官陷阱</strong>${list(w.pitfalls)}</section>
   <h3>考官可能問</h3>${w.examQuestions.map(q=>`<details class="model"><summary>${esc(q.q)}</summary><div><p>${esc(q.a)}</p></div></details>`).join('')}
   <details class="model wf-handoff"><summary>向主治醫師回報（SBAR 範例）</summary><div><p class="preline">${esc(handoff)}</p></div></details>
+  <div data-written-slot="workflow" data-context-id="${esc(w.id)}" data-topic-ids="${esc((w.topicIds||[]).join(','))}">${window.OphWritten?.contextHtml?.('workflow',w.id,w.topicIds)||''}</div>
   ${practiceSources(w.sourceIds,w.source)}
   <div class="reading-actions">${btn(e?.practiced?'✓ 已練習（可取消）':'標記已練習','wf-done')}${btn('下一個流程','wf-next','','primary')}</div>
   <p class="small practice-disclaimer">${esc(D.workflows.disclaimer)}</p></article></div>`;
@@ -291,6 +320,7 @@ function practiceOverview(){
   return `<section class="practice-overview" aria-labelledby="practice-title"><div class="section-heading"><h2 id="practice-title">情境與流程演練</h2><span class="small">口試常問：「接下來你會怎麼做？」</span></div><div class="practice-cards">
   <article class="practice-card"><span class="practice-count">${cases} 個三幕情境</span><h3>PBL 情境討論</h3><p>逐幕揭露病例：整理事實、提出假說、列出還需要的資訊，再延伸到溝通、倫理與制度。</p>${btn('開始討論','tab','pbl','small')}</article>
   <article class="practice-card"><span class="practice-count">${flows} 個流程</span><h3>臨床流程</h3><p>急症、當日轉介、操作安全與篩檢照會；可遮住細節，或把打亂的步驟排回正確順序。</p>${btn('開始練習','tab','workflow','small')}</article>
+  <article class="practice-card" data-written-slot="overview"><span class="practice-count">${esc(window.OphWritten?.countLabel?.()||'手寫板＋文字作答')}</span><h3>手寫問答題</h3><p>手寫板＋文字作答，每題附標準答案與得分要點；支援一鍵展開核對與間隔複習排程。</p>${btn('開始作答','written-bank-open','','small')}</article>
   <article class="practice-card"><span class="practice-count">${linkItems().length} 個收藏</span><h3>我的連結</h3><p>收藏章節段落、流程或外部網址並加註；與其他進度一起自動保存。</p>${btn('管理連結','tab','links','small')}</article></div></section>`;
 }
 function practiceIndex(){
@@ -298,12 +328,13 @@ function practiceIndex(){
   for(const c of pblCases()){const topic=D.topics.find(t=>t.id===c.topicIds[0]);out.push({topicId:c.topicIds[0],chapter:topic?.chapter||0,type:'PBL 情境',title:c.title,body:[c.theme,c.trigger,...c.stages.flatMap(s=>[s.title,s.info,...s.prompts,...s.facts,...s.hypotheses,...s.needToKnow,s.discussion]),...c.learningIssues.flatMap(x=>[x.issue,x.why]),...c.humanities.points,...c.examinerFollowups.flatMap(f=>[f.q,f.a]),c.takeaway].join(' '),action:'pbl-open',target:c.id});}
   for(const w of wfList()){const topic=D.topics.find(t=>t.id===w.topicIds[0]);out.push({topicId:w.topicIds[0],chapter:topic?.chapter||0,type:'臨床流程',title:w.title,body:[w.urgency,w.trigger,...w.steps.flatMap(s=>[s.title,s.detail,s.why]),...w.redFlags,...w.pitfalls,...w.examQuestions.flatMap(q=>[q.q,q.a]),w.handoff].join(' '),action:'workflow-open',target:w.id});}
   for(const i of D.interview){const d=detailedAnswer(i);if(!d)continue;const topic=D.topics.find(t=>t.id===i.topicId);out.push({topicId:i.topicId||'',chapter:topic?.chapter||0,type:'面試詳解',title:i.title+'：'+i.question,body:[d.summary,d.answer,...d.followupAnswers,...(d.moreFollowups||[]).flatMap(f=>[f.q,f.a]),...d.examinerFocus,...d.pitfalls].join(' '),action:'interview',target:i.id});}
-  return out;
+  return [...out,...(window.OphWritten?.searchIndex?.()||[])];
 }
 
 /* Events routed from the app's existing handlers. */
 function practiceInput(el){
   if(syncInput(el))return true;
+  if(window.OphWritten?.input?.(el))return true;
   const id=el?.id||'';
   if(id==='link-url'||id==='link-title'||id==='link-note'){S.linkDraft[id.slice(5)]=el.value;return true;}
   if(id==='link-filter'){S.linkFilter=el.value;const box=$('#link-list');if(box)box.innerHTML=linkListMarkup();return true;}
@@ -311,8 +342,10 @@ function practiceInput(el){
   if(id==='pbl-issues'){const c=pblCase(),v=pblNotes(c.id);putMeta('pbl:'+c.id,{notes:v.notes,issues:el.value});return true;}
   return false;
 }
-function practiceChange(el){if(window.OphAdvanced?.change(el))return true;if(syncChange(el))return true;if(el?.id==='link-topic'){S.linkDraft.topicId=el.value;return true;}return false;}
+function practiceChange(el){if(window.OphAdvanced?.change(el))return true;if(window.OphWritten?.change?.(el))return true;if(syncChange(el))return true;if(el?.id==='link-topic'){S.linkDraft.topicId=el.value;return true;}return false;}
 function practiceAction(a,v,b){if(window.OphAdvanced?.action(a,v,b))return true;
+  if(a==='written-bank-open'){openRoute('#written');return true;}
+  if(window.OphWritten?.action?.(a,v,b))return true;
   if(syncAction(a))return;
   switch(a){
   case'pbl-open':if(pblCases().some(c=>c.id===v)){S.pbl=v;switchTab('pbl');}break;
@@ -339,6 +372,7 @@ function practiceAction(a,v,b){if(window.OphAdvanced?.action(a,v,b))return true;
   case'link-open':{const item=linkItems().find(x=>x.id===v);if(item&&item.url.startsWith('#')&&!openRoute(item.url,true))toast('這個 App 內位置已不存在，請編輯或刪除。');break;}
   }
 }
+window.OphWrittenBridge={get S(){return S;},get D(){return D;},get entries(){return entries;},get meta(){return meta;},put,putMeta,save:changed,render,switchTab,openRoute,toast,setQuizWritten(){return window.OphQuizBank?.setWritten?.();}};
 // Replaces the coverage-only hash listeners; coverage anchors are still restored through coverageRestoreHash.
 window.addEventListener('hashchange',appRestoreHash);
 window.addEventListener('load',appRestoreHash);

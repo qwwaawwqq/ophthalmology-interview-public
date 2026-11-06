@@ -49,7 +49,10 @@ function progressChanged(){
   syncStatus();
 }
 function clearDevice(){
-  removeKey(STORE.state);removeKey(STORE.token);removeKey(STORE.cloud);removeKey(WORKSPACE_KEY);removeKey(CRAM_KEY);
+  const inkKey=SPEC.storePrefix+'written-ink-v1';
+  removeKey(STORE.state);removeKey(STORE.token);removeKey(STORE.cloud);removeKey(WORKSPACE_KEY);removeKey(CRAM_KEY);removeKey(inkKey);
+  try{window.localStorage?.removeItem?.(inkKey);}catch{}
+  window.OphWritten?.clearLocalCache?.();
   clearTimeout(workspaceTimer);workspaceTimer=null;
   clearTimeout(localTimer);clearTimeout(cloudTimer);localTimer=cloudTimer=null;
   entries=Object.create(null);meta=Object.create(null);dirty=false;
