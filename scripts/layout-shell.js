@@ -453,10 +453,32 @@ function quizAdvOptionOrder(q){
   }
   return order;
 }
-function quizAdvUpdatesMarkup(items){
-  const valid=(items||[]).filter(x=>/^https:\/\//.test(x?.source?.url));
+function quizAdvUpdatesMarkup(items,seen){
+  const bag=seen||new Set(),valid=[];
+  for(const x of items||[]){
+    if(!/^https:\/\//.test(x?.source?.url))continue;
+    const k=(x.source.url||'').trim()+'|'+(x.statement||'').trim();
+    if(bag.has(k))continue;
+    bag.add(k);
+    valid.push(x);
+  }
   if(!valid.length)return '';
   return `<section class="tb-clinical-updates quiz-adv-updates" data-quiz-adv-updates><h3>與現行臨床建議的差異</h3>${valid.map(x=>`<p>${esc(x.statement)}</p><p class="tb-source"><a href="${esc(x.source.url)}" target="_blank" rel="noopener noreferrer">${esc(x.source.title)}</a>${x.source.checkedAt?' · 核對 '+esc(x.source.checkedAt):''}</p>`).join('')}</section>`;
+}
+function quizAdvCoreExplanation(item){
+  let s=String(item?.explanation||'').trim();
+  if(!(Array.isArray(item?.reasoningSteps)&&item.reasoningSteps.length)&&!item?.decisiveDiscriminator)return s;
+  const steps=Array.isArray(item?.reasoningSteps)?item.reasoningSteps.map(x=>String(x||'').trim()).filter(Boolean):[];
+  const joined=steps.join(' → ');
+  if(joined&&s.startsWith(joined))s=s.slice(joined.length).replace(/^[。；，、\s]+/,'');
+  const disc=String(item?.decisiveDiscriminator||'').trim();
+  if(disc){
+    const m=s.match(/^(?:關鍵辨析|辨析)[：:\s]*/);
+    const rem=m?s.slice(m[0].length):s;
+    if(rem.startsWith(disc))s=rem.slice(disc.length).replace(/^[。；，、\s]+/,'');
+    else if(s===disc)s='';
+  }
+  return s.trim();
 }
 function quizAdvCardMarkup(q,idx,total){
   const rec=quizAdvRecord(q),hasChoice=!!rec,isRevealed=quizAdvIsRevealed(q);
@@ -466,12 +488,14 @@ function quizAdvCardMarkup(q,idx,total){
   const diffLabel=q.bankKind==='hard'||q.difficulty==='advanced'?'Hard 多步臨床推理':'BCSC 二至三階';
   const concept=q.testConcept||q.chapterTitle||(q.sourceNumber?`原書題號 #${q.sourceNumber}`:'');
   const hasSteps=q.decisiveDiscriminator||q.counterfactual||(Array.isArray(q.reasoningSteps)&&q.reasoningSteps.length);
+  const expText=hasSteps?quizAdvCoreExplanation(q):String(q.explanation||'').trim();
   const closestOpt=Number.isInteger(q.closestDistractorIndex)&&q.options?.[q.closestDistractorIndex];
   const closestPos=Number.isInteger(q.closestDistractorIndex)?order.indexOf(q.closestDistractorIndex):-1;
   const closestText=closestOpt?(typeof closestOpt==='string'?closestOpt:closestOpt.text):'';
-  const preUpdates=quizAdvUpdatesMarkup(q.scopedClinicalUpdates);
-  const postUpdates=quizAdvUpdatesMarkup(q.clinicalUpdates);
-  return `<article class="card question-card quiz-adv-card" data-question-id="${esc(q.id)}" data-bank-kind="${esc(q.bankKind)}"><div class="question-top quiz-adv-top"><div class="quiz-adv-badges"><span class="tag quiz-badge-${esc(q.bankKind)}">${esc(bankLabel)}</span><span class="tag quiz-badge-diff">${esc(diffLabel)}</span>${concept?`<span class="quiz-adv-concept">${esc(concept)}</span>`:''}<span class="quiz-adv-pages">${esc(quizAdvPdfBadge(q))}</span></div><span>第 ${String(idx+1).padStart(2,'0')} / ${String(total).padStart(2,'0')} 題</span></div><div class="question-body">${preUpdates}<h2 class="question-stem" tabindex="-1">${esc(q.stem)}</h2><div class="options quiz-adv-options" role="group" aria-label="請選擇一個答案">${order.map((srcIdx,pos)=>{const opt=q.options[srcIdx];const txt=typeof opt==='string'?opt:opt.text;const isCorr=srcIdx===q.correctIndex,isSel=hasChoice&&rec.choice===srcIdx;const cls=isRevealed?(isCorr?'correct':isSel?'wrong':''):(isSel?'selected':'');return `<button type="button" class="option quiz-adv-option ${cls}" data-action="quiz-adv-answer" data-value="${esc(q.id)}|${srcIdx}" data-option-src="${srcIdx}" data-option-pos="${pos}" aria-pressed="${isSel}"${isRevealed?' disabled':''}><span class="letter">${'ABCD'[pos]}</span><span class="option-text">${esc(txt)}</span>${isRevealed&&isCorr?'<span class="option-status">✓ 正解</span>':isRevealed&&isSel?'<span class="option-status">你的答案</span>':''}</button>`;}).join('')}</div><div class="question-actions quiz-adv-actions">${btn(isRevealed?'重做本題':'直接看解析',isRevealed?'quiz-adv-retry':'quiz-adv-reveal',q.id,isRevealed?'small subtle':'small')}${btn('原書章節對照','quiz-adv-open-source',q.id,'small subtle')}</div>${isRevealed?`<section class="feedback quiz-adv-feedback ${hasChoice&&rec.choice!==q.correctIndex?'is-wrong':''}" aria-label="作答解析"><div class="feedback-head" role="status">${hasChoice?(rec.choice===q.correctIndex?'✓ 答對了':'✗ 這一題值得再練一次'):'解析檢閱'} · 正確答案 ${'ABCD'[corrPos]}</div><div class="feedback-content"><div class="reason-step"><span class="step-number">1</span><div><h3>核心臨床推理與解析</h3><p class="preline">${esc(q.explanation)}</p></div></div>${hasSteps?`<div class="quiz-adv-reasoning" data-quiz-adv-reasoning><h3>多步臨床推理與條件反轉</h3>${q.decisiveDiscriminator?`<p><strong>關鍵鑑別點：</strong>${esc(q.decisiveDiscriminator)}</p>`:''}${closestText?`<p><strong>最接近干擾項（${'ABCD'[closestPos>=0?closestPos:q.closestDistractorIndex]}）：</strong>${esc(closestText)}</p>`:''}${Array.isArray(q.reasoningSteps)&&q.reasoningSteps.length?`<div class="quiz-adv-steps"><strong>多步推理步驟：</strong><ol>${q.reasoningSteps.map(s=>`<li>${esc(s)}</li>`).join('')}</ol></div>`:''}${q.counterfactual?`<p><strong>條件反轉 Counterfactual：</strong>${esc(q.counterfactual)}</p>`:''}</div>`:''}<div class="quiz-adv-rationales" data-quiz-adv-rationales><h3>四選項逐一解析與條件反轉（Rationale &amp; When True）</h3><ol class="quiz-rationale-list">${order.map((srcIdx,pos)=>{const opt=q.options[srcIdx];const txt=typeof opt==='string'?opt:opt.text;const rat=opt?.rationale||(Array.isArray(q.rationales)?q.rationales[srcIdx]:'');const wt=opt?.whenTrue||(Array.isArray(q.whenTrue)?q.whenTrue[srcIdx]:'');return `<li class="${srcIdx===q.correctIndex?'is-correct':'is-distractor'}"><div class="rationale-head"><strong>${'ABCD'[pos]} · ${srcIdx===q.correctIndex?'✓ 本題正解':'干擾選項'}</strong><span>${esc(txt)}</span></div>${rat?`<p class="rationale-body"><b>為什麼${srcIdx===q.correctIndex?'選':'不選'}：</b>${esc(rat)}</p>`:''}${wt?`<p class="rationale-whentrue"><b>條件反轉（何時成立）：</b>${esc(wt)}</p>`:''}</li>`;}).join('')}</ol></div>${postUpdates}${window.OphStudy?.ratingHtml?.(q.bankKind==='bcsc'?'book':'extra',q.id)||''}<p class="small quiz-adv-source">來源頁碼：${esc(quizAdvSourceText(q))}</p></div></section>`:''}</div></article>`;
+  const seenUpdates=new Set();
+  const preUpdates=quizAdvUpdatesMarkup(q.scopedClinicalUpdates,seenUpdates);
+  const postUpdates=quizAdvUpdatesMarkup(q.clinicalUpdates,seenUpdates);
+  return `<article class="card question-card quiz-adv-card" data-question-id="${esc(q.id)}" data-bank-kind="${esc(q.bankKind)}"><div class="question-top quiz-adv-top"><div class="quiz-adv-badges"><span class="tag quiz-badge-${esc(q.bankKind)}">${esc(bankLabel)}</span><span class="tag quiz-badge-diff">${esc(diffLabel)}</span>${concept?`<span class="quiz-adv-concept">${esc(concept)}</span>`:''}<span class="quiz-adv-pages">${esc(quizAdvPdfBadge(q))}</span></div><span>第 ${String(idx+1).padStart(2,'0')} / ${String(total).padStart(2,'0')} 題</span></div><div class="question-body">${preUpdates}<h2 class="question-stem" tabindex="-1">${esc(q.stem)}</h2><div class="options quiz-adv-options" role="group" aria-label="請選擇一個答案">${order.map((srcIdx,pos)=>{const opt=q.options[srcIdx];const txt=typeof opt==='string'?opt:opt.text;const isCorr=srcIdx===q.correctIndex,isSel=hasChoice&&rec.choice===srcIdx;const cls=isRevealed?(isCorr?'correct':isSel?'wrong':''):(isSel?'selected':'');return `<button type="button" class="option quiz-adv-option ${cls}" data-action="quiz-adv-answer" data-value="${esc(q.id)}|${srcIdx}" data-option-src="${srcIdx}" data-option-pos="${pos}" aria-pressed="${isSel}"${isRevealed?' disabled':''}><span class="letter">${'ABCD'[pos]}</span><span class="option-text">${esc(txt)}</span>${isRevealed&&isCorr?'<span class="option-status">✓ 正解</span>':isRevealed&&isSel?'<span class="option-status">你的答案</span>':''}</button>`;}).join('')}</div><div class="question-actions quiz-adv-actions">${btn(isRevealed?'重做本題':'直接看解析',isRevealed?'quiz-adv-retry':'quiz-adv-reveal',q.id,isRevealed?'small subtle':'small')}${btn('原書章節對照','quiz-adv-open-source',q.id,'small subtle')}</div>${isRevealed?`<section class="feedback quiz-adv-feedback ${hasChoice&&rec.choice!==q.correctIndex?'is-wrong':''}" aria-label="作答解析"><div class="feedback-head" role="status">${hasChoice?(rec.choice===q.correctIndex?'✓ 答對了':'✗ 這一題值得再練一次'):'解析檢閱'} · 正確答案 ${'ABCD'[corrPos]}</div><div class="feedback-content">${expText?`<div class="reason-step"><span class="step-number">1</span><div><h3>核心臨床推理與解析</h3><p class="preline">${esc(expText)}</p></div></div>`:''}${hasSteps?`<div class="quiz-adv-reasoning" data-quiz-adv-reasoning><h3>多步臨床推理與條件反轉</h3>${q.decisiveDiscriminator?`<p><strong>關鍵鑑別點：</strong>${esc(q.decisiveDiscriminator)}</p>`:''}${closestText?`<p><strong>最接近干擾項（${'ABCD'[closestPos>=0?closestPos:q.closestDistractorIndex]}）：</strong>${esc(closestText)}</p>`:''}${Array.isArray(q.reasoningSteps)&&q.reasoningSteps.length?`<div class="quiz-adv-steps"><strong>多步推理步驟：</strong><ol>${q.reasoningSteps.map(s=>`<li>${esc(s)}</li>`).join('')}</ol></div>`:''}${q.counterfactual?`<p><strong>條件反轉 Counterfactual：</strong>${esc(q.counterfactual)}</p>`:''}</div>`:''}<div class="quiz-adv-rationales" data-quiz-adv-rationales><h3>四選項逐一解析與條件反轉（Rationale &amp; When True）</h3><ol class="quiz-rationale-list">${order.map((srcIdx,pos)=>{const opt=q.options[srcIdx];const txt=typeof opt==='string'?opt:opt.text;const rat=opt?.rationale||(Array.isArray(q.rationales)?q.rationales[srcIdx]:'');const wt=opt?.whenTrue||(Array.isArray(q.whenTrue)?q.whenTrue[srcIdx]:'');return `<li class="${srcIdx===q.correctIndex?'is-correct':'is-distractor'}"><div class="rationale-head"><strong>${'ABCD'[pos]} · ${srcIdx===q.correctIndex?'✓ 本題正解':'干擾選項'}</strong><span>${esc(txt)}</span></div>${rat?`<p class="rationale-body"><b>為什麼${srcIdx===q.correctIndex?'選':'不選'}：</b>${esc(rat)}</p>`:''}${wt?`<p class="rationale-whentrue"><b>條件反轉（何時成立）：</b>${esc(wt)}</p>`:''}</li>`;}).join('')}</ol></div>${postUpdates}${window.OphStudy?.ratingHtml?.(q.bankKind==='bcsc'?'book':'extra',q.id)||''}<p class="small quiz-adv-source">來源頁碼：${esc(quizAdvSourceText(q))}</p></div></section>`:''}</div></article>`;
 }
 function quizAdvPageMarkup(){
   ensureQuizAdvLoaded(quizBankMode);

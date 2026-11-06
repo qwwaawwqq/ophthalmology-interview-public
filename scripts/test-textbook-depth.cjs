@@ -13,10 +13,12 @@ fixture.questions=fixture.questions.slice(0,4).map(q=>({...q,readiness:'ready'})
 function moduleBoot(progress=new Map(),hash='#textbook',volume=fixture,env={}){
  const calls=[],scrolled=[],handlers=new Map(),windowHandlers=new Map(),root={isConnected:true,dataset:{},innerHTML:'',querySelector(sel){if(typeof sel==='string'&&sel.startsWith('#')&&root.innerHTML.includes('id="'+sel.slice(1)+'"'))return {scrollIntoView(opts){scrolled.push({sel,opts});},focus(){},setAttribute(){}};return null;},addEventListener(n,fn){if(!handlers.has(n))handlers.set(n,[]);handlers.get(n).push(fn);}};
  const window={location:{hash},history:{replaceState(_a,_b,value){window.location.hash=value;}},addEventListener(name,fn){windowHandlers.set(name,fn);},OphTextbookBridge:{read(k,id){return progress.get(k+':'+id)||null;},write(k,id,v){progress.set(k+':'+id,{...v,at:new Date().toISOString()});},rememberLocation(){}}};
- const context={window,document:{currentScript:{src:'https://example.test/scripts/textbook-depth.js'},getElementById(){return null;}},URL:env.URL||URL,Blob,Map,Set,WeakMap,Promise,console,fetch:async url=>{calls.push(String(url));const u=String(url),data=u.endsWith('textbook-manifest.json')?manifest:u.endsWith('additional-practice.json')?env.extra:u.includes('visual-atlas.json')?env.atlas:volume;if(!data)return {ok:false,json:async()=>null};return {ok:true,json:async()=>JSON.parse(JSON.stringify(data))};}};
+ if(env.studyBridge)window.OphStudyBridge=env.studyBridge;
+ const context={window,document:{currentScript:{src:'https://example.test/scripts/textbook-depth.js'},getElementById(){return null;}},URL:env.URL||URL,Blob,Map,Set,WeakMap,Promise,console,setInterval(){},clearInterval(){},fetch:async url=>{calls.push(String(url));const u=String(url),bookMatch=env.books&&u.match(/\/(bcsc-s\d{2})\.json$/),data=u.endsWith('textbook-manifest.json')?manifest:u.endsWith('additional-practice.json')?env.extra:u.endsWith('advanced-practice.json')?env.advanced:u.includes('visual-atlas.json')?env.atlas:bookMatch?env.books[bookMatch[1]]:volume;if(!data)return {ok:false,json:async()=>null};return {ok:true,json:async()=>JSON.parse(JSON.stringify(data))};}};
  vm.createContext(context);
  if(env.atlas!==undefined){context.document.currentScript={src:'https://example.test/scripts/textbook-atlas.js'};vm.runInContext(atlasSource,context);context.document.currentScript={src:'https://example.test/scripts/textbook-depth.js'};}
- vm.runInContext(source.replace('window.OphTextbook={mount};','window.OphTextbook={mount,__test:{optionOrder,route,choosePdf,localPdfs,formatRich,formatBullet,prettyExpr,renderCalcChecks,CHAPTER_ZH_TITLES}};'),context);
+ if(env.advanced!==undefined){for(const name of ['advanced-training-core.js','advanced-practice.js','advanced-training.js']){context.document.currentScript={src:'https://example.test/scripts/'+name};vm.runInContext(fs.readFileSync(path.join(__dirname,name),'utf8'),context);}context.document.currentScript={src:'https://example.test/scripts/textbook-depth.js'};}
+ vm.runInContext(source.replace('window.OphTextbook={mount};','window.OphTextbook={mount,__test:{optionOrder,route,choosePdf,localPdfs,formatRich,formatBullet,prettyExpr,renderCalcChecks,CHAPTER_ZH_TITLES,coreExplanation}};'),context);
  return {api:window.OphTextbook,root,calls,scrolled,progress,window,windowHandlers,async mount(){await window.OphTextbook.mount(root);},async filter(value){for(const fn of handlers.get('change')||[])fn({target:{matches:selector=>selector==='[data-tb-filter]',value}});for(let i=0;i<6;i++)await new Promise(r=>setImmediate(r));},async action(kind,value=''){for(const fn of handlers.get('click')||[])fn({target:{closest:sel=>!sel||sel==='[data-tb-action]'?({dataset:{tbAction:kind,value},disabled:false}):null}});for(let i=0;i<6;i++)await new Promise(r=>setImmediate(r));}};
 }
 (async()=>{
@@ -503,6 +505,96 @@ for mutate in [
   await b.action('chapter','bcsc-s13-ch001');
   assert(b.root.innerHTML.includes('<h2>The Science of Refractive Surgery</h2>'));
   assert(b.root.innerHTML.includes('<p class="tb-chapter-zh">'+map['bcsc-s13-ch001']+'</p>'));
+ });
+ await test('multi-unit inline atlas cards, chapter/question clinicalUpdates, and Hard explanations/sourceRefs never duplicate on BCSC pages (Issue #185)',async()=>{
+  const s01=JSON.parse(fs.readFileSync(path.join(__dirname,'../content/textbook-depth/bcsc-s01.json'),'utf8'));
+  const s02=JSON.parse(fs.readFileSync(path.join(__dirname,'../content/textbook-depth/bcsc-s02.json'),'utf8'));
+  const s06=JSON.parse(fs.readFileSync(path.join(__dirname,'../content/textbook-depth/bcsc-s06.json'),'utf8'));
+  const s10=JSON.parse(fs.readFileSync(path.join(__dirname,'../content/textbook-depth/bcsc-s10.json'),'utf8'));
+  const s13=JSON.parse(fs.readFileSync(path.join(__dirname,'../content/textbook-depth/bcsc-s13.json'),'utf8'));
+  const atlasPack=JSON.parse(fs.readFileSync(path.join(__dirname,'../content/textbook-depth/visual-atlas.json'),'utf8'));
+  const realExtra=JSON.parse(fs.readFileSync(path.join(__dirname,'../content/textbook-depth/additional-practice.json'),'utf8'));
+  const realHard=JSON.parse(fs.readFileSync(path.join(__dirname,'../content/textbook-depth/advanced-practice.json'),'utf8'));
+  const escHtml=x=>String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const countSub=(hay,needle)=>hay.split(needle).length-1;
+
+  // 1. Multi-unit atlas cards on bcsc-s01-ch009 (atlas-s01-25 bound to u02,u04,u05; atlas-s01-12 bound to u03,u04)
+  const ch9=moduleBoot(new Map(),'#textbook-bcsc-s01-ch009',s01,{atlas:atlasPack,studyBridge:{read(){return null;},save(){}}});
+  await ch9.mount();
+  const h9=ch9.root.innerHTML;
+  assert.equal((h9.match(/data-inline-atlas="atlas-s01-25"/g)||[]).length,1,'atlas-s01-25 must render once across u02/u04/u05');
+  assert.equal((h9.match(/data-atlas-srs-item="atlas-s01-25-case"/g)||[]).length,1,'atlas-s01-25-case SRS details must render once');
+  assert.equal((h9.match(/data-inline-atlas="atlas-s01-12"/g)||[]).length,1,'atlas-s01-12 must render once across u03/u04');
+  assert.equal((h9.match(/data-atlas-srs-item="atlas-s01-12-case"/g)||[]).length,1,'atlas-s01-12-case SRS details must render once');
+  assert(!h9.includes('data-unit-atlas="bcsc-s01-ch009-u04"'),'u04 must not emit an empty data-unit-atlas wrapper after deduplication');
+  assert(!h9.includes('data-unit-atlas="bcsc-s01-ch009-u05"'),'u05 must not emit an empty data-unit-atlas wrapper after deduplication');
+  // Standalone 2-argument call still returns cards normally without seenSet
+  const standaloneU04=ch9.window.OphTextbookAtlas.renderInlineUnitCards('bcsc-s01','bcsc-s01-ch009-u04');
+  assert(standaloneU04.includes('data-inline-atlas="atlas-s01-12"')&&standaloneU04.includes('data-inline-atlas="atlas-s01-25"'));
+  assert.equal(ch9.window.OphTextbookAtlas.renderInlineUnitCards('bcsc-s01','bcsc-s01-ch009-u04',new Set(),new Set(['atlas-s01-12','atlas-s01-25'])),'');
+
+  // 2. Chapter clinicalUpdates deduplication on ch009 & ch006, while preserving unit-only updates on ch003-u05
+  for(const cu of s01.clinicalUpdates.filter(x=>x.chapterIds?.includes('bcsc-s01-ch009'))){
+   assert.equal(countSub(h9,escHtml(cu.statement)),1,'ch009 clinicalUpdate must render once: '+cu.source.url);
+  }
+  await ch9.action('chapter','bcsc-s01-ch006');
+  const h6=ch9.root.innerHTML;
+  for(const cu of s01.clinicalUpdates.filter(x=>x.chapterIds?.includes('bcsc-s01-ch006'))){
+   assert.equal(countSub(h6,escHtml(cu.statement)),1,'ch006 clinicalUpdate must render once: '+cu.source.url);
+  }
+  await ch9.action('chapter','bcsc-s01-ch003');
+  const h3=ch9.root.innerHTML;
+  const u305Stmt=s01.chapters.find(c=>c.id==='bcsc-s01-ch003').units.find(u=>u.id==='bcsc-s01-ch003-u05').clinicalUpdates[0].statement;
+  assert.equal(countSub(h3,escHtml(u305Stmt)),1,'unit-only clinicalUpdate on bcsc-s01-ch003-u05 still renders once');
+
+  // 3. Question clinicalUpdates deduplication on revealed bcsc-s01-rq005
+  const rq5=s01.questions.find(q=>q.id==='bcsc-s01-rq005');
+  const rq5Stmt=escHtml(rq5.clinicalUpdates[0].statement);
+  const qb=moduleBoot(new Map(),'#textbook-bcsc-s01-rq005',s01);
+  await qb.mount();
+  assert.equal(countSub(qb.root.innerHTML,rq5Stmt),1,'pre-reveal bcsc-s01-rq005 renders clinicalUpdate once');
+  await qb.action('answer',rq5.id+'|'+rq5.correctIndex);
+  await qb.action('reveal',rq5.id);
+  assert.equal(countSub(qb.root.innerHTML,rq5Stmt),1,'revealed bcsc-s01-rq005 renders clinicalUpdate once (no .tb-feedback duplicate)');
+  assert.equal((qb.root.innerHTML.match(/class="tb-clinical-updates"/g)||[]).length,1);
+
+  // 4. Hard questions in #textbook-extra: Type A (q013), Type B (q055), Type C (q059) + single curriculum sourceRefs
+  const books={'bcsc-s01':s01,'bcsc-s02':s02,'bcsc-s06':s06,'bcsc-s10':s10,'bcsc-s13':s13};
+  const q13=realHard.questions.find(q=>q.id==='extra-20261022-q013');
+  const q55=realHard.questions.find(q=>q.id==='extra-20261022-q055');
+  const q59=realHard.questions.find(q=>q.id==='extra-20261022-q059');
+
+  const x13=moduleBoot(new Map(),'#textbook-extra-extra-20261022-q013',s13,{extra:realExtra,advanced:realHard,books});
+  await x13.mount();
+  await x13.action('answer',q13.id+'|'+q13.correctIndex);
+  await x13.action('reveal',q13.id);
+  const hq13=x13.root.innerHTML;
+  assert(/<section class="tb-feedback"><h3>[^<]*<\/h3><section class="advanced-native-reasoning">/.test(hq13),'Type-A q013 omits redundant .tb-feedback > p before .advanced-native-reasoning');
+  assert.equal(countSub(hq13,escHtml(q13.decisiveDiscriminator)),1,'q013 decisiveDiscriminator renders once');
+  assert.equal(countSub(hq13,escHtml(q13.reasoningSteps[0])),1,'q013 reasoningSteps[0] renders once');
+  assert(!hq13.includes('原創考點來源：'),'#textbook-extra omits duplicate 原創考點來源 line');
+  assert.equal(countSub(hq13,'PDF p. 131、132、133、137、138、139'),1,'q013 curriculum PDF pages render once');
+  assert(hq13.includes('https://pubmed.ncbi.nlm.nih.gov/20534929/'),'q013 externalRefs remain visible');
+
+  const x55=moduleBoot(new Map(),'#textbook-extra-extra-20261022-q055',s06,{extra:realExtra,advanced:realHard,books});
+  await x55.mount();
+  await x55.action('answer',q55.id+'|'+q55.correctIndex);
+  await x55.action('reveal',q55.id);
+  const hq55=x55.root.innerHTML;
+  assert(hq55.includes('<p>「額外近視移位」是隨機試驗群組比較得到的因果估計；這個合成病例前後變得更近視，不能單憑個案前後差就全部歸因於overminus。</p>'),'Type-B q055 keeps unique core sentence in .tb-feedback > p');
+  assert.equal(countSub(hq55,escHtml(q55.reasoningSteps[0])),1,'Type-B q055 does not repeat reasoningSteps prefix');
+  assert.equal(countSub(hq55,escHtml(q55.decisiveDiscriminator)),1,'Type-B q055 does not repeat decisiveDiscriminator');
+  assert(!hq55.includes('原創考點來源：'));
+  assert(hq55.includes('https://pubmed.ncbi.nlm.nih.gov/33662112/'));
+
+  const x59=moduleBoot(new Map(),'#textbook-extra-extra-20261022-q059',s02,{extra:realExtra,advanced:realHard,books});
+  await x59.mount();
+  await x59.action('answer',q59.id+'|'+q59.correctIndex);
+  await x59.action('reveal',q59.id);
+  const hq59=x59.root.innerHTML;
+  assert(hq59.includes('<p>'+escHtml(q59.explanation)+'</p>'),'Type-C q059 keeps its full distinct explanation');
+  assert(!hq59.includes('原創考點來源：'));
+  assert.equal(countSub(hq59,'PDF p. 236、237、238、270、271'),1);
  });
  const failed=results.filter(x=>!x.pass);console.log(JSON.stringify({passed:results.length-failed.length,failed:failed.length,results},null,2));if(failed.length)process.exitCode=1;
 })();

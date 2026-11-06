@@ -96,5 +96,35 @@ async function test(name,fn){try{await fn();results.push({name,pass:true});}catc
   a.action('advanced-srs-batch');await a.settle();
   assert.equal(a.qa.entries['study:srs:extra:'+q1.id].plan.reviewCount,1);
  });
+ await test('Hard review and reasoningHtml deduplicate Type-A/B explanations and omit duplicate curriculum sourceRefs while preserving Type-C and externalRefs',async()=>{
+  const realHard=read('content/textbook-depth/advanced-practice.json');
+  const q13=realHard.questions.find(q=>q.id==='extra-20261022-q013');
+  const q14=realHard.questions.find(q=>q.id==='extra-20261022-q014');
+  const q55=realHard.questions.find(q=>q.id==='extra-20261022-q055');
+  const q59=realHard.questions.find(q=>q.id==='extra-20261022-q059');
+  const customPack=fixture(3,3);
+  customPack.questions[0]=plain(q13);
+  customPack.questions[1]=plain(q55);
+  // customPack.questions[2] keeps Type-C 'Synthetic explanation 2'
+  const a=await fresh(new MemoryStorage(),customPack);
+  assert.equal(a.advanced.coreExplanation(q13),'','Type-A steps + discriminator explanation strips cleanly to empty');
+  assert.equal(a.advanced.coreExplanation(q14),'','Type-A steps + 關鍵辨析：discriminator explanation strips cleanly to empty');
+  assert.equal(a.advanced.coreExplanation(q55),'「額外近視移位」是隨機試驗群組比較得到的因果估計；這個合成病例前後變得更近視，不能單憑個案前後差就全部歸因於overminus。');
+  assert.equal(a.advanced.coreExplanation(q59),q59.explanation.trim(),'Type-C distinct explanation remains intact');
+  assert.equal(a.advanced.coreExplanation(customPack.questions[2]),'Synthetic explanation 2');
+  const rh13=a.advanced.reasoningHtml(q13,true);
+  assert(!rh13.includes('原創考點來源：'),'reasoningHtml in #textbook-extra omits duplicate curriculum sourceRefs');
+  assert(rh13.includes('<ul class="refs">')&&rh13.includes('https://pubmed.ncbi.nlm.nih.gov/20534929/'),'reasoningHtml keeps externalRefs');
+  a.action('advanced-start');await a.settle();
+  a.action('advanced-submit');await a.settle();
+  const countSub=(hay,needle)=>hay.split(needle).length-1;
+  assert.equal(countSub(a.root.innerHTML,q13.decisiveDiscriminator),1,'Type-A discriminator renders once in #advanced review');
+  assert.equal(countSub(a.root.innerHTML,q13.reasoningSteps[0]),1,'Type-A reasoning step renders once in #advanced review');
+  assert.equal(countSub(a.root.innerHTML,q55.reasoningSteps[0]),1,'Type-B reasoning step renders once in #advanced review');
+  assert.equal(countSub(a.root.innerHTML,q55.decisiveDiscriminator),1,'Type-B discriminator renders once in #advanced review');
+  assert.equal(countSub(a.root.innerHTML,'「額外近視移位」是隨機試驗群組比較得到的因果估計'),1,'Type-B unique core sentence renders once');
+  assert(a.root.innerHTML.includes('Synthetic explanation 2'),'Type-C synthetic explanation renders in full');
+  assert(a.root.innerHTML.includes('原創考點來源：'),'#advanced review still renders curriculum sourceRefs');
+ });
  console.log(JSON.stringify({passed:results.filter(x=>x.pass).length,failed:results.filter(x=>!x.pass).length,results},null,2));if(results.some(x=>!x.pass))process.exitCode=1;
 })();

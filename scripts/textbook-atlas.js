@@ -208,9 +208,9 @@
       extraClass:''
     })).join('')+'</section>';
   }
-  function renderInlineUnitCards(bookId, unitId, zoomedSet) {
-    const units=unitsForUnit(bookId,unitId);
-    if(!units.length) return '';
+  function renderInlineUnitCards(bookId, unitId, zoomedSet, seenSet) {
+    const units=unitsForUnit(bookId,unitId).filter(u=>!(seenSet&&typeof seenSet.has==='function'&&seenSet.has(u.id)));
+    if(!units.length) return '';if(seenSet&&typeof seenSet.add==='function')for(const u of units)seenSet.add(u.id);
     return '<div class="atlas-inline-wrap atlas-unit-inline-wrap" data-unit-atlas="'+esc(unitId)+'" aria-label="本單元原創醫學圖解">'+units.map(u=>renderInlineCard(u,{
       zoomed:Boolean(zoomedSet&&typeof zoomedSet.has==='function'&&zoomedSet.has(u.id)),
       suffix:'unit-'+unitId,
