@@ -94,7 +94,7 @@ function openRoute(hash,updateHash=true){
     else switchTab('quiz');
     if(route.id)document.getElementById?.('written-'+route.id)?.scrollIntoView?.({block:'start'});
   }
-  else if(route.kind==='topic'){S.learn=route.id;switchTab('learn');}
+  else if(route.kind==='topic'){S.learn=route.id;S.learnExpandAll=true;S.recall=false;switchTab('learn');}
   else if(route.kind==='pbl'){if(route.id)S.pbl=route.id;switchTab('pbl');}
   else if(route.kind==='workflow'){if(route.id)S.workflow=route.id;switchTab('workflow');}
   else if(route.kind==='interview')chooseInterview(route.id);

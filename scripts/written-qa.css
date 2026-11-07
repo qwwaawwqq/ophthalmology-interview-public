@@ -502,3 +502,465 @@
     min-height: 40px;
   }
 }
+
+/* === Issue #190: Chapter Readability, Exam Test-Point & Often-Confused Highlighting === */
+
+/* 1. Readability & Typography Polish for .reading-card & .integrated-unit-card */
+.reading-card {
+  line-height: 1.82;
+}
+
+.reading-card p {
+  line-height: 1.82;
+}
+
+.reading-card li.lesson-point {
+  margin-bottom: 0.48rem;
+  line-height: 1.78;
+}
+
+.reading-card .enrichment-section {
+  margin-top: 1.6rem;
+  padding-top: 1.25rem;
+}
+
+.integrated-unit-card {
+  border: 1px solid var(--border, rgba(148, 163, 184, 0.28));
+  border-radius: 12px;
+  padding: 1.15rem 1.35rem;
+  margin: 0.95rem 0;
+  background: var(--card-bg, #ffffff);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+.integrated-unit-card > h4,
+.integrated-unit-card .unit-head h4 {
+  margin-top: 0;
+  margin-bottom: 0.45rem;
+  line-height: 1.45;
+  color: var(--navy, #132743);
+}
+
+/* 2. Inline Exam Test-Point (mark.hl-test) & Often-Confused Trap (mark.hl-trap) Highlights */
+mark.hl-test {
+  background: rgba(245, 158, 11, 0.18);
+  color: inherit;
+  padding: 0.08em 0.38em;
+  border-radius: 5px;
+  border-bottom: 2px solid rgba(217, 119, 6, 0.65);
+  font-weight: 600;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+mark.hl-trap {
+  background: rgba(244, 63, 94, 0.15);
+  color: inherit;
+  padding: 0.08em 0.38em;
+  border-radius: 5px;
+  border-bottom: 2px solid rgba(225, 29, 72, 0.7);
+  font-weight: 700;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* 3. Chapter High-Yield Radar Bar (.chapter-hy-bar) & Quick-Jump Pills */
+.chapter-hy-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.65rem 1rem;
+  margin: 0.75rem 0 1.1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(217, 119, 6, 0.28);
+  background: linear-gradient(135deg, rgba(254, 243, 199, 0.42) 0%, rgba(255, 228, 230, 0.32) 52%, rgba(224, 242, 254, 0.36) 100%);
+}
+
+.chapter-hy-legend,
+.chapter-hy-pills {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.6rem;
+}
+
+.chapter-hy-legend {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--ink, #1e293b);
+}
+
+.hy-legend-item,
+.hy-legend-test,
+.hy-legend-trap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.18rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.hy-legend-test {
+  background: rgba(245, 158, 11, 0.18);
+  color: #92400e;
+  border: 1px solid rgba(217, 119, 6, 0.35);
+}
+
+.hy-legend-trap {
+  background: rgba(244, 63, 94, 0.15);
+  color: #9f1239;
+  border: 1px solid rgba(225, 29, 72, 0.35);
+}
+
+.hy-jump-pill,
+.nav-pill-trap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  padding: 0.26rem 0.68rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.14s ease, background-color 0.14s ease;
+}
+
+.hy-jump-pill {
+  background: rgba(255, 255, 255, 0.86);
+  color: var(--navy, #132743);
+  border: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+.hy-jump-pill:hover,
+.nav-pill-trap:hover {
+  transform: translateY(-1px);
+}
+
+.enrichment-nav a.nav-pill-trap,
+.nav-pill-trap {
+  background: rgba(244, 63, 94, 0.14);
+  color: #be123c;
+  border: 1px solid rgba(225, 29, 72, 0.38);
+  font-weight: 700;
+}
+
+/* 4. Callout Cards in coverageEntry & renderLessonSection */
+.cov-keypoints-box {
+  border-left: 4px solid #0284c7;
+  background: rgba(2, 132, 199, 0.06);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin: 0.65rem 0;
+}
+
+.cov-box-label {
+  font-weight: 700;
+  color: #0369a1;
+  margin-bottom: 0.35rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+}
+
+.cov-testpoint-card {
+  border-left: 4px solid #0d9488;
+  background: rgba(13, 148, 136, 0.08);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin: 0.55rem 0;
+}
+
+.cov-pitfall-card {
+  border-left: 4px solid #e11d48;
+  background: rgba(225, 29, 72, 0.08);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin: 0.55rem 0;
+}
+
+.cov-exam-pill {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(217, 119, 6, 0.16);
+  color: #b45309;
+  font-weight: 700;
+  font-size: 0.78rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-left: 0.35rem;
+}
+
+.cov-term-pill {
+  display: inline-block;
+  background: rgba(99, 102, 241, 0.12);
+  color: #3730a3;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.84rem;
+  margin: 0.12rem 0.25rem 0.12rem 0;
+}
+
+.section-test-banner {
+  border-left: 4px solid #d97706;
+  background: rgba(245, 158, 11, 0.1);
+  padding: 0.6rem 0.9rem;
+  border-radius: 8px;
+  margin: 0.5rem 0 0.75rem;
+  line-height: 1.72;
+}
+
+.section-test-banner strong {
+  color: #b45309;
+}
+
+/* 5. Deep-Dive CSS Pseudo-Element Badges (Zero DOM Text Modification) */
+details.enrichment-detail[data-dive-kind] > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+details.enrichment-detail[data-dive-kind] > summary::after {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  line-height: 1.4;
+  white-space: nowrap;
+  margin-left: auto;
+}
+
+details.enrichment-detail[data-dive-kind="trap"] {
+  border-left: 3.5px solid #e11d48;
+  background: rgba(244, 63, 94, 0.04);
+}
+
+details.enrichment-detail[data-dive-kind="trap"] > summary::after {
+  content: "⚠️ 常混淆陷阱";
+  background: rgba(244, 63, 94, 0.14);
+  color: #be123c;
+  border: 1px solid rgba(225, 29, 72, 0.3);
+}
+
+details.enrichment-detail[data-dive-kind="mechanism"] {
+  border-left: 3.5px solid #0d9488;
+  background: rgba(13, 148, 136, 0.04);
+}
+
+details.enrichment-detail[data-dive-kind="mechanism"] > summary::after {
+  content: "🎯 必考機轉";
+  background: rgba(13, 148, 136, 0.14);
+  color: #0f766e;
+  border: 1px solid rgba(13, 148, 136, 0.3);
+}
+
+details.enrichment-detail[data-dive-kind="reasoning"] {
+  border-left: 3.5px solid #0284c7;
+  background: rgba(2, 132, 199, 0.04);
+}
+
+details.enrichment-detail[data-dive-kind="reasoning"] > summary::after {
+  content: "🩺 臨床判讀";
+  background: rgba(2, 132, 199, 0.14);
+  color: #0369a1;
+  border: 1px solid rgba(2, 132, 199, 0.3);
+}
+
+/* 6. Often-Confused Contrast Table (.compare-callout-section, .compare-trap-table, .notes-testpoint-section) */
+.compare-callout-section {
+  border: 1px solid rgba(225, 29, 72, 0.26);
+  border-left: 4px solid #e11d48;
+  background: linear-gradient(180deg, rgba(255, 241, 242, 0.45) 0%, rgba(255, 255, 255, 0.92) 100%);
+  padding: 1rem 1.15rem;
+  border-radius: 10px;
+}
+
+.compare-callout-section > h3,
+.compare-callout-section > h4 {
+  color: #9f1239;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.compare-trap-table th {
+  background: rgba(244, 63, 94, 0.1);
+  color: #881337;
+  font-weight: 700;
+}
+
+.compare-trap-table td:first-child {
+  font-weight: 700;
+  color: var(--navy, #132743);
+  background: rgba(248, 250, 252, 0.8);
+}
+
+.compare-trap-table td:nth-child(3) {
+  background: rgba(254, 243, 199, 0.35);
+  border-left: 2px solid rgba(217, 119, 6, 0.35);
+}
+
+.notes-testpoint-section {
+  border: 1px solid rgba(217, 119, 6, 0.28);
+  border-left: 4px solid #d97706;
+  background: rgba(254, 243, 199, 0.24);
+  padding: 0.95rem 1.15rem;
+  border-radius: 10px;
+}
+
+.notes-testpoint-section > strong,
+.notes-testpoint-section > h4 {
+  color: #92400e;
+}
+
+/* Dark Mode Support for Issue #190 Readability & Highlighting */
+html[data-theme="dark"] .integrated-unit-card,
+[data-theme="dark"] .integrated-unit-card {
+  background: rgba(30, 41, 59, 0.72);
+  border-color: rgba(148, 163, 184, 0.24);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+html[data-theme="dark"] mark.hl-test,
+[data-theme="dark"] mark.hl-test {
+  background: rgba(245, 158, 11, 0.26);
+  color: #fef3c7;
+  border-bottom-color: rgba(251, 191, 36, 0.85);
+}
+
+html[data-theme="dark"] mark.hl-trap,
+[data-theme="dark"] mark.hl-trap {
+  background: rgba(244, 63, 94, 0.26);
+  color: #ffe4e6;
+  border-bottom-color: rgba(251, 113, 133, 0.85);
+}
+
+html[data-theme="dark"] .chapter-hy-bar,
+[data-theme="dark"] .chapter-hy-bar {
+  background: linear-gradient(135deg, rgba(120, 53, 15, 0.28) 0%, rgba(136, 19, 55, 0.24) 52%, rgba(12, 74, 110, 0.28) 100%);
+  border-color: rgba(251, 191, 36, 0.32);
+}
+
+html[data-theme="dark"] .hy-legend-test,
+[data-theme="dark"] .hy-legend-test {
+  background: rgba(245, 158, 11, 0.22);
+  color: #fde68a;
+}
+
+html[data-theme="dark"] .hy-legend-trap,
+[data-theme="dark"] .hy-legend-trap,
+html[data-theme="dark"] .nav-pill-trap,
+[data-theme="dark"] .nav-pill-trap {
+  background: rgba(244, 63, 94, 0.22);
+  color: #fecdd3;
+}
+
+html[data-theme="dark"] .hy-jump-pill,
+[data-theme="dark"] .hy-jump-pill {
+  background: rgba(30, 41, 59, 0.85);
+  color: #e2e8f0;
+  border-color: rgba(148, 163, 184, 0.35);
+}
+
+html[data-theme="dark"] .cov-keypoints-box,
+[data-theme="dark"] .cov-keypoints-box {
+  background: rgba(2, 132, 199, 0.14);
+  border-left-color: #38bdf8;
+}
+
+html[data-theme="dark"] .cov-box-label,
+[data-theme="dark"] .cov-box-label {
+  color: #7dd3fc;
+}
+
+html[data-theme="dark"] .cov-testpoint-card,
+[data-theme="dark"] .cov-testpoint-card {
+  background: rgba(13, 148, 136, 0.16);
+  border-left-color: #2dd4bf;
+}
+
+html[data-theme="dark"] .cov-pitfall-card,
+[data-theme="dark"] .cov-pitfall-card {
+  background: rgba(225, 29, 72, 0.16);
+  border-left-color: #fb7185;
+}
+
+html[data-theme="dark"] .cov-exam-pill,
+[data-theme="dark"] .cov-exam-pill {
+  background: rgba(245, 158, 11, 0.24);
+  color: #fde68a;
+}
+
+html[data-theme="dark"] .cov-term-pill,
+[data-theme="dark"] .cov-term-pill {
+  background: rgba(99, 102, 241, 0.24);
+  color: #c7d2fe;
+}
+
+html[data-theme="dark"] .section-test-banner,
+[data-theme="dark"] .section-test-banner,
+html[data-theme="dark"] .notes-testpoint-section,
+[data-theme="dark"] .notes-testpoint-section {
+  background: rgba(245, 158, 11, 0.15);
+  border-left-color: #fbbf24;
+}
+
+html[data-theme="dark"] .section-test-banner strong,
+[data-theme="dark"] .section-test-banner strong,
+html[data-theme="dark"] .notes-testpoint-section > h4,
+[data-theme="dark"] .notes-testpoint-section > h4 {
+  color: #fde68a;
+}
+
+html[data-theme="dark"] details.enrichment-detail[data-dive-kind="trap"] > summary::after,
+[data-theme="dark"] details.enrichment-detail[data-dive-kind="trap"] > summary::after {
+  background: rgba(244, 63, 94, 0.24);
+  color: #fecdd3;
+}
+
+html[data-theme="dark"] details.enrichment-detail[data-dive-kind="mechanism"] > summary::after,
+[data-theme="dark"] details.enrichment-detail[data-dive-kind="mechanism"] > summary::after {
+  background: rgba(13, 148, 136, 0.24);
+  color: #99f6e4;
+}
+
+html[data-theme="dark"] details.enrichment-detail[data-dive-kind="reasoning"] > summary::after,
+[data-theme="dark"] details.enrichment-detail[data-dive-kind="reasoning"] > summary::after {
+  background: rgba(2, 132, 199, 0.24);
+  color: #bae6fd;
+}
+
+html[data-theme="dark"] .compare-callout-section,
+[data-theme="dark"] .compare-callout-section {
+  background: rgba(136, 19, 55, 0.16);
+  border-color: rgba(251, 113, 133, 0.35);
+}
+
+html[data-theme="dark"] .compare-callout-section > h4,
+[data-theme="dark"] .compare-callout-section > h4,
+html[data-theme="dark"] .compare-trap-table th,
+[data-theme="dark"] .compare-trap-table th {
+  color: #fecdd3;
+}
+
+html[data-theme="dark"] .compare-trap-table td:first-child,
+[data-theme="dark"] .compare-trap-table td:first-child {
+  background: rgba(30, 41, 59, 0.65);
+  color: #f1f5f9;
+}
+
+html[data-theme="dark"] .compare-trap-table td:nth-child(3),
+[data-theme="dark"] .compare-trap-table td:nth-child(3) {
+  background: rgba(120, 53, 15, 0.22);
+}
+

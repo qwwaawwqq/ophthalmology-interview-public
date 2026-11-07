@@ -20,6 +20,7 @@
   const cardTools = Object.create(null);
   const sessionRevealed = new Set();
   const sessionHidden = new Set();
+  const state = { chapterCollapsed: Object.create(null) };
   const internalEntries = Object.create(null);
   const internalMeta = Object.create(null);
 
@@ -197,6 +198,12 @@
     return Boolean(entryOf(id)?.revealed);
   }
 
+  function currentAppState() {
+    if (typeof S !== 'undefined' && S) return S;
+    if (g.__qa && g.__qa.S) return g.__qa.S;
+    return bridge()?.S || null;
+  }
+
   function normalizePack(raw, fallbackSid) {
     const sid = (raw && typeof raw.specialty === 'string' && raw.specialty) || fallbackSid || specId();
     const list = Array.isArray(raw) ? raw : (Array.isArray(raw?.items) ? raw.items : []);
@@ -365,8 +372,9 @@
     }
   }
 
-  function renderCard(item, opts = {}) {
+  function renderCard(item, optsOrIdx = {}, _total, maybeOpts) {
     if (!item) return '';
+    const opts = (optsOrIdx && typeof optsOrIdx === 'object') ? optsOrIdx : (maybeOpts && typeof maybeOpts === 'object' ? maybeOpts : {});
     const id = item.id;
     const anchorId = (opts.idPrefix || 'written-') + id;
     const mode = cardModes[id] || defaultMode;
@@ -376,7 +384,9 @@
     const e = entryOf(id);
     const m = metaOf(id);
     const ink = getInk(id, item.specialty);
-    const revealed = isAnswerRevealed(id);
+    const S = currentAppState();
+    var chapterAutoOpen = (opts && opts.context === 'chapter') && (typeof S === 'undefined' || !S || (S.learnExpandAll !== false && !S.recall));
+    var revealed = isAnswerRevealed(id) || Boolean(chapterAutoOpen && !state.chapterCollapsed[id] && !sessionHidden.has(id));
     const srs = srsRecordOf(id);
     const kps = Array.isArray(item.keyPoints) ? item.keyPoints : [];
     const checks = Array.from({ length: kps.length }, (_, i) => Boolean(e?.checks?.[i]));
@@ -465,7 +475,7 @@
       '</div>' +
       '<div class="written-answer-bar">' +
         '<button type="button" class="btn small ' + (revealed ? 'subtle' : 'primary') + '" data-action="written-toggle-answer" data-value="' + esc(id) + '" aria-expanded="' + revealed + '">' + (revealed ? '收合標準答案' : '查看標準答案與得分要點') + '</button>' +
-        '<span class="small">先親自動筆或打字列點，再展開核對必寫得分點</span>' +
+        '<span class="small">' + (chapterAutoOpen && revealed ? '章節全展開模式已自動顯示標準答案與必寫得分點；亦可收合自我默寫' : '先親自動筆或打字列點，再展開核對必寫得分點') + '</span>' +
       '</div>' +
       answerPanel +
     '</article>';
@@ -665,11 +675,11 @@
     if (!list.length) return '';
     return '<div class="written-section">' +
       '<div class="written-section-head">' +
-        '<div><h3>本章手寫問答題（手寫板／打字作答＋標準答案）</h3><p class="written-section-sub">共 ' + list.length + ' 題 · 讀完本章立即用手寫板或鍵盤分點作答，核對必寫得分點並排入間隔複習。</p></div>' +
+        '<div><h3>本章手寫問答題（手寫板／打字作答＋標準答案）</h3><p class="written-section-sub">共 ' + list.length + ' 題 · 預設已展開參考解答與必寫得分點供順暢閱讀；亦可收合自我默寫，或用手寫板／鍵盤分點作答並排入間隔複習。</p></div>' +
         '<button type="button" class="btn small subtle" data-action="written-bank-topic" data-value="' + esc(topicId) + '">前往手寫題庫全覽</button>' +
       '</div>' +
       '<div class="written-toolbar">' + revealToolbarButtons('chapter:' + topicId) + '</div>' +
-      '<div class="written-list">' + renderCardsUnique(list) + '</div>' +
+      '<div class="written-list">' + renderCardsUnique(list, { context: 'chapter' }) + '</div>' +
     '</div>';
   }
 
@@ -1321,9 +1331,19 @@
     }
     if (a === 'written-toggle-answer') {
       if (!v) return true;
-      const next = !isAnswerRevealed(v);
-      if (next) { sessionRevealed.add(v); sessionHidden.delete(v); }
-      else { sessionRevealed.delete(v); sessionHidden.add(v); }
+      const S = currentAppState();
+      const inChapterAuto = Boolean(S && S.tab === 'learn' && S.learnExpandAll !== false && !S.recall);
+      const currentlyShownInChapter = isAnswerRevealed(v) || (inChapterAuto && !state.chapterCollapsed[v] && !sessionHidden.has(v));
+      const next = inChapterAuto ? !currentlyShownInChapter : !isAnswerRevealed(v);
+      if (next) {
+        delete state.chapterCollapsed[v];
+        sessionRevealed.add(v);
+        sessionHidden.delete(v);
+      } else {
+        state.chapterCollapsed[v] = true;
+        sessionRevealed.delete(v);
+        sessionHidden.add(v);
+      }
       saveEntry(v, { revealed: next });
       refreshActiveSurfaces();
       return true;
@@ -1333,8 +1353,15 @@
       const open = dir !== 'close';
       const list = itemsForScope(scopeKey);
       for (const item of list) {
-        if (open) { sessionRevealed.add(item.id); sessionHidden.delete(item.id); }
-        else { sessionRevealed.delete(item.id); sessionHidden.add(item.id); }
+        if (open) {
+          delete state.chapterCollapsed[item.id];
+          sessionRevealed.add(item.id);
+          sessionHidden.delete(item.id);
+        } else {
+          state.chapterCollapsed[item.id] = true;
+          sessionRevealed.delete(item.id);
+          sessionHidden.add(item.id);
+        }
         saveEntry(item.id, { revealed: open });
       }
       refreshActiveSurfaces();
@@ -1518,6 +1545,7 @@
   function clearLocalCache() {
     sessionRevealed.clear();
     sessionHidden.clear();
+    for (const k of Object.keys(state.chapterCollapsed)) delete state.chapterCollapsed[k];
     for (const k of Object.keys(internalEntries)) delete internalEntries[k];
     for (const k of Object.keys(internalMeta)) delete internalMeta[k];
     const ls = localStore();
@@ -1546,6 +1574,7 @@
     ensureLoaded,
     getItems,
     findItem,
+    isAnswerRevealed,
     renderCard,
     quizBankHtml,
     chapterHtml,
