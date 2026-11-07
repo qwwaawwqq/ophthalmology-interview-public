@@ -141,7 +141,7 @@ const end = /render\(\);\s*\}\)\(\);\s*$/;
 assert(end.test(script), 'The test hook must match the app bootstrap.');
 script = script.replace(
   end,
-  'globalThis.__qa={D,S,get entries(){return entries;},get meta(){return meta;},startQuiz,question,mergeProgress,validateEntry,validateMeta,stats,notebookIndex,exportProgress,render,coverageFocus,coverageRestoreHash,coveragePageLabel,coverageOverview,coverageOutline};render();})();'
+  'globalThis.__qa={D,S,get entries(){return entries;},get meta(){return meta;},startQuiz,question,mergeProgress,validateEntry,validateMeta,stats,notebookIndex,exportProgress,render,coverageFocus,coverageRestoreHash,coveragePageLabel,coverageOverview,coverageOutline,coverageTarget,parseRoute,routeLabel,openRoute};render();})();'
 );
 
 vm.createContext(context);
@@ -482,6 +482,23 @@ test('3. Readability & Visual Highlighting of Exam Test Points (🎯 必考考�
     all(nav, node => node.tag === 'a' && node.attrs.href === '#notes-02-compare').length >= 1,
     '.enrichment-nav must link to #notes-02-compare'
   );
+});
+
+test('4. #notes-02-compare and #topic-notes-02 route parsing, restoration, and auto-expand reset', () => {
+  const cmpRoute = qa.parseRoute('#notes-02-compare');
+  assert(cmpRoute && cmpRoute.kind === 'anchor' && cmpRoute.topicId === 'notes-02' && cmpRoute.target === 'compare', '#notes-02-compare must parse as a valid chapter anchor route');
+  assert(qa.routeLabel(cmpRoute).includes('常混淆比較'), 'routeLabel for #notes-02-compare must include 常混淆比較');
+  action('learn-topic', 'notes-01');
+  action('recall', 'on');
+  assert.equal(qa.S.recall, true);
+  assert.equal(qa.openRoute('#topic-notes-02'), true);
+  assert.equal(qa.S.learn, 'notes-02');
+  assert.equal(qa.S.learnExpandAll, true);
+  assert.equal(qa.S.recall, false);
+  action('learn-topic', 'notes-01');
+  assert.equal(qa.openRoute('#notes-02-compare'), true);
+  assert.equal(qa.S.tab, 'learn');
+  assert.equal(qa.S.learn, 'notes-02');
 });
 
 const report = {

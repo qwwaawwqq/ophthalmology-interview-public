@@ -741,7 +741,7 @@ function chapterEnrichment(t){return D.enrichment?.chapters?.[t.id]||null;}
 function chapterCoverage(t){return D.coverage?.chapters?.[t.id]||null;}
 function coveragePageLabel(pages){const sorted=[...new Set(pages)].sort((a,b)=>a-b),ranges=[];for(let i=0;i<sorted.length;i++){const first=sorted[i];let last=first;while(sorted[i+1]===last+1)last=sorted[++i];ranges.push(first===last?String(first):first+'–'+last);}return ranges.join('、');}
 function coverageLink(t,label,target,css=''){return `<a class="${esc(css)}" href="#${t.id}-${esc(target)}" data-action="coverage-focus" data-value="${t.id}|${esc(target)}">${esc(label)}</a>`;}
-function coverageTarget(t,target){if(target==='written')return Boolean(t?.chapter);const c=chapterCoverage(t);if(!c)return false;if(target==='coverage')return true;if(target.startsWith('coverage-'))return c.entries.some(entry=>target==='coverage-'+entry.id);if(/^section-\d+$/.test(target))return Number(target.slice(8))<t.sections.length;return chapterEnrichment(t)?.integrated?.units.some(unit=>unit.id===target)||false;}
+function coverageTarget(t,target){if(target==='written')return Boolean(t?.chapter);if(target==='compare')return Boolean(t?.chapter&&(t.compare||[]).length);const c=chapterCoverage(t);if(!c)return false;if(target==='coverage')return true;if(target.startsWith('coverage-'))return c.entries.some(entry=>target==='coverage-'+entry.id);if(/^section-\d+$/.test(target))return Number(target.slice(8))<t.sections.length;return chapterEnrichment(t)?.integrated?.units.some(unit=>unit.id===target)||false;}
 function coverageFocus(value,updateHash=true){
   const [tid,target]=value.split('|'),t=D.topics.find(topic=>topic.id===tid);
   if(!t||!coverageTarget(t,target))return false;
