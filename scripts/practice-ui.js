@@ -15,7 +15,7 @@ function practiceSources(ids,src){const items=(ids||[]).map(id=>allResources().g
 function practiceRelated(topicIds,extra=''){return `<div class="practice-related"><span class="small">相關內容</span>${(topicIds||[]).filter(id=>D.topics.some(t=>t.id===id)).map(id=>btn(esc(shortTitle(id)),'learn-topic',id,'small subtle')).join('')}${extra}</div>`;}
 
 /* Routes: every view and lesson anchor can be expressed as a hash so it can be saved and shared. */
-function anchorValid(t,target){if(target==='written'&&t.chapter)return true;if(typeof coverageTarget==='function'&&chapterCoverage(t))return coverageTarget(t,target);if(chapterEnrichment(t)?.integrated?.units.some(u=>u.id===target))return true;const m=target.match(/^section-(\d+)$/);return !!m&&Number(m[1])<t.sections.length;}
+function anchorValid(t,target){if(target==='written'&&t.chapter)return true;if(target==='compare'&&t.chapter&&(t.compare||[]).length)return true;if(typeof coverageTarget==='function'&&chapterCoverage(t))return coverageTarget(t,target);if(chapterEnrichment(t)?.integrated?.units.some(u=>u.id===target))return true;const m=target.match(/^section-(\d+)$/);return !!m&&Number(m[1])<t.sections.length;}
 function parseRoute(hash){
   if(typeof hash!=='string')return null;
   const h=hash.trim();let m;
@@ -46,6 +46,7 @@ function routeLabel(route){
     if(target.startsWith('section-'))return name+' · '+t.sections[Number(target.slice(8))].title;
     if(target==='coverage')return name+' · 共筆對照';
     if(target==='written')return name+' · 手寫問答';
+    if(target==='compare')return name+' · 常混淆比較';
     if(target.startsWith('coverage-'))return name+' · '+(chapterCoverage(t)?.entries.find(e=>'coverage-'+e.id===target)?.title||'共筆詳解');
     return name+' · '+(chapterEnrichment(t)?.integrated?.units.find(u=>u.id===target)?.title||'學習單元');
   }
@@ -94,7 +95,7 @@ function openRoute(hash,updateHash=true){
     else switchTab('quiz');
     if(route.id)document.getElementById?.('written-'+route.id)?.scrollIntoView?.({block:'start'});
   }
-  else if(route.kind==='topic'){S.learn=route.id;switchTab('learn');}
+  else if(route.kind==='topic'){S.learn=route.id;S.learnExpandAll=true;S.recall=false;switchTab('learn');}
   else if(route.kind==='pbl'){if(route.id)S.pbl=route.id;switchTab('pbl');}
   else if(route.kind==='workflow'){if(route.id)S.workflow=route.id;switchTab('workflow');}
   else if(route.kind==='interview')chooseInterview(route.id);
