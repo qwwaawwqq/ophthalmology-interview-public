@@ -964,3 +964,454 @@ html[data-theme="dark"] .compare-trap-table td:nth-child(3),
   background: rgba(120, 53, 15, 0.22);
 }
 
+/* === Issue #192: Evidence-Based Comprehension & Memory Strategy Scaffolding === */
+
+/* 1. .memory-strategy-hub Container & Header */
+.memory-strategy-hub {
+  border: 1.5px solid rgba(13, 148, 136, 0.35);
+  border-left: 5px solid #0d9488;
+  background: linear-gradient(135deg, rgba(240, 253, 250, 0.85) 0%, rgba(255, 251, 235, 0.75) 100%);
+  border-radius: 14px;
+  padding: 1.15rem 1.25rem;
+  margin: 1rem 0 1.35rem;
+  box-shadow: 0 3px 12px rgba(15, 23, 42, 0.05);
+}
+
+.memory-strategy-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.6rem 1rem;
+}
+
+.memory-strategy-title-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.memory-strategy-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.mem-strategy-badge {
+  display: inline-flex;
+  align-items: center;
+  background: #0d9488;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.78rem;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+}
+
+.mem-hub-title {
+  font-size: 1.05rem;
+  color: var(--navy, #0f172a);
+}
+
+.mem-science-note {
+  margin: 0.35rem 0 0.85rem;
+  line-height: 1.65;
+}
+
+.enrichment-nav a.nav-pill-memory,
+.nav-pill-memory {
+  background: rgba(13, 148, 136, 0.14);
+  color: #0f766e;
+  border: 1px solid rgba(13, 148, 136, 0.38);
+  font-weight: 700;
+}
+
+.mem-module-block {
+  margin-top: 0.95rem;
+  padding-top: 0.8rem;
+  border-top: 1px dashed rgba(148, 163, 184, 0.38);
+}
+
+.mem-module-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.75rem;
+}
+
+/* 2. Module 1 — Schema Chunking Flow (.mem-chunk-flow, .mem-chunk-card) */
+.mem-chunk-flow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.55rem;
+}
+
+.mem-chunk-card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(148, 163, 184, 0.32);
+  border-top: 3px solid #0284c7;
+  border-radius: 10px;
+  padding: 0.8rem 0.95rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.42rem;
+}
+
+.mem-chunk-step {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #0284c7;
+  text-transform: uppercase;
+}
+
+.mem-chunk-link {
+  font-weight: 700;
+  font-size: 0.96rem;
+  color: var(--navy, #0f172a);
+  text-decoration: none;
+}
+
+.mem-chunk-link:hover {
+  text-decoration: underline;
+}
+
+.mem-chunk-takeaway {
+  margin: 0;
+  line-height: 1.58;
+}
+
+.mem-chunk-ifthen {
+  background: rgba(2, 132, 199, 0.07);
+  border-radius: 7px;
+  padding: 0.42rem 0.6rem;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.mem-ifthen-if {
+  color: #0369a1;
+}
+
+.mem-ifthen-then {
+  color: #b45309;
+  font-weight: 600;
+}
+
+.mem-chunk-sections {
+  margin-top: auto;
+  padding-top: 0.2rem;
+}
+
+.mem-sec-pill {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: rgba(148, 163, 184, 0.15);
+  color: inherit;
+  text-decoration: none;
+  margin: 2px 4px 2px 0;
+}
+
+.mem-sec-pill:hover {
+  background: rgba(2, 132, 199, 0.16);
+}
+
+/* 3. Module 2 — Quantitative & Formula Memory Anchors (.mem-quant-grid, .mem-quant-card) */
+.mem-quant-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.6rem;
+  margin-top: 0.55rem;
+}
+
+.mem-quant-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(217, 119, 6, 0.32);
+  border-left: 4px solid #d97706;
+  border-radius: 9px;
+  padding: 0.65rem 0.85rem;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.mem-quant-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(15, 23, 42, 0.06);
+}
+
+.mem-quant-token {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: #b45309;
+  background: rgba(245, 158, 11, 0.16);
+  padding: 2px 8px;
+  border-radius: 6px;
+  align-self: flex-start;
+}
+
+.mem-quant-context {
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+.mem-quant-src {
+  font-size: 0.73rem;
+  opacity: 0.72;
+  margin-top: auto;
+}
+
+/* 4. Module 3 — Contrastive Discrimination Cards (.mem-contrast-grid, .mem-contrast-card) */
+.mem-contrast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0.65rem;
+  margin-top: 0.55rem;
+}
+
+.mem-contrast-card {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(225, 29, 72, 0.28);
+  border-left: 4px solid #e11d48;
+  border-radius: 10px;
+  padding: 0.75rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.mem-contrast-pair {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  font-size: 0.92rem;
+  color: var(--navy, #0f172a);
+}
+
+.vs-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: rgba(225, 29, 72, 0.14);
+  color: #be123c;
+}
+
+.mem-contrast-hook,
+.mem-contrast-rule {
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+.mem-tag-test,
+.mem-tag-trap {
+  display: inline-block;
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 1px 7px;
+  border-radius: 6px;
+  margin-right: 0.35rem;
+}
+
+.mem-tag-test {
+  background: rgba(245, 158, 11, 0.18);
+  color: #92400e;
+}
+
+.mem-tag-trap {
+  background: rgba(244, 63, 94, 0.15);
+  color: #9f1239;
+}
+
+/* 5. Module 4 — Feynman Retrieval Self-Check (.mem-feynman-list, .mem-feynman-row) */
+.mem-feynman-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.mem-feynman-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-radius: 8px;
+  padding: 0.55rem 0.75rem;
+  margin-top: 0.45rem;
+}
+
+.mem-feynman-row.is-mastered {
+  border-color: rgba(16, 185, 129, 0.45);
+  background: rgba(236, 253, 245, 0.7);
+}
+
+.mem-feynman-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.mem-feynman-q {
+  font-weight: 600;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.mem-feynman-ans summary {
+  cursor: pointer;
+  color: #0284c7;
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+
+/* 6. If–Then Cognitive Badges on .integrated-decision-head (Zero DOM Text Changes) */
+.integrated-decision-head span[role="columnheader"]:nth-child(1)::before {
+  content: "👁️ IF ";
+  font-weight: 800;
+  color: #0284c7;
+}
+
+.integrated-decision-head span[role="columnheader"]:nth-child(2)::before {
+  content: "⚙️ WHY ";
+  font-weight: 800;
+  color: #0d9488;
+}
+
+.integrated-decision-head span[role="columnheader"]:nth-child(3)::before {
+  content: "🚀 THEN ";
+  font-weight: 800;
+  color: #d97706;
+}
+
+/* 7. ⚡ 速讀記憶骨架 Digest Mode (.reading-card.is-digest-mode) */
+.reading-card.is-digest-mode .coverage-outline,
+.reading-card.is-digest-mode .integrated-unit,
+.reading-card.is-digest-mode .integrated-case,
+.reading-card.is-digest-mode .enrichment-block {
+  display: none;
+}
+
+/* Dark Mode Support for Issue #192 Memory Strategy Scaffolding */
+html[data-theme="dark"] .memory-strategy-hub,
+[data-theme="dark"] .memory-strategy-hub {
+  background: linear-gradient(135deg, rgba(19, 78, 74, 0.34) 0%, rgba(30, 41, 59, 0.82) 100%);
+  border-color: rgba(45, 212, 191, 0.35);
+  border-left-color: #14b8a6;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.28);
+}
+
+html[data-theme="dark"] .mem-hub-title,
+[data-theme="dark"] .mem-hub-title,
+html[data-theme="dark"] .mem-chunk-link,
+[data-theme="dark"] .mem-chunk-link,
+html[data-theme="dark"] .mem-contrast-pair,
+[data-theme="dark"] .mem-contrast-pair {
+  color: #f1f5f9;
+}
+
+html[data-theme="dark"] .nav-pill-memory,
+[data-theme="dark"] .nav-pill-memory {
+  background: rgba(20, 184, 166, 0.22);
+  color: #99f6e4;
+  border-color: rgba(45, 212, 191, 0.4);
+}
+
+html[data-theme="dark"] .mem-chunk-card,
+[data-theme="dark"] .mem-chunk-card,
+html[data-theme="dark"] .mem-quant-card,
+[data-theme="dark"] .mem-quant-card,
+html[data-theme="dark"] .mem-contrast-card,
+[data-theme="dark"] .mem-contrast-card,
+html[data-theme="dark"] .mem-feynman-row,
+[data-theme="dark"] .mem-feynman-row {
+  background: rgba(30, 41, 59, 0.82);
+  border-color: rgba(148, 163, 184, 0.26);
+}
+
+html[data-theme="dark"] .mem-chunk-card,
+[data-theme="dark"] .mem-chunk-card {
+  border-top-color: #38bdf8;
+}
+
+html[data-theme="dark"] .mem-chunk-step,
+[data-theme="dark"] .mem-chunk-step,
+html[data-theme="dark"] .mem-ifthen-if,
+[data-theme="dark"] .mem-ifthen-if,
+html[data-theme="dark"] .mem-feynman-ans summary,
+[data-theme="dark"] .mem-feynman-ans summary {
+  color: #7dd3fc;
+}
+
+html[data-theme="dark"] .mem-chunk-ifthen,
+[data-theme="dark"] .mem-chunk-ifthen {
+  background: rgba(2, 132, 199, 0.16);
+}
+
+html[data-theme="dark"] .mem-ifthen-then,
+[data-theme="dark"] .mem-ifthen-then {
+  color: #fcd34d;
+}
+
+html[data-theme="dark"] .mem-quant-card,
+[data-theme="dark"] .mem-quant-card {
+  border-left-color: #fbbf24;
+}
+
+html[data-theme="dark"] .mem-quant-token,
+[data-theme="dark"] .mem-quant-token {
+  background: rgba(245, 158, 11, 0.24);
+  color: #fde68a;
+}
+
+html[data-theme="dark"] .mem-contrast-card,
+[data-theme="dark"] .mem-contrast-card {
+  border-left-color: #fb7185;
+}
+
+html[data-theme="dark"] .vs-badge,
+[data-theme="dark"] .vs-badge,
+html[data-theme="dark"] .mem-tag-trap,
+[data-theme="dark"] .mem-tag-trap {
+  background: rgba(244, 63, 94, 0.24);
+  color: #fecdd3;
+}
+
+html[data-theme="dark"] .mem-tag-test,
+[data-theme="dark"] .mem-tag-test {
+  background: rgba(245, 158, 11, 0.24);
+  color: #fde68a;
+}
+
+html[data-theme="dark"] .mem-feynman-row.is-mastered,
+[data-theme="dark"] .mem-feynman-row.is-mastered {
+  background: rgba(6, 78, 59, 0.36);
+  border-color: rgba(52, 211, 153, 0.45);
+}
+
+html[data-theme="dark"] .integrated-decision-head span[role="columnheader"]:nth-child(1)::before,
+[data-theme="dark"] .integrated-decision-head span[role="columnheader"]:nth-child(1)::before {
+  color: #38bdf8;
+}
+
+html[data-theme="dark"] .integrated-decision-head span[role="columnheader"]:nth-child(2)::before,
+[data-theme="dark"] .integrated-decision-head span[role="columnheader"]:nth-child(2)::before {
+  color: #2dd4bf;
+}
+
+html[data-theme="dark"] .integrated-decision-head span[role="columnheader"]:nth-child(3)::before,
+[data-theme="dark"] .integrated-decision-head span[role="columnheader"]:nth-child(3)::before {
+  color: #fbbf24;
+}

@@ -613,6 +613,13 @@ def apply_practice(js):
         ("notes-testpoint-section", '<p class="learning-note"><strong>${t.chapter?\'勘誤與判讀提醒：\':\'\'}</strong>${esc(t.notes)}</p>', '<p class="learning-note notes-testpoint-section"><strong>${t.chapter?\'🎯 勘誤與判讀提醒（必考鐵律）：\':\'\'}</strong>${typeof hlLearnText===\'function\'?hlLearnText(esc(t.notes)):esc(t.notes)}</p>', "learning note highlight"),
         ("S.learn=v;S.learnExpandAll=true;", "case'learn-topic':if(!D.topics.some(t=>t.id===v))return;S.learn=v;switchTab('learn');break;", "case'learn-topic':if(!D.topics.some(t=>t.id===v))return;S.learn=v;S.learnExpandAll=true;S.recall=false;switchTab('learn');break;", "learn-topic expand all"),
         ("v==='expand'", "case'recall':S.recall=v==='on';S.revealed.clear();render();break;", "case'recall':if(v==='expand'){S.recall=false;S.learnExpandAll=true;}else if(v==='on'){S.recall=true;S.learnExpandAll=false;}else{S.recall=false;S.learnExpandAll=false;}S.revealed.clear();render();break;", "recall expand handler"),
+        ("learnDigest:false", "recall:false,learnExpandAll:true,revealed:new Set()", "recall:false,learnExpandAll:true,learnDigest:false,revealed:new Set()", "learnDigest state"),
+        ("reading-card${S.learnDigest?' is-digest-mode':''}", '<article class="card reading-card"><p class="eyebrow">${topicEyebrow(t)}</p>', '<article class="card reading-card${S.learnDigest?\' is-digest-mode\':\'\'}"><p class="eyebrow">${topicEyebrow(t)}</p>', "reading card digest mode"),
+        ('data-value="digest"', '<div class="study-switch" role="group" aria-label="複習方式"><button class="btn ${!S.recall&&S.learnExpandAll!==false?\'active\':\'\'}" data-action="recall" data-value="expand" aria-pressed="${!S.recall&&S.learnExpandAll!==false}">📖 全展開閱讀（免點開）</button><button class="btn ${!S.recall&&S.learnExpandAll===false?\'active\':\'\'}" data-action="recall" data-value="off" aria-pressed="${!S.recall&&S.learnExpandAll===false}">🗂️ 分段收合閱讀</button><button class="btn ${S.recall?\'active\':\'\'}" data-action="recall" data-value="on" aria-pressed="${S.recall}">🧠 遮住答案，主動回想</button></div>', '<div class="study-switch" role="group" aria-label="複習方式"><button class="btn ${!S.recall&&!S.learnDigest&&S.learnExpandAll!==false?\'active\':\'\'}" data-action="recall" data-value="expand" aria-pressed="${!S.recall&&!S.learnDigest&&S.learnExpandAll!==false}">📖 全展開閱讀（免點開）</button><button class="btn ${!S.recall&&S.learnDigest?\'active\':\'\'}" data-action="recall" data-value="digest" aria-pressed="${!S.recall&&S.learnDigest}">⚡ 速讀記憶骨架（濃縮卡）</button><button class="btn ${!S.recall&&!S.learnDigest&&S.learnExpandAll===false?\'active\':\'\'}" data-action="recall" data-value="off" aria-pressed="${!S.recall&&!S.learnDigest&&S.learnExpandAll===false}">🗂️ 分段收合閱讀</button><button class="btn ${S.recall?\'active\':\'\'}" data-action="recall" data-value="on" aria-pressed="${S.recall}">🧠 遮住答案，主動回想</button></div>', "study switch digest mode"),
+        ("S.learn=v;S.learnExpandAll=true;S.learnDigest=false;", "case'learn-topic':if(!D.topics.some(t=>t.id===v))return;S.learn=v;S.learnExpandAll=true;S.recall=false;switchTab('learn');break;", "case'learn-topic':if(!D.topics.some(t=>t.id===v))return;S.learn=v;S.learnExpandAll=true;S.learnDigest=false;S.recall=false;switchTab('learn');break;", "learn-topic digest reset"),
+        ("v==='digest'", "case'recall':if(v==='expand'){S.recall=false;S.learnExpandAll=true;}else if(v==='on'){S.recall=true;S.learnExpandAll=false;}else{S.recall=false;S.learnExpandAll=false;}S.revealed.clear();render();break;", "case'recall':if(v==='expand'){S.recall=false;S.learnExpandAll=true;S.learnDigest=false;}else if(v==='digest'){S.recall=false;S.learnExpandAll=true;S.learnDigest=true;}else if(v==='on'){S.recall=true;S.learnExpandAll=false;S.learnDigest=false;}else{S.recall=false;S.learnExpandAll=false;S.learnDigest=false;}S.revealed.clear();render();break;", "recall digest handler"),
+        ("case'memory-check':", "case'recall-rating':", "case'memory-check':{const [tid,idx]=v.split('|'),k='memory:'+tid+':'+idx;putMeta(k,{mastered:!meta[k]?.mastered});render();break;}\ncase'recall-rating':", "memory-check action"),
+        ("key.startsWith('memory:')", "if(key.startsWith('recall:')&&D.topics.some(t=>t.sections.some((_,n)=>key==='recall:'+t.id+':'+n))&&typeof v.mastered==='boolean')return {at,mastered:v.mastered};", "if(key.startsWith('recall:')&&D.topics.some(t=>t.sections.some((_,n)=>key==='recall:'+t.id+':'+n))&&typeof v.mastered==='boolean')return {at,mastered:v.mastered};if(key.startsWith('memory:')&&D.topics.some(t=>t.chapter&&/^memory:[a-z0-9-]+:\\d+$/.test(key)&&key.startsWith('memory:'+t.id+':')&&Number(key.slice(8+t.id.length))<8)&&typeof v.mastered==='boolean')return {at,mastered:v.mastered};", "memory meta validation"),
     )
     for marker, needle, replacement, label in patches:
         if marker not in js:
@@ -731,21 +738,75 @@ function hlLearnText(s){
   if(!s)return '';
   return String(s).replace(/(不等於|不能|並非|不可|而非|相反|禁忌|切勿|最常搞混|常混淆|易混淆|誤以為|誤判|陷阱|鑑別)|([±+\-]?\d+(?:\.\d+)?(?:\s*[–~\-]\s*[±+\-]?\d+(?:\.\d+)?)?\s*(?:nm|μm|mmHg|mm|cm|mL|mg|g\/dL|D|Δ|Hz|dB|°|%|小時|分鐘|天|週|歲|倍)|[A-Za-z]\s*[=＝]\s*[A-Za-z0-9+\-*/()^₀₁₂₃₄₅₆₇₈₉\s]{1,16})/g,(m,trap,test)=>trap?`<mark class="hl-trap">${trap}</mark>`:`<mark class="hl-test">${test}</mark>`);
 }
+function extractChapterMemoryAnchors(t){
+  if(!t||!t.chapter)return [];
+  const re=/([±+\-]?\d+(?:\.\d+)?(?:\s*[–~\-]\s*[±+\-]?\d+(?:\.\d+)?)?\s*(?:nm|μm|mmHg|mm|cm|mL|mg|g\/dL|D|Δ|Hz|dB|°|%|小時|分鐘|天|週|歲|倍)|[A-Za-z]\s*[=＝]\s*[A-Za-z0-9+\-*/()^₀₁₂₃₄₅₆₇₈₉\s]{1,16})/g;
+  const seen=new Set(),out=[];
+  const add=(text,sourceLabel,href)=>{
+    if(!text||out.length>=10)return;
+    const s=String(text);
+    for(const m of s.matchAll(re)){
+      if(out.length>=10)break;
+      const token=m[0].trim(),norm=token.replace(/\s+/g,'');
+      if(!norm||seen.has(norm))continue;
+      seen.add(norm);
+      const clauses=s.split(/[。；！？\n]/).filter(Boolean);
+      const clause=(clauses.find(c=>c.includes(token))||s).trim();
+      const context=clause.length>64?clause.slice(0,64)+'…':clause;
+      out.push({token,context,sourceLabel,href});
+    }
+  };
+  (t.sections||[]).forEach((b,i)=>{
+    const href=`#${t.id}-section-${i}`,lbl=`重點 #${i+1} · ${b.title||''}`;
+    add(b.title,lbl,href);
+    if(b.recall)add(b.recall,lbl,href);
+    for(const pt of b.points||[])add(pt,lbl,href);
+  });
+  for(const e of chapterCoverage(t)?.entries||[]){
+    const href=`#${t.id}-coverage-${e.id}`,lbl=`共筆 · ${e.title||''}`;
+    add(e.title,lbl,href);
+    add(e.clinicalLink,lbl,href);
+    add(e.pitfall,lbl,href);
+    for(const kp of e.keyPoints||[])add(kp,lbl,href);
+  }
+  if(t.notes)add(t.notes,'勘誤與判讀提醒',`#${t.id}-section-0`);
+  return out;
+}
+function chapterMemoryStrategy(t){
+  if(!t||!t.chapter||S.recall)return '';
+  const c=chapterEnrichment(t),cmp=t.compare||[],units=c?.integrated?.units||[];
+  const chunkCards=units.length?units.map((unit,n)=>{
+    const rawWhy=((unit.synthesis?.[0]||'').split(/[。；！？]/)[0]||'').trim();
+    const shortClause=rawWhy.length>55?rawWhy.slice(0,55):rawWhy;
+    const d=unit.decisions?.[0];
+    return `<div class="mem-chunk-card"><div class="mem-chunk-step">主軸 ${n+1} / ${units.length}</div><a class="mem-chunk-link" href="#${t.id}-${unit.id}">${esc(unit.title)}</a>${shortClause?`<p class="mem-chunk-why"><strong>🔍 核心邏輯：</strong>${hlLearnText(esc(shortClause))}…</p>`:''}${d?`<div class="mem-chunk-ifthen"><span class="mem-if">👁️ IF ${esc(d.finding)}</span> <span class="mem-arrow">➔</span> <span class="mem-then">🚀 THEN ${esc(d.nextStep)}</span></div>`:''}<div class="mem-chunk-tags">${unit.sectionIndexes.map(i=>`<a class="mem-sec-pill" href="#${t.id}-section-${i}">#${i+1} ${esc(t.sections[i]?.title||'')}</a>`).join('')}</div></div>`;
+  }).join(''):(t.sections||[]).slice(0,4).map((s,n)=>`<div class="mem-chunk-card"><div class="mem-chunk-step">重點 ${n+1} / ${Math.min(4,t.sections.length)}</div><a class="mem-chunk-link" href="#${t.id}-section-${n}">${esc(s.title)}</a><p class="mem-chunk-why"><strong>🔍 核心邏輯：</strong>${hlLearnText(esc((s.recall||s.points?.[0]||'').slice(0,55)))}…</p></div>`).join('');
+  const anchors=extractChapterMemoryAnchors(t);
+  const quantMod=anchors.length?`<div class="mem-module"><div class="mem-module-title">🔢 第二步：本章必背數值與公式速記卡（Dual-Coding &amp; Quantitative Anchors · ${anchors.length} 組必考閾值）</div><div class="mem-quant-grid">${anchors.map(a=>`<a class="mem-quant-card" href="${esc(a.href)}"><span class="mem-quant-token">${esc(a.token)}</span><span class="mem-quant-context">${hlLearnText(esc(a.context))}</span><span class="mem-quant-src">${esc(a.sourceLabel)}</span></a>`).join('')}</div></div>`:'';
+  const contrastMod=cmp.length?`<div class="mem-module"><div class="mem-module-title">⚡ 第三步：常混淆「看到 A ➔ 秒選 B」對比記憶卡（Contrastive Encoding · ${cmp.length} 組考場防呆）</div><div class="mem-contrast-grid">${cmp.map(row=>`<div class="mem-contrast-card"><div class="mem-contrast-vs"><span class="vs-badge">VS 對比</span><strong>${hlLearnText(esc(row[0]||''))}</strong></div><div class="mem-contrast-diff"><span class="mem-tag-test">🎯 秒殺鑑別</span><span>${hlLearnText(esc(row[1]||''))}</span></div><div class="mem-contrast-trap"><span class="mem-tag-trap">⚠️ 防錯口訣</span><span>${hlLearnText(esc(row[2]||''))}</span></div></div>`).join('')}</div></div>`:'';
+  const feynmanPrompts=(c?.integrated?.objectives?.length?c.integrated.objectives:(t.sections||[]).slice(0,4).map(s=>s.recall||('不看筆記，用一句話說出「'+s.title+'」的機轉與判讀重點')));
+  const doneCount=feynmanPrompts.filter((_,idx)=>meta['memory:'+t.id+':'+idx]?.mastered).length;
+  const feynmanMod=`<div class="mem-module mem-feynman-module"><div class="mem-module-title">🎯 第四步：費曼一句話主動提取自測（Testing Effect · 已掌握 ${doneCount} / ${feynmanPrompts.length}）</div><div class="mem-feynman-list">${feynmanPrompts.map((qText,idx)=>{const mKey='memory:'+t.id+':'+idx,isDone=Boolean(meta[mKey]?.mastered);return `<div class="mem-feynman-row ${isDone?'is-mastered':''}"><button type="button" class="btn small ${isDone?'primary':'ghost'} mem-check-btn" data-action="memory-check" data-value="${t.id}|${idx}" aria-pressed="${isDone}">${isDone?'✓ 已能不看講出':'☐ 費曼自測打卡'}</button><span class="mem-feynman-q"><strong>Q${idx+1}（問自己為什麼）：</strong>${hlLearnText(esc(qText))}</span></div>`;}).join('')}</div></div>`;
+  return `<section class="memory-strategy-hub" id="${t.id}-memory" aria-label="實證理解與記憶攻略"><div class="memory-strategy-head"><div class="mem-hub-heading"><span class="mem-strategy-badge">🧠 實證記憶科學攻略</span><strong class="mem-hub-title">先抓心智骨架 ➔ 鎖定數值錨點 ➔ 對比秒殺規則 ➔ 費曼提取自測</strong></div><p class="small mem-science-note">依據認知心理學實證（Sweller 認知負荷分塊 · Paivio 雙碼理論 · Dunlosky 對比編碼與精緻化詰問 · Roediger 主動提取效應），先用 30 秒建立全章骨架，記憶留存率遠高於重複被動閱讀。</p></div><div class="mem-module"><div class="mem-module-title">🧩 第一步：30 秒心智骨架圖（Schema Chunking · 先懂全章脈絡再填細節）</div><div class="mem-chunk-flow">${chunkCards}</div></div>${quantMod}${contrastMod}${feynmanMod}</section>`;
+}
 function chapterHighYieldBar(t){
   if(!t||!t.chapter)return '';
   const c=chapterEnrichment(t),cov=chapterCoverage(t),cmp=t.compare||[];
   const units=c?.integrated?.units?.length||0,entries=cov?.entries?.length||0;
-  return `<section class="chapter-hy-bar" aria-label="本章必考考點與常混淆導覽"><div class="chapter-hy-legend"><span class="hy-legend-test">🎯 橘金標記＝必考數值／公式考點</span><span class="hy-legend-trap">⚠️ 玫紅標記＝常混淆鑑別陷阱</span><span class="small">${isLearnOpen()?'✓ 目前為全展開閱讀模式（免逐一點開）':S.recall?'目前為主動回想模式':'目前為分段收合模式'}</span></div><div class="actions">${units?`<a class="hy-jump-pill" href="#${t.id}-${c.integrated.units[0].id}">🎯 ${units} 個整合必考單元</a>`:''}${cmp.length?`<a class="hy-jump-pill nav-pill-trap" href="#${t.id}-compare">⚠️ 常混淆比較（${cmp.length} 組）</a>`:''}${entries?`<a class="hy-jump-pill" href="#${t.id}-coverage">📄 共筆逐頁考點與陷阱（${entries} 題）</a>`:''}<a class="hy-jump-pill" href="#${t.id}-written">✍️ 手寫問答與詳解</a></div></section>`;
+  return `<section class="chapter-hy-bar" aria-label="本章必考考點與常混淆導覽"><div class="chapter-hy-legend"><span class="hy-legend-test">🎯 橘金標記＝必考數值／公式考點</span><span class="hy-legend-trap">⚠️ 玫紅標記＝常混淆鑑別陷阱</span><span class="small">${S.learnDigest?'⚡ 目前為速讀記憶骨架模式（僅顯示核心記憶卡、對照表與問答）':isLearnOpen()?'✓ 目前為全展開閱讀模式（免逐一點開）':S.recall?'目前為主動回想模式':'目前為分段收合模式'}</span></div><div class="actions"><a class="hy-jump-pill nav-pill-memory" href="#${t.id}-memory">🧠 實證記憶攻略（心智圖＋口訣）</a>${units?`<a class="hy-jump-pill" href="#${t.id}-${c.integrated.units[0].id}">🎯 ${units} 個整合必考單元</a>`:''}${cmp.length?`<a class="hy-jump-pill nav-pill-trap" href="#${t.id}-compare">⚠️ 常混淆比較（${cmp.length} 組）</a>`:''}${entries?`<a class="hy-jump-pill" href="#${t.id}-coverage">📄 共筆逐頁考點與陷阱（${entries} 題）</a>`:''}<a class="hy-jump-pill" href="#${t.id}-written">✍️ 手寫問答與詳解</a></div></section>`;
 }
 function chapterEnrichment(t){return D.enrichment?.chapters?.[t.id]||null;}
 function chapterCoverage(t){return D.coverage?.chapters?.[t.id]||null;}
 function coveragePageLabel(pages){const sorted=[...new Set(pages)].sort((a,b)=>a-b),ranges=[];for(let i=0;i<sorted.length;i++){const first=sorted[i];let last=first;while(sorted[i+1]===last+1)last=sorted[++i];ranges.push(first===last?String(first):first+'–'+last);}return ranges.join('、');}
 function coverageLink(t,label,target,css=''){return `<a class="${esc(css)}" href="#${t.id}-${esc(target)}" data-action="coverage-focus" data-value="${t.id}|${esc(target)}">${esc(label)}</a>`;}
-function coverageTarget(t,target){if(target==='written')return Boolean(t?.chapter);if(target==='compare')return Boolean(t?.chapter&&(t.compare||[]).length);const c=chapterCoverage(t);if(!c)return false;if(target==='coverage')return true;if(target.startsWith('coverage-'))return c.entries.some(entry=>target==='coverage-'+entry.id);if(/^section-\d+$/.test(target))return Number(target.slice(8))<t.sections.length;return chapterEnrichment(t)?.integrated?.units.some(unit=>unit.id===target)||false;}
+function coverageTarget(t,target){if(target==='written'||target==='memory')return Boolean(t?.chapter);if(target==='compare')return Boolean(t?.chapter&&(t.compare||[]).length);const c=chapterCoverage(t);if(!c)return false;if(target==='coverage')return true;if(target.startsWith('coverage-'))return c.entries.some(entry=>target==='coverage-'+entry.id);if(/^section-\d+$/.test(target))return Number(target.slice(8))<t.sections.length;return chapterEnrichment(t)?.integrated?.units.some(unit=>unit.id===target)||false;}
 function coverageFocus(value,updateHash=true){
   const [tid,target]=value.split('|'),t=D.topics.find(topic=>topic.id===tid);
   if(!t||!coverageTarget(t,target))return false;
+  const needRender=target==='memory'&&S.recall;
+  if(needRender)S.recall=false;
   if(S.tab!=='learn'||S.learn!==tid){S.learn=tid;switchTab('learn');}
+  else if(needRender)render();
   const anchor=tid+'-'+target,node=document.getElementById(anchor);
   if(!node)return false;
   for(let parent=node;parent;parent=parent.parentElement)if(parent.tagName==='DETAILS')parent.open=true;
@@ -775,7 +836,7 @@ function coverageOverview(){
 function enrichmentSourceLinks(item,chapter){const ids=new Set(item.sourceIds||[]),sources=(chapter.resources||[]).filter(r=>ids.has(r.id));return sources.length?`<div class="enrichment-citations"><span>依據</span>${sources.map(r=>`<a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.title)}</a>`).join('')}</div>`:'';}
 function enrichmentResourceItems(resources){return `<ul>${resources.map(r=>`<li><a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.title)}</a><span class="enrichment-provider">${esc(r.kind)} · ${esc(r.provider)}</span><p>${esc(r.note)}</p></li>`).join('')}</ul>`;}
 function enrichmentContextSources(item,c){const ids=new Set(item.sourceIds||[]),resources=(c.resources||[]).filter(r=>ids.has(r.id));return resources.length?`<details class="enrichment-context-sources"${learnOpenAttr()}><summary>搭配圖譜、影片與文獻理解本單元</summary><div class="enrichment-resource-group">${enrichmentResourceItems(resources)}</div></details>`:'';}
-function enrichmentNav(t){const c=chapterEnrichment(t),wLink=t.chapter?`<a href="#${t.id}-written">手寫問答</a>`:'',cmpLink=(t.compare||[]).length?`<a href="#${t.id}-compare" class="nav-pill-trap">⚠️ 常混淆比較</a>`:'';if(!c)return (wLink||cmpLink)?`<nav class="enrichment-nav" aria-label="本章延伸學習"><span>延伸學習</span>${cmpLink}${wLink}</nav>`:'';const tableLink=(c.summaryTables||[]).length?`<a href="#${t.id}-tables">重點表格</a>`:'';if(c.integrated)return `<nav class="enrichment-nav" aria-label="本章學習路徑"><span>本章路徑</span>${chapterCoverage(t)?coverageLink(t,'共筆對照（'+chapterCoverage(t).entries.length+' 主題）','coverage'):''}${tableLink}${cmpLink}${c.integrated.units.map((u,n)=>`<a href="#${t.id}-${u.id}">${n+1}. ${esc(u.title)}</a>`).join('')}${c.integrated.case?`<a href="#${t.id}-case">整合病例</a>`:''}${c.integrated.connections?.length?`<a href="#${t.id}-connections">跨章串連</a>`:''}${wLink}${(c.resources||[]).length?`<a href="#${t.id}-resources">延伸資源</a>`:''}</nav>`;return `<nav class="enrichment-nav" aria-label="本章延伸學習"><span>延伸學習</span>${c.figure?`<a href="#${t.id}-figure">圖解</a>`:''}${tableLink}${cmpLink}${(c.deepDive||[]).length?`<a href="#${t.id}-deep">深入理解</a>`:''}${c.oralChallenge?`<a href="#${t.id}-challenge">口述挑戰</a>`:''}${wLink}${(c.resources||[]).length?`<a href="#${t.id}-resources">延伸資源</a>`:''}</nav>`;}
+function enrichmentNav(t){const c=chapterEnrichment(t),memLink=t.chapter?`<a href="#${t.id}-memory" class="nav-pill-memory">🧠 記憶攻略</a>`:'',wLink=t.chapter?`<a href="#${t.id}-written">手寫問答</a>`:'',cmpLink=(t.compare||[]).length?`<a href="#${t.id}-compare" class="nav-pill-trap">⚠️ 常混淆比較</a>`:'';if(!c)return (memLink||wLink||cmpLink)?`<nav class="enrichment-nav" aria-label="本章延伸學習"><span>延伸學習</span>${memLink}${cmpLink}${wLink}</nav>`:'';const tableLink=(c.summaryTables||[]).length?`<a href="#${t.id}-tables">重點表格</a>`:'';if(c.integrated)return `<nav class="enrichment-nav" aria-label="本章學習路徑"><span>本章路徑</span>${memLink}${chapterCoverage(t)?coverageLink(t,'共筆對照（'+chapterCoverage(t).entries.length+' 主題）','coverage'):''}${tableLink}${cmpLink}${c.integrated.units.map((u,n)=>`<a href="#${t.id}-${u.id}">${n+1}. ${esc(u.title)}</a>`).join('')}${c.integrated.case?`<a href="#${t.id}-case">整合病例</a>`:''}${c.integrated.connections?.length?`<a href="#${t.id}-connections">跨章串連</a>`:''}${wLink}${(c.resources||[]).length?`<a href="#${t.id}-resources">延伸資源</a>`:''}</nav>`;return `<nav class="enrichment-nav" aria-label="本章延伸學習"><span>延伸學習</span>${memLink}${c.figure?`<a href="#${t.id}-figure">圖解</a>`:''}${tableLink}${cmpLink}${(c.deepDive||[]).length?`<a href="#${t.id}-deep">深入理解</a>`:''}${c.oralChallenge?`<a href="#${t.id}-challenge">口述挑戰</a>`:''}${wLink}${(c.resources||[]).length?`<a href="#${t.id}-resources">延伸資源</a>`:''}</nav>`;}
 function enrichmentFigure(t,c){const f=c.figure;if(!f)return '';const src=f.src||('assets/figures/'+t.id+'.svg');return `<figure class="enrichment-figure" id="${t.id}-figure"><img class="enrichment-image" src="${esc(src)}" alt="${esc(f.alt)}" width="960" height="560" loading="lazy" decoding="async"><p class="enrichment-image-fallback" hidden>圖解暫時無法顯示，請先閱讀下方圖說與延伸資料。</p><figcaption><div class="enrichment-figure-heading"><strong>${esc(f.title)}</strong><a href="${esc(src)}" target="_blank" rel="noopener noreferrer">放大圖解</a></div><p>${esc(f.caption)}</p><p class="small">概念示意圖，非實際臨床影像。</p>${enrichmentSourceLinks(f,c)}</figcaption></figure>`;}
 function enrichmentSummaryTables(t,c){if(!(c.summaryTables||[]).length)return '';return `<section class="enrichment-tables" id="${t.id}-tables" aria-label="本章表格重點整理"><h3>表格重點整理</h3>${c.summaryTables.map(tb=>{const cap=tb.caption?`<p class="small">${esc(tb.caption)}</p>`:'',tbl=`<div class="table-wrap"><table class="progress-table enrichment-summary-table"><thead><tr>${tb.headers.map(h=>`<th scope="col">${esc(h)}</th>`).join('')}</tr></thead><tbody>${tb.rows.map(r=>`<tr>${r.map(cell=>`<td>${esc(cell)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>${enrichmentSourceLinks(tb,c)}`;return S.recall?`<details class="enrichment-detail"><summary>回想後，展開「${esc(tb.title)}」表格</summary><div>${cap}${tbl}</div></details>`:`<div class="enrichment-table-item"><h4>${esc(tb.title)}</h4>${cap}${tbl}</div>`;}).join('')}</section>`;}
 function enrichmentDeepDive(b,c){const kind=b.heading.startsWith('陷阱')?'trap':b.heading.startsWith('機轉')?'mechanism':'reasoning';return `<details class="enrichment-detail" data-dive-kind="${kind}"${learnOpenAttr()}><summary>${esc(b.heading)}</summary><div>${b.paragraphs.map(p=>`<p>${hlLearnText(esc(p))}</p>`).join('')}${enrichmentSourceLinks(b,c)}</div></details>`;}
@@ -830,12 +891,12 @@ function integratedUnit(t,c,unit,n){
   </section>`;
 }
 function renderLessonContent(t){
-  const c=chapterEnrichment(t);
+  const c=chapterEnrichment(t),memBlock=chapterMemoryStrategy(t);
   const wBlock=t.chapter?`<section class="written-chapter-wrap" id="${t.id}-written" data-written-slot="chapter" data-topic-id="${esc(t.id)}">${window.OphWritten?.chapterHtml?.(t)||''}</section>`:'';
-  if(!c?.integrated)return t.sections.map((b,i)=>renderLessonSection(t,b,i)).join('')+wBlock;
+  if(!c?.integrated)return memBlock+t.sections.map((b,i)=>renderLessonSection(t,b,i)).join('')+wBlock;
   const course=c.integrated;
   const intro=`<section class="integrated-intro" aria-label="本章學習目標"><p class="integrated-framing">${esc(course.framing)}</p><h3>讀完這章，要能回答</h3><ul>${course.objectives.map(objective=>`<li>${esc(objective)}</li>`).join('')}</ul></section>`;
-  return intro+coverageOutline(t)+enrichmentSummaryTables(t,c)+course.units.map((unit,n)=>integratedUnit(t,c,unit,n)).join('')+integratedCase(t,c)+integratedConnections(t,c)+wBlock;
+  return memBlock+intro+coverageOutline(t)+enrichmentSummaryTables(t,c)+course.units.map((unit,n)=>integratedUnit(t,c,unit,n)).join('')+integratedCase(t,c)+integratedConnections(t,c)+wBlock;
 }
 function enrichmentIndex(){
   const out=[];

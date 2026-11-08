@@ -501,6 +501,94 @@ test('4. #notes-02-compare and #topic-notes-02 route parsing, restoration, and a
   assert.equal(qa.S.learn, 'notes-02');
 });
 
+test('5. Evidence-Based Comprehension & Memory Strategy Hub (#notes-02-memory) renders all 4 cognitive modules', () => {
+  action('learn-topic', 'notes-02');
+  const tree = parse(main());
+  const readingCard = all(tree, node => hasClass(node, 'reading-card'))[0] || tree;
+
+  const memHub = byId(readingCard, 'notes-02-memory');
+  assert(memHub && hasClass(memHub, 'memory-strategy-hub'), '#notes-02-memory (.memory-strategy-hub) must exist');
+
+  // Module 1: 30-second schema chunking flow (.mem-chunk-flow / .mem-chunk-card)
+  const chunkCards = all(memHub, node => hasClass(node, 'mem-chunk-card'));
+  assert(chunkCards.length === 3, 'notes-02 must render 3 schema chunk cards');
+  assert(chunkCards.every(c => all(c, n => hasClass(n, 'mem-chunk-ifthen')).length === 1), 'each chunk card must include an IF -> THEN rule');
+
+  // Module 2: Quantitative & formula memory anchors (.mem-quant-grid / .mem-quant-card)
+  const quantCards = all(memHub, node => hasClass(node, 'mem-quant-card'));
+  assert(quantCards.length >= 4, 'notes-02 must extract quantitative/formula memory anchors');
+
+  // Module 3: Contrastive discrimination flashcards (.mem-contrast-grid / .mem-contrast-card)
+  const contrastCards = all(memHub, node => hasClass(node, 'mem-contrast-card'));
+  assert.equal(contrastCards.length, qa.D.topics.find(t => t.id === 'notes-02').compare.length, 'each compare row must render a contrastive memory card');
+
+  // Module 4: Feynman 1-sentence retrieval check (.mem-feynman-list / [data-action="memory-check"])
+  const feynmanBtns = all(memHub, node => node.tag === 'button' && node.attrs['data-action'] === 'memory-check');
+  assert(feynmanBtns.length >= 3, 'Feynman self-check buttons must render');
+
+  // Concealed in active recall mode (S.recall === true)
+  action('recall', 'on');
+  const recallTree = parse(main());
+  assert.equal(byId(recallTree, 'notes-02-memory'), null, '#notes-02-memory must be concealed during active recall mode');
+  action('recall', 'expand');
+});
+
+test('6. Feynman Self-Check (memory-check) toggles mastery and persists via validateMeta', () => {
+  action('learn-topic', 'notes-02');
+  assert.equal(Boolean(qa.meta['memory:notes-02:0']?.mastered), false);
+  action('memory-check', 'notes-02|0');
+  assert.equal(qa.meta['memory:notes-02:0']?.mastered, true, 'clicking memory-check must set mastered=true');
+
+  const validated = qa.validateMeta('memory:notes-02:0', { mastered: true, at: '2026-11-08T03:00:00.000Z' });
+  assert(validated && validated.mastered === true, 'validateMeta must accept memory:<topicId>:<idx> keys');
+  assert.equal(qa.validateMeta('memory:invalid-topic:0', { mastered: true, at: '2026-11-08T03:00:00.000Z' }), null, 'validateMeta must reject unknown topics');
+
+  const treeAfter = parse(main());
+  const btn0 = all(treeAfter, node => node.tag === 'button' && node.attrs['data-action'] === 'memory-check' && node.attrs['data-value'] === 'notes-02|0')[0];
+  assert(btn0 && btn0.attrs['aria-pressed'] === 'true', 'memory-check button must reflect aria-pressed="true"');
+
+  action('memory-check', 'notes-02|0');
+  assert.equal(qa.meta['memory:notes-02:0']?.mastered, false, 'clicking memory-check again must toggle mastered=false');
+});
+
+test('7. 4th Study Mode (digest / ⚡ 速讀記憶骨架) toggles .is-digest-mode and resets cleanly', () => {
+  action('learn-topic', 'notes-02');
+  assert.equal(qa.S.learnDigest, false);
+
+  action('recall', 'digest');
+  assert.equal(qa.S.learnDigest, true, 'S.learnDigest must be true in digest mode');
+  assert.equal(qa.S.learnExpandAll, true, 'S.learnExpandAll must stay true in digest mode');
+  assert.equal(qa.S.recall, false, 'S.recall must be false in digest mode');
+
+  const digestTree = parse(main());
+  const readingCard = all(digestTree, node => hasClass(node, 'reading-card'))[0];
+  assert(readingCard && hasClass(readingCard, 'is-digest-mode'), '.reading-card must have .is-digest-mode class in digest mode');
+
+  action('recall', 'expand');
+  assert.equal(qa.S.learnDigest, false, 'switching back to expand must clear S.learnDigest');
+  const expandCard = all(parse(main()), node => hasClass(node, 'reading-card'))[0];
+  assert(expandCard && !hasClass(expandCard, 'is-digest-mode'), '.is-digest-mode must be removed in expand mode');
+});
+
+test('8. #notes-02-memory direct anchor route parsing, label, and navigation', () => {
+  const memRoute = qa.parseRoute('#notes-02-memory');
+  assert(memRoute && memRoute.kind === 'anchor' && memRoute.topicId === 'notes-02' && memRoute.target === 'memory', '#notes-02-memory must parse as a valid chapter anchor route');
+  assert(qa.routeLabel(memRoute).includes('實證記憶攻略'), 'routeLabel for #notes-02-memory must include 實證記憶攻略');
+  assert.equal(qa.coverageTarget({ id: 'notes-02', chapter: 2 }, 'memory'), true);
+  action('learn-topic', 'notes-01');
+  action('recall', 'on');
+  assert.equal(qa.openRoute('#notes-02-memory'), true);
+  assert.equal(qa.S.tab, 'learn');
+  assert.equal(qa.S.learn, 'notes-02');
+  assert.equal(qa.S.recall, false, 'opening #notes-02-memory must exit recall mode so the memory strategy hub is visible');
+  // Also test same-chapter recall -> #notes-02-memory transition
+  action('recall', 'on');
+  assert.equal(qa.S.recall, true);
+  assert.equal(qa.openRoute('#notes-02-memory'), true);
+  assert.equal(qa.S.recall, false, 'opening #notes-02-memory on same chapter must exit recall mode and re-render #notes-02-memory');
+  assert.equal(qa.validateMeta('memory:notes-02:99', { mastered: true, at: '2026-11-08T03:00:00.000Z' }), null, 'validateMeta must reject out-of-range memory index');
+});
+
 const report = {
   test_kind: 'Chapter learn readability, default auto-expand, 3-way study mode switch, and high-yield highlighting checks',
   passed: results.filter(r => r.pass).length,
