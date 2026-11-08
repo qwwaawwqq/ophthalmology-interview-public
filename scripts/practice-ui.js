@@ -15,7 +15,7 @@ function practiceSources(ids,src){const items=(ids||[]).map(id=>allResources().g
 function practiceRelated(topicIds,extra=''){return `<div class="practice-related"><span class="small">相關內容</span>${(topicIds||[]).filter(id=>D.topics.some(t=>t.id===id)).map(id=>btn(esc(shortTitle(id)),'learn-topic',id,'small subtle')).join('')}${extra}</div>`;}
 
 /* Routes: every view and lesson anchor can be expressed as a hash so it can be saved and shared. */
-function anchorValid(t,target){if(target==='written'&&t.chapter)return true;if(target==='compare'&&t.chapter&&(t.compare||[]).length)return true;if(typeof coverageTarget==='function'&&chapterCoverage(t))return coverageTarget(t,target);if(chapterEnrichment(t)?.integrated?.units.some(u=>u.id===target))return true;const m=target.match(/^section-(\d+)$/);return !!m&&Number(m[1])<t.sections.length;}
+function anchorValid(t,target){if(target==='written'&&t.chapter)return true;if(target==='compare'&&t.chapter&&(t.compare||[]).length)return true;if(target==='memory'&&t.chapter)return true;if(typeof coverageTarget==='function'&&chapterCoverage(t))return coverageTarget(t,target);if(chapterEnrichment(t)?.integrated?.units.some(u=>u.id===target))return true;const m=target.match(/^section-(\d+)$/);return !!m&&Number(m[1])<t.sections.length;}
 function parseRoute(hash){
   if(typeof hash!=='string')return null;
   const h=hash.trim();let m;
@@ -47,6 +47,14 @@ function routeLabel(route){
     if(target==='coverage')return name+' · 共筆對照';
     if(target==='written')return name+' · 手寫問答';
     if(target==='compare')return name+' · 常混淆比較';
+    if(target==='memory')return name+' · 實證記憶攻略';
+    if(target==='tables')return name+' · 重點表格';
+    if(target==='case')return name+' · 整合病例';
+    if(target==='connections')return name+' · 跨章串連';
+    if(target==='resources')return name+' · 延伸資源';
+    if(target==='figure')return name+' · 圖解';
+    if(target==='deep')return name+' · 深入理解';
+    if(target==='challenge')return name+' · 口述挑戰';
     if(target.startsWith('coverage-'))return name+' · '+(chapterCoverage(t)?.entries.find(e=>'coverage-'+e.id===target)?.title||'共筆詳解');
     return name+' · '+(chapterEnrichment(t)?.integrated?.units.find(u=>u.id===target)?.title||'學習單元');
   }
@@ -84,7 +92,12 @@ function openRoute(hash,updateHash=true){
   if(route.kind==='anchor'){
     const t=D.topics.find(x=>x.id===route.topicId);
     if(chapterCoverage(t))return coverageFocus(t.id+'|'+route.target,updateHash);
-    S.learn=t.id;switchTab('learn');
+    const digestHidden=S.learnDigest&&route.target!=='memory'&&route.target!=='compare'&&route.target!=='written'&&route.target!=='tables';
+    const needRender=(route.target==='memory'&&S.recall)||digestHidden;
+    if(route.target==='memory'&&S.recall)S.recall=false;
+    if(digestHidden){S.learnDigest=false;S.learnExpandAll=true;}
+    if(S.tab!=='learn'||S.learn!==t.id){S.learn=t.id;switchTab('learn');}
+    else if(needRender)render();
     if(updateHash&&window.history?.replaceState)window.history.replaceState(null,'',route.hash);
     const node=document.getElementById(t.id+'-'+route.target);if(node)node.scrollIntoView({block:'start'});
     return true;
@@ -95,7 +108,7 @@ function openRoute(hash,updateHash=true){
     else switchTab('quiz');
     if(route.id)document.getElementById?.('written-'+route.id)?.scrollIntoView?.({block:'start'});
   }
-  else if(route.kind==='topic'){S.learn=route.id;S.learnExpandAll=true;S.recall=false;switchTab('learn');}
+  else if(route.kind==='topic'){S.learn=route.id;S.learnExpandAll=true;S.learnDigest=false;S.recall=false;switchTab('learn');}
   else if(route.kind==='pbl'){if(route.id)S.pbl=route.id;switchTab('pbl');}
   else if(route.kind==='workflow'){if(route.id)S.workflow=route.id;switchTab('workflow');}
   else if(route.kind==='interview')chooseInterview(route.id);
@@ -108,7 +121,7 @@ function appRestoreHash(){
   const route=parseRoute(window.location?.hash||'');
   if(!route)return;
   if(route.kind==='anchor'&&chapterCoverage(D.topics.find(x=>x.id===route.topicId))){coverageRestoreHash();return;}
-  if(!routeMatchesView(route))openRoute(route.hash,false);
+  if(!routeMatchesView(route)||(route.kind==='anchor'&&S.learnDigest))openRoute(route.hash,false);
 }
 
 /* Saved links: stored in meta as link:<id>, exported and imported with progress. Deletions keep a tombstone so an older import cannot bring them back. */
