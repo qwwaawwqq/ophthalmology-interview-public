@@ -48,6 +48,13 @@ function routeLabel(route){
     if(target==='written')return name+' · 手寫問答';
     if(target==='compare')return name+' · 常混淆比較';
     if(target==='memory')return name+' · 實證記憶攻略';
+    if(target==='tables')return name+' · 重點表格';
+    if(target==='case')return name+' · 整合病例';
+    if(target==='connections')return name+' · 跨章串連';
+    if(target==='resources')return name+' · 延伸資源';
+    if(target==='figure')return name+' · 圖解';
+    if(target==='deep')return name+' · 深入理解';
+    if(target==='challenge')return name+' · 口述挑戰';
     if(target.startsWith('coverage-'))return name+' · '+(chapterCoverage(t)?.entries.find(e=>'coverage-'+e.id===target)?.title||'共筆詳解');
     return name+' · '+(chapterEnrichment(t)?.integrated?.units.find(u=>u.id===target)?.title||'學習單元');
   }
@@ -85,8 +92,12 @@ function openRoute(hash,updateHash=true){
   if(route.kind==='anchor'){
     const t=D.topics.find(x=>x.id===route.topicId);
     if(chapterCoverage(t))return coverageFocus(t.id+'|'+route.target,updateHash);
+    const digestHidden=S.learnDigest&&route.target!=='memory'&&route.target!=='compare'&&route.target!=='written'&&route.target!=='tables';
+    const needRender=(route.target==='memory'&&S.recall)||digestHidden;
     if(route.target==='memory'&&S.recall)S.recall=false;
-    S.learn=t.id;switchTab('learn');
+    if(digestHidden){S.learnDigest=false;S.learnExpandAll=true;}
+    if(S.tab!=='learn'||S.learn!==t.id){S.learn=t.id;switchTab('learn');}
+    else if(needRender)render();
     if(updateHash&&window.history?.replaceState)window.history.replaceState(null,'',route.hash);
     const node=document.getElementById(t.id+'-'+route.target);if(node)node.scrollIntoView({block:'start'});
     return true;
@@ -110,7 +121,7 @@ function appRestoreHash(){
   const route=parseRoute(window.location?.hash||'');
   if(!route)return;
   if(route.kind==='anchor'&&chapterCoverage(D.topics.find(x=>x.id===route.topicId))){coverageRestoreHash();return;}
-  if(!routeMatchesView(route))openRoute(route.hash,false);
+  if(!routeMatchesView(route)||(route.kind==='anchor'&&S.learnDigest))openRoute(route.hash,false);
 }
 
 /* Saved links: stored in meta as link:<id>, exported and imported with progress. Deletions keep a tombstone so an older import cannot bring them back. */

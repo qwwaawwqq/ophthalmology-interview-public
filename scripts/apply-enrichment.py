@@ -740,36 +740,38 @@ function hlLearnText(s){
 }
 function extractChapterMemoryAnchors(t){
   if(!t||!t.chapter)return [];
-  const re=/([±+\-]?\d+(?:\.\d+)?(?:\s*[–~\-]\s*[±+\-]?\d+(?:\.\d+)?)?\s*(?:nm|μm|mmHg|mm|cm|mL|mg|g\/dL|D|Δ|Hz|dB|°|%|小時|分鐘|天|週|歲|倍)|[A-Za-z]\s*[=＝]\s*[A-Za-z0-9+\-*/()^₀₁₂₃₄₅₆₇₈₉\s]{1,16})/g;
+  const re=/(?<![A-Za-z0-9_\u0370-\u03ff±+\-−＋－.,])(?:(?:1\s+|1[\/／])?[A-Za-z\u0370-\u03ff]{1,6}\s*[=＝]\s*[A-Za-z0-9\u0370-\u03ff+\-−＋－*/／×÷·・,()^₀₁₂₃₄₅₆₇₈₉.%=\s]{1,42}|(?:[<>≤≥＜＞≦≧]=?\s*)?[±+\-−＋－]?\d+(?:,\d{3})*(?:\.\d+)?(?:\s*[–~\-−－]\s*[±+\-−＋－]?\d+(?:,\d{3})*(?:\.\d+)?)?(?:\s*(?:mL\/100g\/min|mL\/min\/1\.73m²?|mL\/min|mL\/kg|mL\/h|mg\/kg\/day|mg\/kg\/d|mg\/kg|mg\/dL|mg\/min|mg\/day|mg\/d|g\/dL|nm|μm|mmHg|mm|cm|mL|mg|Δ|Hz|dB|°|%|小時|分鐘|天(?:[\/／]週)?|週|歲|倍)|\s+D)|[±+\-−＋－]\d+(?:\.\d+)?\s*D|\d+\.\d+\s*D)/g;
   const seen=new Set(),out=[];
-  const add=(text,sourceLabel,href)=>{
+  const add=(text,sourceLabel,href,target)=>{
     if(!text||out.length>=10)return;
     const s=String(text);
     for(const m of s.matchAll(re)){
       if(out.length>=10)break;
-      const token=m[0].trim(),norm=token.replace(/\s+/g,'');
-      if(!norm||seen.has(norm))continue;
+      const raw=m[0],endIdx=m.index+raw.length,tail=s.slice(endIdx,endIdx+3);
+      if(/^[\/／×÷+\-−＋－·・=＝\d\u0370-\u03ffA-Za-z]/.test(tail))continue;
+      const token=raw.trim().replace(/[+\-−＋－*/／×÷·・,(=＝\s]+$/,'').trim(),norm=token.replace(/\s+/g,'');
+      if(!norm||/^[1\/／A-Za-z\u0370-\u03ff]+$/.test(norm)||(/[=＝]/.test(raw)&&!/[=＝].+/.test(norm))||seen.has(norm))continue;
       seen.add(norm);
       const clauses=s.split(/[。；！？\n]/).filter(Boolean);
       const clause=(clauses.find(c=>c.includes(token))||s).trim();
       const context=clause.length>64?clause.slice(0,64)+'…':clause;
-      out.push({token,context,sourceLabel,href});
+      out.push({token,context,sourceLabel,href,target});
     }
   };
   (t.sections||[]).forEach((b,i)=>{
-    const href=`#${t.id}-section-${i}`,lbl=`重點 #${i+1} · ${b.title||''}`;
-    add(b.title,lbl,href);
-    if(b.recall)add(b.recall,lbl,href);
-    for(const pt of b.points||[])add(pt,lbl,href);
+    const target=`section-${i}`,href=`#${t.id}-${target}`,lbl=`重點 #${i+1} · ${b.title||''}`;
+    add(b.title,lbl,href,target);
+    if(b.recall)add(b.recall,lbl,href,target);
+    for(const pt of b.points||[])add(pt,lbl,href,target);
   });
   for(const e of chapterCoverage(t)?.entries||[]){
-    const href=`#${t.id}-coverage-${e.id}`,lbl=`共筆 · ${e.title||''}`;
-    add(e.title,lbl,href);
-    add(e.clinicalLink,lbl,href);
-    add(e.pitfall,lbl,href);
-    for(const kp of e.keyPoints||[])add(kp,lbl,href);
+    const target=`coverage-${e.id}`,href=`#${t.id}-${target}`,lbl=`共筆 · ${e.title||''}`;
+    add(e.title,lbl,href,target);
+    add(e.clinicalLink,lbl,href,target);
+    add(e.pitfall,lbl,href,target);
+    for(const kp of e.keyPoints||[])add(kp,lbl,href,target);
   }
-  if(t.notes)add(t.notes,'勘誤與判讀提醒',`#${t.id}-section-0`);
+  if(t.notes)add(t.notes,'勘誤與判讀提醒',`#${t.id}-section-0`,'section-0');
   return out;
 }
 function chapterMemoryStrategy(t){
@@ -779,10 +781,10 @@ function chapterMemoryStrategy(t){
     const rawWhy=((unit.synthesis?.[0]||'').split(/[。；！？]/)[0]||'').trim();
     const shortClause=rawWhy.length>55?rawWhy.slice(0,55):rawWhy;
     const d=unit.decisions?.[0];
-    return `<div class="mem-chunk-card"><div class="mem-chunk-step">主軸 ${n+1} / ${units.length}</div><a class="mem-chunk-link" href="#${t.id}-${unit.id}">${esc(unit.title)}</a>${shortClause?`<p class="mem-chunk-why"><strong>🔍 核心邏輯：</strong>${hlLearnText(esc(shortClause))}…</p>`:''}${d?`<div class="mem-chunk-ifthen"><span class="mem-if">👁️ IF ${esc(d.finding)}</span> <span class="mem-arrow">➔</span> <span class="mem-then">🚀 THEN ${esc(d.nextStep)}</span></div>`:''}<div class="mem-chunk-tags">${unit.sectionIndexes.map(i=>`<a class="mem-sec-pill" href="#${t.id}-section-${i}">#${i+1} ${esc(t.sections[i]?.title||'')}</a>`).join('')}</div></div>`;
-  }).join(''):(t.sections||[]).slice(0,4).map((s,n)=>`<div class="mem-chunk-card"><div class="mem-chunk-step">重點 ${n+1} / ${Math.min(4,t.sections.length)}</div><a class="mem-chunk-link" href="#${t.id}-section-${n}">${esc(s.title)}</a><p class="mem-chunk-why"><strong>🔍 核心邏輯：</strong>${hlLearnText(esc((s.recall||s.points?.[0]||'').slice(0,55)))}…</p></div>`).join('');
+    return `<div class="mem-chunk-card"><div class="mem-chunk-step">主軸 ${n+1} / ${units.length}</div><a class="mem-chunk-link" href="#${t.id}-${unit.id}" data-action="coverage-focus" data-value="${t.id}|${unit.id}">${esc(unit.title)}</a>${shortClause?`<p class="mem-chunk-why"><strong>🔍 核心邏輯：</strong>${hlLearnText(esc(shortClause))}…</p>`:''}${d?`<div class="mem-chunk-ifthen"><span class="mem-if">👁️ IF ${esc(d.finding)}</span> <span class="mem-arrow">➔</span> <span class="mem-then">🚀 THEN ${esc(d.nextStep)}</span></div>`:''}<div class="mem-chunk-tags">${unit.sectionIndexes.map(i=>`<a class="mem-sec-pill" href="#${t.id}-section-${i}" data-action="coverage-focus" data-value="${t.id}|section-${i}">#${i+1} ${esc(t.sections[i]?.title||'')}</a>`).join('')}</div></div>`;
+  }).join(''):(t.sections||[]).slice(0,4).map((s,n)=>`<div class="mem-chunk-card"><div class="mem-chunk-step">重點 ${n+1} / ${Math.min(4,t.sections.length)}</div><a class="mem-chunk-link" href="#${t.id}-section-${n}" data-action="coverage-focus" data-value="${t.id}|section-${n}">${esc(s.title)}</a><p class="mem-chunk-why"><strong>🔍 核心邏輯：</strong>${hlLearnText(esc((s.recall||s.points?.[0]||'').slice(0,55)))}…</p></div>`).join('');
   const anchors=extractChapterMemoryAnchors(t);
-  const quantMod=anchors.length?`<div class="mem-module"><div class="mem-module-title">🔢 第二步：本章必背數值與公式速記卡（Dual-Coding &amp; Quantitative Anchors · ${anchors.length} 組必考閾值）</div><div class="mem-quant-grid">${anchors.map(a=>`<a class="mem-quant-card" href="${esc(a.href)}"><span class="mem-quant-token">${esc(a.token)}</span><span class="mem-quant-context">${hlLearnText(esc(a.context))}</span><span class="mem-quant-src">${esc(a.sourceLabel)}</span></a>`).join('')}</div></div>`:'';
+  const quantMod=anchors.length?`<div class="mem-module"><div class="mem-module-title">🔢 第二步：本章必背數值與公式速記卡（Dual-Coding &amp; Quantitative Anchors · ${anchors.length} 組必考閾值）</div><div class="mem-quant-grid">${anchors.map(a=>`<a class="mem-quant-card" href="${esc(a.href)}" data-action="coverage-focus" data-value="${t.id}|${esc(a.target)}"><span class="mem-quant-token">${esc(a.token)}</span><span class="mem-quant-context">${hlLearnText(esc(a.context))}</span><span class="mem-quant-src">${esc(a.sourceLabel)}</span></a>`).join('')}</div></div>`:'';
   const contrastMod=cmp.length?`<div class="mem-module"><div class="mem-module-title">⚡ 第三步：常混淆「看到 A ➔ 秒選 B」對比記憶卡（Contrastive Encoding · ${cmp.length} 組考場防呆）</div><div class="mem-contrast-grid">${cmp.map(row=>`<div class="mem-contrast-card"><div class="mem-contrast-vs"><span class="vs-badge">VS 對比</span><strong>${hlLearnText(esc(row[0]||''))}</strong></div><div class="mem-contrast-diff"><span class="mem-tag-test">🎯 秒殺鑑別</span><span>${hlLearnText(esc(row[1]||''))}</span></div><div class="mem-contrast-trap"><span class="mem-tag-trap">⚠️ 防錯口訣</span><span>${hlLearnText(esc(row[2]||''))}</span></div></div>`).join('')}</div></div>`:'';
   const feynmanPrompts=(c?.integrated?.objectives?.length?c.integrated.objectives:(t.sections||[]).slice(0,4).map(s=>s.recall||('不看筆記，用一句話說出「'+s.title+'」的機轉與判讀重點')));
   const doneCount=feynmanPrompts.filter((_,idx)=>meta['memory:'+t.id+':'+idx]?.mastered).length;
@@ -799,12 +801,14 @@ function chapterEnrichment(t){return D.enrichment?.chapters?.[t.id]||null;}
 function chapterCoverage(t){return D.coverage?.chapters?.[t.id]||null;}
 function coveragePageLabel(pages){const sorted=[...new Set(pages)].sort((a,b)=>a-b),ranges=[];for(let i=0;i<sorted.length;i++){const first=sorted[i];let last=first;while(sorted[i+1]===last+1)last=sorted[++i];ranges.push(first===last?String(first):first+'–'+last);}return ranges.join('、');}
 function coverageLink(t,label,target,css=''){return `<a class="${esc(css)}" href="#${t.id}-${esc(target)}" data-action="coverage-focus" data-value="${t.id}|${esc(target)}">${esc(label)}</a>`;}
-function coverageTarget(t,target){if(target==='written'||target==='memory')return Boolean(t?.chapter);if(target==='compare')return Boolean(t?.chapter&&(t.compare||[]).length);const c=chapterCoverage(t);if(!c)return false;if(target==='coverage')return true;if(target.startsWith('coverage-'))return c.entries.some(entry=>target==='coverage-'+entry.id);if(/^section-\d+$/.test(target))return Number(target.slice(8))<t.sections.length;return chapterEnrichment(t)?.integrated?.units.some(unit=>unit.id===target)||false;}
+function coverageTarget(t,target){if(target==='written'||target==='memory')return Boolean(t?.chapter);if(target==='compare')return Boolean(t?.chapter&&(t.compare||[]).length);const ec=chapterEnrichment(t);if(target==='tables')return Boolean((ec?.summaryTables||[]).length);if(target==='case')return Boolean(ec?.integrated?.case);if(target==='connections')return Boolean((ec?.integrated?.connections||[]).length);if(target==='resources')return Boolean((ec?.resources||[]).length);if(target==='figure')return Boolean(ec?.figure);if(target==='deep')return Boolean((ec?.deepDive||[]).length);if(target==='challenge')return Boolean(ec?.oralChallenge);const c=chapterCoverage(t);if(!c)return false;if(target==='coverage')return true;if(target.startsWith('coverage-'))return c.entries.some(entry=>target==='coverage-'+entry.id);if(/^section-\d+$/.test(target))return Number(target.slice(8))<t.sections.length;return ec?.integrated?.units.some(unit=>unit.id===target)||false;}
 function coverageFocus(value,updateHash=true){
   const [tid,target]=value.split('|'),t=D.topics.find(topic=>topic.id===tid);
   if(!t||!coverageTarget(t,target))return false;
-  const needRender=target==='memory'&&S.recall;
-  if(needRender)S.recall=false;
+  const digestHidden=S.learnDigest&&target!=='memory'&&target!=='compare'&&target!=='written'&&target!=='tables';
+  const needRender=(target==='memory'&&S.recall)||digestHidden;
+  if(target==='memory'&&S.recall)S.recall=false;
+  if(digestHidden){S.learnDigest=false;S.learnExpandAll=true;}
   if(S.tab!=='learn'||S.learn!==tid){S.learn=tid;switchTab('learn');}
   else if(needRender)render();
   const anchor=tid+'-'+target,node=document.getElementById(anchor);

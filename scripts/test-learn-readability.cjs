@@ -517,6 +517,16 @@ test('5. Evidence-Based Comprehension & Memory Strategy Hub (#notes-02-memory) r
   // Module 2: Quantitative & formula memory anchors (.mem-quant-grid / .mem-quant-card)
   const quantCards = all(memHub, node => hasClass(node, 'mem-quant-card'));
   assert(quantCards.length >= 4, 'notes-02 must extract quantitative/formula memory anchors');
+  const quantTokens02 = quantCards.map(c => text(all(c, n => hasClass(n, 'mem-quant-token'))[0] || c).trim());
+  for (const expectedToken of ['E＝hc/λ', '−2 D', '−10 D']) {
+    assert(quantTokens02.includes(expectedToken), 'notes-02 quant anchors must preserve complete formula/sign: ' + expectedToken);
+  }
+  action('learn-topic', 'notes-01');
+  const quantTokens01 = all(byId(parse(main()), 'notes-01-memory'), node => hasClass(node, 'mem-quant-token')).map(n => text(n).trim());
+  for (const expectedToken of ['SE＝S＋C/2', '−3.50 D']) {
+    assert(quantTokens01.includes(expectedToken), 'notes-01 quant anchors must preserve complete formula/sign: ' + expectedToken);
+  }
+  action('learn-topic', 'notes-02');
 
   // Module 3: Contrastive discrimination flashcards (.mem-contrast-grid / .mem-contrast-card)
   const contrastCards = all(memHub, node => hasClass(node, 'mem-contrast-card'));
@@ -564,6 +574,17 @@ test('7. 4th Study Mode (digest / ⚡ 速讀記憶骨架) toggles .is-digest-mod
   const readingCard = all(digestTree, node => hasClass(node, 'reading-card'))[0];
   assert(readingCard && hasClass(readingCard, 'is-digest-mode'), '.reading-card must have .is-digest-mode class in digest mode');
 
+  // Navigating to a hidden lesson section/unit while in digest mode must exit digest mode and reveal the target
+  assert.equal(qa.openRoute('#notes-02-u1'), true);
+  assert.equal(qa.S.learnDigest, false, 'openRoute(#notes-02-u1) must exit digest mode');
+  assert(!hasClass(all(parse(main()), node => hasClass(node, 'reading-card'))[0], 'is-digest-mode'));
+
+  action('recall', 'digest');
+  assert.equal(qa.S.learnDigest, true);
+  action('coverage-focus', 'notes-02|section-0');
+  assert.equal(qa.S.learnDigest, false, 'clicking a memory hub link (coverage-focus) to a hidden section must exit digest mode');
+
+  action('recall', 'digest');
   action('recall', 'expand');
   assert.equal(qa.S.learnDigest, false, 'switching back to expand must clear S.learnDigest');
   const expandCard = all(parse(main()), node => hasClass(node, 'reading-card'))[0];
