@@ -1,12 +1,12 @@
 /* layout-shell:start */
 // 2026-11 layout: grouped rail, one specialty switcher, the 今日 home, the interview reference column and the phone tab bar.
 // Injected by scripts/apply-layout.py into the application script; edit this file, then run the script.
-const NAV_LAYOUT=[['',['today']],['閱讀',['notebook','textbook','cram']],['筆試',['quiz','study','advanced']],['面試',['interview','pbl','workflow','workshop','project']],['我的',['schedule','progress','plan','links','sync']]];
+const NAV_LAYOUT=[['',['today']],['閱讀',['notebook','textbook','cram']],['筆試',['quiz','study','advanced']],['面試',['interview','pbl','workflow','workshop','map','project']],['我的',['schedule','progress','plan','links','sync']]];
 // 'learn' is the chapter page itself: it opens from 章節教材, so it gets no second rail entry.
 const NAV_HIDDEN=new Set(['learn']);
 // The 12 early quick-review topics now live inside the chapter that teaches them (ophthalmology only).
 const LEGACY_TOPICS={examination:'notes-01',optics:'notes-02','red-eye':'notes-14','vision-loss':'notes-14',trauma:'notes-05',glaucoma:'notes-07','vascular-retina':'notes-10','retina-macula':'notes-10',neuro:'notes-03',diplopia:'notes-04',pediatric:'notes-04',cataract:'notes-06'};
-const TABBAR=[['today','今日',['today']],['notebook','教材',['notebook','textbook','cram','learn']],['quiz','筆試',['quiz','study','advanced']],['interview','面試',['interview','pbl','workflow','workshop','project']]];
+const TABBAR=[['today','今日',['today']],['notebook','教材',['notebook','textbook','cram','learn']],['quiz','筆試',['quiz','study','advanced']],['interview','面試',['interview','pbl','workflow','workshop','map','project']]];
 const TABBAR_ICON={
   today:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg>',
   notebook:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h6a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H3z"/><path d="M21 5h-6a3 3 0 0 0-3 3v12a2 2 0 0 1 2-2h7z"/></svg>',
@@ -658,7 +658,8 @@ function todayQuiz(){
 function todayInterview(){
   const i=currentInterview();if(!i)return '';
   const st=stats();
-  return `<article class="card home-card"><p class="today-kicker">面試演練 · ${i.clinical?'臨床口試':'通用面試'}</p><h3>${esc(i.title)}</h3><p class="today-summary clamp">${esc(i.question)}</p><p class="small">目標 ${i.durationSeconds} 秒 · 已演練 ${st.interviews} / ${D.interview.length}</p><div class="today-actions">${btn('開始計時練習','interview',i.id,'primary')}${btn('換一題','tab','interview')}</div></article>`;
+  const mapLinks=`<div class="today-quiz-banks" data-today-knowledge-map aria-label="知識地圖與簡報工具快速啟動">${btn('知識地圖','knowledge-map-open','#knowledge-map','small subtle')}${btn('Obsidian 285 動態簡報外掛','knowledge-map-open','#knowledge-map-obsidian-motion-285','small subtle')}</div>`;
+  return `<article class="card home-card"><p class="today-kicker">面試演練 · ${i.clinical?'臨床口試':'通用面試'}</p><h3>${esc(i.title)}</h3><p class="today-summary clamp">${esc(i.question)}</p><p class="small">目標 ${i.durationSeconds} 秒 · 已演練 ${st.interviews} / ${D.interview.length}</p><div class="today-actions">${btn('開始計時練習','interview',i.id,'primary')}${btn('換一題','tab','interview')}</div>${mapLinks}</article>`;
 }
 function todayChapters(){
   const ch=D.topics.filter(t=>t.chapter);if(!ch.length)return '';

@@ -1,8 +1,9 @@
 /* practice-ui:start */
 // PBL cases, clinical workflows and saved links. Injected by scripts/apply-enrichment.py.
-Object.assign(S,{pbl:D.pbl?.cases?.[0]?.id||'',pblStage:Object.create(null),workflow:D.workflows?.workflows?.[0]?.id||'',wfMode:'read',wfShuffle:Object.create(null),wfPicked:Object.create(null),wfChecked:Object.create(null),linkDraft:{title:'',url:'',note:'',topicId:''},linkEdit:null,linkFilter:''});
+Object.assign(S,{pbl:D.pbl?.cases?.[0]?.id||'',pblStage:Object.create(null),workflow:D.workflows?.workflows?.[0]?.id||'',wfMode:'read',wfShuffle:Object.create(null),wfPicked:Object.create(null),wfChecked:Object.create(null),linkDraft:{title:'',url:'',note:'',topicId:''},linkEdit:null,linkFilter:'',mapNode:''});
 const APP_URLS=['https://qwwaawwqq.github.io/ophthalmology-interview-public/'];
 const LINK_LIMIT=500;
+const KM_NODE_LABELS={hub:'知識中樞','obsidian-motion-285':'Obsidian 285 動態設計外掛','obsidian-slides-30':'Slides 動態變形投影片（30 款）','obsidian-canvas-222':'Canvas 無邊際畫布（222 款）','obsidian-excalidraw-33':'Excalidraw 手繪轉動畫（33 款）','reading-core':'核心教材與記憶錨點','srs-banks':'間隔重複 SRS 與題庫演練','written-qa':'筆試簡答與申論架構','interview-flow':'面試演練・PBL・臨床流程','story-workshop':'故事與證據工作坊','training-log':'訓練計畫與時程'};
 let practiceHashReady=false,resourceCache=null;
 function pblCases(){return D.pbl?.cases||[];}
 function wfList(){return D.workflows?.workflows||[];}
@@ -26,6 +27,10 @@ function parseRoute(hash){
   if(h==='#written')return {kind:'written',id:null,hash:h};
   if((m=h.match(/^#written-([a-z]+-wq-[a-z0-9-]+)$/))&&m[1].length<=80&&m[1].startsWith(SPEC.id+'-wq-'))return {kind:'written',id:m[1],hash:h};
   if(h==='#cram-written'&&navs.some(n=>n[0]==='cram')&&tabAllowed('cram'))return {kind:'tab',tab:'cram',hash:h};
+  if(h==='#knowledge-map'&&navs.some(n=>n[0]==='map')&&tabAllowed('map'))return {kind:'map',tab:'map',id:null,hash:h};
+  if((m=h.match(/^#knowledge-map-([a-z0-9-]+)$/))&&navs.some(n=>n[0]==='map')&&tabAllowed('map')&&(window.OphKnowledgeMap?.isValidNodeId?window.OphKnowledgeMap.isValidNodeId(m[1],SPEC.id):Object.prototype.hasOwnProperty.call(KM_NODE_LABELS,m[1])))return {kind:'map',tab:'map',id:m[1],hash:h};
+  if(h==='#today'&&navs.some(n=>n[0]==='today')&&tabAllowed('today'))return {kind:'tab',tab:'today',hash:h};
+  if(h==='#tab-exam'&&navs.some(n=>n[0]==='quiz')&&tabAllowed('quiz'))return {kind:'tab',tab:'quiz',hash:h};
   if(/^#[a-z0-9-]+$/.test(h)){for(const t of D.topics){if(h.startsWith('#'+t.id+'-')){const target=h.slice(t.id.length+2);if(anchorValid(t,target))return {kind:'anchor',topicId:t.id,target,hash:h};}}}
   if((m=h.match(/^#topic-([a-z0-9-]+)$/))&&D.topics.some(t=>t.id===m[1]))return {kind:'topic',id:m[1],hash:h};
   if(h==='#pbl')return {kind:'pbl',id:null,hash:h};
@@ -58,6 +63,7 @@ function routeLabel(route){
     if(target.startsWith('coverage-'))return name+' · '+(chapterCoverage(t)?.entries.find(e=>'coverage-'+e.id===target)?.title||'共筆詳解');
     return name+' · '+(chapterEnrichment(t)?.integrated?.units.find(u=>u.id===target)?.title||'學習單元');
   }
+  if(route.kind==='map'){const sub=route.id&&(window.OphKnowledgeMap?.routeLabel?.(route.id,SPEC.id)||KM_NODE_LABELS[route.id]);return sub?'知識地圖 · '+sub:'知識地圖';}
   if(route.kind==='written')return window.OphWritten?.routeLabel?.(route.id)||(route.id?'手寫問答 · '+route.id:'手寫問答題庫');
   if(route.kind==='pbl')return route.id?'PBL · '+pblCases().find(c=>c.id===route.id).title:'PBL 情境討論';
   if(route.kind==='workflow')return route.id?'臨床流程 · '+wfList().find(w=>w.id===route.id).title:'臨床流程';
@@ -67,6 +73,12 @@ function routeLabel(route){
 }
 function routeMatchesView(route){
   if(!route)return false;
+  if(route.kind==='map'||route.tab==='map'){
+    if(S.tab!=='map')return false;
+    const kmRoot=typeof document!=='undefined'&&typeof document.getElementById==='function'?document.getElementById('knowledge-map-root'):null;
+    if(kmRoot&&typeof kmRoot.getAttribute==='function'&&kmRoot.getAttribute('data-km-mounted')!=='1')return false;
+    return route.kind==='map'?(route.id?S.mapNode===route.id:!S.mapNode):!S.mapNode;
+  }
   if(route.kind==='written')return typeof window.OphWritten?.matchesRoute==='function'?window.OphWritten.matchesRoute(route):(S.tab==='quiz'&&window.OphQuizBank?.getMode?.()==='written'&&!route.id);
   if(route.kind==='anchor')return S.tab==='learn'&&S.learn===route.topicId;
   if(route.kind==='topic')return S.tab==='learn'&&S.learn===route.id;
@@ -75,7 +87,7 @@ function routeMatchesView(route){
   if(route.kind==='interview')return S.tab==='interview'&&S.interview===route.id;
   return S.tab===route.tab;
 }
-function currentViewHash(){if(S.tab==='quiz'&&window.OphQuizBank?.getMode?.()==='written')return window.OphWritten?.currentHash?.()||'#written';return S.tab==='learn'?(S.learn?'#topic-'+S.learn:'#tab-learn'):S.tab==='pbl'?(S.pbl?'#'+S.pbl:'#pbl'):S.tab==='workflow'?(S.workflow?'#'+S.workflow:'#workflow'):S.tab==='interview'?(S.interview?'#interview-'+S.interview:'#tab-interview'):S.tab==='links'?'#links':S.tab==='today'?'':'#tab-'+S.tab;}
+function currentViewHash(){if(S.tab==='quiz'&&window.OphQuizBank?.getMode?.()==='written')return window.OphWritten?.currentHash?.()||'#written';return S.tab==='learn'?(S.learn?'#topic-'+S.learn:'#tab-learn'):S.tab==='pbl'?(S.pbl?'#'+S.pbl:'#pbl'):S.tab==='workflow'?(S.workflow?'#'+S.workflow:'#workflow'):S.tab==='interview'?(S.interview?'#interview-'+S.interview:'#tab-interview'):S.tab==='map'?(S.mapNode?'#knowledge-map-'+S.mapNode:'#knowledge-map'):S.tab==='links'?'#links':S.tab==='today'?'':'#tab-'+S.tab;}
 function currentLocationHash(){const route=parseRoute(window.location?.hash||'');return route&&routeMatchesView(route)?route.hash:(currentViewHash()||'#tab-today');}
 function syncPracticeHash(){
   rememberWorkspace();
@@ -102,7 +114,17 @@ function openRoute(hash,updateHash=true){
     const node=document.getElementById(t.id+'-'+route.target);if(node)node.scrollIntoView({block:'start'});
     return true;
   }
-  if(route.kind==='written'){
+  if(route.kind==='map'){
+    S.mapNode=route.id||'';
+    if(S.tab!=='map')switchTab('map');
+    else{window.OphKnowledgeMap?.selectNode?.(route.id||'obsidian-motion-285',{silent:true});render();}
+  }
+  else if(route.tab==='map'){
+    S.mapNode='';
+    if(S.tab!=='map')switchTab('map');
+    else{window.OphKnowledgeMap?.selectNode?.('obsidian-motion-285',{silent:true});render();}
+  }
+  else if(route.kind==='written'){
     window.OphWritten?.focusQuestion?.(route.id);
     if(window.OphQuizBank?.setWritten)window.OphQuizBank.setWritten();
     else switchTab('quiz');
@@ -335,6 +357,7 @@ function practiceOverview(){
   <article class="practice-card"><span class="practice-count">${cases} 個三幕情境</span><h3>PBL 情境討論</h3><p>逐幕揭露病例：整理事實、提出假說、列出還需要的資訊，再延伸到溝通、倫理與制度。</p>${btn('開始討論','tab','pbl','small')}</article>
   <article class="practice-card"><span class="practice-count">${flows} 個流程</span><h3>臨床流程</h3><p>急症、當日轉介、操作安全與篩檢照會；可遮住細節，或把打亂的步驟排回正確順序。</p>${btn('開始練習','tab','workflow','small')}</article>
   <article class="practice-card" data-written-slot="overview"><span class="practice-count">${esc(window.OphWritten?.countLabel?.()||'手寫板＋文字作答')}</span><h3>手寫問答題</h3><p>手寫板＋文字作答，每題附標準答案與得分要點；支援一鍵展開核對與間隔複習排程。</p>${btn('開始作答','written-bank-open','','small')}</article>
+  <article class="practice-card" data-knowledge-map-card><span class="practice-count">285 款免費外掛 · 全站導覽</span><h3>知識地圖與動態簡報</h3><p>串聯閱讀、SRS 題庫、口試敘事與 Obsidian 285 款免費動態簡報外掛（Slides・Canvas・Excalidraw）。</p>${btn('開啟知識地圖','knowledge-map-open','#knowledge-map','small')}</article>
   <article class="practice-card"><span class="practice-count">${linkItems().length} 個收藏</span><h3>我的連結</h3><p>收藏章節段落、流程或外部網址並加註；與其他進度一起自動保存。</p>${btn('管理連結','tab','links','small')}</article></div></section>`;
 }
 function practiceIndex(){
@@ -349,6 +372,7 @@ function practiceIndex(){
 function practiceInput(el){
   if(syncInput(el))return true;
   if(window.OphWritten?.input?.(el))return true;
+  if(window.OphKnowledgeMap?.input?.(el))return true;
   const id=el?.id||'';
   if(id==='link-url'||id==='link-title'||id==='link-note'){S.linkDraft[id.slice(5)]=el.value;return true;}
   if(id==='link-filter'){S.linkFilter=el.value;const box=$('#link-list');if(box)box.innerHTML=linkListMarkup();return true;}
@@ -359,6 +383,8 @@ function practiceInput(el){
 function practiceChange(el){if(window.OphAdvanced?.change(el))return true;if(window.OphWritten?.change?.(el))return true;if(syncChange(el))return true;if(el?.id==='link-topic'){S.linkDraft.topicId=el.value;return true;}return false;}
 function practiceAction(a,v,b){if(window.OphAdvanced?.action(a,v,b))return true;
   if(a==='written-bank-open'){openRoute('#written');return true;}
+  if(a==='knowledge-map-open'){openRoute(v&&v.startsWith('#')?v:'#knowledge-map');return true;}
+  if(window.OphKnowledgeMap?.action?.(a,v,b))return true;
   if(window.OphWritten?.action?.(a,v,b))return true;
   if(syncAction(a))return;
   switch(a){

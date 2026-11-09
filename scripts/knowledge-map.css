@@ -1,0 +1,130 @@
+/* Issue #196: Interactive Knowledge Map (#knowledge-map / #tab-map) & Obsidian 285 Motion Design Spotlight.
+   Uses existing study-desk custom properties; 390px-safe with zero horizontal overflow. */
+
+.km-shell{min-width:0;max-width:100%;display:flex;flex-direction:column;gap:18px;overflow-x:clip}
+.km-loading{margin:0;padding:20px;background:var(--paper,#fff);border:1px solid var(--line,#dce3ed);border-radius:12px;color:var(--muted,#62728a)}
+
+/* Header & hero summary strip */
+.km-header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px 24px}
+.km-eyebrow{margin:0 0 4px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#155b64}
+.km-header h1{margin:0;font-size:clamp(1.55rem,2.6vw,2rem);line-height:1.3;color:var(--navy,#132743)}
+.km-subtitle{margin:6px 0 0;max-width:68ch;font-size:14.5px;line-height:1.7;color:var(--muted,#62728a)}
+.km-stat-strip{display:flex;flex-wrap:wrap;gap:8px;margin:0}
+.km-stat-pill{display:flex;flex-direction:column;padding:8px 14px;background:var(--paper,#fff);border:1px solid var(--line,#dce3ed);border-radius:10px;min-width:96px}
+.km-stat-pill span{font-size:11.5px;color:var(--muted,#62728a);line-height:1.35}
+.km-stat-pill strong{font-size:17px;font-weight:700;color:var(--navy,#132743);font-variant-numeric:tabular-nums;line-height:1.4}
+.km-stat-pill.is-accent{background:#e8f3f2;border-color:#9ccbcb}
+.km-stat-pill.is-accent strong{color:#10343a}
+
+/* Filter & search toolbar */
+.km-toolbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 14px;padding:12px 14px;background:var(--paper,#fff);border:1px solid var(--line,#dce3ed);border-radius:12px}
+.km-filters{display:flex;flex-wrap:wrap;gap:6px;min-width:0}
+.km-filter-pill{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:6px 12px;background:#f5f8f9;border:1px solid var(--line,#dce3ed);border-radius:999px;color:var(--ink,#20324a);font:inherit;font-size:13.5px;font-weight:550;line-height:1.3;cursor:pointer;transition:background .15s,border-color .15s,color .15s}
+.km-filter-pill:hover{background:#eaf3f4;border-color:#9ccbcb}
+.km-filter-pill.is-active,.km-filter-pill[aria-pressed="true"]{background:#10343a;border-color:#10343a;color:#fff;font-weight:650}
+.km-search-box{display:flex;align-items:center;gap:6px;flex:1 1 210px;min-width:0;max-width:100%}
+.km-search-input{flex:1 1 auto;min-width:0;width:100%;min-height:40px;padding:7px 12px;background:#f5f8f9;border:1px solid #cadade;border-radius:8px;color:var(--ink,#20324a);font:inherit;font-size:14px}
+.km-search-input:focus{background:#fff;border-color:var(--blue,#175bd1)}
+.km-search-clear{flex:none;min-height:40px;padding:6px 10px;font-size:13px;white-space:nowrap}
+
+/* Workspace grid: SVG graph + detail card */
+.km-workspace{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;align-items:start;min-width:0}
+@media(min-width:1120px){
+  .km-workspace{grid-template-columns:minmax(0,1.22fr) minmax(350px,.98fr)}
+  .km-detail-col{position:sticky;top:84px}
+}
+
+/* Interactive SVG graph card */
+.km-graph-card{min-width:0;display:flex;flex-direction:column;gap:12px;padding:16px;background:var(--paper,#fff);border:1px solid var(--line,#dce3ed);border-radius:14px}
+.km-graph-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 12px}
+.km-graph-head h2{margin:0;font-size:16.5px;font-weight:650;color:var(--navy,#132743)}
+.km-legend{display:flex;flex-wrap:wrap;gap:8px 12px;font-size:12px;color:var(--muted,#62728a)}
+.km-legend-item{display:inline-flex;align-items:center;gap:5px}
+.km-legend-dot{width:9px;height:9px;border-radius:999px;display:inline-block}
+.km-legend-dot.is-hub{background:#132743}
+.km-legend-dot.is-motion{background:#0f6b63}
+.km-legend-dot.is-study{background:#175bd1}
+.km-legend-dot.is-interview{background:#9a5813}
+
+.km-graph-stage{width:100%;min-width:0;overflow:hidden;border-radius:12px;background:linear-gradient(180deg,#f7fafc 0%,#eef4f8 100%);border:1px solid #dde7ef}
+.km-svg{display:block;width:100%;height:auto;max-width:100%;user-select:none;touch-action:manipulation}
+.km-edge{fill:none;stroke:#c4d4e0;stroke-width:2;transition:stroke .18s,stroke-width .18s,opacity .18s}
+.km-edge.is-motion{stroke:#8ec9c2;stroke-dasharray:5 3}
+.km-edge.is-active{stroke:#0f6b63;stroke-width:3;stroke-dasharray:none}
+.km-edge.is-dimmed{opacity:.22}
+
+.km-node{cursor:pointer;transition:opacity .18s,transform .15s}
+.km-node.is-dimmed{opacity:.28}
+.km-node:focus-visible{outline:none}
+.km-node:focus-visible .km-node-rect{stroke:#5998f3;stroke-width:3.5}
+.km-node-rect{fill:#fff;stroke:#bdd0de;stroke-width:1.8;transition:fill .15s,stroke .15s,stroke-width .15s}
+.km-node.is-cat-hub .km-node-rect{fill:#132743;stroke:#132743}
+.km-node.is-cat-motion .km-node-rect{fill:#f0faf8;stroke:#5db3a9}
+.km-node.is-cat-study .km-node-rect{fill:#f2f6fe;stroke:#8ab0f2}
+.km-node.is-cat-interview .km-node-rect{fill:#fff9ef;stroke:#e3b678}
+.km-node.is-spotlight .km-node-rect{fill:#e4f6f2;stroke:#0f6b63;stroke-width:2.4}
+.km-node.is-selected .km-node-rect{stroke:#10343a;stroke-width:3.2;filter:drop-shadow(0 4px 10px rgba(19,39,67,.16))}
+.km-node.is-cat-hub.is-selected .km-node-rect{stroke:#adebdd;stroke-width:3.2}
+
+.km-node-title{font-size:12.5px;font-weight:700;fill:#132743;pointer-events:none}
+.km-node.is-cat-hub .km-node-title{fill:#fff;font-size:13px}
+.km-node-sub{font-size:10.5px;font-weight:500;fill:#526a77;pointer-events:none}
+.km-node.is-cat-hub .km-node-sub{fill:#cbe5e8}
+
+/* Accessible node chip list below SVG (great for 390px tap & screen readers) */
+.km-node-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:8px}
+.km-node-chip{display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-height:52px;padding:9px 12px;background:#f8fafb;border:1px solid var(--line,#dce3ed);border-radius:10px;color:var(--ink,#20324a);font:inherit;text-align:left;cursor:pointer;min-width:0;transition:border-color .15s,background .15s}
+.km-node-chip:hover{background:#f0f7f7;border-color:#9ccbcb}
+.km-node-chip.is-selected{background:#e8f3f2;border-color:#155b64;box-shadow:0 0 0 1px #155b64 inset}
+.km-node-chip-top{display:flex;align-items:center;justify-content:space-between;gap:6px;width:100%;font-size:11px;font-weight:650;color:#526a77}
+.km-node-chip strong{font-size:13.5px;font-weight:650;line-height:1.35;color:var(--navy,#132743);word-break:break-word}
+.km-empty-filter{margin:0;padding:14px;border-radius:10px;background:#fff8ea;border:1px solid #efdcb6;color:#6e4c12;font-size:13.5px}
+
+/* Detail & Obsidian 285 spotlight panel */
+.km-detail-col{min-width:0;display:flex;flex-direction:column;gap:14px}
+.km-detail-card{min-width:0;display:flex;flex-direction:column;gap:14px;padding:20px;background:var(--paper,#fff);border:1px solid var(--line,#dce3ed);border-radius:14px}
+.km-detail-card.is-motion-spotlight{border-color:#8ec9c2;background:linear-gradient(180deg,#f5fbfa 0%,#ffffff 130px)}
+.km-detail-badges{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.km-badge{display:inline-flex;align-items:center;padding:3px 9px;border-radius:999px;font-size:12px;font-weight:650;background:#eef3f8;color:var(--navy,#132743)}
+.km-badge.is-free{background:#eaf8f1;color:#086b51;border:1px solid #a8dfc4}
+.km-badge.is-value{background:#fff6e5;color:#855116;border:1px solid #efdcb6}
+.km-detail-card h2{margin:0;font-size:1.22rem;line-height:1.4;color:var(--navy,#132743);word-break:break-word}
+.km-detail-lead{margin:0;font-size:14.5px;line-height:1.7;color:var(--ink,#20324a)}
+.km-highlights{margin:0;padding-left:1.3rem;display:flex;flex-direction:column;gap:6px;font-size:14px;line-height:1.65}
+.km-route-actions{display:flex;flex-wrap:wrap;gap:8px}
+.km-route-actions .btn{min-height:44px}
+
+/* Obsidian 285 breakdown cards & directory links */
+.km-plugin-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+.km-plugin-item{display:flex;flex-direction:column;gap:6px;padding:13px 14px;background:#fff;border:1px solid #cfe3e0;border-radius:11px;min-width:0}
+.km-plugin-item.is-focused{border-color:#0f6b63;background:#eef9f7;box-shadow:0 0 0 1px #0f6b63 inset}
+.km-plugin-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 10px}
+.km-plugin-head h3{margin:0;font-size:15px;font-weight:700;color:#10343a}
+.km-plugin-count{font-size:12.5px;font-weight:700;color:#086b51;font-variant-numeric:tabular-nums}
+.km-plugin-item p{margin:0;font-size:13.5px;line-height:1.6;color:var(--ink,#20324a)}
+.km-plugin-link{display:inline-flex;align-items:center;justify-content:center;gap:6px;align-self:flex-start;min-height:42px;padding:7px 13px;background:#10343a;border-radius:8px;color:#fff;font-size:13.5px;font-weight:600;text-decoration:none;max-width:100%;word-break:break-word}
+.km-plugin-link:hover{background:#155b64;color:#fff;text-decoration:none}
+
+/* 4-step Quick Start & 3 Interview Recipes */
+.km-section-box{display:flex;flex-direction:column;gap:8px;padding:14px 16px;background:#f7fafb;border:1px solid var(--line,#dce3ed);border-radius:11px;min-width:0}
+.km-section-box h3{margin:0;font-size:15px;font-weight:700;color:var(--navy,#132743)}
+.km-steps{margin:0;padding-left:1.35rem;display:flex;flex-direction:column;gap:7px;font-size:13.5px;line-height:1.65}
+.km-steps code{padding:1px 5px;background:#e8eff5;border-radius:4px;font-size:12.5px;word-break:break-word}
+.km-recipes{display:flex;flex-direction:column;gap:8px}
+.km-recipe{padding:10px 12px;background:#fff;border:1px solid var(--line,#dce3ed);border-radius:9px}
+.km-recipe strong{display:block;font-size:13.5px;color:var(--navy,#132743);margin-bottom:3px}
+.km-recipe p{margin:0;font-size:13px;line-height:1.6;color:var(--muted,#62728a)}
+
+/* Markdown export actions */
+.km-export-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding-top:4px;border-top:1px dashed var(--line,#dce3ed)}
+.km-export-bar .btn{min-height:44px;flex:1 1 150px;justify-content:center}
+.km-export-status{margin:0;width:100%;font-size:12.5px;color:#086b51;min-height:1.2em}
+
+@media(max-width:760px){
+  .km-graph-card,.km-detail-card{padding:14px}
+  .km-stat-strip{width:100%}
+  .km-stat-pill{flex:1 1 calc(50% - 6px);min-width:0}
+  .km-node-grid{grid-template-columns:minmax(0,1fr)}
+  .km-filter-pill{flex:1 1 calc(50% - 6px);justify-content:center;text-align:center}
+  .km-plugin-link{width:100%}
+}
