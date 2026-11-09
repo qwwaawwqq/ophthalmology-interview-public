@@ -452,7 +452,7 @@ async function practise(app) {
         assert(!app.nav().includes(`data-value="${ophTab}"`), `${id} nav leaked ${ophTab}`);
       }
       const visibleTabs = plain(app.qa.navs.filter(n => app.qa.tabAllowed(n[0])).map(n => n[0]));
-      assert.deepEqual(visibleTabs, ['study', 'cram', 'today', 'notebook', 'quiz', 'learn', 'interview', 'pbl', 'workflow', 'workshop', 'plan', 'progress', 'links', 'sync']);
+      assert.deepEqual(visibleTabs, ['study', 'cram', 'today', 'notebook', 'quiz', 'learn', 'interview', 'pbl', 'workflow', 'workshop', 'map', 'plan', 'progress', 'links', 'sync']);
 
       for (const tab of visibleTabs) {
         app.action('tab', tab);

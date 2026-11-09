@@ -1,8 +1,9 @@
 /* practice-ui:start */
 // PBL cases, clinical workflows and saved links. Injected by scripts/apply-enrichment.py.
-Object.assign(S,{pbl:D.pbl?.cases?.[0]?.id||'',pblStage:Object.create(null),workflow:D.workflows?.workflows?.[0]?.id||'',wfMode:'read',wfShuffle:Object.create(null),wfPicked:Object.create(null),wfChecked:Object.create(null),linkDraft:{title:'',url:'',note:'',topicId:''},linkEdit:null,linkFilter:''});
+Object.assign(S,{pbl:D.pbl?.cases?.[0]?.id||'',pblStage:Object.create(null),workflow:D.workflows?.workflows?.[0]?.id||'',wfMode:'read',wfShuffle:Object.create(null),wfPicked:Object.create(null),wfChecked:Object.create(null),linkDraft:{title:'',url:'',note:'',topicId:''},linkEdit:null,linkFilter:'',mapNode:''});
 const APP_URLS=['https://qwwaawwqq.github.io/ophthalmology-interview-public/'];
 const LINK_LIMIT=500;
+const KM_NODE_LABELS={hub:'知識中樞','obsidian-motion-285':'Obsidian 285 動態設計外掛','obsidian-slides-30':'Slides 動態變形投影片（30 款）','obsidian-canvas-222':'Canvas 無邊際畫布（222 款）','obsidian-excalidraw-33':'Excalidraw 手繪轉動畫（33 款）','reading-core':'核心教材與記憶錨點','srs-banks':'間隔重複 SRS 與題庫演練','written-qa':'筆試簡答與申論架構','interview-flow':'面試演練・PBL・臨床流程','story-workshop':'故事與證據工作坊','training-log':'訓練計畫與時程'};
 let practiceHashReady=false,resourceCache=null;
 function pblCases(){return D.pbl?.cases||[];}
 function wfList(){return D.workflows?.workflows||[];}
@@ -28,6 +29,10 @@ function parseRoute(hash){
   if(h==='#written-past')return {kind:'written',id:null,scope:'past',hash:h};
   if((m=h.match(/^#written-([a-z]+-wq-[a-z0-9-]+)$/))&&m[1].length<=80&&m[1].startsWith(SPEC.id+'-wq-'))return {kind:'written',id:m[1],hash:h};
   if(h==='#cram-written'&&navs.some(n=>n[0]==='cram')&&tabAllowed('cram'))return {kind:'tab',tab:'cram',hash:h};
+  if(h==='#knowledge-map'&&navs.some(n=>n[0]==='map')&&tabAllowed('map'))return {kind:'map',tab:'map',id:null,hash:h};
+  if((m=h.match(/^#knowledge-map-([a-z0-9-]+)$/))&&navs.some(n=>n[0]==='map')&&tabAllowed('map')&&(window.OphKnowledgeMap?.isValidNodeId?window.OphKnowledgeMap.isValidNodeId(m[1],SPEC.id):Object.prototype.hasOwnProperty.call(KM_NODE_LABELS,m[1])))return {kind:'map',tab:'map',id:m[1],hash:h};
+  if(h==='#today'&&navs.some(n=>n[0]==='today')&&tabAllowed('today'))return {kind:'tab',tab:'today',hash:h};
+  if(h==='#tab-exam'&&navs.some(n=>n[0]==='quiz')&&tabAllowed('quiz'))return {kind:'tab',tab:'quiz',hash:h};
   if(/^#[a-z0-9-]+$/.test(h)){for(const t of D.topics){if(h.startsWith('#'+t.id+'-')){const target=h.slice(t.id.length+2);if(anchorValid(t,target))return {kind:'anchor',topicId:t.id,target,hash:h};}}}
   if((m=h.match(/^#topic-([a-z0-9-]+)$/))&&D.topics.some(t=>t.id===m[1]))return {kind:'topic',id:m[1],hash:h};
   if(h==='#pbl')return {kind:'pbl',id:null,hash:h};
@@ -61,6 +66,7 @@ function routeLabel(route){
     return name+' · '+(chapterEnrichment(t)?.integrated?.units.find(u=>u.id===target)?.title||'學習單元');
   }
   if(route.kind==='kaogu')return kaoguRouteMode()==='kaogu-hosp'?'筆試練習 · 110–113 各院考古單選':'筆試練習 · 歷屆考點單選';
+  if(route.kind==='map'){const sub=route.id&&(window.OphKnowledgeMap?.routeLabel?.(route.id,SPEC.id)||KM_NODE_LABELS[route.id]);return sub?'知識地圖 · '+sub:'知識地圖';}
   if(route.kind==='written')return route.scope==='past'?'手寫問答 · 110–113 各院筆試申論':(window.OphWritten?.routeLabel?.(route.id)||(route.id?'手寫問答 · '+route.id:'手寫問答題庫'));
   if(route.kind==='pbl')return route.id?'PBL · '+pblCases().find(c=>c.id===route.id).title:'PBL 情境討論';
   if(route.kind==='workflow')return route.id?'臨床流程 · '+wfList().find(w=>w.id===route.id).title:'臨床流程';
@@ -72,6 +78,12 @@ function kaoguRouteMode(){return D.questions.some(x=>x.pastExam&&/歷屆/.test(S
 function routeMatchesView(route){
   if(!route)return false;
   if(route.kind==='kaogu')return S.tab==='quiz'&&(!window.OphQuizBank?.getMode||['core','mcq'].includes(window.OphQuizBank.getMode()))&&S.mode===kaoguRouteMode();
+  if(route.kind==='map'||route.tab==='map'){
+    if(S.tab!=='map')return false;
+    const kmRoot=typeof document!=='undefined'&&typeof document.getElementById==='function'?document.getElementById('knowledge-map-root'):null;
+    if(kmRoot&&typeof kmRoot.getAttribute==='function'&&kmRoot.getAttribute('data-km-mounted')!=='1')return false;
+    return route.kind==='map'?(route.id?S.mapNode===route.id:!S.mapNode):!S.mapNode;
+  }
   if(route.kind==='written'){
     if(typeof window.OphWritten?.matchesRoute==='function')return window.OphWritten.matchesRoute(route);
     const wPast=window.OphQuizBank?.getWrittenScope?.()==='past'&&SPEC.id==='ent';
@@ -85,7 +97,7 @@ function routeMatchesView(route){
   if(route.hash==='#tab-quiz')return S.tab==='quiz'&&window.OphQuizBank?.getMode?.()!=='written'&&S.mode!=='kaogu-hosp';
   return S.tab===route.tab;
 }
-function currentViewHash(){if(S.tab==='quiz'&&window.OphQuizBank?.getMode?.()==='written')return window.OphWritten?.currentHash?.()||(window.OphQuizBank?.getWrittenScope?.()==='past'&&SPEC.id==='ent'?'#written-past':'#written');if(S.tab==='quiz')return (!window.OphQuizBank?.getMode||['core','mcq'].includes(window.OphQuizBank.getMode()))&&S.mode==='kaogu-hosp'?'#kaogu':'#tab-quiz';return S.tab==='learn'?(S.learn?'#topic-'+S.learn:'#tab-learn'):S.tab==='pbl'?(S.pbl?'#'+S.pbl:'#pbl'):S.tab==='workflow'?(S.workflow?'#'+S.workflow:'#workflow'):S.tab==='interview'?(S.interview?'#interview-'+S.interview:'#tab-interview'):S.tab==='links'?'#links':S.tab==='today'?'':'#tab-'+S.tab;}
+function currentViewHash(){if(S.tab==='quiz'&&window.OphQuizBank?.getMode?.()==='written')return window.OphWritten?.currentHash?.()||(window.OphQuizBank?.getWrittenScope?.()==='past'&&SPEC.id==='ent'?'#written-past':'#written');if(S.tab==='quiz')return (!window.OphQuizBank?.getMode||['core','mcq'].includes(window.OphQuizBank.getMode()))&&S.mode==='kaogu-hosp'?'#kaogu':'#tab-quiz';return S.tab==='learn'?(S.learn?'#topic-'+S.learn:'#tab-learn'):S.tab==='pbl'?(S.pbl?'#'+S.pbl:'#pbl'):S.tab==='workflow'?(S.workflow?'#'+S.workflow:'#workflow'):S.tab==='interview'?(S.interview?'#interview-'+S.interview:'#tab-interview'):S.tab==='map'?(S.mapNode?'#knowledge-map-'+S.mapNode:'#knowledge-map'):S.tab==='links'?'#links':S.tab==='today'?'':'#tab-'+S.tab;}
 function currentLocationHash(){const route=parseRoute(window.location?.hash||'');return route&&routeMatchesView(route)?route.hash:(currentViewHash()||'#tab-today');}
 function syncPracticeHash(){
   rememberWorkspace();
@@ -117,6 +129,16 @@ function openRoute(hash,updateHash=true){
     if(!updateHash&&S.mode===m&&S.ids.length){quizBankMode='core';specQuizMode='mcq';switchTab('quiz');}
     else startQuiz('all',m);
   }
+  else if(route.kind==='map'){
+    S.mapNode=route.id||'';
+    if(S.tab!=='map')switchTab('map');
+    else{window.OphKnowledgeMap?.selectNode?.(route.id||'obsidian-motion-285',{silent:true});render();}
+  }
+  else if(route.tab==='map'){
+    S.mapNode='';
+    if(S.tab!=='map')switchTab('map');
+    else{window.OphKnowledgeMap?.selectNode?.('obsidian-motion-285',{silent:true});render();}
+  }
   else if(route.kind==='written'){
     if(route.scope==='past'){
       window.OphWritten?.setQuizScope?.('past',false);
@@ -137,12 +159,12 @@ function openRoute(hash,updateHash=true){
   else if(route.kind==='pbl'){if(route.id)S.pbl=route.id;switchTab('pbl');}
   else if(route.kind==='workflow'){if(route.id)S.workflow=route.id;switchTab('workflow');}
   else if(route.kind==='interview')chooseInterview(route.id);
-  else if(route.hash==='#tab-quiz'&&(window.OphQuizBank?.getMode?.()==='written'||S.mode==='kaogu-hosp')){
+  else if((route.hash==='#tab-quiz'||route.hash==='#tab-exam')&&(window.OphQuizBank?.getMode?.()==='written'||S.mode==='kaogu-hosp')){
     if(window.OphQuizBank?.setMode)window.OphQuizBank.setMode(SPEC.id==='oph'?'core':'mcq');
     else switchTab('quiz');
   }
   else switchTab(route.tab);
-  const nextHash=routeMatchesView(route)?route.hash:(currentViewHash()||route.hash);
+  const nextHash=route.kind==='written'&&!routeMatchesView(route)?(currentViewHash()||route.hash):route.hash;
   if(updateHash&&window.history?.replaceState&&nextHash&&window.location?.hash!==nextHash)window.history.replaceState(null,'',nextHash);
   return true;
 }
@@ -365,6 +387,7 @@ function practiceOverview(){
   <article class="practice-card"><span class="practice-count">${cases} 個三幕情境</span><h3>PBL 情境討論</h3><p>逐幕揭露病例：整理事實、提出假說、列出還需要的資訊，再延伸到溝通、倫理與制度。</p>${btn('開始討論','tab','pbl','small')}</article>
   <article class="practice-card"><span class="practice-count">${flows} 個流程</span><h3>臨床流程</h3><p>急症、當日轉介、操作安全與篩檢照會；可遮住細節，或把打亂的步驟排回正確順序。</p>${btn('開始練習','tab','workflow','small')}</article>
   <article class="practice-card" data-written-slot="overview"><span class="practice-count">${esc(window.OphWritten?.countLabel?.()||'手寫板＋文字作答')}</span><h3>手寫問答題</h3><p>手寫板＋文字作答，每題附標準答案與得分要點；支援一鍵展開核對與間隔複習排程。</p>${btn('開始作答','written-bank-open','','small')}</article>
+  <article class="practice-card" data-knowledge-map-card><span class="practice-count">285 款免費外掛 · 全站導覽</span><h3>知識地圖與動態簡報</h3><p>串聯閱讀、SRS 題庫、口試敘事與 Obsidian 285 款免費動態簡報外掛（Slides・Canvas・Excalidraw）。</p>${btn('開啟知識地圖','knowledge-map-open','#knowledge-map','small')}</article>
   <article class="practice-card"><span class="practice-count">${linkItems().length} 個收藏</span><h3>我的連結</h3><p>收藏章節段落、流程或外部網址並加註；與其他進度一起自動保存。</p>${btn('管理連結','tab','links','small')}</article></div></section>`;
 }
 function practiceIndex(){
@@ -379,6 +402,7 @@ function practiceIndex(){
 function practiceInput(el){
   if(syncInput(el))return true;
   if(window.OphWritten?.input?.(el))return true;
+  if(window.OphKnowledgeMap?.input?.(el))return true;
   const id=el?.id||'';
   if(id==='link-url'||id==='link-title'||id==='link-note'){S.linkDraft[id.slice(5)]=el.value;return true;}
   if(id==='link-filter'){S.linkFilter=el.value;const box=$('#link-list');if(box)box.innerHTML=linkListMarkup();return true;}
@@ -389,6 +413,8 @@ function practiceInput(el){
 function practiceChange(el){if(window.OphAdvanced?.change(el))return true;if(window.OphWritten?.change?.(el))return true;if(syncChange(el))return true;if(el?.id==='link-topic'){S.linkDraft.topicId=el.value;return true;}return false;}
 function practiceAction(a,v,b){if(window.OphAdvanced?.action(a,v,b))return true;
   if(a==='written-bank-open'){openRoute('#written');return true;}
+  if(a==='knowledge-map-open'){openRoute(v&&v.startsWith('#')?v:'#knowledge-map');return true;}
+  if(window.OphKnowledgeMap?.action?.(a,v,b))return true;
   if(window.OphWritten?.action?.(a,v,b))return true;
   if(syncAction(a))return;
   switch(a){

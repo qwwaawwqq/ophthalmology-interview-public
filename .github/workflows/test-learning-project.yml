@@ -28,6 +28,7 @@ jobs:
           python3 scripts/apply-app-install.py --check
           python3 scripts/apply-layout.py --check
           python3 scripts/apply-written-qa.py --check
+          python3 scripts/apply-knowledge-map.py --check
           python3 scripts/validate-written-qa.py
           node scripts/test-app-install.cjs
           node scripts/test-exam-schedule.cjs
@@ -43,3 +44,4 @@ jobs:
           node scripts/test-learning-project.cjs
           node scripts/test-layout.cjs
           node scripts/test-written-qa.cjs
+          node scripts/test-knowledge-map.cjs
