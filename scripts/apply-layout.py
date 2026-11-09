@@ -154,8 +154,13 @@ def merge_hooks(text):
     text = once(text, "S.ids=D.questions.filter(q=>(topic==='all'||q.topicId===topic)&&",
                 "S.ids=D.questions.filter(q=>(topic==='all'||q.topicId===topic||mergedInto(q.topicId)===topic)&&", 'chapter practice')
     # The chapter's own questions come first; folded quick-review questions follow.
-    text = once(text, "(mode==='uncertain'&&entries['q:'+q.id]&&meta['q:'+q.id]?.confidence===1))).map(q=>q.id);S.qi=",
-                "(mode==='uncertain'&&entries['q:'+q.id]&&meta['q:'+q.id]?.confidence===1))).sort((a,b)=>(a.topicId!==topic)-(b.topicId!==topic)).map(q=>q.id);S.qi=", 'chapter practice order')
+    old_sort = "(mode==='uncertain'&&entries['q:'+q.id]&&meta['q:'+q.id]?.confidence===1))).sort((a,b)=>(a.topicId!==topic)-(b.topicId!==topic)).map(q=>q.id);S.qi="
+    new_sort = "(mode==='uncertain'&&entries['q:'+q.id]&&meta['q:'+q.id]?.confidence===1))).sort((a,b)=>{const d=(a.topicId!==topic)-(b.topicId!==topic);return d||(SPEC.id!=='oph'&&mode==='kaogu'?(/歷屆/.test(String(b.source||'')))-(/歷屆/.test(String(a.source||''))):0);}).map(q=>q.id);S.qi="
+    if old_sort in text and new_sort not in text:
+        text = text.replace(old_sort, new_sort, 1)
+    else:
+        text = once(text, "(mode==='uncertain'&&entries['q:'+q.id]&&meta['q:'+q.id]?.confidence===1))).map(q=>q.id);S.qi=",
+                    new_sort, 'chapter practice order')
     text = once(text, "個快速重點、${D.questions.filter(q=>!q.sourceId).length} 題與個人面試資料持續保留。",
                 "個快速重點已併入對應章節；${D.questions.filter(q=>!q.sourceId).length} 題與個人面試資料持續保留。", 'notebook note')
     return once(text, "${D.topics.map(t=>{const qs=D.questions.filter(q=>q.topicId===t.id);return `<tr><td><button class=\"text-button\" data-action=\"learn-topic\"",

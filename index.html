@@ -899,15 +899,63 @@ function setQuizBankMode(mode){
   if(S.tab!=='quiz')switchTab('quiz');else render();
   return true;
 }
+function isHospPastExam(q){return Boolean(q&&q.pastExam&&/歷屆/.test(String(q.source||'')));}
+let specWrittenScope='all';
 function setSpecQuizMode(mode){
-  if(SPEC.id==='oph'||!['mcq','written'].includes(mode))return false;
-  window.OphStudy?.leave?.();
-  specQuizMode=mode;
-  if(mode==='written')window.OphWritten?.ensureLoaded?.(SPEC.id);
-  if(S.tab!=='quiz')switchTab('quiz');else render();
-  return true;
+  if(SPEC.id==='oph')return false;
+  if(mode==='mcq'){
+    window.OphStudy?.leave?.();
+    const wasPastMcq=S.mode==='kaogu-hosp'||S.mode==='kaogu';
+    specQuizMode='mcq';
+    if(wasPastMcq){startQuiz('all','all');return true;}
+    if(S.tab!=='quiz')switchTab('quiz');else render();
+    return true;
+  }
+  if(mode==='mcq-past-hosp'){
+    if(!D.questions.some(isHospPastExam))return false;
+    startQuiz('all','kaogu-hosp');
+    return true;
+  }
+  if(mode==='mcq-past'){
+    if(!D.questions.some(q=>q.pastExam))return false;
+    startQuiz('all','kaogu');
+    return true;
+  }
+  if(mode==='written'){
+    window.OphStudy?.leave?.();
+    specQuizMode='written';
+    specWrittenScope='all';
+    window.OphWritten?.setQuizScope?.('all',false);
+    window.OphWritten?.ensureLoaded?.(SPEC.id);
+    if(S.tab!=='quiz')switchTab('quiz');else render();
+    return true;
+  }
+  if(mode==='written-past'){
+    window.OphStudy?.leave?.();
+    specQuizMode='written';
+    specWrittenScope='past';
+    window.OphWritten?.setQuizScope?.('past',false);
+    window.OphWritten?.ensureLoaded?.(SPEC.id);
+    if(S.tab!=='quiz')switchTab('quiz');else render();
+    return true;
+  }
+  return false;
 }
-window.OphQuizBank={getMode(){return SPEC.id==='oph'?quizBankMode:specQuizMode;},setMode(mode){return SPEC.id==='oph'?setQuizBankMode(mode):setSpecQuizMode(mode);},setWritten(){return SPEC.id==='oph'?setQuizBankMode('written'):setSpecQuizMode('written');}};
+window.OphQuizBank={
+  getMode(){return SPEC.id==='oph'?quizBankMode:specQuizMode;},
+  getWrittenScope(){return window.OphWritten?.getQuizScope?window.OphWritten.getQuizScope():specWrittenScope;},
+  setMode(mode){return SPEC.id==='oph'?setQuizBankMode(mode):setSpecQuizMode(mode);},
+  setWritten(scope){
+    if(scope)window.OphWritten?.setQuizScope?.(scope,false);
+    if(SPEC.id==='oph')return setQuizBankMode('written');
+    window.OphStudy?.leave?.();
+    specQuizMode='written';
+    specWrittenScope=scope||(window.OphWritten?.getQuizScope?.()||'all');
+    window.OphWritten?.ensureLoaded?.(SPEC.id);
+    if(S.tab!=='quiz')switchTab('quiz');else render();
+    return true;
+  }
+};
 
 function quizAdvPool(mode=quizBankMode){
   if(mode==='bcsc')return quizAdvBcscCandidates();
@@ -1124,14 +1172,24 @@ function quizAdvPageMarkup(){
 }
 function specQuizModeBarMarkup(){
   if(SPEC.id==='oph')return '';
-  const items=[['mcq',`單選題練習（${D.questions.length} 題）`],['written','手寫問答題（手寫板＋文字作答＋標準答案）']];
-  return `<div class="quiz-spec-modes" data-spec-quiz-mode role="group" aria-label="筆試題型切換">${items.map(([id,lbl])=>`<button type="button" class="btn small ${specQuizMode===id?'primary':'subtle'}" data-action="spec-quiz-mode" data-value="${id}" aria-pressed="${specQuizMode===id}">${esc(lbl)}</button>`).join('')}</div>`;
+  const hospPastCount=D.questions.filter(isHospPastExam).length;
+  const pastCount=D.questions.filter(q=>q.pastExam).length;
+  const wPastCount=window.OphWritten?.pastCount?.(SPEC.id)||(SPEC.id==='ent'?16:0);
+  const wIsPast=wPastCount>0&&specQuizMode==='written'&&(window.OphWritten?.getQuizScope?window.OphWritten.getQuizScope()==='past':specWrittenScope==='past');
+  const items=[
+    ['mcq',`單選題練習（${D.questions.length} 題）`,specQuizMode==='mcq'&&S.mode!=='kaogu-hosp'&&S.mode!=='kaogu'],
+    ...(hospPastCount>0?[['mcq-past-hosp',`110–113 各院考古單選（${hospPastCount} 題）`,specQuizMode==='mcq'&&S.mode==='kaogu-hosp']]:[]),
+    ...(pastCount>0?[['mcq-past',`${hospPastCount>0?'歷屆與講義考點單選':'歷屆考點單選'}（${pastCount} 題）`,specQuizMode==='mcq'&&S.mode==='kaogu']]:[]),
+    ...(wPastCount>0?[['written-past',`110–113 各院筆試申論（${wPastCount} 組 · 含完整答案）`,wIsPast]]:[]),
+    ['written','手寫問答題（手寫板＋文字作答＋標準答案）',specQuizMode==='written'&&!wIsPast]
+  ];
+  return `<div class="quiz-spec-modes" data-spec-quiz-mode role="group" aria-label="筆試題型切換">${items.map(([id,lbl,active])=>`<button type="button" class="btn small ${active?'primary':'subtle'}" data-action="spec-quiz-mode" data-value="${id}" aria-pressed="${active}">${esc(lbl)}</button>`).join('')}</div>`;
 }
 function quizPage(){
   if(SPEC.id!=='oph'){
     if(specQuizMode==='written'){
       const head=heading('01 / WRITTEN Q&A','手寫問答題（手寫板＋文字作答＋標準答案）','支援 Apple Pencil／觸控手寫板與文字作答，逐題核對必寫得分要點並排入間隔複習。','');
-      return head+specQuizModeBarMarkup()+(window.OphWritten?.quizBankHtml?.(SPEC.id)||`<section class="card card-pad" data-written-slot="quiz" data-spec-id="${esc(SPEC.id)}"></section>`);
+      return head+specQuizModeBarMarkup()+(window.OphWritten?.quizBankHtml?.(SPEC.id)||`<section class="card card-pad" data-written-slot="quiz" data-spec-id="${esc(SPEC.id)}"${specWrittenScope==='past'&&SPEC.id==='ent'?' data-written-scope="past"':''}></section>`);
     }
     const base=quiz();
     const idx=base.indexOf('<div class="grid">');
@@ -1236,7 +1294,8 @@ function todayReading(){
 function todayQuiz(){
   if(!D.questions.length)return '';
   const cur=question(),q=cur||D.questions[0],st=stats();
-  const advLinks=SPEC.id==='oph'?`<div class="today-quiz-banks" data-today-quiz-banks aria-label="進階題庫快速啟動">${btn('BCSC 1–13 卷（540 題）','quiz-bank-open','bcsc','small subtle')}${btn('Hard 多步臨床推理','quiz-bank-open','hard','small subtle')}${btn('自編陌生病例（120 題）','quiz-bank-open','extra','small subtle')}${btn('手寫問答題','quiz-bank-open','written','small subtle')}</div>`:`<div class="today-quiz-banks" data-today-spec-written aria-label="手寫問答題快速啟動">${btn('手寫問答題','spec-quiz-mode','written','small subtle')}</div>`;
+  const hasHospPast=SPEC.id!=='oph'&&D.questions.some(isHospPastExam);
+  const advLinks=SPEC.id==='oph'?`<div class="today-quiz-banks" data-today-quiz-banks aria-label="進階題庫快速啟動">${btn('BCSC 1–13 卷（540 題）','quiz-bank-open','bcsc','small subtle')}${btn('Hard 多步臨床推理','quiz-bank-open','hard','small subtle')}${btn('自編陌生病例（120 題）','quiz-bank-open','extra','small subtle')}${btn('手寫問答題','quiz-bank-open','written','small subtle')}</div>`:`<div class="today-quiz-banks" data-today-spec-written aria-label="手寫問答題快速啟動">${hasHospPast?btn('110–113 各院考古單選','spec-quiz-mode','mcq-past-hosp','small subtle')+btn('110–113 各院筆試申論','spec-quiz-mode','written-past','small subtle'):''}${btn('手寫問答題','spec-quiz-mode','written','small subtle')}</div>`;
   return `<article class="card home-card"><p class="today-kicker">${cur?`繼續筆試 · 第 ${S.qi+1} / ${S.ids.length} 題`:'筆試練習'}</p><h3>${esc(shortTitle(q.topicId))}</h3><p class="today-summary clamp">${esc(q.stem)}</p><p class="small">已練習 ${st.answered} / ${D.questions.length} · 待補強 ${st.wrong}</p><div class="today-actions">${cur?btn('繼續作答','today-core-quiz','continue','primary'):btn('開始練習','all','','primary')}${btn('換主題','today-core-quiz','topic')}</div>${advLinks}</article>`;
 }
 function todayInterview(){
@@ -1273,10 +1332,11 @@ function stats(){const qs=D.questions.filter(q=>entries['q:'+q.id]);return {answ
 function heading(k,title,sub,right=''){return `<div class="heading"><div><h1>${title}</h1><p class="subtitle">${sub}</p></div>${right}</div>`;}
 function switchTab(tab){if(!navs.some(n=>n[0]===tab)||!tabAllowed(tab))return;$('.rail').classList.remove('nav-open');$('#nav-toggle').setAttribute('aria-expanded','false');if(tab!=='interview'&&S.deadline)pauseTimer();S.tab=tab;render();window.scrollTo({top:0,behavior:'instant'});$('#main').focus({preventScroll:true});}
 function question(){return D.questions.find(q=>q.id===S.ids[S.qi]);}
-function startQuiz(topic='all',mode='all',first=null){window.OphStudy?.leave();S.topic=topic;S.mode=mode;S.ids=D.questions.filter(q=>(topic==='all'||q.topicId===topic||mergedInto(q.topicId)===topic)&&(mode==='all'||(mode==='new'&&!entries['q:'+q.id])||(mode==='safety'&&q.safety)||(mode==='reserve'&&q.reserve)||(mode==='kaogu'&&q.pastExam)||(mode==='wrong'&&entries['q:'+q.id]&&!entries['q:'+q.id].correct)||(mode==='due'&&srsDueNow(entries['study:srs:shared:'+q.id]))||(mode==='srs-weak'&&srsWeakEntry(entries['study:srs:shared:'+q.id]))||(mode==='uncertain'&&entries['q:'+q.id]&&meta['q:'+q.id]?.confidence===1))).sort((a,b)=>(a.topicId!==topic)-(b.topicId!==topic)).map(q=>q.id);S.qi=Math.max(0,first?S.ids.indexOf(first):0);S.selected=null;S.confidence=0;S.round=Object.create(null);quizBankMode='core';specQuizMode='mcq';switchTab('quiz');}
+function startQuiz(topic='all',mode='all',first=null){window.OphStudy?.leave();S.topic=topic;S.mode=mode;S.ids=D.questions.filter(q=>(topic==='all'||q.topicId===topic||mergedInto(q.topicId)===topic)&&(mode==='all'||(mode==='new'&&!entries['q:'+q.id])||(mode==='safety'&&q.safety)||(mode==='reserve'&&q.reserve)||(mode==='kaogu-hosp'&&q.pastExam&&/歷屆/.test(String(q.source||'')))||(mode==='kaogu'&&q.pastExam)||(mode==='wrong'&&entries['q:'+q.id]&&!entries['q:'+q.id].correct)||(mode==='due'&&srsDueNow(entries['study:srs:shared:'+q.id]))||(mode==='srs-weak'&&srsWeakEntry(entries['study:srs:shared:'+q.id]))||(mode==='uncertain'&&entries['q:'+q.id]&&meta['q:'+q.id]?.confidence===1))).sort((a,b)=>{const d=(a.topicId!==topic)-(b.topicId!==topic);return d||(SPEC.id!=='oph'&&mode==='kaogu'?(/歷屆/.test(String(b.source||'')))-(/歷屆/.test(String(a.source||''))):0);}).map(q=>q.id);S.qi=Math.max(0,first?S.ids.indexOf(first):0);S.selected=null;S.confidence=0;S.round=Object.create(null);quizBankMode='core';specQuizMode='mcq';switchTab('quiz');}
 function moveQuestion(n){window.OphStudy?.leave();S.qi=Math.max(0,Math.min(S.ids.length-1,n));S.selected=null;S.confidence=0;render();$('.question-stem')?.focus({preventScroll:true});}
-function quiz(){if(!D.questions.length)return heading('01 / WRITTEN PRACTICE','筆試練習','先說出你的判斷，再用解析找出下一個要補強的概念。')+pendingCard('筆試練習');const st=stats(),q=question(),response=q?S.round[q.id]:null;const answered=response!==undefined&&response!==null;const topicOptions=orderedTopics().map(t=>`<option value="${t.id}" ${S.topic===t.id?'selected':''}>${t.chapter?(SPEC.id==='oph'?'共筆 ':'第 ')+String(t.chapter).padStart(2,'0')+(SPEC.id==='oph'?' · ':' 章 · '):'重點 · '}${esc(shortTitle(t.id))}</option>`).join('');
-return heading('01 / WRITTEN PRACTICE',S.mode==='wrong'?'錯題再練':S.mode==='uncertain'?'不確定題再練':S.mode==='due'?'到期複習':S.mode==='srs-weak'?'SRS 弱項再練':'筆試練習','先說出你的判斷，再用解析找出下一個要補強的概念。',`<div class="heading-stat"><strong>${st.answered}<i> / ${D.questions.length}</i></strong><span>題已練習<br>${st.wrong} 題待補強</span></div>`)+`<div class="grid"><section><div class="toolbar quiz-toolbar"><label class="small" for="topic-filter">主題</label><select class="select" id="topic-filter"><option value="all">全部主題</option>${topicOptions}</select><select class="select" id="mode-filter" aria-label="練習題目範圍"><option value="all" ${S.mode==='all'?'selected':''}>全部題目</option><option value="new" ${S.mode==='new'?'selected':''}>尚未作答</option><option value="safety" ${S.mode==='safety'?'selected':''}>急症與安全題</option><option value="reserve" ${S.mode==='reserve'?'selected':''}>進階保留題</option><option value="kaogu" ${S.mode==='kaogu'?'selected':''}>考古題考點</option><option value="wrong" ${S.mode==='wrong'?'selected':''}>只練錯題</option><option value="uncertain" ${S.mode==='uncertain'?'selected':''}>不確定的題目</option><option value="due" ${S.mode==='due'?'selected':''}>到期複習（SRS）</option><option value="srs-weak" ${S.mode==='srs-weak'?'selected':''}>SRS 弱項</option></select></div>${q?`<article class="card question-card"><div class="question-progress" aria-hidden="true"><span style="width:${S.ids.filter(id=>S.round[id]).length/S.ids.length*100}%"></span></div><div class="question-top"><span class="tag">${esc(shortTitle(q.topicId))}</span><span>${q.sourceId?esc(q.sourceId)+' · ':''}第 ${String(S.qi+1).padStart(2,'0')} 題 / ${String(S.ids.length).padStart(2,'0')}</span></div><div class="question-body"><h2 class="question-stem" tabindex="-1">${esc(q.stem)}</h2><fieldset class="options"><legend>請選擇一個答案</legend>${q.options.map((op,i)=>`<label class="option ${answered?(i===q.correctIndex?'correct':i===response.choice?'wrong':''):S.selected===i?'selected':''}"><input type="radio" name="answer" value="${i}" ${(answered?response.choice:S.selected)===i?'checked':''} ${answered?'disabled':''}><span class="letter">${'ABCD'[i]}</span><span class="option-text">${esc(op)}</span>${answered&&i===q.correctIndex?'<span class="option-status">✓ 正解</span>':answered&&i===response.choice?'<span class="option-status">你的答案</span>':''}</label>`).join('')}</fieldset>${!answered?`<fieldset class="confidence"><legend>這一題有多確定？</legend>${[[1,'還不確定'],[2,'有些把握'],[3,'很有把握']].map(([n,label])=>`<button class="chip" data-action="confidence" data-value="${n}" aria-pressed="${S.confidence===n}">${label}</button>`).join('')}</fieldset><div class="question-actions"><button class="btn primary" data-action="submit" ${S.selected===null?'disabled':''}>確認答案</button><span class="small">自編單選練習<br>非歷屆試題</span></div>`:feedback(q,response)+(window.OphStudy?.ratingHtml('shared',q.id)||'')}</div><div class="question-footer"><button class="btn subtle" data-action="prev" ${S.qi===0?'disabled':''}>上一題</button><span>${S.ids.filter(id=>S.round[id]).length} / ${S.ids.length} 本輪已答</span><button class="btn" data-action="${S.qi===S.ids.length-1?'finish':'next'}">${S.qi===S.ids.length-1?'本輪總結':'下一題'}</button></div></article>`:`<div class="card empty"><h2>目前沒有符合的題目</h2><p>${S.mode==='wrong'?'先完成一輪練習，錯題會出現在這裡。':S.mode==='uncertain'?'選擇「還不確定」後提交答案，就能在這裡再練一次。':S.mode==='due'?'目前沒有到期的複習題目；作答並評分熟悉度後，到期題會出現在這裡。':S.mode==='srs-weak'?'目前沒有 SRS 弱項（答錯、重來或微卡題目會出現在這裡）。':'這個主題可先從主動複習開始。'}</p>${btn('練習全部題目','all','','primary')}</div>`}</section><aside class="quiz-side"><div class="card side-card"><h3>本輪題目</h3><div class="q-grid">${S.ids.map((id,i)=>{const r=S.round[id];return `<button class="q-num ${i===S.qi?'current ':''}${r?(r.correct?'good':'bad'):''} ${r?.confidence===1?'uncertain':''}" data-action="jump" data-value="${i}" aria-label="第 ${i+1} 題${r?(r.correct?'，答對':'，待補強'):''}" ${i===S.qi?'aria-current="step"':''}>${i+1}</button>`;}).join('')}</div><div class="legend"><span>答對</span><span>待補強</span></div><p class="small" style="margin-top:14px">外框為目前題目；下方小點表示作答時不確定。</p></div><div class="card side-card"><h3>把一題練完整</h3><ol class="method-list"><li><div><strong>找出關鍵線索</strong><span>題目在問診斷、定位，還是優先處置？</span></div></li><li><div><strong>解釋你的選擇</strong><span>先想理由，再查看答案。</span></div></li><li><div><strong>留下一句修正</strong><span>把易錯點變成下次會記得的提醒。</span></div></li></ol></div><div class="card side-card today-card"><p class="eyebrow">TODAY’S FOCUS</p><h3>今天，完成一小步</h3><p>${esc(D.plan.find(p=>p.date===day)?.goals[0]||'重練一個錯題主題，再完成一輪面試口述。')}</p>${btn('查看每日計畫','tab','plan')}</div></aside></div>`;
+function pastExamBadge(q){if(SPEC.id==='oph'||!q?.pastExam)return '';const s=Array.isArray(q.source)?q.source.join('；'):String(q.source||'');if(/歷屆/.test(s)){const m=s.match(/[（(]([^）)]+)[）)]/),raw=m?m[1].split(/[：:]/)[0].trim():'',h=raw.length>26?raw.slice(0,25)+'…':raw;return `<span class="tag">歷屆考點${h?' · '+esc(h):''}</span>`;}return '<span class="tag">考古考點</span>';}
+function quiz(){if(!D.questions.length)return heading('01 / WRITTEN PRACTICE','筆試練習','先說出你的判斷，再用解析找出下一個要補強的概念。')+pendingCard('筆試練習');const st=stats(),q=question(),response=q?S.round[q.id]:null;const answered=response!==undefined&&response!==null;const hasHospPast=SPEC.id!=='oph'&&D.questions.some(x=>x.pastExam&&/歷屆/.test(String(x.source||'')));const topicOptions=orderedTopics().map(t=>`<option value="${t.id}" ${S.topic===t.id?'selected':''}>${t.chapter?(SPEC.id==='oph'?'共筆 ':'第 ')+String(t.chapter).padStart(2,'0')+(SPEC.id==='oph'?' · ':' 章 · '):'重點 · '}${esc(shortTitle(t.id))}</option>`).join('');
+return heading('01 / WRITTEN PRACTICE',S.mode==='wrong'?'錯題再練':S.mode==='uncertain'?'不確定題再練':S.mode==='due'?'到期複習':S.mode==='srs-weak'?'SRS 弱項再練':'筆試練習','先說出你的判斷，再用解析找出下一個要補強的概念。',`<div class="heading-stat"><strong>${st.answered}<i> / ${D.questions.length}</i></strong><span>題已練習<br>${st.wrong} 題待補強</span></div>`)+`<div class="grid"><section><div class="toolbar quiz-toolbar"><label class="small" for="topic-filter">主題</label><select class="select" id="topic-filter"><option value="all">全部主題</option>${topicOptions}</select><select class="select" id="mode-filter" aria-label="練習題目範圍"><option value="all" ${S.mode==='all'?'selected':''}>全部題目</option><option value="new" ${S.mode==='new'?'selected':''}>尚未作答</option><option value="safety" ${S.mode==='safety'?'selected':''}>急症與安全題</option><option value="reserve" ${S.mode==='reserve'?'selected':''}>進階保留題</option>${hasHospPast?`<option value="kaogu-hosp" ${S.mode==='kaogu-hosp'?'selected':''}>110–113 各院考古單選</option><option value="kaogu" ${S.mode==='kaogu'?'selected':''}>歷屆與講義考點</option>`:`<option value="kaogu" ${S.mode==='kaogu'?'selected':''}>考古題考點</option>`}<option value="wrong" ${S.mode==='wrong'?'selected':''}>只練錯題</option><option value="uncertain" ${S.mode==='uncertain'?'selected':''}>不確定的題目</option><option value="due" ${S.mode==='due'?'selected':''}>到期複習（SRS）</option><option value="srs-weak" ${S.mode==='srs-weak'?'selected':''}>SRS 弱項</option></select></div>${q?`<article class="card question-card"><div class="question-progress" aria-hidden="true"><span style="width:${S.ids.filter(id=>S.round[id]).length/S.ids.length*100}%"></span></div><div class="question-top"><span class="tag">${esc(shortTitle(q.topicId))}</span>${pastExamBadge(q)}<span>${q.sourceId?esc(q.sourceId)+' · ':''}第 ${String(S.qi+1).padStart(2,'0')} 題 / ${String(S.ids.length).padStart(2,'0')}</span></div><div class="question-body"><h2 class="question-stem" tabindex="-1">${esc(q.stem)}</h2><fieldset class="options"><legend>請選擇一個答案</legend>${q.options.map((op,i)=>`<label class="option ${answered?(i===q.correctIndex?'correct':i===response.choice?'wrong':''):S.selected===i?'selected':''}"><input type="radio" name="answer" value="${i}" ${(answered?response.choice:S.selected)===i?'checked':''} ${answered?'disabled':''}><span class="letter">${'ABCD'[i]}</span><span class="option-text">${esc(op)}</span>${answered&&i===q.correctIndex?'<span class="option-status">✓ 正解</span>':answered&&i===response.choice?'<span class="option-status">你的答案</span>':''}</label>`).join('')}</fieldset>${!answered?`<fieldset class="confidence"><legend>這一題有多確定？</legend>${[[1,'還不確定'],[2,'有些把握'],[3,'很有把握']].map(([n,label])=>`<button class="chip" data-action="confidence" data-value="${n}" aria-pressed="${S.confidence===n}">${label}</button>`).join('')}</fieldset><div class="question-actions"><button class="btn primary" data-action="submit" ${S.selected===null?'disabled':''}>確認答案</button><span class="small">${q.pastExam&&SPEC.id!=='oph'?'歷屆考點改寫<br>單選練習':'自編單選練習<br>非歷屆試題'}</span></div>`:feedback(q,response)+(window.OphStudy?.ratingHtml('shared',q.id)||'')}</div><div class="question-footer"><button class="btn subtle" data-action="prev" ${S.qi===0?'disabled':''}>上一題</button><span>${S.ids.filter(id=>S.round[id]).length} / ${S.ids.length} 本輪已答</span><button class="btn" data-action="${S.qi===S.ids.length-1?'finish':'next'}">${S.qi===S.ids.length-1?'本輪總結':'下一題'}</button></div></article>`:`<div class="card empty"><h2>目前沒有符合的題目</h2><p>${S.mode==='wrong'?'先完成一輪練習，錯題會出現在這裡。':S.mode==='uncertain'?'選擇「還不確定」後提交答案，就能在這裡再練一次。':S.mode==='due'?'目前沒有到期的複習題目；作答並評分熟悉度後，到期題會出現在這裡。':S.mode==='srs-weak'?'目前沒有 SRS 弱項（答錯、重來或微卡題目會出現在這裡）。':'這個主題可先從主動複習開始。'}</p>${btn('練習全部題目','all','','primary')}</div>`}</section><aside class="quiz-side"><div class="card side-card"><h3>本輪題目</h3><div class="q-grid">${S.ids.map((id,i)=>{const r=S.round[id];return `<button class="q-num ${i===S.qi?'current ':''}${r?(r.correct?'good':'bad'):''} ${r?.confidence===1?'uncertain':''}" data-action="jump" data-value="${i}" aria-label="第 ${i+1} 題${r?(r.correct?'，答對':'，待補強'):''}" ${i===S.qi?'aria-current="step"':''}>${i+1}</button>`;}).join('')}</div><div class="legend"><span>答對</span><span>待補強</span></div><p class="small" style="margin-top:14px">外框為目前題目；下方小點表示作答時不確定。</p></div><div class="card side-card"><h3>把一題練完整</h3><ol class="method-list"><li><div><strong>找出關鍵線索</strong><span>題目在問診斷、定位，還是優先處置？</span></div></li><li><div><strong>解釋你的選擇</strong><span>先想理由，再查看答案。</span></div></li><li><div><strong>留下一句修正</strong><span>把易錯點變成下次會記得的提醒。</span></div></li></ol></div><div class="card side-card today-card"><p class="eyebrow">TODAY’S FOCUS</p><h3>今天，完成一小步</h3><p>${esc(D.plan.find(p=>p.date===day)?.goals[0]||'重練一個錯題主題，再完成一輪面試口述。')}</p>${btn('查看每日計畫','tab','plan')}</div></aside></div>`;
 }
 function feedback(q,r){const m=meta['q:'+q.id]||{},pieces=q.explanation.split(/\n\n常見陷阱：/),highWrong=r.confidence===3&&!r.correct;return `<section class="feedback ${r.correct?'':'is-wrong'}" aria-label="作答解析"><div class="feedback-head" role="status">${r.correct?'✓ 答對了':'這一題值得再練一次'} · 正確答案 ${'ABCD'[q.correctIndex]}</div><div class="feedback-content">${highWrong?'<p class="confidence-note">你剛才很有把握。先找出原本判斷與解析的差異，再重練一次。</p>':r.confidence===1?'<p class="confidence-note">你標記為不確定；可以從「不確定的題目」再練習。</p>':''}<div class="reason-step"><span class="step-number">1</span><div><h3>為什麼是這個答案</h3><p>${esc(pieces[0])}</p></div></div>${pieces[1]?`<div class="trap"><strong>容易混淆的地方</strong><br>${esc(pieces.slice(1).join('\n'))}</div>`:''}<div class="reason-step"><span class="step-number">2</span><div><h3>換你說一次</h3><p>不用看選項，說出支持「${esc(q.options[q.correctIndex])}」的關鍵。再選一個干擾選項，解釋它為什麼不符合題幹。</p></div></div><label class="field-label" for="error-reason">我的判斷卡在哪裡？</label><select class="select" id="error-reason"><option value="">選擇一個原因（選填）</option>${['概念不熟','漏看關鍵線索','優先順序混淆','計算或單位錯誤','答對但不夠確定','已掌握，能解釋'].map(x=>`<option ${m.reason===x?'selected':''}>${x}</option>`).join('')}</select><label class="field-label" for="reflection">留給下次的一句提醒</label><textarea class="input" id="reflection" maxlength="2000" placeholder="例如：先確認題目問的是什麼；再寫下這題要記住的差別。">${esc(m.note||'')}</textarea><div class="actions" style="margin-top:15px">${btn('複習這個概念','learn-topic',q.topicId,'small')}${btn('重新作答','retry','','small subtle')}</div>${questionSource(q)}${medicalReviewNote(q.medicalReview)}${refs(q.refs)}</div></section>`;}
 function learn(){if(!D.topics.length)return heading('02 / ACTIVE RECALL','主動複習','讀過之後，遮住答案。能用自己的話說出來，才算完成一次回想。')+pendingCard('主動複習');const t=D.topics.find(x=>x.id===S.learn)||D.topics[0],st=stats();return heading('02 / ACTIVE RECALL','章節教材','閱讀重點，或遮住答案主動回想；能用自己的話說出來，才算記住。',`<div class="heading-stat"><strong>${orderedTopics().filter(x=>entries['topic:'+x.id]?.done).length}<i> / ${orderedTopics().length}</i></strong><span>已複習</span></div>`)+`<div class="two-col"><aside class="card topic-menu" aria-label="複習主題">${orderedTopics().map((x,i)=>`<button class="topic-button ${x.id===t.id?'active':''}" data-action="learn-topic" data-value="${x.id}" ${x.id===t.id?'aria-current="true"':''}><span class="index">${String(i+1).padStart(2,'0')}</span><span>${x.chapter?(SPEC.id==='oph'?'共筆 ':'第 ')+String(x.chapter).padStart(2,'0')+(SPEC.id==='oph'?' · ':' 章 · '):''}${esc(shortTitle(x.id))}</span>${entries['topic:'+x.id]?.done?'<span class="done">✓</span>':''}</button>`).join('')}</aside><article class="card reading-card${S.learnDigest?' is-digest-mode':''}"><p class="eyebrow">${topicEyebrow(t)}</p><h2>${esc(t.title)}</h2><p class="lead">${esc(t.summary)}</p>${mergedNotice(t)}${enrichmentNav(t)}<div class="study-switch" role="group" aria-label="複習方式"><button class="btn ${!S.recall&&!S.learnDigest&&S.learnExpandAll!==false?'active':''}" data-action="recall" data-value="expand" aria-pressed="${!S.recall&&!S.learnDigest&&S.learnExpandAll!==false}">📖 全展開閱讀（免點開）</button><button class="btn ${!S.recall&&S.learnDigest?'active':''}" data-action="recall" data-value="digest" aria-pressed="${!S.recall&&S.learnDigest}">⚡ 速讀記憶骨架（濃縮卡）</button><button class="btn ${!S.recall&&!S.learnDigest&&S.learnExpandAll===false?'active':''}" data-action="recall" data-value="off" aria-pressed="${!S.recall&&!S.learnDigest&&S.learnExpandAll===false}">🗂️ 分段收合閱讀</button><button class="btn ${S.recall?'active':''}" data-action="recall" data-value="on" aria-pressed="${S.recall}">🧠 遮住答案，主動回想</button></div>${typeof chapterHighYieldBar==='function'?chapterHighYieldBar(t):''}${renderLessonContent(t)}${chapterExtras(t)}<p class="learning-note notes-testpoint-section"><strong>${t.chapter?'🎯 勘誤與判讀提醒（必考鐵律）：':''}</strong>${typeof hlLearnText==='function'?hlLearnText(esc(t.notes)):esc(t.notes)}</p>${refs(t.refs)}<div class="reading-actions">${btn(entries['topic:'+t.id]?.done?'✓ 已複習（可取消）':'標記已複習','topic-done',t.id)}${btn('練習此主題','practice-topic',t.id,'primary')}</div></article></div>`;}
@@ -1574,7 +1634,9 @@ function parseRoute(hash){
   if(/^#textbook-atlas(?:-bcsc-s(?:0[1-9]|1[0-3])(?:-atlas-s(?:0[1-9]|1[0-3])-(?:0[1-9]|[1-9]\d))?)?$/.test(h))return {kind:'tab',tab:'textbook',hash:h};
   if(/^#textbook-written(?:-bcsc-s(?:0[1-9]|1[0-3]))?$/.test(h))return {kind:'tab',tab:'textbook',hash:h};
   if(/^#textbook(?:-extra(?:-extra-\d{8}-q\d{3})?|-bcsc-s(?:0[1-9]|1[0-3])(?:-(?:ch\d{3}(?:-iq\d{3}|-u\d{2})?|rq\d{3}))?)?$/.test(h))return {kind:'tab',tab:'textbook',hash:h};
+  if(h==='#kaogu')return {kind:'kaogu',hash:h};
   if(h==='#written')return {kind:'written',id:null,hash:h};
+  if(h==='#written-past')return {kind:'written',id:null,scope:'past',hash:h};
   if((m=h.match(/^#written-([a-z]+-wq-[a-z0-9-]+)$/))&&m[1].length<=80&&m[1].startsWith(SPEC.id+'-wq-'))return {kind:'written',id:m[1],hash:h};
   if(h==='#cram-written'&&navs.some(n=>n[0]==='cram')&&tabAllowed('cram'))return {kind:'tab',tab:'cram',hash:h};
   if(/^#[a-z0-9-]+$/.test(h)){for(const t of D.topics){if(h.startsWith('#'+t.id+'-')){const target=h.slice(t.id.length+2);if(anchorValid(t,target))return {kind:'anchor',topicId:t.id,target,hash:h};}}}
@@ -1609,24 +1671,32 @@ function routeLabel(route){
     if(target.startsWith('coverage-'))return name+' · '+(chapterCoverage(t)?.entries.find(e=>'coverage-'+e.id===target)?.title||'共筆詳解');
     return name+' · '+(chapterEnrichment(t)?.integrated?.units.find(u=>u.id===target)?.title||'學習單元');
   }
-  if(route.kind==='written')return window.OphWritten?.routeLabel?.(route.id)||(route.id?'手寫問答 · '+route.id:'手寫問答題庫');
+  if(route.kind==='kaogu')return kaoguRouteMode()==='kaogu-hosp'?'筆試練習 · 110–113 各院考古單選':'筆試練習 · 歷屆考點單選';
+  if(route.kind==='written')return route.scope==='past'?'手寫問答 · 110–113 各院筆試申論':(window.OphWritten?.routeLabel?.(route.id)||(route.id?'手寫問答 · '+route.id:'手寫問答題庫'));
   if(route.kind==='pbl')return route.id?'PBL · '+pblCases().find(c=>c.id===route.id).title:'PBL 情境討論';
   if(route.kind==='workflow')return route.id?'臨床流程 · '+wfList().find(w=>w.id===route.id).title:'臨床流程';
   if(route.kind==='interview')return '面試演練 · '+D.interview.find(i=>i.id===route.id).title;
   if(route.hash==='#cram-written')return '共筆考前衝刺 · 手寫問答';
   return navs.find(n=>n[0]===route.tab)?.[2]||'練習室';
 }
+function kaoguRouteMode(){return D.questions.some(x=>x.pastExam&&/歷屆/.test(String(x.source||'')))?'kaogu-hosp':'kaogu';}
 function routeMatchesView(route){
   if(!route)return false;
-  if(route.kind==='written')return typeof window.OphWritten?.matchesRoute==='function'?window.OphWritten.matchesRoute(route):(S.tab==='quiz'&&window.OphQuizBank?.getMode?.()==='written'&&!route.id);
+  if(route.kind==='kaogu')return S.tab==='quiz'&&(!window.OphQuizBank?.getMode||['core','mcq'].includes(window.OphQuizBank.getMode()))&&S.mode===kaoguRouteMode();
+  if(route.kind==='written'){
+    if(typeof window.OphWritten?.matchesRoute==='function')return window.OphWritten.matchesRoute(route);
+    const wPast=window.OphQuizBank?.getWrittenScope?.()==='past'&&SPEC.id==='ent';
+    return S.tab==='quiz'&&window.OphQuizBank?.getMode?.()==='written'&&!route.id&&(route.scope==='past'?wPast:!wPast);
+  }
   if(route.kind==='anchor')return S.tab==='learn'&&S.learn===route.topicId;
   if(route.kind==='topic')return S.tab==='learn'&&S.learn===route.id;
   if(route.kind==='pbl')return S.tab==='pbl'&&(!route.id||route.id===S.pbl);
   if(route.kind==='workflow')return S.tab==='workflow'&&(!route.id||route.id===S.workflow);
   if(route.kind==='interview')return S.tab==='interview'&&S.interview===route.id;
+  if(route.hash==='#tab-quiz')return S.tab==='quiz'&&window.OphQuizBank?.getMode?.()!=='written'&&S.mode!=='kaogu-hosp';
   return S.tab===route.tab;
 }
-function currentViewHash(){if(S.tab==='quiz'&&window.OphQuizBank?.getMode?.()==='written')return window.OphWritten?.currentHash?.()||'#written';return S.tab==='learn'?(S.learn?'#topic-'+S.learn:'#tab-learn'):S.tab==='pbl'?(S.pbl?'#'+S.pbl:'#pbl'):S.tab==='workflow'?(S.workflow?'#'+S.workflow:'#workflow'):S.tab==='interview'?(S.interview?'#interview-'+S.interview:'#tab-interview'):S.tab==='links'?'#links':S.tab==='today'?'':'#tab-'+S.tab;}
+function currentViewHash(){if(S.tab==='quiz'&&window.OphQuizBank?.getMode?.()==='written')return window.OphWritten?.currentHash?.()||(window.OphQuizBank?.getWrittenScope?.()==='past'&&SPEC.id==='ent'?'#written-past':'#written');if(S.tab==='quiz')return (!window.OphQuizBank?.getMode||['core','mcq'].includes(window.OphQuizBank.getMode()))&&S.mode==='kaogu-hosp'?'#kaogu':'#tab-quiz';return S.tab==='learn'?(S.learn?'#topic-'+S.learn:'#tab-learn'):S.tab==='pbl'?(S.pbl?'#'+S.pbl:'#pbl'):S.tab==='workflow'?(S.workflow?'#'+S.workflow:'#workflow'):S.tab==='interview'?(S.interview?'#interview-'+S.interview:'#tab-interview'):S.tab==='links'?'#links':S.tab==='today'?'':'#tab-'+S.tab;}
 function currentLocationHash(){const route=parseRoute(window.location?.hash||'');return route&&routeMatchesView(route)?route.hash:(currentViewHash()||'#tab-today');}
 function syncPracticeHash(){
   rememberWorkspace();
@@ -1653,18 +1723,38 @@ function openRoute(hash,updateHash=true){
     const node=document.getElementById(t.id+'-'+route.target);if(node)node.scrollIntoView({block:'start'});
     return true;
   }
-  if(route.kind==='written'){
-    window.OphWritten?.focusQuestion?.(route.id);
-    if(window.OphQuizBank?.setWritten)window.OphQuizBank.setWritten();
-    else switchTab('quiz');
-    if(route.id)document.getElementById?.('written-'+route.id)?.scrollIntoView?.({block:'start'});
+  if(route.kind==='kaogu'){
+    const m=kaoguRouteMode();
+    if(!updateHash&&S.mode===m&&S.ids.length){quizBankMode='core';specQuizMode='mcq';switchTab('quiz');}
+    else startQuiz('all',m);
+  }
+  else if(route.kind==='written'){
+    if(route.scope==='past'){
+      window.OphWritten?.setQuizScope?.('past',false);
+      if(window.OphQuizBank?.setWritten)window.OphQuizBank.setWritten('past');
+      else switchTab('quiz');
+    }else if(route.id){
+      window.OphWritten?.focusQuestion?.(route.id);
+      if(window.OphQuizBank?.setWritten)window.OphQuizBank.setWritten();
+      else switchTab('quiz');
+      document.getElementById?.('written-'+route.id)?.scrollIntoView?.({block:'start'});
+    }else{
+      window.OphWritten?.setQuizScope?.('all',false);
+      if(window.OphQuizBank?.setWritten)window.OphQuizBank.setWritten('all');
+      else switchTab('quiz');
+    }
   }
   else if(route.kind==='topic'){S.learn=route.id;S.learnExpandAll=true;S.learnDigest=false;S.recall=false;switchTab('learn');}
   else if(route.kind==='pbl'){if(route.id)S.pbl=route.id;switchTab('pbl');}
   else if(route.kind==='workflow'){if(route.id)S.workflow=route.id;switchTab('workflow');}
   else if(route.kind==='interview')chooseInterview(route.id);
+  else if(route.hash==='#tab-quiz'&&(window.OphQuizBank?.getMode?.()==='written'||S.mode==='kaogu-hosp')){
+    if(window.OphQuizBank?.setMode)window.OphQuizBank.setMode(SPEC.id==='oph'?'core':'mcq');
+    else switchTab('quiz');
+  }
   else switchTab(route.tab);
-  if(updateHash&&window.history?.replaceState&&window.location?.hash!==route.hash)window.history.replaceState(null,'',route.hash);
+  const nextHash=routeMatchesView(route)?route.hash:(currentViewHash()||route.hash);
+  if(updateHash&&window.history?.replaceState&&nextHash&&window.location?.hash!==nextHash)window.history.replaceState(null,'',nextHash);
   return true;
 }
 function appRestoreHash(){
@@ -2245,7 +2335,7 @@ function sharePanel(cfg){
 
 /* Where you left off on this device: current screen, quiz round and position, open PBL stages.
    Kept beside the progress (not exported or synced), so reopening the app looks exactly as you left it. */
-const WORKSPACE_KEY=SPEC.storePrefix+'workspace-v1',CRAM_KEY=SPEC.storePrefix+'cram-review-v1',QUIZ_MODES=['all','new','safety','reserve','kaogu','wrong','uncertain','due','srs-weak'];
+const WORKSPACE_KEY=SPEC.storePrefix+'workspace-v1',CRAM_KEY=SPEC.storePrefix+'cram-review-v1',QUIZ_MODES=['all','new','safety','reserve','kaogu','kaogu-hosp','wrong','uncertain','due','srs-weak'];
 let workspaceTimer=null;
 function workspaceSnapshot(){return {v:1,at:now(),hash:currentLocationHash(),quiz:{topic:S.topic,mode:S.mode,ids:S.ids,qi:S.qi,round:S.round},learn:S.learn,interview:S.interview,pbl:S.pbl,pblStage:S.pblStage,workflow:S.workflow,wfMode:S.wfMode,recall:S.recall,workshop:S.workshop,story:S.story,evidence:S.evidence};}
 function saveWorkspace(){clearTimeout(workspaceTimer);workspaceTimer=null;const s=storage();if(s&&deviceSettings().autosave)writeJSON(s,WORKSPACE_KEY,workspaceSnapshot());}
@@ -2271,7 +2361,12 @@ function restoreWorkspace(){
   if(q&&Array.isArray(q.ids)){
     const ids=[...new Set(q.ids.filter(id=>byId.has(id)))];
     if(ids.length){
-      S.ids=ids;S.topic=q.topic==='all'||D.topics.some(t=>t.id===q.topic)?q.topic:'all';S.mode=QUIZ_MODES.includes(q.mode)?q.mode:'all';
+      S.topic=q.topic==='all'||D.topics.some(t=>t.id===q.topic)?q.topic:'all';S.mode=QUIZ_MODES.includes(q.mode)?q.mode:'all';
+      if(['all','kaogu','kaogu-hosp','safety','reserve'].includes(S.mode)){
+        const poolIds=D.questions.filter(x=>(S.topic==='all'||x.topicId===S.topic||(typeof mergedInto==='function'&&mergedInto(x.topicId)===S.topic))&&(S.mode==='all'||(S.mode==='safety'&&x.safety)||(S.mode==='reserve'&&x.reserve)||(S.mode==='kaogu-hosp'&&x.pastExam&&/歷屆/.test(String(x.source||'')))||(S.mode==='kaogu'&&x.pastExam))).sort((a,b)=>{const d=(a.topicId!==S.topic)-(b.topicId!==S.topic);return d||(SPEC.id!=='oph'&&S.mode==='kaogu'?(/歷屆/.test(String(b.source||'')))-(/歷屆/.test(String(a.source||''))):0);}).map(x=>x.id);
+        const seen=new Set(ids);for(const id of poolIds)if(!seen.has(id)){seen.add(id);ids.push(id);}
+      }
+      S.ids=ids;
       S.qi=Number.isInteger(q.qi)?Math.max(0,Math.min(ids.length-1,q.qi)):0;
       const round=Object.create(null),inRound=new Set(ids);
       if(q.round&&typeof q.round==='object')for(const [id,r] of Object.entries(q.round)){const item=byId.get(id);if(item&&inRound.has(id)&&r&&Number.isInteger(r.choice)&&r.choice>=0&&r.choice<item.options.length)round[id]={choice:r.choice,correct:r.choice===item.correctIndex,confidence:[0,1,2,3].includes(r.confidence)?r.confidence:0,at:validDate(r.at)};}

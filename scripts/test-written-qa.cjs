@@ -1437,6 +1437,120 @@ async function test(name, fn) {
     ], 'legacy strokes without cw render at 1:1 without error');
   });
 
+  await test('Issue #197: ENT written-past mode, quick-scope filter bar, #written-past deep-link, and cold-start hydration', async () => {
+    const countCards = markup => (markup.match(/<article class="card written-card"/g) || []).length;
+    const firstCardId = markup => (markup.match(/data-written-card="([^"]+)"/) || [])[1] || null;
+
+    assert.equal(PACKS.ent.items.length, 49, 'ENT written pack has 49 total items');
+
+    // 1. Clicking spec-quiz-mode written-past and toggling written-scope past / all
+    const app = bootApp({ spec: 'ent', hash: '#tab-quiz' });
+    assert.equal(app.written.pastCount('ent'), 16, 'ENT written pastCount is 16');
+    assert.equal(app.written.pastCount('oph'), 0, 'OPH written pastCount is 0');
+    assert(app.main().includes('110–113 各院筆試申論（16 組 · 含完整答案）'));
+
+    app.fireClick('spec-quiz-mode', 'written-past');
+    assert.equal(app.window.OphQuizBank.getMode(), 'written', 'OphQuizBank.getMode() stays strictly written');
+    assert.equal(app.written.getQuizScope(), 'past');
+    assert.equal(app.location.hash, '#written-past');
+    let fullHtml = app.element('#main')._innerHTML;
+    assert(fullHtml.includes('data-value="written-past" aria-pressed="true"'), 'top bar highlights written-past');
+    assert(fullHtml.includes('data-value="written" aria-pressed="false"'), 'top bar unhighlights generic written');
+    assert(fullHtml.includes('data-written-quick-scope'), 'renders quick-scope filter bar');
+    assert(fullHtml.includes('<option value="past" selected>110–113 各院筆試申論（16 組）</option>'));
+    assert.equal(countCards(app.main()), 16, 'filters ENT written items to 16 past-exam sets');
+    assert.equal(firstCardId(app.main()), 'ent-wq-past-01', 'ent-wq-past-01 renders first');
+
+    // Toggle quick-scope button to all -> 49 items, ent-wq-ent-01-01 first, top bar & hash sync to #written
+    app.fireClick('written-scope', 'all');
+    assert.equal(app.written.getQuizScope(), 'all');
+    assert.equal(app.location.hash, '#written');
+    fullHtml = app.element('#main')._innerHTML;
+    assert(fullHtml.includes('data-value="written" aria-pressed="true"'), 'top bar syncs to generic written');
+    assert(fullHtml.includes('data-value="written-past" aria-pressed="false"'), 'top bar unhighlights written-past');
+    assert.equal(countCards(app.main()), 49, 'restores all 49 ENT written items');
+    assert.equal(firstCardId(app.main()), 'ent-wq-ent-01-01', 'ent-wq-ent-01-01 renders first');
+
+    // Toggle quick-scope button back to past -> 16 items
+    app.fireClick('written-scope', 'past');
+    assert.equal(app.written.getQuizScope(), 'past');
+    assert.equal(app.location.hash, '#written-past');
+    assert.equal(countCards(app.main()), 16);
+    assert.equal(firstCardId(app.main()), 'ent-wq-past-01');
+
+    // Scope <select data-written-filter="scope"> change also syncs top bar and hash
+    app.written.change({ dataset: { writtenFilter: 'scope' }, value: 'all' });
+    assert.equal(app.written.getQuizScope(), 'all');
+    assert.equal(app.location.hash, '#written');
+    assert.equal(countCards(app.main()), 49);
+    assert(app.element('#main')._innerHTML.includes('data-value="written" aria-pressed="true"'));
+
+    // Clicking spec-quiz-mode written from written-past resets scope to all
+    app.fireClick('spec-quiz-mode', 'written-past');
+    assert.equal(countCards(app.main()), 16);
+    app.fireClick('spec-quiz-mode', 'written');
+    assert.equal(app.written.getQuizScope(), 'all');
+    assert.equal(app.location.hash, '#written');
+    assert.equal(countCards(app.main()), 49);
+    assert.equal(firstCardId(app.main()), 'ent-wq-ent-01-01');
+
+    // 2. Direct deep-link boot ?s=ent#written-past (both primed and cold-start async fetch)
+    const appDeep = bootApp({ spec: 'ent', hash: '#written-past' });
+    assert.equal(appDeep.qa.S.tab, 'quiz');
+    assert.equal(appDeep.window.OphQuizBank.getMode(), 'written');
+    assert.equal(appDeep.written.getQuizScope(), 'past');
+    assert.equal(appDeep.location.hash, '#written-past');
+    assert.equal(countCards(appDeep.main()), 16);
+    assert.equal(firstCardId(appDeep.main()), 'ent-wq-past-01');
+    assert.equal(appDeep.qa.routeMatchesView(appDeep.qa.parseRoute('#written-past')), true);
+    assert.equal(appDeep.qa.routeMatchesView(appDeep.qa.parseRoute('#written')), false);
+
+    // Same-page hash navigation #written-past -> #written -> #kaogu -> #tab-quiz
+    appDeep.location.hash = '#written';
+    for (const fn of appDeep.winHandlers.get('hashchange') || []) fn();
+    assert.equal(appDeep.written.getQuizScope(), 'all');
+    assert.equal(countCards(appDeep.main()), 49);
+
+    appDeep.location.hash = '#kaogu';
+    for (const fn of appDeep.winHandlers.get('hashchange') || []) fn();
+    assert.equal(appDeep.window.OphQuizBank.getMode(), 'mcq');
+    assert.equal(appDeep.qa.S.mode, 'kaogu-hosp');
+    assert.equal(appDeep.qa.S.ids.length, 64);
+
+    appDeep.location.hash = '#tab-quiz';
+    for (const fn of appDeep.winHandlers.get('hashchange') || []) fn();
+    assert.equal(appDeep.window.OphQuizBank.getMode(), 'mcq');
+    assert.equal(appDeep.qa.S.mode, 'all');
+    assert.equal(appDeep.qa.S.ids.length, 432);
+
+    // Cold-start ?s=ent#written-past before ent.json resolves
+    const appCold = bootApp({ spec: 'ent', hash: '#written-past', primePack: false });
+    assert.equal(appCold.qa.S.tab, 'quiz');
+    assert.equal(appCold.written.getQuizScope(), 'past');
+    await appCold.settle(30);
+    assert.equal(countCards(appCold.main()), 16, 'cold-start #written-past hydrates to 16 past sets');
+    assert.equal(firstCardId(appCold.main()), 'ent-wq-past-01');
+
+    // ?s=rad#written-past (pastCount === 0) keeps written pill active and openRoute('#written-past', true) normalizes hash to #written
+    const radPastBoot = bootApp({ spec: 'rad', hash: '#written-past' });
+    assert.equal(radPastBoot.qa.S.tab, 'quiz');
+    assert.equal(radPastBoot.written.getQuizScope(), 'all');
+    assert.equal(countCards(radPastBoot.main()), 36);
+    assert(radPastBoot.main().includes('data-value="written" aria-pressed="true"'), 'rad #written-past keeps written mode pill active');
+    radPastBoot.qa.openRoute('#written-past', true);
+    assert.equal(radPastBoot.location.hash, '#written', 'openRoute(#written-past, true) on rad normalizes hash to #written');
+    assert(radPastBoot.main().includes('data-value="written" aria-pressed="true"'));
+
+    // Cold-start rad openRoute('#written-past', true) before rad.json resolves also normalizes hash to #written immediately
+    const radCold = bootApp({ spec: 'rad', primePack: false });
+    radCold.qa.openRoute('#written-past', true);
+    assert.equal(radCold.location.hash, '#written', 'cold-start rad openRoute(#written-past, true) normalizes hash to #written');
+    assert(radCold.main().includes('data-value="written" aria-pressed="true"'));
+    await radCold.settle(30);
+    assert.equal(countCards(radCold.main()), 36);
+    assert.equal(radCold.location.hash, '#written');
+  });
+
   const failed = results.filter(r => !r.pass);
   console.log(JSON.stringify({ passed: results.length - failed.length, failed: failed.length, results }, null, 2));
   if (failed.length) process.exit(1);
