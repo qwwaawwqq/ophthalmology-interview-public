@@ -247,6 +247,14 @@
     return packEntry(sid).items;
   }
 
+  function isPastItem(x) {
+    return Boolean(x && (x.format === '歷屆筆試申論題組' || /-wq-past-/.test(String(x.id || ''))));
+  }
+
+  function pastCount(sid = specId()) {
+    return getItems(sid).filter(isPastItem).length;
+  }
+
   function findItem(id, sid = specId()) {
     const cur = packEntry(sid).byId.get(id);
     if (cur) return cur;
@@ -541,7 +549,9 @@
   function filterQuizItems(sid = specId()) {
     let list = getItems(sid);
     if (quizScope !== 'all') {
-      if (quizScope.startsWith('cat:')) {
+      if (quizScope === 'past') {
+        if (pastCount(sid) > 0) list = list.filter(isPastItem);
+      } else if (quizScope.startsWith('cat:')) {
         const cat = quizScope.slice(4);
         list = list.filter(x => x.category === cat);
       } else if (quizScope.startsWith('topic:')) {
@@ -594,11 +604,14 @@
     }
     if (p.state === 'error') return errorCardMarkup(sid);
     const all = p.items;
+    const pCount = pastCount(sid);
+    if (quizScope === 'past' && !pCount) quizScope = 'all';
     const st = statsSummary(all);
     const topics = (bridge()?.D?.topics || []).filter(t => t.chapter);
     const bcscVols = Array.from({ length: 13 }, (_, i) => 'bcsc-s' + String(i + 1).padStart(2, '0'));
     const scopeOptions = [
       ['all', '全部範圍（' + all.length + ' 題）'],
+      ...(pCount > 0 ? [['past', '110–113 各院筆試申論（' + pCount + ' 組）']] : []),
       ...(sid === 'oph'
         ? [
             ['cat:chapter', '共筆 14 章手寫題（' + all.filter(x => x.category === 'chapter').length + ' 題）'],
@@ -634,6 +647,12 @@
       : '';
 
     const shown = quizView === 'focus' ? (filtered[quizFocusIdx] ? [filtered[quizFocusIdx]] : []) : filtered;
+    const quickScopeHtml = pCount > 0
+      ? '<div class="written-quick-scopes" data-written-quick-scope role="group" aria-label="筆試申論範圍快選" style="display:flex;flex-wrap:wrap;gap:8px;margin:0 0 10px;">' +
+        '<button type="button" class="btn small ' + (quizScope === 'all' ? 'primary' : 'subtle') + '" data-action="written-scope" data-value="all" aria-pressed="' + (quizScope === 'all') + '">全部手寫題（' + all.length + ' 題）</button>' +
+        '<button type="button" class="btn small ' + (quizScope === 'past' ? 'primary' : 'subtle') + '" data-action="written-scope" data-value="past" aria-pressed="' + (quizScope === 'past') + '">110–113 各院歷屆筆試申論（' + pCount + ' 組 · 可一鍵展開標準答案）</button>' +
+        '</div>'
+      : '';
 
     return '<div class="card card-pad written-summary-card">' +
         '<div class="written-section-head">' +
@@ -641,6 +660,7 @@
           '<div class="heading-stat"><strong>' + st.mastered + '<i> / ' + st.total + '</i></strong><span>題已掌握 · ' + st.review + ' 題需重練 · ' + st.answered + ' 題已作答</span></div>' +
         '</div>' +
       '</div>' +
+      quickScopeHtml +
       '<div class="written-toolbar" data-written-toolbar="quiz">' +
         '<select class="select" data-written-filter="scope" aria-label="手寫題分類與章節篩選">' +
           scopeOptions.map(([v, label]) => '<option value="' + esc(v) + '"' + (quizScope === v ? ' selected' : '') + '>' + esc(label) + '</option>').join('') +
@@ -1154,6 +1174,8 @@
     if (!kind) return;
     const sid = slot.dataset?.specId || slot.getAttribute?.('data-spec-id') || specId();
     if (kind === 'quiz') {
+      const slotScope = slot.dataset?.writtenScope || slot.getAttribute?.('data-written-scope');
+      if (slotScope === 'past' && quizScope === 'all' && !focusedId) quizScope = 'past';
       slot.innerHTML = quizBankInnerHtml(sid);
     } else if (kind === 'chapter') {
       const tid = slot.dataset?.topicId || slot.getAttribute?.('data-topic-id');
@@ -1237,6 +1259,54 @@
     return false;
   }
 
+  function getQuizScope() {
+    return quizScope;
+  }
+
+  function hasPastEssays(sid = specId()) {
+    return pastCount(sid) > 0 || (packEntry(sid).state !== 'ready' && sid === 'ent');
+  }
+
+  function syncHostModeBar() {
+    if (typeof document !== 'undefined' && typeof document.querySelectorAll === 'function') {
+      const isPast = quizScope === 'past' && hasPastEssays(specId());
+      for (const btn of document.querySelectorAll('[data-spec-quiz-mode] [data-action="spec-quiz-mode"]') || []) {
+        const val = btn.dataset?.value || btn.getAttribute?.('data-value');
+        if (val === 'written-past' || val === 'written') {
+          const active = val === 'written-past' ? isPast : !isPast;
+          btn.setAttribute?.('aria-pressed', String(active));
+          if (btn.classList) {
+            btn.classList.toggle('primary', active);
+            btn.classList.toggle('subtle', !active);
+          } else if (typeof btn.className === 'string') {
+            btn.className = 'btn small ' + (active ? 'primary' : 'subtle');
+          }
+        }
+      }
+    }
+    if (g.history?.replaceState && isQuizWrittenActive()) {
+      const h = currentHash();
+      if (g.location?.hash !== h) g.history.replaceState(null, '', h);
+    }
+  }
+
+  function setQuizScope(scope, shouldRender = true) {
+    quizScope = String(scope || 'all');
+    focusedId = null;
+    pendingFocusScroll = false;
+    quizFocusIdx = 0;
+    if (shouldRender) {
+      const b = bridge();
+      if (b?.render && b.S?.tab === 'quiz' && isQuizWrittenActive()) {
+        b.render();
+      } else {
+        refreshActiveSurfaces();
+        syncHostModeBar();
+      }
+    }
+    return quizScope;
+  }
+
   function focusQuestion(id) {
     focusedId = id || null;
     pendingFocusScroll = Boolean(id);
@@ -1268,6 +1338,10 @@
     if (!a || !String(a).startsWith('written-')) return false;
     const curEv = ev || (typeof g.event === 'object' ? g.event : null);
     if (curEv?.__writtenHandled) return true;
+    if (a === 'written-scope') {
+      setQuizScope(v || 'all', true);
+      return true;
+    }
     if (a === 'written-bank-open') {
       if (bridge()?.openRoute) bridge().openRoute('#written');
       else openQuestion(null);
@@ -1286,11 +1360,9 @@
       return true;
     }
     if (a === 'written-bank-topic') {
-      quizScope = v ? 'topic:' + v : 'all';
+      setQuizScope(v ? 'topic:' + v : 'all', false);
       quizStatus = 'all';
       quizSearch = '';
-      focusedId = null;
-      pendingFocusScroll = false;
       if (bridge()?.setQuizWritten) bridge().setQuizWritten();
       return true;
     }
@@ -1474,11 +1546,7 @@
     const filterKind = el.dataset?.writtenFilter || el.getAttribute?.('data-written-filter');
     if (filterKind === 'scope') {
       if (curEv?.__writtenHandled) return true;
-      quizScope = String(el.value || 'all');
-      focusedId = null;
-      pendingFocusScroll = false;
-      quizFocusIdx = 0;
-      refreshActiveSurfaces();
+      setQuizScope(String(el.value || 'all'), true);
       return true;
     }
     if (filterKind === 'status') {
@@ -1524,6 +1592,7 @@
     const b = bridge();
     if (b?.S?.tab !== 'quiz' || !isQuizWrittenActive()) return false;
     const targetId = (routeOrId && typeof routeOrId === 'object') ? (routeOrId.id || null) : (routeOrId || null);
+    const targetScope = (routeOrId && typeof routeOrId === 'object') ? (routeOrId.scope || null) : null;
     if (targetId) {
       if (focusedId !== targetId) return false;
       if (quizView === 'focus') {
@@ -1535,11 +1604,14 @@
       }
       return true;
     }
-    return !focusedId;
+    const isPast = quizScope === 'past' && hasPastEssays(specId());
+    if (targetScope === 'past') return !focusedId && isPast;
+    return !focusedId && !isPast;
   }
 
   function currentHash() {
-    return focusedId ? '#written-' + focusedId : '#written';
+    const isPast = quizScope === 'past' && hasPastEssays(specId());
+    return focusedId ? '#written-' + focusedId : (isPast ? '#written-past' : '#written');
   }
 
   function clearLocalCache() {
@@ -1548,6 +1620,12 @@
     for (const k of Object.keys(state.chapterCollapsed)) delete state.chapterCollapsed[k];
     for (const k of Object.keys(internalEntries)) delete internalEntries[k];
     for (const k of Object.keys(internalMeta)) delete internalMeta[k];
+    quizScope = 'all';
+    quizStatus = 'all';
+    quizSearch = '';
+    focusedId = null;
+    pendingFocusScroll = false;
+    quizFocusIdx = 0;
     const ls = localStore();
     try { ls?.removeItem(inkKey()); } catch (_) {}
   }
@@ -1573,6 +1651,7 @@
     prime,
     ensureLoaded,
     getItems,
+    pastCount,
     findItem,
     isAnswerRevealed,
     renderCard,
@@ -1594,6 +1673,8 @@
     change,
     openQuestion,
     focusQuestion,
+    getQuizScope,
+    setQuizScope,
     routeLabel,
     matchesRoute,
     currentHash,

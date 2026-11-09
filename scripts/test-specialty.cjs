@@ -22,7 +22,7 @@ const jsonBlocks = Object.fromEntries(blockMatches.map(m => [m[1], m[2]]));
 const source = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].at(-1)[1];
 const end = /render\(\);\s*\}\)\(\);\s*$/;
 assert(end.test(source), 'The test hook must match the app bootstrap.');
-const hooked = source.replace(end, 'globalThis.__qa={D,S,SPEC,get entries(){return entries;},get meta(){return meta;},put,syncState,cloudConfig,progressPayload,mergeProgress,exportProgress,render,navs,switchTab,openRoute,parseRoute,normalizeLinkUrl,tabAllowed,notebookIndex,coverageFocus,coverageRestoreHash};render();})();');
+const hooked = source.replace(end, 'globalThis.__qa={D,S,SPEC,get entries(){return entries;},get meta(){return meta;},put,syncState,cloudConfig,progressPayload,mergeProgress,exportProgress,render,navs,switchTab,openRoute,parseRoute,routeMatchesView,startQuiz,normalizeLinkUrl,tabAllowed,notebookIndex,coverageFocus,coverageRestoreHash};render();})();');
 const bootScript = new vm.Script(bootSource);
 const hookedScript = new vm.Script(hooked);
 
@@ -156,7 +156,7 @@ function boot({search = '', hash = '', withBoot = true, local = new MemoryStorag
   if (withBoot) bootScript.runInContext(context);
   hookedScript.runInContext(context, {timeout: 10000});
   return {
-    qa: context.__qa, local, session, github, blobs, clipboard, toasts, windowHandlers, anchor: element('anchor'),
+    qa: context.__qa, window: context.window, local, session, github, blobs, clipboard, toasts, windowHandlers, anchor: element('anchor'),
     location: context.window.location,
     main: () => element('#main').innerHTML,
     nav: () => element('#nav').innerHTML,
@@ -1451,6 +1451,177 @@ async function practise(app) {
       wellFormed(run.root.innerHTML);
       assert(run.root.innerHTML.includes(`data-card-id="${card0}"`), `${sid} again-rated card becomes due after 10 min`);
     }
+  });
+
+  await test('Issue #197: ENT past-exam MCQ mode bar, badges without spoilers, stale workspace merge, and #kaogu / #written-past routes', async () => {
+    // 1. ENT #tab-today quick-launch & #tab-quiz mode bar vs other non-oph specialties
+    const entApp = boot({search: '?s=ent'});
+    entApp.windowHandlers.get('load')?.();
+    const todayHtml = entApp.main();
+    wellFormed(todayHtml);
+    assert(todayHtml.includes('110–113 各院考古單選'), 'ENT today renders 110–113 各院考古單選 quick launch');
+    assert(todayHtml.includes('110–113 各院筆試申論'), 'ENT today renders 110–113 各院筆試申論 quick launch');
+    assert(todayHtml.includes('手寫問答題'), 'ENT today renders 手寫問答題 quick launch');
+
+    entApp.action('tab', 'quiz');
+    const quizHtml = entApp.main();
+    wellFormed(quizHtml);
+    assert(quizHtml.includes('單選題練習（432 題）'));
+    assert(quizHtml.includes('110–113 各院考古單選（64 題）'));
+    assert(quizHtml.includes('歷屆與講義考點單選（166 題）'));
+    assert(quizHtml.includes('110–113 各院筆試申論（16 組 · 含完整答案）'));
+    assert(quizHtml.includes('手寫問答題（手寫板＋文字作答＋標準答案）'));
+    assert(quizHtml.includes('<option value="kaogu-hosp" >110–113 各院考古單選</option>') || quizHtml.includes('<option value="kaogu-hosp">110–113 各院考古單選</option>'));
+    assert(quizHtml.includes('歷屆與講義考點</option>'));
+
+    for (const otherSid of ['rad', 'nm', 'neuro']) {
+      const otherApp = boot({search: '?s=' + otherSid, hash: '#tab-quiz'});
+      otherApp.windowHandlers.get('load')?.();
+      const om = otherApp.main();
+      wellFormed(om);
+      assert(!om.includes('110–113 各院考古單選'), `${otherSid} must not render hospital past-exam MCQ pill when count is 0`);
+      assert(!om.includes('110–113 各院筆試申論'), `${otherSid} must not render past-exam written pill when count is 0`);
+      assert(om.includes('歷屆考點單選（'), `${otherSid} renders standard 歷屆考點單選 pill`);
+    }
+
+    // 2. Clicking spec-quiz-mode mcq-past-hosp -> 64 items, ent-q369 first, badge & disclaimer, no spoiler on ent-q432, and mcq returns to 432
+    entApp.action('spec-quiz-mode', 'mcq-past-hosp');
+    assert.equal(entApp.qa.S.mode, 'kaogu-hosp');
+    assert.equal(entApp.qa.S.ids.length, 64);
+    assert.equal(entApp.qa.S.ids[0], 'ent-q369');
+    assert.equal(entApp.location.hash, '#kaogu');
+    const hospCardHtml = entApp.main();
+    wellFormed(hospCardHtml);
+    assert(hospCardHtml.includes('<span class="tag">歷屆考點 · 北榮111筆試1、亞東111筆試1</span>'), 'renders hospital past-exam badge');
+    assert(hospCardHtml.includes('歷屆考點改寫<br>單選練習'), 'renders accurate rewrite note');
+    assert(!hospCardHtml.includes('非歷屆試題'), 'must not claim 非歷屆試題 on pastExam item');
+    for (const leak of OPH_LEAK_TERMS) assert(!hospCardHtml.includes(leak), `ENT kaogu-hosp leaked ${leak}`);
+
+    // Verify colon subtitle spoiler is stripped on ent-q432 (index 63)
+    entApp.action('jump', '63');
+    assert.equal(entApp.qa.S.ids[entApp.qa.S.qi], 'ent-q432');
+    const q432Html = entApp.main();
+    wellFormed(q432Html);
+    assert(q432Html.includes('<span class="tag">歷屆考點 · 中榮 110／112 筆試甲狀腺題組</span>'), 'strips colon subtitle from badge');
+    assert(!q432Html.includes('術前軟式內視鏡評估重點與術中雙神經保留'), 'does not leak topic subtitle spoiler before answering');
+
+    // mcq-past -> 166 items with 64 hospital items sorted first, and #kaogu normalizes to #tab-quiz so reload preserves 166 items
+    entApp.action('spec-quiz-mode', 'mcq-past');
+    assert.equal(entApp.qa.S.mode, 'kaogu');
+    assert.equal(entApp.qa.S.ids.length, 166);
+    assert.equal(entApp.qa.S.ids[0], 'ent-q369', 'hospital past-exam items sort ahead in ENT kaogu mode');
+    assert.equal(entApp.location.hash, '#tab-quiz', 'ENT mcq-past normalizes #kaogu to #tab-quiz');
+    entApp.action('jump', '5');
+    assert.equal(entApp.qa.S.qi, 5);
+    await entApp.runTimers();
+    const reloadedMcqPast = boot({search: '?s=ent', local: entApp.local});
+    reloadedMcqPast.windowHandlers.get('load')?.();
+    assert.equal(reloadedMcqPast.qa.S.tab, 'quiz');
+    assert.equal(reloadedMcqPast.qa.S.mode, 'kaogu', 'reload preserves ENT mcq-past mode');
+    assert.equal(reloadedMcqPast.qa.S.ids.length, 166, 'reload preserves all 166 mcq-past items without clobbering to 64');
+    assert.equal(reloadedMcqPast.qa.S.qi, 5);
+
+    // Chapter-filtered kaogu-hosp session at #kaogu survives reload without resetting topic to 'all'
+    const chapLocal = new MemoryStorage();
+    const chapEnt = boot({search: '?s=ent', hash: '#kaogu', local: chapLocal});
+    chapEnt.windowHandlers.get('load')?.();
+    const hospTopicId = chapEnt.qa.D.questions.find(q => q.id === 'ent-q369').topicId;
+    chapEnt.qa.startQuiz(hospTopicId, 'kaogu-hosp');
+    const expectedChapLen = chapEnt.qa.S.ids.length;
+    assert(expectedChapLen > 0 && expectedChapLen < 64, 'chapter filter narrows kaogu-hosp pool');
+    assert.equal(chapEnt.location.hash, '#kaogu');
+    if (expectedChapLen > 1) chapEnt.action('jump', '1');
+    await chapEnt.runTimers();
+    const reloadedChapEnt = boot({search: '?s=ent', local: chapLocal});
+    reloadedChapEnt.windowHandlers.get('load')?.();
+    assert.equal(reloadedChapEnt.qa.S.tab, 'quiz');
+    assert.equal(reloadedChapEnt.qa.S.mode, 'kaogu-hosp');
+    assert.equal(reloadedChapEnt.qa.S.topic, hospTopicId, 'reload preserves chapter-filtered #kaogu topic');
+    assert.equal(reloadedChapEnt.qa.S.ids.length, expectedChapLen, 'reload preserves chapter-filtered #kaogu pool');
+    if (expectedChapLen > 1) assert.equal(reloadedChapEnt.qa.S.qi, 1);
+
+    // mcq returns cleanly to all 432 items
+    entApp.action('spec-quiz-mode', 'mcq');
+    assert.equal(entApp.qa.S.mode, 'all');
+    assert.equal(entApp.qa.S.ids.length, 432);
+    assert.equal(entApp.location.hash, '#tab-quiz');
+
+    // Switching mcq-past-hosp -> written-past -> mcq also resets back to 432 items
+    entApp.action('spec-quiz-mode', 'mcq-past-hosp');
+    assert.equal(entApp.qa.S.ids.length, 64);
+    entApp.action('spec-quiz-mode', 'written-past');
+    assert.equal(entApp.location.hash, '#written-past');
+    assert(entApp.main().includes('data-value="written-past" aria-pressed="true"'));
+    entApp.action('spec-quiz-mode', 'mcq');
+    assert.equal(entApp.qa.S.mode, 'all');
+    assert.equal(entApp.qa.S.ids.length, 432);
+
+    // OPH #kaogu -> switching to bcsc/hard/extra normalizes hash from #kaogu to #tab-quiz
+    const ophKaogu = boot({hash: '#kaogu', github: {fetch: async () => ({ok: true, status: 200, headers: {get: () => null}, json: async () => ({questions: []}), text: async () => '{}'})}});
+    ophKaogu.windowHandlers.get('load')?.();
+    assert.equal(ophKaogu.qa.S.tab, 'quiz');
+    assert.equal(ophKaogu.qa.S.mode, 'kaogu');
+    assert.equal(ophKaogu.location.hash, '#kaogu');
+    ophKaogu.action('quiz-bank', 'bcsc');
+    assert.equal(ophKaogu.window.OphQuizBank.getMode(), 'bcsc');
+    assert.equal(ophKaogu.qa.routeMatchesView(ophKaogu.qa.parseRoute('#kaogu')), false);
+    assert.equal(ophKaogu.location.hash, '#tab-quiz', 'oph #kaogu -> bcsc normalizes hash to #tab-quiz');
+
+    // 3. Stale workspace auto-merge: cached 368 IDs automatically append ent-q369..ent-q432 -> 432 while preserving S.qi and S.round
+    const staleLocal = new MemoryStorage();
+    const first368 = entApp.qa.D.questions.slice(0, 368).map(q => q.id);
+    assert.equal(first368.length, 368);
+    assert.equal(first368.at(-1), 'ent-q368');
+    staleLocal.setItem('ent-prep:workspace-v1', JSON.stringify({
+      v: 1,
+      at: '2026-11-08T10:00:00.000Z',
+      hash: '#tab-quiz',
+      quiz: {
+        topic: 'all',
+        mode: 'all',
+        ids: first368,
+        qi: 12,
+        round: {'ent-q001': {choice: 1, correct: true, confidence: 2, at: '2026-11-08T09:59:00.000Z'}},
+      },
+    }));
+    const resumedEnt = boot({search: '?s=ent', local: staleLocal});
+    resumedEnt.windowHandlers.get('load')?.();
+    assert.equal(resumedEnt.qa.S.tab, 'quiz');
+    assert.equal(resumedEnt.qa.S.mode, 'all');
+    assert.equal(resumedEnt.qa.S.ids.length, 432, 'merges newly added 64 questions into cached 368 workspace');
+    assert.deepEqual(plain(resumedEnt.qa.S.ids.slice(0, 368)), first368, 'preserves original cached order');
+    assert.equal(resumedEnt.qa.S.ids[368], 'ent-q369');
+    assert.equal(resumedEnt.qa.S.ids[431], 'ent-q432');
+    assert.equal(resumedEnt.qa.S.qi, 12, 'preserves current question index S.qi');
+    assert.equal(resumedEnt.qa.S.round['ent-q001']?.choice, 1, 'preserves round answers');
+
+    // 4. Deep links ?s=ent#kaogu, ?s=ent#written-past, and ?s=rad#written-past fallback normalization
+    const deepKaogu = boot({search: '?s=ent', hash: '#kaogu'});
+    deepKaogu.windowHandlers.get('load')?.();
+    assert.equal(deepKaogu.qa.S.tab, 'quiz');
+    assert.equal(deepKaogu.qa.S.mode, 'kaogu-hosp');
+    assert.equal(deepKaogu.qa.S.ids.length, 64);
+    assert.equal(deepKaogu.qa.S.ids[0], 'ent-q369');
+    assert.equal(deepKaogu.location.hash, '#kaogu');
+    wellFormed(deepKaogu.main());
+
+    const deepWrittenPast = boot({search: '?s=ent', hash: '#written-past'});
+    deepWrittenPast.windowHandlers.get('load')?.();
+    assert.equal(deepWrittenPast.qa.S.tab, 'quiz');
+    assert.equal(deepWrittenPast.location.hash, '#written-past');
+    assert(deepWrittenPast.main().includes('data-value="written-past" aria-pressed="true"'));
+    assert(deepWrittenPast.main().includes('data-written-scope="past"'));
+    wellFormed(deepWrittenPast.main());
+
+    const radWrittenPast = boot({search: '?s=rad', hash: '#written-past'});
+    radWrittenPast.windowHandlers.get('load')?.();
+    assert.equal(radWrittenPast.qa.S.tab, 'quiz');
+    assert(radWrittenPast.main().includes('data-value="written" aria-pressed="true"'), 'rad #written-past keeps written pill active');
+    assert(!radWrittenPast.main().includes('data-written-scope="past"'));
+    radWrittenPast.qa.openRoute('#written-past', true);
+    assert.equal(radWrittenPast.location.hash, '#written', 'openRoute(#written-past, true) on rad normalizes hash to #written');
+    assert(radWrittenPast.main().includes('data-value="written" aria-pressed="true"'));
+    wellFormed(radWrittenPast.main());
   });
 
   const failed = results.filter(r => !r.pass);

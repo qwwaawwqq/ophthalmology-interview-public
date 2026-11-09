@@ -190,7 +190,7 @@ function sharePanel(cfg){
 
 /* Where you left off on this device: current screen, quiz round and position, open PBL stages.
    Kept beside the progress (not exported or synced), so reopening the app looks exactly as you left it. */
-const WORKSPACE_KEY=SPEC.storePrefix+'workspace-v1',CRAM_KEY=SPEC.storePrefix+'cram-review-v1',QUIZ_MODES=['all','new','safety','reserve','kaogu','wrong','uncertain','due','srs-weak'];
+const WORKSPACE_KEY=SPEC.storePrefix+'workspace-v1',CRAM_KEY=SPEC.storePrefix+'cram-review-v1',QUIZ_MODES=['all','new','safety','reserve','kaogu','kaogu-hosp','wrong','uncertain','due','srs-weak'];
 let workspaceTimer=null;
 function workspaceSnapshot(){return {v:1,at:now(),hash:currentLocationHash(),quiz:{topic:S.topic,mode:S.mode,ids:S.ids,qi:S.qi,round:S.round},learn:S.learn,interview:S.interview,pbl:S.pbl,pblStage:S.pblStage,workflow:S.workflow,wfMode:S.wfMode,recall:S.recall,workshop:S.workshop,story:S.story,evidence:S.evidence};}
 function saveWorkspace(){clearTimeout(workspaceTimer);workspaceTimer=null;const s=storage();if(s&&deviceSettings().autosave)writeJSON(s,WORKSPACE_KEY,workspaceSnapshot());}
@@ -216,7 +216,12 @@ function restoreWorkspace(){
   if(q&&Array.isArray(q.ids)){
     const ids=[...new Set(q.ids.filter(id=>byId.has(id)))];
     if(ids.length){
-      S.ids=ids;S.topic=q.topic==='all'||D.topics.some(t=>t.id===q.topic)?q.topic:'all';S.mode=QUIZ_MODES.includes(q.mode)?q.mode:'all';
+      S.topic=q.topic==='all'||D.topics.some(t=>t.id===q.topic)?q.topic:'all';S.mode=QUIZ_MODES.includes(q.mode)?q.mode:'all';
+      if(['all','kaogu','kaogu-hosp','safety','reserve'].includes(S.mode)){
+        const poolIds=D.questions.filter(x=>(S.topic==='all'||x.topicId===S.topic||(typeof mergedInto==='function'&&mergedInto(x.topicId)===S.topic))&&(S.mode==='all'||(S.mode==='safety'&&x.safety)||(S.mode==='reserve'&&x.reserve)||(S.mode==='kaogu-hosp'&&x.pastExam&&/歷屆/.test(String(x.source||'')))||(S.mode==='kaogu'&&x.pastExam))).sort((a,b)=>{const d=(a.topicId!==S.topic)-(b.topicId!==S.topic);return d||(SPEC.id!=='oph'&&S.mode==='kaogu'?(/歷屆/.test(String(b.source||'')))-(/歷屆/.test(String(a.source||''))):0);}).map(x=>x.id);
+        const seen=new Set(ids);for(const id of poolIds)if(!seen.has(id)){seen.add(id);ids.push(id);}
+      }
+      S.ids=ids;
       S.qi=Number.isInteger(q.qi)?Math.max(0,Math.min(ids.length-1,q.qi)):0;
       const round=Object.create(null),inRound=new Set(ids);
       if(q.round&&typeof q.round==='object')for(const [id,r] of Object.entries(q.round)){const item=byId.get(id);if(item&&inRound.has(id)&&r&&Number.isInteger(r.choice)&&r.choice>=0&&r.choice<item.options.length)round[id]={choice:r.choice,correct:r.choice===item.correctIndex,confidence:[0,1,2,3].includes(r.confidence)?r.confidence:0,at:validDate(r.at)};}

@@ -24,7 +24,9 @@ function parseRoute(hash){
   if(/^#textbook-atlas(?:-bcsc-s(?:0[1-9]|1[0-3])(?:-atlas-s(?:0[1-9]|1[0-3])-(?:0[1-9]|[1-9]\d))?)?$/.test(h))return {kind:'tab',tab:'textbook',hash:h};
   if(/^#textbook-written(?:-bcsc-s(?:0[1-9]|1[0-3]))?$/.test(h))return {kind:'tab',tab:'textbook',hash:h};
   if(/^#textbook(?:-extra(?:-extra-\d{8}-q\d{3})?|-bcsc-s(?:0[1-9]|1[0-3])(?:-(?:ch\d{3}(?:-iq\d{3}|-u\d{2})?|rq\d{3}))?)?$/.test(h))return {kind:'tab',tab:'textbook',hash:h};
+  if(h==='#kaogu')return {kind:'kaogu',hash:h};
   if(h==='#written')return {kind:'written',id:null,hash:h};
+  if(h==='#written-past')return {kind:'written',id:null,scope:'past',hash:h};
   if((m=h.match(/^#written-([a-z]+-wq-[a-z0-9-]+)$/))&&m[1].length<=80&&m[1].startsWith(SPEC.id+'-wq-'))return {kind:'written',id:m[1],hash:h};
   if(h==='#cram-written'&&navs.some(n=>n[0]==='cram')&&tabAllowed('cram'))return {kind:'tab',tab:'cram',hash:h};
   if(h==='#knowledge-map'&&navs.some(n=>n[0]==='map')&&tabAllowed('map'))return {kind:'map',tab:'map',id:null,hash:h};
@@ -63,31 +65,39 @@ function routeLabel(route){
     if(target.startsWith('coverage-'))return name+' · '+(chapterCoverage(t)?.entries.find(e=>'coverage-'+e.id===target)?.title||'共筆詳解');
     return name+' · '+(chapterEnrichment(t)?.integrated?.units.find(u=>u.id===target)?.title||'學習單元');
   }
+  if(route.kind==='kaogu')return kaoguRouteMode()==='kaogu-hosp'?'筆試練習 · 110–113 各院考古單選':'筆試練習 · 歷屆考點單選';
   if(route.kind==='map'){const sub=route.id&&(window.OphKnowledgeMap?.routeLabel?.(route.id,SPEC.id)||KM_NODE_LABELS[route.id]);return sub?'知識地圖 · '+sub:'知識地圖';}
-  if(route.kind==='written')return window.OphWritten?.routeLabel?.(route.id)||(route.id?'手寫問答 · '+route.id:'手寫問答題庫');
+  if(route.kind==='written')return route.scope==='past'?'手寫問答 · 110–113 各院筆試申論':(window.OphWritten?.routeLabel?.(route.id)||(route.id?'手寫問答 · '+route.id:'手寫問答題庫'));
   if(route.kind==='pbl')return route.id?'PBL · '+pblCases().find(c=>c.id===route.id).title:'PBL 情境討論';
   if(route.kind==='workflow')return route.id?'臨床流程 · '+wfList().find(w=>w.id===route.id).title:'臨床流程';
   if(route.kind==='interview')return '面試演練 · '+D.interview.find(i=>i.id===route.id).title;
   if(route.hash==='#cram-written')return '共筆考前衝刺 · 手寫問答';
   return navs.find(n=>n[0]===route.tab)?.[2]||'練習室';
 }
+function kaoguRouteMode(){return D.questions.some(x=>x.pastExam&&/歷屆/.test(String(x.source||'')))?'kaogu-hosp':'kaogu';}
 function routeMatchesView(route){
   if(!route)return false;
+  if(route.kind==='kaogu')return S.tab==='quiz'&&(!window.OphQuizBank?.getMode||['core','mcq'].includes(window.OphQuizBank.getMode()))&&S.mode===kaoguRouteMode();
   if(route.kind==='map'||route.tab==='map'){
     if(S.tab!=='map')return false;
     const kmRoot=typeof document!=='undefined'&&typeof document.getElementById==='function'?document.getElementById('knowledge-map-root'):null;
     if(kmRoot&&typeof kmRoot.getAttribute==='function'&&kmRoot.getAttribute('data-km-mounted')!=='1')return false;
     return route.kind==='map'?(route.id?S.mapNode===route.id:!S.mapNode):!S.mapNode;
   }
-  if(route.kind==='written')return typeof window.OphWritten?.matchesRoute==='function'?window.OphWritten.matchesRoute(route):(S.tab==='quiz'&&window.OphQuizBank?.getMode?.()==='written'&&!route.id);
+  if(route.kind==='written'){
+    if(typeof window.OphWritten?.matchesRoute==='function')return window.OphWritten.matchesRoute(route);
+    const wPast=window.OphQuizBank?.getWrittenScope?.()==='past'&&SPEC.id==='ent';
+    return S.tab==='quiz'&&window.OphQuizBank?.getMode?.()==='written'&&!route.id&&(route.scope==='past'?wPast:!wPast);
+  }
   if(route.kind==='anchor')return S.tab==='learn'&&S.learn===route.topicId;
   if(route.kind==='topic')return S.tab==='learn'&&S.learn===route.id;
   if(route.kind==='pbl')return S.tab==='pbl'&&(!route.id||route.id===S.pbl);
   if(route.kind==='workflow')return S.tab==='workflow'&&(!route.id||route.id===S.workflow);
   if(route.kind==='interview')return S.tab==='interview'&&S.interview===route.id;
+  if(route.hash==='#tab-quiz')return S.tab==='quiz'&&window.OphQuizBank?.getMode?.()!=='written'&&S.mode!=='kaogu-hosp';
   return S.tab===route.tab;
 }
-function currentViewHash(){if(S.tab==='quiz'&&window.OphQuizBank?.getMode?.()==='written')return window.OphWritten?.currentHash?.()||'#written';return S.tab==='learn'?(S.learn?'#topic-'+S.learn:'#tab-learn'):S.tab==='pbl'?(S.pbl?'#'+S.pbl:'#pbl'):S.tab==='workflow'?(S.workflow?'#'+S.workflow:'#workflow'):S.tab==='interview'?(S.interview?'#interview-'+S.interview:'#tab-interview'):S.tab==='map'?(S.mapNode?'#knowledge-map-'+S.mapNode:'#knowledge-map'):S.tab==='links'?'#links':S.tab==='today'?'':'#tab-'+S.tab;}
+function currentViewHash(){if(S.tab==='quiz'&&window.OphQuizBank?.getMode?.()==='written')return window.OphWritten?.currentHash?.()||(window.OphQuizBank?.getWrittenScope?.()==='past'&&SPEC.id==='ent'?'#written-past':'#written');if(S.tab==='quiz')return (!window.OphQuizBank?.getMode||['core','mcq'].includes(window.OphQuizBank.getMode()))&&S.mode==='kaogu-hosp'?'#kaogu':'#tab-quiz';return S.tab==='learn'?(S.learn?'#topic-'+S.learn:'#tab-learn'):S.tab==='pbl'?(S.pbl?'#'+S.pbl:'#pbl'):S.tab==='workflow'?(S.workflow?'#'+S.workflow:'#workflow'):S.tab==='interview'?(S.interview?'#interview-'+S.interview:'#tab-interview'):S.tab==='map'?(S.mapNode?'#knowledge-map-'+S.mapNode:'#knowledge-map'):S.tab==='links'?'#links':S.tab==='today'?'':'#tab-'+S.tab;}
 function currentLocationHash(){const route=parseRoute(window.location?.hash||'');return route&&routeMatchesView(route)?route.hash:(currentViewHash()||'#tab-today');}
 function syncPracticeHash(){
   rememberWorkspace();
@@ -114,7 +124,12 @@ function openRoute(hash,updateHash=true){
     const node=document.getElementById(t.id+'-'+route.target);if(node)node.scrollIntoView({block:'start'});
     return true;
   }
-  if(route.kind==='map'){
+  if(route.kind==='kaogu'){
+    const m=kaoguRouteMode();
+    if(!updateHash&&S.mode===m&&S.ids.length){quizBankMode='core';specQuizMode='mcq';switchTab('quiz');}
+    else startQuiz('all',m);
+  }
+  else if(route.kind==='map'){
     S.mapNode=route.id||'';
     if(S.tab!=='map')switchTab('map');
     else{window.OphKnowledgeMap?.selectNode?.(route.id||'obsidian-motion-285',{silent:true});render();}
@@ -125,17 +140,32 @@ function openRoute(hash,updateHash=true){
     else{window.OphKnowledgeMap?.selectNode?.('obsidian-motion-285',{silent:true});render();}
   }
   else if(route.kind==='written'){
-    window.OphWritten?.focusQuestion?.(route.id);
-    if(window.OphQuizBank?.setWritten)window.OphQuizBank.setWritten();
-    else switchTab('quiz');
-    if(route.id)document.getElementById?.('written-'+route.id)?.scrollIntoView?.({block:'start'});
+    if(route.scope==='past'){
+      window.OphWritten?.setQuizScope?.('past',false);
+      if(window.OphQuizBank?.setWritten)window.OphQuizBank.setWritten('past');
+      else switchTab('quiz');
+    }else if(route.id){
+      window.OphWritten?.focusQuestion?.(route.id);
+      if(window.OphQuizBank?.setWritten)window.OphQuizBank.setWritten();
+      else switchTab('quiz');
+      document.getElementById?.('written-'+route.id)?.scrollIntoView?.({block:'start'});
+    }else{
+      window.OphWritten?.setQuizScope?.('all',false);
+      if(window.OphQuizBank?.setWritten)window.OphQuizBank.setWritten('all');
+      else switchTab('quiz');
+    }
   }
   else if(route.kind==='topic'){S.learn=route.id;S.learnExpandAll=true;S.learnDigest=false;S.recall=false;switchTab('learn');}
   else if(route.kind==='pbl'){if(route.id)S.pbl=route.id;switchTab('pbl');}
   else if(route.kind==='workflow'){if(route.id)S.workflow=route.id;switchTab('workflow');}
   else if(route.kind==='interview')chooseInterview(route.id);
+  else if((route.hash==='#tab-quiz'||route.hash==='#tab-exam')&&(window.OphQuizBank?.getMode?.()==='written'||S.mode==='kaogu-hosp')){
+    if(window.OphQuizBank?.setMode)window.OphQuizBank.setMode(SPEC.id==='oph'?'core':'mcq');
+    else switchTab('quiz');
+  }
   else switchTab(route.tab);
-  if(updateHash&&window.history?.replaceState&&window.location?.hash!==route.hash)window.history.replaceState(null,'',route.hash);
+  const nextHash=route.kind==='written'&&!routeMatchesView(route)?(currentViewHash()||route.hash):route.hash;
+  if(updateHash&&window.history?.replaceState&&nextHash&&window.location?.hash!==nextHash)window.history.replaceState(null,'',nextHash);
   return true;
 }
 function appRestoreHash(){

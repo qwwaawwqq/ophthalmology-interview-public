@@ -315,15 +315,63 @@ function setQuizBankMode(mode){
   if(S.tab!=='quiz')switchTab('quiz');else render();
   return true;
 }
+function isHospPastExam(q){return Boolean(q&&q.pastExam&&/歷屆/.test(String(q.source||'')));}
+let specWrittenScope='all';
 function setSpecQuizMode(mode){
-  if(SPEC.id==='oph'||!['mcq','written'].includes(mode))return false;
-  window.OphStudy?.leave?.();
-  specQuizMode=mode;
-  if(mode==='written')window.OphWritten?.ensureLoaded?.(SPEC.id);
-  if(S.tab!=='quiz')switchTab('quiz');else render();
-  return true;
+  if(SPEC.id==='oph')return false;
+  if(mode==='mcq'){
+    window.OphStudy?.leave?.();
+    const wasPastMcq=S.mode==='kaogu-hosp'||S.mode==='kaogu';
+    specQuizMode='mcq';
+    if(wasPastMcq){startQuiz('all','all');return true;}
+    if(S.tab!=='quiz')switchTab('quiz');else render();
+    return true;
+  }
+  if(mode==='mcq-past-hosp'){
+    if(!D.questions.some(isHospPastExam))return false;
+    startQuiz('all','kaogu-hosp');
+    return true;
+  }
+  if(mode==='mcq-past'){
+    if(!D.questions.some(q=>q.pastExam))return false;
+    startQuiz('all','kaogu');
+    return true;
+  }
+  if(mode==='written'){
+    window.OphStudy?.leave?.();
+    specQuizMode='written';
+    specWrittenScope='all';
+    window.OphWritten?.setQuizScope?.('all',false);
+    window.OphWritten?.ensureLoaded?.(SPEC.id);
+    if(S.tab!=='quiz')switchTab('quiz');else render();
+    return true;
+  }
+  if(mode==='written-past'){
+    window.OphStudy?.leave?.();
+    specQuizMode='written';
+    specWrittenScope='past';
+    window.OphWritten?.setQuizScope?.('past',false);
+    window.OphWritten?.ensureLoaded?.(SPEC.id);
+    if(S.tab!=='quiz')switchTab('quiz');else render();
+    return true;
+  }
+  return false;
 }
-window.OphQuizBank={getMode(){return SPEC.id==='oph'?quizBankMode:specQuizMode;},setMode(mode){return SPEC.id==='oph'?setQuizBankMode(mode):setSpecQuizMode(mode);},setWritten(){return SPEC.id==='oph'?setQuizBankMode('written'):setSpecQuizMode('written');}};
+window.OphQuizBank={
+  getMode(){return SPEC.id==='oph'?quizBankMode:specQuizMode;},
+  getWrittenScope(){return window.OphWritten?.getQuizScope?window.OphWritten.getQuizScope():specWrittenScope;},
+  setMode(mode){return SPEC.id==='oph'?setQuizBankMode(mode):setSpecQuizMode(mode);},
+  setWritten(scope){
+    if(scope)window.OphWritten?.setQuizScope?.(scope,false);
+    if(SPEC.id==='oph')return setQuizBankMode('written');
+    window.OphStudy?.leave?.();
+    specQuizMode='written';
+    specWrittenScope=scope||(window.OphWritten?.getQuizScope?.()||'all');
+    window.OphWritten?.ensureLoaded?.(SPEC.id);
+    if(S.tab!=='quiz')switchTab('quiz');else render();
+    return true;
+  }
+};
 
 function quizAdvPool(mode=quizBankMode){
   if(mode==='bcsc')return quizAdvBcscCandidates();
@@ -540,14 +588,24 @@ function quizAdvPageMarkup(){
 }
 function specQuizModeBarMarkup(){
   if(SPEC.id==='oph')return '';
-  const items=[['mcq',`單選題練習（${D.questions.length} 題）`],['written','手寫問答題（手寫板＋文字作答＋標準答案）']];
-  return `<div class="quiz-spec-modes" data-spec-quiz-mode role="group" aria-label="筆試題型切換">${items.map(([id,lbl])=>`<button type="button" class="btn small ${specQuizMode===id?'primary':'subtle'}" data-action="spec-quiz-mode" data-value="${id}" aria-pressed="${specQuizMode===id}">${esc(lbl)}</button>`).join('')}</div>`;
+  const hospPastCount=D.questions.filter(isHospPastExam).length;
+  const pastCount=D.questions.filter(q=>q.pastExam).length;
+  const wPastCount=window.OphWritten?.pastCount?.(SPEC.id)||(SPEC.id==='ent'?16:0);
+  const wIsPast=wPastCount>0&&specQuizMode==='written'&&(window.OphWritten?.getQuizScope?window.OphWritten.getQuizScope()==='past':specWrittenScope==='past');
+  const items=[
+    ['mcq',`單選題練習（${D.questions.length} 題）`,specQuizMode==='mcq'&&S.mode!=='kaogu-hosp'&&S.mode!=='kaogu'],
+    ...(hospPastCount>0?[['mcq-past-hosp',`110–113 各院考古單選（${hospPastCount} 題）`,specQuizMode==='mcq'&&S.mode==='kaogu-hosp']]:[]),
+    ...(pastCount>0?[['mcq-past',`${hospPastCount>0?'歷屆與講義考點單選':'歷屆考點單選'}（${pastCount} 題）`,specQuizMode==='mcq'&&S.mode==='kaogu']]:[]),
+    ...(wPastCount>0?[['written-past',`110–113 各院筆試申論（${wPastCount} 組 · 含完整答案）`,wIsPast]]:[]),
+    ['written','手寫問答題（手寫板＋文字作答＋標準答案）',specQuizMode==='written'&&!wIsPast]
+  ];
+  return `<div class="quiz-spec-modes" data-spec-quiz-mode role="group" aria-label="筆試題型切換">${items.map(([id,lbl,active])=>`<button type="button" class="btn small ${active?'primary':'subtle'}" data-action="spec-quiz-mode" data-value="${id}" aria-pressed="${active}">${esc(lbl)}</button>`).join('')}</div>`;
 }
 function quizPage(){
   if(SPEC.id!=='oph'){
     if(specQuizMode==='written'){
       const head=heading('01 / WRITTEN Q&A','手寫問答題（手寫板＋文字作答＋標準答案）','支援 Apple Pencil／觸控手寫板與文字作答，逐題核對必寫得分要點並排入間隔複習。','');
-      return head+specQuizModeBarMarkup()+(window.OphWritten?.quizBankHtml?.(SPEC.id)||`<section class="card card-pad" data-written-slot="quiz" data-spec-id="${esc(SPEC.id)}"></section>`);
+      return head+specQuizModeBarMarkup()+(window.OphWritten?.quizBankHtml?.(SPEC.id)||`<section class="card card-pad" data-written-slot="quiz" data-spec-id="${esc(SPEC.id)}"${specWrittenScope==='past'&&SPEC.id==='ent'?' data-written-scope="past"':''}></section>`);
     }
     const base=quiz();
     const idx=base.indexOf('<div class="grid">');
@@ -652,7 +710,8 @@ function todayReading(){
 function todayQuiz(){
   if(!D.questions.length)return '';
   const cur=question(),q=cur||D.questions[0],st=stats();
-  const advLinks=SPEC.id==='oph'?`<div class="today-quiz-banks" data-today-quiz-banks aria-label="進階題庫快速啟動">${btn('BCSC 1–13 卷（540 題）','quiz-bank-open','bcsc','small subtle')}${btn('Hard 多步臨床推理','quiz-bank-open','hard','small subtle')}${btn('自編陌生病例（120 題）','quiz-bank-open','extra','small subtle')}${btn('手寫問答題','quiz-bank-open','written','small subtle')}</div>`:`<div class="today-quiz-banks" data-today-spec-written aria-label="手寫問答題快速啟動">${btn('手寫問答題','spec-quiz-mode','written','small subtle')}</div>`;
+  const hasHospPast=SPEC.id!=='oph'&&D.questions.some(isHospPastExam);
+  const advLinks=SPEC.id==='oph'?`<div class="today-quiz-banks" data-today-quiz-banks aria-label="進階題庫快速啟動">${btn('BCSC 1–13 卷（540 題）','quiz-bank-open','bcsc','small subtle')}${btn('Hard 多步臨床推理','quiz-bank-open','hard','small subtle')}${btn('自編陌生病例（120 題）','quiz-bank-open','extra','small subtle')}${btn('手寫問答題','quiz-bank-open','written','small subtle')}</div>`:`<div class="today-quiz-banks" data-today-spec-written aria-label="手寫問答題快速啟動">${hasHospPast?btn('110–113 各院考古單選','spec-quiz-mode','mcq-past-hosp','small subtle')+btn('110–113 各院筆試申論','spec-quiz-mode','written-past','small subtle'):''}${btn('手寫問答題','spec-quiz-mode','written','small subtle')}</div>`;
   return `<article class="card home-card"><p class="today-kicker">${cur?`繼續筆試 · 第 ${S.qi+1} / ${S.ids.length} 題`:'筆試練習'}</p><h3>${esc(shortTitle(q.topicId))}</h3><p class="today-summary clamp">${esc(q.stem)}</p><p class="small">已練習 ${st.answered} / ${D.questions.length} · 待補強 ${st.wrong}</p><div class="today-actions">${cur?btn('繼續作答','today-core-quiz','continue','primary'):btn('開始練習','all','','primary')}${btn('換主題','today-core-quiz','topic')}</div>${advLinks}</article>`;
 }
 function todayInterview(){
