@@ -10,9 +10,8 @@ const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const source = fs.readFileSync(path.join(root, 'scripts/knowledge-graph.js'), 'utf8');
 const data = JSON.parse(html.match(/<script type="application\/json" id="course-data">([\s\S]*?)<\/script>/)[1]);
 const results = [];
-function test(name, fn) {
-  try { fn(); results.push({name, pass: true}); } catch (error) { results.push({name, pass: false, error: String(error && error.stack || error)}); }
-}
+const queue = [];
+function test(name, fn) { queue.push([name, fn]); }
 
 function stub() {
   const listeners = {};
@@ -228,6 +227,28 @@ test('other courses get no textbook nodes even if the catalogue is present', () 
   assert.equal(graph.books.length, 0);
 });
 
+test('a failed catalogue request is retried on the next sync, and a good one adds the textbook layer', async () => {
+  const {api, win} = load(true);
+  const mapRoot = stub(), host = stub();
+  const doc = {getElementById: id => id === 'knowledge-map-root' ? mapRoot : id === 'knowledge-graph-root' ? host : null};
+  mapRoot.parentNode = {insertBefore() {}}; mapRoot.ownerDocument = doc; win.document = doc;
+  let calls = 0, ok = false;
+  win.fetch = () => { calls += 1; return Promise.resolve(ok ? {ok: true, json: () => Promise.resolve(manifest)} : {ok: false}); };
+  api.sync(state());
+  await new Promise(resolve => setImmediate(resolve));
+  assert.equal(calls, 1);
+  assert.equal(api.active.graph.books.length, 0);
+  ok = true;
+  api.sync(state());
+  await new Promise(resolve => setImmediate(resolve));
+  assert.equal(calls, 2, 'the request is made again after an HTTP error');
+  assert.equal(api.active.graph.books.length, manifest.books.length);
+  api.sync(state());
+  await new Promise(resolve => setImmediate(resolve));
+  assert.equal(calls, 2, 'a loaded catalogue is not fetched again');
+  api.sync(null);
+});
+
 test('node text is escaped', () => {
   const {api} = load();
   const host = stub();
@@ -242,5 +263,10 @@ test('page loads the graph assets and syncs it from the view', () => {
   assert(html.indexOf('scripts/knowledge-map.js') < html.indexOf('scripts/knowledge-graph.js'));
 });
 
-console.log(JSON.stringify({results}, null, 2));
-if (results.some(result => !result.pass)) process.exit(1);
+(async () => {
+  for (const [name, fn] of queue) {
+    try { await fn(); results.push({name, pass: true}); } catch (error) { results.push({name, pass: false, error: String(error && error.stack || error)}); }
+  }
+  console.log(JSON.stringify({results}, null, 2));
+  if (results.some(result => !result.pass)) process.exit(1);
+})();

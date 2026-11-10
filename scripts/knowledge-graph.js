@@ -522,7 +522,7 @@
     /* The textbook catalogue is fetched once, and only for the course whose chapters it maps to. */
     if (!bookCache && !bookRequest && typeof w.fetch === 'function' && (pending.topics || []).some(topic => topic && /^notes-\d+$/.test(topic.id))) {
       bookRequest = w.fetch('content/textbook-manifest.json').then(response => response.ok ? response.json() : null).then(manifest => {
-        if (!manifest || !Array.isArray(manifest.books)) return;
+        if (!manifest || !Array.isArray(manifest.books)) { bookRequest = null; return; }
         bookCache = manifest.books;
         if (pending) { pending = Object.assign({}, pending, {books: bookCache}); ensure(); }
       }).catch(() => { bookRequest = null; });
