@@ -20,7 +20,7 @@
       const color = COLORS[index % COLORS.length];
       const pillarId = 'c:' + topic.id;
       nodes.push({id: pillarId, kind: 'chapter', topicId: topic.id, chapterIndex: index, label: topic.title, short: String(topic.chapter || index + 1), color, r: 13,
-        summary: topic.summary || '', count: topic.sections.length, questions: questions.filter(q => q.topicId === topic.id).length, cases: (topic.cases || []).length});
+        summary: topic.summary || '', count: topic.sections.length, questions: typeof state.questionCount === 'function' ? state.questionCount(topic) : questions.filter(q => q.topicId === topic.id).length, cases: (topic.cases || []).length});
       links.push(['root', pillarId]);
       if (index) links.push(['c:' + chapters[index - 1].id, pillarId]);
       topic.sections.forEach((section, k) => {
@@ -330,7 +330,7 @@
       if (view.drag.pan) { view.tx = view.drag.tx + px - view.drag.px; view.ty = view.drag.ty + py - view.drag.py; view.cam = null; view.follow = null; cancelFit(); }
       else if (view.layout === 'force' && view.moved) {
         view.drag.node.x = (px - width / 2 - view.tx) / view.scale; view.drag.node.y = (py - height / 2 - view.ty) / view.scale;
-        view.alpha = Math.max(view.alpha, 0.35);
+        if (!reducedMotion()) view.alpha = Math.max(view.alpha, 0.35);
       }
       kick();
     }

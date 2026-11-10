@@ -146,6 +146,28 @@ test('a layout morph drops leftover force energy and its delayed overview is can
   assert.equal(instance.view.follow.node.id, instance.graph.chapters[0].id, 'camera keeps following the first tour stop');
 });
 
+test('chapter question totals come from the page when it supplies a counter', () => {
+  const {api} = load();
+  const graph = api.buildGraph(Object.assign(state(), {questionCount: topic => topic.id === 'notes-10' ? 99 : 1}));
+  assert.equal(graph.byId.get('c:notes-10').questions, 99);
+  assert.equal(graph.byId.get('c:notes-01').questions, 1);
+});
+
+test('reduced motion: dragging a node moves only that node and does not restart the simulation', () => {
+  const {api} = load(true);
+  const host = stub();
+  const instance = api.mount(host, state());
+  const canvas = host.children['.kg-canvas'];
+  const node = instance.graph.byId.get('c:notes-03'), other = instance.graph.byId.get('c:notes-09');
+  const v = instance.view, sx = 450 + v.tx + node.x * v.scale, sy = 260 + v.ty + node.y * v.scale, before = [other.x, other.y];
+  canvas.listeners.pointerdown({clientX: sx, clientY: sy});
+  canvas.listeners.pointermove({clientX: sx + 40, clientY: sy + 25});
+  canvas.listeners.pointerup({});
+  assert.equal(instance.view.alpha, 0);
+  assert(Math.abs(node.x - (sx + 40 - 450 - v.tx) / v.scale) < 1e-6, 'dragged node follows the pointer');
+  assert.deepEqual([other.x, other.y], before);
+});
+
 test('node text is escaped', () => {
   const {api} = load();
   const host = stub();
@@ -156,7 +178,7 @@ test('node text is escaped', () => {
 test('page loads the graph assets and syncs it from the view', () => {
   assert(html.includes('<link rel="stylesheet" href="scripts/knowledge-graph.css">'));
   assert(html.includes('<script src="scripts/knowledge-graph.js" defer></script>'));
-  assert(html.includes("window.OphKnowledgeGraph?.sync?.(S.tab==='map'?{specialtyLabel:SPEC.label,topics:D.topics,questions:D.questions,openRoute}:null);"));
+  assert(html.includes("window.OphKnowledgeGraph?.sync?.(S.tab==='map'?{specialtyLabel:SPEC.label,topics:D.topics,questions:D.questions,questionCount:t=>topicQuestions(t).length,openRoute}:null);"));
   assert(html.indexOf('scripts/knowledge-map.js') < html.indexOf('scripts/knowledge-graph.js'));
 });
 
