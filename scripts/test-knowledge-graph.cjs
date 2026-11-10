@@ -30,15 +30,15 @@ function stub() {
   return el;
 }
 function load(reduced) {
-  const timers = [];
+  const timers = [], cleared = [];
   const win = {
     matchMedia: () => ({matches: Boolean(reduced)}), devicePixelRatio: 1,
-    setTimeout: fn => { timers.push(fn); return timers.length; }, clearTimeout() {},
+    setTimeout: fn => { timers.push(fn); return timers.length; }, clearTimeout(id) { cleared.push(id); },
     requestAnimationFrame: fn => { timers.push(fn); return timers.length; }, cancelAnimationFrame() {},
     performance: {now: () => 0}, console,
   };
   vm.runInNewContext(source, {window: win, globalThis: win});
-  return {api: win.OphKnowledgeGraph, win, timers};
+  return {api: win.OphKnowledgeGraph, win, timers, cleared};
 }
 const state = () => ({specialtyLabel: '眼科', topics: data.topics, questions: data.questions, openRoute: hash => { state.opened = hash; return true; }});
 
@@ -119,6 +119,31 @@ test('fly-through visits chapters in order and stops when another mode is chosen
   assert.equal(instance.view.fly, null);
   timers.splice(0).forEach(fn => fn());
   assert.equal(instance.view.fly, null, 'a pending tour step does not restart the tour');
+});
+
+test('reduced motion: returning to the force layout settles at once with no animation left to run', () => {
+  const {api} = load(true);
+  const instance = api.mount(stub(), state());
+  instance.setMode('morph');
+  instance.setMode('force');
+  assert.equal(instance.view.alpha, 0);
+  assert.equal(instance.view.morph, null);
+  const a = instance.graph.byId.get('c:notes-01'), b = instance.graph.byId.get('c:notes-02');
+  assert(Math.hypot(a.x - b.x, a.y - b.y) > 60, 'force layout was re-settled');
+});
+
+test('a layout morph drops leftover force energy and its delayed overview is cancelled by the next mode', () => {
+  const {api, cleared} = load(false);
+  const instance = api.mount(stub(), state());
+  assert(instance.view.alpha > 0.02, 'force layout starts warm');
+  instance.setMode('morph');
+  assert.equal(instance.view.alpha, 0, 'non-force layouts hold no force energy');
+  const pendingFit = instance.view.fitTimer;
+  assert(pendingFit, 'overview is scheduled after the morph');
+  instance.setMode('fly');
+  assert(cleared.includes(pendingFit), 'pending overview was cancelled');
+  assert.equal(instance.view.fitTimer, 0);
+  assert.equal(instance.view.follow.node.id, instance.graph.chapters[0].id, 'camera keeps following the first tour stop');
 });
 
 test('node text is escaped', () => {

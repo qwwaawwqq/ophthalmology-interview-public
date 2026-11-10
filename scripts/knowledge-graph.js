@@ -213,6 +213,7 @@
       for (const chip of container.querySelectorAll('.kg-chip')) chip.classList.toggle('is-active', Boolean(view.selected) && chip.getAttribute('data-kg-node') === (view.selected.kind === 'chapter' ? view.selected.id : 'c:' + view.selected.topicId));
       if (announce !== false) kick();
     }
+    function cancelFit() { if (view.fitTimer) { w.clearTimeout(view.fitTimer); view.fitTimer = 0; } }
     function cameraTo(target, ms) {
       view.follow = null;
       if (reducedMotion() || !ms) { view.scale = target.scale; view.tx = target.tx; view.ty = target.ty; view.cam = null; return; }
@@ -220,6 +221,7 @@
     }
     /* Follow a node, so the camera stays on it while the layout is still moving. */
     function focusNode(node, scale) {
+      cancelFit();
       view.cam = null;
       if (reducedMotion()) { view.follow = null; view.scale = scale; view.tx = -node.x * scale; view.ty = -node.y * scale; return; }
       view.follow = {node, scale};
@@ -227,9 +229,15 @@
     function now() { return w.performance && w.performance.now ? w.performance.now() : Date.now(); }
     function startMorph(layout) {
       view.layout = layout;
-      if (layout === 'force') { view.morph = null; view.alpha = 0.9; for (const node of graph.nodes) node.fixed = false; return; }
+      if (layout === 'force') {
+        view.morph = null;
+        for (const node of graph.nodes) node.fixed = false;
+        if (reducedMotion()) { settle(graph, 140); view.alpha = 0; } else view.alpha = 0.9;
+        return;
+      }
       const targets = layoutTargets(graph, layout);
       if (reducedMotion()) { for (const node of graph.nodes) { const t = targets.get(node.id); node.x = t[0]; node.y = t[1]; } view.morph = null; view.alpha = 0; return; }
+      view.alpha = 0;
       view.morph = {start: now(), ms: 900, from: new Map(graph.nodes.map(node => [node.id, [node.x, node.y]])), to: targets};
     }
     function stopFly(done) {
@@ -251,6 +259,7 @@
     }
     function setMode(mode) {
       const again = view.mode === mode;
+      cancelFit();
       stopFly(false);
       view.mode = mode;
       for (const button of container.querySelectorAll('[data-kg-mode]')) {
@@ -263,7 +272,7 @@
         const order = LAYOUTS.map(item => item[0]);
         const next = again ? order[(order.indexOf(view.layout) + 1) % order.length] : (view.layout === 'force' ? 'radial' : view.layout);
         startMorph(next);
-        w.setTimeout(() => { if (active === instance) { cameraTo(fit(), 600); kick(); } }, reducedMotion() ? 0 : 920);
+        view.fitTimer = w.setTimeout(() => { view.fitTimer = 0; if (active === instance && view.mode === 'morph') { cameraTo(fit(), 600); kick(); } }, reducedMotion() ? 0 : 920);
       }
       setStatus(); kick();
     }
@@ -283,7 +292,7 @@
       if (view.follow) {
         const f = view.follow, tx = -f.node.x * f.scale, ty = -f.node.y * f.scale;
         view.scale += (f.scale - view.scale) * 0.1; view.tx += (tx - view.tx) * 0.1; view.ty += (ty - view.ty) * 0.1;
-        if (Math.abs(tx - view.tx) + Math.abs(ty - view.ty) > 0.6 || Math.abs(f.scale - view.scale) > 0.004 || view.morph || view.alpha > 0.02) busy = true;
+        if (Math.abs(tx - view.tx) + Math.abs(ty - view.ty) > 0.6 || Math.abs(f.scale - view.scale) > 0.004 || view.morph || (view.layout === 'force' && view.alpha > 0.02)) busy = true;
         else if (view.mode !== 'fly') view.follow = null;
       }
       if (view.cam) {
@@ -318,7 +327,7 @@
         return;
       }
       if (Math.hypot(px - view.drag.px, py - view.drag.py) > 4) view.moved = true;
-      if (view.drag.pan) { view.tx = view.drag.tx + px - view.drag.px; view.ty = view.drag.ty + py - view.drag.py; view.cam = null; view.follow = null; }
+      if (view.drag.pan) { view.tx = view.drag.tx + px - view.drag.px; view.ty = view.drag.ty + py - view.drag.py; view.cam = null; view.follow = null; cancelFit(); }
       else if (view.layout === 'force' && view.moved) {
         view.drag.node.x = (px - width / 2 - view.tx) / view.scale; view.drag.node.y = (py - height / 2 - view.ty) / view.scale;
         view.alpha = Math.max(view.alpha, 0.35);
@@ -338,7 +347,7 @@
       const [px, py] = point(event), factor = event.deltaY < 0 ? 1.12 : 1 / 1.12;
       const next = Math.min(4, Math.max(0.35, view.scale * factor));
       const wx = (px - width / 2 - view.tx) / view.scale, wy = (py - height / 2 - view.ty) / view.scale;
-      view.scale = next; view.tx = px - width / 2 - wx * next; view.ty = py - height / 2 - wy * next; view.cam = null; view.follow = null;
+      view.scale = next; view.tx = px - width / 2 - wx * next; view.ty = py - height / 2 - wy * next; view.cam = null; view.follow = null; cancelFit();
       setStatus(); kick();
     }
     function onKey(event) {
@@ -349,14 +358,14 @@
       else if (event.key === 'Escape') { stopFly(false); select(null); }
       else return;
       if (event.preventDefault) event.preventDefault();
-      view.cam = null; view.follow = null; setStatus(); kick();
+      view.cam = null; view.follow = null; cancelFit(); setStatus(); kick();
     }
     function onClick(event) {
       const target = event.target && event.target.closest ? event.target : null;
       if (!target) return;
       const mode = target.closest('[data-kg-mode]'), chip = target.closest('[data-kg-node]'), open = target.closest('[data-kg-open]');
       if (mode) setMode(mode.getAttribute('data-kg-mode'));
-      else if (target.closest('[data-kg-reset]')) { stopFly(false); select(null, false); cameraTo(fit(), 600); setStatus(); kick(); }
+      else if (target.closest('[data-kg-reset]')) { cancelFit(); stopFly(false); select(null, false); cameraTo(fit(), 600); setStatus(); kick(); }
       else if (chip) { const node = graph.byId.get(chip.getAttribute('data-kg-node')); if (node) { stopFly(false); select(node, false); focusNode(node, 1.9); setStatus(); kick(); } }
       else if (open && typeof state.openRoute === 'function') state.openRoute(open.getAttribute('data-kg-open'), true);
     }
@@ -372,6 +381,7 @@
     if (w.addEventListener) w.addEventListener('resize', onResize);
     instance.dispose = () => {
       stopFly(false);
+      cancelFit();
       if (view.raf) (w.cancelAnimationFrame || w.clearTimeout)(view.raf);
       container.removeEventListener('click', onClick);
       if (w.removeEventListener) w.removeEventListener('resize', onResize);
