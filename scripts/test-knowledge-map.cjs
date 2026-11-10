@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-// Comprehensive regression suite for Issue #196: Interactive Knowledge Map (#knowledge-map / #tab-map)
-// and Obsidian 285 free motion-design plugins across oph, ent, rad, nm, and neuro.
+// Comprehensive regression suite for Issue #196 & #200: Interactive Knowledge Map (#knowledge-map / #tab-map),
+// Built-in $0 Motion Studio (flythrough, slides, sketch), and Obsidian 285 free motion-design plugins across 5 specialties.
 const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
@@ -11,6 +11,7 @@ const { execFileSync } = require('node:child_process');
 const ROOT = path.join(__dirname, '..');
 const htmlPath = process.argv[2] || path.join(ROOT, 'index.html');
 const html = fs.readFileSync(htmlPath, 'utf8');
+const kmMotionJs = fs.readFileSync(path.join(ROOT, 'scripts/knowledge-map-motion.js'), 'utf8');
 const kmJs = fs.readFileSync(path.join(ROOT, 'scripts/knowledge-map.js'), 'utf8');
 const kmCss = fs.readFileSync(path.join(ROOT, 'scripts/knowledge-map.css'), 'utf8');
 
@@ -32,6 +33,7 @@ const hookedSource = appSource.replace(
 const STRICT_OPH_LEAK_TERMS = [
   'BCSC', 'RAPD', '白瞳', '眼科學No.', '急性視力喪失', '糖尿病黃斑水腫', '#pbl-dr', '#wf-chemical', '#notes-02',
   '裂隙燈', '眼底', '眼科', '視網膜', '青光眼', '白內障', '角膜', '斜視', '房水', '黃斑',
+  '視神經', '隅角', '瞳孔', '眼壓', '虹膜', '水晶體', '淚腺',
   '#textbook', '#tab-textbook', '#tab-project', '#tab-schedule', '#tab-advanced'
 ];
 
@@ -58,7 +60,225 @@ class MemoryStorage {
   removeItem(k) { this.map.delete(k); }
 }
 
-function bootApp({ search = '', hash = '', deferKm = false } = {}) {
+function matchesSelector(node, sel) {
+  if (!node || !node.tag || node.tag === '#text') return false;
+  sel = sel.trim();
+  if (sel.includes(',')) {
+    return sel.split(',').some(p => matchesSelector(node, p.trim()));
+  }
+  if (sel.includes(' ')) {
+    const parts = sel.split(/\s+/);
+    if (!matchesSelector(node, parts[parts.length - 1])) return false;
+    let curr = node.parent;
+    for (let i = parts.length - 2; i >= 0; i--) {
+      while (curr && !matchesSelector(curr, parts[i])) curr = curr.parent;
+      if (!curr) return false;
+      curr = curr.parent;
+    }
+    return true;
+  }
+  const tokens = sel.match(/(\.[a-zA-Z0-9_-]+)|(#[a-zA-Z0-9_-]+)|(\[[^\]]+\])|([a-zA-Z0-9_-]+)/g);
+  if (!tokens) return false;
+  for (const token of tokens) {
+    if (token.startsWith('.')) {
+      if (!node.classList || !node.classList.contains(token.slice(1))) return false;
+    } else if (token.startsWith('#')) {
+      if ((node.attrs?.id || node.id) !== token.slice(1)) return false;
+    } else if (token.startsWith('[')) {
+      const m = token.slice(1, -1).match(/^([a-zA-Z0-9_-]+)(?:([*^$]?=)(?:"([^"]*)"|'([^']*)'|([^\]]+)))?$/);
+      if (!m) return false;
+      const attrName = m[1];
+      const op = m[2];
+      const exp = m[3] ?? m[4] ?? m[5];
+      const actual = node.attrs ? (node.attrs[attrName] ?? (attrName === 'class' ? (node.getAttribute ? node.getAttribute('class') : '') : null)) : null;
+      if (actual === null || actual === undefined) return false;
+      if (op === '=' && actual !== exp) return false;
+    } else {
+      if (node.tag.toLowerCase() !== token.toLowerCase()) return false;
+    }
+  }
+  return true;
+}
+
+function createMockChildElement(tag, attrs, parent, getActiveEl, setActiveEl) {
+  const classes = new Set((attrs.class || '').split(/\s+/).filter(Boolean));
+  const elAttrs = { ...attrs };
+  delete elAttrs.class;
+  const children = [];
+  const dataset = {};
+  for (const [k, v] of Object.entries(elAttrs)) {
+    if (k.startsWith('data-')) {
+      const camel = k.slice(5).replace(/-([a-z])/g, (_, g) => g.toUpperCase());
+      dataset[camel] = v;
+    }
+  }
+  const el = {
+    tag,
+    id: elAttrs.id || '',
+    attrs: elAttrs,
+    children,
+    parent,
+    dataset,
+    classList: {
+      add(v) { classes.add(v); },
+      remove(v) { classes.delete(v); },
+      contains(v) { return classes.has(v); },
+      toggle(v, force) {
+        const next = force === undefined ? !classes.has(v) : force;
+        next ? classes.add(v) : classes.delete(v);
+        return next;
+      }
+    },
+    get className() { return [...classes].join(' '); },
+    set className(v) {
+      classes.clear();
+      String(v || '').split(/\s+/).filter(Boolean).forEach(c => classes.add(c));
+    },
+    getAttribute(k) {
+      if (k === 'class') return [...classes].join(' ') || null;
+      if (k.toLowerCase() === 'viewbox') return elAttrs['viewBox'] ?? elAttrs['viewbox'] ?? null;
+      return elAttrs[k] ?? elAttrs[k.toLowerCase()] ?? null;
+    },
+    setAttribute(k, v) {
+      if (k === 'class') {
+        classes.clear();
+        String(v || '').split(/\s+/).filter(Boolean).forEach(c => classes.add(c));
+        return;
+      }
+      const actualKey = k.toLowerCase() === 'viewbox' ? 'viewBox' : k;
+      elAttrs[actualKey] = String(v);
+      if (actualKey.startsWith('data-')) {
+        const camel = actualKey.slice(5).replace(/-([a-z])/g, (_, g) => g.toUpperCase());
+        dataset[camel] = String(v);
+      }
+    },
+    removeAttribute(k) {
+      if (k === 'class') { classes.clear(); return; }
+      delete elAttrs[k];
+      if (k.startsWith('data-')) {
+        const camel = k.slice(5).replace(/-([a-z])/g, (_, g) => g.toUpperCase());
+        delete dataset[camel];
+      }
+    },
+    hasAttribute(k) {
+      if (k === 'class') return classes.size > 0;
+      return Object.prototype.hasOwnProperty.call(elAttrs, k);
+    },
+    style: { setProperty(k, v) { elAttrs['style_' + k] = v; } },
+    focus() {
+      if (typeof setActiveEl === 'function') setActiveEl(el);
+    },
+    get textContent() {
+      return children.map(c => c.tag === '#text' ? c.value.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&') : c.textContent).join('');
+    },
+    set textContent(v) {
+      children.length = 0;
+      const safe = String(v).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      children.push({ tag: '#text', value: safe, attrs: {}, children: [], parent: el });
+    },
+    matches(sel) { return matchesSelector(this, sel); },
+    closest(sel) {
+      let curr = this;
+      while (curr && curr.tag !== '#text') {
+        if (matchesSelector(curr, sel)) return curr;
+        curr = curr.parent;
+      }
+      return null;
+    },
+    contains(child) {
+      if (!child) return false;
+      if (child === this) return true;
+      for (const c of this.children) {
+        if (c === child || (c.contains && c.contains(child))) return true;
+      }
+      return false;
+    },
+    querySelector(sel) {
+      for (const c of this.children) {
+        if (c.tag !== '#text') {
+          if (matchesSelector(c, sel)) return c;
+          if (typeof c.querySelector === 'function') {
+            const found = c.querySelector(sel);
+            if (found) return found;
+          }
+        }
+      }
+      return null;
+    },
+    querySelectorAll(sel) {
+      const results = [];
+      for (const c of this.children) {
+        if (c.tag !== '#text') {
+          if (matchesSelector(c, sel)) results.push(c);
+          if (typeof c.querySelectorAll === 'function') {
+            results.push(...c.querySelectorAll(sel));
+          }
+        }
+      }
+      return results;
+    }
+  };
+  return el;
+}
+
+function parseMockFragment(markup, parent, getActiveEl, setActiveEl, elementsMap) {
+  const root = { tag: 'root', attrs: {}, children: [], parent: null };
+  const stack = [root];
+  const voids = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr']);
+  const tokens = markup.match(/<!--[\s\S]*?-->|<(?:[^>"']|"[^"]*"|'[^']*')+>|[^<]+/g) || [];
+  for (const token of tokens) {
+    if (token.startsWith('<!--') || token.startsWith('<!')) continue;
+    if (token.startsWith('</')) {
+      const tag = token.match(/^<\/\s*([^\s>]+)/)[1].toLowerCase();
+      const index = stack.map(node => node.tag).lastIndexOf(tag);
+      if (index > 0) {
+        while (stack.length - 1 > index) stack.pop();
+        stack.pop();
+      }
+    } else if (token.startsWith('<')) {
+      const match = token.match(/^<\s*([^\s/>]+)([\s\S]*?)\/?\s*>$/);
+      if (!match) continue;
+      const tag = match[1].toLowerCase();
+      const attrs = {};
+      for (const attr of match[2].matchAll(/([^\s=/>]+)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+)))?/g)) {
+        const rawK = attr[1];
+        const k = rawK.toLowerCase() === 'viewbox' ? 'viewBox' : rawK;
+        attrs[k] = attr[2] ?? attr[3] ?? attr[4] ?? '';
+      }
+      const el = createMockChildElement(tag, attrs, stack.at(-1), getActiveEl, setActiveEl);
+      if (elementsMap && attrs.id && attrs.id !== 'knowledge-map-root' && attrs.id !== 'main' && attrs.id !== 'nav' && attrs.id !== 'tabbar') {
+        elementsMap.set('#' + attrs.id, el);
+      }
+      stack.at(-1).children.push(el);
+      if (!voids.has(tag) && !token.endsWith('/>')) stack.push(el);
+    } else {
+      stack.at(-1).children.push({ tag: '#text', value: token, attrs: {}, children: [], parent: stack.at(-1) });
+    }
+  }
+  for (const c of root.children) c.parent = parent;
+  return root.children;
+}
+
+function serializeMockNode(node) {
+  if (node.tag === '#text') return node.value;
+  const tag = node.tag;
+  const voids = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr']);
+  let attrStr = '';
+  const cls = node.getAttribute ? node.getAttribute('class') : '';
+  if (cls) attrStr += ' class="' + cls + '"';
+  if (node.attrs) {
+    for (const [k, v] of Object.entries(node.attrs)) {
+      if (k.startsWith('style_')) continue;
+      const actualK = k.toLowerCase() === 'viewbox' ? 'viewBox' : k;
+      attrStr += ' ' + actualK + '="' + String(v).replace(/"/g, '&quot;') + '"';
+    }
+  }
+  if (voids.has(tag)) return '<' + tag + attrStr + '>';
+  const inner = node.children ? node.children.map(serializeMockNode).join('') : '';
+  return '<' + tag + attrStr + '>' + inner + '</' + tag + '>';
+}
+
+function bootApp({ search = '', hash = '', deferKm = false, enableRaf = false, osReducedMotion = false, enableFlipRects = false } = {}) {
   const elements = new Map();
   const docHandlers = new Map();
   const winHandlers = new Map();
@@ -66,6 +286,13 @@ function bootApp({ search = '', hash = '', deferKm = false } = {}) {
   const blobs = [];
   const clipboard = [];
   const createdAnchors = [];
+  let handleSeq = 1;
+  let fakeNowMs = 1000;
+  let flipRenderTick = 0;
+  let currentActiveElement = null;
+  const rafQueue = new Map();
+  const timeoutQueue = new Map();
+  const intervalQueue = new Map();
 
   function element(key) {
     if (!elements.has(key)) {
@@ -76,6 +303,7 @@ function bootApp({ search = '', hash = '', deferKm = false } = {}) {
         dataset: {},
         textContent: '',
         _innerHTML: '',
+        _children: null,
         value: '',
         hidden: false,
         selectionStart: 0,
@@ -91,10 +319,81 @@ function bootApp({ search = '', hash = '', deferKm = false } = {}) {
             return next;
           }
         },
-        setAttribute(k, v) { attrs[k] = String(v); },
-        getAttribute(k) { return attrs[k] ?? null; },
+        setAttribute(k, v) {
+          const actualKey = k.toLowerCase() === 'viewbox' ? 'viewBox' : k;
+          attrs[actualKey] = String(v);
+        },
+        getAttribute(k) {
+          if (k.toLowerCase() === 'viewbox') return attrs['viewBox'] ?? attrs['viewbox'] ?? null;
+          return attrs[k] ?? attrs[k.toLowerCase()] ?? null;
+        },
+        hasAttribute(k) { return Object.prototype.hasOwnProperty.call(attrs, k); },
         removeAttribute(k) { delete attrs[k]; },
-        focus() {},
+        contains(child) {
+          if (!child) return false;
+          if (child === this) return true;
+          if (this._children) {
+            for (const c of this._children) {
+              if (c === child || (c.contains && c.contains(child))) return true;
+            }
+          }
+          return false;
+        },
+        closest(sel) {
+          let curr = this;
+          while (curr && curr.tag !== '#text') {
+            if (matchesSelector(curr, sel)) return curr;
+            curr = curr.parent;
+          }
+          return null;
+        },
+        querySelector(sel) {
+          if (this._children) {
+            for (const c of this._children) {
+              if (c.tag !== '#text') {
+                if (matchesSelector(c, sel)) return c;
+                if (typeof c.querySelector === 'function') {
+                  const found = c.querySelector(sel);
+                  if (found) return found;
+                }
+              }
+            }
+          }
+          return null;
+        },
+        querySelectorAll(sel) {
+          if (enableFlipRects && sel === '[data-morph-key]') {
+            const tick = flipRenderTick++;
+            return ['hero-title', 'core-diagram'].map((mk, idx) => ({
+              dataset: { morphKey: mk },
+              offsetWidth: 120,
+              style: {},
+              classList: { add() {}, remove() {}, contains() { return false; }, toggle() {} },
+              getAttribute: a => (a === 'data-morph-key' ? mk : null),
+              getBoundingClientRect: () => ({
+                left: 30 + tick * 40 + idx * 10,
+                top: 50 + tick * 20,
+                width: 240 + tick * 30,
+                height: 80 + tick * 10
+              })
+            }));
+          }
+          const results = [];
+          if (this._children) {
+            for (const c of this._children) {
+              if (c.tag !== '#text') {
+                if (matchesSelector(c, sel)) results.push(c);
+                if (typeof c.querySelectorAll === 'function') {
+                  results.push(...c.querySelectorAll(sel));
+                }
+              }
+            }
+          }
+          return results;
+        },
+        focus() {
+          currentActiveElement = this;
+        },
         setSelectionRange(s, e) { this.selectionStart = s; this.selectionEnd = e; },
         scrollIntoView() {},
         click() { this._clicked = true; },
@@ -104,15 +403,24 @@ function bootApp({ search = '', hash = '', deferKm = false } = {}) {
         }
       };
       Object.defineProperty(node, 'innerHTML', {
-        get() { return this._innerHTML; },
+        get() {
+          if (this._children && this._children.length > 0) {
+            return this._children.map(serializeMockNode).join('');
+          }
+          return this._innerHTML;
+        },
         set(v) {
+          if (currentActiveElement && this.contains(currentActiveElement)) {
+            currentActiveElement = null;
+          }
           this._innerHTML = String(v ?? '');
-          // Sync child #knowledge-map-root when #main is rendered (fresh placeholder resets data-km-mounted)
+          this._children = parseMockFragment(this._innerHTML, this, () => currentActiveElement, el => { currentActiveElement = el; }, elements);
           if (key === '#main') {
             const m = this._innerHTML.match(/<section id="knowledge-map-root"[^>]*>([\s\S]*?)<\/section>/);
             if (m) {
               const kmRoot = element('#knowledge-map-root');
               kmRoot._innerHTML = m[1];
+              kmRoot._children = parseMockFragment(m[1], kmRoot, () => currentActiveElement, el => { currentActiveElement = el; }, elements);
               kmRoot.removeAttribute('data-km-mounted');
               delete kmRoot.dataset.kmMounted;
             }
@@ -137,6 +445,7 @@ function bootApp({ search = '', hash = '', deferKm = false } = {}) {
   const document = {
     title: '',
     documentElement: { dataset: {} },
+    get activeElement() { return currentActiveElement; },
     getElementById(id) {
       if (id in jsonBlocks) return { textContent: jsonBlocks[id] };
       if (id === 'knowledge-map-root') {
@@ -159,6 +468,13 @@ function bootApp({ search = '', hash = '', deferKm = false } = {}) {
   MockURL.createObjectURL = blob => { blobs.push(blob); return 'blob:km-md'; };
   MockURL.revokeObjectURL = () => {};
 
+  const setTimeoutFn = (fn, ms) => { const id = handleSeq++; timeoutQueue.set(id, { fn, ms: Number(ms) || 0 }); return id; };
+  const clearTimeoutFn = id => { timeoutQueue.delete(id); };
+  const setIntervalFn = (fn, ms) => { const id = handleSeq++; intervalQueue.set(id, { fn, ms: Number(ms) || 0 }); return id; };
+  const clearIntervalFn = id => { intervalQueue.delete(id); };
+  const rafFn = enableRaf ? (fn => { const id = handleSeq++; rafQueue.set(id, fn); return id; }) : undefined;
+  const cafFn = enableRaf ? (id => { rafQueue.delete(id); }) : undefined;
+
   const window = {
     document,
     location,
@@ -169,6 +485,13 @@ function bootApp({ search = '', hash = '', deferKm = false } = {}) {
     URL: MockURL,
     confirm: () => true,
     scrollTo() {},
+    matchMedia: q => ({ matches: Boolean(osReducedMotion && q.includes('reduce')) }),
+    performance: { now: () => fakeNowMs },
+    setTimeout: setTimeoutFn,
+    clearTimeout: clearTimeoutFn,
+    setInterval: setIntervalFn,
+    clearInterval: clearIntervalFn,
+    ...(enableRaf ? { requestAnimationFrame: rafFn, cancelAnimationFrame: cafFn } : {}),
     addEventListener(name, fn) { winHandlers.set(name, fn); },
     history: {
       replaceState(_s, _t, url) {
@@ -209,9 +532,11 @@ function bootApp({ search = '', hash = '', deferKm = false } = {}) {
     SyntaxError,
     Promise,
     fetch: () => Promise.resolve({ ok: false }),
-    setInterval() {},
-    setTimeout() {},
-    clearTimeout() {},
+    setTimeout: setTimeoutFn,
+    clearTimeout: clearTimeoutFn,
+    setInterval: setIntervalFn,
+    clearInterval: clearIntervalFn,
+    ...(enableRaf ? { requestAnimationFrame: rafFn, cancelAnimationFrame: cafFn } : {}),
     console
   };
   context.globalThis = context;
@@ -219,6 +544,8 @@ function bootApp({ search = '', hash = '', deferKm = false } = {}) {
   vm.runInContext(bootMatch[1], context);
   window.OphSpecialty = context.window.OphSpecialty;
   if (!deferKm) {
+    vm.runInContext(kmMotionJs, context);
+    window.OphKnowledgeMotion = context.window.OphKnowledgeMotion;
     vm.runInContext(kmJs, context);
     window.OphKnowledgeMap = context.window.OphKnowledgeMap;
   }
@@ -227,10 +554,46 @@ function bootApp({ search = '', hash = '', deferKm = false } = {}) {
     winHandlers.get('load')?.();
   }
 
-  function loadDeferredKnowledgeMap() {
-    vm.runInContext(kmJs, context);
-    window.OphKnowledgeMap = context.window.OphKnowledgeMap;
+  function loadDeferredKnowledgeMap({ reverseOrder = false } = {}) {
+    if (reverseOrder) {
+      vm.runInContext(kmJs, context);
+      window.OphKnowledgeMap = context.window.OphKnowledgeMap;
+      vm.runInContext(kmMotionJs, context);
+      window.OphKnowledgeMotion = context.window.OphKnowledgeMotion;
+    } else {
+      vm.runInContext(kmMotionJs, context);
+      window.OphKnowledgeMotion = context.window.OphKnowledgeMotion;
+      vm.runInContext(kmJs, context);
+      window.OphKnowledgeMap = context.window.OphKnowledgeMap;
+    }
     return window.OphKnowledgeMap;
+  }
+
+  function stepRaf(dtMs = 120) {
+    fakeNowMs += dtMs;
+    const batch = [...rafQueue.entries()];
+    rafQueue.clear();
+    for (const [, fn] of batch) fn(fakeNowMs);
+    return batch.length;
+  }
+
+  function stepTimers() {
+    const batch = [...timeoutQueue.entries()];
+    timeoutQueue.clear();
+    for (const [, entry] of batch) entry.fn();
+    return batch.length;
+  }
+
+  function stepIntervals(ticks = 1) {
+    let count = 0;
+    for (let t = 0; t < ticks; t++) {
+      for (const [, entry] of [...intervalQueue.entries()]) {
+        if (intervalQueue.size === 0) break;
+        entry.fn();
+        count++;
+      }
+    }
+    return count;
   }
 
   function main() {
@@ -245,7 +608,14 @@ function bootApp({ search = '', hash = '', deferKm = false } = {}) {
   return {
     qa: context.__qa,
     get km() { return context.window.OphKnowledgeMap; },
+    get kmMotion() { return context.window.OphKnowledgeMotion; },
     loadDeferredKnowledgeMap,
+    stepRaf,
+    stepTimers,
+    stepIntervals,
+    rafQueue,
+    timeoutQueue,
+    intervalQueue,
     location,
     blobs,
     clipboard,
@@ -254,6 +624,7 @@ function bootApp({ search = '', hash = '', deferKm = false } = {}) {
     docHandlers,
     elHandlers,
     element,
+    document,
     main,
     nav: () => element('#nav').innerHTML,
     tabbar: () => element('#tabbar').innerHTML,
@@ -288,6 +659,15 @@ function bootApp({ search = '', hash = '', deferKm = false } = {}) {
         }
       });
     },
+    kmKey(key, targetTag = 'DIV') {
+      const h = elHandlers.get('#knowledge-map-root')?.get('keydown');
+      assert(h, 'knowledge-map-root must bind keydown listener');
+      h({
+        key,
+        preventDefault() {},
+        target: { tagName: targetTag, id: '', closest: () => null }
+      });
+    },
     kmType(val) {
       const h = elHandlers.get('#knowledge-map-root')?.get('input');
       assert(h, 'knowledge-map-root must bind input listener');
@@ -307,14 +687,19 @@ async function test(name, fn) {
 }
 
 (async () => {
-  await test('head assets, 390px-safe CSS invariants, and apply-knowledge-map.py --check idempotency', () => {
-    assert(html.includes('<link rel="stylesheet" href="scripts/knowledge-map.css">'));
-    assert(html.includes('<script src="scripts/knowledge-map.js" defer></script>'));
+  await test('head assets, script load order, 390px-safe CSS invariants, and apply-knowledge-map.py --check idempotency', () => {
+    const cssTag = '<link rel="stylesheet" href="scripts/knowledge-map.css">';
+    const motionTag = '<script src="scripts/knowledge-map-motion.js" defer></script>';
+    const kmTag = '<script src="scripts/knowledge-map.js" defer></script>';
+    assert(html.includes(cssTag));
+    assert(html.includes(motionTag));
+    assert(html.includes(kmTag));
+    assert(html.indexOf(motionTag) < html.indexOf(kmTag), 'knowledge-map-motion.js must precede knowledge-map.js');
     assert(kmCss.includes('overflow-x:clip'));
     assert(kmCss.includes('@media(max-width:760px)'));
-    assert(!/fbclid/i.test(kmJs) && !/fbclid/i.test(html), 'zero fbclid tracking params');
+    assert(!/fbclid/i.test(kmMotionJs) && !/fbclid/i.test(kmJs) && !/fbclid/i.test(html), 'zero fbclid tracking params');
 
-    const checkOut = execFileSync('python3', [path.join(ROOT, 'scripts/apply-knowledge-map.py'), '--check'], { encoding: 'utf8' });
+    const checkOut = execFileSync('python3', ['-B', path.join(ROOT, 'scripts/apply-knowledge-map.py'), '--check'], { encoding: 'utf8' });
     assert(checkOut.includes('Knowledge Map hooks current'));
   });
 
@@ -605,6 +990,461 @@ async function test(name, fn) {
         assert(Math.max(gapX, gapY) >= 12, `Rendered SVG <rect> ${i} and ${j} closer than 12px`);
       }
     }
+  });
+
+  await test('Issue #200 sub-routes (#knowledge-map-flythrough / -slides / -sketch), Studio Bar, and reverse deferred load order work cleanly', () => {
+    const app = bootApp({ hash: '#knowledge-map-slides' });
+    assert.equal(app.qa.S.tab, 'map');
+    assert.equal(app.qa.S.mapNode, 'slides');
+    assert.equal(app.km.getStudioMode(), 'slides');
+    assert(app.kmHtml().includes('data-km-engine="slides"'));
+    wellFormed(app.kmHtml());
+
+    for (const mode of ['flythrough', 'slides', 'sketch']) {
+      const h = '#knowledge-map-' + mode;
+      const r = app.qa.parseRoute(h);
+      assert.deepEqual({ ...r }, { kind: 'map', tab: 'map', id: mode, hash: h });
+      assert.equal(app.qa.normalizeLinkUrl(h), h);
+      assert(app.qa.routeLabel(r).length >= 4);
+      assert.equal(app.qa.openRoute(h), true);
+      assert.equal(app.km.getStudioMode(), mode);
+      assert.equal(app.qa.routeMatchesView(r), true);
+      assert(app.kmHtml().includes(`data-km-engine="${mode}"`));
+      wellFormed(app.kmHtml());
+    }
+
+    // Studio bar button clicks update mode + spotlight + hash
+    app.kmClick('studio-mode', 'sketch');
+    assert.equal(app.km.getStudioMode(), 'sketch');
+    assert.equal(app.km.getSelectedNodeId(), 'obsidian-excalidraw-33');
+    assert.equal(app.location.hash, '#knowledge-map-sketch');
+
+    app.kmClick('studio-mode', 'flythrough');
+    assert.equal(app.km.getStudioMode(), 'flythrough');
+    assert.equal(app.location.hash, '#knowledge-map-flythrough');
+
+    // Reverse deferred script order (knowledge-map.js executes before knowledge-map-motion.js)
+    const rev = bootApp({ hash: '#knowledge-map-sketch', deferKm: true });
+    rev.action('tab', 'map');
+    rev.loadDeferredKnowledgeMap({ reverseOrder: true });
+    rev.winHandlers.get('load')?.();
+    assert.equal(rev.km.getStudioMode(), 'sketch');
+    assert(rev.kmHtml().includes('data-km-engine="sketch"'));
+    assert(rev.kmHtml().includes('viewBox="0 0 880 380"'));
+  });
+
+  await test('Engine 1 (flythrough): curved cubic-Bezier synapses, 60fps RAF camera flyTo/zoom/reset, 7-stop tour, motion toggle, and timer cleanup', () => {
+    const app = bootApp({ hash: '#knowledge-map-flythrough', enableRaf: true });
+    const baseIntervals = app.intervalQueue.size;
+    const dom0 = app.kmHtml();
+    assert(/<path class="km-edge[^"]*" d="M \d+ \d+ C /.test(dom0), 'SVG edges must render curved cubic-Bezier paths');
+    assert(dom0.includes('class="km-edge-stream'), 'Active edges must render .km-edge-stream');
+    assert(dom0.includes('class="km-pulse-orb'), 'Active edges must render glowing .km-pulse-orb');
+
+    // 60fps RAF flyToNode interpolation
+    app.km.flyToNode('obsidian-motion-285', { durationMs: 500 });
+    assert.equal(app.rafQueue.size, 1, 'flyToNode must schedule requestAnimationFrame');
+    app.stepRaf(250); // halfway through 500ms -> cubicEaseInOut(0.5) === 0.5
+    const midBox = app.km.getCameraBox();
+    assert(midBox[2] < 900 && midBox[2] > 450, `Mid-flight width should interpolate smoothly, got ${midBox[2]}`);
+    const svgViewBoxAttr = app.element('#km-main-svg').getAttribute('viewBox');
+    assert(svgViewBoxAttr && !svgViewBoxAttr.startsWith('0 0 960'), 'Live #km-main-svg viewBox updates per RAF frame');
+    app.stepRaf(300); // finish flight
+    const landedBox = app.km.getCameraBox();
+    assert(landedBox[2] < 500, `Landed camera width should zoom in on node, got ${landedBox[2]}`);
+    assert.equal(app.rafQueue.size, 0);
+
+    // Zoom in / Zoom out / Reset overview
+    const beforeZoomW = landedBox[2];
+    app.km.zoomCamera(1, { instant: true });
+    const zoomedInW = app.km.getCameraBox()[2];
+    assert(zoomedInW < beforeZoomW, 'zoomCamera(1) narrows viewBox width');
+    app.km.zoomCamera(-1, { instant: true });
+    assert(app.km.getCameraBox()[2] > zoomedInW, 'zoomCamera(-1) widens viewBox width');
+    app.km.resetCamera({ instant: true });
+    assert.deepEqual([...app.km.getCameraBox()], [0, 0, 960, 440]);
+
+    // 7-stop curated cinema tour + final overview reset (8 stops total in TOUR_STOPS)
+    const visited = [];
+    app.km.startTour({ instant: true, stepHoldMs: 200 });
+    assert.equal(app.km.isTourActive(), true);
+    for (let i = 0; i < app.kmMotion.TOUR_STOPS.length; i++) {
+      const expectedStop = app.kmMotion.TOUR_STOPS[i];
+      visited.push(expectedStop === 'overview' ? 'overview' : app.km.getSelectedNodeId());
+      assert(app.kmHtml().includes('class="km-tour-caption"'), `Stop ${expectedStop} must show live cinema narration caption`);
+      app.stepTimers();
+    }
+    assert.deepEqual(visited, ['hub', 'reading-core', 'srs-banks', 'written-qa', 'interview-flow', 'story-workshop', 'obsidian-motion-285', 'overview']);
+    assert.equal(app.km.isTourActive(), false);
+    assert.deepEqual([...app.km.getCameraBox()], [0, 0, 960, 440]);
+
+    // Timer & RAF leak prevention on stopTour, unmount, and tab leave
+    const timeoutsBeforeTour = app.timeoutQueue.size;
+    app.km.startTour({ instant: true, stepHoldMs: 500 });
+    assert.equal(app.timeoutQueue.size, timeoutsBeforeTour + 1);
+    assert.equal(app.km.getActiveTimerCount(), 1);
+    app.km.stopTour();
+    assert.equal(app.timeoutQueue.size, timeoutsBeforeTour);
+    assert.equal(app.km.getActiveTimerCount(), 0);
+    assert(!app.kmHtml().includes('class="km-tour-caption"'), 'P2-1: stopTour() must clear stale HUD narration banner');
+
+    // P2-1: selectNode() also clears any stale flyToNode narration banner
+    app.km.flyToNode('reading-core', { instant: true });
+    assert(app.kmHtml().includes('class="km-tour-caption"'));
+    app.km.selectNode('srs-banks');
+    assert(!app.kmHtml().includes('class="km-tour-caption"'), 'P2-1: selectNode() must clear stale HUD narration banner');
+
+    // P1-2: Toggling reduced motion mid-flight during startTour() snaps camera and advances tour without deadlock
+    const timeoutsBeforeMidFlight = app.timeoutQueue.size;
+    app.km.startTour({ flyDurationMs: 500, stepHoldMs: 250 });
+    assert.equal(app.km.isTourActive(), true);
+    assert.equal(app.rafQueue.size, 1);
+    assert.equal(app.timeoutQueue.size, timeoutsBeforeMidFlight);
+    app.km.toggleMotion(true); // switch to reduced motion while camera RAF is mid-flight
+    assert.equal(app.rafQueue.size, 0, 'P1-2: mid-flight camera RAF cancelled on reduced-motion toggle');
+    assert.equal(app.km.isTourActive(), true, 'P1-2: tour stays active and schedules next hold timer');
+    assert.equal(app.timeoutQueue.size, timeoutsBeforeMidFlight + 1, 'P1-2: hold timer scheduled immediately after snap');
+    app.stepTimers();
+    assert.equal(app.km.getSelectedNodeId(), 'reading-core', 'P1-2: tour advances cleanly to stop 2 without deadlock');
+    app.km.stopTour();
+    app.km.toggleMotion(false);
+
+    // P1-4: Cross-engine mode switch (startTour -> setSlide) immediately stops tour and clears background timers
+    app.km.startTour({ flyDurationMs: 400, stepHoldMs: 500 });
+    assert.equal(app.km.isTourActive(), true);
+    app.km.setSlide(1);
+    assert.equal(app.km.getStudioMode(), 'slides');
+    assert.equal(app.km.isTourActive(), false, 'P1-4: setSlide() must stop active tour');
+    assert.equal(app.km.getActiveTimerCount(), 0, 'P1-4: setSlide() must clear tour RAF/timers');
+
+    app.km.startTour({ flyDurationMs: 400, stepHoldMs: 500 });
+    assert.equal(app.rafQueue.size, 1);
+    assert(app.km.getActiveTimerCount() > 0);
+    app.action('tab', 'today'); // triggers OphKnowledgeMap.unmount() in syncPracticeHash
+    assert.equal(app.km.getActiveTimerCount(), 0);
+    assert.equal(app.rafQueue.size, 0);
+    assert.equal(app.intervalQueue.size, baseIntervals);
+
+    // OS prefers-reduced-motion + manual override toggle
+    const rmApp = bootApp({ hash: '#knowledge-map-flythrough', enableRaf: true, osReducedMotion: true });
+    assert.equal(rmApp.km.isReducedMotion(), true);
+    assert.equal(rmApp.element('#knowledge-map-root').getAttribute('data-km-motion'), 'reduced');
+    rmApp.km.flyToNode('srs-banks', { durationMs: 500 });
+    assert.equal(rmApp.rafQueue.size, 0, 'Reduced motion must snap immediately without scheduling RAF');
+    rmApp.kmClick('toggle-motion');
+    assert.equal(rmApp.km.isReducedMotion(), false);
+    assert.equal(rmApp.element('#knowledge-map-root').getAttribute('data-km-motion'), 'forced-on');
+
+    // P2-2: Pre-load generic #knowledge-map route reset over stale #knowledge-map-slides hash
+    const preLoadApp = bootApp({ hash: '#knowledge-map-slides' });
+    assert.equal(preLoadApp.km.getStudioMode(), 'slides');
+    preLoadApp.qa.openRoute('#knowledge-map', false);
+    assert.equal(preLoadApp.km.getStudioMode(), 'flythrough', 'P2-2: openRoute(#knowledge-map, false) must reset to flythrough');
+    assert.equal(preLoadApp.km.getSelectedNodeId(), 'obsidian-motion-285');
+    preLoadApp.location.hash = '#knowledge-map-slides';
+    preLoadApp.km.mount(preLoadApp.element('#knowledge-map-root'), { specialty: 'oph', nodeId: '', explicitRoute: true });
+    assert.equal(preLoadApp.km.getStudioMode(), 'flythrough', 'P2-2: mount with explicitRoute && !nodeId must not fall back to stale location.hash');
+  });
+
+  await test('Engine 2 (slides): Keynote Magic-Move FLIP shared-element morphing, 2 decks x 4 slides, keyboard arrows, autoplay, and speaker cues', () => {
+    const app = bootApp({ hash: '#knowledge-map-slides' });
+    const baseIntervals = app.intervalQueue.size;
+    const decks = app.kmMotion.getDecks('oph');
+    assert.equal(decks.length, 2);
+
+    // P2-3: Verify oph-triage Slides 1-2 cover both painful red-eye emergencies and painless sudden vision loss (CRAO & RRD)
+    const triageDeck = decks.find(d => d.id === 'oph-triage');
+    assert(triageDeck, 'oph-triage deck must exist');
+    const triageS12 = JSON.stringify(triageDeck.slides.slice(0, 2));
+    for (const term of ['AACG', 'CRAO', 'RRD', '櫻桃紅斑', '視網膜裂孔', '先排閉鎖・再查眼底']) {
+      assert(triageS12.includes(term), `P2-3: oph-triage Slides 1-2 must include "${term}"`);
+    }
+
+    for (const deck of decks) {
+      assert.equal(deck.slides.length, 4);
+      app.km.setDeck(deck.id);
+      assert.equal(app.km.getSlideState().deckId, deck.id);
+      for (let s = 0; s < 4; s++) {
+        app.km.setSlide(s);
+        assert.equal(app.km.getSlideState().slideIndex, s);
+        const dom = app.kmHtml();
+        wellFormed(dom);
+        assert(dom.includes('data-morph-key="hero-badge"'));
+        assert(dom.includes('data-morph-key="hero-title"'));
+        assert(dom.includes('data-morph-key="core-diagram"'));
+        assert(dom.includes('data-morph-key="kpi-card-0"'));
+        assert(dom.includes('data-morph-key="bar-0"'));
+        assert(dom.includes('data-morph-key="timeline-pill"'));
+        assert(dom.includes('口試講者提詞'));
+      }
+    }
+
+    // Keyboard ArrowRight / ArrowLeft navigation (and ignored inside INPUT)
+    app.km.setSlide(0);
+    app.kmKey('ArrowRight');
+    assert.equal(app.km.getSlideState().slideIndex, 1);
+    app.kmKey('ArrowLeft');
+    assert.equal(app.km.getSlideState().slideIndex, 0);
+    app.kmKey('ArrowLeft'); // wraps to slide 3
+    assert.equal(app.km.getSlideState().slideIndex, 3);
+    app.kmKey('ArrowRight', 'INPUT'); // ignored when typing in search input
+    assert.equal(app.km.getSlideState().slideIndex, 3);
+
+    // P1-3: Hidden or unmounted container ignores stray click / keydown events
+    const kmRoot = app.element('#knowledge-map-root');
+    kmRoot.hidden = true;
+    app.kmKey('ArrowRight');
+    assert.equal(app.km.getSlideState().slideIndex, 3, 'P1-3: keydown on hidden container must no-op');
+    app.kmClick('slide-next');
+    assert.equal(app.km.getSlideState().slideIndex, 3, 'P1-3: click on hidden container must no-op');
+    kmRoot.hidden = false;
+
+    // Autoplay interval & clean stop on unmount
+    app.kmClick('toggle-slide-autoplay');
+    assert.equal(app.km.getSlideState().autoplay, true);
+    assert.equal(app.intervalQueue.size, baseIntervals + 1);
+    assert.equal(app.km.getActiveTimerCount(), 1);
+    app.stepIntervals(2);
+    assert.equal(app.km.getSlideState().slideIndex, 1);
+    app.km.unmount();
+    assert.equal(app.intervalQueue.size, baseIntervals);
+    assert.equal(app.km.getActiveTimerCount(), 0);
+    app.kmKey('ArrowRight');
+    assert.equal(app.km.getSlideState().slideIndex, 1, 'P1-3: keydown on unmounted container must no-op');
+
+    // P1-3: setSlide(1) with active FLIP RAF immediately cancelled by unmount() before RAF ticks
+    const flipApp = bootApp({ hash: '#knowledge-map-slides', enableRaf: true, enableFlipRects: true });
+    const flipBaseTimeouts = flipApp.timeoutQueue.size;
+    flipApp.km.setSlide(1);
+    assert.equal(flipApp.rafQueue.size, 1, 'P1-3: setSlide(1) schedules FLIP requestAnimationFrame');
+    assert.equal(flipApp.km.getActiveTimerCount(), 1, 'P1-3: getActiveTimerCount() tracks pending FLIP RAF');
+    flipApp.km.unmount();
+    assert.equal(flipApp.rafQueue.size, 0, 'P1-3: unmount() cancels pending FLIP RAF');
+    assert.equal(flipApp.km.getActiveTimerCount(), 0);
+    flipApp.stepRaf(16);
+    assert.equal(flipApp.timeoutQueue.size, flipBaseTimeouts, 'P1-3: cancelled FLIP RAF must not schedule post-unmount 600ms timeout');
+    assert.equal(flipApp.km.getActiveTimerCount(), 0);
+
+    // Direct FLIP geometry unit test with non-zero bounding rects (First -> Last -> Invert -> Play)
+    let rectPhase = 'first';
+    const mkMorphNode = (key, firstBox, lastBox) => {
+      const classes = new Set();
+      return {
+        dataset: { morphKey: key },
+        offsetWidth: 100,
+        style: {},
+        classList: { add: c => classes.add(c), remove: c => classes.delete(c), has: c => classes.has(c) },
+        getAttribute: a => (a === 'data-morph-key' ? key : null),
+        getBoundingClientRect: () => (rectPhase === 'first' ? firstBox : lastBox)
+      };
+    };
+    const cardA = mkMorphNode('hero-title', { left: 40, top: 60, width: 300, height: 80 }, { left: 140, top: 110, width: 600, height: 160 });
+    const cardZero = mkMorphNode('zero-rect', { left: 0, top: 0, width: 0, height: 0 }, { left: 0, top: 0, width: 0, height: 0 });
+    const mockStage = { querySelectorAll: () => [cardA, cardZero] };
+
+    const firstRects = app.kmMotion.captureFlipRects(mockStage);
+    assert.equal(firstRects.size, 1, '0x0 headless rects must be safely ignored');
+    rectPhase = 'last';
+    let cleanupCb = null;
+    const rafCbs = [];
+    const movedCount = app.kmMotion.playFlipTransition(
+      mockStage,
+      firstRects,
+      false,
+      fn => { cleanupCb = fn; },
+      { requestAnimationFrame: fn => rafCbs.push(fn) }
+    );
+    assert.equal(movedCount, 1);
+    assert.equal(cardA.style.transition, 'none');
+    assert.equal(cardA.style.transform, 'translate3d(-100.00px, -50.00px, 0) scale(0.500, 0.500)');
+    assert.equal(rafCbs.length, 1);
+    rafCbs[0](); // Play frame
+    assert(cardA.classList.has('is-flipping'));
+    assert(cardA.style.transition.includes('cubic-bezier(0.22, 1, 0.36, 1)'));
+    assert.equal(cardA.style.transform, 'translate3d(0, 0, 0) scale(1, 1)');
+    cleanupCb(); // Post-transition cleanup
+    assert.equal(cardA.classList.has('is-flipping'), false);
+    assert.equal(cardA.style.transform, '');
+  });
+
+  await test('Engine 3 (sketch): progressive pathLength="1000" stroke-draw, RAPD bilateral pupil constriction/paradoxical dilation, and AACG LPI', () => {
+    const app = bootApp({ hash: '#knowledge-map-sketch' });
+    const scenes = app.kmMotion.getSketchScenes('oph');
+    assert.equal(scenes.length, 2);
+    assert.equal(scenes[0].id, 'oph-rapd');
+    assert.equal(scenes[1].id, 'oph-aacg');
+
+    // P1-5: Scene 1 RAPD bilateral pupil rings [20, 15, 9, 16] (Step 4 dilation 16px <= scotopic baseline 20px)
+    const expectedRadii = [20, 15, 9, 16];
+    for (let step = 1; step <= 4; step++) {
+      app.km.setSketchStep(step);
+      const dom = app.kmHtml();
+      wellFormed(dom);
+      assert(dom.includes('viewBox="0 0 880 380"'));
+      assert(dom.includes('pathLength="1000"'));
+      const drawnBoxes = [...dom.matchAll(/<g data-sketch-box="(\d)">[\s\S]*?<path class="km-sketch-stroke is-drawn/g)];
+      assert.equal(drawnBoxes.length, step, `Step ${step} should mark ${step} boxes as is-drawn`);
+      const odMatch = dom.match(/data-pupil-side="od"[^>]*r="(\d+)"/);
+      const osMatch = dom.match(/data-pupil-side="os"[^>]*r="(\d+)"/);
+      assert(odMatch && osMatch, `Step ${step} must render bilateral OD/OS pupil rings`);
+      assert.equal(Number(odMatch[1]), expectedRadii[step - 1]);
+      assert.equal(Number(osMatch[1]), expectedRadii[step - 1]);
+      assert(Number(odMatch[1]) <= expectedRadii[0], 'Pupil radius must never exceed scotopic baseline');
+    }
+
+    // P1-5: Verify ACR LI-RADS v2018 high-risk population pearl in rad-liver Step 1
+    const radScenes = app.kmMotion.getSketchScenes('rad');
+    const radLiverPearl = radScenes.find(s => s.id === 'rad-liver').steps[0].pearl;
+    assert(radLiverPearl.includes('肝硬化、慢性 B 型肝炎或曾患肝細胞癌'), 'P1-5: rad-liver pearl must state LI-RADS v2018 high-risk criteria');
+    assert(radLiverPearl.includes('單純慢性 C 肝未合併肝硬化者不適用'), 'P1-5: rad-liver pearl must exclude non-cirrhotic HCV');
+
+    // Scene 2: Acute Angle-Closure Glaucoma & LPI shunt
+    app.km.setSketchScene('oph-aacg');
+    assert.equal(app.km.getSketchState().sceneId, 'oph-aacg');
+    assert.equal(app.km.getSketchState().step, 1);
+    app.km.setSketchStep(2);
+    assert(app.kmHtml().includes('Iris bombé'));
+    app.km.setSketchStep(3);
+    assert(app.kmHtml().includes('58 mmHg'));
+    app.km.setSketchStep(4);
+    assert(app.kmHtml().includes('LPI 雷射穿孔分流'));
+
+    // Play / Speed 1.75x / Auto-stop at step 4 / Replay
+    app.km.setSketchStep(1);
+    app.kmClick('toggle-sketch-speed');
+    assert.equal(app.km.getSketchState().speed, 1.75);
+    app.kmClick('toggle-sketch-play');
+    assert.equal(app.km.getSketchState().playing, true);
+    app.stepIntervals(4);
+    assert.equal(app.km.getSketchState().step, 4);
+    assert.equal(app.km.getSketchState().playing, false, 'Sketch player auto-stops upon completing step 4');
+    app.kmClick('sketch-replay');
+    assert.equal(app.km.getSketchState().step, 1);
+    assert.equal(app.km.getSketchState().playing, true);
+    app.km.unmount();
+    assert.equal(app.km.getActiveTimerCount(), 0);
+  });
+
+  await test('Cross-specialty matrix: all 5 specialties x all 3 modes (flythrough tour, slides decks, sketch scenes) have ZERO ophthalmology leaks', () => {
+    for (const sid of ['oph', 'ent', 'rad', 'nm', 'neuro']) {
+      const app = bootApp({ search: '?s=' + sid, hash: '#knowledge-map' });
+      assert.equal(app.qa.SPEC.id, sid);
+
+      const assertClean = (markup, ctxLabel) => {
+        wellFormed(markup);
+        assert(!markup.includes('undefined') && !markup.includes('NaN'), `${sid} ${ctxLabel} rendered undefined/NaN`);
+        assert.equal(app.location.search, '?s=' + sid, `${sid} ${ctxLabel} must preserve ?s=${sid}`);
+        if (sid !== 'oph') {
+          for (const leak of STRICT_OPH_LEAK_TERMS) {
+            assert(!markup.includes(leak), `${sid} ${ctxLabel} leaked ophthalmology term "${leak}"`);
+          }
+        }
+      };
+
+      // 1. Flythrough mode + all 8 tour stops
+      app.km.setStudioMode('flythrough');
+      app.km.startTour({ instant: true, stepHoldMs: 150 });
+      for (const stopId of app.kmMotion.TOUR_STOPS) {
+        assertClean(app.kmHtml(), `flythrough tour:${stopId}`);
+        app.stepTimers();
+      }
+
+      // 2. Slides mode: all decks x all 4 slides
+      const decks = app.kmMotion.getDecks(sid);
+      assert.equal(decks.length, 2, `${sid} must provide 2 slide decks`);
+      app.km.setStudioMode('slides');
+      for (const deck of decks) {
+        assert.equal(deck.slides.length, 4, `${sid} deck ${deck.id} must have 4 slides`);
+        app.km.setDeck(deck.id);
+        for (let i = 0; i < deck.slides.length; i++) {
+          app.km.setSlide(i);
+          assertClean(app.kmHtml(), `slides ${deck.id}[${i}]`);
+        }
+      }
+
+      // 3. Sketch mode: all scenes x all 4 steps
+      const scenes = app.kmMotion.getSketchScenes(sid);
+      assert.equal(scenes.length, 2, `${sid} must provide 2 sketch scenes`);
+      app.km.setStudioMode('sketch');
+      for (const scene of scenes) {
+        assert.equal(scene.steps.length, 4, `${sid} scene ${scene.id} must have 4 steps`);
+        app.km.setSketchScene(scene.id);
+        for (let step = 1; step <= 4; step++) {
+          app.km.setSketchStep(step);
+          assertClean(app.kmHtml(), `sketch ${scene.id}@step${step}`);
+        }
+      }
+
+      app.km.unmount();
+      assert.equal(app.km.getActiveTimerCount(), 0);
+    }
+  });
+
+  await test('Codex P2-1 & P2-2 regressions: in-place sketch animation preserves SVG/pupil DOM references, and slide stage preserves focus', () => {
+    const app = bootApp({ hash: '#knowledge-map-sketch' });
+    const root = app.element('#knowledge-map-root');
+
+    // 1. Sketch step in-place animation (Codex P2-1)
+    app.km.setSketchStep(2);
+    const svgBefore = root.querySelector('.km-sketch-svg');
+    const pupilBefore = root.querySelector('.km-rapd-pupil-od');
+    assert(svgBefore, 'Sketch SVG element must exist at step 2');
+    assert(pupilBefore, 'OD pupil circle must exist at step 2');
+    assert.equal(pupilBefore.getAttribute('r'), '15');
+
+    app.km.setSketchStep(3);
+    const svgAfter = root.querySelector('.km-sketch-svg');
+    const pupilAfter = root.querySelector('.km-rapd-pupil-od');
+    assert.equal(svgBefore, svgAfter, 'setSketchStep must preserve the exact same SVG DOM node reference');
+    assert.equal(pupilBefore, pupilAfter, 'setSketchStep must preserve the exact same pupil DOM node reference');
+    assert.equal(pupilAfter.getAttribute('r'), '9', 'OD pupil radius must be updated in-place to 9px');
+
+    // Verify stroke path classes and attributes are updated in-place
+    const box3Stroke = root.querySelector('[data-sketch-box="3"] .km-sketch-stroke');
+    assert(box3Stroke, 'Box 3 stroke must exist');
+    assert(box3Stroke.classList.contains('is-drawn'), 'Box 3 stroke must have .is-drawn class at step 3');
+    assert(box3Stroke.classList.contains('is-current-step'), 'Box 3 stroke must have .is-current-step class at step 3');
+
+    // 2. Slide stage focus preservation (Codex P2-2)
+    app.km.setStudioMode('slides');
+    const stageBefore = root.querySelector('.km-slides-stage');
+    assert(stageBefore, 'Slide stage element must exist');
+    stageBefore.focus();
+    assert.equal(app.document.activeElement, stageBefore, 'Slide stage must have focus before slide change');
+
+    app.km.setSlide(1);
+    const stageAfter = root.querySelector('.km-slides-stage');
+    assert(stageAfter, 'New slide stage element must exist');
+    assert.equal(app.document.activeElement, stageAfter, 'Focus must be restored to the newly rendered slide stage');
+
+    // 3. Connector particles synchronization (Codex P2-4)
+    app.km.setSketchStep(1);
+    const orbsAtStep1 = root.querySelectorAll('.km-pulse-orb[data-pulse-idx]');
+    assert.equal(orbsAtStep1.length, 3, 'Must render all 3 connector particles');
+    assert(orbsAtStep1[0].classList.contains('is-hidden') || orbsAtStep1[0].style.display === 'none', 'Orb 0 hidden at step 1');
+    assert(orbsAtStep1[1].classList.contains('is-hidden') || orbsAtStep1[1].style.display === 'none', 'Orb 1 hidden at step 1');
+    assert(orbsAtStep1[2].classList.contains('is-hidden') || orbsAtStep1[2].style.display === 'none', 'Orb 2 hidden at step 1');
+
+    app.km.setSketchStep(4);
+    assert(orbsAtStep1[0].classList.contains('is-motion') && orbsAtStep1[0].style.display !== 'none', 'Orb 0 visible at step 4');
+    assert(orbsAtStep1[1].classList.contains('is-motion') && orbsAtStep1[1].style.display !== 'none', 'Orb 1 visible at step 4');
+    assert(orbsAtStep1[2].classList.contains('is-motion') && orbsAtStep1[2].style.display !== 'none', 'Orb 2 visible at step 4');
+
+    app.km.setSketchStep(1);
+    assert(orbsAtStep1[0].classList.contains('is-hidden') || orbsAtStep1[0].style.display === 'none', 'Orb 0 hidden on reset to step 1');
+    assert(orbsAtStep1[1].classList.contains('is-hidden') || orbsAtStep1[1].style.display === 'none', 'Orb 1 hidden on reset to step 1');
+    assert(orbsAtStep1[2].classList.contains('is-hidden') || orbsAtStep1[2].style.display === 'none', 'Orb 2 hidden on reset to step 1');
+
+    // 4. Generic percentage update (Codex P2-3)
+    const entApp = bootApp({ search: '?s=ent', hash: '#knowledge-map-sketch' });
+    const entRoot = entApp.element('#knowledge-map-root');
+    const pctEl = entRoot.querySelector('.km-generic-pct');
+    assert(pctEl, 'ENT sketch must render .km-generic-pct element');
+    assert.equal(pctEl.textContent.trim(), '25%', 'ENT initial sketch step 1 must show 25%');
+    entApp.km.setSketchStep(4);
+    assert.equal(pctEl.textContent.trim(), '100%', 'ENT sketch step 4 must update .km-generic-pct in-place to 100%');
+    entApp.km.setSketchStep(2);
+    assert.equal(pctEl.textContent.trim(), '50%', 'ENT sketch step 2 must update .km-generic-pct in-place to 50%');
   });
 
   const failed = results.filter(r => !r.pass);
