@@ -1447,7 +1447,7 @@ async function test(name, fn) {
     const app = bootApp({ spec: 'ent', hash: '#tab-quiz' });
     assert.equal(app.written.pastCount('ent'), 16, 'ENT written pastCount is 16');
     assert.equal(app.written.pastCount('oph'), 0, 'OPH written pastCount is 0');
-    assert(app.main().includes('110–113 各院筆試申論（16 組 · 含完整答案）'));
+    assert(app.main().includes('110–113 筆試申論（16 組 · 中榮為主 · 含完整答案）'));
 
     app.fireClick('spec-quiz-mode', 'written-past');
     assert.equal(app.window.OphQuizBank.getMode(), 'written', 'OphQuizBank.getMode() stays strictly written');
@@ -1549,6 +1549,67 @@ async function test(name, fn) {
     await radCold.settle(30);
     assert.equal(countCards(radCold.main()), 36);
     assert.equal(radCold.location.hash, '#written');
+  });
+
+  await test('Issue #210: TCVGH (中榮) 110–113 past-exam written essay prioritization, dedicated filtering, badges, and deep-linking', async () => {
+    const countCards = markup => (markup.match(/<article class="card written-card"/g) || []).length;
+    const firstCardId = markup => (markup.match(/data-written-card="([^"]+)"/) || [])[1] || null;
+    const app = bootApp({ spec: 'ent' });
+
+    // 1. hasPastEssays, pastCount and tcvghPastCount API
+    assert.equal(app.written.hasPastEssays('ent'), true, 'hasPastEssays("ent") returns true');
+    assert.equal(app.written.pastCount('ent'), 16, 'ENT pastCount is 16');
+    assert.equal(app.written.tcvghPastCount('ent'), 11, 'ENT tcvghPastCount is 11');
+    assert.equal(app.written.tcvghPastCount('oph'), 0, 'OPH tcvghPastCount is 0');
+    assert.equal(app.written.tcvghPastCount('rad'), 0, 'RAD tcvghPastCount is 0');
+
+    // 2. TCVGH badges and dedicated filter bar render in #written-past
+    const appEnt = bootApp({ spec: 'ent', hash: '#written-past' });
+    assert.equal(appEnt.written.getQuizScope(), 'past');
+    const mainHtml = appEnt.main();
+    assert(mainHtml.includes('class="written-past-filter-bar"'), 'renders dedicated written-past-filter-bar in past scope');
+    assert(mainHtml.includes('全部各院（16 組）'), 'filter bar contains 全部各院（16 組） button');
+    assert(mainHtml.includes('臺中榮總必考（11 組）'), 'filter bar contains 臺中榮總必考（11 組） button');
+    assert(mainHtml.includes('class="card card-pad written-tcvgh-banner"'), 'renders TCVGH guidance banner in past scope');
+    assert.equal(countCards(mainHtml), 16, 'past scope shows all 16 items');
+
+    // Verify TCVGH badges: exactly 11 cards have <span class="tag written-badge-tcvgh">中榮必考</span>
+    const tcvghBadgeMatches = (mainHtml.match(/<span class="tag written-badge-tcvgh">中榮必考<\/span>/g) || []).length;
+    assert.equal(tcvghBadgeMatches, 11, 'exactly 11 cards render the 中榮必考 badge');
+
+    // 3. Switch to TCVGH filter via filter bar button
+    appEnt.fireClick('written-past-filter', 'tcvgh');
+    assert.equal(appEnt.written.getQuizScope(), 'past-tcvgh');
+    assert.equal(appEnt.location.hash, '#written-past-tcvgh');
+    const tcvghHtml = appEnt.main();
+    assert.equal(countCards(tcvghHtml), 11, 'past-tcvgh filters to exactly 11 TCVGH core items');
+    assert.equal(firstCardId(tcvghHtml), 'ent-wq-past-03', 'first TCVGH card is ent-wq-past-03');
+    assert(tcvghHtml.includes('【中榮 112/113 必考】'), 'card titles show required TCVGH exam format');
+    assert(tcvghHtml.includes('【中榮 110–113 連續命題】'), 'LEMG card title shows required format');
+
+    // 4. Switch back to all past exams via filter bar button
+    appEnt.fireClick('written-past-filter', 'all');
+    assert.equal(appEnt.written.getQuizScope(), 'past');
+    assert.equal(appEnt.location.hash, '#written-past');
+    assert.equal(countCards(appEnt.main()), 16, 'switches back to all 16 past exam items');
+    assert.equal(firstCardId(appEnt.main()), 'ent-wq-past-01');
+
+    // 5. Deep link directly to #written-past-tcvgh
+    const appTcvghDeep = bootApp({ spec: 'ent', hash: '#written-past-tcvgh' });
+    assert.equal(appTcvghDeep.written.getQuizScope(), 'past-tcvgh');
+    assert.equal(countCards(appTcvghDeep.main()), 11, 'direct deep link #written-past-tcvgh renders 11 items');
+    assert.equal(appTcvghDeep.qa.routeMatchesView(appTcvghDeep.qa.parseRoute('#written-past-tcvgh')), true);
+    assert.equal(appTcvghDeep.qa.routeMatchesView(appTcvghDeep.qa.parseRoute('#written-past')), false);
+
+    // 6. Cross-specialty isolation: OPH and RAD never show TCVGH banner or filter bar
+    const appOph = bootApp({ spec: 'oph', hash: '#written' });
+    assert(!appOph.main().includes('written-tcvgh-banner'), 'OPH main never renders TCVGH banner');
+    assert(!appOph.main().includes('written-past-filter-bar'), 'OPH main never renders past filter bar');
+    assert(!appOph.main().includes('written-badge-tcvgh'), 'OPH main never renders TCVGH badge');
+
+    const appRad = bootApp({ spec: 'rad', hash: '#written' });
+    assert(!appRad.main().includes('written-tcvgh-banner'), 'RAD main never renders TCVGH banner');
+    assert(!appRad.main().includes('written-past-filter-bar'), 'RAD main never renders past filter bar');
   });
 
   const failed = results.filter(r => !r.pass);

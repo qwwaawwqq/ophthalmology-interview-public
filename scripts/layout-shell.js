@@ -346,11 +346,12 @@ function setSpecQuizMode(mode){
     if(S.tab!=='quiz')switchTab('quiz');else render();
     return true;
   }
-  if(mode==='written-past'){
+  if(mode==='written-past'||mode==='written-past-tcvgh'){
     window.OphStudy?.leave?.();
     specQuizMode='written';
-    specWrittenScope='past';
-    window.OphWritten?.setQuizScope?.('past',false);
+    const targetScope=mode==='written-past-tcvgh'?'past-tcvgh':'past';
+    specWrittenScope=targetScope;
+    window.OphWritten?.setQuizScope?.(targetScope,false);
     window.OphWritten?.ensureLoaded?.(SPEC.id);
     if(S.tab!=='quiz')switchTab('quiz');else render();
     return true;
@@ -591,12 +592,12 @@ function specQuizModeBarMarkup(){
   const hospPastCount=D.questions.filter(isHospPastExam).length;
   const pastCount=D.questions.filter(q=>q.pastExam).length;
   const wPastCount=window.OphWritten?.pastCount?.(SPEC.id)||(SPEC.id==='ent'?16:0);
-  const wIsPast=wPastCount>0&&specQuizMode==='written'&&(window.OphWritten?.getQuizScope?window.OphWritten.getQuizScope()==='past':specWrittenScope==='past');
+  const wIsPast=wPastCount>0&&specQuizMode==='written'&&(window.OphWritten?.getQuizScope?/^past/.test(window.OphWritten.getQuizScope()):/^past/.test(specWrittenScope));
   const items=[
     ['mcq',`單選題練習（${D.questions.length} 題）`,specQuizMode==='mcq'&&S.mode!=='kaogu-hosp'&&S.mode!=='kaogu'],
     ...(hospPastCount>0?[['mcq-past-hosp',`110–113 各院考古單選（${hospPastCount} 題）`,specQuizMode==='mcq'&&S.mode==='kaogu-hosp']]:[]),
     ...(pastCount>0?[['mcq-past',`${hospPastCount>0?'歷屆與講義考點單選':'歷屆考點單選'}（${pastCount} 題）`,specQuizMode==='mcq'&&S.mode==='kaogu']]:[]),
-    ...(wPastCount>0?[['written-past',`110–113 各院筆試申論（${wPastCount} 組 · 含完整答案）`,wIsPast]]:[]),
+    ...(wPastCount>0?[['written-past',SPEC.id==='ent'?'110–113 筆試申論（16 組 · 中榮為主 · 含完整答案）':`110–113 各院筆試申論（${wPastCount} 組 · 含完整答案）`,wIsPast]]:[]),
     ['written','手寫問答題（手寫板＋文字作答＋標準答案）',specQuizMode==='written'&&!wIsPast]
   ];
   return `<div class="quiz-spec-modes" data-spec-quiz-mode role="group" aria-label="筆試題型切換">${items.map(([id,lbl,active])=>`<button type="button" class="btn small ${active?'primary':'subtle'}" data-action="spec-quiz-mode" data-value="${id}" aria-pressed="${active}">${esc(lbl)}</button>`).join('')}</div>`;
@@ -711,7 +712,7 @@ function todayQuiz(){
   if(!D.questions.length)return '';
   const cur=question(),q=cur||D.questions[0],st=stats();
   const hasHospPast=SPEC.id!=='oph'&&D.questions.some(isHospPastExam);
-  const advLinks=SPEC.id==='oph'?`<div class="today-quiz-banks" data-today-quiz-banks aria-label="進階題庫快速啟動">${btn('BCSC 1–13 卷（540 題）','quiz-bank-open','bcsc','small subtle')}${btn('Hard 多步臨床推理','quiz-bank-open','hard','small subtle')}${btn('自編陌生病例（120 題）','quiz-bank-open','extra','small subtle')}${btn('手寫問答題','quiz-bank-open','written','small subtle')}</div>`:`<div class="today-quiz-banks" data-today-spec-written aria-label="手寫問答題快速啟動">${hasHospPast?btn('110–113 各院考古單選','spec-quiz-mode','mcq-past-hosp','small subtle')+btn('110–113 各院筆試申論','spec-quiz-mode','written-past','small subtle'):''}${btn('手寫問答題','spec-quiz-mode','written','small subtle')}</div>`;
+  const advLinks=SPEC.id==='oph'?`<div class="today-quiz-banks" data-today-quiz-banks aria-label="進階題庫快速啟動">${btn('BCSC 1–13 卷（540 題）','quiz-bank-open','bcsc','small subtle')}${btn('Hard 多步臨床推理','quiz-bank-open','hard','small subtle')}${btn('自編陌生病例（120 題）','quiz-bank-open','extra','small subtle')}${btn('手寫問答題','quiz-bank-open','written','small subtle')}</div>`:`<div class="today-quiz-banks" data-today-spec-written aria-label="手寫問答題快速啟動">${hasHospPast?btn('110–113 各院考古單選','spec-quiz-mode','mcq-past-hosp','small subtle')+btn(SPEC.id==='ent'?'110–113 筆試申論（中榮為主）':'110–113 各院筆試申論','spec-quiz-mode','written-past','small subtle'):''}${btn('手寫問答題','spec-quiz-mode','written','small subtle')}</div>`;
   return `<article class="card home-card"><p class="today-kicker">${cur?`繼續筆試 · 第 ${S.qi+1} / ${S.ids.length} 題`:'筆試練習'}</p><h3>${esc(shortTitle(q.topicId))}</h3><p class="today-summary clamp">${esc(q.stem)}</p><p class="small">已練習 ${st.answered} / ${D.questions.length} · 待補強 ${st.wrong}</p><div class="today-actions">${cur?btn('繼續作答','today-core-quiz','continue','primary'):btn('開始練習','all','','primary')}${btn('換主題','today-core-quiz','topic')}</div>${advLinks}</article>`;
 }
 function todayInterview(){
