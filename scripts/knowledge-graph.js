@@ -8,6 +8,21 @@
   /* Which course chapters each BCSC section mainly supports (navigation only, not teaching content). */
   const BOOK_MAP = {1: ['notes-13', 'notes-14'], 2: ['notes-01', 'notes-13'], 3: ['notes-02'], 4: ['notes-10', 'notes-11'], 5: ['notes-03'], 6: ['notes-04'], 7: ['notes-08', 'notes-11'],
     8: ['notes-05', 'notes-12'], 9: ['notes-09'], 10: ['notes-07'], 11: ['notes-06'], 12: ['notes-10'], 13: ['notes-02', 'notes-05']};
+  /* English chapter-title keywords that point a BCSC chapter at a course chapter (navigation only). */
+  const TITLE_MAP = [[/glaucoma|intraocular pressure|aqueous/i, 'notes-07'], [/retina|macula|vitre|choroid/i, 'notes-10'], [/cornea|kerat/i, 'notes-05'], [/uveitis|uveal|scleritis|endophthalmitis/i, 'notes-09'],
+    [/strabismus|amblyopia|esodeviation|exodeviation|binocular|extraocular/i, 'notes-04'], [/orbit|lacrimal/i, 'notes-08'], [/eyelid|ptosis/i, 'notes-11'], [/conjunctiv|dry eye|tear film|ocular surface/i, 'notes-12'],
+    [/optic nerve|pupil|visual field|nystagmus|diplopia/i, 'notes-03'], [/\blens\b|cataract/i, 'notes-06'], [/optics|refract|spectacle|contact lens|low vision/i, 'notes-02'], [/pharmacol|drug|medication/i, 'notes-13'], [/examination|imaging|diagnostic/i, 'notes-01']];
+  const GENERIC = new Set(['anterior', 'posterior', 'peripheral', 'central', 'disease', 'diseases', 'ocular', 'ophthalmic', 'surgery', 'surgical', 'syndrome', 'primary', 'secondary', 'chronic', 'testing', 'therapy', 'pattern', 'function', 'patient', 'bilateral', 'unilateral', 'superior', 'inferior', 'clinical', 'general', 'against', 'between', 'without', 'follow-up', 'resection']);
+  /* Distinctive terms in a key point: acronyms such as RAPD or OCT, and long specific words such as topiramate. */
+  function keyTerms(text) {
+    const out = new Map();
+    for (const word of String(text).match(/[A-Za-z][A-Za-z-]{2,}/g) || []) {
+      const lower = word.toLowerCase();
+      const acronym = /[A-Z].*[A-Z]/.test(word) && !/^[IVX]+$/.test(word);
+      if ((acronym || (lower.length >= 7 && !GENERIC.has(lower))) && !out.has(lower)) out.set(lower, acronym ? word : lower);
+    }
+    return out;
+  }
   let active = null, showBooks = true, bookCache = null, bookRequest = null;
 
   const esc = value => String(value == null ? '' : value).replace(/[&<>"']/g, ch => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[ch]));
@@ -28,8 +43,8 @@
       if (index) links.push(['c:' + chapters[index - 1].id, pillarId, 'ring']);
       topic.sections.forEach((section, k) => {
         const id = 'p:' + topic.id + ':' + k;
-        nodes.push({id, kind: 'point', topicId: topic.id, chapterIndex: index, sectionIndex: k, label: section.title, color, r: 4.5,
-          points: (section.points || []).slice(0, 2), parent: topic.title});
+        nodes.push({id, kind: 'point', topicId: topic.id, chapterIndex: index, sectionIndex: k, label: section.title, color, r: 4.5, related: [],
+          terms: keyTerms(section.title + ' ' + (section.points || []).join(' ')), points: (section.points || []).slice(0, 2), parent: topic.title});
         links.push([pillarId, id]);
       });
     });
@@ -50,6 +65,28 @@
         if (!paired.has(key)) { paired.add(key); links.push([from.id, to.id, 'cross']); }
       }
     });
+    /* Key points of different chapters that share a distinctive term, and key points taught in one unit. */
+    const pointNodes = nodes.filter(node => node.kind === 'point');
+    const spread = new Map();
+    for (const node of pointNodes) for (const term of node.terms.keys()) spread.set(term, (spread.get(term) || 0) + 1);
+    for (let i = 0; i < pointNodes.length; i++) {
+      for (let j = i + 1; j < pointNodes.length; j++) {
+        const a = pointNodes[i], b = pointNodes[j];
+        if (a.topicId === b.topicId) continue;
+        const shared = [...a.terms.keys()].filter(term => b.terms.has(term) && spread.get(term) <= 8);
+        if (!shared.length) continue;
+        const reason = '共同關鍵詞：' + shared.map(term => a.terms.get(term)).join('、');
+        a.related.push({id: b.id, label: b.parent + '｜' + b.label, reason});
+        b.related.push({id: a.id, label: a.parent + '｜' + a.label, reason});
+        links.push([a.id, b.id, 'term']);
+      }
+    }
+    chapters.forEach(topic => {
+      for (const unit of (enrichment[topic.id] && enrichment[topic.id].integrated && enrichment[topic.id].integrated.units) || []) {
+        const members = (unit.sectionIndexes || []).filter(k => Number.isInteger(k) && k >= 0 && k < topic.sections.length);
+        for (let k = 1; k < members.length; k++) links.push(['p:' + topic.id + ':' + members[k - 1], 'p:' + topic.id + ':' + members[k], 'unit']);
+      }
+    });
     /* BCSC textbook sections and their chapters, tied to the course chapters they support. */
     const books = [];
     for (const book of (showBooks && Array.isArray(state.books) ? state.books : [])) {
@@ -68,8 +105,15 @@
       }
       book.chapters.forEach((chapter, k) => {
         nodes.push({id: 't:' + chapter.id, kind: 'leaf', bookId: book.bookId, chapterIndex: home, side: side * 2, slot, slots: books.length, sectionIndex: k, total: book.chapters.length,
-          label: chapter.title, color: '#94a3b8', r: 3.5, parent: 'BCSC S' + book.section + ' ' + book.title, number: chapter.number, route: '#textbook-' + chapter.id});
+          label: chapter.title, color: '#94a3b8', r: 3.5, related: [], parent: 'BCSC S' + book.section + ' ' + book.title, number: chapter.number, route: '#textbook-' + chapter.id});
         links.push([id, 't:' + chapter.id]);
+        for (const [pattern, topicId] of TITLE_MAP) {
+          if (!pattern.test(chapter.title) || !chapterIndex.has(topicId) || targets.includes(topicId)) continue;
+          const course = chapterNode(topicId);
+          links.push([course.id, 't:' + chapter.id, 'topic']);
+          nodes[nodes.length - 1].related.push({id: course.id, label: course.label, reason: ''});
+          course.related.push({id: 't:' + chapter.id, label: 'BCSC S' + book.section + '｜' + chapter.title, reason: ''});
+        }
       });
     });
     const byId = new Map(nodes.map(node => [node.id, node]));
@@ -158,7 +202,7 @@
     }
     for (const link of graph.links) {
       const a = link.a, b = link.b;
-      if (link.kind === 'cross') continue;
+      if (link.kind === 'cross' || link.kind === 'term' || link.kind === 'topic' || link.kind === 'unit') continue;
       const rest = link.kind === 'book' ? 230 : a.kind === 'root' ? 290 : b.kind === 'point' ? 50 : b.kind === 'leaf' ? 44 : 132;
       const dx = b.x - a.x, dy = b.y - a.y, d = Math.sqrt(dx * dx + dy * dy) || 1;
       const pull = (d - rest) / d * (link.kind === 'book' ? 0.008 : 0.06) * alpha;
@@ -180,10 +224,10 @@
   function markup(graph, view) {
     const modeButtons = MODES.map(([id, label]) => `<button type="button" class="kg-mode${view.mode === id ? ' is-active' : ''}" data-kg-mode="${id}" aria-pressed="${view.mode === id}">${label}</button>`).join('');
     const bookChips = graph.books.slice().sort((a, b) => a.section - b.section).map(node => `<button type="button" class="kg-chip" data-kg-node="${esc(node.id)}"><i style="background:${node.color}"></i>${esc(node.short)} ${esc(node.label)}</button>`).join('');
-    const leaves = graph.nodes.filter(node => node.kind === 'leaf').length, crossLinks = graph.links.filter(link => link.kind === 'cross').length;
+    const leaves = graph.nodes.filter(node => node.kind === 'leaf').length, crossLinks = graph.links.filter(link => link.kind === 'cross').length, deepLinks = graph.links.filter(link => link.kind === 'term' || link.kind === 'topic').length;
     const bookToggle = view.hasBooks ? `<button type="button" class="kg-mode${showBooks ? ' is-on' : ''}" data-kg-books aria-pressed="${showBooks}">BCSC 原文書：${showBooks ? '顯示中' : '已隱藏'}</button>` : '';
     const chips = graph.chapters.map(node => `<button type="button" class="kg-chip" data-kg-node="${esc(node.id)}"><i style="background:${node.color}"></i>${esc(node.short)} ${esc(node.label)}</button>`).join('');
-    return `<header class="kg-head"><div><p class="kg-eyebrow">知識圖譜</p><h2>${esc(graph.nodes[0].label)}章節知識圖譜</h2><p class="kg-sub">${graph.chapters.length} 章、${graph.nodes.filter(node => node.kind === 'point').length} 個基礎重點${crossLinks ? `、${crossLinks} 條跨章連結（虛線）` : ''}${graph.books.length ? `，加上 BCSC ${graph.books.length} 冊 ${leaves} 章` : ''}。拖曳節點或背景、滾輪縮放；點節點看重點並跳到章節。</p></div></header>`
+    return `<header class="kg-head"><div><p class="kg-eyebrow">知識圖譜</p><h2>${esc(graph.nodes[0].label)}章節知識圖譜</h2><p class="kg-sub">${graph.chapters.length} 章、${graph.nodes.filter(node => node.kind === 'point').length} 個基礎重點${crossLinks ? `、${crossLinks} 條跨章連結（虛線）` : ''}${deepLinks ? `、${deepLinks} 條重點與原文書互連（綠線）` : ''}${graph.books.length ? `，加上 BCSC ${graph.books.length} 冊 ${leaves} 章` : ''}。拖曳節點或背景、滾輪縮放；點節點看重點並跳到章節。</p></div></header>`
       + `<div class="kg-toolbar" role="group" aria-label="圖譜模式">${modeButtons}<button type="button" class="kg-mode" data-kg-reset>重置視角</button>${bookToggle}<span class="kg-status" data-kg-status role="status"></span></div>`
       + `<div class="kg-stage"><canvas class="kg-canvas" tabindex="0" role="img" aria-label="${esc(graph.nodes[0].label)}章節知識圖譜，共 ${graph.nodes.length} 個節點。章節清單在圖下方。"></canvas><div class="kg-caption" data-kg-caption hidden></div></div>`
       + `<div class="kg-detail" data-kg-detail aria-live="polite"><p class="kg-hint">點選圖上的節點，或從下方章節清單選一章。</p></div>`
@@ -199,13 +243,13 @@
         + `<button type="button" class="kg-open" data-kg-open="#textbook-${esc(node.bookId)}">打開這一冊</button>`;
     }
     if (node.kind === 'leaf') {
-      return `<p class="kg-tag" style="border-color:#38bdf8">${esc(node.parent)}</p><h3>第 ${esc(node.number)} 章　${esc(node.label)}</h3><button type="button" class="kg-open" data-kg-open="${esc(node.route)}">打開原文書這一章</button>`;
+      return `<p class="kg-tag" style="border-color:#38bdf8">${esc(node.parent)}</p><h3>第 ${esc(node.number)} 章　${esc(node.label)}</h3>${node.related.length ? `<p class="kg-meta">相關共筆章節</p><ul class="kg-related">${jump(node.related)}</ul>` : ''}<button type="button" class="kg-open" data-kg-open="${esc(node.route)}">打開原文書這一章</button>`;
     }
     if (node.kind === 'chapter') {
       return `<p class="kg-tag" style="border-color:${node.color}">第 ${esc(node.short)} 章</p><h3>${esc(node.label)}</h3>${node.summary ? `<p>${esc(node.summary)}</p>` : ''}`
         + `<p class="kg-meta">${node.count} 個基礎重點 · ${node.questions} 題選擇題 · ${node.cases} 個情境</p>${node.related.length ? `<p class="kg-meta">相關章節與原文書</p><ul class="kg-related">${jump(node.related)}</ul>` : ''}<button type="button" class="kg-open" data-kg-open="#topic-${esc(node.topicId)}">打開這一章</button>`;
     }
-    return `<p class="kg-tag" style="border-color:${node.color}">${esc(node.parent)}</p><h3>${esc(node.label)}</h3>${node.points.map(point => `<p>${esc(point)}</p>`).join('')}`
+    return `<p class="kg-tag" style="border-color:${node.color}">${esc(node.parent)}</p><h3>${esc(node.label)}</h3>${node.points.map(point => `<p>${esc(point)}</p>`).join('')}${node.related.length ? `<p class="kg-meta">其他章的相關重點</p><ul class="kg-related">${jump(node.related)}</ul>` : ''}`
       + `<button type="button" class="kg-open" data-kg-open="#topic-${esc(node.topicId)}">打開這一章</button>`;
   }
 
@@ -266,12 +310,12 @@
       for (const link of graph.links) {
         const [ax, ay] = toScreen(link.a), [bx, by] = toScreen(link.b);
         const on = focus && lit.has(link.a.id) && lit.has(link.b.id);
-        const cross = link.kind === 'cross';
-        ctx.strokeStyle = on ? (cross ? 'rgba(253,224,71,.95)' : 'rgba(226,232,240,.75)') : focus ? 'rgba(148,163,184,.1)' : cross ? 'rgba(196,181,253,.5)' : link.kind === 'book' ? 'rgba(226,232,240,.28)' : 'rgba(148,163,184,.3)';
+        const cross = link.kind === 'cross', deep = link.kind === 'term' || link.kind === 'topic';
+        ctx.strokeStyle = on ? (cross || deep ? 'rgba(253,224,71,.95)' : 'rgba(226,232,240,.75)') : focus ? 'rgba(148,163,184,.08)' : cross ? 'rgba(196,181,253,.5)' : deep ? 'rgba(45,212,191,.2)' : link.kind === 'book' ? 'rgba(226,232,240,.28)' : link.kind === 'unit' ? 'rgba(148,163,184,.18)' : 'rgba(148,163,184,.3)';
         if (ctx.setLineDash) ctx.setLineDash(cross ? [5, 4] : []);
-        ctx.lineWidth = cross && on ? 1.8 : 1;
+        ctx.lineWidth = (cross || deep) && on ? 1.8 : 1;
         ctx.beginPath(); ctx.moveTo(ax, ay);
-        if (cross && ctx.quadraticCurveTo) ctx.quadraticCurveTo((ax + bx) / 2 + (by - ay) * 0.16, (ay + by) / 2 - (bx - ax) * 0.16, bx, by); else ctx.lineTo(bx, by);
+        if ((cross || deep) && ctx.quadraticCurveTo) ctx.quadraticCurveTo((ax + bx) / 2 + (by - ay) * 0.16, (ay + by) / 2 - (bx - ax) * 0.16, bx, by); else ctx.lineTo(bx, by);
         ctx.stroke();
       }
       if (ctx.setLineDash) ctx.setLineDash([]);
@@ -288,7 +332,7 @@
         if (!tiny) {
           ctx.fillStyle = '#0b1020'; ctx.font = (node.kind === 'book' ? '700 9.5px' : '700 11px') + ' system-ui,sans-serif'; ctx.fillText(node.kind === 'root' ? node.label[0] : node.short, x, y + 0.5);
           if (view.scale >= (node.kind === 'book' ? 0.62 : 0.42) || node === focus || node.kind === 'root') { ctx.fillStyle = '#e2e8f0'; ctx.font = '600 12.5px system-ui,"Noto Sans TC",sans-serif'; ctx.fillText(node.label.length > 12 ? node.label.slice(0, 11) + '…' : node.label, x, y + r + 12); }
-        } else if (node === focus || (view.scale >= 1.7 && !dim)) {
+        } else if (node === focus || (focus && lit.has(node.id) && focus.kind !== 'chapter' && focus.kind !== 'book') || (view.scale >= 1.7 && !dim)) {
           ctx.fillStyle = '#cbd5e1'; ctx.font = '11.5px system-ui,"Noto Sans TC",sans-serif'; ctx.fillText(node.label.length > 14 ? node.label.slice(0, 13) + '…' : node.label, x, y + r + 10);
         }
       }

@@ -203,6 +203,40 @@ test('BCSC sections and chapters join the graph, tied to existing course chapter
   }
 });
 
+test('key points in different chapters are linked only when they share a distinctive term, and say which', () => {
+  const {api} = load();
+  const graph = api.buildGraph(fullState());
+  const term = graph.links.filter(link => link.kind === 'term');
+  assert(term.length >= 60, 'key points are interconnected');
+  for (const link of term) {
+    assert.notEqual(link.a.topicId, link.b.topicId, 'term links cross chapters');
+    const entry = link.a.related.find(item => item.id === link.b.id);
+    assert(entry && /^共同關鍵詞：/.test(entry.reason));
+    for (const word of entry.reason.replace('共同關鍵詞：', '').split('、')) {
+      const text = node => (data.topics.find(t => t.id === node.topicId).sections[node.sectionIndex].title + ' ' + data.topics.find(t => t.id === node.topicId).sections[node.sectionIndex].points.join(' ')).toLowerCase();
+      assert(text(link.a).includes(word.toLowerCase()) && text(link.b).includes(word.toLowerCase()), word + ' appears in both key points');
+    }
+    assert(link.b.related.some(item => item.id === link.a.id), 'linked both ways');
+  }
+  const reasons = term.map(link => link.a.related.find(item => item.id === link.b.id).reason).join(' ');
+  assert(/RAPD/.test(reasons) && /OCT/.test(reasons));
+  assert(!/anterior|posterior|disease|III|VII/.test(reasons), 'generic words and roman numerals do not create links');
+});
+
+test('key points of one learning unit are chained, and BCSC chapters reach related course chapters by title', () => {
+  const {api} = load();
+  const graph = api.buildGraph(fullState());
+  const unit = graph.links.filter(link => link.kind === 'unit');
+  assert(unit.length > 100 && unit.every(link => link.a.kind === 'point' && link.b.kind === 'point' && link.a.topicId === link.b.topicId));
+  const topic = graph.links.filter(link => link.kind === 'topic');
+  assert(topic.length >= 25 && topic.every(link => link.a.kind === 'chapter' && link.b.kind === 'leaf'));
+  const has = (title, topicId) => topic.some(link => link.b.label === title && link.a.id === 'c:' + topicId);
+  assert(has('Childhood Glaucomas', 'notes-07') && has('Pediatric Uveitis', 'notes-09'));
+  assert(!topic.some(link => /Facial Pain|Behavioral/.test(link.b.label)), 'loose title matches are not linked');
+  const leaf = topic[0].b;
+  assert(leaf.related.some(item => item.id === topic[0].a.id) && topic[0].a.related.some(item => item.id === leaf.id));
+});
+
 test('textbook layer can be hidden, and selecting a section lists its course chapters and route', () => {
   const {api} = load(true);
   const host = stub();
