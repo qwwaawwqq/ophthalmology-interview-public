@@ -1,0 +1,27 @@
+/* Chapter knowledge graph on the 知識地圖 page (scripts/knowledge-graph.js). Dark stage in both themes. */
+.kg-shell{min-width:0;max-width:100%;margin:0 0 18px;padding:16px;border-radius:14px;background:linear-gradient(135deg,#0b1020 0%,#111a33 58%,#15213f 100%);border:1px solid #24304f;color:#e2e8f0}
+.kg-shell[hidden]{display:none}
+.kg-eyebrow{margin:0 0 2px;font-size:12px;font-weight:700;letter-spacing:.1em;color:#7dd3fc}
+.kg-head h2{margin:0;font-size:clamp(1.15rem,2vw,1.4rem);line-height:1.35;color:#f8fafc}
+.kg-sub{margin:4px 0 0;font-size:13.5px;line-height:1.65;color:#cbd5e1}
+.kg-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:12px 0}
+.kg-mode{min-height:40px;padding:8px 14px;border-radius:999px;border:1px solid #3b4a70;background:#131c36;color:#e2e8f0;font:inherit;font-size:13.5px;font-weight:600;cursor:pointer}
+.kg-mode:hover{border-color:#7dd3fc}
+.kg-mode.is-active{background:#38bdf8;border-color:#38bdf8;color:#06121f}
+.kg-mode:focus-visible,.kg-chip:focus-visible,.kg-open:focus-visible,.kg-canvas:focus-visible{outline:2px solid #fde047;outline-offset:2px}
+.kg-status{margin-left:auto;font-size:12.5px;color:#cbd5e1;font-variant-numeric:tabular-nums}
+.kg-stage{position:relative;border-radius:12px;border:1px solid #24304f;background:radial-gradient(circle at 50% 45%,#16223f 0%,#0b1020 70%);overflow:hidden}
+.kg-canvas{display:block;width:100%;height:min(62vh,540px);min-height:340px;cursor:grab;touch-action:none}
+.kg-caption{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);max-width:calc(100% - 24px);padding:8px 16px;border-radius:999px;background:rgba(11,16,32,.9);border:1px solid #38bdf8;color:#f8fafc;font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kg-caption[hidden]{display:none}
+.kg-detail{margin-top:12px;padding:12px 14px;border-radius:12px;background:#0f172e;border:1px solid #24304f;min-height:64px}
+.kg-detail h3{margin:6px 0 4px;font-size:1.05rem;color:#f8fafc}
+.kg-detail p{margin:4px 0;font-size:14px;line-height:1.7;color:#dbe4f0}
+.kg-detail .kg-hint,.kg-detail .kg-meta{color:#a9b8cf;font-size:13px}
+.kg-tag{display:inline-block;margin:0;padding:2px 10px;border:1px solid;border-radius:999px;font-size:12px;font-weight:700;color:#f8fafc}
+.kg-open{margin-top:8px;min-height:40px;padding:8px 16px;border-radius:10px;border:0;background:#38bdf8;color:#06121f;font:inherit;font-weight:700;cursor:pointer}
+.kg-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.kg-chip{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:6px 11px;border-radius:999px;border:1px solid #33415f;background:#101a33;color:#e2e8f0;font:inherit;font-size:12.5px;cursor:pointer}
+.kg-chip i{width:9px;height:9px;border-radius:50%;flex:none}
+.kg-chip.is-active{border-color:#38bdf8;background:#17294a}
+@media (max-width:640px){.kg-shell{padding:12px}.kg-canvas{height:60vh;min-height:300px}.kg-status{margin-left:0;width:100%}}
