@@ -5,7 +5,10 @@
   const COLORS = ['#60a5fa', '#a78bfa', '#fbbf24', '#34d399', '#f472b6', '#22d3ee', '#818cf8', '#fb923c', '#4ade80', '#e879f9', '#38bdf8', '#facc15', '#f87171', '#2dd4bf'];
   const MODES = [['force', '力導向圖'], ['fly', '鏡頭巡航'], ['morph', '版面變形']];
   const LAYOUTS = [['force', '力導向'], ['radial', '同心環'], ['columns', '章節欄']];
-  let active = null;
+  /* Which course chapters each BCSC section mainly supports (navigation only, not teaching content). */
+  const BOOK_MAP = {1: ['notes-13', 'notes-14'], 2: ['notes-01', 'notes-13'], 3: ['notes-02'], 4: ['notes-10', 'notes-11'], 5: ['notes-03'], 6: ['notes-04'], 7: ['notes-08', 'notes-11'],
+    8: ['notes-05', 'notes-12'], 9: ['notes-09'], 10: ['notes-07'], 11: ['notes-06'], 12: ['notes-10'], 13: ['notes-02', 'notes-05']};
+  let active = null, showBooks = true, bookCache = null, bookRequest = null;
 
   const esc = value => String(value == null ? '' : value).replace(/[&<>"']/g, ch => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[ch]));
   const reducedMotion = () => Boolean(w.matchMedia && w.matchMedia('(prefers-reduced-motion: reduce)').matches);
@@ -20,9 +23,9 @@
       const color = COLORS[index % COLORS.length];
       const pillarId = 'c:' + topic.id;
       nodes.push({id: pillarId, kind: 'chapter', topicId: topic.id, chapterIndex: index, label: topic.title, short: String(topic.chapter || index + 1), color, r: 13,
-        summary: topic.summary || '', count: topic.sections.length, questions: typeof state.questionCount === 'function' ? state.questionCount(topic) : questions.filter(q => q.topicId === topic.id).length, cases: (topic.cases || []).length});
+        related: [], summary: topic.summary || '', count: topic.sections.length, questions: typeof state.questionCount === 'function' ? state.questionCount(topic) : questions.filter(q => q.topicId === topic.id).length, cases: (topic.cases || []).length});
       links.push(['root', pillarId]);
-      if (index) links.push(['c:' + chapters[index - 1].id, pillarId]);
+      if (index) links.push(['c:' + chapters[index - 1].id, pillarId, 'ring']);
       topic.sections.forEach((section, k) => {
         const id = 'p:' + topic.id + ':' + k;
         nodes.push({id, kind: 'point', topicId: topic.id, chapterIndex: index, sectionIndex: k, label: section.title, color, r: 4.5,
@@ -30,9 +33,48 @@
         links.push([pillarId, id]);
       });
     });
-    if (chapters.length > 2) links.push(['c:' + chapters[chapters.length - 1].id, 'c:' + chapters[0].id]);
+    if (chapters.length > 2) links.push(['c:' + chapters[chapters.length - 1].id, 'c:' + chapters[0].id, 'ring']);
+    const chapterIndex = new Map(chapters.map((topic, index) => [topic.id, index]));
+    const chapterNode = id => nodes.find(node => node.id === 'c:' + id);
+    /* Cross-chapter links the lessons already declare, with their reason. */
+    const enrichment = (state.enrichment && state.enrichment.chapters) || {};
+    const paired = new Set();
+    chapters.forEach(topic => {
+      const declared = (enrichment[topic.id] && enrichment[topic.id].integrated && enrichment[topic.id].integrated.connections) || [];
+      for (const item of declared) {
+        if (!item || item.topicId === topic.id || !chapterIndex.has(item.topicId)) continue;
+        const from = chapterNode(topic.id), to = chapterNode(item.topicId);
+        from.related.push({id: to.id, label: to.label, reason: item.reason || ''});
+        if (!to.related.some(entry => entry.id === from.id)) to.related.push({id: from.id, label: from.label, reason: item.reason || ''});
+        const key = [topic.id, item.topicId].sort().join('|');
+        if (!paired.has(key)) { paired.add(key); links.push([from.id, to.id, 'cross']); }
+      }
+    });
+    /* BCSC textbook sections and their chapters, tied to the course chapters they support. */
+    const books = [];
+    for (const book of (showBooks && Array.isArray(state.books) ? state.books : [])) {
+      const targets = (BOOK_MAP[book.section] || []).filter(id => chapterIndex.has(id));
+      if (book && book.bookId && Array.isArray(book.chapters) && targets.length) books.push({book, targets});
+    }
+    books.sort((a, b) => chapterIndex.get(a.targets[0]) - chapterIndex.get(b.targets[0]) || a.book.section - b.book.section);
+    books.forEach(({book, targets}, slot) => {
+      const id = 'b:' + book.bookId, home = chapterIndex.get(targets[0]);
+      const mates = books.filter(other => chapterIndex.get(other.targets[0]) === home), side = mates.length > 1 ? mates.findIndex(other => other.book === book) - (mates.length - 1) / 2 : 0;
+      nodes.push({id, kind: 'book', bookId: book.bookId, section: book.section, chapterIndex: home, side: side * 2, slot, slots: books.length, label: book.title, short: 'S' + book.section, color: '#e2e8f0', r: 11,
+        count: book.chapters.length, targets: targets.map(topicId => ({id: 'c:' + topicId, label: chapterNode(topicId).label}))});
+      for (const topicId of targets) {
+        links.push(['c:' + topicId, id, 'book']);
+        chapterNode(topicId).related.push({id, label: 'BCSC S' + book.section + ' ' + book.title, reason: ''});
+      }
+      book.chapters.forEach((chapter, k) => {
+        nodes.push({id: 't:' + chapter.id, kind: 'leaf', bookId: book.bookId, chapterIndex: home, side: side * 2, slot, slots: books.length, sectionIndex: k, total: book.chapters.length,
+          label: chapter.title, color: '#94a3b8', r: 3.5, parent: 'BCSC S' + book.section + ' ' + book.title, number: chapter.number, route: '#textbook-' + chapter.id});
+        links.push([id, 't:' + chapter.id]);
+      });
+    });
     const byId = new Map(nodes.map(node => [node.id, node]));
-    return {nodes, byId, chapters: nodes.filter(node => node.kind === 'chapter'), links: links.map(([a, b]) => ({a: byId.get(a), b: byId.get(b)}))};
+    return {nodes, byId, chapters: nodes.filter(node => node.kind === 'chapter'), books: nodes.filter(node => node.kind === 'book'),
+      links: links.map(([a, b, kind]) => ({a: byId.get(a), b: byId.get(b), kind: kind || 'tree'}))};
   }
 
   /* Deterministic start positions, so the first frame is already readable and tests are stable. */
@@ -40,8 +82,14 @@
     const n = graph.chapters.length || 1;
     for (const node of graph.nodes) {
       if (node.kind === 'root') { node.x = 0; node.y = 0; continue; }
+      if (node.kind === 'book' || node.kind === 'leaf') {
+        const turn = (node.chapterIndex / n) * Math.PI * 2 - Math.PI / 2 + (node.side || 0) * 0.2, spin = node.kind === 'leaf' ? (node.sectionIndex / node.total) * Math.PI * 2 : 0, reach = node.kind === 'leaf' ? 44 : 0;
+        node.x = Math.cos(turn) * 560 + Math.cos(spin) * reach; node.y = Math.sin(turn) * 560 + Math.sin(spin) * reach;
+        if (node.kind === 'book') { node.ax = node.x; node.ay = node.y; }
+        continue;
+      }
       const angle = (node.chapterIndex / n) * Math.PI * 2 - Math.PI / 2;
-      if (node.kind === 'chapter') { node.x = Math.cos(angle) * 290; node.y = Math.sin(angle) * 290; continue; }
+      if (node.kind === 'chapter') { node.x = Math.cos(angle) * 290; node.y = Math.sin(angle) * 290; node.ax = node.x; node.ay = node.y; continue; }
       const total = graph.nodes.filter(other => other.kind === 'point' && other.chapterIndex === node.chapterIndex).length || 1;
       const spread = (node.sectionIndex / total) * Math.PI * 2;
       node.x = Math.cos(angle) * 290 + Math.cos(spread) * 46;
@@ -53,19 +101,35 @@
   function layoutTargets(graph, layout) {
     const targets = new Map();
     const n = graph.chapters.length || 1;
+    const rows = Math.ceil(n / Math.min(n, 7));
     for (const node of graph.nodes) {
+      if (node.kind === 'book' || node.kind === 'leaf') {
+        if (layout === 'radial') {
+          const turn = (node.slot / node.slots) * Math.PI * 2 - Math.PI / 2;
+          if (node.kind === 'book') targets.set(node.id, [Math.cos(turn) * 470, Math.sin(turn) * 470]);
+          else {
+            const offset = ((node.sectionIndex + 0.5) / node.total - 0.5) * (Math.PI * 2 / node.slots) * 0.84, ring = 545 + (node.sectionIndex % 3) * 26;
+            targets.set(node.id, [Math.cos(turn + offset) * ring, Math.sin(turn + offset) * ring]);
+          }
+        } else {
+          const x = ((node.slot % 7) - 3) * 118, top = (rows - 1) / 2 * 300 + 240 + Math.floor(node.slot / 7) * 470;
+          if (node.kind === 'book') targets.set(node.id, [x, top]);
+          else targets.set(node.id, [x + ((node.sectionIndex % 2) - 0.5) * 36, top + 28 + Math.floor(node.sectionIndex / 2) * 26]);
+        }
+        continue;
+      }
       if (layout === 'radial') {
         const angle = ((node.chapterIndex || 0) / n) * Math.PI * 2 - Math.PI / 2;
         if (node.kind === 'root') targets.set(node.id, [0, 0]);
-        else if (node.kind === 'chapter') targets.set(node.id, [Math.cos(angle) * 200, Math.sin(angle) * 200]);
+        else if (node.kind === 'chapter') targets.set(node.id, [Math.cos(angle) * 235, Math.sin(angle) * 235]);
         else {
           const total = graph.nodes.filter(other => other.kind === 'point' && other.chapterIndex === node.chapterIndex).length || 1;
           const offset = ((node.sectionIndex + 0.5) / total - 0.5) * (Math.PI * 2 / n) * 0.86;
-          const ring = 300 + (node.sectionIndex % 2) * 34;
+          const ring = 330 + (node.sectionIndex % 2) * 32;
           targets.set(node.id, [Math.cos(angle + offset) * ring, Math.sin(angle + offset) * ring]);
         }
       } else {
-        const cols = Math.min(n, 7), rows = Math.ceil(n / cols);
+        const cols = Math.min(n, 7);
         const col = (node.chapterIndex || 0) % cols, row = Math.floor((node.chapterIndex || 0) / cols);
         const x = (col - (cols - 1) / 2) * 118, top = (row - (rows - 1) / 2) * 300 - 110;
         if (node.kind === 'root') targets.set(node.id, [0, -(rows - 1) / 2 * 300 - 200]);
@@ -86,20 +150,23 @@
         let d2 = dx * dx + dy * dy;
         if (d2 > 90000) continue;
         if (d2 < 1) { dx = 0.5 + (i % 3); dy = 0.5 + (j % 3); d2 = dx * dx + dy * dy; }
-        const strength = (a.kind === 'point' && b.kind === 'point' ? 260 : 1500) / d2;
+        const small = (a.kind === 'point' || a.kind === 'leaf') && (b.kind === 'point' || b.kind === 'leaf');
+        const strength = (small ? 260 : 1500) / d2;
         const d = Math.sqrt(d2), fx = dx / d * strength * alpha, fy = dy / d * strength * alpha;
         a.vx -= fx; a.vy -= fy; b.vx += fx; b.vy += fy;
       }
     }
     for (const link of graph.links) {
       const a = link.a, b = link.b;
-      const rest = a.kind === 'root' ? 290 : b.kind === 'point' ? 50 : 132;
+      if (link.kind === 'cross') continue;
+      const rest = link.kind === 'book' ? 230 : a.kind === 'root' ? 290 : b.kind === 'point' ? 50 : b.kind === 'leaf' ? 44 : 132;
       const dx = b.x - a.x, dy = b.y - a.y, d = Math.sqrt(dx * dx + dy * dy) || 1;
-      const pull = (d - rest) / d * 0.06 * alpha;
+      const pull = (d - rest) / d * (link.kind === 'book' ? 0.008 : 0.06) * alpha;
       a.vx += dx * pull; a.vy += dy * pull; b.vx -= dx * pull; b.vy -= dy * pull;
     }
     for (const node of nodes) {
       node.vx -= node.x * 0.0016 * alpha; node.vy -= node.y * 0.0016 * alpha;
+      if (node.ax != null) { node.vx += (node.ax - node.x) * 0.03 * alpha; node.vy += (node.ay - node.y) * 0.03 * alpha; }
       if (node.fixed) { node.vx = 0; node.vy = 0; continue; }
       node.vx *= 0.82; node.vy *= 0.82;
       node.x += node.vx; node.y += node.vy;
@@ -112,19 +179,31 @@
 
   function markup(graph, view) {
     const modeButtons = MODES.map(([id, label]) => `<button type="button" class="kg-mode${view.mode === id ? ' is-active' : ''}" data-kg-mode="${id}" aria-pressed="${view.mode === id}">${label}</button>`).join('');
+    const bookChips = graph.books.slice().sort((a, b) => a.section - b.section).map(node => `<button type="button" class="kg-chip" data-kg-node="${esc(node.id)}"><i style="background:${node.color}"></i>${esc(node.short)} ${esc(node.label)}</button>`).join('');
+    const leaves = graph.nodes.filter(node => node.kind === 'leaf').length, crossLinks = graph.links.filter(link => link.kind === 'cross').length;
+    const bookToggle = view.hasBooks ? `<button type="button" class="kg-mode${showBooks ? ' is-on' : ''}" data-kg-books aria-pressed="${showBooks}">BCSC 原文書：${showBooks ? '顯示中' : '已隱藏'}</button>` : '';
     const chips = graph.chapters.map(node => `<button type="button" class="kg-chip" data-kg-node="${esc(node.id)}"><i style="background:${node.color}"></i>${esc(node.short)} ${esc(node.label)}</button>`).join('');
-    return `<header class="kg-head"><div><p class="kg-eyebrow">知識圖譜</p><h2>${esc(graph.nodes[0].label)}章節知識圖譜</h2><p class="kg-sub">${graph.chapters.length} 章、${graph.nodes.length - graph.chapters.length - 1} 個基礎重點。拖曳節點或背景、滾輪縮放；點節點看重點並跳到章節。</p></div></header>`
-      + `<div class="kg-toolbar" role="group" aria-label="圖譜模式">${modeButtons}<button type="button" class="kg-mode" data-kg-reset>重置視角</button><span class="kg-status" data-kg-status role="status"></span></div>`
+    return `<header class="kg-head"><div><p class="kg-eyebrow">知識圖譜</p><h2>${esc(graph.nodes[0].label)}章節知識圖譜</h2><p class="kg-sub">${graph.chapters.length} 章、${graph.nodes.filter(node => node.kind === 'point').length} 個基礎重點${crossLinks ? `、${crossLinks} 條跨章連結（虛線）` : ''}${graph.books.length ? `，加上 BCSC ${graph.books.length} 冊 ${leaves} 章` : ''}。拖曳節點或背景、滾輪縮放；點節點看重點並跳到章節。</p></div></header>`
+      + `<div class="kg-toolbar" role="group" aria-label="圖譜模式">${modeButtons}<button type="button" class="kg-mode" data-kg-reset>重置視角</button>${bookToggle}<span class="kg-status" data-kg-status role="status"></span></div>`
       + `<div class="kg-stage"><canvas class="kg-canvas" tabindex="0" role="img" aria-label="${esc(graph.nodes[0].label)}章節知識圖譜，共 ${graph.nodes.length} 個節點。章節清單在圖下方。"></canvas><div class="kg-caption" data-kg-caption hidden></div></div>`
       + `<div class="kg-detail" data-kg-detail aria-live="polite"><p class="kg-hint">點選圖上的節點，或從下方章節清單選一章。</p></div>`
-      + `<nav class="kg-chips" aria-label="章節清單">${chips}</nav>`;
+      + `<nav class="kg-chips" aria-label="章節清單">${chips}</nav>`
+      + (bookChips ? `<nav class="kg-chips" aria-label="BCSC 原文書清單">${bookChips}</nav>` : '');
   }
 
   function detailMarkup(node) {
     if (!node || node.kind === 'root') return '<p class="kg-hint">點選圖上的節點，或從下方章節清單選一章。</p>';
+    const jump = entries => entries.map(entry => `<li><button type="button" class="kg-link" data-kg-node="${esc(entry.id)}">${esc(entry.label)}</button>${entry.reason ? `<span>${esc(entry.reason)}</span>` : ''}</li>`).join('');
+    if (node.kind === 'book') {
+      return `<p class="kg-tag" style="border-color:#38bdf8">BCSC ${esc(node.short)}</p><h3>${esc(node.label)}</h3><p class="kg-meta">${node.count} 章 · 對應的共筆章節</p><ul class="kg-related">${jump(node.targets)}</ul>`
+        + `<button type="button" class="kg-open" data-kg-open="#textbook-${esc(node.bookId)}">打開這一冊</button>`;
+    }
+    if (node.kind === 'leaf') {
+      return `<p class="kg-tag" style="border-color:#38bdf8">${esc(node.parent)}</p><h3>第 ${esc(node.number)} 章　${esc(node.label)}</h3><button type="button" class="kg-open" data-kg-open="${esc(node.route)}">打開原文書這一章</button>`;
+    }
     if (node.kind === 'chapter') {
       return `<p class="kg-tag" style="border-color:${node.color}">第 ${esc(node.short)} 章</p><h3>${esc(node.label)}</h3>${node.summary ? `<p>${esc(node.summary)}</p>` : ''}`
-        + `<p class="kg-meta">${node.count} 個基礎重點 · ${node.questions} 題選擇題 · ${node.cases} 個情境</p><button type="button" class="kg-open" data-kg-open="#topic-${esc(node.topicId)}">打開這一章</button>`;
+        + `<p class="kg-meta">${node.count} 個基礎重點 · ${node.questions} 題選擇題 · ${node.cases} 個情境</p>${node.related.length ? `<p class="kg-meta">相關章節與原文書</p><ul class="kg-related">${jump(node.related)}</ul>` : ''}<button type="button" class="kg-open" data-kg-open="#topic-${esc(node.topicId)}">打開這一章</button>`;
     }
     return `<p class="kg-tag" style="border-color:${node.color}">${esc(node.parent)}</p><h3>${esc(node.label)}</h3>${node.points.map(point => `<p>${esc(point)}</p>`).join('')}`
       + `<button type="button" class="kg-open" data-kg-open="#topic-${esc(node.topicId)}">打開這一章</button>`;
@@ -138,7 +217,7 @@
     container.hidden = false;
     seed(graph);
     settle(graph, 140);
-    const view = {mode: 'force', layout: 'force', scale: 1, tx: 0, ty: 0, selected: null, hover: null, alpha: 0.5, morph: null, fly: null, raf: 0, drag: null, moved: false};
+    const view = {hasBooks: Array.isArray(state && state.books) && state.books.length > 0, mode: 'force', layout: 'force', scale: 1, tx: 0, ty: 0, selected: null, hover: null, alpha: 0.5, morph: null, fly: null, raf: 0, drag: null, moved: false};
     container.innerHTML = markup(graph, view);
     const canvas = container.querySelector('.kg-canvas');
     const ctx = canvas.getContext ? canvas.getContext('2d') : null;
@@ -187,20 +266,28 @@
       for (const link of graph.links) {
         const [ax, ay] = toScreen(link.a), [bx, by] = toScreen(link.b);
         const on = focus && lit.has(link.a.id) && lit.has(link.b.id);
-        ctx.strokeStyle = on ? 'rgba(226,232,240,.75)' : focus ? 'rgba(148,163,184,.12)' : 'rgba(148,163,184,.3)';
-        ctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(bx, by); ctx.stroke();
+        const cross = link.kind === 'cross';
+        ctx.strokeStyle = on ? (cross ? 'rgba(253,224,71,.95)' : 'rgba(226,232,240,.75)') : focus ? 'rgba(148,163,184,.1)' : cross ? 'rgba(196,181,253,.5)' : link.kind === 'book' ? 'rgba(226,232,240,.28)' : 'rgba(148,163,184,.3)';
+        if (ctx.setLineDash) ctx.setLineDash(cross ? [5, 4] : []);
+        ctx.lineWidth = cross && on ? 1.8 : 1;
+        ctx.beginPath(); ctx.moveTo(ax, ay);
+        if (cross && ctx.quadraticCurveTo) ctx.quadraticCurveTo((ax + bx) / 2 + (by - ay) * 0.16, (ay + by) / 2 - (bx - ax) * 0.16, bx, by); else ctx.lineTo(bx, by);
+        ctx.stroke();
       }
+      if (ctx.setLineDash) ctx.setLineDash([]);
+      ctx.lineWidth = 1;
       ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
       for (const node of graph.nodes) {
-        const [x, y] = toScreen(node), r = Math.max(node.r * Math.min(view.scale, 1.8), node.kind === 'point' ? 2.5 : 9);
+        const tiny = node.kind === 'point' || node.kind === 'leaf';
+        const [x, y] = toScreen(node), r = Math.max(node.r * Math.min(view.scale, 1.8), tiny ? 2.2 : 8);
         const dim = focus && !lit.has(node.id);
         ctx.globalAlpha = dim ? 0.28 : 1;
         ctx.fillStyle = node.color;
         ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.fill();
-        if (node.kind !== 'point' || node === focus) { ctx.strokeStyle = '#f8fafc'; ctx.lineWidth = node === focus ? 2.5 : 1.5; ctx.stroke(); ctx.lineWidth = 1; }
-        if (node.kind !== 'point') {
-          ctx.fillStyle = '#0b1020'; ctx.font = '700 11px system-ui,sans-serif'; ctx.fillText(node.kind === 'root' ? node.label[0] : node.short, x, y + 0.5);
-          if (view.scale >= 0.6 || node === focus || node.kind === 'root') { ctx.fillStyle = '#e2e8f0'; ctx.font = '600 12.5px system-ui,"Noto Sans TC",sans-serif'; ctx.fillText(node.label.length > 12 ? node.label.slice(0, 11) + '…' : node.label, x, y + r + 12); }
+        if (!tiny || node === focus) { ctx.strokeStyle = node.kind === 'book' ? '#38bdf8' : '#f8fafc'; ctx.lineWidth = node === focus ? 2.5 : 1.5; ctx.stroke(); ctx.lineWidth = 1; }
+        if (!tiny) {
+          ctx.fillStyle = '#0b1020'; ctx.font = (node.kind === 'book' ? '700 9.5px' : '700 11px') + ' system-ui,sans-serif'; ctx.fillText(node.kind === 'root' ? node.label[0] : node.short, x, y + 0.5);
+          if (view.scale >= (node.kind === 'book' ? 0.62 : 0.42) || node === focus || node.kind === 'root') { ctx.fillStyle = '#e2e8f0'; ctx.font = '600 12.5px system-ui,"Noto Sans TC",sans-serif'; ctx.fillText(node.label.length > 12 ? node.label.slice(0, 11) + '…' : node.label, x, y + r + 12); }
         } else if (node === focus || (view.scale >= 1.7 && !dim)) {
           ctx.fillStyle = '#cbd5e1'; ctx.font = '11.5px system-ui,"Noto Sans TC",sans-serif'; ctx.fillText(node.label.length > 14 ? node.label.slice(0, 13) + '…' : node.label, x, y + r + 10);
         }
@@ -210,7 +297,7 @@
     function select(node, announce) {
       view.selected = node && node.kind !== 'root' ? node : null;
       if (detailEl) detailEl.innerHTML = detailMarkup(view.selected);
-      for (const chip of container.querySelectorAll('.kg-chip')) chip.classList.toggle('is-active', Boolean(view.selected) && chip.getAttribute('data-kg-node') === (view.selected.kind === 'chapter' ? view.selected.id : 'c:' + view.selected.topicId));
+      for (const chip of container.querySelectorAll('.kg-chip')) chip.classList.toggle('is-active', Boolean(view.selected) && chip.getAttribute('data-kg-node') === (view.selected.kind === 'chapter' || view.selected.kind === 'book' ? view.selected.id : view.selected.kind === 'leaf' ? 'b:' + view.selected.bookId : 'c:' + view.selected.topicId));
       if (announce !== false) kick();
     }
     function cancelFit() { if (view.fitTimer) { w.clearTimeout(view.fitTimer); view.fitTimer = 0; } }
@@ -364,6 +451,7 @@
       const target = event.target && event.target.closest ? event.target : null;
       if (!target) return;
       const mode = target.closest('[data-kg-mode]'), chip = target.closest('[data-kg-node]'), open = target.closest('[data-kg-open]');
+      if (target.closest('[data-kg-books]')) { showBooks = !showBooks; mount(container, state); return; }
       if (mode) setMode(mode.getAttribute('data-kg-mode'));
       else if (target.closest('[data-kg-reset]')) { cancelFit(); stopFly(false); select(null, false); cameraTo(fit(), 600); setStatus(); kick(); }
       else if (chip) { const node = graph.byId.get(chip.getAttribute('data-kg-node')); if (node) { stopFly(false); select(node, false); focusNode(node, 1.9); setStatus(); kick(); } }
@@ -413,7 +501,7 @@
       host.setAttribute('aria-label', '章節知識圖譜');
       mapRoot.parentNode.insertBefore(host, mapRoot);
     }
-    if (active && active.container === host && active.state.topics === state.topics) return active;
+    if (active && active.container === host && active.state.topics === state.topics && active.state.books === state.books) return active;
     return mount(host, state);
   }
   /* Called by the page whenever the view changes: state while the map tab is open, null otherwise. */
@@ -426,10 +514,19 @@
   }
   function sync(state) {
     pending = state || null;
+    if (pending && bookCache) pending.books = bookCache;
     const doc = w.document;
     if (!pending) { unmount(); if (observer) { observer.disconnect(); observer = null; } return; }
     ensure();
     w.setTimeout(ensure, 0);
+    /* The textbook catalogue is fetched once, and only for the course whose chapters it maps to. */
+    if (!bookCache && !bookRequest && typeof w.fetch === 'function' && (pending.topics || []).some(topic => topic && /^notes-\d+$/.test(topic.id))) {
+      bookRequest = w.fetch('content/textbook-manifest.json').then(response => response.ok ? response.json() : null).then(manifest => {
+        if (!manifest || !Array.isArray(manifest.books)) { bookRequest = null; return; }
+        bookCache = manifest.books;
+        if (pending) { pending = Object.assign({}, pending, {books: bookCache}); ensure(); }
+      }).catch(() => { bookRequest = null; });
+    }
     const main = doc && doc.getElementById('main');
     if (!observer && main && typeof w.MutationObserver === 'function') {
       observer = new w.MutationObserver(() => { if (pending && !doc.getElementById('knowledge-graph-root')) ensure(); });

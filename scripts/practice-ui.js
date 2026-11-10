@@ -101,7 +101,7 @@ function currentViewHash(){if(S.tab==='quiz'&&window.OphQuizBank?.getMode?.()===
 function currentLocationHash(){const route=parseRoute(window.location?.hash||'');return route&&routeMatchesView(route)?route.hash:(currentViewHash()||'#tab-today');}
 function syncPracticeHash(){
   if(S.tab!=='map')window.OphKnowledgeMap?.unmount?.();
-  window.OphKnowledgeGraph?.sync?.(S.tab==='map'?{specialtyLabel:SPEC.label,topics:D.topics,questions:D.questions,questionCount:t=>topicQuestions(t).length,openRoute}:null);
+  window.OphKnowledgeGraph?.sync?.(S.tab==='map'?{specialtyLabel:SPEC.label,topics:D.topics,questions:D.questions,questionCount:t=>topicQuestions(t).length,enrichment:D.enrichment,openRoute}:null);
   rememberWorkspace();
   if(!practiceHashReady||!window.history?.replaceState||!window.location)return;
   const route=parseRoute(window.location.hash||'');
