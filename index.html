@@ -541,8 +541,10 @@ footer span:first-child{max-width:70ch}
 <link rel="stylesheet" href="scripts/written-qa.css">
 <script src="scripts/written-qa.js" defer></script>
 <link rel="stylesheet" href="scripts/knowledge-map.css">
+<link rel="stylesheet" href="scripts/knowledge-graph.css">
 <script src="scripts/knowledge-map-motion.js" defer></script>
 <script src="scripts/knowledge-map.js" defer></script>
+<script src="scripts/knowledge-graph.js" defer></script>
 <link rel="stylesheet" href="scripts/textbook-depth.css?v=volume-atlas-20261028">
 <link rel="stylesheet" href="scripts/textbook-atlas.css?v=volume-atlas-20261028">
 <script src="scripts/textbook-atlas.js?v=volume-atlas-20261028" defer></script>
@@ -1716,6 +1718,7 @@ function currentViewHash(){if(S.tab==='quiz'&&window.OphQuizBank?.getMode?.()===
 function currentLocationHash(){const route=parseRoute(window.location?.hash||'');return route&&routeMatchesView(route)?route.hash:(currentViewHash()||'#tab-today');}
 function syncPracticeHash(){
   if(S.tab!=='map')window.OphKnowledgeMap?.unmount?.();
+  window.OphKnowledgeGraph?.sync?.(S.tab==='map'?{specialtyLabel:SPEC.label,topics:D.topics,questions:D.questions,questionCount:t=>topicQuestions(t).length,openRoute}:null);
   rememberWorkspace();
   if(!practiceHashReady||!window.history?.replaceState||!window.location)return;
   const route=parseRoute(window.location.hash||'');
