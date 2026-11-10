@@ -26,8 +26,8 @@ const hooked = source.replace(end, 'globalThis.__qa={D,S,SPEC,get entries(){retu
 const bootScript = new vm.Script(bootSource);
 const hookedScript = new vm.Script(hooked);
 
-// 2026-11-02 (#122): chapter synthesis, deep dives and explainers lost 151 repeated sentences.
-const COURSE_DATA_SHA256 = 'd963672127cf2e219ba2c79385499e071049fc19cac767e9d630680616b5c377';
+// 2026-11-10 (#202): 8 clinical workflows added (total 24 workflows).
+const COURSE_DATA_SHA256 = 'e1a0ecfe24eeff621593fc81c55291dc7ef2e1f971cd94c22c8317951725bfcb';
 const OPH = {
   id: 'oph', label: '眼科', appTitle: '眼科甄選練習室', storePrefix: 'oph-prep:', stateKey: 'oph-prep:progress-v3', syncFile: 'progress.json',
   formats: ['ophthalmology-prep-progress-v1', 'ophthalmology-prep-progress-v2', 'ophthalmology-prep-progress-v3'],
