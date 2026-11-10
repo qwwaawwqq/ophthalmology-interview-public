@@ -27,7 +27,7 @@ const bootScript = new vm.Script(bootSource);
 const hookedScript = new vm.Script(hooked);
 
 // 2026-11-10 (#202): 8 clinical workflows added (total 24 workflows).
-const COURSE_DATA_SHA256 = 'e1a0ecfe24eeff621593fc81c55291dc7ef2e1f971cd94c22c8317951725bfcb';
+const COURSE_DATA_SHA256 = 'c51edc60baa96ec42a832181b09d2cc96fd2120d907ece965d64ef5f7fdc894e';
 const OPH = {
   id: 'oph', label: '眼科', appTitle: '眼科甄選練習室', storePrefix: 'oph-prep:', stateKey: 'oph-prep:progress-v3', syncFile: 'progress.json',
   formats: ['ophthalmology-prep-progress-v1', 'ophthalmology-prep-progress-v2', 'ophthalmology-prep-progress-v3'],
