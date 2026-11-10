@@ -168,6 +168,66 @@ test('reduced motion: dragging a node moves only that node and does not restart 
   assert.deepEqual([other.x, other.y], before);
 });
 
+const manifest = JSON.parse(fs.readFileSync(path.join(root, 'content/textbook-manifest.json'), 'utf8'));
+const fullState = () => Object.assign(state(), {enrichment: data.enrichment, books: manifest.books});
+
+test('cross-chapter links come from the lessons\' declared connections, one per pair, with reasons on both ends', () => {
+  const {api} = load();
+  const graph = api.buildGraph(fullState());
+  const pairs = new Set();
+  for (const [id, chapter] of Object.entries(data.enrichment.chapters)) for (const item of (chapter.integrated && chapter.integrated.connections) || []) pairs.add([id, item.topicId].sort().join('|'));
+  const cross = graph.links.filter(link => link.kind === 'cross');
+  assert(pairs.size >= 14, 'lessons declare connections');
+  assert.equal(cross.length, pairs.size);
+  const retina = graph.byId.get('c:notes-10');
+  const declared = data.enrichment.chapters['notes-10'].integrated.connections[0];
+  assert(retina.related.some(entry => entry.id === 'c:' + declared.topicId && entry.reason === declared.reason));
+  assert(graph.byId.get('c:' + declared.topicId).related.some(entry => entry.id === 'c:notes-10'), 'the other chapter links back');
+});
+
+test('BCSC sections and chapters join the graph, tied to existing course chapters and textbook routes', () => {
+  const {api} = load();
+  const graph = api.buildGraph(fullState());
+  assert.equal(graph.books.length, manifest.books.length);
+  const leaves = graph.nodes.filter(node => node.kind === 'leaf');
+  assert.equal(leaves.length, manifest.books.reduce((sum, book) => sum + book.chapters.length, 0));
+  assert.equal(new Set(graph.nodes.map(node => node.id)).size, graph.nodes.length);
+  for (const book of graph.books) {
+    const ties = graph.links.filter(link => link.kind === 'book' && link.b === book);
+    assert(ties.length >= 1 && ties.every(link => link.a.kind === 'chapter'), book.id + ' is tied to a chapter');
+  }
+  assert(leaves.every(leaf => /^#textbook-bcsc-s(0[1-9]|1[0-3])-ch\d{3}$/.test(leaf.route)));
+  assert(graph.links.some(link => link.kind === 'book' && link.a.id === 'c:notes-07' && link.b.id === 'b:bcsc-s10'), 'glaucoma chapter ↔ BCSC Glaucoma');
+  for (const layout of ['radial', 'columns']) {
+    const keys = new Set([...api.layoutTargets(graph, layout).values()].map(([x, y]) => Math.round(x) + ',' + Math.round(y)));
+    assert.equal(keys.size, graph.nodes.length, layout + ' stacks two nodes on one spot');
+  }
+});
+
+test('textbook layer can be hidden, and selecting a section lists its course chapters and route', () => {
+  const {api} = load(true);
+  const host = stub();
+  let instance = api.mount(host, fullState());
+  assert(host.innerHTML.includes('data-kg-books') && host.innerHTML.includes('BCSC 原文書清單'));
+  instance.select('b:bcsc-s12');
+  const detail = host.children['[data-kg-detail]'].innerHTML;
+  assert(detail.includes('Retina and Vitreous') && detail.includes('data-kg-node="c:notes-10"') && detail.includes('data-kg-open="#textbook-bcsc-s12"'));
+  instance.select('c:notes-10');
+  assert(host.children['[data-kg-detail]'].innerHTML.includes('data-kg-node="b:bcsc-s12"'));
+  host.listeners.click({target: {closest: sel => sel === '[data-kg-books]' ? {} : null}});
+  instance = api.active;
+  assert.equal(instance.graph.books.length, 0, 'toggle hides the textbook layer');
+  assert(host.innerHTML.includes('已隱藏'));
+  host.listeners.click({target: {closest: sel => sel === '[data-kg-books]' ? {} : null}});
+  assert.equal(api.active.graph.books.length, manifest.books.length);
+});
+
+test('other courses get no textbook nodes even if the catalogue is present', () => {
+  const {api} = load();
+  const graph = api.buildGraph({specialtyLabel: 'X', topics: [{id: 'ent-01', title: 'A', sections: []}], books: manifest.books});
+  assert.equal(graph.books.length, 0);
+});
+
 test('node text is escaped', () => {
   const {api} = load();
   const host = stub();
@@ -178,7 +238,7 @@ test('node text is escaped', () => {
 test('page loads the graph assets and syncs it from the view', () => {
   assert(html.includes('<link rel="stylesheet" href="scripts/knowledge-graph.css">'));
   assert(html.includes('<script src="scripts/knowledge-graph.js" defer></script>'));
-  assert(html.includes("window.OphKnowledgeGraph?.sync?.(S.tab==='map'?{specialtyLabel:SPEC.label,topics:D.topics,questions:D.questions,questionCount:t=>topicQuestions(t).length,openRoute}:null);"));
+  assert(html.includes("window.OphKnowledgeGraph?.sync?.(S.tab==='map'?{specialtyLabel:SPEC.label,topics:D.topics,questions:D.questions,questionCount:t=>topicQuestions(t).length,enrichment:D.enrichment,openRoute}:null);"));
   assert(html.indexOf('scripts/knowledge-map.js') < html.indexOf('scripts/knowledge-graph.js'));
 });
 
