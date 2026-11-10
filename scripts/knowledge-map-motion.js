@@ -1610,19 +1610,19 @@
       return `<g class="km-rapd-widget" aria-label="雙側瞳孔動態反應模擬">` +
         `<rect x="614" y="42" width="244" height="296" rx="14" fill="#0f172a" stroke="#2e4674" stroke-width="1.6"/>` +
         `<text x="736" y="70" text-anchor="middle" class="km-sketch-label">雙側瞳孔動態圓環模擬</text>` +
-        `<text x="736" y="90" text-anchor="middle" class="km-sketch-sub">${esc(radii.beam)}</text>` +
+        `<text x="736" y="90" text-anchor="middle" class="km-sketch-sub km-rapd-beam">${esc(radii.beam)}</text>` +
         `<circle cx="680" cy="166" r="38" fill="#17254a" stroke="#60a5fa" stroke-width="2"/>` +
-        `<circle class="km-pupil-core" data-pupil-side="od" cx="680" cy="166" r="${radii.od}" fill="${coreFill}" stroke="${ringStroke}" stroke-width="2.6"/>` +
+        `<circle class="km-pupil-core km-rapd-pupil-od" data-pupil-side="od" cx="680" cy="166" r="${radii.od}" fill="${coreFill}" stroke="${ringStroke}" stroke-width="2.6"/>` +
         `<circle cx="672" cy="157" r="3.5" fill="#f8fafc"/>` +
         `<text x="680" y="224" text-anchor="middle" class="km-sketch-label">OD 健側</text>` +
-        `<text x="680" y="241" text-anchor="middle" class="km-sketch-sub">r = ${radii.od}px</text>` +
-        `<circle cx="792" cy="166" r="38" fill="#17254a" stroke="${radii.alert ? '#f59e0b' : '#34d399'}" stroke-width="2"/>` +
-        `<circle class="km-pupil-core" data-pupil-side="os" cx="792" cy="166" r="${radii.os}" fill="${coreFill}" stroke="${ringStroke}" stroke-width="2.6"/>` +
+        `<text x="680" y="241" text-anchor="middle" class="km-sketch-sub km-rapd-r-od">r = ${radii.od}px</text>` +
+        `<circle class="km-rapd-outer-os" cx="792" cy="166" r="38" fill="#17254a" stroke="${radii.alert ? '#f59e0b' : '#34d399'}" stroke-width="2"/>` +
+        `<circle class="km-pupil-core km-rapd-pupil-os" data-pupil-side="os" cx="792" cy="166" r="${radii.os}" fill="${coreFill}" stroke="${ringStroke}" stroke-width="2.6"/>` +
         `<circle cx="784" cy="157" r="3.5" fill="#f8fafc"/>` +
         `<text x="792" y="224" text-anchor="middle" class="km-sketch-label">OS 患側</text>` +
-        `<text x="792" y="241" text-anchor="middle" class="km-sketch-sub">r = ${radii.os}px</text>` +
-        `<path class="km-sketch-stroke ${stepNum >= 4 ? 'is-drawn is-current-step' : 'is-pending'}" pathLength="1000" d="M 650 272 Q 736 252 822 272" stroke="#f59e0b" stroke-width="2.4"/>` +
-        `<text x="736" y="302" text-anchor="middle" class="km-sketch-sub">${esc(radii.note)}</text>` +
+        `<text x="792" y="241" text-anchor="middle" class="km-sketch-sub km-rapd-r-os">r = ${radii.os}px</text>` +
+        `<path class="km-sketch-stroke km-rapd-arc ${stepNum >= 4 ? 'is-drawn is-current-step is-active-step' : 'is-pending'}" stroke-dashoffset="${stepNum >= 4 ? '0' : '1000'}" pathLength="1000" d="M 650 272 Q 736 252 822 272" stroke="#f59e0b" stroke-width="2.4"/>` +
+        `<text x="736" y="302" text-anchor="middle" class="km-sketch-sub km-rapd-note">${esc(radii.note)}</text>` +
         `</g>`;
     }
     if (scene.widget === 'aacg-angle') {
@@ -1635,12 +1635,12 @@
       return `<g class="km-aacg-widget" aria-label="前房隅角與眼壓動態模擬">` +
         `<rect x="614" y="42" width="244" height="296" rx="14" fill="#0f172a" stroke="#2e4674" stroke-width="1.6"/>` +
         `<text x="736" y="70" text-anchor="middle" class="km-sketch-label">前房隅角壓力與 LPI 分流</text>` +
-        `<text x="736" y="92" text-anchor="middle" class="km-sketch-sub">即時眼壓指標：${esc(states.iop)}</text>` +
+        `<text x="736" y="92" text-anchor="middle" class="km-sketch-sub km-aacg-iop">即時眼壓指標：${esc(states.iop)}</text>` +
         `<circle cx="736" cy="172" r="46" fill="#13203d" stroke="#334d7d" stroke-width="2"/>` +
-        `<circle class="km-pupil-core" data-pupil-side="iop-gauge" cx="736" cy="172" r="${states.r}" fill="#17254a" stroke="${states.stroke}" stroke-width="3"/>` +
-        (states.lpi ? `<path class="km-sketch-stroke is-drawn is-current-step" pathLength="1000" d="M 690 172 C 714 134, 758 134, 782 172" stroke="#34d399" stroke-width="2.8"/>` : '') +
-        `<text x="736" y="246" text-anchor="middle" class="km-sketch-label">${esc(states.iop)}</text>` +
-        `<text x="736" y="274" text-anchor="middle" class="km-sketch-sub">${esc(states.status)}</text>` +
+        `<circle class="km-pupil-core km-aacg-gauge" data-pupil-side="iop-gauge" cx="736" cy="172" r="${states.r}" fill="#17254a" stroke="${states.stroke}" stroke-width="3"/>` +
+        `<path class="km-sketch-stroke km-aacg-lpi ${states.lpi ? 'is-drawn is-current-step is-active-step' : 'is-pending'}" stroke-dashoffset="${states.lpi ? '0' : '1000'}" pathLength="1000" d="M 690 172 C 714 134, 758 134, 782 172" stroke="#34d399" stroke-width="2.8"/>` +
+        `<text x="736" y="246" text-anchor="middle" class="km-sketch-label km-aacg-iop-val">${esc(states.iop)}</text>` +
+        `<text x="736" y="274" text-anchor="middle" class="km-sketch-sub km-aacg-status">${esc(states.status)}</text>` +
         `</g>`;
     }
     const curStep = scene.steps[stepNum - 1] || scene.steps[0];
@@ -1648,12 +1648,12 @@
     return `<g class="km-generic-widget" aria-label="臨床分鏡關鍵指標">` +
       `<rect x="614" y="42" width="244" height="296" rx="14" fill="#0f172a" stroke="#2e4674" stroke-width="1.6"/>` +
       `<text x="736" y="72" text-anchor="middle" class="km-sketch-label">分鏡關鍵決策儀表</text>` +
-      `<text x="736" y="94" text-anchor="middle" class="km-sketch-sub">STEP 0${stepNum} / 04</text>` +
+      `<text x="736" y="94" text-anchor="middle" class="km-sketch-sub km-generic-step">STEP 0${stepNum} / 04</text>` +
       `<circle cx="736" cy="168" r="44" fill="#13203d" stroke="#334d7d" stroke-width="2"/>` +
-      `<circle class="km-pupil-core" cx="736" cy="168" r="${meterR}" fill="#17254a" stroke="${stepNum === 4 ? '#34d399' : '#38bdf8'}" stroke-width="2.8"/>` +
+      `<circle class="km-pupil-core km-generic-meter" cx="736" cy="168" r="${meterR}" fill="#17254a" stroke="${stepNum === 4 ? '#34d399' : '#38bdf8'}" stroke-width="2.8"/>` +
       `<text x="736" y="173" text-anchor="middle" class="km-sketch-label">${stepNum * 25}%</text>` +
-      `<text x="736" y="244" text-anchor="middle" class="km-sketch-label">${esc(curStep.metricLabel || curStep.tag)}</text>` +
-      `<text x="736" y="270" text-anchor="middle" class="km-sketch-sub">${esc(curStep.metricValue || curStep.short)}</text>` +
+      `<text x="736" y="244" text-anchor="middle" class="km-sketch-label km-generic-label">${esc(curStep.metricLabel || curStep.tag)}</text>` +
+      `<text x="736" y="270" text-anchor="middle" class="km-sketch-sub km-generic-val">${esc(curStep.metricValue || curStep.short)}</text>` +
       `</g>`;
   }
 
@@ -1688,12 +1688,12 @@
       const drawn = sIdx <= stepNum;
       const isCur = sIdx === stepNum;
       const strokeColor = idx === 3 ? '#34d399' : idx === 1 ? '#a78bfa' : '#38bdf8';
-      const strokeCls = ['km-sketch-stroke', drawn ? 'is-drawn' : 'is-pending', isCur ? 'is-current-step' : ''].filter(Boolean).join(' ');
+      const strokeCls = ['km-sketch-stroke', drawn ? 'is-drawn' : 'is-pending', isCur ? 'is-current-step is-active-step' : ''].filter(Boolean).join(' ');
       const textPend = drawn ? '' : ' is-pending';
       const d = sketchBoxPath(pos.x, pos.y, pos.w, pos.h);
       return `<g data-sketch-box="${sIdx}">` +
         `<path class="km-sketch-box-fill${textPend}" d="${d}"/>` +
-        `<path class="${strokeCls}" pathLength="1000" d="${d}" stroke="${strokeColor}" stroke-width="${isCur ? '2.8' : '2'}"/>` +
+        `<path class="${strokeCls}" stroke-dashoffset="${drawn ? '0' : '1000'}" pathLength="1000" d="${d}" stroke="${strokeColor}" stroke-width="${isCur ? '2.8' : '2'}"/>` +
         `<text x="${pos.x + 16}" y="${pos.y + 30}" class="km-sketch-sub${textPend}">STEP 0${sIdx} · ${esc(st.tag)}</text>` +
         `<text x="${pos.x + 16}" y="${pos.y + 56}" class="km-sketch-label${textPend}">${esc(st.short)}</text>` +
         `<text x="${pos.x + 16}" y="${pos.y + 82}" class="km-sketch-sub${textPend}">${esc(st.line1)}</text>` +
@@ -1705,22 +1705,22 @@
       const needStep = idx + 2;
       const drawn = stepNum >= needStep;
       const isCur = stepNum === needStep;
-      const cls = ['km-sketch-stroke', drawn ? 'is-drawn' : 'is-pending', isCur ? 'is-current-step' : ''].filter(Boolean).join(' ');
+      const cls = ['km-sketch-stroke', drawn ? 'is-drawn' : 'is-pending', isCur ? 'is-current-step is-active-step' : ''].filter(Boolean).join(' ');
       const pulse = drawn && !reducedMotion
-        ? `<circle class="km-pulse-orb is-motion" r="4"><animateMotion dur="${(1.5 / speed).toFixed(2)}s" repeatCount="indefinite" path="${d}"/></circle>`
+        ? `<circle class="km-pulse-orb is-motion" data-pulse-idx="${idx}" r="4"><animateMotion dur="${(1.5 / speed).toFixed(2)}s" repeatCount="indefinite" path="${d}"/></circle>`
         : '';
-      return `<path class="${cls}" pathLength="1000" d="${d}" stroke="#7dd3fc" stroke-width="2.8" marker-end="url(#km-sketch-arrow)"/>` + pulse;
+      return `<path class="${cls}" data-connector-idx="${idx}" stroke-dashoffset="${drawn ? '0' : '1000'}" pathLength="1000" d="${d}" stroke="#7dd3fc" stroke-width="2.8" marker-end="url(#km-sketch-arrow)"/>` + pulse;
     }).join('');
 
     const stepBtns = scene.steps.map((st, idx) => {
       const n = idx + 1;
       const cls = ['km-sketch-step-btn', n < stepNum ? 'is-done' : '', n === stepNum ? 'is-active' : ''].filter(Boolean).join(' ');
-      return `<button type="button" class="${cls}" data-km-action="set-sketch-step" data-km-value="${n}" ${n === stepNum ? 'aria-current="step"' : ''}>步驟 ${n}：${esc(st.short)}</button>`;
+      return `<button type="button" class="${cls}" data-km-action="set-sketch-step" data-km-value="${n}" ${n === stepNum ? 'aria-current="step" aria-selected="true"' : 'aria-selected="false"'}>步驟 ${n}：${esc(st.short)}</button>`;
     }).join('');
 
     const cur = scene.steps[stepNum - 1] || scene.steps[0];
 
-    return `<div class="km-sketch-shell" data-km-engine="sketch" data-km-scene="${esc(scene.id)}" data-km-step="${stepNum}">` +
+    return `<div class="km-sketch-shell km-sketch-player" data-km-engine="sketch" data-km-scene="${esc(scene.id)}" data-sketch-id="${esc(scene.id)}" data-km-step="${stepNum}">` +
       `<div class="km-sketch-bar">` +
       `<div class="km-deck-pills" role="group" aria-label="選擇手繪動畫場景">${scenePills}</div>` +
       `<div class="km-hud-group">` +
@@ -1738,7 +1738,7 @@
       `<path d="M 0 1 L 10 5 L 0 9 z" fill="#7dd3fc"/>` +
       `</marker>` +
       `</defs>` +
-      `<text x="34" y="28" class="km-sketch-sub">EXCALIDRAW STROKE-DRAW SCENE · ${esc(scene.label)}（進度 ${stepNum} / 4）</text>` +
+      `<text x="34" y="28" class="km-sketch-sub km-sketch-header-sub">EXCALIDRAW STROKE-DRAW SCENE · ${esc(scene.label)}（進度 ${stepNum} / 4）</text>` +
       connectorsSvg +
       boxesSvg +
       renderSketchWidget(scene, stepNum, reducedMotion, esc) +
@@ -1748,9 +1748,254 @@
       `</div>` +
       `<div class="km-sketch-note" aria-live="polite">` +
       `<div class="km-sketch-note-head"><strong>步驟 ${stepNum} / 4｜${esc(cur.title)}</strong><span>${esc(cur.tag)}</span></div>` +
-      `<p>${esc(cur.detail)}</p>` +
+      `<p class="km-sketch-note-detail">${esc(cur.detail)}</p>` +
       `<p class="km-sketch-pearl">💡 口試高分關鍵：${esc(cur.pearl)}</p>` +
       `</div></div>`;
+  }
+
+  function updateSketchPlayerStep(playerEl, specId, state, reducedMotion, esc) {
+    if (!playerEl) return false;
+    const scenes = getSketchScenes(specId);
+    if (!scenes.length) return false;
+    const scene = scenes.find(s => s.id === state.sceneId) || scenes[0];
+    if (!scene) return false;
+    const stepNum = Math.max(1, Math.min(4, Number(state.step) || 1));
+    const speed = Number(state.speed) === 1.75 ? 1.75 : 1;
+    const durMs = Math.round(620 / speed);
+
+    if (typeof playerEl.setAttribute === 'function') {
+      playerEl.setAttribute('data-km-step', String(stepNum));
+    }
+
+    const playBtn = playerEl.querySelector ? playerEl.querySelector('[data-km-action="toggle-sketch-play"]') : null;
+    if (playBtn) {
+      const isPlay = Boolean(state.playing);
+      if (typeof playBtn.setAttribute === 'function') {
+        playBtn.setAttribute('aria-pressed', String(isPlay));
+      }
+      playBtn.className = 'km-hud-btn' + (isPlay ? ' is-active' : ' is-primary');
+      playBtn.textContent = isPlay ? '⏸ 暫停手繪分鏡' : '▶ 播放手繪動畫';
+    }
+
+    const speedBtn = playerEl.querySelector ? playerEl.querySelector('[data-km-action="toggle-sketch-speed"]') : null;
+    if (speedBtn) {
+      const isFast = speed > 1;
+      if (typeof speedBtn.setAttribute === 'function') {
+        speedBtn.setAttribute('aria-pressed', String(isFast));
+      }
+      speedBtn.className = 'km-hud-btn' + (isFast ? ' is-active' : '');
+      speedBtn.textContent = `⚡ 速度 ${speed}x`;
+    }
+
+    const stageEl = playerEl.querySelector ? playerEl.querySelector('.km-sketch-stage') : null;
+    if (stageEl && stageEl.style && typeof stageEl.style.setProperty === 'function') {
+      stageEl.style.setProperty('--km-sketch-dur', `${durMs}ms`);
+    }
+
+    const headerText = playerEl.querySelector ? (playerEl.querySelector('.km-sketch-header-sub') || playerEl.querySelector('svg text.km-sketch-sub')) : null;
+    if (headerText) {
+      headerText.textContent = `EXCALIDRAW STROKE-DRAW SCENE · ${scene.label}（進度 ${stepNum} / 4）`;
+    }
+
+    const connectorPaths = playerEl.querySelectorAll ? playerEl.querySelectorAll('path[data-connector-idx]') : [];
+    if (connectorPaths && connectorPaths.length) {
+      for (let i = 0; i < connectorPaths.length; i++) {
+        const p = connectorPaths[i];
+        const rawIdx = p.getAttribute ? p.getAttribute('data-connector-idx') : i;
+        const cIdx = Number(rawIdx);
+        const needStep = cIdx + 2;
+        const drawn = stepNum >= needStep;
+        const isCur = stepNum === needStep;
+        if (p.classList && typeof p.classList.toggle === 'function') {
+          p.classList.toggle('is-drawn', drawn);
+          p.classList.toggle('is-pending', !drawn);
+          p.classList.toggle('is-current-step', isCur);
+          p.classList.toggle('is-active-step', isCur);
+        }
+        if (typeof p.setAttribute === 'function') {
+          p.setAttribute('stroke-dashoffset', drawn ? '0' : '1000');
+        }
+      }
+    }
+
+    for (let sIdx = 1; sIdx <= 4; sIdx++) {
+      const box = playerEl.querySelector ? playerEl.querySelector(`[data-sketch-box="${sIdx}"]`) : null;
+      if (!box) continue;
+      const drawn = sIdx <= stepNum;
+      const isCur = sIdx === stepNum;
+
+      const fillPath = box.querySelector ? box.querySelector('.km-sketch-box-fill') : null;
+      if (fillPath && fillPath.classList && typeof fillPath.classList.toggle === 'function') {
+        fillPath.classList.toggle('is-pending', !drawn);
+      }
+
+      const strokePath = box.querySelector ? box.querySelector('.km-sketch-stroke') : null;
+      if (strokePath) {
+        if (strokePath.classList && typeof strokePath.classList.toggle === 'function') {
+          strokePath.classList.toggle('is-drawn', drawn);
+          strokePath.classList.toggle('is-pending', !drawn);
+          strokePath.classList.toggle('is-current-step', isCur);
+          strokePath.classList.toggle('is-active-step', isCur);
+        }
+        if (typeof strokePath.setAttribute === 'function') {
+          strokePath.setAttribute('stroke-dashoffset', drawn ? '0' : '1000');
+          strokePath.setAttribute('stroke-width', isCur ? '2.8' : '2');
+        }
+      }
+
+      const texts = box.querySelectorAll ? box.querySelectorAll('text') : [];
+      if (texts && texts.length) {
+        for (let t = 0; t < texts.length; t++) {
+          if (texts[t].classList && typeof texts[t].classList.toggle === 'function') {
+            texts[t].classList.toggle('is-pending', !drawn);
+          }
+        }
+      }
+    }
+
+    if (scene.widget === 'rapd-pupils') {
+      const radii = [
+        { od: 20, os: 20, beam: '暗室待命基準', note: '暗室基準對稱瞳孔（r = 20px）', alert: false },
+        { od: 15, os: 15, beam: '中腦雙側核團活化', note: '頂蓋前核雙側投射 E-W 核', alert: false },
+        { od: 9, os: 9, beam: '強光照射健側 OD', note: '直接＋共軛縮瞳雙側同步收縮', alert: false },
+        { od: 16, os: 16, beam: '擺動轉照患側 OS！', note: 'RAPD 陽性：由 9px 回彈散大至 16px（≤ 基準 20px）', alert: true }
+      ][stepNum - 1];
+      const ringStroke = radii.alert ? '#f59e0b' : '#38bdf8';
+      const coreFill = radii.alert ? '#1e293b' : '#090d16';
+
+      const odCircle = playerEl.querySelector ? (playerEl.querySelector('.km-rapd-pupil-od') || playerEl.querySelector('[data-pupil-side="od"]')) : null;
+      if (odCircle && typeof odCircle.setAttribute === 'function') {
+        odCircle.setAttribute('r', String(radii.od));
+        odCircle.setAttribute('fill', coreFill);
+        odCircle.setAttribute('stroke', ringStroke);
+      }
+
+      const osCircle = playerEl.querySelector ? (playerEl.querySelector('.km-rapd-pupil-os') || playerEl.querySelector('[data-pupil-side="os"]')) : null;
+      if (osCircle && typeof osCircle.setAttribute === 'function') {
+        osCircle.setAttribute('r', String(radii.os));
+        osCircle.setAttribute('fill', coreFill);
+        osCircle.setAttribute('stroke', ringStroke);
+      }
+
+      const osOuter = playerEl.querySelector ? playerEl.querySelector('.km-rapd-outer-os') : null;
+      if (osOuter && typeof osOuter.setAttribute === 'function') {
+        osOuter.setAttribute('stroke', radii.alert ? '#f59e0b' : '#34d399');
+      }
+
+      const beamText = playerEl.querySelector ? playerEl.querySelector('.km-rapd-beam') : null;
+      if (beamText) beamText.textContent = radii.beam;
+
+      const odLabel = playerEl.querySelector ? playerEl.querySelector('.km-rapd-r-od') : null;
+      if (odLabel) odLabel.textContent = `r = ${radii.od}px`;
+
+      const osLabel = playerEl.querySelector ? playerEl.querySelector('.km-rapd-r-os') : null;
+      if (osLabel) osLabel.textContent = `r = ${radii.os}px`;
+
+      const rapdArc = playerEl.querySelector ? playerEl.querySelector('.km-rapd-arc') : null;
+      if (rapdArc) {
+        const drawn = stepNum >= 4;
+        if (rapdArc.classList && typeof rapdArc.classList.toggle === 'function') {
+          rapdArc.classList.toggle('is-drawn', drawn);
+          rapdArc.classList.toggle('is-pending', !drawn);
+          rapdArc.classList.toggle('is-current-step', drawn);
+          rapdArc.classList.toggle('is-active-step', drawn);
+        }
+        if (typeof rapdArc.setAttribute === 'function') {
+          rapdArc.setAttribute('stroke-dashoffset', drawn ? '0' : '1000');
+        }
+      }
+
+      const noteText = playerEl.querySelector ? playerEl.querySelector('.km-rapd-note') : null;
+      if (noteText) noteText.textContent = radii.note;
+    } else if (scene.widget === 'aacg-angle') {
+      const states = [
+        { r: 13, iop: '15 mmHg', status: '隅角開放 · 房水順暢排出', stroke: '#34d399', lpi: false },
+        { r: 19, iop: '34 mmHg', status: '瞳孔阻滯 · Iris bombé 膨隆', stroke: '#38bdf8', lpi: false },
+        { r: 26, iop: '58 mmHg', status: '隅角關閉 · 眼壓急遽飆升！', stroke: '#f59e0b', lpi: false },
+        { r: 14, iop: '16 mmHg', status: 'LPI 雷射穿孔分流 · 隅角重開', stroke: '#34d399', lpi: true }
+      ][stepNum - 1];
+
+      const gauge = playerEl.querySelector ? (playerEl.querySelector('.km-aacg-gauge') || playerEl.querySelector('[data-pupil-side="iop-gauge"]')) : null;
+      if (gauge && typeof gauge.setAttribute === 'function') {
+        gauge.setAttribute('r', String(states.r));
+        gauge.setAttribute('stroke', states.stroke);
+      }
+
+      const aacgIop = playerEl.querySelector ? playerEl.querySelector('.km-aacg-iop') : null;
+      if (aacgIop) aacgIop.textContent = `即時眼壓指標：${states.iop}`;
+
+      const aacgIopVal = playerEl.querySelector ? playerEl.querySelector('.km-aacg-iop-val') : null;
+      if (aacgIopVal) aacgIopVal.textContent = states.iop;
+
+      const aacgStatus = playerEl.querySelector ? playerEl.querySelector('.km-aacg-status') : null;
+      if (aacgStatus) aacgStatus.textContent = states.status;
+
+      const lpiPath = playerEl.querySelector ? playerEl.querySelector('.km-aacg-lpi') : null;
+      if (lpiPath) {
+        if (lpiPath.classList && typeof lpiPath.classList.toggle === 'function') {
+          lpiPath.classList.toggle('is-drawn', Boolean(states.lpi));
+          lpiPath.classList.toggle('is-pending', !states.lpi);
+          lpiPath.classList.toggle('is-current-step', Boolean(states.lpi));
+          lpiPath.classList.toggle('is-active-step', Boolean(states.lpi));
+        }
+        if (typeof lpiPath.setAttribute === 'function') {
+          lpiPath.setAttribute('stroke-dashoffset', states.lpi ? '0' : '1000');
+        }
+      }
+    } else {
+      const curStep = scene.steps[stepNum - 1] || scene.steps[0];
+      const meterR = 12 + stepNum * 5;
+      const gauge = playerEl.querySelector ? playerEl.querySelector('.km-generic-meter') : null;
+      if (gauge && typeof gauge.setAttribute === 'function') {
+        gauge.setAttribute('r', String(meterR));
+        gauge.setAttribute('stroke', stepNum === 4 ? '#34d399' : '#38bdf8');
+      }
+      const pctText = playerEl.querySelector ? playerEl.querySelector('.km-generic-pct') : null;
+      if (pctText) pctText.textContent = `${stepNum * 25}%`;
+      const stepSub = playerEl.querySelector ? playerEl.querySelector('.km-generic-step') : null;
+      if (stepSub) stepSub.textContent = `STEP 0${stepNum} / 04`;
+      const metricLabel = playerEl.querySelector ? playerEl.querySelector('.km-generic-label') : null;
+      if (metricLabel) metricLabel.textContent = curStep.metricLabel || curStep.tag;
+      const metricVal = playerEl.querySelector ? playerEl.querySelector('.km-generic-val') : null;
+      if (metricVal) metricVal.textContent = curStep.metricValue || curStep.short;
+    }
+
+    const stepBtns = playerEl.querySelectorAll ? playerEl.querySelectorAll('.km-sketch-step-btn') : [];
+    if (stepBtns && stepBtns.length) {
+      for (let b = 0; b < stepBtns.length; b++) {
+        const btn = stepBtns[b];
+        const n = b + 1;
+        const isDone = n < stepNum;
+        const isActive = n === stepNum;
+        if (btn.classList && typeof btn.classList.toggle === 'function') {
+          btn.classList.toggle('is-done', isDone);
+          btn.classList.toggle('is-active', isActive);
+        }
+        if (typeof btn.setAttribute === 'function') {
+          if (isActive) {
+            btn.setAttribute('aria-current', 'step');
+            btn.setAttribute('aria-selected', 'true');
+          } else {
+            if (typeof btn.removeAttribute === 'function') {
+              btn.removeAttribute('aria-current');
+            }
+            btn.setAttribute('aria-selected', 'false');
+          }
+        }
+      }
+    }
+
+    const cur = scene.steps[stepNum - 1] || scene.steps[0];
+    const noteHeadStrong = playerEl.querySelector ? playerEl.querySelector('.km-sketch-note-head strong') : null;
+    if (noteHeadStrong) noteHeadStrong.textContent = `步驟 ${stepNum} / 4｜${cur.title}`;
+    const noteHeadSpan = playerEl.querySelector ? playerEl.querySelector('.km-sketch-note-head span') : null;
+    if (noteHeadSpan) noteHeadSpan.textContent = cur.tag;
+    const noteDetail = playerEl.querySelector ? (playerEl.querySelector('.km-sketch-note-detail') || playerEl.querySelector('.km-sketch-note p:not(.km-sketch-pearl)')) : null;
+    if (noteDetail) noteDetail.textContent = cur.detail;
+    const notePearl = playerEl.querySelector ? playerEl.querySelector('.km-sketch-pearl') : null;
+    if (notePearl) notePearl.textContent = `💡 口試高分關鍵：${cur.pearl}`;
+
+    return true;
   }
 
   const motionApi = Object.freeze({
@@ -1772,7 +2017,8 @@
     getSketchScenes,
     getTourCaption,
     renderSlidesTheater,
-    renderSketchPlayer
+    renderSketchPlayer,
+    updateSketchPlayerStep
   });
 
   g.OphKnowledgeMotion = motionApi;

@@ -1314,10 +1314,26 @@
       cancelFlipRaf = null;
     }
 
+    const doc = g.document || (g.window && g.window.document);
+    let shouldRestoreSlideStageFocus = false;
+    if (doc && doc.activeElement && activeContainer) {
+      try {
+        const ae = doc.activeElement;
+        const inside = ae === activeContainer || (typeof activeContainer.contains === 'function' && activeContainer.contains(ae));
+        if (inside) {
+          if ((typeof ae.matches === 'function' && ae.matches('.km-slides-stage, [data-km-slides-stage]')) ||
+              (typeof ae.closest === 'function' && ae.closest('.km-slides-stage, [data-km-slides-stage]')) ||
+              (ae.classList && typeof ae.classList.contains === 'function' && ae.classList.contains('km-slides-stage'))) {
+            shouldRestoreSlideStageFocus = true;
+          }
+        }
+      } catch (_) {}
+    }
+
     let selStart = null;
     let selEnd = null;
-    if (preserveSearchFocus && g.document && typeof g.document.getElementById === 'function') {
-      const prev = g.document.getElementById('km-search');
+    if (preserveSearchFocus && doc && typeof doc.getElementById === 'function') {
+      const prev = doc.getElementById('km-search');
       if (prev && typeof prev.selectionStart === 'number') {
         selStart = prev.selectionStart;
         selEnd = typeof prev.selectionEnd === 'number' ? prev.selectionEnd : selStart;
@@ -1336,8 +1352,8 @@
         fn => { cancelFlipRaf = typeof fn === 'function' ? fn : null; }
       );
     }
-    if (preserveSearchFocus && g.document && typeof g.document.getElementById === 'function') {
-      const next = g.document.getElementById('km-search');
+    if (preserveSearchFocus && doc && typeof doc.getElementById === 'function') {
+      const next = doc.getElementById('km-search');
       if (next) {
         try { next.focus({ preventScroll: true }); } catch (_) { try { next.focus(); } catch (__) {} }
         if (selStart !== null) {
@@ -1345,6 +1361,12 @@
           next.selectionStart = selStart;
           next.selectionEnd = selEnd;
         }
+      }
+    }
+    if (shouldRestoreSlideStageFocus && activeContainer && typeof activeContainer.querySelector === 'function') {
+      const nextStage = activeContainer.querySelector('.km-slides-stage, [data-km-slides-stage]');
+      if (nextStage && typeof nextStage.focus === 'function') {
+        try { nextStage.focus({ preventScroll: true }); } catch (_) { try { nextStage.focus(); } catch (__) {} }
       }
     }
     return html;
@@ -1761,12 +1783,35 @@
     return sketchState.sceneId;
   }
 
+  function updateSketchStepDOM(stepNum) {
+    if (!activeContainer || activeStudioMode !== 'sketch') return false;
+    const m = motion();
+    if (!m || typeof m.updateSketchPlayerStep !== 'function') return false;
+    ensureSpecialtyDefaults(activeSpecialty);
+    const sceneId = sketchState.sceneId;
+    const playerEl = activeContainer.querySelector ? (
+      activeContainer.querySelector('.km-sketch-player[data-sketch-id="' + sceneId + '"]') ||
+      activeContainer.querySelector('.km-sketch-shell[data-km-scene="' + sceneId + '"]') ||
+      activeContainer.querySelector('.km-sketch-player') ||
+      activeContainer.querySelector('.km-sketch-shell')
+    ) : null;
+    if (!playerEl) return false;
+    const curScene = (playerEl.getAttribute && (playerEl.getAttribute('data-sketch-id') || playerEl.getAttribute('data-km-scene'))) || null;
+    if (curScene && curScene !== sceneId) return false;
+
+    sketchState.step = Math.max(1, Math.min(4, Math.trunc(Number(stepNum) || 1)));
+    const updated = m.updateSketchPlayerStep(playerEl, activeSpecialty, sketchState, isReducedMotion(), esc);
+    return Boolean(updated);
+  }
+
   function setSketchStep(stepNum) {
     ensureSpecialtyDefaults(activeSpecialty);
     const clamped = Math.max(1, Math.min(4, Math.trunc(Number(stepNum) || 1)));
     switchStudioModeInternal('sketch');
     sketchState.step = clamped;
-    renderIntoActive(false);
+    if (!updateSketchStepDOM(clamped)) {
+      renderIntoActive(false);
+    }
     return sketchState.step;
   }
 
@@ -1786,7 +1831,9 @@
       }
       if (sketchState.step < 4) {
         sketchState.step += 1;
-        renderIntoActive(false);
+        if (!updateSketchStepDOM(sketchState.step)) {
+          renderIntoActive(false);
+        }
       } else {
         toggleSketchPlay(false);
       }
@@ -1810,7 +1857,9 @@
     } else {
       sketchState.playing = false;
     }
-    renderIntoActive(false);
+    if (!updateSketchStepDOM(sketchState.step)) {
+      renderIntoActive(false);
+    }
     return sketchState.playing;
   }
 
@@ -1818,7 +1867,9 @@
     const nextSpeed = Number(speedVal) === 1.75 ? 1.75 : (sketchState.speed === 1 ? 1.75 : 1);
     sketchState.speed = nextSpeed;
     if (sketchState.playing) scheduleSketchInterval();
-    renderIntoActive(false);
+    if (!updateSketchStepDOM(sketchState.step)) {
+      renderIntoActive(false);
+    }
     return sketchState.speed;
   }
 

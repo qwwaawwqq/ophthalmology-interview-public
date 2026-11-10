@@ -60,6 +60,224 @@ class MemoryStorage {
   removeItem(k) { this.map.delete(k); }
 }
 
+function matchesSelector(node, sel) {
+  if (!node || !node.tag || node.tag === '#text') return false;
+  sel = sel.trim();
+  if (sel.includes(',')) {
+    return sel.split(',').some(p => matchesSelector(node, p.trim()));
+  }
+  if (sel.includes(' ')) {
+    const parts = sel.split(/\s+/);
+    if (!matchesSelector(node, parts[parts.length - 1])) return false;
+    let curr = node.parent;
+    for (let i = parts.length - 2; i >= 0; i--) {
+      while (curr && !matchesSelector(curr, parts[i])) curr = curr.parent;
+      if (!curr) return false;
+      curr = curr.parent;
+    }
+    return true;
+  }
+  const tokens = sel.match(/(\.[a-zA-Z0-9_-]+)|(#[a-zA-Z0-9_-]+)|(\[[^\]]+\])|([a-zA-Z0-9_-]+)/g);
+  if (!tokens) return false;
+  for (const token of tokens) {
+    if (token.startsWith('.')) {
+      if (!node.classList || !node.classList.contains(token.slice(1))) return false;
+    } else if (token.startsWith('#')) {
+      if ((node.attrs?.id || node.id) !== token.slice(1)) return false;
+    } else if (token.startsWith('[')) {
+      const m = token.slice(1, -1).match(/^([a-zA-Z0-9_-]+)(?:([*^$]?=)(?:"([^"]*)"|'([^']*)'|([^\]]+)))?$/);
+      if (!m) return false;
+      const attrName = m[1];
+      const op = m[2];
+      const exp = m[3] ?? m[4] ?? m[5];
+      const actual = node.attrs ? (node.attrs[attrName] ?? (attrName === 'class' ? (node.getAttribute ? node.getAttribute('class') : '') : null)) : null;
+      if (actual === null || actual === undefined) return false;
+      if (op === '=' && actual !== exp) return false;
+    } else {
+      if (node.tag.toLowerCase() !== token.toLowerCase()) return false;
+    }
+  }
+  return true;
+}
+
+function createMockChildElement(tag, attrs, parent, getActiveEl, setActiveEl) {
+  const classes = new Set((attrs.class || '').split(/\s+/).filter(Boolean));
+  const elAttrs = { ...attrs };
+  delete elAttrs.class;
+  const children = [];
+  const dataset = {};
+  for (const [k, v] of Object.entries(elAttrs)) {
+    if (k.startsWith('data-')) {
+      const camel = k.slice(5).replace(/-([a-z])/g, (_, g) => g.toUpperCase());
+      dataset[camel] = v;
+    }
+  }
+  const el = {
+    tag,
+    id: elAttrs.id || '',
+    attrs: elAttrs,
+    children,
+    parent,
+    dataset,
+    classList: {
+      add(v) { classes.add(v); },
+      remove(v) { classes.delete(v); },
+      contains(v) { return classes.has(v); },
+      toggle(v, force) {
+        const next = force === undefined ? !classes.has(v) : force;
+        next ? classes.add(v) : classes.delete(v);
+        return next;
+      }
+    },
+    get className() { return [...classes].join(' '); },
+    set className(v) {
+      classes.clear();
+      String(v || '').split(/\s+/).filter(Boolean).forEach(c => classes.add(c));
+    },
+    getAttribute(k) {
+      if (k === 'class') return [...classes].join(' ') || null;
+      if (k.toLowerCase() === 'viewbox') return elAttrs['viewBox'] ?? elAttrs['viewbox'] ?? null;
+      return elAttrs[k] ?? elAttrs[k.toLowerCase()] ?? null;
+    },
+    setAttribute(k, v) {
+      if (k === 'class') {
+        classes.clear();
+        String(v || '').split(/\s+/).filter(Boolean).forEach(c => classes.add(c));
+        return;
+      }
+      const actualKey = k.toLowerCase() === 'viewbox' ? 'viewBox' : k;
+      elAttrs[actualKey] = String(v);
+      if (actualKey.startsWith('data-')) {
+        const camel = actualKey.slice(5).replace(/-([a-z])/g, (_, g) => g.toUpperCase());
+        dataset[camel] = String(v);
+      }
+    },
+    removeAttribute(k) {
+      if (k === 'class') { classes.clear(); return; }
+      delete elAttrs[k];
+      if (k.startsWith('data-')) {
+        const camel = k.slice(5).replace(/-([a-z])/g, (_, g) => g.toUpperCase());
+        delete dataset[camel];
+      }
+    },
+    hasAttribute(k) {
+      if (k === 'class') return classes.size > 0;
+      return Object.prototype.hasOwnProperty.call(elAttrs, k);
+    },
+    style: { setProperty(k, v) { elAttrs['style_' + k] = v; } },
+    focus() {
+      if (typeof setActiveEl === 'function') setActiveEl(el);
+    },
+    get textContent() {
+      return children.map(c => c.tag === '#text' ? c.value.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&') : c.textContent).join('');
+    },
+    set textContent(v) {
+      children.length = 0;
+      const safe = String(v).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      children.push({ tag: '#text', value: safe, attrs: {}, children: [], parent: el });
+    },
+    matches(sel) { return matchesSelector(this, sel); },
+    closest(sel) {
+      let curr = this;
+      while (curr && curr.tag !== '#text') {
+        if (matchesSelector(curr, sel)) return curr;
+        curr = curr.parent;
+      }
+      return null;
+    },
+    contains(child) {
+      if (!child) return false;
+      if (child === this) return true;
+      for (const c of this.children) {
+        if (c === child || (c.contains && c.contains(child))) return true;
+      }
+      return false;
+    },
+    querySelector(sel) {
+      for (const c of this.children) {
+        if (c.tag !== '#text') {
+          if (matchesSelector(c, sel)) return c;
+          if (typeof c.querySelector === 'function') {
+            const found = c.querySelector(sel);
+            if (found) return found;
+          }
+        }
+      }
+      return null;
+    },
+    querySelectorAll(sel) {
+      const results = [];
+      for (const c of this.children) {
+        if (c.tag !== '#text') {
+          if (matchesSelector(c, sel)) results.push(c);
+          if (typeof c.querySelectorAll === 'function') {
+            results.push(...c.querySelectorAll(sel));
+          }
+        }
+      }
+      return results;
+    }
+  };
+  return el;
+}
+
+function parseMockFragment(markup, parent, getActiveEl, setActiveEl, elementsMap) {
+  const root = { tag: 'root', attrs: {}, children: [], parent: null };
+  const stack = [root];
+  const voids = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr']);
+  const tokens = markup.match(/<!--[\s\S]*?-->|<(?:[^>"']|"[^"]*"|'[^']*')+>|[^<]+/g) || [];
+  for (const token of tokens) {
+    if (token.startsWith('<!--') || token.startsWith('<!')) continue;
+    if (token.startsWith('</')) {
+      const tag = token.match(/^<\/\s*([^\s>]+)/)[1].toLowerCase();
+      const index = stack.map(node => node.tag).lastIndexOf(tag);
+      if (index > 0) {
+        while (stack.length - 1 > index) stack.pop();
+        stack.pop();
+      }
+    } else if (token.startsWith('<')) {
+      const match = token.match(/^<\s*([^\s/>]+)([\s\S]*?)\/?\s*>$/);
+      if (!match) continue;
+      const tag = match[1].toLowerCase();
+      const attrs = {};
+      for (const attr of match[2].matchAll(/([^\s=/>]+)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+)))?/g)) {
+        const rawK = attr[1];
+        const k = rawK.toLowerCase() === 'viewbox' ? 'viewBox' : rawK;
+        attrs[k] = attr[2] ?? attr[3] ?? attr[4] ?? '';
+      }
+      const el = createMockChildElement(tag, attrs, stack.at(-1), getActiveEl, setActiveEl);
+      if (elementsMap && attrs.id && attrs.id !== 'knowledge-map-root' && attrs.id !== 'main' && attrs.id !== 'nav' && attrs.id !== 'tabbar') {
+        elementsMap.set('#' + attrs.id, el);
+      }
+      stack.at(-1).children.push(el);
+      if (!voids.has(tag) && !token.endsWith('/>')) stack.push(el);
+    } else {
+      stack.at(-1).children.push({ tag: '#text', value: token, attrs: {}, children: [], parent: stack.at(-1) });
+    }
+  }
+  for (const c of root.children) c.parent = parent;
+  return root.children;
+}
+
+function serializeMockNode(node) {
+  if (node.tag === '#text') return node.value;
+  const tag = node.tag;
+  const voids = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr']);
+  let attrStr = '';
+  const cls = node.getAttribute ? node.getAttribute('class') : '';
+  if (cls) attrStr += ' class="' + cls + '"';
+  if (node.attrs) {
+    for (const [k, v] of Object.entries(node.attrs)) {
+      if (k.startsWith('style_')) continue;
+      const actualK = k.toLowerCase() === 'viewbox' ? 'viewBox' : k;
+      attrStr += ' ' + actualK + '="' + String(v).replace(/"/g, '&quot;') + '"';
+    }
+  }
+  if (voids.has(tag)) return '<' + tag + attrStr + '>';
+  const inner = node.children ? node.children.map(serializeMockNode).join('') : '';
+  return '<' + tag + attrStr + '>' + inner + '</' + tag + '>';
+}
+
 function bootApp({ search = '', hash = '', deferKm = false, enableRaf = false, osReducedMotion = false, enableFlipRects = false } = {}) {
   const elements = new Map();
   const docHandlers = new Map();
@@ -71,6 +289,7 @@ function bootApp({ search = '', hash = '', deferKm = false, enableRaf = false, o
   let handleSeq = 1;
   let fakeNowMs = 1000;
   let flipRenderTick = 0;
+  let currentActiveElement = null;
   const rafQueue = new Map();
   const timeoutQueue = new Map();
   const intervalQueue = new Map();
@@ -84,6 +303,7 @@ function bootApp({ search = '', hash = '', deferKm = false, enableRaf = false, o
         dataset: {},
         textContent: '',
         _innerHTML: '',
+        _children: null,
         value: '',
         hidden: false,
         selectionStart: 0,
@@ -99,28 +319,81 @@ function bootApp({ search = '', hash = '', deferKm = false, enableRaf = false, o
             return next;
           }
         },
-        setAttribute(k, v) { attrs[k] = String(v); },
-        getAttribute(k) { return attrs[k] ?? null; },
+        setAttribute(k, v) {
+          const actualKey = k.toLowerCase() === 'viewbox' ? 'viewBox' : k;
+          attrs[actualKey] = String(v);
+        },
+        getAttribute(k) {
+          if (k.toLowerCase() === 'viewbox') return attrs['viewBox'] ?? attrs['viewbox'] ?? null;
+          return attrs[k] ?? attrs[k.toLowerCase()] ?? null;
+        },
         hasAttribute(k) { return Object.prototype.hasOwnProperty.call(attrs, k); },
         removeAttribute(k) { delete attrs[k]; },
-        querySelectorAll(sel) {
-          if (!enableFlipRects || sel !== '[data-morph-key]') return [];
-          const tick = flipRenderTick++;
-          return ['hero-title', 'core-diagram'].map((mk, idx) => ({
-            dataset: { morphKey: mk },
-            offsetWidth: 120,
-            style: {},
-            classList: { add() {}, remove() {} },
-            getAttribute: a => (a === 'data-morph-key' ? mk : null),
-            getBoundingClientRect: () => ({
-              left: 30 + tick * 40 + idx * 10,
-              top: 50 + tick * 20,
-              width: 240 + tick * 30,
-              height: 80 + tick * 10
-            })
-          }));
+        contains(child) {
+          if (!child) return false;
+          if (child === this) return true;
+          if (this._children) {
+            for (const c of this._children) {
+              if (c === child || (c.contains && c.contains(child))) return true;
+            }
+          }
+          return false;
         },
-        focus() {},
+        closest(sel) {
+          let curr = this;
+          while (curr && curr.tag !== '#text') {
+            if (matchesSelector(curr, sel)) return curr;
+            curr = curr.parent;
+          }
+          return null;
+        },
+        querySelector(sel) {
+          if (this._children) {
+            for (const c of this._children) {
+              if (c.tag !== '#text') {
+                if (matchesSelector(c, sel)) return c;
+                if (typeof c.querySelector === 'function') {
+                  const found = c.querySelector(sel);
+                  if (found) return found;
+                }
+              }
+            }
+          }
+          return null;
+        },
+        querySelectorAll(sel) {
+          if (enableFlipRects && sel === '[data-morph-key]') {
+            const tick = flipRenderTick++;
+            return ['hero-title', 'core-diagram'].map((mk, idx) => ({
+              dataset: { morphKey: mk },
+              offsetWidth: 120,
+              style: {},
+              classList: { add() {}, remove() {}, contains() { return false; }, toggle() {} },
+              getAttribute: a => (a === 'data-morph-key' ? mk : null),
+              getBoundingClientRect: () => ({
+                left: 30 + tick * 40 + idx * 10,
+                top: 50 + tick * 20,
+                width: 240 + tick * 30,
+                height: 80 + tick * 10
+              })
+            }));
+          }
+          const results = [];
+          if (this._children) {
+            for (const c of this._children) {
+              if (c.tag !== '#text') {
+                if (matchesSelector(c, sel)) results.push(c);
+                if (typeof c.querySelectorAll === 'function') {
+                  results.push(...c.querySelectorAll(sel));
+                }
+              }
+            }
+          }
+          return results;
+        },
+        focus() {
+          currentActiveElement = this;
+        },
         setSelectionRange(s, e) { this.selectionStart = s; this.selectionEnd = e; },
         scrollIntoView() {},
         click() { this._clicked = true; },
@@ -130,14 +403,24 @@ function bootApp({ search = '', hash = '', deferKm = false, enableRaf = false, o
         }
       };
       Object.defineProperty(node, 'innerHTML', {
-        get() { return this._innerHTML; },
+        get() {
+          if (this._children && this._children.length > 0) {
+            return this._children.map(serializeMockNode).join('');
+          }
+          return this._innerHTML;
+        },
         set(v) {
+          if (currentActiveElement && this.contains(currentActiveElement)) {
+            currentActiveElement = null;
+          }
           this._innerHTML = String(v ?? '');
+          this._children = parseMockFragment(this._innerHTML, this, () => currentActiveElement, el => { currentActiveElement = el; }, elements);
           if (key === '#main') {
             const m = this._innerHTML.match(/<section id="knowledge-map-root"[^>]*>([\s\S]*?)<\/section>/);
             if (m) {
               const kmRoot = element('#knowledge-map-root');
               kmRoot._innerHTML = m[1];
+              kmRoot._children = parseMockFragment(m[1], kmRoot, () => currentActiveElement, el => { currentActiveElement = el; }, elements);
               kmRoot.removeAttribute('data-km-mounted');
               delete kmRoot.dataset.kmMounted;
             }
@@ -162,6 +445,7 @@ function bootApp({ search = '', hash = '', deferKm = false, enableRaf = false, o
   const document = {
     title: '',
     documentElement: { dataset: {} },
+    get activeElement() { return currentActiveElement; },
     getElementById(id) {
       if (id in jsonBlocks) return { textContent: jsonBlocks[id] };
       if (id === 'knowledge-map-root') {
@@ -340,6 +624,7 @@ function bootApp({ search = '', hash = '', deferKm = false, enableRaf = false, o
     docHandlers,
     elHandlers,
     element,
+    document,
     main,
     nav: () => element('#nav').innerHTML,
     tabbar: () => element('#tabbar').innerHTML,
@@ -1093,6 +1378,44 @@ async function test(name, fn) {
       app.km.unmount();
       assert.equal(app.km.getActiveTimerCount(), 0);
     }
+  });
+
+  await test('Codex P2-1 & P2-2 regressions: in-place sketch animation preserves SVG/pupil DOM references, and slide stage preserves focus', () => {
+    const app = bootApp({ hash: '#knowledge-map-sketch' });
+    const root = app.element('#knowledge-map-root');
+
+    // 1. Sketch step in-place animation (Codex P2-1)
+    app.km.setSketchStep(2);
+    const svgBefore = root.querySelector('.km-sketch-svg');
+    const pupilBefore = root.querySelector('.km-rapd-pupil-od');
+    assert(svgBefore, 'Sketch SVG element must exist at step 2');
+    assert(pupilBefore, 'OD pupil circle must exist at step 2');
+    assert.equal(pupilBefore.getAttribute('r'), '15');
+
+    app.km.setSketchStep(3);
+    const svgAfter = root.querySelector('.km-sketch-svg');
+    const pupilAfter = root.querySelector('.km-rapd-pupil-od');
+    assert.equal(svgBefore, svgAfter, 'setSketchStep must preserve the exact same SVG DOM node reference');
+    assert.equal(pupilBefore, pupilAfter, 'setSketchStep must preserve the exact same pupil DOM node reference');
+    assert.equal(pupilAfter.getAttribute('r'), '9', 'OD pupil radius must be updated in-place to 9px');
+
+    // Verify stroke path classes and attributes are updated in-place
+    const box3Stroke = root.querySelector('[data-sketch-box="3"] .km-sketch-stroke');
+    assert(box3Stroke, 'Box 3 stroke must exist');
+    assert(box3Stroke.classList.contains('is-drawn'), 'Box 3 stroke must have .is-drawn class at step 3');
+    assert(box3Stroke.classList.contains('is-current-step'), 'Box 3 stroke must have .is-current-step class at step 3');
+
+    // 2. Slide stage focus preservation (Codex P2-2)
+    app.km.setStudioMode('slides');
+    const stageBefore = root.querySelector('.km-slides-stage');
+    assert(stageBefore, 'Slide stage element must exist');
+    stageBefore.focus();
+    assert.equal(app.document.activeElement, stageBefore, 'Slide stage must have focus before slide change');
+
+    app.km.setSlide(1);
+    const stageAfter = root.querySelector('.km-slides-stage');
+    assert(stageAfter, 'New slide stage element must exist');
+    assert.equal(app.document.activeElement, stageAfter, 'Focus must be restored to the newly rendered slide stage');
   });
 
   const failed = results.filter(r => !r.pass);
