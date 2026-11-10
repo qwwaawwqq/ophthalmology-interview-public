@@ -15,9 +15,11 @@ INDEX = ROOT / 'index.html'
 PRACTICE_JS = ROOT / 'scripts/practice-ui.js'
 LAYOUT_JS = ROOT / 'scripts/layout-shell.js'
 KM_CSS = ROOT / 'scripts/knowledge-map.css'
+KM_MOTION_JS = ROOT / 'scripts/knowledge-map-motion.js'
 KM_JS = ROOT / 'scripts/knowledge-map.js'
 
 CSS_TAG = '<link rel="stylesheet" href="scripts/knowledge-map.css">'
+MOTION_JS_TAG = '<script src="scripts/knowledge-map-motion.js" defer></script>'
 JS_TAG = '<script src="scripts/knowledge-map.js" defer></script>'
 HEAD_ANCHOR = '<script src="scripts/written-qa.js" defer></script>'
 
@@ -39,7 +41,7 @@ VIEW_OLD = "workflow:workflowPage,links:linksPage,sync:syncPage"
 VIEW_NEW = "workflow:workflowPage,map:mapPage,links:linksPage,sync:syncPage"
 
 MOUNT_OLD = "window.OphWritten?.bindContainer?.($('#main'));if(S.tab==='textbook'"
-MOUNT_NEW = (
+MOUNT_V1 = (
     "window.OphWritten?.bindContainer?.($('#main'));"
     "if(S.tab==='map'&&window.OphKnowledgeMap)window.OphKnowledgeMap.mount("
     "document.getElementById('knowledge-map-root'),"
@@ -48,15 +50,27 @@ MOUNT_NEW = (
     "openRoute,switchTab,tabAllowed,onSelectNode(id){S.mapNode=id||'';syncPracticeHash();}});"
     "if(S.tab==='textbook'"
 )
+MOUNT_NEW = (
+    "window.OphWritten?.bindContainer?.($('#main'));"
+    "if(S.tab==='map'&&window.OphKnowledgeMap)window.OphKnowledgeMap.mount("
+    "document.getElementById('knowledge-map-root'),"
+    "{specialty:SPEC.id,specialtyLabel:SPEC.label,appTitle:SPEC.appTitle,selectedNodeId:S.mapNode||'',"
+    "nodeId:S.mapNode||'',explicitRoute:Boolean(S.mapRouteExplicit),"
+    "topics:D.topics,questions:D.questions,interview:D.interview,pbl:D.pbl,workflows:D.workflows,"
+    "openRoute,switchTab,tabAllowed,onSelectNode(id){S.mapNode=id||'';S.mapRouteExplicit=true;syncPracticeHash();}});"
+    "if(S.tab==='textbook'"
+)
 
 REQUIRED_INDEX_HOOKS = (
     CSS_TAG,
+    MOTION_JS_TAG,
     JS_TAG,
     "['map','❖','知識地圖']",
     GROUP_NEW,
     'function mapPage(){',
     'map:mapPage',
     "window.OphKnowledgeMap.mount(document.getElementById('knowledge-map-root')",
+    'explicitRoute:Boolean(S.mapRouteExplicit)',
     "['sync','⇅','保存與同步'],['project','◉','甄試訓練日誌']];",
     "function navMarkup(){const groups=[['訓練專案',['project']],",
 )
@@ -64,8 +78,11 @@ REQUIRED_INDEX_HOOKS = (
 REQUIRED_EXTERNAL_HOOKS = (
     ('scripts/practice-ui.js', '#knowledge-map'),
     ('scripts/practice-ui.js', 'data-knowledge-map-card'),
+    ('scripts/practice-ui.js', 'mapRouteExplicit'),
     ('scripts/layout-shell.js', "['面試',['interview','pbl','workflow','workshop','map','project']]"),
+    ('scripts/knowledge-map-motion.js', 'OphKnowledgeMotion'),
     ('scripts/knowledge-map.js', 'OphKnowledgeMap'),
+    ('scripts/knowledge-map.js', 'setStudioMode'),
     ('scripts/knowledge-map.js', 'buildObsidianMarkdown'),
 )
 
@@ -90,13 +107,18 @@ def sync_block(html: str, start_marker: str, end_marker: str, block_path: Path, 
 
 
 def build(html: str) -> str:
-    head_target = f'{HEAD_ANCHOR}\n{CSS_TAG}\n{JS_TAG}'
-    if CSS_TAG not in html and JS_TAG not in html:
+    head_target = f'{HEAD_ANCHOR}\n{CSS_TAG}\n{MOTION_JS_TAG}\n{JS_TAG}'
+    if CSS_TAG not in html and MOTION_JS_TAG not in html and JS_TAG not in html:
         html = once(html, HEAD_ANCHOR, head_target, 'head assets')
-    elif CSS_TAG not in html:
-        html = once(html, JS_TAG, f'{CSS_TAG}\n{JS_TAG}', 'css link')
-    elif JS_TAG not in html:
-        html = once(html, CSS_TAG, f'{CSS_TAG}\n{JS_TAG}', 'js script')
+    else:
+        if CSS_TAG not in html:
+            anchor = MOTION_JS_TAG if MOTION_JS_TAG in html else JS_TAG
+            html = once(html, anchor, f'{CSS_TAG}\n{anchor}', 'css link')
+        if JS_TAG not in html:
+            anchor = MOTION_JS_TAG if MOTION_JS_TAG in html else CSS_TAG
+            html = once(html, anchor, f'{anchor}\n{JS_TAG}', 'js script')
+        if MOTION_JS_TAG not in html:
+            html = once(html, JS_TAG, f'{MOTION_JS_TAG}\n{JS_TAG}', 'motion js script')
 
     html = sync_block(html, '/* layout-shell:start */', '/* layout-shell:end */', LAYOUT_JS, 'layout-shell.js')
     html = sync_block(html, '/* practice-ui:start */', '/* practice-ui:end */', PRACTICE_JS, 'practice-ui.js')
@@ -105,17 +127,22 @@ def build(html: str) -> str:
     html = once(html, GROUP_OLD, GROUP_NEW, 'navMarkup practice group')
     html = once(html, PAGE_OLD, PAGE_NEW, 'mapPage function')
     html = once(html, VIEW_OLD, VIEW_NEW, 'render view map')
-    html = once(html, MOUNT_OLD, MOUNT_NEW, 'render OphKnowledgeMap.mount')
+    if MOUNT_V1 in html and MOUNT_NEW not in html:
+        html = once(html, MOUNT_V1, MOUNT_NEW, 'render OphKnowledgeMap.mount upgrade')
+    else:
+        html = once(html, MOUNT_OLD, MOUNT_NEW, 'render OphKnowledgeMap.mount')
     return html
 
 
 def verify_hooks(html: str) -> None:
-    for asset in (KM_CSS, KM_JS, PRACTICE_JS, LAYOUT_JS):
+    for asset in (KM_CSS, KM_MOTION_JS, KM_JS, PRACTICE_JS, LAYOUT_JS):
         if not asset.is_file():
             raise SystemExit(f'Missing required asset: {asset.relative_to(ROOT)}')
     missing = [hook for hook in REQUIRED_INDEX_HOOKS if hook not in html]
     if missing:
         raise SystemExit(f'Missing Knowledge Map hooks in index.html: {missing}')
+    if html.index(MOTION_JS_TAG) >= html.index(JS_TAG):
+        raise SystemExit('scripts/knowledge-map-motion.js must appear before scripts/knowledge-map.js in index.html')
     for rel_path, token in REQUIRED_EXTERNAL_HOOKS:
         src = (ROOT / rel_path).read_text(encoding='utf-8')
         if token not in src:
@@ -129,7 +156,11 @@ def verify_hooks(html: str) -> None:
         raise SystemExit('Inline application script must end with render();})();')
 
     if shutil.which('node'):
-        for label, code in (('index.html inline script', app_js), ('scripts/knowledge-map.js', KM_JS.read_text(encoding='utf-8'))):
+        for label, code in (
+            ('index.html inline script', app_js),
+            ('scripts/knowledge-map-motion.js', KM_MOTION_JS.read_text(encoding='utf-8')),
+            ('scripts/knowledge-map.js', KM_JS.read_text(encoding='utf-8')),
+        ):
             checked = subprocess.run(['node', '--check'], input=code, text=True, capture_output=True)
             if checked.returncode != 0:
                 raise SystemExit(f'JavaScript syntax check failed for {label}: {checked.stderr}')

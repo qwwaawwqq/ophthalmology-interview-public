@@ -800,6 +800,33 @@
     ];
   }
 
+  const STUDIO_MODES = Object.freeze([
+    Object.freeze({
+      id: 'flythrough',
+      label: '🎥 知識星圖・鏡頭巡航',
+      sub: 'Canvas 60fps 飛越導覽 · 222 款概念',
+      shortLabel: '知識星圖・鏡頭巡航',
+      nodeId: 'obsidian-canvas-222'
+    }),
+    Object.freeze({
+      id: 'slides',
+      label: '🎞️ Keynote 變形簡報劇場',
+      sub: 'FLIP 同名元素平滑補間 · 30 款概念',
+      shortLabel: 'Keynote 變形簡報劇場',
+      nodeId: 'obsidian-slides-30'
+    }),
+    Object.freeze({
+      id: 'sketch',
+      label: '✏️ 手繪機轉動畫分鏡',
+      sub: 'Excalidraw 筆跡逐步繪製 · 33 款概念',
+      shortLabel: '手繪機轉動畫分鏡',
+      nodeId: 'obsidian-excalidraw-33'
+    })
+  ]);
+  const VALID_STUDIO_MODES = new Set(STUDIO_MODES.map(m => m.id));
+  const STUDIO_BY_ID = new Map(STUDIO_MODES.map(m => [m.id, m]));
+  const PLUGIN_TO_STUDIO = Object.freeze({ canvas: 'flythrough', slides: 'slides', excalidraw: 'sketch' });
+
   const CANONICAL_NODES = Object.freeze(buildNodes('oph').map(n => Object.freeze({ ...n })));
   const VALID_NODE_IDS = new Set(CANONICAL_NODES.map(n => n.id));
 
@@ -807,24 +834,190 @@
   let activeState = {};
   let activeSpecialty = 'oph';
   let selectedNodeId = DEFAULT_NODE_ID;
+  let activeStudioMode = 'flythrough';
+  let userMotionOverride = null;
+  let cameraBox = [0, 0, 960, 440];
+  let cameraTargetBox = [0, 0, 960, 440];
+  let tourActive = false;
+  let tourStepIndex = 0;
+  let tourCaptionText = '';
+  let tourStepTag = '';
+  let slideState = { deckId: '', slideIndex: 0, autoplay: false };
+  let sketchState = { sceneId: '', step: 1, playing: false, speed: 1 };
+  let cancelCameraRaf = null;
+  let cancelFlipRaf = null;
+  let pendingFlightDone = null;
+  let tourTimerId = null;
+  let slideAutoplayId = null;
+  let sketchPlayId = null;
+  const pendingTimeouts = new Set();
+
   let activeCategory = 'all';
   let searchQuery = '';
   let statusNote = '';
   let isComposing = false;
   const boundContainers = new WeakSet();
 
+  function motion() {
+    const m = g.OphKnowledgeMotion || (g.window && g.window.OphKnowledgeMotion);
+    if (m) return m;
+    if (typeof require === 'function') {
+      try { return require('./knowledge-map-motion.js'); } catch (_) {}
+    }
+    return null;
+  }
+
+  function hostEnv() {
+    return g.window || g;
+  }
+
+  function isReducedMotion() {
+    if (userMotionOverride === 'reduced') return true;
+    if (userMotionOverride === 'forced-on') return false;
+    const env = hostEnv();
+    try {
+      if (env && typeof env.matchMedia === 'function') {
+        return Boolean(env.matchMedia('(prefers-reduced-motion: reduce)').matches);
+      }
+    } catch (_) {}
+    return false;
+  }
+
+  function syncMotionAttribute(container) {
+    const target = container || activeContainer;
+    if (!target || typeof target.setAttribute !== 'function') return;
+    const modeVal = userMotionOverride === 'forced-on' ? 'forced-on' : (isReducedMotion() ? 'reduced' : 'auto');
+    target.setAttribute('data-km-motion', modeVal);
+    if (target.dataset) target.dataset.kmMotion = modeVal;
+  }
+
+  function isContainerMounted(el) {
+    if (!el) return false;
+    if (typeof el.hasAttribute === 'function') return el.hasAttribute('data-km-mounted');
+    if (typeof el.getAttribute === 'function') return el.getAttribute('data-km-mounted') === '1';
+    return Boolean(el.dataset && el.dataset.kmMounted === '1');
+  }
+
+  function isContainerDetached(el) {
+    if (!el || el !== activeContainer) return true;
+    if (el.isConnected === false) return true;
+    const doc = g.document || (g.window && g.window.document);
+    if (doc && typeof doc.getElementById === 'function' && el.id === 'knowledge-map-root') {
+      const found = doc.getElementById('knowledge-map-root');
+      if (found === null) return true;
+    }
+    return false;
+  }
+
+  function isContainerInteractive(container) {
+    if (!container || isContainerDetached(container) || container.hidden || !isContainerMounted(container)) {
+      return false;
+    }
+    if (container.style && container.style.display === 'none') return false;
+    if (typeof container.closest === 'function') {
+      const panel = container.closest('.tab-panel');
+      if (panel) {
+        if (panel.hidden || (panel.style && panel.style.display === 'none')) return false;
+        if (panel.classList && typeof panel.classList.contains === 'function' && !panel.classList.contains('active')) {
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+
+  function registerManagedTimeout(fn, delayMs) {
+    if (!activeContainer || isContainerDetached(activeContainer) || !isContainerMounted(activeContainer)) {
+      return null;
+    }
+    const env = hostEnv();
+    const setT = (env && typeof env.setTimeout === 'function' ? env.setTimeout : setTimeout).bind(env);
+    const id = setT(() => {
+      pendingTimeouts.delete(id);
+      if (!isContainerDetached(activeContainer) && isContainerMounted(activeContainer)) fn();
+    }, delayMs);
+    if (id !== undefined && id !== null) pendingTimeouts.add(id);
+    return id;
+  }
+
+  function clearAllTimers() {
+    const env = hostEnv();
+    const clrT = (env && typeof env.clearTimeout === 'function' ? env.clearTimeout : clearTimeout).bind(env);
+    const clrI = (env && typeof env.clearInterval === 'function' ? env.clearInterval : clearInterval).bind(env);
+    pendingFlightDone = null;
+    if (typeof cancelCameraRaf === 'function') {
+      cancelCameraRaf();
+      cancelCameraRaf = null;
+    }
+    if (typeof cancelFlipRaf === 'function') {
+      cancelFlipRaf();
+      cancelFlipRaf = null;
+    }
+    if (tourTimerId !== null) {
+      clrT(tourTimerId);
+      tourTimerId = null;
+    }
+    if (slideAutoplayId !== null) {
+      clrI(slideAutoplayId);
+      slideAutoplayId = null;
+    }
+    if (sketchPlayId !== null) {
+      clrI(sketchPlayId);
+      sketchPlayId = null;
+    }
+    for (const id of pendingTimeouts) clrT(id);
+    pendingTimeouts.clear();
+    tourActive = false;
+    slideState.autoplay = false;
+    sketchState.playing = false;
+  }
+
+  function switchStudioModeInternal(nextMode) {
+    const normalized = VALID_STUDIO_MODES.has(nextMode) ? nextMode : 'flythrough';
+    if (activeStudioMode !== normalized) {
+      clearAllTimers();
+      activeStudioMode = normalized;
+    }
+    return activeStudioMode;
+  }
+
+  function getActiveTimerCount() {
+    return (cancelCameraRaf ? 1 : 0) +
+      (cancelFlipRaf ? 1 : 0) +
+      (tourTimerId !== null ? 1 : 0) +
+      (slideAutoplayId !== null ? 1 : 0) +
+      (sketchPlayId !== null ? 1 : 0) +
+      pendingTimeouts.size;
+  }
+
   function isValidNodeId(nodeId) {
     return typeof nodeId === 'string' && VALID_NODE_IDS.has(nodeId);
   }
 
-  function parseNodeFromHash(hashStr) {
+  function isValidRouteId(routeId) {
+    return isValidNodeId(routeId) || (typeof routeId === 'string' && VALID_STUDIO_MODES.has(routeId));
+  }
+
+  function parseRouteFromHash(hashStr) {
     const raw = String(hashStr ?? '').trim();
     const m = raw.match(/^#knowledge-map-([a-z0-9-]+)$/);
-    return m && isValidNodeId(m[1]) ? m[1] : null;
+    return m && isValidRouteId(m[1]) ? m[1] : null;
+  }
+
+  function ensureSpecialtyDefaults(specId) {
+    const m = motion();
+    if (!m) return;
+    const decks = m.getDecks(specId);
+    if (decks.length && !decks.some(d => d.id === slideState.deckId)) {
+      slideState = { deckId: decks[0].id, slideIndex: 0, autoplay: false };
+    }
+    const scenes = m.getSketchScenes(specId);
+    if (scenes.length && !scenes.some(s => s.id === sketchState.sceneId)) {
+      sketchState = { sceneId: scenes[0].id, step: 1, playing: false, speed: sketchState.speed || 1 };
+    }
   }
 
   function nodeMatchesFilter(node, category, query) {
-    const catOk = category === 'all' || node.category === category || (category !== 'all' && node.id === 'hub' && !query);
     const exactCatOk = category === 'all' || node.category === category;
     if (!query) return exactCatOk;
     const tokens = query.toLocaleLowerCase().split(/\s+/).filter(Boolean);
@@ -843,23 +1036,34 @@
   }
 
   function curvePath(a, b) {
+    const m = motion();
+    if (m && typeof m.cubicSynapsePath === 'function') return m.cubicSynapsePath(a, b);
     const dx = b.x - a.x;
     const dy = b.y - a.y;
-    const cx = (a.x + b.x) / 2 - dy * 0.12;
-    const cy = (a.y + b.y) / 2 + dx * 0.08;
-    return `M ${a.x} ${a.y} Q ${Math.round(cx)} ${Math.round(cy)} ${b.x} ${b.y}`;
+    const c1x = Math.round(a.x + dx * 0.42);
+    const c1y = Math.round(a.y + dy * 0.1);
+    const c2x = Math.round(b.x - dx * 0.42);
+    const c2y = Math.round(b.y - dy * 0.1);
+    return `M ${a.x} ${a.y} C ${c1x} ${c1y}, ${c2x} ${c2y}, ${b.x} ${b.y}`;
   }
 
   function renderObsidianSpotlight(selectedNode, specId) {
     const copy = SPECIALTY_COPY[specId] || SPECIALTY_COPY.oph;
     const focusedKey = selectedNode.pluginKey || '';
+    const studioBtnLabels = {
+      slides: '啟動內建變形簡報劇場',
+      canvas: '啟動內建畫布鏡頭巡航',
+      excalidraw: '啟動內建手繪動畫分鏡'
+    };
     const pluginCards = OBSIDIAN_PLUGINS.map(p => {
       const isFocused = focusedKey === p.key;
+      const targetStudio = PLUGIN_TO_STUDIO[p.key] || 'flythrough';
       return `<article class="km-plugin-item${isFocused ? ' is-focused' : ''}" data-km-plugin="${esc(p.key)}">` +
         `<div class="km-plugin-head"><h3>${esc(p.title)}</h3><span class="km-plugin-count">${esc(p.countLabel)}</span></div>` +
         `<p>${esc(p.description)}</p>` +
         `<div class="km-route-actions">` +
         `<a class="km-plugin-link" href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">${esc(p.cta)}</a>` +
+        `<button type="button" class="btn small" data-km-action="studio-mode" data-km-value="${esc(targetStudio)}">${esc(studioBtnLabels[p.key] || '開啟內建引擎')}</button>` +
         (selectedNode.id !== p.nodeId ? `<button type="button" class="btn small subtle" data-km-action="select" data-km-value="${esc(p.nodeId)}">聚焦此分類節點</button>` : '') +
         `</div></article>`;
     }).join('');
@@ -920,28 +1124,35 @@
       `</article>`;
   }
 
-  function buildMarkup() {
-    const nodes = buildNodes(activeSpecialty, activeState);
-    const copy = SPECIALTY_COPY[activeSpecialty] || SPECIALTY_COPY.oph;
-    const nodeById = new Map(nodes.map(n => [n.id, n]));
-    const selectedNode = nodeById.get(selectedNodeId) || nodeById.get(DEFAULT_NODE_ID) || nodes[0];
-    const qTrim = searchQuery.trim();
-    const matchedIds = new Set(nodes.filter(n => nodeMatchesFilter(n, activeCategory, qTrim)).map(n => n.id));
-    const filteredList = nodes.filter(n => matchedIds.has(n.id));
+  function renderFlythroughStage(nodes, nodeById, selectedNode, matchedIds, qTrim, copy, reduced) {
+    const m = motion();
+    const vbStr = m ? m.formatViewBox(cameraBox) : '0 0 960 440';
+    const zoomRatio = (960 / (cameraBox[2] || 960)).toFixed(2);
+    const totalStops = m ? m.TOUR_STOPS.length : 8;
+    const pct = Math.min(100, Math.round(((tourStepIndex + 1) / totalStops) * 100));
 
-    const filterPills = CATEGORIES.map(cat => {
-      const on = activeCategory === cat.id;
-      return `<button type="button" class="km-filter-pill${on ? ' is-active' : ''}" data-km-action="filter" data-km-value="${esc(cat.id)}" aria-pressed="${on}">${esc(cat.label)}</button>`;
-    }).join('');
-
-    const svgEdges = EDGES.map(([fromId, toId, kind]) => {
+    const svgEdges = EDGES.map(([fromId, toId, kind], idx) => {
       const a = nodeById.get(fromId);
       const b = nodeById.get(toId);
       if (!a || !b) return '';
       const isSelectedEdge = selectedNode.id === fromId || selectedNode.id === toId;
       const isDimmed = (activeCategory !== 'all' || qTrim) && !(matchedIds.has(fromId) && matchedIds.has(toId)) && !isSelectedEdge;
+      const d = curvePath(a, b);
       const cls = ['km-edge', kind === 'motion' ? 'is-motion' : '', isSelectedEdge ? 'is-active' : '', isDimmed ? 'is-dimmed' : ''].filter(Boolean).join(' ');
-      return `<path class="${cls}" d="${curvePath(a, b)}"/>`;
+      let extra = '';
+      if (isSelectedEdge) {
+        if (!reduced) {
+          extra = `<path class="km-edge-stream${kind === 'motion' ? ' is-motion' : ''}" pathLength="100" d="${d}"/>` +
+            `<circle class="km-pulse-orb${kind === 'motion' ? ' is-motion' : ''}" r="3.6">` +
+            `<animateMotion dur="${(2.1 + (idx % 3) * 0.35).toFixed(2)}s" repeatCount="indefinite" path="${d}"/>` +
+            `</circle>`;
+        } else {
+          const mx = Math.round((a.x + b.x) / 2);
+          const my = Math.round((a.y + b.y) / 2);
+          extra = `<circle class="km-pulse-orb${kind === 'motion' ? ' is-motion' : ''}" cx="${mx}" cy="${my}" r="3.4"/>`;
+        }
+      }
+      return `<path class="${cls}" d="${d}"/>` + extra;
     }).join('');
 
     const svgNodes = nodes.map(n => {
@@ -956,12 +1167,88 @@
         isSel ? 'is-selected' : '',
         isDim ? 'is-dimmed' : ''
       ].filter(Boolean).join(' ');
+      const halo = isSel || n.spotlight
+        ? `<rect class="km-node-halo" x="${rx - 4}" y="${ry - 4}" width="${n.w + 8}" height="${n.h + 8}" rx="16" ry="16"/>`
+        : '';
       return `<g class="${cls}" role="button" tabindex="0" aria-pressed="${isSel}" aria-label="${esc(n.title)}" data-km-action="select" data-km-value="${esc(n.id)}">` +
+        halo +
         `<rect class="km-node-rect" x="${rx}" y="${ry}" width="${n.w}" height="${n.h}" rx="13" ry="13"/>` +
         `<text class="km-node-title" x="${n.x}" y="${n.y - 5}" text-anchor="middle">${esc(n.shortLabel)}</text>` +
         `<text class="km-node-sub" x="${n.x}" y="${n.y + 13}" text-anchor="middle">${esc(n.subLabel)}</text>` +
         `</g>`;
     }).join('');
+
+    const captionHtml = tourActive || tourCaptionText
+      ? `<div class="km-tour-caption" role="status" aria-live="polite">` +
+        `<div class="km-tour-caption-top">` +
+        `<span class="km-tour-step-badge">${tourActive ? `🎬 鏡頭巡航 0${tourStepIndex + 1} / 0${totalStops}` : '🎯 鏡頭定位旁白'}</span>` +
+        `<span class="km-tour-node-tag">${esc(tourStepTag || selectedNode.shortLabel)}</span>` +
+        `</div>` +
+        `<p>${esc(tourCaptionText || selectedNode.summary)}</p>` +
+        `<div class="km-tour-bar"><span style="width:${tourActive ? pct : 100}%"></span></div>` +
+        `</div>`
+      : '';
+
+    return `<div class="km-camera-hud" role="toolbar" aria-label="星圖鏡頭控制列">` +
+      `<div class="km-hud-group">` +
+      `<button type="button" class="km-hud-btn ${tourActive ? 'is-active' : 'is-primary'}" data-km-action="${tourActive ? 'tour-stop' : 'tour-start'}" aria-pressed="${tourActive}">${tourActive ? '⏹ 停止巡航' : '▶ 7 站電影級巡航'}</button>` +
+      `<button type="button" class="km-hud-btn" data-km-action="fly-selected">🎯 聚焦節點</button>` +
+      `</div>` +
+      `<div class="km-hud-group">` +
+      `<button type="button" class="km-hud-btn" data-km-action="zoom-in" aria-label="放大鏡頭">＋ 放大</button>` +
+      `<button type="button" class="km-hud-btn" data-km-action="zoom-out" aria-label="縮小鏡頭">－ 縮小</button>` +
+      `<button type="button" class="km-hud-btn" data-km-action="camera-reset">↺ 全景重設</button>` +
+      `<span class="km-hud-readout" data-km-zoom-readout>視角 ${zoomRatio}×</span>` +
+      `</div></div>` +
+      captionHtml +
+      `<div class="km-graph-stage" data-km-engine="flythrough">` +
+      `<svg id="km-main-svg" class="km-svg" viewBox="${vbStr}" role="group" aria-label="${esc(copy.label)}甄選互動知識地圖">` +
+      `<defs>` +
+      `<pattern id="km-grid-pattern" width="32" height="32" patternUnits="userSpaceOnUse">` +
+      `<path d="M 32 0 L 0 0 0 32" fill="none" stroke="#1e2f52" stroke-width="0.7" opacity="0.55"/>` +
+      `</pattern>` +
+      `</defs>` +
+      `<rect class="km-stage-grid-rect" x="0" y="0" width="960" height="440" fill="url(#km-grid-pattern)"/>` +
+      `<g class="km-edges">${svgEdges}</g>` +
+      `<g class="km-nodes">${svgNodes}</g>` +
+      `</svg></div>`;
+  }
+
+  function buildMarkup() {
+    ensureSpecialtyDefaults(activeSpecialty);
+    const nodes = buildNodes(activeSpecialty, activeState);
+    const copy = SPECIALTY_COPY[activeSpecialty] || SPECIALTY_COPY.oph;
+    const nodeById = new Map(nodes.map(n => [n.id, n]));
+    const selectedNode = nodeById.get(selectedNodeId) || nodeById.get(DEFAULT_NODE_ID) || nodes[0];
+    const qTrim = searchQuery.trim();
+    const matchedIds = new Set(nodes.filter(n => nodeMatchesFilter(n, activeCategory, qTrim)).map(n => n.id));
+    const filteredList = nodes.filter(n => matchedIds.has(n.id));
+    const reduced = isReducedMotion();
+    const m = motion();
+
+    const studioTabs = STUDIO_MODES.map(mode => {
+      const on = activeStudioMode === mode.id;
+      return `<button type="button" role="tab" class="km-studio-tab${on ? ' is-active' : ''}" aria-selected="${on}" data-km-action="studio-mode" data-km-value="${esc(mode.id)}">` +
+        `<strong>${esc(mode.label)}</strong><span>${esc(mode.sub)}</span>` +
+        `</button>`;
+    }).join('');
+
+    const filterPills = CATEGORIES.map(cat => {
+      const on = activeCategory === cat.id;
+      return `<button type="button" class="km-filter-pill${on ? ' is-active' : ''}" data-km-action="filter" data-km-value="${esc(cat.id)}" aria-pressed="${on}">${esc(cat.label)}</button>`;
+    }).join('');
+
+    let stageBody = '';
+    let stageHeading = '互動知識網路圖（點選任一節點查看詳情與快速跳轉）';
+    if (activeStudioMode === 'slides' && m) {
+      stageHeading = `${copy.label}甄選 Keynote Magic-Move 變形簡報劇場`;
+      stageBody = m.renderSlidesTheater(activeSpecialty, slideState, esc);
+    } else if (activeStudioMode === 'sketch' && m) {
+      stageHeading = `${copy.label}甄選 Excalidraw 手繪機轉動畫分鏡`;
+      stageBody = m.renderSketchPlayer(activeSpecialty, sketchState, reduced, esc);
+    } else {
+      stageBody = renderFlythroughStage(nodes, nodeById, selectedNode, matchedIds, qTrim, copy, reduced);
+    }
 
     const catLabelMap = { hub: '核心中樞', motion: '動態外掛', study: '閱讀題庫', interview: '面試敘事' };
     const chipsHtml = filteredList.length
@@ -977,12 +1264,22 @@
     return `<header class="km-header">` +
       `<div><p class="km-eyebrow">KNOWLEDGE MAP · ${esc(copy.label)}甄選導覽與動態簡報工具箱</p>` +
       `<h1>知識地圖與 Obsidian 285 免費動態簡報外掛</h1>` +
-      `<p class="km-subtitle">一圖串聯站內「閱讀記憶・SRS 題庫・口試敘事」學習閉環，並整合 Obsidian 社群 285 款 $0 免費動態設計外掛（Slides 30・Canvas 222・Excalidraw 33），快速打造高辨識度甄選簡報。</p></div>` +
+      `<p class="km-subtitle">一圖串聯站內「閱讀記憶・SRS 題庫・口試敘事」學習閉環，並整合內建 $0 動態工作台與 Obsidian 社群 285 款免費動態設計外掛（Slides 30・Canvas 222・Excalidraw 33）。</p></div>` +
       `<div class="km-stat-strip" aria-label="動態外掛關鍵統計">` +
       `<div class="km-stat-pill is-accent"><span>免費動態外掛總數</span><strong>285 款 ($0)</strong></div>` +
       `<div class="km-stat-pill"><span>Slides / Canvas / Excalidraw</span><strong>30 / 222 / 33</strong></div>` +
       `<div class="km-stat-pill"><span>對標商業簡報行情</span><strong>$1,500–$4,800</strong></div>` +
       `</div></header>` +
+      `<section class="km-studio-bar" aria-label="Motion Studio 內建動態簡報工作台">` +
+      `<div class="km-studio-top">` +
+      `<div class="km-studio-brand">` +
+      `<span class="km-studio-kicker"><i class="km-studio-dot" aria-hidden="true"></i>MOTION STUDIO · 內建 $0 實況劇場</span>` +
+      `<p class="km-studio-tagline">免安裝即可在瀏覽器直接體驗「星圖 60fps 鏡頭巡航・Keynote FLIP 變形投影片・Excalidraw 手繪機轉分鏡」三大引擎。</p>` +
+      `</div>` +
+      `<button type="button" class="km-motion-toggle${reduced ? ' is-reduced' : ''}" data-km-action="toggle-motion" aria-pressed="${!reduced}">✨ 動態特效：${reduced ? '精簡' : '開啟'}</button>` +
+      `</div>` +
+      `<div class="km-studio-tabs" role="tablist" aria-label="動態引擎模式切換">${studioTabs}</div>` +
+      `</section>` +
       `<div class="km-toolbar" role="region" aria-label="知識地圖分類篩選與搜尋">` +
       `<div class="km-filters" role="group" aria-label="節點分類">${filterPills}</div>` +
       `<div class="km-search-box">` +
@@ -992,26 +1289,31 @@
       `</div></div>` +
       `<div class="km-workspace">` +
       `<section class="km-graph-card" aria-labelledby="km-graph-title">` +
-      `<div class="km-graph-head"><h2 id="km-graph-title">互動知識網路圖（點選任一節點查看詳情與快速跳轉）</h2>` +
+      `<div class="km-graph-head"><h2 id="km-graph-title">${esc(stageHeading)}</h2>` +
       `<div class="km-legend" aria-hidden="true">` +
       `<span class="km-legend-item"><i class="km-legend-dot is-hub"></i>中樞</span>` +
       `<span class="km-legend-item"><i class="km-legend-dot is-motion"></i>動態外掛 (285)</span>` +
       `<span class="km-legend-item"><i class="km-legend-dot is-study"></i>閱讀與題庫</span>` +
       `<span class="km-legend-item"><i class="km-legend-dot is-interview"></i>面試與敘事</span>` +
       `</div></div>` +
-      `<div class="km-graph-stage">` +
-      `<svg class="km-svg" viewBox="0 0 960 440" role="group" aria-label="${esc(copy.label)}甄選互動知識地圖">` +
-      `<g class="km-edges">${svgEdges}</g>` +
-      `<g class="km-nodes">${svgNodes}</g>` +
-      `</svg></div>` +
+      stageBody +
       chipsHtml +
       `</section>` +
       `<div class="km-detail-col">${renderDetailCard(nodes, selectedNode, activeSpecialty)}</div>` +
       `</div>`;
   }
 
-  function renderIntoActive(preserveSearchFocus) {
+  function renderIntoActive(preserveSearchFocus, renderOpts) {
     if (!activeContainer) return '';
+    const opts = renderOpts || {};
+    const m = motion();
+    const shouldFlip = Boolean(opts.withFlip && activeStudioMode === 'slides' && m && !isReducedMotion());
+    const firstRects = shouldFlip ? m.captureFlipRects(activeContainer) : null;
+    if (typeof cancelFlipRaf === 'function') {
+      cancelFlipRaf();
+      cancelFlipRaf = null;
+    }
+
     let selStart = null;
     let selEnd = null;
     if (preserveSearchFocus && g.document && typeof g.document.getElementById === 'function') {
@@ -1021,8 +1323,19 @@
         selEnd = typeof prev.selectionEnd === 'number' ? prev.selectionEnd : selStart;
       }
     }
+    syncMotionAttribute(activeContainer);
     const html = buildMarkup();
     activeContainer.innerHTML = html;
+    if (shouldFlip && firstRects && firstRects.size) {
+      m.playFlipTransition(
+        activeContainer,
+        firstRects,
+        isReducedMotion(),
+        registerManagedTimeout,
+        hostEnv(),
+        fn => { cancelFlipRaf = typeof fn === 'function' ? fn : null; }
+      );
+    }
     if (preserveSearchFocus && g.document && typeof g.document.getElementById === 'function') {
       const next = g.document.getElementById('km-search');
       if (next) {
@@ -1141,24 +1454,408 @@
     return false;
   }
 
+  function syncRouteHash(routeId, silent) {
+    if (silent) return;
+    if (activeState && typeof activeState.onSelectNode === 'function') {
+      activeState.onSelectNode(routeId);
+      return;
+    }
+    const w = hostEnv();
+    const hash = routeId ? '#knowledge-map-' + routeId : '#knowledge-map';
+    if (w.history && typeof w.history.replaceState === 'function') {
+      w.history.replaceState(null, '', hash);
+    } else if (w.location) {
+      w.location.hash = hash;
+    }
+  }
+
+  function findSvgElement() {
+    if (activeContainer && typeof activeContainer.querySelector === 'function') {
+      const found = activeContainer.querySelector('#km-main-svg') || activeContainer.querySelector('.km-svg');
+      if (found) return found;
+    }
+    const doc = g.document || (g.window && g.window.document);
+    if (doc && typeof doc.getElementById === 'function') {
+      return doc.getElementById('km-main-svg');
+    }
+    return null;
+  }
+
+  function animateCameraTo(targetBox, durationMs, onComplete) {
+    const m = motion();
+    if (!m) return cameraBox.slice();
+    pendingFlightDone = null;
+    if (typeof cancelCameraRaf === 'function') {
+      cancelCameraRaf();
+      cancelCameraRaf = null;
+    }
+    const fromBox = cameraBox.slice();
+    const clampedTarget = m.clampViewBox(targetBox);
+    cameraTargetBox = clampedTarget.slice();
+    const reduced = isReducedMotion();
+    const env = hostEnv();
+    const hasRaf = Boolean(env && typeof env.requestAnimationFrame === 'function');
+
+    if (reduced || !durationMs || !hasRaf) {
+      cameraBox = clampedTarget.slice();
+      renderIntoActive(false);
+      if (typeof onComplete === 'function') onComplete(cameraBox.slice());
+      return cameraBox.slice();
+    }
+
+    const svgEl = findSvgElement();
+    pendingFlightDone = typeof onComplete === 'function' ? onComplete : null;
+    cancelCameraRaf = m.flyToViewBox(
+      svgEl,
+      fromBox,
+      clampedTarget,
+      durationMs,
+      false,
+      box => {
+        cameraBox = box.slice();
+      },
+      finalBox => {
+        const doneCb = pendingFlightDone;
+        pendingFlightDone = null;
+        cameraBox = finalBox.slice();
+        cancelCameraRaf = null;
+        if (!isContainerDetached(activeContainer)) {
+          renderIntoActive(false);
+          if (typeof doneCb === 'function') doneCb(cameraBox.slice());
+        }
+      },
+      env
+    );
+    return cameraTargetBox.slice();
+  }
+
+  function setStudioMode(modeId, options) {
+    const opts = options || {};
+    const nextMode = switchStudioModeInternal(modeId);
+    ensureSpecialtyDefaults(activeSpecialty);
+    if (opts.syncSpotlight !== false) {
+      const meta = STUDIO_BY_ID.get(nextMode);
+      if (meta && isValidNodeId(meta.nodeId)) selectedNodeId = meta.nodeId;
+    }
+    statusNote = '';
+    syncRouteHash(nextMode, Boolean(opts.silent));
+    renderIntoActive(false);
+    return activeStudioMode;
+  }
+
+  function toggleMotion(forceReduced) {
+    const nextReduced = typeof forceReduced === 'boolean' ? forceReduced : !isReducedMotion();
+    userMotionOverride = nextReduced ? 'reduced' : 'forced-on';
+    let resumeFlightDone = null;
+    if (nextReduced && typeof cancelCameraRaf === 'function') {
+      resumeFlightDone = pendingFlightDone;
+      pendingFlightDone = null;
+      cancelCameraRaf();
+      cancelCameraRaf = null;
+      cameraBox = cameraTargetBox.slice();
+    }
+    syncMotionAttribute(activeContainer);
+    renderIntoActive(false);
+    if (typeof resumeFlightDone === 'function' && !isContainerDetached(activeContainer)) {
+      resumeFlightDone(cameraBox.slice());
+    }
+    return !nextReduced;
+  }
+
+  function flyToNode(nodeId, options) {
+    const opts = options || {};
+    const m = motion();
+    if (!opts.fromTour && tourActive) stopTour({ silent: true });
+    switchStudioModeInternal('flythrough');
+    const targetId = isValidNodeId(nodeId) ? nodeId : selectedNodeId;
+    selectedNodeId = isValidNodeId(targetId) ? targetId : DEFAULT_NODE_ID;
+    const nodes = buildNodes(activeSpecialty, activeState);
+    const node = nodes.find(n => n.id === selectedNodeId) || nodes[0];
+    if (m) {
+      tourStepTag = node.shortLabel;
+      tourCaptionText = m.getTourCaption(activeSpecialty, node.id);
+    }
+    if (!opts.fromTour && !opts.silent) {
+      syncRouteHash(selectedNodeId, false);
+    }
+    renderIntoActive(false);
+    const toBox = m ? m.nodeTargetViewBox(node, opts.zoom || 2.15) : [0, 0, 960, 440];
+    return animateCameraTo(toBox, opts.instant ? 0 : (opts.durationMs ?? 560), opts.onDone);
+  }
+
+  function zoomCamera(deltaOrFactor, options) {
+    const opts = options || {};
+    const m = motion();
+    if (!m) return cameraBox.slice();
+    if (tourActive) stopTour({ silent: true });
+    switchStudioModeInternal('flythrough');
+    const num = Number(deltaOrFactor);
+    const factor = num === 1 ? 1.35 : num === -1 ? (1 / 1.35) : (num > 0 ? num : 1.35);
+    const toBox = m.zoomViewBox(cameraBox, factor);
+    return animateCameraTo(toBox, opts.instant ? 0 : 340);
+  }
+
+  function resetCamera(options) {
+    const opts = options || {};
+    if (tourActive) stopTour({ silent: true });
+    switchStudioModeInternal('flythrough');
+    tourCaptionText = '';
+    tourStepTag = '';
+    return animateCameraTo([0, 0, 960, 440], opts.instant ? 0 : 420);
+  }
+
+  function stopTour(options) {
+    const opts = options || {};
+    const env = hostEnv();
+    const clrT = (env && typeof env.clearTimeout === 'function' ? env.clearTimeout : clearTimeout).bind(env);
+    pendingFlightDone = null;
+    if (tourTimerId !== null) {
+      clrT(tourTimerId);
+      tourTimerId = null;
+    }
+    if (typeof cancelCameraRaf === 'function') {
+      cancelCameraRaf();
+      cancelCameraRaf = null;
+    }
+    tourActive = false;
+    tourCaptionText = '';
+    tourStepTag = '';
+    if (!opts.silent) renderIntoActive(false);
+    return false;
+  }
+
+  function startTour(options) {
+    const opts = options || {};
+    const m = motion();
+    if (!m) return false;
+    clearAllTimers();
+    switchStudioModeInternal('flythrough');
+    tourActive = true;
+    tourStepIndex = 0;
+
+    const stepDelay = Math.max(120, Number(opts.stepHoldMs) || 1450);
+    const flyDur = opts.instant ? 0 : (Number(opts.flyDurationMs) || 540);
+    const env = hostEnv();
+    const setT = (env && typeof env.setTimeout === 'function' ? env.setTimeout : setTimeout).bind(env);
+
+    const runStop = idx => {
+      if (!tourActive || activeStudioMode !== 'flythrough' || isContainerDetached(activeContainer)) {
+        stopTour({ silent: true });
+        return;
+      }
+      const stops = m.TOUR_STOPS;
+      if (idx >= stops.length) {
+        tourActive = false;
+        renderIntoActive(false);
+        return;
+      }
+      tourStepIndex = idx;
+      const stopId = stops[idx];
+      tourCaptionText = m.getTourCaption(activeSpecialty, stopId);
+      if (stopId === 'overview') {
+        selectedNodeId = DEFAULT_NODE_ID;
+        tourStepTag = '全景歸位 Overview';
+        renderIntoActive(false);
+        animateCameraTo(m.OVERVIEW_BOX, flyDur, () => {
+          if (!tourActive || activeStudioMode !== 'flythrough' || isContainerDetached(activeContainer)) {
+            stopTour({ silent: true });
+            return;
+          }
+          tourTimerId = setT(() => {
+            tourTimerId = null;
+            tourActive = false;
+            if (!isContainerDetached(activeContainer)) renderIntoActive(false);
+          }, stepDelay);
+        });
+        return;
+      }
+
+      const nodes = buildNodes(activeSpecialty, activeState);
+      const node = nodes.find(n => n.id === stopId) || nodes[0];
+      selectedNodeId = node.id;
+      tourStepTag = node.shortLabel;
+      renderIntoActive(false);
+      const targetBox = m.nodeTargetViewBox(node, stopId === 'hub' ? 1.85 : 2.18);
+      animateCameraTo(targetBox, flyDur, () => {
+        if (!tourActive || activeStudioMode !== 'flythrough' || isContainerDetached(activeContainer)) {
+          stopTour({ silent: true });
+          return;
+        }
+        tourTimerId = setT(() => {
+          tourTimerId = null;
+          runStop(idx + 1);
+        }, stepDelay);
+      });
+    };
+
+    runStop(0);
+    return true;
+  }
+
+  function setDeck(deckId) {
+    const m = motion();
+    if (!m) return '';
+    const decks = m.getDecks(activeSpecialty);
+    const found = decks.find(d => d.id === deckId) || decks[0];
+    if (!found) return '';
+    switchStudioModeInternal('slides');
+    slideState.deckId = found.id;
+    slideState.slideIndex = 0;
+    renderIntoActive(false, { withFlip: true });
+    return slideState.deckId;
+  }
+
+  function setSlide(index) {
+    const m = motion();
+    if (!m) return 0;
+    ensureSpecialtyDefaults(activeSpecialty);
+    const decks = m.getDecks(activeSpecialty);
+    const deck = decks.find(d => d.id === slideState.deckId) || decks[0];
+    const total = deck ? deck.slides.length : 4;
+    const raw = Number(index);
+    const nextIdx = Number.isFinite(raw) ? ((Math.trunc(raw) % total) + total) % total : 0;
+    switchStudioModeInternal('slides');
+    slideState.slideIndex = nextIdx;
+    renderIntoActive(false, { withFlip: true });
+    return slideState.slideIndex;
+  }
+
+  function toggleSlideAutoplay(force) {
+    const env = hostEnv();
+    const setI = (env && typeof env.setInterval === 'function' ? env.setInterval : setInterval).bind(env);
+    const clrI = (env && typeof env.clearInterval === 'function' ? env.clearInterval : clearInterval).bind(env);
+    const next = typeof force === 'boolean' ? force : !slideState.autoplay;
+    if (slideAutoplayId !== null) {
+      clrI(slideAutoplayId);
+      slideAutoplayId = null;
+    }
+    if (next) {
+      switchStudioModeInternal('slides');
+      ensureSpecialtyDefaults(activeSpecialty);
+      slideState.autoplay = true;
+      slideAutoplayId = setI(() => {
+        if (isContainerDetached(activeContainer) || activeStudioMode !== 'slides') {
+          toggleSlideAutoplay(false);
+          return;
+        }
+        setSlide(slideState.slideIndex + 1);
+      }, 3400);
+    } else {
+      slideState.autoplay = false;
+    }
+    renderIntoActive(false);
+    return slideState.autoplay;
+  }
+
+  function setSketchScene(sceneId) {
+    const m = motion();
+    if (!m) return '';
+    const scenes = m.getSketchScenes(activeSpecialty);
+    const found = scenes.find(s => s.id === sceneId) || scenes[0];
+    if (!found) return '';
+    if (sketchState.playing) toggleSketchPlay(false);
+    switchStudioModeInternal('sketch');
+    sketchState.sceneId = found.id;
+    sketchState.step = 1;
+    renderIntoActive(false);
+    return sketchState.sceneId;
+  }
+
+  function setSketchStep(stepNum) {
+    ensureSpecialtyDefaults(activeSpecialty);
+    const clamped = Math.max(1, Math.min(4, Math.trunc(Number(stepNum) || 1)));
+    switchStudioModeInternal('sketch');
+    sketchState.step = clamped;
+    renderIntoActive(false);
+    return sketchState.step;
+  }
+
+  function scheduleSketchInterval() {
+    const env = hostEnv();
+    const setI = (env && typeof env.setInterval === 'function' ? env.setInterval : setInterval).bind(env);
+    const clrI = (env && typeof env.clearInterval === 'function' ? env.clearInterval : clearInterval).bind(env);
+    if (sketchPlayId !== null) {
+      clrI(sketchPlayId);
+      sketchPlayId = null;
+    }
+    const intervalMs = Math.round(1650 / (sketchState.speed || 1));
+    sketchPlayId = setI(() => {
+      if (isContainerDetached(activeContainer) || activeStudioMode !== 'sketch') {
+        toggleSketchPlay(false);
+        return;
+      }
+      if (sketchState.step < 4) {
+        sketchState.step += 1;
+        renderIntoActive(false);
+      } else {
+        toggleSketchPlay(false);
+      }
+    }, intervalMs);
+  }
+
+  function toggleSketchPlay(force) {
+    const env = hostEnv();
+    const clrI = (env && typeof env.clearInterval === 'function' ? env.clearInterval : clearInterval).bind(env);
+    const next = typeof force === 'boolean' ? force : !sketchState.playing;
+    if (sketchPlayId !== null) {
+      clrI(sketchPlayId);
+      sketchPlayId = null;
+    }
+    if (next) {
+      switchStudioModeInternal('sketch');
+      ensureSpecialtyDefaults(activeSpecialty);
+      sketchState.playing = true;
+      if (sketchState.step >= 4) sketchState.step = 1;
+      scheduleSketchInterval();
+    } else {
+      sketchState.playing = false;
+    }
+    renderIntoActive(false);
+    return sketchState.playing;
+  }
+
+  function setSketchSpeed(speedVal) {
+    const nextSpeed = Number(speedVal) === 1.75 ? 1.75 : (sketchState.speed === 1 ? 1.75 : 1);
+    sketchState.speed = nextSpeed;
+    if (sketchState.playing) scheduleSketchInterval();
+    renderIntoActive(false);
+    return sketchState.speed;
+  }
+
+  function unmount() {
+    clearAllTimers();
+    if (activeContainer) {
+      if (typeof activeContainer.removeAttribute === 'function') {
+        activeContainer.removeAttribute('data-km-mounted');
+      }
+      if (activeContainer.dataset) {
+        delete activeContainer.dataset.kmMounted;
+      }
+    }
+    activeContainer = null;
+    return true;
+  }
+
   function selectNode(nodeId, options) {
     const opts = options || {};
+    if (VALID_STUDIO_MODES.has(nodeId)) {
+      setStudioMode(nodeId, opts);
+      return selectedNodeId;
+    }
+    if (!opts.fromTour && tourActive) {
+      stopTour({ silent: true });
+    }
+    if (!opts.fromTour) {
+      tourCaptionText = '';
+      tourStepTag = '';
+    }
+    if (!opts.keepStudioMode) {
+      switchStudioModeInternal('flythrough');
+    }
     const nextId = isValidNodeId(nodeId) ? nodeId : DEFAULT_NODE_ID;
     selectedNodeId = nextId;
     statusNote = '';
-    if (!opts.silent) {
-      if (activeState && typeof activeState.onSelectNode === 'function') {
-        activeState.onSelectNode(nextId);
-      } else {
-        const w = g.window || g;
-        const hash = '#knowledge-map-' + nextId;
-        if (w.history && typeof w.history.replaceState === 'function') {
-          w.history.replaceState(null, '', hash);
-        } else if (w.location) {
-          w.location.hash = hash;
-        }
-      }
-    }
+    syncRouteHash(nextId, Boolean(opts.silent));
     renderIntoActive(false);
     return selectedNodeId;
   }
@@ -1177,6 +1874,80 @@
   }
 
   function handleAction(actionName, value) {
+    if (actionName === 'studio-mode' || actionName === 'km-studio-mode') {
+      setStudioMode(value);
+      return true;
+    }
+    if (actionName === 'toggle-motion' || actionName === 'km-toggle-motion') {
+      toggleMotion();
+      return true;
+    }
+    if (actionName === 'tour-start') {
+      startTour();
+      return true;
+    }
+    if (actionName === 'tour-stop') {
+      stopTour();
+      return true;
+    }
+    if (actionName === 'fly-selected') {
+      flyToNode(selectedNodeId, { silent: true });
+      return true;
+    }
+    if (actionName === 'zoom-in') {
+      zoomCamera(1);
+      return true;
+    }
+    if (actionName === 'zoom-out') {
+      zoomCamera(-1);
+      return true;
+    }
+    if (actionName === 'camera-reset') {
+      resetCamera();
+      return true;
+    }
+    if (actionName === 'set-deck') {
+      setDeck(value);
+      return true;
+    }
+    if (actionName === 'set-slide') {
+      setSlide(Number(value));
+      return true;
+    }
+    if (actionName === 'slide-prev') {
+      setSlide(slideState.slideIndex - 1);
+      return true;
+    }
+    if (actionName === 'slide-next') {
+      setSlide(slideState.slideIndex + 1);
+      return true;
+    }
+    if (actionName === 'toggle-slide-autoplay') {
+      toggleSlideAutoplay();
+      return true;
+    }
+    if (actionName === 'set-sketch-scene') {
+      setSketchScene(value);
+      return true;
+    }
+    if (actionName === 'set-sketch-step') {
+      setSketchStep(Number(value));
+      return true;
+    }
+    if (actionName === 'toggle-sketch-play') {
+      toggleSketchPlay();
+      return true;
+    }
+    if (actionName === 'sketch-replay') {
+      toggleSketchPlay(false);
+      setSketchStep(1);
+      toggleSketchPlay(true);
+      return true;
+    }
+    if (actionName === 'toggle-sketch-speed') {
+      setSketchSpeed();
+      return true;
+    }
     if (actionName === 'select' || actionName === 'km-select') {
       selectNode(value);
       return true;
@@ -1210,6 +1981,7 @@
     boundContainers.add(container);
 
     container.addEventListener('click', e => {
+      if (!isContainerInteractive(container)) return;
       const target = e && e.target;
       if (!target || typeof target.closest !== 'function') return;
       if (target.closest('a[href]')) return;
@@ -1223,8 +1995,15 @@
     });
 
     container.addEventListener('keydown', e => {
-      if (!e || (e.key !== 'Enter' && e.key !== ' ')) return;
+      if (!e || !isContainerInteractive(container)) return;
       const target = e.target;
+      const isSearchInput = target && (target.id === 'km-search' || target.tagName === 'INPUT' || target.tagName === 'TEXTAREA');
+      if (!isSearchInput && activeStudioMode === 'slides' && (e.key === 'ArrowRight' || e.key === 'ArrowLeft')) {
+        if (typeof e.preventDefault === 'function') e.preventDefault();
+        setSlide(slideState.slideIndex + (e.key === 'ArrowRight' ? 1 : -1));
+        return;
+      }
+      if (e.key !== 'Enter' && e.key !== ' ') return;
       if (!target || typeof target.closest !== 'function') return;
       const nodeEl = target.closest('g.km-node[data-km-action="select"]');
       if (!nodeEl) return;
@@ -1242,6 +2021,7 @@
       setSearch(e.target.value, true);
     });
     container.addEventListener('input', e => {
+      if (!isContainerInteractive(container)) return;
       const el = e && e.target;
       if (!el || el.id !== 'km-search') return;
       if (e.isComposing || isComposing) {
@@ -1254,41 +2034,78 @@
 
   function mount(container, state) {
     if (!container) return null;
+    if (activeContainer && activeContainer !== container) {
+      clearAllTimers();
+    }
     const nextSpec = resolveSpecialty(state);
     if (nextSpec !== activeSpecialty) {
+      clearAllTimers();
       activeCategory = 'all';
       searchQuery = '';
       statusNote = '';
+      cameraBox = [0, 0, 960, 440];
+      cameraTargetBox = [0, 0, 960, 440];
+      tourCaptionText = '';
+      tourStepTag = '';
+      slideState = { deckId: '', slideIndex: 0, autoplay: false };
+      sketchState = { sceneId: '', step: 1, playing: false, speed: 1 };
     }
     activeContainer = container;
     activeState = state || {};
     activeSpecialty = nextSpec;
+    ensureSpecialtyDefaults(nextSpec);
 
+    const rawStateRoute = state && typeof state.selectedNodeId === 'string'
+      ? state.selectedNodeId
+      : (state && typeof state.nodeId === 'string' ? state.nodeId : '');
+    const stateRoute = rawStateRoute && isValidRouteId(rawStateRoute) ? rawStateRoute : '';
+    const explicitGenericReset = Boolean(state && state.explicitRoute && !stateRoute);
     const hashStr = (g.window && g.window.location && g.window.location.hash) || (g.location && g.location.hash) || '';
-    const hashNode = parseNodeFromHash(hashStr);
-    if (state && typeof state.selectedNodeId === 'string' && isValidNodeId(state.selectedNodeId)) {
-      selectedNodeId = state.selectedNodeId;
-    } else if (hashNode) {
-      selectedNodeId = hashNode;
-    } else if (hashStr === '#knowledge-map' || hashStr === '#tab-map' || !isValidNodeId(selectedNodeId)) {
+    const hashRoute = explicitGenericReset ? null : parseRouteFromHash(hashStr);
+    const chosenRoute = stateRoute || hashRoute || '';
+
+    if (explicitGenericReset) {
+      switchStudioModeInternal('flythrough');
       selectedNodeId = DEFAULT_NODE_ID;
+      cameraBox = [0, 0, 960, 440];
+      cameraTargetBox = [0, 0, 960, 440];
+      tourCaptionText = '';
+      tourStepTag = '';
+    } else if (VALID_STUDIO_MODES.has(chosenRoute)) {
+      switchStudioModeInternal(chosenRoute);
+      const meta = STUDIO_BY_ID.get(chosenRoute);
+      if (meta && isValidNodeId(meta.nodeId)) selectedNodeId = meta.nodeId;
+    } else if (isValidNodeId(chosenRoute)) {
+      switchStudioModeInternal('flythrough');
+      selectedNodeId = chosenRoute;
+    } else if (hashStr === '#knowledge-map' || hashStr === '#tab-map' || !isValidNodeId(selectedNodeId) || (state && rawStateRoute === '' && !hashRoute)) {
+      switchStudioModeInternal('flythrough');
+      selectedNodeId = DEFAULT_NODE_ID;
+      cameraBox = [0, 0, 960, 440];
+      cameraTargetBox = [0, 0, 960, 440];
+      tourCaptionText = '';
+      tourStepTag = '';
     }
 
-    bindContainerEvents(container);
-    renderIntoActive(false);
     if (typeof container.setAttribute === 'function') {
       container.setAttribute('data-km-mounted', '1');
     }
     if (container.dataset) {
       container.dataset.kmMounted = '1';
     }
+    bindContainerEvents(container);
+    renderIntoActive(false);
     return api;
   }
 
-  function routeLabel(nodeId, specOverride) {
+  function routeLabel(routeId, specOverride) {
     const sid = specOverride && VALID_SPECIALTIES.has(specOverride) ? specOverride : activeSpecialty;
-    if (!nodeId || !isValidNodeId(nodeId)) return '知識地圖';
-    const found = buildNodes(sid).find(n => n.id === nodeId);
+    if (!routeId) return '知識地圖';
+    if (VALID_STUDIO_MODES.has(routeId)) {
+      return STUDIO_BY_ID.get(routeId).shortLabel;
+    }
+    if (!isValidNodeId(routeId)) return '知識地圖';
+    const found = buildNodes(sid).find(n => n.id === routeId);
     return found ? found.title : '知識地圖';
   }
 
@@ -1298,15 +2115,46 @@
     return true;
   }
 
+  function _onMotionReady() {
+    ensureSpecialtyDefaults(activeSpecialty);
+    if (activeContainer && !isContainerDetached(activeContainer)) {
+      renderIntoActive(false);
+    }
+  }
+
   const api = Object.freeze({
     NODES: CANONICAL_NODES,
+    STUDIO_MODES,
     CATEGORIES,
     OBSIDIAN_PLUGINS,
     FOUR_STEPS,
     INTERVIEW_RECIPES,
     DEFAULT_NODE_ID,
     mount,
+    unmount,
     selectNode,
+    setStudioMode,
+    getStudioMode: () => activeStudioMode,
+    toggleMotion,
+    isReducedMotion,
+    flyToNode,
+    zoomCamera,
+    resetCamera,
+    getCameraBox: () => cameraBox.slice(),
+    getTargetCameraBox: () => cameraTargetBox.slice(),
+    startTour,
+    stopTour,
+    isTourActive: () => tourActive,
+    setDeck,
+    setSlide,
+    toggleSlideAutoplay,
+    getSlideState: () => ({ ...slideState }),
+    setSketchScene,
+    setSketchStep,
+    toggleSketchPlay,
+    setSketchSpeed,
+    getSketchState: () => ({ ...sketchState }),
+    getActiveTimerCount,
     setCategory,
     setSearch,
     action: handleAction,
@@ -1316,8 +2164,10 @@
     getCategory: () => activeCategory,
     getSearch: () => searchQuery,
     isValidNodeId,
+    isValidRouteId,
     routeLabel,
-    buildObsidianMarkdown
+    buildObsidianMarkdown,
+    _onMotionReady
   });
 
   g.OphKnowledgeMap = api;

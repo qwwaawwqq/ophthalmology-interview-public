@@ -1,9 +1,9 @@
 /* practice-ui:start */
 // PBL cases, clinical workflows and saved links. Injected by scripts/apply-enrichment.py.
-Object.assign(S,{pbl:D.pbl?.cases?.[0]?.id||'',pblStage:Object.create(null),workflow:D.workflows?.workflows?.[0]?.id||'',wfMode:'read',wfShuffle:Object.create(null),wfPicked:Object.create(null),wfChecked:Object.create(null),linkDraft:{title:'',url:'',note:'',topicId:''},linkEdit:null,linkFilter:'',mapNode:''});
+Object.assign(S,{pbl:D.pbl?.cases?.[0]?.id||'',pblStage:Object.create(null),workflow:D.workflows?.workflows?.[0]?.id||'',wfMode:'read',wfShuffle:Object.create(null),wfPicked:Object.create(null),wfChecked:Object.create(null),linkDraft:{title:'',url:'',note:'',topicId:''},linkEdit:null,linkFilter:'',mapNode:'',mapRouteExplicit:false});
 const APP_URLS=['https://qwwaawwqq.github.io/ophthalmology-interview-public/'];
 const LINK_LIMIT=500;
-const KM_NODE_LABELS={hub:'知識中樞','obsidian-motion-285':'Obsidian 285 動態設計外掛','obsidian-slides-30':'Slides 動態變形投影片（30 款）','obsidian-canvas-222':'Canvas 無邊際畫布（222 款）','obsidian-excalidraw-33':'Excalidraw 手繪轉動畫（33 款）','reading-core':'核心教材與記憶錨點','srs-banks':'間隔重複 SRS 與題庫演練','written-qa':'筆試簡答與申論架構','interview-flow':'面試演練・PBL・臨床流程','story-workshop':'故事與證據工作坊','training-log':'訓練計畫與時程'};
+const KM_NODE_LABELS={hub:'知識中樞','obsidian-motion-285':'Obsidian 285 動態設計外掛','obsidian-slides-30':'Slides 動態變形投影片（30 款）','obsidian-canvas-222':'Canvas 無邊際畫布（222 款）','obsidian-excalidraw-33':'Excalidraw 手繪轉動畫（33 款）','reading-core':'核心教材與記憶錨點','srs-banks':'間隔重複 SRS 與題庫演練','written-qa':'筆試簡答與申論架構','interview-flow':'面試演練・PBL・臨床流程','story-workshop':'故事與證據工作坊','training-log':'訓練計畫與時程',flythrough:'知識星圖・鏡頭巡航',slides:'Keynote 變形簡報劇場',sketch:'手繪機轉動畫分鏡'};
 let practiceHashReady=false,resourceCache=null;
 function pblCases(){return D.pbl?.cases||[];}
 function wfList(){return D.workflows?.workflows||[];}
@@ -30,7 +30,7 @@ function parseRoute(hash){
   if((m=h.match(/^#written-([a-z]+-wq-[a-z0-9-]+)$/))&&m[1].length<=80&&m[1].startsWith(SPEC.id+'-wq-'))return {kind:'written',id:m[1],hash:h};
   if(h==='#cram-written'&&navs.some(n=>n[0]==='cram')&&tabAllowed('cram'))return {kind:'tab',tab:'cram',hash:h};
   if(h==='#knowledge-map'&&navs.some(n=>n[0]==='map')&&tabAllowed('map'))return {kind:'map',tab:'map',id:null,hash:h};
-  if((m=h.match(/^#knowledge-map-([a-z0-9-]+)$/))&&navs.some(n=>n[0]==='map')&&tabAllowed('map')&&(window.OphKnowledgeMap?.isValidNodeId?window.OphKnowledgeMap.isValidNodeId(m[1],SPEC.id):Object.prototype.hasOwnProperty.call(KM_NODE_LABELS,m[1])))return {kind:'map',tab:'map',id:m[1],hash:h};
+  if((m=h.match(/^#knowledge-map-([a-z0-9-]+)$/))&&navs.some(n=>n[0]==='map')&&tabAllowed('map')&&(window.OphKnowledgeMap?.isValidRouteId?window.OphKnowledgeMap.isValidRouteId(m[1],SPEC.id):window.OphKnowledgeMap?.isValidNodeId?window.OphKnowledgeMap.isValidNodeId(m[1],SPEC.id):Object.prototype.hasOwnProperty.call(KM_NODE_LABELS,m[1])))return {kind:'map',tab:'map',id:m[1],hash:h};
   if(h==='#today'&&navs.some(n=>n[0]==='today')&&tabAllowed('today'))return {kind:'tab',tab:'today',hash:h};
   if(h==='#tab-exam'&&navs.some(n=>n[0]==='quiz')&&tabAllowed('quiz'))return {kind:'tab',tab:'quiz',hash:h};
   if(/^#[a-z0-9-]+$/.test(h)){for(const t of D.topics){if(h.startsWith('#'+t.id+'-')){const target=h.slice(t.id.length+2);if(anchorValid(t,target))return {kind:'anchor',topicId:t.id,target,hash:h};}}}
@@ -100,6 +100,7 @@ function routeMatchesView(route){
 function currentViewHash(){if(S.tab==='quiz'&&window.OphQuizBank?.getMode?.()==='written')return window.OphWritten?.currentHash?.()||(window.OphQuizBank?.getWrittenScope?.()==='past'&&SPEC.id==='ent'?'#written-past':'#written');if(S.tab==='quiz')return (!window.OphQuizBank?.getMode||['core','mcq'].includes(window.OphQuizBank.getMode()))&&S.mode==='kaogu-hosp'?'#kaogu':'#tab-quiz';return S.tab==='learn'?(S.learn?'#topic-'+S.learn:'#tab-learn'):S.tab==='pbl'?(S.pbl?'#'+S.pbl:'#pbl'):S.tab==='workflow'?(S.workflow?'#'+S.workflow:'#workflow'):S.tab==='interview'?(S.interview?'#interview-'+S.interview:'#tab-interview'):S.tab==='map'?(S.mapNode?'#knowledge-map-'+S.mapNode:'#knowledge-map'):S.tab==='links'?'#links':S.tab==='today'?'':'#tab-'+S.tab;}
 function currentLocationHash(){const route=parseRoute(window.location?.hash||'');return route&&routeMatchesView(route)?route.hash:(currentViewHash()||'#tab-today');}
 function syncPracticeHash(){
+  if(S.tab!=='map')window.OphKnowledgeMap?.unmount?.();
   rememberWorkspace();
   if(!practiceHashReady||!window.history?.replaceState||!window.location)return;
   const route=parseRoute(window.location.hash||'');
@@ -130,12 +131,14 @@ function openRoute(hash,updateHash=true){
     else startQuiz('all',m);
   }
   else if(route.kind==='map'){
-    S.mapNode=route.id||'';
+    S.mapNode=route.id||'';S.mapRouteExplicit=true;
+    if(updateHash&&window.history?.replaceState&&route.hash&&window.location?.hash!==route.hash)window.history.replaceState(null,'',route.hash);
     if(S.tab!=='map')switchTab('map');
     else{window.OphKnowledgeMap?.selectNode?.(route.id||'obsidian-motion-285',{silent:true});render();}
   }
   else if(route.tab==='map'){
-    S.mapNode='';
+    S.mapNode='';S.mapRouteExplicit=true;
+    if(updateHash&&window.history?.replaceState&&route.hash&&window.location?.hash!==route.hash)window.history.replaceState(null,'',route.hash);
     if(S.tab!=='map')switchTab('map');
     else{window.OphKnowledgeMap?.selectNode?.('obsidian-motion-285',{silent:true});render();}
   }
