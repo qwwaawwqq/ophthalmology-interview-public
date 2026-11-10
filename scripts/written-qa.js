@@ -251,8 +251,18 @@
     return Boolean(x && (x.format === '歷屆筆試申論題組' || /-wq-past-/.test(String(x.id || ''))));
   }
 
+  function isTcvghItem(x) {
+    return Boolean(x && isPastItem(x) && (/中榮/.test(String(x.title || '')) || /中榮/.test(String(x.sourceRef || ''))));
+  }
+  const isTcvghCoreItem = isTcvghItem;
+
   function pastCount(sid = specId()) {
     return getItems(sid).filter(isPastItem).length;
+  }
+
+  function tcvghPastCount(sid = specId()) {
+    if (sid !== 'ent') return 0;
+    return getItems(sid).filter(isTcvghCoreItem).length;
   }
 
   function findItem(id, sid = specId()) {
@@ -454,6 +464,7 @@
         '<div class="written-badges">' +
           '<span class="tag written-badge-format">' + esc(item.format) + '</span>' +
           '<span class="tag written-badge-scope">' + esc(scopeBadgeText(item)) + '</span>' +
+          (isTcvghItem(item) ? '<span class="tag written-badge-tcvgh">中榮必考</span>' : '') +
           (item.cramHighYield ? '<span class="tag written-badge-hy">考前必寫</span>' : '') +
         '</div>' +
         '<div class="written-meta-right">' +
@@ -551,6 +562,9 @@
     if (quizScope !== 'all') {
       if (quizScope === 'past') {
         if (pastCount(sid) > 0) list = list.filter(isPastItem);
+      } else if (quizScope === 'past-tcvgh') {
+        if (tcvghPastCount(sid) > 0) list = list.filter(isTcvghCoreItem);
+        else if (pastCount(sid) > 0) list = list.filter(isPastItem);
       } else if (quizScope.startsWith('cat:')) {
         const cat = quizScope.slice(4);
         list = list.filter(x => x.category === cat);
@@ -605,13 +619,20 @@
     if (p.state === 'error') return errorCardMarkup(sid);
     const all = p.items;
     const pCount = pastCount(sid);
-    if (quizScope === 'past' && !pCount) quizScope = 'all';
+    const tCount = tcvghPastCount(sid);
+    if ((quizScope === 'past' || quizScope === 'past-tcvgh') && !pCount) quizScope = 'all';
+    if (quizScope === 'past-tcvgh' && !tCount) quizScope = pCount ? 'past' : 'all';
     const st = statsSummary(all);
     const topics = (bridge()?.D?.topics || []).filter(t => t.chapter);
     const bcscVols = Array.from({ length: 13 }, (_, i) => 'bcsc-s' + String(i + 1).padStart(2, '0'));
     const scopeOptions = [
       ['all', '全部範圍（' + all.length + ' 題）'],
-      ...(pCount > 0 ? [['past', '110–113 各院筆試申論（' + pCount + ' 組）']] : []),
+      ...(pCount > 0
+        ? [
+            ...(tCount > 0 ? [['past-tcvgh', '中榮 110–113 核心申論（' + tCount + ' 組 · 必考推薦）']] : []),
+            ['past', '110–113 各院筆試申論（' + pCount + ' 組）']
+          ]
+        : []),
       ...(sid === 'oph'
         ? [
             ['cat:chapter', '共筆 14 章手寫題（' + all.filter(x => x.category === 'chapter').length + ' 題）'],
@@ -650,7 +671,44 @@
     const quickScopeHtml = pCount > 0
       ? '<div class="written-quick-scopes" data-written-quick-scope role="group" aria-label="筆試申論範圍快選" style="display:flex;flex-wrap:wrap;gap:8px;margin:0 0 10px;">' +
         '<button type="button" class="btn small ' + (quizScope === 'all' ? 'primary' : 'subtle') + '" data-action="written-scope" data-value="all" aria-pressed="' + (quizScope === 'all') + '">全部手寫題（' + all.length + ' 題）</button>' +
-        '<button type="button" class="btn small ' + (quizScope === 'past' ? 'primary' : 'subtle') + '" data-action="written-scope" data-value="past" aria-pressed="' + (quizScope === 'past') + '">110–113 各院歷屆筆試申論（' + pCount + ' 組 · 可一鍵展開標準答案）</button>' +
+        '<button type="button" class="btn small ' + (quizScope === 'past' || quizScope === 'past-tcvgh' ? 'primary' : 'subtle') + '" data-action="written-scope" data-value="past" aria-pressed="' + (quizScope === 'past' || quizScope === 'past-tcvgh') + '">110–113 各院歷屆筆試申論（' + pCount + ' 組 · 可一鍵展開標準答案）</button>' +
+        '</div>'
+      : '';
+
+    const pastFilterHtml = (sid === 'ent' && (quizScope === 'past' || quizScope === 'past-tcvgh'))
+      ? '<div class="written-past-filter-bar" role="group" aria-label="歷屆考題院所篩選">' +
+        '<button type="button" class="btn small ' + (quizScope !== 'past-tcvgh' ? 'primary' : 'subtle') + '" data-action="written-past-filter" data-value="all" aria-pressed="' + (quizScope !== 'past-tcvgh') + '">全部各院（' + pCount + ' 組）</button>' +
+        '<button type="button" class="btn small ' + (quizScope === 'past-tcvgh' ? 'primary' : 'subtle') + '" data-action="written-past-filter" data-value="tcvgh" aria-pressed="' + (quizScope === 'past-tcvgh') + '">臺中榮總必考（' + tCount + ' 組）</button>' +
+        '</div>'
+      : '';
+
+    const tcvghBannerHtml = (sid === 'ent' && (quizScope === 'past' || quizScope === 'past-tcvgh'))
+      ? '<div class="card card-pad written-tcvgh-banner" role="region" aria-label="臺中榮總筆試申論重點導航">' +
+          '<div class="written-tcvgh-banner-header" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:8px;">' +
+            '<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">' +
+              '<span class="tag tag-gold written-badge-tcvgh" style="font-size:12.5px;padding:3px 10px;font-weight:700;">臺中榮總 110–113 筆試申論重點導航</span>' +
+              '<span class="small" style="color:var(--text-muted,#64748b);">115 年度耳鼻喉頭頸部 R1 甄試（11/13 筆試 50% + 面試 50%）</span>' +
+            '</div>' +
+            '<span class="tag tag-subtle" style="font-size:11.5px;">中榮原題 11 組 · 各院補充 5 組</span>' +
+          '</div>' +
+          '<p class="written-tcvgh-banner-desc" style="margin:0 0 10px;font-size:13.5px;line-height:1.6;color:var(--text,#1e293b);">' +
+            '本專區以<strong>臺中榮民總醫院（中榮）</strong>歷屆筆試申論考點為核心定向：精選 11 組中榮原題核心（涵蓋聲帶麻痺 LEMG 2-2-2、OSA DISE VOTE、甲狀腺癌九連問、深頸部感染 CT 腔隙、急性侵襲性黴菌鼻竇炎、洗頭後仰眩暈 HINTS、中耳炎與 Carhart Notch、嗅覺上皮冠狀 CT、NPC/CUP 等），並完整納入 5 組各院聽力學與頭頸外科綜合題。' +
+          '</p>' +
+          '<div class="written-tcvgh-banner-chips" style="display:flex;flex-wrap:wrap;gap:6px;">' +
+            [
+              '聲帶麻痺 & LEMG 2-2-2',
+              'OSA 睡眠外科 DISE VOTE',
+              '甲狀腺癌九連問 & 術後血腫',
+              '深頸部感染 CT 腔隙鑑別',
+              '急性侵襲性黴菌鼻竇炎 AIFRS',
+              '洗頭後仰眩暈 HINTS Plus',
+              '中耳炎四大分類 & Carhart',
+              '嗅覺上皮 & 冠狀 CT',
+              'NPC & 原發不明 CUP',
+              '口腔癌不良預後因子',
+              '前庭功能檢查 & 梅尼爾氏症'
+            ].map(txt => '<span class="written-tcvgh-chip">' + esc(txt) + '</span>').join('') +
+          '</div>' +
         '</div>'
       : '';
 
@@ -661,6 +719,8 @@
         '</div>' +
       '</div>' +
       quickScopeHtml +
+      pastFilterHtml +
+      tcvghBannerHtml +
       '<div class="written-toolbar" data-written-toolbar="quiz">' +
         '<select class="select" data-written-filter="scope" aria-label="手寫題分類與章節篩選">' +
           scopeOptions.map(([v, label]) => '<option value="' + esc(v) + '"' + (quizScope === v ? ' selected' : '') + '>' + esc(label) + '</option>').join('') +
@@ -1269,7 +1329,7 @@
 
   function syncHostModeBar() {
     if (typeof document !== 'undefined' && typeof document.querySelectorAll === 'function') {
-      const isPast = quizScope === 'past' && hasPastEssays(specId());
+      const isPast = (quizScope === 'past' || quizScope === 'past-tcvgh') && hasPastEssays(specId());
       for (const btn of document.querySelectorAll('[data-spec-quiz-mode] [data-action="spec-quiz-mode"]') || []) {
         const val = btn.dataset?.value || btn.getAttribute?.('data-value');
         if (val === 'written-past' || val === 'written') {
@@ -1338,6 +1398,10 @@
     if (!a || !String(a).startsWith('written-')) return false;
     const curEv = ev || (typeof g.event === 'object' ? g.event : null);
     if (curEv?.__writtenHandled) return true;
+    if (a === 'written-past-filter') {
+      setQuizScope(v === 'tcvgh' ? 'past-tcvgh' : 'past', true);
+      return true;
+    }
     if (a === 'written-scope') {
       setQuizScope(v || 'all', true);
       return true;
@@ -1604,14 +1668,17 @@
       }
       return true;
     }
-    const isPast = quizScope === 'past' && hasPastEssays(specId());
-    if (targetScope === 'past') return !focusedId && isPast;
-    return !focusedId && !isPast;
+    const hasPast = hasPastEssays(specId());
+    if (targetScope === 'past-tcvgh') return !focusedId && quizScope === 'past-tcvgh' && hasPast;
+    if (targetScope === 'past') return !focusedId && quizScope === 'past' && hasPast;
+    return !focusedId && quizScope !== 'past' && quizScope !== 'past-tcvgh';
   }
 
   function currentHash() {
-    const isPast = quizScope === 'past' && hasPastEssays(specId());
-    return focusedId ? '#written-' + focusedId : (isPast ? '#written-past' : '#written');
+    if (focusedId) return '#written-' + focusedId;
+    const isPast = (quizScope === 'past' || quizScope === 'past-tcvgh') && hasPastEssays(specId());
+    if (quizScope === 'past-tcvgh' && isPast) return '#written-past-tcvgh';
+    return isPast ? '#written-past' : '#written';
   }
 
   function clearLocalCache() {
@@ -1652,6 +1719,14 @@
     ensureLoaded,
     getItems,
     pastCount,
+    tcvghPastCount,
+    isTcvghItem,
+    isTcvghCoreItem: isTcvghItem,
+    hasPastEssays,
+    getQuizHospital() { return quizScope === 'past-tcvgh' ? 'tcvgh' : 'all'; },
+    setQuizHospital(hosp, shouldRender = true) { return setQuizScope(hosp === 'tcvgh' ? 'past-tcvgh' : 'past', shouldRender); },
+    tcvghPastCount,
+    isTcvghCoreItem,
     findItem,
     isAnswerRevealed,
     renderCard,

@@ -26,7 +26,7 @@ function parseRoute(hash){
   if(/^#textbook(?:-extra(?:-extra-\d{8}-q\d{3})?|-bcsc-s(?:0[1-9]|1[0-3])(?:-(?:ch\d{3}(?:-iq\d{3}|-u\d{2})?|rq\d{3}))?)?$/.test(h))return {kind:'tab',tab:'textbook',hash:h};
   if(h==='#kaogu')return {kind:'kaogu',hash:h};
   if(h==='#written')return {kind:'written',id:null,hash:h};
-  if(h==='#written-past')return {kind:'written',id:null,scope:'past',hash:h};
+  if(h==='#written-past'||h==='#written-past-tcvgh')return {kind:'written',id:null,scope:h==='#written-past-tcvgh'?'past-tcvgh':'past',hash:h};
   if((m=h.match(/^#written-([a-z]+-wq-[a-z0-9-]+)$/))&&m[1].length<=80&&m[1].startsWith(SPEC.id+'-wq-'))return {kind:'written',id:m[1],hash:h};
   if(h==='#cram-written'&&navs.some(n=>n[0]==='cram')&&tabAllowed('cram'))return {kind:'tab',tab:'cram',hash:h};
   if(h==='#knowledge-map'&&navs.some(n=>n[0]==='map')&&tabAllowed('map'))return {kind:'map',tab:'map',id:null,hash:h};
@@ -67,7 +67,7 @@ function routeLabel(route){
   }
   if(route.kind==='kaogu')return kaoguRouteMode()==='kaogu-hosp'?'筆試練習 · 110–113 各院考古單選':'筆試練習 · 歷屆考點單選';
   if(route.kind==='map'){const sub=route.id&&(window.OphKnowledgeMap?.routeLabel?.(route.id,SPEC.id)||KM_NODE_LABELS[route.id]);return sub?'知識地圖 · '+sub:'知識地圖';}
-  if(route.kind==='written')return route.scope==='past'?'手寫問答 · 110–113 各院筆試申論':(window.OphWritten?.routeLabel?.(route.id)||(route.id?'手寫問答 · '+route.id:'手寫問答題庫'));
+  if(route.kind==='written')return route.scope==='past-tcvgh'?'手寫問答 · 中榮 110–113 核心申論':route.scope==='past'?'手寫問答 · 110–113 各院筆試申論':(window.OphWritten?.routeLabel?.(route.id)||(route.id?'手寫問答 · '+route.id:'手寫問答題庫'));
   if(route.kind==='pbl')return route.id?'PBL · '+pblCases().find(c=>c.id===route.id).title:'PBL 情境討論';
   if(route.kind==='workflow')return route.id?'臨床流程 · '+wfList().find(w=>w.id===route.id).title:'臨床流程';
   if(route.kind==='interview')return '面試演練 · '+D.interview.find(i=>i.id===route.id).title;
@@ -144,9 +144,9 @@ function openRoute(hash,updateHash=true){
     else{window.OphKnowledgeMap?.selectNode?.('obsidian-motion-285',{silent:true});render();}
   }
   else if(route.kind==='written'){
-    if(route.scope==='past'){
-      window.OphWritten?.setQuizScope?.('past',false);
-      if(window.OphQuizBank?.setWritten)window.OphQuizBank.setWritten('past');
+    if(route.scope==='past'||route.scope==='past-tcvgh'){
+      window.OphWritten?.setQuizScope?.(route.scope,false);
+      if(window.OphQuizBank?.setWritten)window.OphQuizBank.setWritten(route.scope);
       else switchTab('quiz');
     }else if(route.id){
       window.OphWritten?.focusQuestion?.(route.id);
