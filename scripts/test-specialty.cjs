@@ -1460,7 +1460,7 @@ async function practise(app) {
     const todayHtml = entApp.main();
     wellFormed(todayHtml);
     assert(todayHtml.includes('110–113 各院考古單選'), 'ENT today renders 110–113 各院考古單選 quick launch');
-    assert(todayHtml.includes('110–113 筆試申論（中榮為主）') || todayHtml.includes('110–113 各院筆試申論'), 'ENT today renders 110–113 筆試申論 quick launch');
+    assert(todayHtml.includes('110–113 筆試申論（中榮為主）'), 'ENT today renders 110–113 筆試申論（中榮為主） quick launch');
     assert(todayHtml.includes('手寫問答題'), 'ENT today renders 手寫問答題 quick launch');
 
     entApp.action('tab', 'quiz');
@@ -1469,7 +1469,7 @@ async function practise(app) {
     assert(quizHtml.includes('單選題練習（432 題）'));
     assert(quizHtml.includes('110–113 各院考古單選（64 題）'));
     assert(quizHtml.includes('歷屆與講義考點單選（166 題）'));
-    assert(quizHtml.includes('110–113 筆試申論（16 組 · 中榮為主 · 含完整答案）') || quizHtml.includes('110–113 各院筆試申論（16 組 · 含完整答案）'));
+    assert(quizHtml.includes('110–113 筆試申論（16 組 · 中榮為主 · 含完整答案）'), 'ENT quiz mode bar renders 110–113 筆試申論（16 組 · 中榮為主 · 含完整答案）');
     assert(quizHtml.includes('手寫問答題（手寫板＋文字作答＋標準答案）'));
     assert(quizHtml.includes('<option value="kaogu-hosp" >110–113 各院考古單選</option>') || quizHtml.includes('<option value="kaogu-hosp">110–113 各院考古單選</option>'));
     assert(quizHtml.includes('歷屆與講義考點</option>'));
