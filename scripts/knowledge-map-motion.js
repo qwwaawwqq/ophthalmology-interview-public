@@ -1651,7 +1651,7 @@
       `<text x="736" y="94" text-anchor="middle" class="km-sketch-sub km-generic-step">STEP 0${stepNum} / 04</text>` +
       `<circle cx="736" cy="168" r="44" fill="#13203d" stroke="#334d7d" stroke-width="2"/>` +
       `<circle class="km-pupil-core km-generic-meter" cx="736" cy="168" r="${meterR}" fill="#17254a" stroke="${stepNum === 4 ? '#34d399' : '#38bdf8'}" stroke-width="2.8"/>` +
-      `<text x="736" y="173" text-anchor="middle" class="km-sketch-label">${stepNum * 25}%</text>` +
+      `<text x="736" y="173" text-anchor="middle" class="km-sketch-label km-generic-pct">${stepNum * 25}%</text>` +
       `<text x="736" y="244" text-anchor="middle" class="km-sketch-label km-generic-label">${esc(curStep.metricLabel || curStep.tag)}</text>` +
       `<text x="736" y="270" text-anchor="middle" class="km-sketch-sub km-generic-val">${esc(curStep.metricValue || curStep.short)}</text>` +
       `</g>`;
@@ -1706,9 +1706,10 @@
       const drawn = stepNum >= needStep;
       const isCur = stepNum === needStep;
       const cls = ['km-sketch-stroke', drawn ? 'is-drawn' : 'is-pending', isCur ? 'is-current-step is-active-step' : ''].filter(Boolean).join(' ');
-      const pulse = drawn && !reducedMotion
-        ? `<circle class="km-pulse-orb is-motion" data-pulse-idx="${idx}" r="4"><animateMotion dur="${(1.5 / speed).toFixed(2)}s" repeatCount="indefinite" path="${d}"/></circle>`
-        : '';
+      const pulseDrawn = drawn && !reducedMotion;
+      const pulseStyle = pulseDrawn ? '' : 'display:none;';
+      const pulseCls = ['km-pulse-orb', pulseDrawn ? 'is-motion' : 'is-hidden'].join(' ');
+      const pulse = `<circle class="${pulseCls}" data-pulse-idx="${idx}" r="4" style="${pulseStyle}"><animateMotion dur="${(1.5 / speed).toFixed(2)}s" repeatCount="indefinite" path="${d}"/></circle>`;
       return `<path class="${cls}" data-connector-idx="${idx}" stroke-dashoffset="${drawn ? '0' : '1000'}" pathLength="1000" d="${d}" stroke="#7dd3fc" stroke-width="2.8" marker-end="url(#km-sketch-arrow)"/>` + pulse;
     }).join('');
 
@@ -1814,6 +1815,32 @@
         }
         if (typeof p.setAttribute === 'function') {
           p.setAttribute('stroke-dashoffset', drawn ? '0' : '1000');
+        }
+      }
+    }
+
+    const pulseOrbs = playerEl.querySelectorAll ? playerEl.querySelectorAll('.km-pulse-orb[data-pulse-idx]') : [];
+    if (pulseOrbs && pulseOrbs.length) {
+      for (let i = 0; i < pulseOrbs.length; i++) {
+        const orb = pulseOrbs[i];
+        const rawIdx = orb.getAttribute ? orb.getAttribute('data-pulse-idx') : i;
+        const cIdx = Number(rawIdx);
+        const needStep = cIdx + 2;
+        const drawn = stepNum >= needStep;
+        const pulseDrawn = drawn && !reducedMotion;
+        if (orb.style) {
+          orb.style.display = pulseDrawn ? '' : 'none';
+        }
+        if (typeof orb.setAttribute === 'function') {
+          orb.setAttribute('style', pulseDrawn ? '' : 'display:none;');
+        }
+        if (orb.classList && typeof orb.classList.toggle === 'function') {
+          orb.classList.toggle('is-hidden', !pulseDrawn);
+          orb.classList.toggle('is-motion', pulseDrawn);
+        }
+        const anim = orb.querySelector ? orb.querySelector('animateMotion') : null;
+        if (anim && typeof anim.setAttribute === 'function') {
+          anim.setAttribute('dur', (1.5 / speed).toFixed(2) + 's');
         }
       }
     }

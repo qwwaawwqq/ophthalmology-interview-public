@@ -1416,6 +1416,35 @@ async function test(name, fn) {
     const stageAfter = root.querySelector('.km-slides-stage');
     assert(stageAfter, 'New slide stage element must exist');
     assert.equal(app.document.activeElement, stageAfter, 'Focus must be restored to the newly rendered slide stage');
+
+    // 3. Connector particles synchronization (Codex P2-4)
+    app.km.setSketchStep(1);
+    const orbsAtStep1 = root.querySelectorAll('.km-pulse-orb[data-pulse-idx]');
+    assert.equal(orbsAtStep1.length, 3, 'Must render all 3 connector particles');
+    assert(orbsAtStep1[0].classList.contains('is-hidden') || orbsAtStep1[0].style.display === 'none', 'Orb 0 hidden at step 1');
+    assert(orbsAtStep1[1].classList.contains('is-hidden') || orbsAtStep1[1].style.display === 'none', 'Orb 1 hidden at step 1');
+    assert(orbsAtStep1[2].classList.contains('is-hidden') || orbsAtStep1[2].style.display === 'none', 'Orb 2 hidden at step 1');
+
+    app.km.setSketchStep(4);
+    assert(orbsAtStep1[0].classList.contains('is-motion') && orbsAtStep1[0].style.display !== 'none', 'Orb 0 visible at step 4');
+    assert(orbsAtStep1[1].classList.contains('is-motion') && orbsAtStep1[1].style.display !== 'none', 'Orb 1 visible at step 4');
+    assert(orbsAtStep1[2].classList.contains('is-motion') && orbsAtStep1[2].style.display !== 'none', 'Orb 2 visible at step 4');
+
+    app.km.setSketchStep(1);
+    assert(orbsAtStep1[0].classList.contains('is-hidden') || orbsAtStep1[0].style.display === 'none', 'Orb 0 hidden on reset to step 1');
+    assert(orbsAtStep1[1].classList.contains('is-hidden') || orbsAtStep1[1].style.display === 'none', 'Orb 1 hidden on reset to step 1');
+    assert(orbsAtStep1[2].classList.contains('is-hidden') || orbsAtStep1[2].style.display === 'none', 'Orb 2 hidden on reset to step 1');
+
+    // 4. Generic percentage update (Codex P2-3)
+    const entApp = bootApp({ search: '?s=ent', hash: '#knowledge-map-sketch' });
+    const entRoot = entApp.element('#knowledge-map-root');
+    const pctEl = entRoot.querySelector('.km-generic-pct');
+    assert(pctEl, 'ENT sketch must render .km-generic-pct element');
+    assert.equal(pctEl.textContent.trim(), '25%', 'ENT initial sketch step 1 must show 25%');
+    entApp.km.setSketchStep(4);
+    assert.equal(pctEl.textContent.trim(), '100%', 'ENT sketch step 4 must update .km-generic-pct in-place to 100%');
+    entApp.km.setSketchStep(2);
+    assert.equal(pctEl.textContent.trim(), '50%', 'ENT sketch step 2 must update .km-generic-pct in-place to 50%');
   });
 
   const failed = results.filter(r => !r.pass);

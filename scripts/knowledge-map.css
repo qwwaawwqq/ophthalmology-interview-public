@@ -107,6 +107,7 @@
 .km-edge-stream.is-motion{stroke:#6ee7b7}
 .km-pulse-orb{fill:#f8fafc;stroke:#38bdf8;stroke-width:1.8;pointer-events:none}
 .km-pulse-orb.is-motion{stroke:#34d399}
+.km-pulse-orb.is-hidden{display:none}
 
 .km-node{cursor:pointer;transition:opacity .18s}
 .km-node.is-dimmed{opacity:.26}
