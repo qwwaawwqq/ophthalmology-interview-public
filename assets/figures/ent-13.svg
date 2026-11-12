@@ -102,7 +102,7 @@
     <rect x="508" y="232" width="406" height="64" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
     <text x="522" y="252" font-size="11.5" font-weight="700" fill="#0f172a">2. 必排影像：內聽道（IAC）含顯影劑 MRI</text>
     <text x="522" y="270" font-size="9.8" fill="#334155">● 排除聽神經瘤（前庭神經鞘瘤約占 1–3%）或小腦橋腦角 (CPA) 病變</text>
-    <text x="522" y="286" font-size="9.5" fill="#475569">● 若有體內心律調節器等 MRI 禁忌，則以 ABR（波 I–V 間期延長）或頭部 CT 替代</text>
+    <text x="522" y="286" font-size="9.5" fill="#475569">● 若有體內心律調節器等 MRI 禁忌：指引首選 ABR（波 I–V 間期延長）；或專用顳骨高解析顯影 CT（微小腫瘤仍可能漏網）</text>
 
     <!-- 3. Stepped Treatment Timeline -->
     <rect x="508" y="304" width="406" height="204" rx="8" fill="#fffbeb" stroke="#fde68a"/>
