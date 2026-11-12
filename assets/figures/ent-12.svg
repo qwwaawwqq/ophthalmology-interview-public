@@ -76,7 +76,7 @@
     </g>
 
     <g transform="translate(190, 358)">
-      <text x="0" y="14" font-size="10.5" font-weight="700" fill="#0f766e">① 聲波振動蓋膜 → 纖毛朝動纖毛方向偏折</text>
+      <text x="0" y="14" font-size="10.5" font-weight="700" fill="#0f766e">① 聲波振動蓋膜 → 纖毛朝最長靜纖毛偏折</text>
       <text x="0" y="32" font-size="10" fill="#334155">② 尖端連結（Tip link）受張力拉開 MET 離子通道</text>
       <text x="0" y="50" font-size="10" fill="#334155">③ 內淋巴 K+ 快速湧入毛細胞，引發去極化</text>
       <text x="0" y="68" font-size="10" fill="#334155">④ 電位敏感性 Ca2+ 通道開啟 → 釋放 Glutamate</text>
