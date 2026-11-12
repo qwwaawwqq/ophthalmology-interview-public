@@ -390,11 +390,12 @@
       }
       // Markdown table: header row + separator |---|
       if (line.startsWith('|') && line.endsWith('|') && i + 1 < lines.length && /^\|[-:| ]+\|$/.test(lines[i + 1])) {
-        const headerCols = line.split('|').slice(1, -1).map(c => esc(c.trim()));
+        const escCell = s => esc(s).replace(/&lt;br\s*\/?&gt;/gi, '<br>');
+        const headerCols = line.split('|').slice(1, -1).map(c => escCell(c.trim()));
         i += 2; // skip header and separator
         const rows = [];
         while (i < lines.length && lines[i].startsWith('|') && lines[i].endsWith('|')) {
-          const rowCols = lines[i].split('|').slice(1, -1).map(c => esc(c.trim()));
+          const rowCols = lines[i].split('|').slice(1, -1).map(c => escCell(c.trim()));
           rows.push(rowCols);
           i++;
         }

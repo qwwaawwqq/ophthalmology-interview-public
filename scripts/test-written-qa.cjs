@@ -1644,13 +1644,22 @@ async function test(name, fn) {
     assert(card08.includes('<th>比較維度</th>'), 'past-08 table header rendered');
     assert(card08.includes('急性侵襲性黴菌鼻竇炎 (AIFRS)'), 'past-08 table has AIFRS column');
 
-    // 4. XSS hygiene: table cells and figures escape malicious payload
+    // 4. Asset alignment & table line breaks for past-06 and past-14
+    const card06 = app.written.renderCard(PACKS.ent.items.find(it => it.id === 'ent-wq-past-06'));
+    assert(card06.includes('src="assets/figures/ent-03.svg"'), 'past-06 links to ent-03.svg');
+
+    const card14 = app.written.renderCard(PACKS.ent.items.find(it => it.id === 'ent-wq-past-14'));
+    assert(card14.includes('src="assets/figures/ent-11.svg"'), 'past-14 links to ent-11.svg');
+    assert(card14.includes('約 80–85%（最常見）<br>源自濾泡上皮細胞'), 'past-14 table cell renders HTML <br> tag');
+    assert(!card14.includes('&lt;br&gt;'), 'past-14 table cell does not leak raw &lt;br&gt;');
+
+    // 5. XSS hygiene: table cells and figures escape malicious payload while preserving <br>
     const maliciousItem = {
       id: 'ent-wq-test-xss',
       specialty: 'ent',
       title: 'XSS Test',
       prompt: 'Prompt',
-      answer: '![Bad<script>](assets/figures/ent-01.svg "Caption<script>")\n\n| Col<script> |\n|---|\n| Cell<script> |',
+      answer: '![Bad<script>](assets/figures/ent-01.svg "Caption<script>")\n\n| Col<script> |\n|---|\n| Cell<script><br>Line2 |',
       keyPoints: [],
       pitfall: '',
       sourceRef: 'Test'
@@ -1660,7 +1669,7 @@ async function test(name, fn) {
     assert(!xssCard.includes('<script>'), 'no unescaped <script> in card');
     assert(xssCard.includes('Caption&lt;script&gt;'), 'caption escaped');
     assert(xssCard.includes('Col&lt;script&gt;'), 'table header escaped');
-    assert(xssCard.includes('Cell&lt;script&gt;'), 'table cell escaped');
+    assert(xssCard.includes('Cell&lt;script&gt;<br>Line2'), 'table cell escapes script but allows <br>');
   });
 
   const failed = results.filter(r => !r.pass);
