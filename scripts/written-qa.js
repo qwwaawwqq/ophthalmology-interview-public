@@ -373,13 +373,52 @@
   function formatMultiline(raw) {
     const text = String(raw || '').trim();
     if (!text) return '';
-    const rawLines = text.split(/\r?\n/).map(s => s.trim()).filter(Boolean);
-    const expanded = [];
-    for (const line of rawLines) {
+    const lines = text.split(/\r?\n/).map(s => s.trim()).filter(Boolean);
+    const out = [];
+    let i = 0;
+    while (i < lines.length) {
+      const line = lines[i];
+      // Markdown image: ![alt](src "caption") or ![alt](src)
+      const imgMatch = line.match(/^!\[(.*?)\]\((.*?)(?:\s+"(.*?)")?\)$/);
+      if (imgMatch) {
+        const alt = esc(imgMatch[1]);
+        const src = esc(imgMatch[2]);
+        const cap = imgMatch[3] ? esc(imgMatch[3]) : '';
+        out.push('<figure class="written-figure"><img src="' + src + '" alt="' + alt + '" loading="lazy">' + (cap ? '<figcaption>' + cap + '</figcaption>' : '') + '</figure>');
+        i++;
+        continue;
+      }
+      // Markdown table: header row + separator |---|
+      if (line.startsWith('|') && line.endsWith('|') && i + 1 < lines.length && /^\|[-:| ]+\|$/.test(lines[i + 1])) {
+        const escCell = s => esc(s).replace(/&lt;br\s*\/?&gt;/gi, '<br>');
+        const headerCols = line.split('|').slice(1, -1).map(c => escCell(c.trim()));
+        i += 2; // skip header and separator
+        const rows = [];
+        while (i < lines.length && lines[i].startsWith('|') && lines[i].endsWith('|')) {
+          const rowCols = lines[i].split('|').slice(1, -1).map(c => escCell(c.trim()));
+          rows.push(rowCols);
+          i++;
+        }
+        let tblHtml = '<div class="written-table-wrap"><table class="written-table"><thead><tr>';
+        for (const h of headerCols) tblHtml += '<th>' + h + '</th>';
+        tblHtml += '</tr></thead><tbody>';
+        for (const r of rows) {
+          tblHtml += '<tr>';
+          for (const c of r) tblHtml += '<td>' + c + '</td>';
+          tblHtml += '</tr>';
+        }
+        tblHtml += '</tbody></table></div>';
+        out.push(tblHtml);
+        continue;
+      }
+      // Regular text: split on （1） etc if present
       const parts = line.split(/(?<=[。；！？])\s*(?=[（(][1-9][)）])/g).map(s => s.trim()).filter(Boolean);
-      for (const part of parts) expanded.push(part);
+      for (const part of parts) {
+        out.push('<p>' + esc(part) + '</p>');
+      }
+      i++;
     }
-    return expanded.map(line => '<p>' + esc(line) + '</p>').join('');
+    return out.join('');
   }
 
   function fmtDueShort(isoStr) {
