@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-labelledby="t-ent13 d-ent13">
+  <title id="t-ent13">顏面神經腮腺外終末分支解剖、吻合支與突發性耳聾（SSNHL）救援流程圖譜</title>
+  <desc id="d-ent13">左欄呈現顏面神經出莖乳孔經腮腺分出之五大終末運動分支（顳支、顴支、頰支、下頷緣支、頸支）、交通支吻合率與下頷緣支手術保護要領；右欄呈現突發性耳聾（SSNHL 30-3-3）診斷標準、內聽道 MRI 與類固醇救援治療時間軸。</desc>
+  <defs>
+    <marker id="arr-blue13" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M1 1 L9 5 L1 9 Z" fill="#1d4ed8"/>
+    </marker>
+    <marker id="arr-red13" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M1 1 L9 5 L1 9 Z" fill="#be123c"/>
+    </marker>
+  </defs>
+  <g font-family="system-ui, -apple-system, 'Noto Sans TC', sans-serif">
+    <!-- Main Background -->
+    <rect x="20" y="20" width="920" height="520" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="42" y="54" font-size="21" font-weight="700" fill="#0f172a">顏面神經腮腺外分支解剖 · 吻合支保護 · SSNHL 30-3-3 救援流程</text>
+    <text x="42" y="76" font-size="13" fill="#475569">整合鵝足五大終末分支、下頷緣支 Hayes-Martin 保護要領、內聽道 MRI 排查與鼓室內類固醇（ITS）救援時機</text>
+
+    <!-- ==================== LEFT PANEL: Facial Nerve Branching ==================== -->
+    <rect x="36" y="92" width="442" height="428" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="54" y="118" font-size="16" font-weight="700" fill="#0f766e">A. 顏面神經五大終末分支與下頷緣支保護要領</text>
+
+    <!-- Nerve Trunk & Five Branches Diagram -->
+    <g transform="translate(54, 132)">
+      <!-- Main trunk at Stylomastoid foramen -->
+      <rect x="0" y="94" width="76" height="34" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+      <text x="38" y="108" text-anchor="middle" font-size="10" font-weight="700" fill="#78350f">CN VII 主幹</text>
+      <text x="38" y="122" text-anchor="middle" font-size="8.8" fill="#92400e">出莖乳孔</text>
+
+      <!-- 5 Branch Cards -->
+      <!-- Branch 1: Temporal -->
+      <path d="M76 102 Q120 70 148 20" fill="none" stroke="#d97706" stroke-width="2.5"/>
+      <rect x="148" y="4" width="258" height="40" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+      <text x="156" y="20" font-size="10.5" font-weight="700" fill="#1d4ed8">1. 顳支 (Temporal)</text>
+      <text x="156" y="36" font-size="9" fill="#1e3a8a">跨顴弓淺層 → 支配額肌、上眼輪匝肌（皺額抬眉；吻合少）</text>
+
+      <!-- Branch 2: Zygomatic -->
+      <path d="M76 106 Q120 90 148 54" fill="none" stroke="#d97706" stroke-width="2.5"/>
+      <rect x="148" y="48" width="258" height="40" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+      <text x="156" y="64" font-size="10.5" font-weight="700" fill="#15803d">2. 顴支 (Zygomatic)</text>
+      <text x="156" y="80" font-size="9" fill="#166534">支配下眼輪匝肌、提上唇肌（閉眼防兔眼；與頰支吻合豐富）</text>
+
+      <!-- Anastomosis between Zygomatic and Buccal -->
+      <line x1="280" y1="88" x2="280" y2="92" stroke="#10b981" stroke-width="3" stroke-dasharray="2 2"/>
+
+      <!-- Branch 3: Buccal -->
+      <path d="M76 111 L148 111" fill="none" stroke="#d97706" stroke-width="2.5"/>
+      <rect x="148" y="92" width="258" height="40" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+      <text x="156" y="108" font-size="10.5" font-weight="700" fill="#15803d">3. 頰支 (Buccal)</text>
+      <text x="156" y="124" font-size="9" fill="#166534">伴腮腺管走行 → 支配頰肌、口輪匝肌（鼓腮吹哨；網狀互補）</text>
+
+      <!-- Branch 4: Marginal Mandibular (HIGH RISK) -->
+      <path d="M76 116 Q110 140 148 156" fill="none" stroke="#dc2626" stroke-width="3"/>
+      <rect x="148" y="136" width="258" height="52" rx="6" fill="#fff1f2" stroke="#f87171" stroke-width="1.8"/>
+      <text x="156" y="152" font-size="10.8" font-weight="700" fill="#be123c">4. 下頷緣支 (Marginal mandibular) ⚠️ 極高危</text>
+      <text x="156" y="167" font-size="9" fill="#0f172a">跨越面動靜脈淺層、垂至下頷骨下 1–2 cm；支配降口角肌</text>
+      <text x="156" y="181" font-size="9" font-weight="700" fill="#991b1b">⚠️ 吻合率 &lt;10%！斷裂必致下唇無法下拉、永久口角歪向健側</text>
+
+      <!-- Branch 5: Cervical -->
+      <path d="M76 120 Q110 170 148 206" fill="none" stroke="#d97706" stroke-width="2.5"/>
+      <rect x="148" y="192" width="258" height="38" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+      <text x="156" y="208" font-size="10.5" font-weight="700" fill="#475569">5. 頸支 (Cervical)</text>
+      <text x="156" y="222" font-size="9" fill="#334155">出腮腺下極向下 → 支配頸闊肌 (Platysma)</text>
+    </g>
+
+    <!-- Surgical Protection Box for Marginal Mandibular -->
+    <rect x="54" y="374" width="406" height="134" rx="8" fill="#fef2f2" stroke="#dc2626"/>
+    <text x="68" y="394" font-size="11.8" font-weight="700" fill="#991b1b">下頷緣支手術保護要領（頷下腺切除 / Level Ib 廓清）：</text>
+    <g transform="translate(68, 404)">
+      <text x="0" y="16" font-size="10" font-weight="700" fill="#be123c">① 安全切口位置：</text>
+      <text x="104" y="16" font-size="10" fill="#0f172a">皮膚水平切口必設於「下頷骨下緣至少 2 cm（兩橫指）」處</text>
+      <text x="0" y="34" font-size="10" font-weight="700" fill="#be123c">② Hayes-Martin 操作：</text>
+      <text x="116" y="34" font-size="10" fill="#0f172a">結紮面動靜脈遠端後，將深筋膜包膜連同血管向上翻起</text>
+      <text x="0" y="52" font-size="10" fill="#0f172a">   使走行於淺層的下頷緣支自然受到包膜覆蓋保護，免於熱電燒或牽拉損傷</text>
+      <text x="0" y="70" font-size="10" font-weight="700" fill="#be123c">③ 慢性中耳炎合併面癱：</text>
+      <text x="128" y="70" font-size="10" fill="#0f172a">屬耳科急症！膽脂瘤侵蝕骨管壓迫，禁單給類固醇</text>
+      <text x="0" y="88" font-size="10" fill="#881337">   須緊急行乳突鑿開減壓術（Mastoidectomy &amp; Facial decompression）</text>
+    </g>
+
+    <!-- ==================== RIGHT PANEL: SSNHL 30-3-3 Rescue ==================== -->
+    <rect x="490" y="92" width="442" height="428" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="508" y="118" font-size="16" font-weight="700" fill="#1d4ed8">B. 突發性耳聾（SSNHL 30-3-3）診斷與階梯救援</text>
+
+    <!-- 1. Diagnostic Definition 30-3-3 -->
+    <rect x="508" y="132" width="406" height="92" rx="8" fill="#eff6ff" stroke="#bfdbfe"/>
+    <text x="522" y="152" font-size="12" font-weight="700" fill="#1e40af">1. 突發性感音神經性聽損（SSNHL）「30-3-3」黃金診斷</text>
+    <g transform="translate(522, 162)">
+      <!-- 3 Criteria Badges -->
+      <rect x="0" y="6" width="118" height="48" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+      <text x="59" y="24" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1d4ed8">72 小時內</text>
+      <text x="59" y="42" text-anchor="middle" font-size="9.5" fill="#1e3a8a">（3 天內急驟發病）</text>
+
+      <rect x="128" y="6" width="118" height="48" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+      <text x="187" y="24" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1d4ed8">連續 3 頻率</text>
+      <text x="187" y="42" text-anchor="middle" font-size="9.5" fill="#1e3a8a">（相鄰純音測試頻率）</text>
+
+      <rect x="256" y="6" width="124" height="48" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+      <text x="318" y="24" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1d4ed8">≥ 30 dB 聽損</text>
+      <text x="318" y="42" text-anchor="middle" font-size="9.5" fill="#1e3a8a">（感音神經性 SNHL）</text>
+    </g>
+
+    <!-- 2. Mandatory MRI Workup -->
+    <rect x="508" y="228" width="406" height="74" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="522" y="246" font-size="11.5" font-weight="700" fill="#0f172a">2. 必排影像：內聽道（IAC）含顯影劑 MRI</text>
+    <text x="522" y="263" font-size="9.6" fill="#334155">● 排除聽神經瘤（前庭神經鞘瘤約占 1–3%）或小腦橋腦角 (CPA) 病變</text>
+    <text x="522" y="278" font-size="9.2" fill="#475569">● MRI 禁忌者（心律調節器）：指引首選 ABR 篩檢；或專用顳骨顯影 CT</text>
+    <text x="522" y="292" font-size="8.8" fill="#881337">  （AAO-HNS 警示：CT 難以清晰呈現內聽道微小神經鞘瘤，具偽陰性風險）</text>
+
+    <!-- 3. Stepped Treatment Timeline -->
+    <rect x="508" y="308" width="406" height="200" rx="8" fill="#fffbeb" stroke="#fde68a"/>
+    <text x="522" y="324" font-size="12" font-weight="700" fill="#92400e">3. 階梯救援治療時間軸（類固醇與鼓室內注射）</text>
+
+    <!-- Step 1: Golden 14 Days Systemic Steroids -->
+    <rect x="520" y="334" width="382" height="70" rx="6" fill="#ffffff" stroke="#f59e0b"/>
+    <text x="530" y="352" font-size="10.8" font-weight="700" fill="#b45309">黃金期首選（發病 ≤ 14 天內）：全身性高劑量類固醇</text>
+    <text x="530" y="368" font-size="9.6" fill="#0f172a">● 口服 Prednisolone 1 mg/kg/day（上限 60 mg/day），維持 7–14 天含漸減療程</text>
+    <text x="530" y="384" font-size="9.6" fill="#0f172a">● 糖尿病失控、重度胃潰瘍禁忌者：第一線直接改採「鼓室內類固醇注射（ITS）」</text>
+    <text x="530" y="398" font-size="9" fill="#78350f">  免去全身血糖飆升與消化道出血風險，中耳局部濃度更高</text>
+
+    <!-- Step 2: Salvage ITS (Weeks 2-6) -->
+    <rect x="520" y="410" width="382" height="88" rx="6" fill="#ffffff" stroke="#be123c"/>
+    <text x="530" y="428" font-size="10.8" font-weight="700" fill="#be123c">救援性治療（發病 2 至 6 週內）：鼓室內注射類固醇 (Salvage ITS)</text>
+    <text x="530" y="444" font-size="9.6" fill="#0f172a">● 適應症：經口服類固醇治療 2 週後聽力未完全恢復者，立即啟動 ITS 救援</text>
+    <text x="530" y="460" font-size="9.6" fill="#0f172a">● 操作：經鼓膜後下象限注入 Dexamethasone (10 mg/mL)，每週 2–3 次共 4–6 劑</text>
+    <text x="530" y="476" font-size="9.6" fill="#0f172a">● 注射後患耳朝上維持仰臥 15–30 分鐘，避免吞嚥防止藥液經耳咽管流失</text>
+    <text x="530" y="490" font-size="9" font-weight="600" fill="#881337">● 可同步評估合併高壓氧治療 (HBOT) 提升內耳微循環氧分壓</text>
+  </g>
+</svg>
