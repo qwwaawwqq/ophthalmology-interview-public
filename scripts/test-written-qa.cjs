@@ -1644,9 +1644,14 @@ async function test(name, fn) {
     assert(card08.includes('<th>比較維度</th>'), 'past-08 table header rendered');
     assert(card08.includes('急性侵襲性黴菌鼻竇炎 (AIFRS)'), 'past-08 table has AIFRS column');
 
-    // 4. Asset alignment & table line breaks for past-06 and past-14
+    // 4. Asset alignment & table line breaks for past-02, past-06 and past-14
+    const card02 = app.written.renderCard(PACKS.ent.items.find(it => it.id === 'ent-wq-past-02'));
+    assert(card02.includes('src="assets/figures/ent-12.svg"'), 'past-02 links to ent-12.svg');
+    assert(card02.includes('內耳耳蝸聽覺轉導生理、基底膜頻率空間分布（Tonotopy）與血管紋血迷路屏障（BLB）及耳毒性標的圖譜'), 'past-02 figcaption rendered');
+
     const card06 = app.written.renderCard(PACKS.ent.items.find(it => it.id === 'ent-wq-past-06'));
-    assert(card06.includes('src="assets/figures/ent-03.svg"'), 'past-06 links to ent-03.svg');
+    assert(card06.includes('src="assets/figures/ent-13.svg"'), 'past-06 links to ent-13.svg');
+    assert(card06.includes('顏面神經腮腺外五大終末分支解剖、吻合支保護要領與突發性耳聾（SSNHL 30-3-3）救援流程圖譜'), 'past-06 figcaption rendered');
 
     const card14 = app.written.renderCard(PACKS.ent.items.find(it => it.id === 'ent-wq-past-14'));
     assert(card14.includes('src="assets/figures/ent-11.svg"'), 'past-14 links to ent-11.svg');

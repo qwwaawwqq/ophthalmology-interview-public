@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-labelledby="t-ent12 d-ent12">
+  <title id="t-ent12">內耳耳蝸聽覺轉導生理、血迷路屏障（BLB）與耳毒性標的圖譜</title>
+  <desc id="d-ent12">左欄呈現耳蝸基底膜頻率空間分布（Tonotopy）與柯蒂氏器毛細胞機械電能轉導（MET 離子通道）；右欄呈現血管紋三層細胞（血迷路屏障 BLB）與三大類耳毒性藥物作用標的及協同致聾機轉。</desc>
+  <defs>
+    <linearGradient id="grad-bm" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1d4ed8"/>
+      <stop offset="35%" stop-color="#0f766e"/>
+      <stop offset="70%" stop-color="#b45309"/>
+      <stop offset="100%" stop-color="#be123c"/>
+    </linearGradient>
+    <marker id="arr-teal12" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M1 1 L9 5 L1 9 Z" fill="#0f766e"/>
+    </marker>
+    <marker id="arr-red12" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M1 1 L9 5 L1 9 Z" fill="#be123c"/>
+    </marker>
+  </defs>
+  <g font-family="system-ui, -apple-system, 'Noto Sans TC', sans-serif">
+    <!-- Main Background -->
+    <rect x="20" y="20" width="920" height="520" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="42" y="54" font-size="21" font-weight="700" fill="#0f172a">內耳耳蝸聽覺轉導生理 · 血管紋血迷路屏障 · 耳毒性藥物標的</text>
+    <text x="42" y="76" font-size="13" fill="#475569">整合基底膜頻率空間分布（Tonotopy）、毛細胞 MET 通道電轉導、內耳電位（+80 mV）與耳毒性協同機轉</text>
+
+    <!-- ==================== LEFT PANEL: Tonotopy & Hair Cell MET ==================== -->
+    <rect x="36" y="92" width="442" height="428" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="54" y="118" font-size="16" font-weight="700" fill="#0f766e">A. 基底膜頻率空間分布（Tonotopy）與毛細胞電轉導</text>
+
+    <!-- 1. Basilar Membrane Tonotopy diagram -->
+    <rect x="54" y="132" width="406" height="136" rx="8" fill="#f0fdf4" stroke="#86efac"/>
+    <text x="68" y="152" font-size="12" font-weight="700" fill="#166534">1. 耳蝸基底膜展開行波與音頻定位（Tonotopic Organization）</text>
+
+    <!-- Tapered basilar membrane: Base (narrow, stiff) to Apex (wide, floppy) -->
+    <!-- Gradient strip representing basilar membrane -->
+    <path d="M72 178 L430 166 L430 206 L72 194 Z" fill="url(#grad-bm)" opacity="0.85"/>
+    <line x1="72" y1="186" x2="430" y2="186" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="4 2"/>
+
+    <!-- Labels for Base vs Apex -->
+    <text x="76" y="174" font-size="11" font-weight="700" fill="#1e3a8a">耳蝸基底部（Base）</text>
+    <text x="76" y="218" font-size="10" font-weight="600" fill="#1d4ed8">窄而硬 (Narrow &amp; Stiff)</text>
+    <text x="76" y="232" font-size="10.5" font-weight="700" fill="#1e40af">高頻 20,000 Hz</text>
+    <text x="76" y="246" font-size="9" fill="#475569">（胺基糖苷類/噪音先受損）</text>
+
+    <text x="350" y="162" font-size="11" font-weight="700" fill="#be123c">耳蝸頂部（Apex）</text>
+    <text x="350" y="218" font-size="10" font-weight="600" fill="#991b1b">寬而軟 (Wide &amp; Compliant)</text>
+    <text x="350" y="232" font-size="10.5" font-weight="700" fill="#b91c1c">低頻 200 Hz</text>
+    <text x="350" y="246" font-size="9" fill="#475569">（梅尼爾水腫先受損）</text>
+
+    <text x="216" y="190" text-anchor="middle" font-size="10" font-weight="700" fill="#ffffff">中頻 1,000–4,000 Hz</text>
+
+    <!-- 2. Hair Cell MET Channel & Transduction -->
+    <rect x="54" y="278" width="406" height="230" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="68" y="298" font-size="12" font-weight="700" fill="#0f172a">2. 柯蒂氏器毛細胞機械電能轉導（Mechanotransduction）</text>
+
+    <!-- Endolymph compartment -->
+    <rect x="68" y="310" width="378" height="38" rx="6" fill="#e0f2fe" stroke="#38bdf8"/>
+    <text x="78" y="326" font-size="10.5" font-weight="700" fill="#0369a1">內淋巴（中階 Scala media）：高鉀低鈉（K+ ~150 mM）· 內耳電位 +80 mV</text>
+    <text x="78" y="340" font-size="9.5" fill="#0c4a6e">高電化學驅動力（~150 mV 跨膜差）使 K+ 順電位梯度主動內流</text>
+
+    <!-- Hair cell schematics -->
+    <g transform="translate(80, 356)">
+      <!-- Stereocilia & Tip Link -->
+      <line x1="40" y1="2" x2="40" y2="28" stroke="#0f766e" stroke-width="3" stroke-linecap="round"/>
+      <line x1="50" y1="8" x2="50" y2="28" stroke="#0f766e" stroke-width="3" stroke-linecap="round"/>
+      <line x1="60" y1="14" x2="60" y2="28" stroke="#0f766e" stroke-width="3" stroke-linecap="round"/>
+      <!-- Tip link -->
+      <line x1="40" y1="4" x2="50" y2="10" stroke="#be123c" stroke-width="1.8"/>
+      <line x1="50" y1="10" x2="60" y2="16" stroke="#be123c" stroke-width="1.8"/>
+      <!-- Hair cell soma -->
+      <rect x="24" y="28" width="56" height="74" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+      <text x="52" y="66" text-anchor="middle" font-size="10" font-weight="700" fill="#78350f">毛細胞</text>
+      <text x="52" y="80" text-anchor="middle" font-size="8.8" fill="#92400e">-70 mV</text>
+      <!-- Synaptic vesicle & afferent nerve -->
+      <circle cx="52" cy="94" r="3" fill="#be123c"/>
+      <path d="M52 102 L52 132" stroke="#1d4ed8" stroke-width="2" marker-end="url(#arr-teal12)"/>
+      <text x="56" y="122" font-size="9" font-weight="600" fill="#1d4ed8">螺旋神經節</text>
+    </g>
+
+    <g transform="translate(190, 358)">
+      <text x="0" y="14" font-size="10.5" font-weight="700" fill="#0f766e">① 聲波振動蓋膜 → 纖毛朝動纖毛方向偏折</text>
+      <text x="0" y="32" font-size="10" fill="#334155">② 尖端連結（Tip link）受張力拉開 MET 離子通道</text>
+      <text x="0" y="50" font-size="10" fill="#334155">③ 內淋巴 K+ 快速湧入毛細胞，引發去極化</text>
+      <text x="0" y="68" font-size="10" fill="#334155">④ 電位敏感性 Ca2+ 通道開啟 → 釋放 Glutamate</text>
+      <text x="0" y="86" font-size="10" fill="#334155">⑤ 興奮螺旋神經節第一型雙極神經元 → CN VIII</text>
+      <text x="0" y="112" font-size="9.8" font-weight="700" fill="#b45309">外毛細胞（Prestin 蛋白）：主動伸縮放大 40–50 dB</text>
+      <text x="0" y="128" font-size="9.8" font-weight="700" fill="#0f766e">內毛細胞：負責 95% 傳入聽覺神經訊號編碼</text>
+    </g>
+
+    <!-- ==================== RIGHT PANEL: Stria Vascularis & Ototoxicity ==================== -->
+    <rect x="490" y="92" width="442" height="428" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="508" y="118" font-size="16" font-weight="700" fill="#1d4ed8">B. 血管紋血迷路屏障（BLB）與耳毒性藥物機轉</text>
+
+    <!-- 1. Stria Vascularis 3 Cell Layers -->
+    <rect x="508" y="132" width="406" height="154" rx="8" fill="#fdf4ff" stroke="#f0abfc"/>
+    <text x="522" y="152" font-size="12" font-weight="700" fill="#86198f">1. 血管紋（Stria vascularis）三層細胞與血迷路屏障</text>
+
+    <g transform="translate(522, 164)">
+      <!-- Layer 1: Marginal cells -->
+      <rect x="0" y="0" width="378" height="34" rx="4" fill="#fae8ff" stroke="#d946ef"/>
+      <text x="10" y="16" font-size="10.2" font-weight="700" fill="#701a75">① 邊緣細胞 (Marginal cells)</text>
+      <text x="10" y="28" font-size="9" fill="#4a044e">直接接觸內淋巴；富含 Na+/K+-ATPase 與 NKCC1 共轉運器，主動分泌 K+ 建立 +80 mV</text>
+
+      <!-- Layer 2: Intermediate cells -->
+      <rect x="0" y="38" width="378" height="34" rx="4" fill="#f3e8ff" stroke="#c084fc"/>
+      <text x="10" y="54" font-size="10.2" font-weight="700" fill="#581c87">② 中間細胞 (Intermediate cells)</text>
+      <text x="10" y="66" font-size="9" fill="#3b0764">含黑色素細胞 (Melanocytes)，提供 KCNJ10 鉀通道；清除自由基維持屏障微環境</text>
+
+      <!-- Layer 3: Basal cells & BLB Capillaries -->
+      <rect x="0" y="76" width="378" height="38" rx="4" fill="#ede9fe" stroke="#a855f7"/>
+      <text x="10" y="92" font-size="10.2" font-weight="700" fill="#3b0764">③ 基底細胞 (Basal cells) 與微血管內皮緊密連接（BLB）</text>
+      <text x="10" y="104" font-size="9" fill="#1e1b4b">高阻抗緊密連接 (Claudin-11) 阻隔有害毒素與大分子，維持內耳特權免疫與恆定</text>
+    </g>
+
+    <!-- 2. Three Ototoxic Drug Mechanisms Comparison -->
+    <rect x="508" y="296" width="406" height="212" rx="8" fill="#fff1f2" stroke="#fca5a5"/>
+    <text x="522" y="316" font-size="12" font-weight="700" fill="#991b1b">2. 三大類耳毒性藥物攻擊標的與協同致聾危險</text>
+
+    <!-- Drug Box 1: Aminoglycosides -->
+    <rect x="520" y="326" width="382" height="48" rx="6" fill="#ffffff" stroke="#f87171"/>
+    <text x="530" y="342" font-size="10.5" font-weight="700" fill="#be123c">● 胺基糖苷類 (Gentamicin, Amikacin)</text>
+    <text x="530" y="356" font-size="9.3" fill="#0f172a">經 MET 通道進入外毛細胞 → 粒線體活性氧 (ROS) 凋亡；基底外毛細胞首當其衝</text>
+    <text x="530" y="369" font-size="9" font-weight="600" fill="#881337">⚠️ 粒線體 12S rRNA m.1555A&gt;G 突變者極度敏感，單劑即可造成雙側永久全聾！</text>
+
+    <!-- Drug Box 2: Cisplatin -->
+    <rect x="520" y="380" width="382" height="48" rx="6" fill="#ffffff" stroke="#fb923c"/>
+    <text x="530" y="396" font-size="10.5" font-weight="700" fill="#c2410c">● 鉑類化療藥 (Cisplatin)</text>
+    <text x="530" y="410" font-size="9.3" fill="#0f172a">蓄積於外毛細胞與血管紋，破壞 DNA 雙鏈並耗竭抗氧化酶；雙側對稱高頻聽損</text>
+    <text x="530" y="423" font-size="9" font-weight="600" fill="#9a3412">首選 DPOAE (6–8 kHz) 超高頻監測，及早發現亞臨床外毛細胞損傷</text>
+
+    <!-- Drug Box 3: Loop Diuretics & Synergy -->
+    <rect x="520" y="434" width="382" height="66" rx="6" fill="#fef2f2" stroke="#dc2626"/>
+    <text x="530" y="450" font-size="10.5" font-weight="700" fill="#b91c1c">● 環利尿劑 (Furosemide) 與致死性協同毒性</text>
+    <text x="530" y="464" font-size="9.3" fill="#0f172a">抑制邊緣細胞 NKCC1 → 血管紋水腫，內耳電位 (+80 mV) 驟降致暫時性聽損</text>
+    <text x="530" y="479" font-size="9.3" font-weight="700" fill="#991b1b">⚠️ 致命協同：環利尿劑破壞血迷路屏障 (BLB)，使 Aminoglycoside 內耳濃度</text>
+    <text x="530" y="493" font-size="9.3" font-weight="700" fill="#be123c">飆升數十倍，短時間內徹底摧毀全部毛細胞造成永久不可逆全聾！</text>
+  </g>
+</svg>
