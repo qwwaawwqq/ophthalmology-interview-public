@@ -1612,6 +1612,57 @@ async function test(name, fn) {
     assert(!appRad.main().includes('written-past-filter-bar'), 'RAD main never renders past filter bar');
   });
 
+  await test('Issue #214: formatMultiline renders markdown figures and comparison tables inside written-answer-body', async () => {
+    const app = bootApp({ spec: 'ent', hash: '#written-past' });
+    const entPastItems = PACKS.ent.items.filter(it => it.id.startsWith('ent-wq-past-'));
+    assert.equal(entPastItems.length, 16, 'exactly 16 ENT past items in pack');
+
+    // Reveal all answers in past scope
+    app.written.action('written-reveal-all', 'past|open');
+
+    // 1. All 16 items have figures and tables in their answer and rendered cards
+    for (const item of entPastItems) {
+      assert(item.answer.includes('![') && item.answer.includes('assets/figures/ent-'), `${item.id} answer includes markdown figure`);
+      assert(item.answer.includes('|---|'), `${item.id} answer includes markdown table`);
+
+      const cardHtml = app.written.renderCard(item);
+      assert(cardHtml.includes('<figure class="written-figure">'), `${item.id} renders <figure class="written-figure">`);
+      assert(cardHtml.includes('<div class="written-table-wrap"><table class="written-table">'), `${item.id} renders <div class="written-table-wrap"><table class="written-table">`);
+      assert(cardHtml.includes('<th>') && cardHtml.includes('<td>'), `${item.id} renders th and td cells`);
+    }
+
+    // 2. Specific check on TCVGH core item ent-wq-past-03
+    const card03 = app.written.renderCard(PACKS.ent.items.find(it => it.id === 'ent-wq-past-03'));
+    assert(card03.includes('src="assets/figures/ent-02.svg"'), 'past-03 links to ent-02.svg');
+    assert(card03.includes('中耳鬆弛部膽脂瘤侵蝕路徑與 Wullstein 鼓室成形術第 I–V 型傳音重建'), 'past-03 figcaption rendered');
+    assert(card03.includes('<th>中耳炎分類</th>'), 'past-03 table has correct header');
+    assert(card03.includes('<td>急性中耳炎 (AOM)</td>'), 'past-03 table has AOM row');
+
+    // 3. Specific check on TCVGH core item ent-wq-past-08 (AIFRS vs Fungus Ball)
+    const card08 = app.written.renderCard(PACKS.ent.items.find(it => it.id === 'ent-wq-past-08'));
+    assert(card08.includes('src="assets/figures/ent-04.svg"'), 'past-08 links to ent-04.svg');
+    assert(card08.includes('<th>比較維度</th>'), 'past-08 table header rendered');
+    assert(card08.includes('急性侵襲性黴菌鼻竇炎 (AIFRS)'), 'past-08 table has AIFRS column');
+
+    // 4. XSS hygiene: table cells and figures escape malicious payload
+    const maliciousItem = {
+      id: 'ent-wq-test-xss',
+      specialty: 'ent',
+      title: 'XSS Test',
+      prompt: 'Prompt',
+      answer: '![Bad<script>](assets/figures/ent-01.svg "Caption<script>")\n\n| Col<script> |\n|---|\n| Cell<script> |',
+      keyPoints: [],
+      pitfall: '',
+      sourceRef: 'Test'
+    };
+    app.written.action('written-toggle-answer', maliciousItem.id);
+    const xssCard = app.written.renderCard(maliciousItem);
+    assert(!xssCard.includes('<script>'), 'no unescaped <script> in card');
+    assert(xssCard.includes('Caption&lt;script&gt;'), 'caption escaped');
+    assert(xssCard.includes('Col&lt;script&gt;'), 'table header escaped');
+    assert(xssCard.includes('Cell&lt;script&gt;'), 'table cell escaped');
+  });
+
   const failed = results.filter(r => !r.pass);
   console.log(JSON.stringify({ passed: results.length - failed.length, failed: failed.length, results }, null, 2));
   if (failed.length) process.exit(1);
