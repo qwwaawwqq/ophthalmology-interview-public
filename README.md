@@ -14,6 +14,25 @@
 - 去除重複入口（2026-11-02）：12 個早期快速重點主題併入對應章節，章節選單、筆試主題與學習進度只列 14 章，該章練題包含原主題題目；舊主題網址仍可開啟並指向新章節。側欄不再另列「主動複習」（章節頁內可切換「遮住答案，主動回想」）。章節教材頁不再重複「今日」的大卡片與統計；章節裡的臨床口試只列情境，參考回答留在面試演練。
 - 程式在 `scripts/layout-shell.js` 與 `scripts/layout.css`，由 `python3 scripts/apply-layout.py` 套用；`--check` 與 `node scripts/test-layout.cjs` 已加入 CI。
 
+## 蘇格拉底家教（本機，2026-11-15）
+
+側欄「今日」下面的「蘇格拉底家教」一次問一題，帶你把一個主題學會（教學規則與 shioaji-app 學習頁的家教相同，取自 Jane Street agent_skills 的 socratic-tutor，MIT）。回答來自你 Mac 上的 Claude Code，用你自己的 Claude 訂閱登入，不需要 API 金鑰。
+
+網站是靜態的，所以家教要從本機版打開：
+
+1. 在 Mac 上 `git clone` 這個 repo（已經有的話 `git pull`），並先登入 Claude Code（終端機打 `claude`，輸入 `/login`）。
+2. 執行 `python3 scripts/tutor-server.py`（或在 Finder 雙擊 `scripts/start-tutor.command`）。只用 Python 標準庫，不用安裝套件。
+3. 瀏覽器會打開 `http://127.0.0.1:8002/#tutor`。這是同一個網站加上家教；`--port` 可換連接埠，`--no-open` 不自動開瀏覽器。
+
+運作方式：
+
+- 每送一則訊息，跑一次 `claude -p`：不給工具、在空的暫存資料夾裡跑、只帶最少的環境變數，所以不會走按量計費的 API 金鑰。設定裡可以換 Claude 帳號資料夾（`~/.claude-*`）與模型；預設 sonnet。
+- 伺服器依目前科別，從章節、歷屆考點、筆試申論、臨床流程與深入理解挑出相關段落附在提示裡。家教以 app 的內容與「共筆更正」為準；它若認為某段內容有疑義，會直接講出來。
+- 對話與設定存在 `~/.ophthalmology-tutor/`（可用 `--data-dir` 或 `OPH_TUTOR_HOME` 改），不在 repo 裡，不會進入進度檔、雲端同步或 GitHub Pages。
+- 伺服器只綁 127.0.0.1。`/api` 會檢查 Host；POST 必須是 JSON、帶 `X-Tutor` 標頭，有 Origin 時必須是本機。以 `.` 開頭的路徑（例如 `.git`）一律不提供。
+- 在 GitHub Pages 或 file:// 打開時，家教分頁只顯示上面的啟動步驟，不送任何請求。
+- 程式：`scripts/tutor-server.py`、`scripts/tutor.js`、`scripts/tutor.css`。掛鉤由 `python3 scripts/apply-tutor.py` 寫入；側欄位置在 `scripts/layout-shell.js` 的 `NAV_LAYOUT`。測試：`python3 scripts/test-tutor-server.py`（用假的 `claude`，不連網）與 `node scripts/test-tutor.cjs`。
+
 ## 整合式章節教材
 
 2026-10-11 將 14 章重新組織為 42 個學習單元，依「概念與機轉 → 原有知識細節 → 臨床線索與下一步 → 整合病例」閱讀。每章包含：
