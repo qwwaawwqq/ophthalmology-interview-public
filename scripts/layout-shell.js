@@ -1,7 +1,8 @@
 /* layout-shell:start */
 // 2026-11 layout: grouped rail, one specialty switcher, the 今日 home, the interview reference column and the phone tab bar.
 // Injected by scripts/apply-layout.py into the application script; edit this file, then run the script.
-const NAV_LAYOUT=[['',['today']],['閱讀',['notebook','textbook','cram']],['筆試',['quiz','study','advanced']],['面試',['interview','pbl','workflow','workshop','map','project']],['我的',['schedule','progress','plan','links','sync']]];
+const NAV_LAYOUT=[['',['today','tutor']],['閱讀',['notebook','textbook','cram']],['筆試',['quiz','study','advanced']],['面試',['interview','pbl','workflow','workshop','map','project']],['我的',['schedule','progress','plan','links','sync']]];
+// 'tutor' (蘇格拉底家教) sits right under 今日 so it is easy to find; see scripts/apply-tutor.py.
 // 'learn' is the chapter page itself: it opens from 章節教材, so it gets no second rail entry.
 const NAV_HIDDEN=new Set(['learn']);
 // The 12 early quick-review topics now live inside the chapter that teaches them (ophthalmology only).
